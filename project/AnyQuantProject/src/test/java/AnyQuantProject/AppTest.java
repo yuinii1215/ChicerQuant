@@ -1,4 +1,4 @@
-package AnyQuantProject;
+package src.test.java.AnyQuantProject;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

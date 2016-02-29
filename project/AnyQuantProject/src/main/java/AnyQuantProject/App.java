@@ -1,4 +1,4 @@
-package AnyQuantProject;
+package src.main.java.AnyQuantProject;
 
 /**
  * Hello world!
