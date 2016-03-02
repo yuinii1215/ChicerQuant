@@ -6,6 +6,6 @@ import AnyQuantProject.ui.SingleStocksUI.SingleStocksUIController;
  * @author QiHan
  *
  */
-public class StockDealInfoUIController extends SingleStocksUIController{
+public class StockDealInfoUIController {
 
 }
