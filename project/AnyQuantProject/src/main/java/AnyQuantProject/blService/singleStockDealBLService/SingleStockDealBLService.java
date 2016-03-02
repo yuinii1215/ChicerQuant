@@ -1,5 +1,10 @@
 package AnyQuantProject.blService.singleStockDealBLService;
 
+import java.util.Calendar;
+import java.util.List;
+
+import AnyQuantProject.dataStructure.Stock;
+
 /** 
 *AnyQuantProject//AnyQuantProject.blService.singleStockDealBLService//SingleStockDealBLService.java
 * @author  cxworks 
@@ -7,5 +12,11 @@ package AnyQuantProject.blService.singleStockDealBLService;
 */
 
 public interface SingleStockDealBLService {
-
+	/**
+	 * 获取股票的交易信息，用于表格
+	 * @param name
+	 * @param year
+	 * @return
+	 */
+	List<Stock> getSingleStockDeal(String name, Calendar year);
 }
