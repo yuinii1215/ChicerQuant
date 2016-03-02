@@ -1,7 +1,7 @@
 /**
  * 
  */
-package AnyQuantProject.dataService.singleStockDATAService;
+package AnyQuantProject.dataService.realDATAService.singleStockDATAService;
 
 import java.util.*;
 

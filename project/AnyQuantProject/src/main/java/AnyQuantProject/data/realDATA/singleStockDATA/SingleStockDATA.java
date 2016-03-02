@@ -6,7 +6,7 @@ package AnyQuantProject.data.realDATA.singleStockDATA;
 import java.util.Calendar;
 import java.util.List;
 
-import AnyQuantProject.dataService.singleStockDATAService.SingleStockDATAService;
+import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataStructure.Stock;
 
 /**
