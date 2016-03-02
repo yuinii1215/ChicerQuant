@@ -1,5 +1,9 @@
 package AnyQuantProject.blService.stockListBLService;
 
+import java.util.List;
+
+import AnyQuantProject.dataStructure.Stock;
+
 /** 
 *AnyQuantProject//AnyQuantProject.blService.stockListBLService//StockListBLService.java
 * @author  cxworks 
@@ -7,5 +11,10 @@ package AnyQuantProject.blService.stockListBLService;
 */
 
 public interface StockListBLService {
-
+	/**
+	 * 返回所有股票列表
+	 * @return
+	 * @warning 信息是昨天（最新）信息
+	 */
+	List<Stock> getAllStocks();
 }

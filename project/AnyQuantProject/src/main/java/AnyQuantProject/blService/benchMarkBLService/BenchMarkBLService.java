@@ -1,5 +1,10 @@
 package AnyQuantProject.blService.benchMarkBLService;
 
+import java.util.Calendar;
+import java.util.List;
+
+import AnyQuantProject.dataStructure.BenchMark;
+
 /** 
 *AnyQuantProject//AnyQuantProject.blService.benchMarkBLService//BenchMarkBLService.java
 * @author  cxworks 
@@ -7,5 +12,16 @@ package AnyQuantProject.blService.benchMarkBLService;
 */
 
 public interface BenchMarkBLService {
-
+	/**
+	 * 
+	 * @return	返回大盘信息列表
+	 */
+	List<BenchMark> getAllBenchMark();
+	/**
+	 * 
+	 * @param name	大盘名称
+	 * @param year	指定年份
+	 * @return	大盘信息列表
+	 */
+	List<BenchMark> getBenchMarkInfo(String name,Calendar year);
 }
