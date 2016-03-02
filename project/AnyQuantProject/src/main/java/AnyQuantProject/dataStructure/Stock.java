@@ -21,6 +21,15 @@ public class Stock extends AbstractStock{
 	public double getPb() {
 		return pb;
 	}
+	public void setTurnover(double turnover) {
+		this.turnover = turnover;
+	}
+	public void setPe(double pe) {
+		this.pe = pe;
+	}
+	public void setPb(double pb) {
+		this.pb = pb;
+	}
 	
 	
 

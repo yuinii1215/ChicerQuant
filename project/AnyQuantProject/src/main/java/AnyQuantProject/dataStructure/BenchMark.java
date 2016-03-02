@@ -13,6 +13,10 @@ public class BenchMark extends AbstractStock{
 	public long getTransaction() {
 		return transaction;
 	}
+
+	public void setTransaction(long transaction) {
+		this.transaction = transaction;
+	}
 		
 	
 }

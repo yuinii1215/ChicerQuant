@@ -30,6 +30,72 @@ public class AbstractStock {
 	
 	
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public void setFavor(boolean isFavor) {
+		this.isFavor = isFavor;
+	}
+
+
+
+	public void setDate(Calendar date) {
+		this.date = date;
+	}
+
+
+
+	public void setOpen(double open) {
+		this.open = open;
+	}
+
+
+
+	public void setHigh(double high) {
+		this.high = high;
+	}
+
+
+
+	public void setLow(double low) {
+		this.low = low;
+	}
+
+
+
+	public void setClose(double close) {
+		this.close = close;
+	}
+
+
+
+	public void setVolume(int volume) {
+		this.volume = volume;
+	}
+
+
+
+	public void setAdj_price(double adj_price) {
+		this.adj_price = adj_price;
+	}
+
+
+
+	public void setMarketvalue(long marketvalue) {
+		this.marketvalue = marketvalue;
+	}
+
+
+
+	public void setFlow(long flow) {
+		this.flow = flow;
+	}
+
+
+
 	public String getName() {
 		return name;
 	}

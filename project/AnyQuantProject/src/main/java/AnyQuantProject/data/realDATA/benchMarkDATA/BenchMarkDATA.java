@@ -6,8 +6,14 @@ package AnyQuantProject.data.realDATA.benchMarkDATA;
 import java.util.Calendar;
 import java.util.List;
 
-import org.json.JSONObject;
 
+
+
+
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
 import AnyQuantProject.data.jsonDATA.JSONBenchMarkDATA;
 import AnyQuantProject.dataService.jsonDATAService.JSONBenchMarkDATAService;
 import AnyQuantProject.dataService.realDATAService.benchMarkDATAService.BenchMarkDATAService;
@@ -23,30 +29,26 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	
 	@Override
 	public List<BenchMark> getAllBenchMark() {
-		// TODO Auto-generated method stub
-		List<JSONObject> allBenchMarkList = JSONBenchMark.getAllBenchMark();
-		List<BenchMark> resultList;
-		for (JSONObject jo:allBenchMarkList) {
-//			BenchMark temp = JSONObject.to
-		}
-		return null;
+		JSONArray allBenchMarkList = JSONBenchMark.getAllBenchMark();
+		List<BenchMark> resultList = JSONArray.toList(allBenchMarkList, new BenchMark(), new JsonConfig());
+		return resultList;
 	}
 
 	
 	@Override
 	public BenchMark getOperation(String name, Calendar date) {
-		// TODO Auto-generated method stub
 		JSONObject result = JSONBenchMark.getOperation(name, date);
-		return null;
+		BenchMark re = (BenchMark) JSONObject.toBean(result, BenchMark.class);
+		return re;
 	}
 
 	
 	@Override
 	public List<BenchMark> getBenchMarkAmongDate(String name, Calendar start,
 			Calendar end) {
-		// TODO Auto-generated method stub
-		List<JSONObject> resultList = JSONBenchMark.getBenchMarkAmongDate(name, start, end);
-		return null;
+		JSONArray result = JSONBenchMark.getBenchMarkAmongDate(name, start, end);
+		List<BenchMark> resultList = JSONArray.toList(result, new BenchMark(), new JsonConfig());
+		return resultList;
 	}
 
 	
