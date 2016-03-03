@@ -38,7 +38,7 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 		//
 		try {
 			List<Stock> ans=singleStockDATAService
-					.getBenchMarkAmongDate(name, year, CalendarHelper.getNextYear(year));
+					.getStockAmongDate(name, year, CalendarHelper.getNextYear(year));
 			return ans;
 		} catch (Exception e) {
 			return new ArrayList<>();

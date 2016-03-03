@@ -25,5 +25,5 @@ public interface SingleStockDATAService {
 	 * @param end
 	 * @return
 	 */
-	public List<Stock> getBenchMarkAmongDate(String name, Calendar start, Calendar end);
+	public List<Stock> getStockAmongDate(String name, Calendar start, Calendar end);
 }

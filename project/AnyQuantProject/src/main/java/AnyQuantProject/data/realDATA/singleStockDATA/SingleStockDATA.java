@@ -31,7 +31,7 @@ public class SingleStockDATA implements SingleStockDATAService{
 
 	
 	@Override
-	public List<Stock> getBenchMarkAmongDate(String name, Calendar start,
+	public List<Stock> getStockAmongDate(String name, Calendar start,
 			Calendar end) {
 		JSONArray resultArray = JSONSingleStock.getBenchMarkAmongDate(name, start, end);
 		@SuppressWarnings("unchecked")
