@@ -28,20 +28,27 @@ public class JSONBenchMarkDATA implements JSONBenchMarkDATAService{
 
 	
 	@Override
-	public JSONObject getOperation(String name, Calendar date) {
-		// TODO Auto-generated method stub		
-		key = "benchmark/"+name+"?start="+CalendarHelper.getDate(date)+"&end="+CalendarHelper.getDate(date)+"&fields";
-		return null;
+	public JSONObject getOperation(String name, Calendar date) {		
+		key = getKeyWithDate(name, date, date);
+		return getHelper(key).getJSONObject(0);
 	}
 
 	
 	@Override
 	public JSONArray getBenchMarkAmongDate(String name, Calendar start,
 			Calendar end) {
-		// TODO Auto-generated method stub
-		return null;
+		key = getKeyWithDate(name, start, end);
+		return getHelper(key);
 	}
 
+	private String getKeyWithDate(String name, Calendar start, Calendar end){
+		Calendar previousdate = CalendarHelper.getPreviousDay(start);
+		String previousday = CalendarHelper.getDate(previousdate);
+		Calendar afterdate = CalendarHelper.getAfterDay(end);
+		String afterday = CalendarHelper.getDate(afterdate);
+		key = "benchmark/"+name+"?start="+previousday+"&end="+afterday+"&fields=open+high+low+close+volume+adj_price";
+		return key;
+	}
 	
 	private JSONArray getHelper(String key){
 		return helper.getAPI(key);

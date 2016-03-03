@@ -16,21 +16,13 @@ import org.python.antlr.PythonParser.return_stmt_return;
  */
 public class CalendarHelper {
 	/**
-<<<<<<< HEAD
 	 * 将calendar对象转换成yyyy-MM-dd格式的string
 	 * 迷之-mm-出错
-=======
-	 * 将calendar对象转换成YYYY-MM-dd格式的string
->>>>>>> 9f9179ad442405e992154348dcf674893e3ad672
 	 * @param date
 	 * @return
 	 */
 	public static String getDate(Calendar date){
-<<<<<<< HEAD
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-=======
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
->>>>>>> 9f9179ad442405e992154348dcf674893e3ad672
 		return sdf.format(date.getTime());
 	}
 	
