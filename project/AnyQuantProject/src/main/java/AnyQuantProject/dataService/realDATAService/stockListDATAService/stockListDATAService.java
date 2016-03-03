@@ -12,7 +12,7 @@ import AnyQuantProject.dataStructure.Exchange;
  * @author G
  *
  */
-public interface stockListDATAService {
+public interface StockListDATAService {
 	/**
 	 * 由指定年份、指定交易所的信息得到股票名称列表
 	 * @param date

@@ -11,14 +11,14 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import AnyQuantProject.data.jsonDATA.JSONStockListDATA;
 import AnyQuantProject.dataService.jsonDATAService.JSONStockListDATAService;
-import AnyQuantProject.dataService.realDATAService.stockListDATAService.stockListDATAService;
+import AnyQuantProject.dataService.realDATAService.stockListDATAService.StockListDATAService;
 import AnyQuantProject.dataStructure.Exchange;
 
 /**
  * @author G
  *
  */
-public class StockListDATA implements stockListDATAService{
+public class StockListDATA implements StockListDATAService{
 
 	JSONStockListDATAService JSONStockList = new JSONStockListDATA();
 	

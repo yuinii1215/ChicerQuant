@@ -7,7 +7,7 @@ import java.util.List;
 import AnyQuantProject.blService.stockListBLService.StockListBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
-import AnyQuantProject.dataService.realDATAService.stockListDATAService.stockListDATAService;
+import AnyQuantProject.dataService.realDATAService.stockListDATAService.StockListDATAService;
 import AnyQuantProject.dataStructure.Exchange;
 import AnyQuantProject.dataStructure.Stock;
 
@@ -23,7 +23,7 @@ public class StockListBLController implements StockListBLService {
 	public List<Stock> getAllStocks() {
 		//get dataService
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
-		stockListDATAService stockListDATAService=factoryDATAService.getStockListDATAService();
+		StockListDATAService stockListDATAService=factoryDATAService.getStockListDATAService();
 		//get names
 		List<String> avaliable=new LinkedList<>();
 		return null;

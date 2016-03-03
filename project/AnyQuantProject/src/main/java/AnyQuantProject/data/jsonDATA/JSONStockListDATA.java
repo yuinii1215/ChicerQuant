@@ -20,9 +20,8 @@ public class JSONStockListDATA implements JSONStockListDATAService{
 	
 	@Override
 	public JSONArray getAllStocks(Calendar date, Exchange exchange) {
-		// TODO sh与exchange互换
 		int year = date.get(Calendar.YEAR);
-		key = "stocks/?year="+year+"&exchange=";
+		key = "stocks/?year="+year+"&exchange="+exchange.getEnglish();
 		return helper.getAPI(key);
 	}
 

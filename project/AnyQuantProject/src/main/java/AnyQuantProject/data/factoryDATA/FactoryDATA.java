@@ -9,7 +9,7 @@ import AnyQuantProject.data.realDATA.stockListDATA.StockListDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.benchMarkDATAService.BenchMarkDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
-import AnyQuantProject.dataService.realDATAService.stockListDATAService.stockListDATAService;
+import AnyQuantProject.dataService.realDATAService.stockListDATAService.StockListDATAService;
 
 /**
  * @author G
@@ -42,7 +42,7 @@ public class FactoryDATA implements FactoryDATAService{
 
 	
 	@Override
-	public stockListDATAService getStockListDATAService() {
+	public StockListDATAService getStockListDATAService() {
 		return new StockListDATA();
 	}
 	
