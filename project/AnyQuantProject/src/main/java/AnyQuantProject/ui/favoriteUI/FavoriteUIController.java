@@ -7,4 +7,9 @@ package AnyQuantProject.ui.favoriteUI;
  */
 public class FavoriteUIController {
 
+	public void lanch() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

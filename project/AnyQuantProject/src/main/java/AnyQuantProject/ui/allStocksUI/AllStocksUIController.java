@@ -7,4 +7,9 @@ package AnyQuantProject.ui.allStocksUI;
  */
 public class AllStocksUIController {
 
+	public void lanch() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

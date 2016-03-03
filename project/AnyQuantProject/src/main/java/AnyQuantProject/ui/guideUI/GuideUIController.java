@@ -8,4 +8,9 @@ package AnyQuantProject.ui.guideUI;
 
 public class GuideUIController {
 
+	public void lanch() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
