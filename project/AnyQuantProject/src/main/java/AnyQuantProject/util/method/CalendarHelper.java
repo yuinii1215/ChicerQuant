@@ -12,12 +12,12 @@ import java.util.Calendar;
  */
 public class CalendarHelper {
 	/**
-	 * 将calendar对象转换成YYYY-mm-dd格式的string
+	 * 将calendar对象转换成YYYY-MM-dd格式的string
 	 * @param date
 	 * @return
 	 */
 	public static String getDate(Calendar date){
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-mm-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 		return sdf.format(date.getTime());
 	}
 	
