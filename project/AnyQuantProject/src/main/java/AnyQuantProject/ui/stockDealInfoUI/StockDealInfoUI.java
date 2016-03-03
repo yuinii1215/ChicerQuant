@@ -1,12 +1,12 @@
 package AnyQuantProject.ui.stockDealInfoUI;
 
-import AnyQuantProject.ui.SingleStocksUI.SingleStocksUI;
+import AnyQuantProject.ui.SingleStockUI.SingleStockUI;
 
 /**
  * 
  * @author QiHan
  *
  */
-public class StockDealInfoUI extends SingleStocksUI{
+public class StockDealInfoUI extends SingleStockUI{
 
 }

@@ -1,6 +1,6 @@
 package AnyQuantProject.ui.SingleStockInfoUI;
 
-import AnyQuantProject.ui.SingleStocksUI.SingleStocksUIController;
+import AnyQuantProject.ui.SingleStockUI.SingleStockUIController;
 
 /**
  * 
@@ -8,5 +8,10 @@ import AnyQuantProject.ui.SingleStocksUI.SingleStocksUIController;
  *
  */
 public class SingleStockInfoUIController {
+
+	public void lanch() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
