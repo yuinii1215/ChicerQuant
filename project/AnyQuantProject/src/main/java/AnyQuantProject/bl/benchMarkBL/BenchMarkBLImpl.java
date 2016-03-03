@@ -1,10 +1,19 @@
 package AnyQuantProject.bl.benchMarkBL;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import AnyQuantProject.blService.benchMarkBLService.BenchMarkBLService;
+import AnyQuantProject.data.factoryDATA.FactoryDATA;
+import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
+import AnyQuantProject.dataService.realDATAService.benchMarkDATAService.BenchMarkDATAService;
 import AnyQuantProject.dataStructure.BenchMark;
+import AnyQuantProject.util.method.CalendarHelper;
+import AnyQuantProject.util.method.Checker;
 
 /** 
 *AnyQuantProject//AnyQuantProject.bl.benchMarkBL//BenchMarkBLImpl.java
@@ -13,17 +22,49 @@ import AnyQuantProject.dataStructure.BenchMark;
 */
 
 public class BenchMarkBLImpl implements BenchMarkBLService {
+	
+	public BenchMarkBLImpl() {
+	}
 
 	@Override
 	public List<BenchMark> getAllBenchMark() {
-		// TODO Auto-generated method stub
-		return null;
+		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		BenchMarkDATAService benchMarkDATAService=factoryDATAService.getBenchMarkDATAService();
+		//get list
+		List<BenchMark> names=benchMarkDATAService.getAllBenchMark();
+		//get yesterday data
+		
+			List<BenchMark> ans=names.stream()
+					.map(bench -> 
+					benchMarkDATAService.getOperation(bench.getName(), CalendarHelper.getPreviousDay(Calendar.getInstance())))
+					.collect(Collectors.toList());
+			return ans;
+		
+		
+		
 	}
 
 	@Override
 	public List<BenchMark> getBenchMarkInfo(String name, Calendar year) {
-		// TODO Auto-generated method stub
-		return null;
+		//name
+		if (!Checker.checkStringNotNull(name)) {
+			return new ArrayList<BenchMark>();
+		}
+		//year
+		if (!Checker.checkCalendarBefore(year)) {
+			return new ArrayList<BenchMark>();
+		}
+		//reset year
+		year=CalendarHelper.zeroYear(year);
+		try {
+			FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+			BenchMarkDATAService benchMarkDATAService=factoryDATAService.getBenchMarkDATAService();
+			List<BenchMark> benchMarks=benchMarkDATAService.getBenchMarkAmongDate(name, year, CalendarHelper.getNextYear(year));
+			return benchMarks;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ArrayList<BenchMark>();
+		}
 	}
 
 }

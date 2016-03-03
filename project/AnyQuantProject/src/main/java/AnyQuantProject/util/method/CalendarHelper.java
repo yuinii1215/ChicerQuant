@@ -17,6 +17,9 @@ public class CalendarHelper {
 	 * @return
 	 */
 	public static String getDate(Calendar date){
+		if (date==null) {
+			return null;
+		}
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 		return sdf.format(date.getTime());
 	}
@@ -27,8 +30,37 @@ public class CalendarHelper {
 	 * @return
 	 */
 	public static Calendar getPreviousDay(Calendar date){
+		if (date==null) {
+			return null;
+		}
 		date.add(Calendar.DAY_OF_MONTH, -1);
 		return date;
+	}
+	/**
+	 * 将日期中除了年的信息都归零
+	 * @param date
+	 * @return
+	 */
+	public static Calendar zeroYear(Calendar date){
+		if (date==null) {
+			return null;
+		}
+		date.set(date.get(Calendar.YEAR), 0, 0, 0, 0);
+		return date;
+	}
+	/**
+	 * 获得下一年
+	 * @param date
+	 * @return
+	 */
+	public static Calendar getNextYear(Calendar date){
+		if (date==null) {
+			return null;
+		}
+		Calendar res=Calendar.getInstance();
+		res.setTimeInMillis(date.getTimeInMillis());
+		res.add(Calendar.YEAR, 1);
+		return res;
 	}
 	
 	//test
