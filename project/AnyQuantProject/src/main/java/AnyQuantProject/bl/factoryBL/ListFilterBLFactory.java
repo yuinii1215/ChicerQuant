@@ -1,5 +1,6 @@
 package AnyQuantProject.bl.factoryBL;
 
+import AnyQuantProject.bl.listFilterBL.ListFilterBLImpl;
 import AnyQuantProject.blService.listFilterBLService.ListFilterBLService;
 
 /** 
@@ -14,7 +15,7 @@ public class ListFilterBLFactory extends FactoryBL {
 	public static ListFilterBLService getListFilterBLService(){
 		//TODO 
 		if (listFilterBLService==null) {
-			listFilterBLService=null;
+			listFilterBLService=new ListFilterBLImpl();
 		}
 		return listFilterBLService;
 	}
