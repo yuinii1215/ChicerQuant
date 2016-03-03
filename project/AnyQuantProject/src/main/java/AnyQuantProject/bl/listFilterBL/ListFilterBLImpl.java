@@ -13,10 +13,11 @@ import AnyQuantProject.dataStructure.Stock;
 */
 
 public class ListFilterBLImpl implements ListFilterBLService{
-
+	/**
+	 * 
+	 */
 	@Override
 	public List<Stock> filterStocksByFieldAmong(List<Stock> srcStocks, String columnName, double min, double max) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

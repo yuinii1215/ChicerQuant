@@ -3,6 +3,7 @@
  */
 package AnyQuantProject.dataStructure;
 
+import java.lang.reflect.Field;
 import java.util.Calendar;
 
 /**
@@ -27,7 +28,22 @@ public class AbstractStock {
 	 */
 	public AbstractStock() {
 	}
-	
+	public double getValueByName(String name) throws IllegalArgumentException, IllegalAccessException,ClassCastException{
+		//
+		Class<?> cla=this.getClass();
+		while (cla!=Object.class) {
+			Field[] fields=cla.getDeclaredFields();
+			for (int i = 0; i < fields.length; i++) {
+				if (fields[i].getName().equalsIgnoreCase(name)) {
+					fields[i].setAccessible(true);
+					return ((Number) fields[i].get(this)).doubleValue();
+				}
+			}
+			cla=cla.getSuperclass();
+		}
+		//
+		return 0;
+	}
 	
 	
 	public void setName(String name) {

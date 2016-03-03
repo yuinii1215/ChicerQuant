@@ -3,11 +3,14 @@
  */
 package AnyQuantProject.dataStructure;
 
+import java.lang.reflect.Field;
+
 /**
  * @author G
+ * @param <T>
  *
  */
-public class Stock extends AbstractStock{
+public class Stock<T> extends AbstractStock{
 	double turnover;	//换手率
 	double pe;			//市盈率
 	double pb;			//市净率
@@ -32,5 +35,11 @@ public class Stock extends AbstractStock{
 	}
 	
 	
-
+	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
+		Stock stock=new Stock();
+		stock.setPe(0.6);
+		stock.setClose(0.7);
+		stock.setFlow(1000000067l);
+		System.out.println(stock.getValueByName("flow"));
+	}
 }
