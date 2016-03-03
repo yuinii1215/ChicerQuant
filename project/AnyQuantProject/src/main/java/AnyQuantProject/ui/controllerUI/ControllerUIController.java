@@ -27,7 +27,7 @@ public class ControllerUIController {
 	
 	
 	public static void start() throws Exception{
-		  primaryStage = MainStage.getPrimaryStage();
+	//	  primaryStage = MainStage.getPrimaryStage();
 	      stage.start(primaryStage);
 	}
 	

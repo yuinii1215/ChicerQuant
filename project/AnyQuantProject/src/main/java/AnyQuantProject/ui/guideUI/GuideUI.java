@@ -6,5 +6,5 @@ package AnyQuantProject.ui.guideUI;
  *
  */
 public class GuideUI {
-
+	
 }

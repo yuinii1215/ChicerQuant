@@ -56,7 +56,6 @@ public class MainStage extends Application {
 		root = new Group();
 		primaryScene = new Scene(root);  
       primaryStage.initStyle(StageStyle.DECORATED);
-//		primaryStage.initStyle(StageStyle.TRANSPARENT);
 	//	primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
 		primaryStage.setScene(primaryScene);  
