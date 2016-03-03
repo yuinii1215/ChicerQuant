@@ -22,6 +22,7 @@ public class StockListDATA implements stockListDATAService{
 
 	JSONStockListDATAService JSONStockList = new JSONStockListDATA();
 	
+	@SuppressWarnings("null")
 	@Override
 	public List<String> getAllStocks(Calendar date, Exchange exchange) {
 		JSONArray resultArray = JSONStockList.getAllStocks(date, exchange);

@@ -23,14 +23,14 @@ public class JSONBenchMarkDATA implements JSONBenchMarkDATAService{
 	@Override
 	public JSONArray getAllBenchMark() {
 		key = "benchmark/all";
-		return getHelper(key);
+		return helper.getAPI(key);
 	}
 
 	
 	@Override
 	public JSONObject getOperation(String name, Calendar date) {		
 		key = getKeyWithDate(name, date, date);
-		return getHelper(key).getJSONObject(0);
+		return helper.getAPI(key).getJSONObject(0);
 	}
 
 	
@@ -38,7 +38,7 @@ public class JSONBenchMarkDATA implements JSONBenchMarkDATAService{
 	public JSONArray getBenchMarkAmongDate(String name, Calendar start,
 			Calendar end) {
 		key = getKeyWithDate(name, start, end);
-		return getHelper(key);
+		return helper.getAPI(key);
 	}
 
 	private String getKeyWithDate(String name, Calendar start, Calendar end){
@@ -49,10 +49,6 @@ public class JSONBenchMarkDATA implements JSONBenchMarkDATAService{
 		key = "benchmark/"+name+"?start="+previousday+"&end="+afterday+"&fields=open+high+low+close+volume+adj_price";
 		return key;
 	}
-	
-	private JSONArray getHelper(String key){
-		return helper.getAPI(key);
-	}
-	
+
 
 }

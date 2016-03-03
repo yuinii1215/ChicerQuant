@@ -11,6 +11,8 @@ import java.util.List;
 
 
 
+
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
@@ -30,6 +32,7 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	@Override
 	public List<BenchMark> getAllBenchMark() {
 		JSONArray allBenchMarkList = JSONBenchMark.getAllBenchMark();
+		@SuppressWarnings("unchecked")
 		List<BenchMark> resultList = JSONArray.toList(allBenchMarkList, new BenchMark(), new JsonConfig());
 		return resultList;
 	}
@@ -47,6 +50,7 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	public List<BenchMark> getBenchMarkAmongDate(String name, Calendar start,
 			Calendar end) {
 		JSONArray result = JSONBenchMark.getBenchMarkAmongDate(name, start, end);
+		@SuppressWarnings("unchecked")
 		List<BenchMark> resultList = JSONArray.toList(result, new BenchMark(), new JsonConfig());
 		return resultList;
 	}

@@ -4,8 +4,6 @@
 package AnyQuantProject.dataService.realDATAService.singleStockDATAService;
 
 import java.util.*;
-
-import AnyQuantProject.dataStructure.Exchange;
 import AnyQuantProject.dataStructure.Stock;
 
 /**
