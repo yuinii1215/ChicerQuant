@@ -1,7 +1,7 @@
 /**
  * 
  */
-package AnyQuantProject.util;
+package AnyQuantProject.util.method;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
