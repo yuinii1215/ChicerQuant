@@ -5,16 +5,44 @@ package AnyQuantProject.util.method;
 
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
-
-import org.python.antlr.PythonParser.return_stmt_return;
 
 /**
  * @author G
  *
  */
 public class CalendarHelper {
+	/**
+	 * 将localDate转换为calendar
+	 * @param localDate
+	 * @return
+	 */
+	public static Calendar convert2LocalDate(LocalDate localDate){
+        if(localDate == null)
+            return null;
+        ZoneId zone = ZoneId.systemDefault();
+        Instant instant = localDate.atStartOfDay().atZone(zone).toInstant();
+        Date date = Date.from(instant);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar;
+    }
+	/**
+	 * 将calendar转换为localDate
+	 * @param calendar
+	 * @return
+	 */
+    public static LocalDate convert2Calendar(Calendar calendar) {
+    	int year = calendar.get(Calendar.YEAR);
+    	int month = calendar.get(Calendar.MONTH);
+    	int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+		LocalDate localDate = LocalDate.of(year, month, dayOfMonth);
+		return localDate;
+	}
 	/**
 	 * 将calendar对象转换成yyyy-MM-dd格式的string
 	 * 迷之-mm-出错
