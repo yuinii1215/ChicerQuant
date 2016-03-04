@@ -5,14 +5,6 @@ package AnyQuantProject.data.realDATA.benchMarkDATA;
 
 import java.util.Calendar;
 import java.util.List;
-
-
-
-
-
-
-
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
@@ -27,7 +19,20 @@ import AnyQuantProject.dataStructure.BenchMark;
  */
 public class BenchMarkDATA implements BenchMarkDATAService{
 
+
+	
 	JSONBenchMarkDATAService JSONBenchMark = new JSONBenchMarkDATA();
+	private static BenchMarkDATA benchMarkDATA;
+	
+	private BenchMarkDATA() {
+	}
+	
+	public static BenchMarkDATA getInstance(){
+		if ( benchMarkDATA == null) {
+			benchMarkDATA = new BenchMarkDATA();
+		}
+		return benchMarkDATA;
+	}
 	
 	@Override
 	public List<BenchMark> getAllBenchMark() {

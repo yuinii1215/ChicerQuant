@@ -10,6 +10,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import AnyQuantProject.data.jsonDATA.JSONSingleStockDATA;
+import AnyQuantProject.data.realDATA.benchMarkDATA.BenchMarkDATA;
 import AnyQuantProject.dataService.jsonDATAService.JSONSingleStockDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataStructure.Stock;
@@ -21,6 +22,20 @@ import AnyQuantProject.dataStructure.Stock;
 public class SingleStockDATA implements SingleStockDATAService{
 
 	JSONSingleStockDATAService JSONSingleStock = new JSONSingleStockDATA();
+	private static SingleStockDATA singleStockDATA;
+
+	
+	private SingleStockDATA() {
+	}
+	
+	
+	public static SingleStockDATA getInstance(){
+		if ( singleStockDATA == null) {
+			singleStockDATA = new SingleStockDATA();
+		}
+		return singleStockDATA;
+	}
+	
 	
 	@Override
 	public Stock getOperation(String name, Calendar date) {
