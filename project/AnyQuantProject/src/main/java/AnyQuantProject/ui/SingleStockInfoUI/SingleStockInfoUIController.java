@@ -1,6 +1,6 @@
 package AnyQuantProject.ui.SingleStockInfoUI;
 
-import AnyQuantProject.ui.SingleStockUI.SingleStockUIController;
+import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
 
 /**
  * 

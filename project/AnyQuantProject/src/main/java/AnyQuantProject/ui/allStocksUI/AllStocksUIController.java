@@ -11,5 +11,9 @@ public class AllStocksUIController {
 		// TODO Auto-generated method stub
 		
 	}
+    private static AllStocksUIController instance;
 
+    public static AllStocksUIController getInstance() {
+        return instance;
+    }
 }

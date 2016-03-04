@@ -1,11 +1,10 @@
 package AnyQuantProject.ui.controllerUI;
 
-import java.util.List;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -15,11 +14,14 @@ import javafx.scene.control.ButtonBuilder;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -31,7 +33,8 @@ import javafx.stage.WindowEvent;
  *
  */
 
-public class MainStage extends Application {
+public class Main extends Application {
+	private static Main instance; 
 	private static Stage primaryStage;   //舞台
 	private static Scene primaryScene;
 	private static Pane writePanel;
@@ -42,29 +45,60 @@ public class MainStage extends Application {
 	private static Button full; //全屏
 	private static Group root;
 	private static HBox hbox;
+	static AnchorPane titlePanel, guidePanel,mainPanel;
+	static AnchorPane allStocksPanel,benchMArkPanel,favouritePanel,
+				singleStockInfoPanel,singleStockPanel,stockDealInfoPanel;
+	
 	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	private static double scrH =primaryScreenBounds.getHeight();
 	private static double scrW =primaryScreenBounds.getWidth();
 	
+	public static Main getInstance(){
+	        return instance;
+	    }
+	    
+
+	public static Scene getPrimaryScene() {
+		// TODO Auto-generated method stub
+		return primaryScene;
+	}
+	
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		MainStage.primaryStage = primaryStage;
+		instance=this;
+		this.primaryStage = primaryStage;
+		
+		mainPanel = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+//		benchMArkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
+//		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
+
+//		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
+//		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
+//		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+		
+//		singleStockInfoPanel = FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
+//		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
+//		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
+//		
+//		
 		primaryStage.setHeight(scrH*3/4/490*600);
 		primaryStage.setWidth(scrW*3/4);
 		primaryStage.setTitle("AnyQuant");	
 		
+	
+	
 		root = new Group();
 		primaryScene = new Scene(root);  
-      primaryStage.initStyle(StageStyle.DECORATED);
+        primaryStage.initStyle(StageStyle.DECORATED);
 	//	primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
-		primaryStage.setScene(primaryScene);  
-	//buttons();
+	//	primaryStage.setScene(new Scene(titlePanel));  
+	  //buttons();
 		primaryStage.show();  
 		
 }  
 	
- 
+	
 	public void buttons(){
 		  close = ButtonBuilder.create().text("close").onAction(new EventHandler<ActionEvent>(){
 		        @Override public void handle(ActionEvent e){
@@ -98,18 +132,10 @@ public class MainStage extends Application {
 		    primaryStage.setScene(primaryScene);
 	}
 	
-	public static  Stage getPrimaryStage(){
-		return primaryStage;
-	}
-
-
-	public static Scene getPrimaryScene() {
-		// TODO Auto-generated method stub
-		return primaryScene;
-	}
-
-//	public static void main(String[] args) {  
-//		launch(args);  
-//	}  
+	
+	 public static void main(String[] args) {
+		 launch();
+	   }
+  
 	
 }
