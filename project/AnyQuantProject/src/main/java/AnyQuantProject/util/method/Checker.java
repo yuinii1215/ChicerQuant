@@ -1,6 +1,7 @@
 package AnyQuantProject.util.method;
 
 import java.util.Calendar;
+import java.util.List;
 
 /** 
 *AnyQuantProject//AnyQuantProject.util.method//Checker.java
@@ -18,6 +19,12 @@ public class Checker {
 	
 	public static boolean checkCalendarBefore(Calendar tar){
 		if (tar==null||tar.after(Calendar.getInstance())) {
+			return false;
+		}
+		return true;
+	}
+	public static boolean checkListNotNull(List<?> src){
+		if(src==null||src.isEmpty()){
 			return false;
 		}
 		return true;

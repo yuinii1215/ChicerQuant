@@ -3,14 +3,13 @@
  */
 package AnyQuantProject.dataStructure;
 
-import java.lang.reflect.Field;
 
 /**
  * @author G
  * @param <T>
  *
  */
-public class Stock<T> extends AbstractStock{
+public class Stock extends AbstractStock{
 	double turnover;	//换手率
 	double pe;			//市盈率
 	double pb;			//市净率

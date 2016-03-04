@@ -99,6 +99,16 @@ public class CalendarHelper {
 		res.add(Calendar.YEAR, 1);
 		return res;
 	}
+	/**
+	 * 
+	 * @param first
+	 * @param second
+	 * @return
+	 */
+	public static boolean compareDateEquals(Calendar first,Calendar second){
+		return first.get(Calendar.YEAR)==second.get(Calendar.YEAR)
+				&&first.get(Calendar.DAY_OF_YEAR)==second.get(Calendar.DAY_OF_YEAR);
+	}
 	
 	//tested --success
 	public static void main(String[] args) {
