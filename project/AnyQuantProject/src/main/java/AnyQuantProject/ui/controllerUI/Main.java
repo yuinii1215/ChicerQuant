@@ -45,7 +45,7 @@ public class Main extends Application {
 	private static Button full; //全屏
 	private static Group root;
 	private static HBox hbox;
-	static AnchorPane titlePanel, guidePanel;
+	static AnchorPane titlePanel, guidePanel,mainPanel;
 	static AnchorPane allStocksPanel,benchMArkPanel,favouritePanel,
 				singleStockInfoPanel,singleStockPanel,stockDealInfoPanel;
 	
@@ -68,14 +68,17 @@ public class Main extends Application {
 		instance=this;
 		this.primaryStage = primaryStage;
 		
+		mainPanel = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+//		benchMArkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
+//		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
+
 //		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
 //		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 //		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
-//		benchMArkPanel = FXMLLoader.load(getClass().getResource("benchMArkPanel.fxml"));
-//		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
+		
 //		singleStockInfoPanel = FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
-//		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel .fxml"));
+//		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 //		
 //		
 		primaryStage.setHeight(scrH*3/4/490*600);

@@ -4,6 +4,6 @@ package AnyQuantProject.ui.benchMarkUI;
  * @author QiHan
  *
  */
-public class BenchMarkUI {
+public class BenchMarkUIManager {
 
 }

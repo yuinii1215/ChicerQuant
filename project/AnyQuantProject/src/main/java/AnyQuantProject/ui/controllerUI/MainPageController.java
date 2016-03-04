@@ -23,7 +23,7 @@ import AnyQuantProject.ui.stockDealInfoUI.StockDealInfoUIController;
  *
  */
 
-public class ControllerUIController {
+public class MainPageController {
 	private static Main stage;
 	private static Stage primaryStage;
 	private static AllStocksUIController allStocksController ;
@@ -36,9 +36,9 @@ public class ControllerUIController {
 	 @FXML
 	private static AnchorPane titlePane, menuPane, centralPanel;
 	private Button defaultBtn = null;
-    private static ControllerUIController instance;
+    private static MainPageController instance;
 
-    public static ControllerUIController getInstance() {
+    public static MainPageController getInstance() {
         return instance;
     }
 	public static void start() throws Exception{
