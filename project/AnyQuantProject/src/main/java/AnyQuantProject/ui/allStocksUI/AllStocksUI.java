@@ -111,7 +111,7 @@ public class AllStocksUI extends Application {
 
 		TableColumn<Stock, Double> peColumn = new TableColumn<>("市盈率");
 		peColumn.setCellValueFactory(cell -> new SimpleDoubleProperty(cell
-				 .getValue().getPe()));
+				 .getValue().getPe_ttm()));
 
 		TableColumn<Stock, Double> pbColumn = new TableColumn<>("市净率");
 		pbColumn.setCellValueFactory(cell -> new SimpleDoubleProperty(cell
