@@ -9,11 +9,12 @@ import java.util.Date;
 import java.util.List;
 
 import AnyQuantProject.ui.SingleStockUI.SingleStockUI;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -97,8 +98,8 @@ public class SingleStockInfoUI extends SingleStockUI {
 		this.singleStockList = singleStock;
 	}
 
-	public void start(Stage stage) {
 
+	public void start(Stage stage) {
 		for (int i = 0; i < 5; i++) {
 			filterFlag[i] = false;
 		}
@@ -106,21 +107,21 @@ public class SingleStockInfoUI extends SingleStockUI {
 		operationResult = new OperationResult();
 
 		singleStockUIScene = new Scene(new Group());
-		singleStockUIScene.getStylesheets().add(
-				getClass().getResource("addFavorButton.css").toExternalForm());
+//		singleStockUIScene.getStylesheets().add(
+//				getClass().getResource("addFavorButton.css").toExternalForm());
 
 		stage.setHeight(scrH * 3 / 4 / 490 * 600);
 		stage.setWidth(scrW * 3 / 4);
-
-		ObservableList<String> KeyWordOptions = FXCollections
-				.observableArrayList("日期", "开盘价", "最高价", "最低价", "收盘价", "成交量",
-						"后复权价", "市值", "流通量");
-		keyWordBox = new ComboBox(KeyWordOptions);
-		keyWordBox.setPromptText("关键字");
-		keyWordBox.setPrefSize(90, 8);
-		keyWordBox.setLayoutX(positionX + 80);
-		keyWordBox.setLayoutY(positionY + 8);
-		keyWordBox.getStyleClass().add("comBox");
+		
+		keyWordBox=new ComboBox();
+		keyWordBox.getItems().addAll("开盘价", "最高价", "最低价", "收盘价", "成交量",
+				"后复权价", "市值", "流通量","换手率","市盈率","市净率");
+//		keyWordBox = new ComboBox(KeyWordOptions);
+//		keyWordBox.setPromptText("关键字");
+//		keyWordBox.setPrefSize(90, 8);
+//		keyWordBox.setLayoutX(positionX + 80);
+//		keyWordBox.setLayoutY(positionY + 8);
+//		keyWordBox.getStyleClass().add("comBox");
 
 		keyWordBox.setEditable(true);
 		keyWordBox.valueProperty().addListener(new ChangeListener<String>() {
@@ -129,74 +130,73 @@ public class SingleStockInfoUI extends SingleStockUI {
 				keyWord = t1;
 				filterFlag[0] = true;
 				System.out.println(keyWord);
-
 			}
 		});
 
-		minRange = new TextField();
-		minRange.setPromptText("起始值");
-		minRange.setPrefSize(70, 2);
-		minRange.setLayoutX(positionX + 195);
-		minRange.setLayoutY(positionY + 8);
-		minRange.getStyleClass().add("textArea");
+//		minRange = new TextField();
+//		minRange.setPromptText("起始值");
+//		minRange.setPrefSize(70, 2);
+//		minRange.setLayoutX(positionX + 195);
+//		minRange.setLayoutY(positionY + 8);
+//		minRange.getStyleClass().add("textArea");
 
-		rangeLabel1 = new Label("—");
-		rangeLabel1.setLayoutX(positionX + 266);
-		rangeLabel1.setLayoutY(positionY + 15);
+//		rangeLabel1 = new Label("—");
+//		rangeLabel1.setLayoutX(positionX + 266);
+//		rangeLabel1.setLayoutY(positionY + 15);
 
-		maxRange = new TextField();
-		maxRange.setPromptText("截止值");
-		maxRange.setPrefSize(70, 2);
-		maxRange.setLayoutX(positionX + 280);
-		maxRange.setLayoutY(positionY + 8);
-		maxRange.getStyleClass().add("textArea");
+//		maxRange = new TextField();
+//		maxRange.setPromptText("截止值");
+//		maxRange.setPrefSize(70, 2);
+//		maxRange.setLayoutX(positionX + 280);
+//		maxRange.setLayoutY(positionY + 8);
+//		maxRange.getStyleClass().add("textArea");
 
-		startDatePicker = new DatePicker();
-		Date promptDate = new Date(110, 10, 20);
-		startDatePicker.setPromptText("起始时间");
-		startDatePicker.setPrefSize(115, 10);
-		startDatePicker.setLayoutX(positionX + 373);
-		startDatePicker.setLayoutY(positionY + 8);
-		startDatePicker.getStyleClass().add("picker");
-		LocalDate date3 = promptDate.toInstant().atZone(ZoneId.systemDefault())
-				.toLocalDate();
-		startDatePicker.setPromptText(date3.toString());
-
-		rangeLabel2 = new Label("—");
-		rangeLabel2.setLayoutX(positionX + 487);
-		rangeLabel2.setLayoutY(positionY + 15);
-
-		endDatePicker = new DatePicker();
-		endDatePicker.setPromptText("截止时间");
-		endDatePicker.setPrefSize(115, 10);
-		endDatePicker.setLayoutX(positionX + 500);
-		endDatePicker.setLayoutY(positionY + 8);
-		endDatePicker.getStyleClass().add("picker");
-
-		// change the default date to yesterday
-		Calendar date = Calendar.getInstance();
-		date.set(Calendar.DATE, date.get(Calendar.DATE) - 1);
-		Date d = new Date();
-		Calendar rightNow = Calendar.getInstance();
-		rightNow.setTime(d);
-		rightNow.add(Calendar.DAY_OF_YEAR, -1);
-		Date dt1 = rightNow.getTime();
-		LocalDate date2 = dt1.toInstant().atZone(ZoneId.systemDefault())
-				.toLocalDate();
-		endDatePicker.setPromptText(date2.toString());
-
+//		startDatePicker = new DatePicker();
+//		Date promptDate = new Date(110, 10, 20);
+//		startDatePicker.setPromptText("起始时间");
+//		startDatePicker.setPrefSize(115, 10);
+//		startDatePicker.setLayoutX(positionX + 373);
+//		startDatePicker.setLayoutY(positionY + 8);
+//		startDatePicker.getStyleClass().add("picker");
+//		LocalDate date3 = promptDate.toInstant().atZone(ZoneId.systemDefault())
+//				.toLocalDate();
+//		startDatePicker.setPromptText(date3.toString());
+//
+//		rangeLabel2 = new Label("—");
+//		rangeLabel2.setLayoutX(positionX + 487);
+//		rangeLabel2.setLayoutY(positionY + 15);
+//
+//		endDatePicker = new DatePicker();
+//		endDatePicker.setPromptText("截止时间");
+//		endDatePicker.setPrefSize(115, 10);
+//		endDatePicker.setLayoutX(positionX + 500);
+//		endDatePicker.setLayoutY(positionY + 8);
+//		endDatePicker.getStyleClass().add("picker");
+//
+//		// change the default date to yesterday
+//		Calendar date = Calendar.getInstance();
+//		date.set(Calendar.DATE, date.get(Calendar.DATE) - 1);
+//		Date d = new Date();
+//		Calendar rightNow = Calendar.getInstance();
+//		rightNow.setTime(d);
+//		rightNow.add(Calendar.DAY_OF_YEAR, -1);
+//		Date dt1 = rightNow.getTime();
+//		LocalDate date2 = dt1.toInstant().atZone(ZoneId.systemDefault())
+//				.toLocalDate();
+//		endDatePicker.setPromptText(date2.toString());
+//
 		// add the shadow effect for the buttons
 		DropShadow shadow = new DropShadow();
 
-		// 对应于 String columnName, double min, double max, Calender min, Calender
-		// max
-		filterButton = new Button("搜索");
-		filterButton.setPrefSize(40, 4);
-		filterButton.setFont(new Font("Arial", 10));
-		filterButton.setLayoutX(positionX + 624);
-		filterButton.setLayoutY(positionY + 11);
-		filterButton
-				.setStyle("-fx-text-fill:#FFFFFF; -fx-background-color: #C67171;");
+//		// 对应于 String columnName, double min, double max, Calender min, Calender
+//		// max
+//		filterButton = new Button("搜索");
+//		filterButton.setPrefSize(40, 4);
+//		filterButton.setFont(new Font("Arial", 10));
+//		filterButton.setLayoutX(positionX + 624);
+//		filterButton.setLayoutY(positionY + 11);
+//		filterButton
+//				.setStyle("-fx-text-fill:#FFFFFF; -fx-background-color: #C67171;");
 
 		filterButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
 				(MouseEvent e) -> {
@@ -279,30 +279,31 @@ public class SingleStockInfoUI extends SingleStockUI {
 		} else {
 			isFavorButton.setText("加关注");
 		}
-		// show the shadow when the mouse cursor is off
-		isFavorButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
-				(MouseEvent e) -> {
-					isFavorButton.setEffect(shadow);
-				});
-		// Removing the shadow when the mouse cursor is off
-		isFavorButton.addEventHandler(MouseEvent.MOUSE_EXITED,
-				(MouseEvent e) -> {
-					isFavorButton.setEffect(null);
-				});
+		
+//		// show the shadow when the mouse cursor is off
+//		isFavorButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
+//				(MouseEvent e) -> {
+//					isFavorButton.setEffect(shadow);
+//				});
+//		// Removing the shadow when the mouse cursor is off
+//		isFavorButton.addEventHandler(MouseEvent.MOUSE_EXITED,
+//				(MouseEvent e) -> {
+//					isFavorButton.setEffect(null);
+//				});
 		// change the state when the mouse cursor is off
-		isFavorButton.addEventHandler(MouseEvent.MOUSE_PRESSED,
-				(MouseEvent e) -> {
-					isFavorButton.setEffect(null);
-					if (singleStockList.get(0).isFavor() == false) {
-						// change the state of the stock into being favored
-				favoriteBlImpl.favorStock(singleStockList.get(0).getName());
-				isFavorButton.setText("取消关注");
-			} else {
-				// change the state of the stock into unfavored
-				favoriteBlImpl.unFavorStock(singleStockList.get(0).getName());
-				isFavorButton.setText("加关注");
-			}
-		});
+//		isFavorButton.addEventHandler(MouseEvent.MOUSE_PRESSED,
+//				(MouseEvent e) -> {
+//					isFavorButton.setEffect(null);
+//					if (singleStockList.get(0).isFavor() == false) {
+//						// change the state of the stock into being favored
+//				favoriteBlImpl.favorStock(singleStockList.get(0).getName());
+//				isFavorButton.setText("取消关注");
+//			} else {
+//				// change the state of the stock into unfavored
+//				favoriteBlImpl.unFavorStock(singleStockList.get(0).getName());
+//				isFavorButton.setText("加关注");
+//			}
+//		});
 
 		isFavorButton.setFont(new Font("Arial", 20));
 		isFavorButton.setLayoutX(positionX + 830);
@@ -382,10 +383,11 @@ public class SingleStockInfoUI extends SingleStockUI {
 		// "PB"));
 		// table.getColumns().add(pbColumn);
 
-		table.getColumns().addAll(dateColumn, openColumn, closeColumn,
-				highColumn, lowColumn, volumnColumn, adj_priceColumn,
-				marketValueColumn, flowColumn, turnOverColumn, peColumn,
-				pbColumn);
+//		table.getColumns().addAll(dateColumn, openColumn, closeColumn,
+//				highColumn, lowColumn, volumnColumn, adj_priceColumn,
+//				marketValueColumn, flowColumn, turnOverColumn, peColumn,
+//				pbColumn);
+		
 		((Group) singleStockUIScene.getRoot()).getChildren().addAll(table,
 				keyWordBox, minRange, rangeLabel1, maxRange, startDatePicker,
 				rangeLabel2, endDatePicker, titleLabel, nameLabel,
@@ -395,6 +397,53 @@ public class SingleStockInfoUI extends SingleStockUI {
 		stage.show();
 	}
 
+	   @FXML
+	    public void filterStockInfo(ActionEvent actionEvent) {
+					if (minRange.getText().trim().length() >= 1) {
+						System.out.println("the minRange is not Empty");
+						minFilter = Double.valueOf(minRange.getText());
+						filterFlag[1] = true;
+					} else {
+						System.out.println("the minRange is Empty");
+					}
+
+					if (maxRange.getText().trim().length() >= 1) {
+						System.out.println("the maxRange is not Empty");
+						maxFilter = Double.valueOf(maxRange.getText());
+						filterFlag[2] = true;
+					} else {
+						System.out.println("the maxRange is Empty");
+					}
+
+					CalendarHelper calendarHelper = new CalendarHelper();
+					if (startDatePicker.getValue() != null) {
+						System.out.println("the startDate is not Empty");
+						LocalDate startLocalDate = startDatePicker.getValue();
+						minTime = calendarHelper.convert2LocalDate(startLocalDate);
+						filterFlag[3] = true;
+						/**
+						 * 此处缺少把minTime赋值的功能
+						 */
+					} else {
+						System.out.println("the startDate is Empty");
+					}
+
+					if (endDatePicker.getValue() != null) {
+						System.out.println("the endDate is not Empty");
+						LocalDate endLocalDate = endDatePicker.getValue();
+						maxTime = calendarHelper.convert2LocalDate(endLocalDate);
+						filterFlag[4] = true;
+						/**
+						 * 此处缺少把minTime赋值的功能
+						 */
+					} else {
+						System.out.println("the startDate is Empty");
+					}
+					singleStockList=filterControl(singleStockList);
+					
+				}
+	
+	
 	public List<Stock> filterControl(List<Stock> currentList) {
 		List<Stock> filteredList = currentList;
 		listFilterBlImpl = new ListFilterBLImpl();

@@ -1,18 +1,19 @@
-package AnyQuantProject.ui.SingleStockUI;
+package AnyQuantProject.util.method;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
 /** 
-*AnyQuantProject//AnyQuantProject.ui.SingleStockUI//SimpleDoubleProperty.java
-* @author  cxworks 
-* @date 创建时间：2016年3月4日 下午2:48:47 
+*AnyQuantProject//AnyQuantProject.ui.SingleStockUI//SimpleIntegerProperty.java
+* @author  grace
+* @date 创建时间：2016年3月4日 下午3:38:47 
 */
 
-public class SimpleDoubleProperty implements ObservableValue<Double>{
-	private double num;
-	public SimpleDoubleProperty(double num) {
+public class SimpleIntegerProperty implements ObservableValue<Integer>{
+	private int num;
+	
+	public SimpleIntegerProperty(int num) {
 		this.num=num;
 	}
 
@@ -29,23 +30,23 @@ public class SimpleDoubleProperty implements ObservableValue<Double>{
 	}
 
 	@Override
-	public void addListener(ChangeListener<? super Double> listener) {
+	public void addListener(ChangeListener<? super Integer> listener) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removeListener(ChangeListener<? super Double> listener) {
+	public void removeListener(ChangeListener<? super Integer> listener) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Double getValue() {
+	public Integer getValue() {
 		return num;
 	}
 	@Override
 	public String toString(){
-		return Double.toString(num);
+		return Integer.toString(num);
 	}
 }

@@ -1,8 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+<?import javafx.beans.value.*?>
+<?import javafx.event.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label id="titleLabel" alignment="CENTER" layoutX="80.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="820.0" style="-fx-background-color: #FAF0E6; -fx-border-radius: 20; -fx-padding: 5;" text="股票详情">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <TableView blendMode="SRC_ATOP" depthTest="DISABLE" layoutX="80.0" layoutY="54.0" mouseTransparent="true" prefHeight="548.0" prefWidth="550.0">
+        <columns>
+          <TableColumn id="dateColumn" prefWidth="75.0" text="数据日期" />
+            <TableColumn id="highColumn" prefWidth="75.0" text="最高价" />
+            <TableColumn id="lowColumn" prefWidth="75.0" text="最低价" />
+            <TableColumn id="openColumn" prefWidth="75.0" text="开盘价" />
+            <TableColumn id="closeColumn" prefWidth="75.0" text="收盘价" />
+            <TableColumn id="volumeColumn" prefWidth="75.0" text="成交量" />
+            <TableColumn id="adj_priceColumn" prefWidth="75.0" text="后复权价" />
+            <TableColumn id="marketValueColumn" prefWidth="75.0" text="市值" />
+            <TableColumn id="flowColumn" prefWidth="75.0" text="流通" />
+            <TableColumn id="peColumn" prefWidth="75.0" text="市盈率" />
+            <TableColumn id="pbColumn" prefWidth="75.0" text="市净率" />
+        </columns>
+         <cursor>
+            <Cursor fx:constant="NE_RESIZE" />
+         </cursor>
+         <effect>
+            <Blend mode="HARD_LIGHT" />
+         </effect>
+      </TableView>
+      <ComboBox id="keyWordBox" blendMode="SRC_ATOP" editable="true" layoutX="95.0" layoutY="28.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="93.0" promptText="关键字">
+         <items>
+             <FXCollections fx:factory="observableArrayList">
+            <String fx:value="open" />
+            <String fx:value="high" />
+            <String fx:value="low" />
+            <String fx:value="close" />
+            <String fx:value="volumn" />
+            <String fx:value="adj_price" />
+            <String fx:value="marketvalue" />
+            <String fx:value="flow" />
+            <String fx:value="turnover" />
+            <String fx:value="pe" />
+            <String fx:value="pb" />
+             </FXCollections>
+        </items>
+         <effect>
+            <Blend mode="SOFT_LIGHT" />
+         </effect>
+      </ComboBox>
+      <TextField id="maxRange" layoutX="272.0" layoutY="28.0" prefHeight="26.0" prefWidth="58.0" />
+      <TextField id="minRange" layoutX="204.0" layoutY="28.0" prefHeight="26.0" prefWidth="58.0" />
+      <DatePicker id="startDatePicker" blendMode="SRC_ATOP" layoutX="342.0" layoutY="28.0" prefHeight="26.0" prefWidth="117.0" promptText="2015-10-10">
+         <effect>
+            <Blend mode="SOFT_LIGHT" />
+         </effect>
+      </DatePicker>
+      <DatePicker id="endDatePicker" blendMode="SRC_ATOP" layoutX="471.0" layoutY="28.0" prefHeight="26.0" prefWidth="117.0" promptText="2015-10-10">
+         <effect>
+            <Blend mode="SOFT_LIGHT" />
+         </effect>
+      </DatePicker>
+      <Line id="rangeLabel1" endX="10.0" layoutX="262.0" layoutY="38.0" />
+      <Line id="rangeLabel2" endX="10.0" layoutX="460.0" layoutY="38.0" />
+      <Button id="filterButton" layoutX="600.0" layoutY="30.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#filterStockInfo" prefHeight="18.0" prefWidth="28.0" style="-fx-background-color: #f16a6a;" text="查找" textFill="#0d0c0c" textOverrun="WORD_ELLIPSIS">
+         <effect>
+            <Blend />
+         </effect>
+         <font>
+            <Font name="System Bold" size="8.0" />
+         </font>
+      </Button>
+      <Label id="nameLabel" layoutX="686.0" layoutY="41.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="169.0" text="股票名称" textAlignment="JUSTIFY">
+         <font>
+            <Font name="Arial" size="36.0" />
+         </font>
+      </Label>
+      <Button id="isFavorButton" layoutX="818.0" layoutY="90.0" mnemonicParsing="false" style="-fx-background-color: #6495ED; -fx-effect: dropshadow;" text="加关注" textFill="WHITE" />
+   </children>
 </AnchorPane>
-

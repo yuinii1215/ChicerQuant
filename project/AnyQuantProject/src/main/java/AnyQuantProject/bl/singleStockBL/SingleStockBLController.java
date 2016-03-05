@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
+import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.blService.singleStockDealBLService.SingleStockDealBLService;
 import AnyQuantProject.blService.singleStockInfoBLService.SingleStockInfoBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
@@ -54,10 +56,15 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 		//get dataService
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
+		//get favor info
+		FavoriteBLService favoriteBLService=FavoriteBLFactory.getFavoriteBLService();
 		//
 		try{
 			Stock ans=singleStockDATAService
 					.getOperation(name, CalendarHelper.getPreviousDay(Calendar.getInstance()));
+			if (favoriteBLService.checkIsFavored(name)) {
+				ans.setFavor(true);
+			}
 			return ans;
 		}
 		catch(Exception e){

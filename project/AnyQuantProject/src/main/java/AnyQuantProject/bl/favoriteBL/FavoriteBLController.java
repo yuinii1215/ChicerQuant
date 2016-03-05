@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.naming.InitialContext;
+
 import org.omg.IOP.IORHelper;
 
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
@@ -15,6 +17,7 @@ import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.method.CalendarHelper;
+import AnyQuantProject.util.method.Checker;
 import AnyQuantProject.util.method.IOHelper;
 
 /** 
@@ -27,15 +30,19 @@ public class FavoriteBLController implements FavoriteBLService {
 	private ArrayList<String> favor;
 	
 	public FavoriteBLController() {
+		init();
+	}
+	
+	private void init(){
 		//try to read
-		Object ans=IOHelper.read(R.FavorFilePath, R.FavorFileName);
-		if (ans==null) {
-			favor=new ArrayList<>();
-		}
-		else {
-			
-			favor=(ArrayList<String>) ans;
-		}
+				Object ans=IOHelper.read(R.FavorFilePath, R.FavorFileName);
+				if (ans==null) {
+					favor=new ArrayList<>();
+				}
+				else {
+					
+					favor=(ArrayList<String>) ans;
+				}
 	}
 
 	@Override
@@ -58,7 +65,7 @@ public class FavoriteBLController implements FavoriteBLService {
 	@Override
 	public OperationResult favorStock(String name) {
 		//check if have
-		if(favor.contains(name)){
+		if(!Checker.checkStringNotNull(name)||favor.contains(name)){
 			return new OperationResult(false, "已加入关注列表");
 		}
 		//
@@ -69,11 +76,23 @@ public class FavoriteBLController implements FavoriteBLService {
 
 	@Override
 	public OperationResult unFavorStock(String name) {
-		if(!favor.contains(name)){
+		if(!Checker.checkStringNotNull(name)||!favor.contains(name)){
 			return new OperationResult(false, "未加入关注列表");
 		}
 		//
 		favor.remove(name);
 		return IOHelper.save(R.FavorFilePath, R.FavorFileName, favor);
+	}
+
+	@Override
+	public boolean checkIsFavored(String name) {
+		//check
+		if (!Checker.checkStringNotNull(name)) {
+			return false;
+		}
+		if (!Checker.checkListNotNull(favor)) {
+			init();
+		}
+		return favor.contains(name);
 	}
 }
