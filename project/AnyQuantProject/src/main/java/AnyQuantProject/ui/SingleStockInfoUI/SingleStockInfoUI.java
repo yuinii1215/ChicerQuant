@@ -97,7 +97,6 @@ public class SingleStockInfoUI extends SingleStockUI {
 		this.singleStockList = singleStock;
 	}
 
-	@Override
 	public void start(Stage stage) {
 
 		for (int i = 0; i < 5; i++) {

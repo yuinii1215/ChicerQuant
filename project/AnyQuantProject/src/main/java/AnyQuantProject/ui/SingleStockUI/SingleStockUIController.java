@@ -1,4 +1,4 @@
-package AnyQuantProject.ui.singleStockUI;
+package AnyQuantProject.ui.SingleStockUI;
 
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 

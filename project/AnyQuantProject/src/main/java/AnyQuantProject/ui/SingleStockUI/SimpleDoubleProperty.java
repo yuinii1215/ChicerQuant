@@ -1,4 +1,4 @@
-package AnyQuantProject.ui.singleStockUI;
+package AnyQuantProject.ui.SingleStockUI;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;

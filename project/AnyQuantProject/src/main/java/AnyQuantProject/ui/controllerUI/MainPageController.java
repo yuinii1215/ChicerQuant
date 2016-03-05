@@ -15,7 +15,7 @@ import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
 import AnyQuantProject.ui.guideUI.GuideUIController;
-import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
+import AnyQuantProject.ui.SingleStockUI.SingleStockUIController;
 import AnyQuantProject.ui.stockDealInfoUI.StockDealInfoUIController;
 /**
  * 
