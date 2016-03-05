@@ -1,0 +1,52 @@
+.titleLabel{
+    -fx-text-fill: #000000;
+    
+    -fx-background-color: #E0E0E0;
+
+    -fx-border-radius: 20;
+
+    -fx-padding: 5;
+
+}
+
+.comBox{
+     
+     -fx-background-color: #FFFFFF;
+
+     -fx-border-color:#000000;
+
+     -fx-border-radius: 2;
+}
+
+.picker{
+
+     -fx-border-color:#000000;
+
+     -fx-border-radius: 2;
+
+}
+
+.textArea{
+     -fx-height: 8px; 
+     -fx-width: 20px;
+     
+     -fx-border-color:#000000;
+     -fx-border-radius: 2;
+}
+
+.button2{
+
+    -fx-text-fill: #FFFFFF;
+    
+    -fx-background-color: #000000;
+}
+
+.button{
+    -fx-text-fill: #FFFFFF;
+    
+    -fx-background-color: #B0C4DE;
+
+    -fx-border-radius: 20;
+
+    -fx-padding: 5;
+}
