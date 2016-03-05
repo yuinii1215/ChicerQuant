@@ -40,7 +40,6 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 		try {
 			List<Stock> ans=singleStockDATAService
 					.getStockAmongDate(name, CalendarHelper.getMonthStart(year), CalendarHelper.getMonthEnd(year));
-			
 			return ans;
 		} catch (Exception e) {
 			return new ArrayList<>();

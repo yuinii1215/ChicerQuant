@@ -111,7 +111,7 @@ public class ListFilterBLImpl implements ListFilterBLService{
 		//filter
 		List<Stock> ans=srcStocks.stream()
 				.filter(stock->
-				stock.getDate().before(max)&&stock.getDate().after(min))
+				stock.getDateInCalendar().before(max)&&stock.getDateInCalendar().after(min))
 				.collect(Collectors.toList());
 		return ans;
 	}
@@ -124,7 +124,7 @@ public class ListFilterBLImpl implements ListFilterBLService{
 		}
 		//filter
 		List<Stock> ans=srcStocks.stream()
-				.filter(stock->stock.getDate().after(min))
+				.filter(stock->stock.getDateInCalendar().after(min))
 				.collect(Collectors.toList());
 		return ans;
 	}
@@ -137,7 +137,7 @@ public class ListFilterBLImpl implements ListFilterBLService{
 		}
 		//filter
 		List<Stock> ans=srcStocks.stream()
-				.filter(stock->stock.getDate().before(max))
+				.filter(stock->stock.getDateInCalendar().before(max))
 				.collect(Collectors.toList());
 		return ans;
 	}
@@ -150,7 +150,7 @@ public class ListFilterBLImpl implements ListFilterBLService{
 		}
 		//filter
 		List<Stock> ans=srcStocks.stream()
-				.filter(stock->CalendarHelper.compareDateEquals(target, stock.getDate()))
+				.filter(stock->CalendarHelper.compareDateEquals(target, stock.getDateInCalendar()))
 				.collect(Collectors.toList());
 		return ans;
 	}

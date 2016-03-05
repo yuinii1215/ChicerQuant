@@ -6,6 +6,10 @@ package AnyQuantProject.dataStructure;
 import java.lang.reflect.Field;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.StringTokenizer;
+
+import AnyQuantProject.util.method.CalendarHelper;
+import AnyQuantProject.util.method.Checker;
 
 /**
  * @author G
@@ -108,7 +112,12 @@ public class AbstractStock {
 	public void setFlow(long flow) {
 		this.flow = flow;
 	}
-
+	public Calendar getDateInCalendar(){
+		if (!Checker.checkStringNotNull(date)) {
+			return CalendarHelper.convert2Calendar(date);
+		}
+		return Calendar.getInstance();
+	}
 
 
 	public String getName() {
@@ -142,7 +151,21 @@ public class AbstractStock {
 	public long getFlow() {
 		return flow;
 	}
-
+	public String getYear(){
+		StringTokenizer stringTokenizer=new StringTokenizer(date, "-/");
+		return stringTokenizer.nextToken();
+	}
+	public String getMonth(){
+		StringTokenizer stringTokenizer=new StringTokenizer(date, "-/");
+		String year=stringTokenizer.nextToken();
+		return stringTokenizer.nextToken();
+	}
+	public String getDay(){
+		StringTokenizer stringTokenizer=new StringTokenizer(date, "-/");
+		String year=stringTokenizer.nextToken();
+		String month=stringTokenizer.nextToken();
+		return stringTokenizer.nextToken();
+	}
 	
 	public void setDate(String date) {
 		this.date = date;
