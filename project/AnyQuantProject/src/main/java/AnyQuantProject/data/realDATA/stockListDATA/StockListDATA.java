@@ -9,6 +9,7 @@ import java.util.List;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
 import AnyQuantProject.data.jsonDATA.JSONStockListDATA;
 import AnyQuantProject.dataService.jsonDATAService.JSONStockListDATAService;
 import AnyQuantProject.dataService.realDATAService.stockListDATAService.StockListDATAService;
@@ -37,11 +38,7 @@ public class StockListDATA implements StockListDATAService{
 	@Override
 	public List<String> getAllStocks(Calendar date, Exchange exchange) {
 		JSONArray resultArray = JSONStockList.getAllStocks(date, exchange);
-		List<String> resultList = null;
-		for (Object object : resultArray) {
-			  JSONObject o = JSONObject.fromObject(object);
-			  resultList.add((String) o.get("name"));
-			}
+		List<String> resultList = JSONArray.toList(resultArray, new String(), new JsonConfig());
 		return resultList;
 	}
 

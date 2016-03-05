@@ -32,13 +32,13 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 			return new ArrayList<>();
 		}
 		//reset year
-		year=CalendarHelper.zeroYear(year);
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		//
 		try {
 			List<Stock> ans=singleStockDATAService
-					.getStockAmongDate(name, year, CalendarHelper.getNextYear(year));
+					.getStockAmongDate(name, CalendarHelper.getMonthStart(year), CalendarHelper.getMonthEnd(year));
+			
 			return ans;
 		} catch (Exception e) {
 			return new ArrayList<>();

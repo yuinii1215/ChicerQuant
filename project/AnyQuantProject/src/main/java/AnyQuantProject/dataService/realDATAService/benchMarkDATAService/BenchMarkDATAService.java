@@ -17,7 +17,7 @@ public interface BenchMarkDATAService {
 	 * 返回当前的大盘列表
 	 * @return
 	 */
-	public List<BenchMark> getAllBenchMark();	
+	public List<String> getAllBenchMark();	
 	/**
 	 * 由大盘名称、指定日期得到该大盘指定日期的数据
 	 * @param name

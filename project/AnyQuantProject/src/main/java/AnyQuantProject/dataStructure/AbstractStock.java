@@ -5,6 +5,7 @@ package AnyQuantProject.dataStructure;
 
 import java.lang.reflect.Field;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author G
@@ -13,10 +14,10 @@ import java.util.Calendar;
 public class AbstractStock {
 	String name;	//
 	boolean isFavor;     //是否被关注
-	Calendar   date;      // 数据日期
+	String date;    // 数据日期
 	double open;		//开盘价
 	double high; 		//最高价
-	double low;			//最低价
+	double low;			//最低价	
 	double close;		//收盘价
 	int	volume;			//成交量
 	double adj_price;	//后复权价
@@ -56,11 +57,6 @@ public class AbstractStock {
 		this.isFavor = isFavor;
 	}
 
-
-
-	public void setDate(Calendar date) {
-		this.date = date;
-	}
 
 
 
@@ -106,6 +102,9 @@ public class AbstractStock {
 
 
 
+	public String getDate() {
+		return date;
+	}
 	public void setFlow(long flow) {
 		this.flow = flow;
 	}
@@ -118,9 +117,7 @@ public class AbstractStock {
 	public boolean isFavor() {
 		return isFavor;
 	}
-	public Calendar getDate() {
-		return date;
-	}
+
 	public double getOpen() {
 		return open;
 	}
@@ -146,5 +143,12 @@ public class AbstractStock {
 		return flow;
 	}
 
+	
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
+
+	
 	
 }

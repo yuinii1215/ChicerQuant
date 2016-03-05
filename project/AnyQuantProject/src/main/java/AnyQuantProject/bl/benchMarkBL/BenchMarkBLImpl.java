@@ -31,12 +31,12 @@ public class BenchMarkBLImpl implements BenchMarkBLService {
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		BenchMarkDATAService benchMarkDATAService=factoryDATAService.getBenchMarkDATAService();
 		//get list
-		List<BenchMark> names=benchMarkDATAService.getAllBenchMark();
+		List<String> names=benchMarkDATAService.getAllBenchMark();
 		//get yesterday data
 		
 			List<BenchMark> ans=names.stream()
 					.map(bench -> 
-					benchMarkDATAService.getOperation(bench.getName(), CalendarHelper.getPreviousDay(Calendar.getInstance())))
+					benchMarkDATAService.getOperation(bench, CalendarHelper.getPreviousDay(Calendar.getInstance())))
 					.collect(Collectors.toList());
 			return ans;
 		
@@ -59,7 +59,7 @@ public class BenchMarkBLImpl implements BenchMarkBLService {
 		try {
 			FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 			BenchMarkDATAService benchMarkDATAService=factoryDATAService.getBenchMarkDATAService();
-			List<BenchMark> benchMarks=benchMarkDATAService.getBenchMarkAmongDate(name, year, CalendarHelper.getNextYear(year));
+			List<BenchMark> benchMarks=benchMarkDATAService.getBenchMarkAmongDate(name, CalendarHelper.getMonthStart(year), CalendarHelper.getMonthEnd(year));
 			return benchMarks;
 		} catch (Exception e) {
 			// TODO: handle exception

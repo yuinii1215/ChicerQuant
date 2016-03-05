@@ -10,10 +10,10 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import AnyQuantProject.data.jsonDATA.JSONSingleStockDATA;
-import AnyQuantProject.data.realDATA.benchMarkDATA.BenchMarkDATA;
 import AnyQuantProject.dataService.jsonDATAService.JSONSingleStockDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.util.method.CalendarHelper;
 
 /**
  * @author G

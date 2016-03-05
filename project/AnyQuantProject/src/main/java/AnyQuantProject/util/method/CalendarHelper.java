@@ -138,6 +138,20 @@ public class CalendarHelper {
 				&&first.get(Calendar.DAY_OF_YEAR)==second.get(Calendar.DAY_OF_YEAR);
 	}
 	
+	public static Calendar getMonthStart(Calendar src){
+		Calendar ans=Calendar.getInstance();
+		ans.setTimeInMillis(src.getTimeInMillis());
+		ans.set(Calendar.DAY_OF_MONTH, 1);
+		return ans;
+	}
+	public static Calendar getMonthEnd(Calendar src){
+		Calendar ans=Calendar.getInstance();
+		ans.set(src.get(Calendar.YEAR), src.get(Calendar.MONTH), 1);
+		ans.add(Calendar.MONTH, 1);
+		ans.add(Calendar.DAY_OF_MONTH, -1);
+		return ans;
+	}
+	
 	//tested --success
 	public static void main(String[] args) {
 //		Calendar c = Calendar.getInstance();

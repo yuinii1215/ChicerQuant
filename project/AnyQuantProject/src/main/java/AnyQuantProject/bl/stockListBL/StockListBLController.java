@@ -30,14 +30,22 @@ public class StockListBLController implements StockListBLService {
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		//get names
 		List<String> avaliable=new LinkedList<>();
-		List<String> sz=stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
+		//TODO
+//		List<String> sz=stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
 		List<String> sh=stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
 		avaliable.addAll(sh);
-		avaliable.addAll(sz);
+//		avaliable.addAll(sz);
+		
+		//TODO
+		Calendar c = Calendar.getInstance();
+		c.set(Calendar.YEAR, 2015);
+		
+		
 		//get data
 		List<Stock> ans=avaliable.stream()
 				.map(name -> 
-				singleStockDATAService.getOperation(name, CalendarHelper.getPreviousDay(Calendar.getInstance())))
+//				singleStockDATAService.getOperation(name, CalendarHelper.getPreviousDay(Calendar.getInstance())))
+				singleStockDATAService.getOperation(name, CalendarHelper.getPreviousDay(c)))
 				.collect(Collectors.toList());
 		return ans;
 	}
