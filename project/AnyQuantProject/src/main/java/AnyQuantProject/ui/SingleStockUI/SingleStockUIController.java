@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,7 +46,7 @@ public class SingleStockUIController extends Application {
 	DatePicker startDatePicker;
 	DatePicker endDatePicker;
 
-//	List<Stock> singleStockList;
+	List<Stock> singleStockList;
 	TableColumn<Stock, String> dateColumn;
 	TableColumn<Stock, Double> openColumn;
 	TableColumn<Stock, Double> closeColumn;
@@ -58,17 +59,14 @@ public class SingleStockUIController extends Application {
 	TableColumn<Stock, Double> peColumn;
 	TableColumn<Stock, Double> pbColumn;
 
-	private static SingleStockUIController instance;
 
-	public static SingleStockUIController getInstance() {
-		return instance;
-	}
 
 	public static void main(String[] args) {
 		launch();
 	}
-
-	public void start(Stage primaryStage) throws IOException {
+	
+	@Override
+	public void start(Stage primaryStage){
 		Parent root = FXMLLoader.load(getClass().getResource(
 				"singleStockInfoPanel.fxml"));
 		Scene scene = new Scene(root, 900, 600);
@@ -181,5 +179,10 @@ public class SingleStockUIController extends Application {
 	// return filterControl(currentList);
 	// }
 	// }
+	
+	private static SingleStockUIController instance;
 
+	public static SingleStockUIController getInstance() {
+		return instance;
+	}
 }
