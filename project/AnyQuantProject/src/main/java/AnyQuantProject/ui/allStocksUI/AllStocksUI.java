@@ -117,10 +117,10 @@ public class AllStocksUI extends Application {
 		pbColumn.setCellValueFactory(cell -> new SimpleDoubleProperty(cell
 				 .getValue().getPb()));
 
-		table.getColumns().addAll(dateColumn, openColumn, closeColumn,
-				highColumn, lowColumn, volumnColumn, adj_priceColumn,
-				marketValueColumn, flowColumn, turnOverColumn, peColumn,
-				pbColumn);
+//		table.getColumns().addAll(dateColumn, openColumn, closeColumn,
+//				highColumn, lowColumn, volumnColumn, adj_priceColumn,
+//				marketValueColumn, flowColumn, turnOverColumn, peColumn,
+//				pbColumn);
 		
 		((Group) allStockUIScene.getRoot()).getChildren().addAll(table,titleLabel);
 

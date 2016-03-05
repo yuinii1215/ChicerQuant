@@ -1,8 +1,6 @@
-<<<<<<< HEAD:project/AnyQuantProject/src/main/java/AnyQuantProject/util/method/SimpleDoubleProperty.java
+
 package AnyQuantProject.util.method;
-=======
-package AnyQuantProject.ui.SingleStockUI;
->>>>>>> ca47c5473fbf9ea2436d6f6428da427a3978c7d0:project/AnyQuantProject/src/main/java/AnyQuantProject/ui/SingleStockUI/SimpleDoubleProperty.java
+
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;

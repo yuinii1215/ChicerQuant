@@ -76,7 +76,7 @@ public class MainPageController {
 	            defaultBtn.setDefaultButton(false);
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
-	        FavoriteUIController.getInstance();
+//	        FavoriteUIController.getInstance();
 	    }
 	  	
 //		  @FXML
