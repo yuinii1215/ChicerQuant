@@ -1,7 +1,7 @@
 package AnyQuantProject.ui.stockDealInfoUI;
 
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
-import AnyQuantProject.ui.SingleStockUI.SingleStockUIController;
+import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
 /**
  * 
  * @author QiHan

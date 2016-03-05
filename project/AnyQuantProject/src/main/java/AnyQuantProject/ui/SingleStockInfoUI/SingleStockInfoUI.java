@@ -1,4 +1,4 @@
-package AnyQuantProject.ui.SingleStockInfoUI;
+package AnyQuantProject.ui.singleStockInfoUI;
 
 
 import java.time.LocalDate;
@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import AnyQuantProject.ui.SingleStockUI.SingleStockUI;
+import AnyQuantProject.ui.singleStockUI.SingleStockUI;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -35,7 +35,7 @@ import AnyQuantProject.bl.listFilterBL.ListFilterBLImpl;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
-import AnyQuantProject.ui.SingleStockUI.SingleStockUI;
+import AnyQuantProject.ui.singleStockUI.SingleStockUI;
 /**
  * 
  * @author QiHan

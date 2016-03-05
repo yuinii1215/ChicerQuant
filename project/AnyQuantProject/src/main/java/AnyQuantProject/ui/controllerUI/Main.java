@@ -45,7 +45,7 @@ public class Main extends Application {
 	private static Button full; //全屏
 	private static Group root;
 	private static HBox hbox;
-	static AnchorPane titlePanel, guidePanel,mainPanel;
+	static AnchorPane mainPanel;
 	static AnchorPane allStocksPanel,benchMArkPanel,favouritePanel,
 				singleStockInfoPanel,singleStockPanel,stockDealInfoPanel;
 	
@@ -79,8 +79,8 @@ public class Main extends Application {
 //		singleStockInfoPanel = FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
-//		
-//		
+
+		
 		primaryStage.setHeight(scrH*3/4/490*600);
 		primaryStage.setWidth(scrW*3/4);
 		primaryStage.setTitle("AnyQuant");	
@@ -110,11 +110,11 @@ public class Main extends Application {
 		            	primaryStage.setIconified(true);
 		            }
 		        }).build();
-		    full = ButtonBuilder.create().text("full").onAction(new EventHandler<ActionEvent>(){
+		   full = ButtonBuilder.create().text("full").onAction(new EventHandler<ActionEvent>(){
 		            @Override public void handle(ActionEvent e){
 		            	primaryStage.setFullScreen(true);
 		            }
-		        }).build();
+		      }).build();
 		   max = ButtonBuilder.create().text("max").onAction(new EventHandler<ActionEvent>(){
 		            @Override public void handle(ActionEvent e){
 		                primaryStage.setX(primaryScreenBounds.getMinX());

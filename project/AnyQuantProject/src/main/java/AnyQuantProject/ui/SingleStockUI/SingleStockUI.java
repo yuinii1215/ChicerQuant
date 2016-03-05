@@ -1,4 +1,4 @@
-package AnyQuantProject.ui.SingleStockUI;
+package AnyQuantProject.ui.singleStockUI;
 
 public class SingleStockUI {
 

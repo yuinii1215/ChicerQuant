@@ -1,10 +1,9 @@
-package AnyQuantProject.ui.SingleStockUI;
+package AnyQuantProject.ui.singleStockUI;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,4 +1,6 @@
 package AnyQuantProject.ui.controllerUI;
+ 
+import java.util.ResourceBundle;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -10,12 +12,12 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import AnyQuantProject.ui.SingleStockInfoUI.SingleStockInfoUIController;
 import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
 import AnyQuantProject.ui.guideUI.GuideUIController;
-import AnyQuantProject.ui.SingleStockUI.SingleStockUIController;
+import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
+import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
 import AnyQuantProject.ui.stockDealInfoUI.StockDealInfoUIController;
 /**
  * 
@@ -34,9 +36,10 @@ public class MainPageController {
 	private static SingleStockUIController singleStocksUIController ;
 	private static StockDealInfoUIController stockDealInfoUIController ;
 	 @FXML
-	private static AnchorPane titlePane, menuPane, centralPanel;
+	private static AnchorPane titlePanel, guidePanel, centralPanel;
 	private Button defaultBtn = null;
-    private static MainPageController instance;
+  
+	private static MainPageController instance;
 
     public static MainPageController getInstance() {
         return instance;
@@ -45,7 +48,13 @@ public class MainPageController {
 	//	  primaryStage = MainStage.getPrimaryStage();
 	      stage.start(primaryStage);
 	}
+    /**
+     * Initializes the controller class.
+     */
 	
+    public void initialize(ResourceBundle rb) {
+        instance = this;
+    }
 	  @FXML
 	    private void allStocksBtnFired(ActionEvent e) {
 	        setPanel(Main.allStocksPanel, "打开所有股票界面...");
@@ -54,7 +63,7 @@ public class MainPageController {
 	            defaultBtn.setDefaultButton(false);
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
-	        AllStocksUIController.getInstance();
+	 //       AllStocksUIController.getInstance();
 	    }
 	  @FXML
 	    private void benchMarkBtnFired(ActionEvent e) {
@@ -90,7 +99,7 @@ public class MainPageController {
 //		        GuideUIController.getInstance();
 //		    }
 		  
-		  //为避免冲突，待改
+		  //为避免冲突
 		  @FXML
 		    private void singleStockInfoBtnFired(ActionEvent e) {
 		        setPanel(Main.singleStockInfoPanel, "打开单只股票下部信息界面...");
@@ -121,18 +130,19 @@ public class MainPageController {
 		        defaultBtn = btn;
 		        StockDealInfoUIController.getInstance();
 		    }
+		  
 	  
-		 public void showAnimation() {
-		     new Timeline(new KeyFrame(Duration.ZERO, new KeyValue(menuPane.translateXProperty(), -200), new KeyValue(titlePane.opacityProperty(), 0)),
-		            new KeyFrame(Duration.seconds(0.3), new KeyValue(menuPane.translateXProperty(), -200), new KeyValue(titlePane.opacityProperty(), 1)),
-		            new KeyFrame(Duration.seconds(0.6), new KeyValue(menuPane.translateXProperty(), 0), new KeyValue(titlePane.opacityProperty(), 1))).play();
+		  public void showAnimation() {
+		     new Timeline(new KeyFrame(Duration.ZERO, new KeyValue(guidePanel.translateXProperty(), -200), new KeyValue(guidePanel.opacityProperty(), 0)),
+		            new KeyFrame(Duration.seconds(0.3), new KeyValue(guidePanel.translateXProperty(), -200), new KeyValue(guidePanel.opacityProperty(), 1)),
+		            new KeyFrame(Duration.seconds(0.6), new KeyValue(guidePanel.translateXProperty(), 0), new KeyValue(guidePanel.opacityProperty(), 1))).play();
 		   }
 	  
-	  public void setPanel(final AnchorPane panel, String name) {
-	        if (panel == null) {
-	            return;
-	        }
-	        if (centralPanel.getChildren().size() > 0 && centralPanel.getChildren().get(0) == panel) {
+		  public void setPanel(final AnchorPane panel, String name) {
+			  if (panel == null) {
+				  return;
+			  }
+			  if (centralPanel.getChildren().size() > 0 && centralPanel.getChildren().get(0) == panel) {
 	            return;
 	        }
 	        EventHandler<ActionEvent> eh = new EventHandler<ActionEvent>() {
@@ -141,8 +151,8 @@ public class MainPageController {
 	                try {
 	                    centralPanel.getChildren().clear();
 	                    centralPanel.getChildren().add(panel);
-	                    menuPane.toFront();
-	                    titlePane.toFront();
+	                    guidePanel.toFront();
+	                    titlePanel.toFront();
 	                } catch (Exception e) {
 	                  System.out.println("......Fail......");
 	                }
@@ -163,6 +173,7 @@ public class MainPageController {
 	            if (centralPanel.getChildren().get(0) == panel) {
 	                return;
 	            }
+	            //定时器
 	            new Timeline(
 	                    new KeyFrame(Duration.seconds(0.15), new KeyValue(centralPanel.translateXProperty(), -600), new KeyValue(centralPanel.opacityProperty(), 0)),
 	                    new KeyFrame(Duration.seconds(0.16), eh),
@@ -176,39 +187,72 @@ public class MainPageController {
 	                    ).play();
 	        }
 	    }
-	
-	  private static void launchByStaff(StaffTypeEnum staffTypeEnum){
-	        switch (staffTypeEnum){
-			    case ALLSTOCKS:
-			    	allStocksController= new AllStocksUIController() ;
-			    	allStocksController.lanch();
-			    	break;
-			    case BENCHMARK:
-			    	benchMarkUIController = new BenchMarkUIController();
-			    	benchMarkUIController.lanch();
-			    	break;
-			    case FAVORITE:
-			    	favoriteUIController = new FavoriteUIController(); 
-			    	favoriteUIController.lanch();
-			    	break;
-			    case GUIDE:
-			    	guideUIController = new GuideUIController();
-			    	guideUIController.lanch();
-			    	break;
-			    case SINGLESTOCK_INFO:
-			    	singleStockInfoUIController = new SingleStockInfoUIController();
-			    	singleStockInfoUIController.lanch();
-			    	break;
-			    case SINGLESTOCK:
-			    	singleStocksUIController = new SingleStockUIController();
-			    	singleStocksUIController.lanch();
-			    	break;
-			    case STOCKDEAL_INFO:
-			    	stockDealInfoUIController = new StockDealInfoUIController();
-			    	stockDealInfoUIController.lanch();
-			    	break;
-			    default:
-			    	break;
-			}
-	        }
+		  public void initPanel() {
+		        final AnchorPane panel = Main.favouritePanel;
+		        
+		        EventHandler<ActionEvent> eh = new EventHandler<ActionEvent>() {
+		            @Override
+		            public void handle(ActionEvent event) {
+		                try {
+		                    centralPanel.getChildren().clear();
+		                    centralPanel.getChildren().add(panel);
+		                    guidePanel.toFront();
+		                    titlePanel.toFront();
+		                } catch (Exception e) {
+		                  System.out.println("");
+		                }
+		            }
+		        };
+		        EventHandler<ActionEvent> eh2 = new EventHandler<ActionEvent>() {
+		            @Override
+		            public void handle(ActionEvent event) {
+		                try {
+		                	favoriteUIController.getInstance();//.loadTable();
+		                } catch (Exception e) {
+		                	System.out.println("");
+		                }
+		            }
+		        };
+
+		        final double delay = 0.60;
+		        new Timeline(
+		                new KeyFrame(Duration.seconds(delay), new KeyValue(centralPanel.translateXProperty(), -600), new KeyValue(centralPanel.opacityProperty(), 0)),
+		                new KeyFrame(Duration.seconds(delay+0.01), eh),
+		                new KeyFrame(Duration.seconds(delay+0.15), new KeyValue(centralPanel.translateXProperty(), 0), new KeyValue(centralPanel.opacityProperty(), 1)),
+		                new KeyFrame(Duration.seconds(delay+0.16), eh2)).play();
+		    }
+//	  private static void launchByStaff(StaffTypeEnum staffTypeEnum){
+//	        switch (staffTypeEnum){
+//			    case ALLSTOCKS:
+//			    	allStocksController= new AllStocksUIController() ;
+//			    	allStocksController.lanch();
+//			    	break;
+//			    case BENCHMARK:
+//			    	benchMarkUIController = new BenchMarkUIController();
+//			    	benchMarkUIController.lanch();
+//			    	break;
+//			    case FAVORITE:
+//			    	favoriteUIController = new FavoriteUIController(); 
+//			    	favoriteUIController.lanch();
+//			    	break;
+//			    case GUIDE:
+//			    	guideUIController = new GuideUIController();
+//			    	guideUIController.lanch();
+//			    	break;
+//			    case SINGLESTOCK_INFO:
+//			    	singleStockInfoUIController = new SingleStockInfoUIController();
+//			    	singleStockInfoUIController.lanch();
+//			    	break;
+//			    case SINGLESTOCK:
+//			    	singleStocksUIController = new SingleStockUIController();
+//			    	singleStocksUIController.lanch();
+//			    	break;
+//			    case STOCKDEAL_INFO:
+//			    	stockDealInfoUIController = new StockDealInfoUIController();
+//			    	stockDealInfoUIController.lanch();
+//			    	break;
+//			    default:
+//			    	break;
+//			}
+//	        }
 }
