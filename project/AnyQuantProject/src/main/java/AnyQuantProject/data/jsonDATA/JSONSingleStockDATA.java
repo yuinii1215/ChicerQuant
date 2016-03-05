@@ -37,7 +37,7 @@ public class JSONSingleStockDATA implements JSONSingleStockDATAService{
 
 	
 	@Override
-	public JSONArray getBenchMarkAmongDate(String name, Calendar start,
+	public JSONArray getSingleStockAmongDate(String name, Calendar start,
 			Calendar end) {
 		key = getKeyWithDate(name, start, end);
 		JSONObject jo = new JSONObject();

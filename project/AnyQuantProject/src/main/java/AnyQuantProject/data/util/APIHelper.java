@@ -23,7 +23,7 @@ public class APIHelper {
 	public JSONArray getAPI(String key) throws IOException {
 		JSONArray jsonArray = null;
 		
-		System.out.println("key:   "+key);
+//		System.out.println("key:   "+key);
 		URL url = new URL(key);
 		URLConnection conn = url.openConnection();
 		conn.setRequestProperty("X-Auth-Code", "2069376c8bdb54297e71a564833e2770");

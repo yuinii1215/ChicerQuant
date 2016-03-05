@@ -54,10 +54,11 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	@Override
 	public BenchMark getOperation(String name, Calendar date) {
 		JSONObject result = JSONBenchMark.getOperation(name, date);
-		//滤去date属性
-		JsonConfig config = getJsonConfig();    
-	    result = JSONObject.fromObject(result,config); 
+//		//滤去date属性
+//		JsonConfig config = getJsonConfig();    
+//	    result = JSONObject.fromObject(result,config); 
 		BenchMark re = (BenchMark) JSONObject.toBean(result, BenchMark.class);
+		re.setName(name);
 		return re;
 	}
 
@@ -67,6 +68,9 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 			Calendar end) {
 		JSONArray result = JSONBenchMark.getBenchMarkAmongDate(name, start, end);
 		List<BenchMark> resultList = JSONArray.toList(result, new BenchMark(), getJsonConfig());
+		for (int i = 0; i < resultList.size(); i++) {
+			resultList.get(i).setName(name);
+		}
 		return resultList;
 	}
 
@@ -82,10 +86,10 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 
 	public static void main(String[] args) {
 		BenchMarkDATA b = BenchMarkDATA.getInstance();
-		List<String> list = b.getAllBenchMark();
-		System.out.println("list  : " + list.size());
+//		List<String> list = b.getAllBenchMark();
+//		System.out.println("list  : " + list.size());
 //		System.out.println("list 0 :" + list.get(0).getOpen()+" "+list.get(0).getClose());
-		BenchMark ben = b.getOperation("hs300", Calendar.getInstance());
-		System.out.println("ben : "+ben.getOpen()+" "+ben.getClose());
+		b.getBenchMarkAmongDate("hs300", Calendar.getInstance(), Calendar.getInstance());
+//		System.out.println("ben : "+ben.getOpen()+" "+ben.getClose());
 	}
 }

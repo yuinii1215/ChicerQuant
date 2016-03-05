@@ -32,5 +32,5 @@ public interface JSONSingleStockDATAService {
 	 * @param end
 	 * @return
 	 */
-	public JSONArray getBenchMarkAmongDate(String name, Calendar start, Calendar end);
+	public JSONArray getSingleStockAmongDate(String name, Calendar start, Calendar end);
 }

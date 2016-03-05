@@ -10,6 +10,9 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.StringTokenizer;
+
+import jnr.ffi.Struct.in_addr_t;
 
 /**
  * @author G
@@ -141,7 +144,7 @@ public class CalendarHelper {
 	public static Calendar getMonthStart(Calendar src){
 		Calendar ans=Calendar.getInstance();
 		ans.setTimeInMillis(src.getTimeInMillis());
-		ans.set(Calendar.DAY_OF_MONTH, 1);
+		ans.set(Calendar.DAY_OF_MONTH, 2);
 		return ans;
 	}
 	public static Calendar getMonthEnd(Calendar src){
@@ -149,6 +152,23 @@ public class CalendarHelper {
 		ans.set(src.get(Calendar.YEAR), src.get(Calendar.MONTH), 1);
 		ans.add(Calendar.MONTH, 1);
 		ans.add(Calendar.DAY_OF_MONTH, -1);
+		return ans;
+	}
+	//
+	public static Calendar convert2Calendar(String src){
+		StringTokenizer stringTokenizer=new StringTokenizer(src, "-/");
+		String temp;
+		//year
+		temp=stringTokenizer.nextToken();
+		int year=Integer.parseInt(temp);
+		//month
+		temp=stringTokenizer.nextToken();
+		int month=Integer.parseInt(temp);
+		//day
+		temp=stringTokenizer.nextToken();
+		int day=Integer.parseInt(temp);
+		Calendar ans=Calendar.getInstance();
+		ans.set(year, month, day);
 		return ans;
 	}
 	
