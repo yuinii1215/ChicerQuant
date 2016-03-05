@@ -49,7 +49,7 @@ public class SingleStockDATA implements SingleStockDATAService{
 	@Override
 	public List<Stock> getStockAmongDate(String name, Calendar start,
 			Calendar end) {
-		JSONArray resultArray = JSONSingleStock.getBenchMarkAmongDate(name, start, end);
+		JSONArray resultArray = JSONSingleStock.getSingleStockAmongDate(name, start, end);
 		@SuppressWarnings("unchecked")
 		List<Stock> resultList = JSONArray.toList(resultArray, new Stock(), new JsonConfig());
 		for (int i = 0; i < resultList.size(); i++) {
@@ -62,10 +62,11 @@ public class SingleStockDATA implements SingleStockDATAService{
 	public static void main(String[] args) {
 		SingleStockDATA s = new SingleStockDATA();
 		
-		Calendar c = Calendar.getInstance();
-		c.set(Calendar.YEAR, 2015);
-		Stock stock = s.getOperation("sh600000", c);
-//		System.out.println(stock.getName());
-		System.out.println(stock.getClose());
+		s.getStockAmongDate("sh600000", Calendar.getInstance(), Calendar.getInstance());
+//		Calendar c = Calendar.getInstance();
+//		c.set(Calendar.YEAR, 2015);
+//		Stock stock = s.getOperation("sh600000", c);
+////		System.out.println(stock.getName());
+//		System.out.println(stock.getClose());
 	}
 }

@@ -33,7 +33,7 @@ public class APIHelper {
 		JSONObject jsonObject = JSONObject.fromObject(str);
 		jsonArray = JSONArray.fromObject(jsonObject.get("data".toString()));
 			
-//		System.out.println("apihelper:   "+str);
+		System.out.println("apihelper:   "+str);
 	
 		return jsonArray;
 	}
