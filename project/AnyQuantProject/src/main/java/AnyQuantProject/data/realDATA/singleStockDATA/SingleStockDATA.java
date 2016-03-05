@@ -41,6 +41,7 @@ public class SingleStockDATA implements SingleStockDATAService{
 	public Stock getOperation(String name, Calendar date) {
 		JSONObject resultJsonObject = JSONSingleStock.getOperation(name, date);
 		Stock result = (Stock) JSONObject.toBean(resultJsonObject,Stock.class);
+		result.setName(name);
 		return result;
 	}
 
@@ -51,7 +52,20 @@ public class SingleStockDATA implements SingleStockDATAService{
 		JSONArray resultArray = JSONSingleStock.getBenchMarkAmongDate(name, start, end);
 		@SuppressWarnings("unchecked")
 		List<Stock> resultList = JSONArray.toList(resultArray, new Stock(), new JsonConfig());
+		for (int i = 0; i < resultList.size(); i++) {
+			resultList.get(i).setName(name);
+		}
 		return resultList;
 	}
 
+	
+	public static void main(String[] args) {
+		SingleStockDATA s = new SingleStockDATA();
+		
+		Calendar c = Calendar.getInstance();
+		c.set(Calendar.YEAR, 2015);
+		Stock stock = s.getOperation("sh600000", c);
+//		System.out.println(stock.getName());
+		System.out.println(stock.getClose());
+	}
 }
