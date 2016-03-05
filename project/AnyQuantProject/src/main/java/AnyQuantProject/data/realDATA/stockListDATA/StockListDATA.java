@@ -22,6 +22,17 @@ public class StockListDATA implements StockListDATAService{
 
 	JSONStockListDATAService JSONStockList = new JSONStockListDATA();
 	
+	private static StockListDATA stockListDATA;
+	private StockListDATA() {
+	}
+	
+	
+	public static StockListDATA getInstance(){
+		if ( stockListDATA == null) {
+			stockListDATA = new StockListDATA();
+		}
+		return stockListDATA;
+	}
 	@SuppressWarnings("null")
 	@Override
 	public List<String> getAllStocks(Calendar date, Exchange exchange) {

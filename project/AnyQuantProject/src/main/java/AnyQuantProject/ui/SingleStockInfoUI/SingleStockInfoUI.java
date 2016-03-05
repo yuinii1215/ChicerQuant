@@ -98,6 +98,10 @@ public class SingleStockInfoUI extends SingleStockUI {
 		this.singleStockList = singleStock;
 	}
 
+<<<<<<< HEAD
+=======
+	public void start(Stage stage) {
+>>>>>>> ca47c5473fbf9ea2436d6f6428da427a3978c7d0
 
 	public void start(Stage stage) {
 		for (int i = 0; i < 5; i++) {

@@ -31,19 +31,19 @@ public class FactoryDATA implements FactoryDATAService{
 	
 	@Override
 	public BenchMarkDATAService getBenchMarkDATAService() {
-		return new BenchMarkDATA();
+		return BenchMarkDATA.getInstance();
 	}
 
 	
 	@Override
 	public SingleStockDATAService getSingleStockDATAService() {
-		return new SingleStockDATA();
+		return SingleStockDATA.getInstance();
 	}
 
 	
 	@Override
 	public StockListDATAService getStockListDATAService() {
-		return new StockListDATA();
+		return StockListDATA.getInstance();
 	}
 	
 	
