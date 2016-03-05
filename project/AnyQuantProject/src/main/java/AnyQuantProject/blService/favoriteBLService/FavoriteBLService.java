@@ -29,5 +29,10 @@ public interface FavoriteBLService {
 	 * @return操作结果
 	 */
 	OperationResult unFavorStock(String name);
-
+	/**
+	 * 检查是否被关注，
+	 * @param name
+	 * @return 已被关注返回true
+	 */
+	boolean checkIsFavored(String name);
 }
