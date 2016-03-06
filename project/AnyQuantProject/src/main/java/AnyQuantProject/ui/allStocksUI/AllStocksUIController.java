@@ -1,10 +1,12 @@
 package AnyQuantProject.ui.allStocksUI;
 
+import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -18,7 +20,7 @@ import AnyQuantProject.ui.controllerUI.MainPageController;
  * @author GraceHan
  *
  */
-public class AllStocksUIController{
+public class AllStocksUIController  implements Initializable{
 	Label titleLabel;
 	Scene allStockUIScene;
 	TableView<Stock> table;
@@ -38,15 +40,18 @@ public class AllStocksUIController{
 	private static AllStocksUIController instance=null;
 
     public static AllStocksUIController getInstance() {
+    	System.out.println("!!!!!!!!!!!!!!!!!");
         return instance==null?(instance=new AllStocksUIController()):instance;
     }
     
     /**
      * Initializes the controller class.
      */
-    public void initialize(ResourceBundle rb) {
-        instance = this;
-    }
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		instance = this;
+	}
 
 //	@Override
 //	public void start(Stage primaryStage) throws Exception {

@@ -62,6 +62,7 @@ public class MainPageController  implements Initializable {
 	}
 	  @FXML
 	    private void allStocksBtnFired(ActionEvent e) {
+		  System.out.println("BBBBBBBBBB");
 	        setPanel(Main.allStocksPanel, "打开所有股票界面...");
 	        Button btn = (Button)e.getSource();
 	        if(defaultBtn != null)

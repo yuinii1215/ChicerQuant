@@ -1,6 +1,5 @@
 package AnyQuantProject.ui.controllerUI;
 
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -58,7 +57,6 @@ public class Main extends Application {
 	        return instance;
 	    }
 	    
-
 	public static Scene getPrimaryScene() {
 		// TODO Auto-generated method stub
 		return primaryScene;
@@ -75,7 +73,7 @@ public class Main extends Application {
 
 //		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
 //		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
-//		allStocksPanel = FXMLLoader.load(getClass().getResource("/AnyQuantProject/src/main/java/AnyQuantProject/ui/allStocksUI/allStocksPanel.fxml"));
+		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 		
 //		singleStockInfoPanel = FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
@@ -85,9 +83,7 @@ public class Main extends Application {
 		primaryStage.setHeight(600);
 		primaryStage.setWidth(950);
 		primaryStage.setTitle("AnyQuant");	
-		
-	
-	
+
 		root = new Group();
 		primaryScene = new Scene(root);  
         primaryStage.initStyle(StageStyle.DECORATED);
