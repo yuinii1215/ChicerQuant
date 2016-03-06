@@ -80,7 +80,7 @@ public static Stage getPrimaryStage() {
 //		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
 //		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
-		System.out.println("PPPPPPPPP");
+		
 //		singleStockInfoPanel = FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
