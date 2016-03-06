@@ -44,9 +44,9 @@ public class LineChartSample extends Application {
 //        series.getData().add(new XYChart.Data(12, 25));
         SingleStockDealBLService singleStockDealBLService=SingleStockBLFactory.getSingleStockDealBLService();
         Calendar te=Calendar.getInstance();
-        te.set(Calendar.MONTH,0);
+        te.set(Calendar.MONTH,1);
         List<Stock> stocks= singleStockDealBLService.getSingleStockDeal("sz002644", te);
-        LineChart<?, ?> lineChart=LineChartFactory.getMonthLineChart(stocks);
+        LineChart<?, ?> lineChart=LineChartFactory.getMonthKLineChart(stocks);
         
         Scene scene  = new Scene(lineChart,800,600);
        

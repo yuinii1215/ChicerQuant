@@ -8,6 +8,7 @@ import AnyQuantProject.dataStructure.AbstractStock;
 import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.method.Checker;
+import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart.Series;
 
@@ -40,5 +41,20 @@ public class LineChartFactory {
 		return ans;
 	}
 	//
-	
+	public static LineChart<?, ?> getMonthKLineChart(List<? extends AbstractStock> src){
+		// check
+		if (!Checker.checkListNotNull(src)) {
+			System.out.println("not lucky");
+			return null;
+		}
+		//get bl service
+		LineChartBLService lineChartBLService=LineChartBLFactory.getLineChartBLService();
+		LineChartData data=lineChartBLService.drawMonthKLineChart(src);
+		LineChart<String, Number> ans=new MyKLineChart<String,Number>((Axis<String>)data.getxAxis(), (Axis<Number>)data.getyAxis());
+		ans.setTitle(data.getTitle());
+		//
+		data.getSeries().stream().forEach(ser->{
+			ans.getData().add((Series<String, Number>) ser);});
+		return ans;
+	}
 }

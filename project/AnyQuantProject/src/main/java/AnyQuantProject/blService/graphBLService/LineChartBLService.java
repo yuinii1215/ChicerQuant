@@ -14,4 +14,6 @@ import AnyQuantProject.dataStructure.LineChartData;
 public interface LineChartBLService extends GraphBLService {
 	String chartType="折线图";
 	public LineChartData drawMonthLineChart(List<? extends AbstractStock> src);
+	
+	public LineChartData drawMonthKLineChart(List<? extends AbstractStock> src);
 }

@@ -10,7 +10,6 @@ import java.util.List;
 
 import javafx.event.ActionEvent;
 import AnyQuantProject.util.method.*;
-import AnyQuantProject.ui.singleStockUI.SingleStockUI;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

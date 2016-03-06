@@ -1,5 +1,6 @@
 package AnyQuantProject.bl.graphBL;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.shape.Rectangle;
 
 /** 
 *AnyQuantProject//AnyQuantProject.bl.graphBL//LineChartBLImpl.java
@@ -47,6 +49,52 @@ public class LineChartBLImpl implements LineChartBLService {
 			.forEach(da->lowSeries.getData().add(da));
 		lowSeries.setName("最低价");
 		return new LineChartData(title, xAxis, yAxis, highSeries,lowSeries);
+	}
+
+	@Override
+	public LineChartData drawMonthKLineChart(List<? extends AbstractStock> src) {
+		//check
+		if (!Checker.checkListNotNull(src)) {
+			return new LineChartData();
+		}
+		//get title
+		AbstractStock head = src.get(0);
+		String title = head.getYear() + this.year + head.getMonth() + this.month + " " + head.getName() + " K线图";
+		// x,y
+		CategoryAxis xAxis = new CategoryAxis();
+		NumberAxis yAxis =new NumberAxis();
+		//
+		XYChart.Series<?, ?> highlowSeries=new XYChart.Series();
+		for(Iterator<? extends AbstractStock> iterator=src.iterator();iterator.hasNext();){
+			AbstractStock temp=iterator.next();
+			highlowSeries.getData().add(new XYChart.Data(temp.getDay(), temp.getHigh()));
+			highlowSeries.getData().add(new XYChart.Data(temp.getDay(), temp.getLow()));
+		}
+		//aver
+		XYChart.Series<?, ?> averSeries=new XYChart.Series();
+		src.stream()
+		.map(stock->{
+			XYChart.Data ans=new XYChart.Data(stock.getDay(), (stock.getOpen()+stock.getClose())/2);
+			Rectangle r = new Rectangle();
+	        r.setWidth(20);
+	        r.setHeight(100);
+	        ans.setNode(r);
+	        return ans;
+			})
+		.forEach(da->averSeries.getData().add(da));
+		averSeries.setName(head.getName()+"走势");
+		//open
+		XYChart.Series<?, ?> openSeries=new XYChart.Series();
+		src.stream()
+		.map(stock->new XYChart.Data(stock.getDay(), stock.getOpen()))
+		.forEach(da->openSeries.getData().add(da));
+		//close
+		XYChart.Series<?, ?> closeSeries=new XYChart.Series();
+		src.stream()
+		.map(stock->new XYChart.Data(stock.getDay(), stock.getClose()))
+		.forEach(da->closeSeries.getData().add(da));
+		//
+		return new LineChartData(title, xAxis, yAxis,highlowSeries, openSeries,closeSeries,averSeries);
 	}
 
 }
