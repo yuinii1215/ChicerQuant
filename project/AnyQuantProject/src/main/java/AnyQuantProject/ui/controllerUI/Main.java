@@ -74,7 +74,7 @@ public class Main extends Application {
 
 //		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
 //		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
-//		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+//		allStocksPanel = FXMLLoader.load(getClass().getResource("/AnyQuantProject/src/main/java/AnyQuantProject/ui/allStocksUI/allStocksPanel.fxml"));
 		
 //		singleStockInfoPanel = FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));

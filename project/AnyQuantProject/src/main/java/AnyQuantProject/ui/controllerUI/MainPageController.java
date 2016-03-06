@@ -63,7 +63,7 @@ public class MainPageController {
 	            defaultBtn.setDefaultButton(false);
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
-	 //       AllStocksUIController.getInstance();
+	        AllStocksUIController.getInstance();
 	    }
 	  @FXML
 	    private void benchMarkBtnFired(ActionEvent e) {
@@ -108,7 +108,7 @@ public class MainPageController {
 		            defaultBtn.setDefaultButton(false);
 		        btn.setDefaultButton(true);
 		        defaultBtn = btn;
-		        //SingleStockInfoUIController.getInstance();
+//		        SingleStockInfoUIController.getInstance().;
 		    }
 		  @FXML
 		    private void singleStockBtnFired(ActionEvent e) {
@@ -118,7 +118,7 @@ public class MainPageController {
 		            defaultBtn.setDefaultButton(false);
 		        btn.setDefaultButton(true);
 		        defaultBtn = btn;
-		        SingleStockUIController.getInstance();
+//		        SingleStockUIController.getInstance();
 		    }
 		  @FXML
 		    private void stockDealInfoBtnFired(ActionEvent e) {
