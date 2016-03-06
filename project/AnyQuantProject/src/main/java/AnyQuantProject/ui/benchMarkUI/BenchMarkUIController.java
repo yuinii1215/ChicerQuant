@@ -1,5 +1,9 @@
 package AnyQuantProject.ui.benchMarkUI;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.Initializable;
 import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 
 /**
@@ -8,7 +12,7 @@ import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
  *
  */
 
-public class BenchMarkUIController {
+public class BenchMarkUIController implements Initializable{
 
 
     private static BenchMarkUIController instance;
@@ -18,8 +22,10 @@ public class BenchMarkUIController {
     	return instance;
     }	
     
-    public void lanch() {
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		   instance = this;
 	}
 }

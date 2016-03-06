@@ -1,5 +1,6 @@
 package AnyQuantProject.ui.controllerUI;
  
+import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.animation.KeyFrame;
@@ -8,6 +9,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -25,7 +27,7 @@ import AnyQuantProject.ui.stockDealInfoUI.StockDealInfoUIController;
  *
  */
 
-public class MainPageController {
+public class MainPageController  implements Initializable {
 	private static Main stage;
 	private static Stage primaryStage;
 	private static AllStocksUIController allStocksController ;
@@ -38,6 +40,7 @@ public class MainPageController {
 	 @FXML
 	private static AnchorPane titlePanel, guidePanel, centralPanel;
 	private Button defaultBtn = null;
+	
   
 	private static MainPageController instance;
 
@@ -51,10 +54,12 @@ public class MainPageController {
     /**
      * Initializes the controller class.
      */
-	
-    public void initialize(ResourceBundle rb) {
-        instance = this;
-    }
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		 instance = this;
+		
+	}
 	  @FXML
 	    private void allStocksBtnFired(ActionEvent e) {
 	        setPanel(Main.allStocksPanel, "打开所有股票界面...");
@@ -118,7 +123,7 @@ public class MainPageController {
 		            defaultBtn.setDefaultButton(false);
 		        btn.setDefaultButton(true);
 		        defaultBtn = btn;
-//		        SingleStockUIController.getInstance();
+		     //   SingleStockUIController.getInstance();
 		    }
 		  @FXML
 		    private void stockDealInfoBtnFired(ActionEvent e) {
@@ -131,12 +136,12 @@ public class MainPageController {
 		        StockDealInfoUIController.getInstance();
 		    }
 		  
-	  
-		  public void showAnimation() {
-		     new Timeline(new KeyFrame(Duration.ZERO, new KeyValue(guidePanel.translateXProperty(), -200), new KeyValue(guidePanel.opacityProperty(), 0)),
-		            new KeyFrame(Duration.seconds(0.3), new KeyValue(guidePanel.translateXProperty(), -200), new KeyValue(guidePanel.opacityProperty(), 1)),
-		            new KeyFrame(Duration.seconds(0.6), new KeyValue(guidePanel.translateXProperty(), 0), new KeyValue(guidePanel.opacityProperty(), 1))).play();
-		   }
+//	  
+//		  public void showAnimation() {
+//		     new Timeline(new KeyFrame(Duration.ZERO, new KeyValue(guidePanel.translateXProperty(), -200), new KeyValue(guidePanel.opacityProperty(), 0)),
+//		            new KeyFrame(Duration.seconds(0.3), new KeyValue(guidePanel.translateXProperty(), -200), new KeyValue(guidePanel.opacityProperty(), 1)),
+//		            new KeyFrame(Duration.seconds(0.6), new KeyValue(guidePanel.translateXProperty(), 0), new KeyValue(guidePanel.opacityProperty(), 1))).play();
+//		   }
 	  
 		  public void setPanel(final AnchorPane panel, String name) {
 			  if (panel == null) {
@@ -214,13 +219,13 @@ public class MainPageController {
 		            }
 		        };
 
-		        final double delay = 0.60;
-		        new Timeline(
-		                new KeyFrame(Duration.seconds(delay), new KeyValue(centralPanel.translateXProperty(), -600), new KeyValue(centralPanel.opacityProperty(), 0)),
-		                new KeyFrame(Duration.seconds(delay+0.01), eh),
-		                new KeyFrame(Duration.seconds(delay+0.15), new KeyValue(centralPanel.translateXProperty(), 0), new KeyValue(centralPanel.opacityProperty(), 1)),
-		                new KeyFrame(Duration.seconds(delay+0.16), eh2)).play();
-		    }
+//		        final double delay = 0.60;
+//		        new Timeline(
+//		                new KeyFrame(Duration.seconds(delay), new KeyValue(centralPanel.translateXProperty(), -600), new KeyValue(centralPanel.opacityProperty(), 0)),
+//		                new KeyFrame(Duration.seconds(delay+0.01), eh),
+//		                new KeyFrame(Duration.seconds(delay+0.15), new KeyValue(centralPanel.translateXProperty(), 0), new KeyValue(centralPanel.opacityProperty(), 1)),
+//		                new KeyFrame(Duration.seconds(delay+0.16), eh2)).play();
+//		    }
 //	  private static void launchByStaff(StaffTypeEnum staffTypeEnum){
 //	        switch (staffTypeEnum){
 //			    case ALLSTOCKS:
@@ -255,4 +260,6 @@ public class MainPageController {
 //			    	break;
 //			}
 //	        }
+	
+		  }
 }

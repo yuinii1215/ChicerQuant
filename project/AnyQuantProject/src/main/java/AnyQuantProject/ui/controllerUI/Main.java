@@ -1,5 +1,6 @@
 package AnyQuantProject.ui.controllerUI;
 
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -68,7 +69,7 @@ public class Main extends Application {
 		instance=this;
 		this.primaryStage = primaryStage;
 		
-		mainPanel = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+		mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
 //		benchMArkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 //		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 
@@ -81,8 +82,8 @@ public class Main extends Application {
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 
 		
-		primaryStage.setHeight(scrH*3/4/490*600);
-		primaryStage.setWidth(scrW*3/4);
+		primaryStage.setHeight(600);
+		primaryStage.setWidth(950);
 		primaryStage.setTitle("AnyQuant");	
 		
 	
@@ -90,6 +91,7 @@ public class Main extends Application {
 		root = new Group();
 		primaryScene = new Scene(root);  
         primaryStage.initStyle(StageStyle.DECORATED);
+        enterMainScene();
 	//	primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
 	//	primaryStage.setScene(new Scene(titlePanel));  
@@ -97,8 +99,13 @@ public class Main extends Application {
 		primaryStage.show();  
 		
 }  
+    public void enterMainScene(){
+        this.primaryStage.setScene(new Scene(mainPanel));
+    //    MainPageController.getInstance().showAnimation();
+        MainPageController.getInstance().initPanel();
+    }
 	
-	
+
 	public void buttons(){
 		  close = ButtonBuilder.create().text("close").onAction(new EventHandler<ActionEvent>(){
 		        @Override public void handle(ActionEvent e){
@@ -134,7 +141,7 @@ public class Main extends Application {
 	
 	
 	 public static void main(String[] args) {
-		 launch();
+		 launch(args);
 	   }
   
 	
