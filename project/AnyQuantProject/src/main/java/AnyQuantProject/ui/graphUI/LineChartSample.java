@@ -46,8 +46,7 @@ public class LineChartSample extends Application {
         Calendar te=Calendar.getInstance();
         te.set(Calendar.MONTH,1);
         List<Stock> stocks= singleStockDealBLService.getSingleStockDeal("sz002644", te);
-        stocks.forEach(stock->System.out.println(stock.getHigh()));
-        LineChart<String, Number> lineChart=LineChartFactory.getMonthLineChart(stocks);
+        LineChart<?, ?> lineChart=LineChartFactory.getMonthLineChart(stocks);
         
         Scene scene  = new Scene(lineChart,800,600);
        

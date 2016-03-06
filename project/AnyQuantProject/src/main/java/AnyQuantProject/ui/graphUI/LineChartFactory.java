@@ -18,8 +18,12 @@ import javafx.scene.chart.XYChart.Series;
 */
 
 public class LineChartFactory {
-
-	public static LineChart<String, Number> getMonthLineChart(List<? extends AbstractStock> src){
+	/**
+	 * 已月为单位的关于最高价、最低价的统计图
+	 * @param src
+	 * @return
+	 */
+	public static LineChart<?, ?> getMonthLineChart(List<? extends AbstractStock> src){
 		//check
 		if (!Checker.checkListNotNull(src)) {
 			System.out.println("not lucky");
@@ -35,4 +39,6 @@ public class LineChartFactory {
 			ans.getData().add((Series<String, Number>) ser);});
 		return ans;
 	}
+	//
+	
 }

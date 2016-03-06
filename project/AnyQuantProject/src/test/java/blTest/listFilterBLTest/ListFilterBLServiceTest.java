@@ -37,7 +37,7 @@ public class ListFilterBLServiceTest {
 			temp.setFlow(i*1000);
 			Calendar day=Calendar.getInstance();
 			day.add(Calendar.MONTH, i);
-			temp.setDate(day);
+			temp.setDate("");
 			stocks.add(temp);
 		}
 	}
