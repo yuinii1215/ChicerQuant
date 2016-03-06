@@ -41,9 +41,14 @@ import AnyQuantProject.bl.listFilterBL.ListFilterBLImpl;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.singleStockUI.SingleStockUI;
 import AnyQuantProject.util.method.CalendarHelper;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.TableRow;
+import javafx.scene.layout.Pane;
 
 /**
  * 
@@ -81,24 +86,37 @@ public class SingleStockInfoUIController {
 	Double minFilter, maxFilter, targetFilter;
 	Calendar minTime, maxTime, targetTime;
 	String keyWord;
-
 	ListFilterBLImpl listFilterBlImpl;
 	FavoriteBLService favoriteBlImpl;
 	OperationResult operationResult;
 	CalendarHelper calendarHelper = new CalendarHelper();
-//
-//	public static void main(String[] args) {
-//		launch();
-//	}
+        Parent parent;
+        
+   
+        private static SingleStockInfoUIController instance;
 
-	public void start(Stage primaryStage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource(
-				"singleStockInfoPanel.fxml"));
-		Scene scene = new Scene(root, 950, 600);
-		primaryStage.setScene(scene);
-		primaryStage.show();
-	}
-
+    	public static SingleStockInfoUIController getInstance() {
+    	System.out.println("here is the instance of SingleStockInfoUIController");
+        return instance==null?(instance=new SingleStockInfoUIController()):instance;
+    }
+    
+    /**
+     * Initializes the controller class.
+     */
+    public SingleStockInfoUIController(){
+   
+    }
+    
+    public SingleStockInfoUIController launch(Pane father, Pane before) throws IOException {
+        /**
+         * 使用lauch之后不用专门调用initialize
+         */
+        parent = FXMLLoader.load(getClass().getResource(
+                    "singleStockInfoPanel.fxml"));
+        instance = SingleStockInfoUIController.getInstance();
+        return instance;
+    }
+        
 	@FXML
 	private void handleFilterAction(ActionEvent actionEvent) {
 		if (minRange.getText().trim().length() >= 1) {
@@ -227,7 +245,7 @@ public class SingleStockInfoUIController {
                     protected void updateItem(String t, boolean bln) {
                         super.updateItem(t, bln);
                         if(t != null){
-                        	keyWord=t;
+                            keyWord=t;
                             setText(t);
                             filterFlag[0] = true;
                         }else{
@@ -241,10 +259,11 @@ public class SingleStockInfoUIController {
 	}
 
 	@FXML
-	public void initialize() {
+	public void initialize(URL location, ResourceBundle resources) {
 		/**
 		 * initialize the button
 		 */
+                isFavorButton=(Button)parent.lookup("#isFavorButton");
 		if (singleStockList.get(0).isFavor() == true) {// 假设1的时候表示已经关注
 			isFavorButton.setText("取消关注");
 		} else {
@@ -252,13 +271,18 @@ public class SingleStockInfoUIController {
 		}
 
 		/**
-		 * initialize the combobox
+		 * initialize the table
 		 */
-
-		
-		/**
-		 * initialize the tabel
-		 */
+                 table=(TableView)parent.lookup("#tableView");
+		 table.setItems(FXCollections.observableArrayList(singleStockList));
+			
+                 table.setRowFactory(new Callback<TableView<Stock>,TableRow<Stock>>(){
+				@Override
+				public TableRow<Stock> call(TableView<Stock> table) {
+					// TODO Auto-generated method stub
+					return new TableRowControl(table);
+				}
+            });
 		table.setItems(FXCollections.observableArrayList(singleStockList));
 
 		/**
@@ -289,6 +313,7 @@ public class SingleStockInfoUIController {
 		pbColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 				cellData.getValue().getPb()));
 
+//                instance = this;
 	}
 
 }

@@ -45,7 +45,7 @@ public class AllStocksUIController  implements Initializable{
 
     	public static AllStocksUIController getInstance() {
     	System.out.println("!!!!!!!!!!!!!!!!!");
-    	
+ 
         return instance==null?(instance=new AllStocksUIController()):instance;
     }
     
