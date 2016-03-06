@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -62,23 +63,25 @@ public class MainPageController  implements Initializable {
 	}
 	  @FXML
 	    private void allStocksBtnFired(ActionEvent e) {
-		  System.out.println("BBBBBBBBBB");
+		    System.out.println("BBBBBBBBBB");
 	        setPanel(Main.allStocksPanel, "打开所有股票界面...");
 	        Button btn = (Button)e.getSource();
 	        if(defaultBtn != null)
 	            defaultBtn.setDefaultButton(false);
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
+	        Main.enterAllStocksScene();
 	        AllStocksUIController.getInstance();
 	    }
 	  @FXML
 	    private void benchMarkBtnFired(ActionEvent e) {
-	        setPanel(Main.benchMArkPanel, "打开大盘信息界面...");
+	        setPanel(Main.benchMarkPanel, "打开大盘信息界面...");
 	        Button btn = (Button)e.getSource();
 	        if(defaultBtn != null)
 	            defaultBtn.setDefaultButton(false);
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
+	    //    Main.enterBenchMarkScene();
 	        BenchMarkUIController.getInstance();
 	    }
 	  
@@ -91,6 +94,7 @@ public class MainPageController  implements Initializable {
 	            defaultBtn.setDefaultButton(false);
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
+	        Main.enterFavouriteScene();
 	        FavoriteUIController.getInstance();
 	    }
 	  	
@@ -148,9 +152,9 @@ public class MainPageController  implements Initializable {
 			  if (panel == null) {
 				  return;
 			  }
-			  if (centralPanel.getChildren().size() > 0 && centralPanel.getChildren().get(0) == panel) {
-	            return;
-	        }
+//			  if (centralPanel.getChildren().size() > 0 && centralPanel.getChildren().get(0) == panel) {
+//	            return;
+//	        }
 	        EventHandler<ActionEvent> eh = new EventHandler<ActionEvent>() {
 	            @Override
 	            public void handle(ActionEvent event) {
@@ -175,23 +179,23 @@ public class MainPageController  implements Initializable {
 //	            }
 //	        };
 //	        StudentPanelController.getInstance().loadTable();
-	        if (centralPanel.getChildren().size() > 0) {
-	            if (centralPanel.getChildren().get(0) == panel) {
-	                return;
-	            }
-	            //定时器
-	            new Timeline(
-	                    new KeyFrame(Duration.seconds(0.15), new KeyValue(centralPanel.translateXProperty(), -600), new KeyValue(centralPanel.opacityProperty(), 0)),
-	                    new KeyFrame(Duration.seconds(0.16), eh),
-	                    new KeyFrame(Duration.seconds(0.3), new KeyValue(centralPanel.translateXProperty(), 0), new KeyValue(centralPanel.opacityProperty(), 1)) //,new KeyFrame(Duration.seconds(0.31), eh2)
-	                    ).play();
-	        } else {
-	            new Timeline(
-	                    new KeyFrame(Duration.seconds(0.45), new KeyValue(centralPanel.opacityProperty(), 0)),
-	                    new KeyFrame(Duration.seconds(0.46), eh),
-	                    new KeyFrame(Duration.seconds(0.6), new KeyValue(centralPanel.opacityProperty(), 1)) //,new KeyFrame(Duration.seconds(0.31), eh2)
-	                    ).play();
-	        }
+//	        if (centralPanel.getChildren().size() > 0) {
+//	            if (centralPanel.getChildren().get(0) == panel) {
+//	                return;
+//	            }
+//	            //定时器
+//	            new Timeline(
+//	                    new KeyFrame(Duration.seconds(0.15), new KeyValue(centralPanel.translateXProperty(), -600), new KeyValue(centralPanel.opacityProperty(), 0)),
+//	                    new KeyFrame(Duration.seconds(0.16), eh),
+//	                    new KeyFrame(Duration.seconds(0.3), new KeyValue(centralPanel.translateXProperty(), 0), new KeyValue(centralPanel.opacityProperty(), 1)) //,new KeyFrame(Duration.seconds(0.31), eh2)
+//	                    ).play();
+//	        } else {
+//	            new Timeline(
+//	                    new KeyFrame(Duration.seconds(0.45), new KeyValue(centralPanel.opacityProperty(), 0)),
+//	                    new KeyFrame(Duration.seconds(0.46), eh),
+//	                    new KeyFrame(Duration.seconds(0.6), new KeyValue(centralPanel.opacityProperty(), 1)) //,new KeyFrame(Duration.seconds(0.31), eh2)
+//	                    ).play();
+//	        }
 	    }
 		  public void initPanel() {
 		        final AnchorPane panel = Main.favouritePanel;

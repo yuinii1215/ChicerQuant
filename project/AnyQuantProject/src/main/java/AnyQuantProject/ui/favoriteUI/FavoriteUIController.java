@@ -31,7 +31,7 @@ public class FavoriteUIController implements Initializable{
 	TableView table;
 	@FXML
 	TableColumn number,id,name,open,high,low,close,volume,adj_price,marketvalue,flow;
-	@FXML
+	
 	
 	
 	@Override

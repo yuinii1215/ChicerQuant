@@ -1,5 +1,6 @@
 package AnyQuantProject.ui.controllerUI;
 
+import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -46,7 +47,7 @@ public class Main extends Application {
 	private static Group root;
 	private static HBox hbox;
 	static AnchorPane mainPanel;
-	static AnchorPane allStocksPanel,benchMArkPanel,favouritePanel,
+	static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel,
 				singleStockInfoPanel,singleStockPanel,stockDealInfoPanel;
 	
 	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
@@ -61,20 +62,25 @@ public class Main extends Application {
 		// TODO Auto-generated method stub
 		return primaryScene;
 	}
-	
+    
+public static Stage getPrimaryStage() {
+	// TODO Auto-generated method stub
+	return primaryStage;
+}
+
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		instance=this;
 		this.primaryStage = primaryStage;
 		
 		mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-//		benchMArkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
-//		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
+	//	benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
+	//	favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 
 //		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
 //		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
-		
+		System.out.println("PPPPPPPPP");
 //		singleStockInfoPanel = FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
@@ -95,12 +101,31 @@ public class Main extends Application {
 		primaryStage.show();  
 		
 }  
+	
+	
     public void enterMainScene(){
         this.primaryStage.setScene(new Scene(mainPanel));
     //    MainPageController.getInstance().showAnimation();
         MainPageController.getInstance().initPanel();
     }
-	
+    
+    public  static void enterAllStocksScene(){
+        Main.getPrimaryStage().setScene(new Scene(allStocksPanel));
+    //    MainPageController.getInstance().showAnimation();
+        MainPageController.getInstance().initPanel();
+    }
+    
+    public  static void enterFavouriteScene(){
+        Main.getPrimaryStage().setScene(new Scene(favouritePanel));
+    //    MainPageController.getInstance().showAnimation();
+        MainPageController.getInstance().initPanel();
+    }
+//    
+//    public  static void enterBenchMarkScene(){
+//        Main.getPrimaryStage().setScene(new Scene(benchMarkPanel));
+//    //    MainPageController.getInstance().showAnimation();
+//        MainPageController.getInstance().initPanel();
+//    }
 
 	public void buttons(){
 		  close = ButtonBuilder.create().text("close").onAction(new EventHandler<ActionEvent>(){

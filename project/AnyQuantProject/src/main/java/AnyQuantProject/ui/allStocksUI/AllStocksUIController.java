@@ -1,5 +1,6 @@
 package AnyQuantProject.ui.allStocksUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,8 +13,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.controllerUI.Main;
 import AnyQuantProject.ui.controllerUI.MainPageController;
 /**
  * 
@@ -36,21 +39,35 @@ public class AllStocksUIController  implements Initializable{
 	TableColumn<Stock, Long> flowColumn;
 	TableColumn<Stock,Double> peColumn;
 	TableColumn<Stock,Double> pbColumn;
+	static AnchorPane allStocksPanel;
 	
-	private static AllStocksUIController instance=null;
+	private static AllStocksUIController instance;
 
-    public static AllStocksUIController getInstance() {
+    	public static AllStocksUIController getInstance() {
     	System.out.println("!!!!!!!!!!!!!!!!!");
+    	
         return instance==null?(instance=new AllStocksUIController()):instance;
     }
     
     /**
      * Initializes the controller class.
      */
+    public AllStocksUIController(){
+    	initialize(null,null);   }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+//		try {
+//			allStocksPanel= FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+//		    Main.getPrimaryStage().setScene(new Scene(allStocksPanel));
+//		
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		System.out.println("!!!!!!!!!???????????!!!!!");
 		instance = this;
+		
 	}
 
 //	@Override
