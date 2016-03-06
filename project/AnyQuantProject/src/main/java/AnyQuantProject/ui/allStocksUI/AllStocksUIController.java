@@ -41,7 +41,7 @@ public class AllStocksUIController extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		Parent root =FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
-		Scene scene = new Scene(root, 900, 600);
+		Scene scene = new Scene(root, 950, 600);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
