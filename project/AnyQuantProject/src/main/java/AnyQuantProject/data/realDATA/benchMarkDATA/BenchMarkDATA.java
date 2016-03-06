@@ -4,22 +4,16 @@
 package AnyQuantProject.data.realDATA.benchMarkDATA;
 
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
 
-import net.sf.ezmorph.MorpherRegistry;
-import net.sf.ezmorph.object.DateMorpher;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import net.sf.json.util.CycleDetectionStrategy;
-import net.sf.json.util.JSONUtils;
-import net.sf.json.util.PropertyFilter;
 import AnyQuantProject.data.jsonDATA.JSONBenchMarkDATA;
 import AnyQuantProject.dataService.jsonDATAService.JSONBenchMarkDATAService;
 import AnyQuantProject.dataService.realDATAService.benchMarkDATAService.BenchMarkDATAService;
 import AnyQuantProject.dataStructure.BenchMark;
-import AnyQuantProject.util.method.CalendarHelper;
 
 /**
  * @author G
@@ -67,6 +61,7 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	public List<BenchMark> getBenchMarkAmongDate(String name, Calendar start,
 			Calendar end) {
 		JSONArray result = JSONBenchMark.getBenchMarkAmongDate(name, start, end);
+		@SuppressWarnings("unchecked")
 		List<BenchMark> resultList = JSONArray.toList(result, new BenchMark(), getJsonConfig());
 		for (int i = 0; i < resultList.size(); i++) {
 			resultList.get(i).setName(name);
@@ -86,10 +81,10 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 
 	public static void main(String[] args) {
 		BenchMarkDATA b = BenchMarkDATA.getInstance();
-//		List<String> list = b.getAllBenchMark();
-//		System.out.println("list  : " + list.size());
-//		System.out.println("list 0 :" + list.get(0).getOpen()+" "+list.get(0).getClose());
-		b.getBenchMarkAmongDate("hs300", Calendar.getInstance(), Calendar.getInstance());
+		List<String> list = b.getAllBenchMark();
+		System.out.println("list  : " + list.size());
+		System.out.println("list 0 :" + list.get(0));
+//		b.getBenchMarkAmongDate("hs300", Calendar.getInstance(), Calendar.getInstance());
 //		System.out.println("ben : "+ben.getOpen()+" "+ben.getClose());
 	}
 }

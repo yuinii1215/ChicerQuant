@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
+import javafx.beans.property.SimpleStringProperty;
 import AnyQuantProject.ui.singleStockUI.SingleStockUI;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -270,15 +270,16 @@ public class SingleStockInfoUI extends SingleStockUI {
 		nameLabel.setLayoutX(positionX + 715);
 		nameLabel.setLayoutY(positionY + 20);
 
-		isFavorButton = new Button();
-		isFavorButton.setPrefSize(90, 28);
-		isFavorButton.getStyleClass().add("button");
-
-		if (singleStockList.get(0).isFavor() == true) {// 假设1的时候表示已经关注
-			isFavorButton.setText("取消关注");
-		} else {
-			isFavorButton.setText("加关注");
-		}
+//		isFavorButton = new Button();
+//		isFavorButton.setPrefSize(90, 28);
+		
+//		isFavorButton.getStyleClass().add("button");
+//
+//		if (singleStockList.get(0).isFavor() == true) {// 假设1的时候表示已经关注
+//			isFavorButton.setText("取消关注");
+//		} else {
+//			isFavorButton.setText("加关注");
+//		}
 		
 //		// show the shadow when the mouse cursor is off
 //		isFavorButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
@@ -309,11 +310,11 @@ public class SingleStockInfoUI extends SingleStockUI {
 		isFavorButton.setLayoutX(positionX + 830);
 		isFavorButton.setLayoutY(positionY + 70);
 
-		table = new TableView<>();
-		table.setLayoutX(positionX + 70);
-		table.setLayoutY(positionY + 36);
-		table.setPrefSize(600, 570);
-		table.setItems(FXCollections.observableArrayList(singleStockList));
+//		table = new TableView<>();
+//		table.setLayoutX(positionX + 70);
+//		table.setLayoutY(positionY + 36);
+//		table.setPrefSize(600, 570);
+//		table.setItems(FXCollections.observableArrayList(singleStockList));
 
 		TableColumn<Stock, String> dateColumn = new TableColumn<>("数据日期");
 		// dateColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell

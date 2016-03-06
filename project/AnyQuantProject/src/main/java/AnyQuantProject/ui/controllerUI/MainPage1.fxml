@@ -27,17 +27,17 @@
         <DropShadow offsetY="1.0" />
       </effect>
     </AnchorPane>
-    <AnchorPane id="anchorPane2" fx:id="guidePanel" prefHeight="450.0" prefWidth="200.0" styleClass="guidePanel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="150.0">
+    <AnchorPane id="anchorPane2" fx:id="guidePanel" prefHeight="600.0" prefWidth="950.0" styleClass="guidePanel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="150.0">
       <children>
         <VBox id="VBox" alignment="CENTER" padding="$x1" prefHeight="361.0" prefWidth="146.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
           <children>
-            <Button id="button1" onAction="#favoriteBtnFired" prefHeight="50.0" prefWidth="150.0" text="我的关注">
+            <Button id="myFavor" onAction="#favoriteBtnFired" prefHeight="50.0" prefWidth="150.0" text="我的关注">
               <VBox.margin>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x1" />
               </VBox.margin>
             </Button>
-            <Button id="button1" onAction="#allStocksBtnFired" prefHeight="50.0" prefWidth="150.0" text="所有股票" VBox.margin="$x1" />
-            <Button id="button1" onAction="#benchMarkBtnFired" prefHeight="50.0" prefWidth="150.0" text="大盘走势" VBox.margin="$x1" />
+            <Button id="allStocks" onAction="#allStocksBtnFired" prefHeight="50.0" prefWidth="150.0" text="所有股票" VBox.margin="$x1" />
+            <Button id="benchMark" onAction="#benchMarkBtnFired" prefHeight="50.0" prefWidth="150.0" text="大盘走势" VBox.margin="$x1" />
           </children>
         </VBox>
       </children>

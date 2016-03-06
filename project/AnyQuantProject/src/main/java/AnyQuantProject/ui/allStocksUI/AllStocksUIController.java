@@ -1,6 +1,7 @@
 package AnyQuantProject.ui.allStocksUI;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +12,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.controllerUI.MainPageController;
 /**
  * 
  * @author GraceHan
  *
  */
-public class AllStocksUIController extends Application {
+public class AllStocksUIController{
 	Label titleLabel;
 	Scene allStockUIScene;
 	TableView<Stock> table;
@@ -33,17 +35,26 @@ public class AllStocksUIController extends Application {
 	TableColumn<Stock,Double> peColumn;
 	TableColumn<Stock,Double> pbColumn;
 	
-	//用来测试的main
-	public static void main(String[] args) {
-	launch();
+	private static AllStocksUIController instance=null;
+
+    public static AllStocksUIController getInstance() {
+        return instance==null?(instance=new AllStocksUIController()):instance;
     }
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
-		Parent root =FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
-		Scene scene = new Scene(root, 900, 600);
-		primaryStage.setScene(scene);
-		primaryStage.show();
-	}
+    
+    /**
+     * Initializes the controller class.
+     */
+    public void initialize(ResourceBundle rb) {
+        instance = this;
+    }
+
+//	@Override
+//	public void start(Stage primaryStage) throws Exception {
+//		// TODO Auto-generated method stub
+//		Parent root =FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+//		Scene scene = new Scene(root, 950, 600);
+//		primaryStage.setScene(scene);
+//		primaryStage.show();
+//	}
 
 }
