@@ -71,7 +71,7 @@ public class MainPageController  implements Initializable {
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
 	        Main.enterAllStocksScene();
-	        AllStocksUIController.getInstance();
+//	        AllStocksUIController.getInstance();
 	    }
 	  @FXML
 	    private void benchMarkBtnFired(ActionEvent e) {
@@ -118,7 +118,7 @@ public class MainPageController  implements Initializable {
 		            defaultBtn.setDefaultButton(false);
 		        btn.setDefaultButton(true);
 		        defaultBtn = btn;
-//		        SingleStockInfoUIController.getInstance().;
+		        SingleStockInfoUIController.getInstance();
 		    }
 		  @FXML
 		    private void singleStockBtnFired(ActionEvent e) {
