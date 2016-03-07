@@ -47,7 +47,9 @@ import AnyQuantProject.util.method.CalendarHelper;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableRow;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 /**
@@ -55,7 +57,7 @@ import javafx.scene.layout.Pane;
  * @author GraceHan
  *
  */
-public class SingleStockInfoUIController {
+public class SingleStockInfoUIController implements Initializable{
 
 	Scene singleStockUIScene;
 	TableView<Stock> table;
@@ -90,32 +92,38 @@ public class SingleStockInfoUIController {
 	FavoriteBLService favoriteBlImpl;
 	OperationResult operationResult;
 	CalendarHelper calendarHelper = new CalendarHelper();
-        Parent parent;
-        
+//        Parent parent;
+        public static AnchorPane myPane;
    
         private static SingleStockInfoUIController instance;
 
-    	public static SingleStockInfoUIController getInstance() {
+//    	public static SingleStockInfoUIController getInstance(AnchorPane singleStockInfoPanel) {
+//    	System.out.println("here is the instance of SingleStockInfoUIController");
+//        myPane=singleStockInfoPanel;
+//        return instance==null?(instance=new SingleStockInfoUIController()):instance;
+//    }
+        
+        public static SingleStockInfoUIController getInstance() {
     	System.out.println("here is the instance of SingleStockInfoUIController");
         return instance==null?(instance=new SingleStockInfoUIController()):instance;
     }
     
+        public SingleStockInfoUIController(){
+            initialize(null,null);
+        }
     /**
      * Initializes the controller class.
      */
-    public SingleStockInfoUIController(){
-   
-    }
     
-    public SingleStockInfoUIController launch(Pane father, Pane before) throws IOException {
-        /**
-         * 使用lauch之后不用专门调用initialize
-         */
-        parent = FXMLLoader.load(getClass().getResource(
-                    "singleStockInfoPanel.fxml"));
-        instance = SingleStockInfoUIController.getInstance();
-        return instance;
-    }
+//    public SingleStockInfoUIController launch(Pane father, Pane before) throws IOException {
+//        /**
+//         * 使用lauch之后不用专门调用initialize
+//         */
+//        parent = FXMLLoader.load(getClass().getResource(
+//                    "singleStockInfoPanel.fxml"));
+//        instance = SingleStockInfoUIController.getInstance();
+//        return instance;
+//    }
         
 	@FXML
 	private void handleFilterAction(ActionEvent actionEvent) {
@@ -263,7 +271,8 @@ public class SingleStockInfoUIController {
 		/**
 		 * initialize the button
 		 */
-                isFavorButton=(Button)parent.lookup("#isFavorButton");
+                System.out.println("this is the initialize!!!!!!!!!!!!!!!!!");
+                isFavorButton=(Button)myPane.lookup("#isFavorButton");
 		if (singleStockList.get(0).isFavor() == true) {// 假设1的时候表示已经关注
 			isFavorButton.setText("取消关注");
 		} else {
@@ -273,7 +282,7 @@ public class SingleStockInfoUIController {
 		/**
 		 * initialize the table
 		 */
-                 table=(TableView)parent.lookup("#tableView");
+                 table=(TableView)myPane.lookup("#tableView");
 		 table.setItems(FXCollections.observableArrayList(singleStockList));
 			
                  table.setRowFactory(new Callback<TableView<Stock>,TableRow<Stock>>(){
