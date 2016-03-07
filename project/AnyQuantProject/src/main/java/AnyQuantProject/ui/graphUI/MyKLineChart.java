@@ -83,6 +83,11 @@ public class MyKLineChart<X,Y> extends LineChart<X, Y> {
 			double width=symbol.prefWidth(-1);
 			point p1=points1.get(t);
 			point p2=points2.get(t);
+			if(p2.y<p1.y){
+				double ch=p1.y;
+				p1.y=p2.y;
+				p2.y=ch;
+			}
 			double height= p2.y-p1.y;
 			double y=p1.y;
 			double x=p1.x-width/2;
