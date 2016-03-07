@@ -81,7 +81,7 @@ public class MainPageController  implements Initializable {
 	            defaultBtn.setDefaultButton(false);
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
-	    //    Main.enterBenchMarkScene();
+	        Main.enterBenchMarkScene();
 	        BenchMarkUIController.getInstance();
 	    }
 	  
