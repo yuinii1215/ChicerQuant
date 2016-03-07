@@ -4,9 +4,9 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.*?> 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.controllerUI.FavoriteUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.favoriteUI.FavoriteUIController">
    <children>
       <AnchorPane fx:id="flowingInfo" layoutY="45.0" prefHeight="33.0" prefWidth="850.0" style="-fx-background-color: #DDDDDD;">
          <effect>

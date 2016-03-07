@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.controllerUI.MainPageController">
+   <children>
+      <AnchorPane fx:id="guidePanel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: #003377;">
+         <children>
+            <Button id="myFavorBtn" layoutY="95.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" prefHeight="92.0" prefWidth="100.0" style="-fx-border-color: #000088; -fx-background-image: images/myFavor.png;" />
+            <Button id="allStocksBtn" layoutY="186.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#allStocksBtnFired" prefHeight="92.0" prefWidth="100.0" style="-fx-border-color: #000088; -fx-background-image: images/allStocks.png;" />
+            <Button id="benchMarkBtn" layoutY="277.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#benchMarkBtnFired" prefHeight="92.0" prefWidth="100.0" style="-fx-border-color: #000088; -fx-background-image: images/benchMarks;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

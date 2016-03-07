@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -20,6 +22,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -38,15 +41,14 @@ public class Main extends Application {
 	private static Main instance; 
 	private static Stage primaryStage;   //舞台
 	private static Scene primaryScene;
-	private static Pane writePanel;
 	private static Pane head ; //
 	private static Button close;
 	private static Button min;
 	private static Button max;
 	private static Button full; //全屏
 	private static Group root;
-	private static HBox hbox;
-	static AnchorPane mainPanel;
+	private static HBox h_box,hbox;	
+	static AnchorPane mainPanel,guidePanel,writePanel;
 	static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel,
 				singleStockInfoPanel,singleStockPanel,stockDealInfoPanel;
 	
@@ -72,28 +74,34 @@ public static Stage getPrimaryStage() {
 		// TODO Auto-generated method stub
 		instance=this;
 		this.primaryStage = primaryStage;
-		
 		mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
 	//	benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
-	//	favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
+		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 
 //		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
-//		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
+		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 		
 //		singleStockInfoPanel = FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
+//		h_box.getChildren().addAll(guidePanel,favouritePanel);
 
-		
 		primaryStage.setHeight(600);
 		primaryStage.setWidth(950);
 		primaryStage.setTitle("AnyQuant");	
 
-		root = new Group();
-		primaryScene = new Scene(root);  
+		h_box =new HBox();
+		h_box.getChildren().addAll(guidePanel,favouritePanel);
+	//	h_box.setHgrow(guidePanel, Priority.ALWAYS);
+		h_box.setPadding(new Insets(0,0,0,0));
+		h_box.setSpacing(0);
+	//	((Group) primaryScene.getRoot()).getChildren().addAll(h_box);
+		
+//		root = new Group();
+		primaryStage.setScene(new Scene(h_box));
         primaryStage.initStyle(StageStyle.DECORATED);
-        enterMainScene();
+       // enterMainScene();
 	//	primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
 	//	primaryStage.setScene(new Scene(titlePanel));  
@@ -104,18 +112,24 @@ public static Stage getPrimaryStage() {
 	
 	
     public void enterMainScene(){
+    //	Main.getPrimaryStage().setScene(new Scene(guidePanel));
         this.primaryStage.setScene(new Scene(mainPanel));
     //    MainPageController.getInstance().showAnimation();
         MainPageController.getInstance().initPanel();
     }
     
     public  static void enterAllStocksScene(){
-        Main.getPrimaryStage().setScene(new Scene(allStocksPanel));
+		h_box =new HBox(guidePanel,allStocksPanel);
+//		((Group) primaryScene.getRoot()).getChildren().addAll(h_box);
+	    Main.getPrimaryStage().setScene(new Scene(h_box));
+		//    Main.getPrimaryStage().setScene(new Scene(allStocksPanel));
+    //    Main.getPrimaryStage().setScene(new Scene(guidePanel));
     //    MainPageController.getInstance().showAnimation();
         MainPageController.getInstance().initPanel();
     }
     
     public  static void enterFavouriteScene(){
+    	Main.getPrimaryStage().setScene(new Scene(guidePanel));
         Main.getPrimaryStage().setScene(new Scene(favouritePanel));
     //    MainPageController.getInstance().showAnimation();
         MainPageController.getInstance().initPanel();
