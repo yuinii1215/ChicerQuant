@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -7,12 +8,42 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.controllerUI.MainPageController">
-   <children>
+     <children>
       <AnchorPane fx:id="guidePanel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: #003377;">
          <children>
-            <Button id="myFavorBtn" layoutY="95.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" prefHeight="92.0" prefWidth="100.0" style="-fx-border-color: #000088; -fx-background-image: images/myFavor.png;" />
-            <Button id="allStocksBtn" layoutY="186.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#allStocksBtnFired" prefHeight="92.0" prefWidth="100.0" style="-fx-border-color: #000088; -fx-background-image: images/allStocks.png;" />
-            <Button id="benchMarkBtn" layoutY="277.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#benchMarkBtnFired" prefHeight="92.0" prefWidth="100.0" style="-fx-border-color: #000088; -fx-background-image: images/benchMarks;" />
+       	   <ImageView fx:id="myFavor" fitHeight="83.0" fitWidth="92.0" layoutX="7.0" layoutY="93.0"  pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@myFavor.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="allStocks" fitHeight="92.0" fitWidth="92.0" layoutX="3.0" layoutY="179.0"  pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@allStocks.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="BenchMark" fitHeight="92.0" fitWidth="100.0" layoutX="3.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@benchMark.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="22.0" layoutY="164.0"  text="我的关注" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="22.0" layoutY="255.0"  text="所有股票" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="336.0" prefHeight="33.0" prefWidth="56.0" text="大盘走势" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+             </Label>
+              <Button id="favoriteBtn" layoutY="95.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" opacity="0.05" prefHeight="92.0" prefWidth="100.0" style="-fx-border-color: #000088; -fx-background-color: #003377;" />
+            <Button id="allStocksBtn" layoutY="186.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#allStocksBtnFired" opacity="0.05" prefHeight="92.0" prefWidth="100.0" style="-fx-border-color: #000088; -fx-background-color: #003377;" />
+            <Button id="benchMarkBtn" layoutY="277.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#benchMarkBtnFired" opacity="0.05" prefHeight="92.0" prefWidth="100.0" style="-fx-border-color: #000088; -fx-background-color: #003377;" />
          </children>
       </AnchorPane>
    </children>

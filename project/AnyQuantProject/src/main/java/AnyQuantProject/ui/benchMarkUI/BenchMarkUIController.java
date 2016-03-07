@@ -18,10 +18,11 @@ public class BenchMarkUIController implements Initializable{
     private static BenchMarkUIController instance;
 
     public static BenchMarkUIController getInstance() {
-      
-    	return instance;
+    	   return instance==null?(instance=new BenchMarkUIController()):instance;
     }	
     
+	public BenchMarkUIController(){
+    	initialize(null,null);   }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

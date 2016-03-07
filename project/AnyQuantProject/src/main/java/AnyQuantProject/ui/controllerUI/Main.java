@@ -75,18 +75,21 @@ public static Stage getPrimaryStage() {
 		instance=this;
 		this.primaryStage = primaryStage;
 		mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-	//	benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
-//		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
+
+		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
+		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 
 //		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
-//		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
-//		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
+		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 
 		
+
 		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("/AnyQuantProject/ui/singleStockInfoUI/singleStockInfoPanel.fxml"));
+
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
-//		h_box.getChildren().addAll(guidePanel,favouritePanel);
+
 
 		primaryStage.setHeight(600);
 		primaryStage.setWidth(950);
@@ -95,19 +98,17 @@ public static Stage getPrimaryStage() {
 		h_box =new HBox();
                 
 		h_box.getChildren().addAll(guidePanel,favouritePanel);
-	//	h_box.setHgrow(guidePanel, Priority.ALWAYS);
+		h_box.setHgrow(guidePanel, Priority.ALWAYS);
 		h_box.setPadding(new Insets(0,0,0,0));
 		h_box.setSpacing(0);
-	//	((Group) primaryScene.getRoot()).getChildren().addAll(h_box);
-		
-//		root = new Group();
+
 		primaryStage.setScene(new Scene(h_box));
                 primaryStage.initStyle(StageStyle.DECORATED);
-       // enterMainScene();
+
 	//	primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
-	//	primaryStage.setScene(new Scene(titlePanel));  
-	  //buttons();
+	//  enterMainScene();
+	//  buttons();
 		primaryStage.show();  
 		
 }  
@@ -116,32 +117,29 @@ public static Stage getPrimaryStage() {
     public void enterMainScene(){
     //	Main.getPrimaryStage().setScene(new Scene(guidePanel));
         this.primaryStage.setScene(new Scene(mainPanel));
-    //    MainPageController.getInstance().showAnimation();
+    //  MainPageController.getInstance().showAnimation();
         MainPageController.getInstance().initPanel();
     }
     
     public  static void enterAllStocksScene(){
 		h_box =new HBox(guidePanel,allStocksPanel);
-//		((Group) primaryScene.getRoot()).getChildren().addAll(h_box);
 	    Main.getPrimaryStage().setScene(new Scene(h_box));
-		//    Main.getPrimaryStage().setScene(new Scene(allStocksPanel));
-    //    Main.getPrimaryStage().setScene(new Scene(guidePanel));
-    //    MainPageController.getInstance().showAnimation();
         MainPageController.getInstance().initPanel();
     }
     
     public  static void enterFavouriteScene(){
-    	Main.getPrimaryStage().setScene(new Scene(guidePanel));
-        Main.getPrimaryStage().setScene(new Scene(favouritePanel));
-    //    MainPageController.getInstance().showAnimation();
+    	h_box =new HBox(guidePanel,favouritePanel);
+    	Main.getPrimaryStage().setScene(new Scene(h_box));
         MainPageController.getInstance().initPanel();
     }
-//    
-//    public  static void enterBenchMarkScene(){
-//        Main.getPrimaryStage().setScene(new Scene(benchMarkPanel));
-//    //    MainPageController.getInstance().showAnimation();
-//        MainPageController.getInstance().initPanel();
-//    }
+    
+    public  static void enterBenchMarkScene(){
+    	h_box =new HBox(guidePanel,benchMarkPanel);
+    	Main.getPrimaryStage().setScene(new Scene(h_box));
+        MainPageController.getInstance().initPanel();
+    }
+    
+    
 
 	public void buttons(){
 		  close = ButtonBuilder.create().text("close").onAction(new EventHandler<ActionEvent>(){
@@ -175,7 +173,6 @@ public static Stage getPrimaryStage() {
 		    primaryScene = SceneBuilder.create().root(root).build();
 		    primaryStage.setScene(primaryScene);
 	}
-	
 	
 	 public static void main(String[] args) {
 		 launch(args);
