@@ -79,14 +79,14 @@ public static Stage getPrimaryStage() {
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 
 //		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
-//		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
-//		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
+		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 
 		
-		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("ui/singleStockInfoUI/singleStockInfoPanel.fxml"));
+	//	singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("ui/singleStockInfoUI/singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
-//		h_box.getChildren().addAll(guidePanel,favouritePanel);
+
 
 		primaryStage.setHeight(600);
 		primaryStage.setWidth(950);
