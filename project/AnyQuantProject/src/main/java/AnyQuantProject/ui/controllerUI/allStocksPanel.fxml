@@ -5,7 +5,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.allStocksUI.AllStocksUIController">
+
    <children>
       <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="850.0" style="-fx-background-color: #FFFFCC; -fx-border-radius: 20; -fx-padding: 5;" text="所有股票">
          <font>
