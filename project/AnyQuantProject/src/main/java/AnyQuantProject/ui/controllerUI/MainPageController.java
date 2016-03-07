@@ -19,7 +19,7 @@ import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
 import AnyQuantProject.ui.guideUI.GuideUIController;
-import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
+import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController_1;
 import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
 import AnyQuantProject.ui.stockDealInfoUI.StockDealInfoUIController;
 /**
@@ -35,7 +35,7 @@ public class MainPageController  implements Initializable {
 	private static BenchMarkUIController benchMarkUIController ;
 	private static FavoriteUIController  favoriteUIController ;
 	private static GuideUIController guideUIController ;
-	private static SingleStockInfoUIController singleStockInfoUIController ;
+	private static SingleStockInfoUIController_1 singleStockInfoUIController ;
 	private static SingleStockUIController singleStocksUIController ;
 	private static StockDealInfoUIController stockDealInfoUIController ;
 	 @FXML
@@ -118,7 +118,7 @@ public class MainPageController  implements Initializable {
 		            defaultBtn.setDefaultButton(false);
 		        btn.setDefaultButton(true);
 		        defaultBtn = btn;
-		        SingleStockInfoUIController.getInstance();
+		        SingleStockInfoUIController_1.getInstance();
 		    }
 		  @FXML
 		    private void singleStockBtnFired(ActionEvent e) {

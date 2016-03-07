@@ -8,6 +8,7 @@
 <?import javafx.collections.*?>
 
 
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController">
    <children>
       <Label id="titleLabel" alignment="CENTER" layoutX="100.0" prefHeight="32.0" prefWidth="852.0" style="-fx-background-color: #FAF0E6;" text="股票详情">
@@ -15,7 +16,7 @@
             <Font name="Arial" size="22.0" />
          </font>
       </Label>
-      <ComboBox id="keyWordBox" layoutX="110.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleComboboxAction" prefWidth="100.0" promptText="关键字">
+      <ComboBox id="keyWordBox" layoutX="110.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="100.0" promptText="关键字">
          <effect>
             <Blend mode="HARD_LIGHT" />
          </effect>
@@ -47,7 +48,8 @@
             <TableColumn id="lowColumn" prefWidth="71.86349487304688" text="最低价" />
             <TableColumn id="closeColumn" prefWidth="71.86349487304688" text="收盘价" />
             <TableColumn id="volumeColumn" prefWidth="71.86349487304688" text="成交量" />
-            <TableColumn id="adj_" prefWidth="71.86349487304688" text="后复权价" />
+             <TableColumn id="marketValueColumn" prefWidth="71.86349487304688" text="市值" />
+            <TableColumn id="adj_priceColumn" prefWidth="71.86349487304688" text="后复权价" />
             <TableColumn id="flowColumn" prefWidth="71.86349487304688" text="流通" />
             <TableColumn id="peColumn" prefWidth="71.86349487304688" text="市盈率" />
             <TableColumn id="pbColumn" prefWidth="71.86349487304688" text="市净率" />
@@ -63,7 +65,7 @@
             <Font name="Arial Black" size="46.0" />
          </font>
       </Label>
-      <Button id="isFavorButton" layoutX="856.0" layoutY="119.0" mnemonicParsing="false" onAction="#handleFavorAction" prefHeight="29.0" prefWidth="70.0" style="-fx-background-color: #6495ED;" textFill="WHITE">
+      <Button id="isFavorButton" layoutX="856.0" layoutY="119.0" mnemonicParsing="false" onAction="#handleFavorAction" prefHeight="29.0" prefWidth="70.0" style="-fx-background-color: #6495ED;" textFill="WHITE" >
          <font>
             <Font size="15.0" />
          </font>
