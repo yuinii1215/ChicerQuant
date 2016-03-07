@@ -236,9 +236,10 @@ public class SingleStockInfoUIController implements Initializable{
 		}
 
 	}
-	
+        
+	@FXML
 	public void handleComboboxAction(ActionEvent actionEvent){
-//		keyWord = keyWordBox.selectionModelProperty().getName();
+//	keyWord = keyWordBox.selectionModelProperty().getName();
 		
         keyWordBox.getSelectionModel().selectFirst(); //select the first element
         
@@ -322,7 +323,7 @@ public class SingleStockInfoUIController implements Initializable{
 		pbColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 				cellData.getValue().getPb()));
 
-//                instance = this;
+
 	}
 
 }

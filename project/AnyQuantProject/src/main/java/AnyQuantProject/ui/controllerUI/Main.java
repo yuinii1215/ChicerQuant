@@ -76,14 +76,14 @@ public static Stage getPrimaryStage() {
 		this.primaryStage = primaryStage;
 		mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
 	//	benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
-		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
+//		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 
 //		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
 //		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 //		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 
 		
-		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("ui/singleStockInfoUI/singleStockInfoPanel.fxml"));
+		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("/AnyQuantProject/ui/singleStockInfoUI/singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 //		h_box.getChildren().addAll(guidePanel,favouritePanel);
@@ -93,6 +93,7 @@ public static Stage getPrimaryStage() {
 		primaryStage.setTitle("AnyQuant");	
 
 		h_box =new HBox();
+                
 		h_box.getChildren().addAll(guidePanel,favouritePanel);
 	//	h_box.setHgrow(guidePanel, Priority.ALWAYS);
 		h_box.setPadding(new Insets(0,0,0,0));
@@ -101,7 +102,7 @@ public static Stage getPrimaryStage() {
 		
 //		root = new Group();
 		primaryStage.setScene(new Scene(h_box));
-        primaryStage.initStyle(StageStyle.DECORATED);
+                primaryStage.initStyle(StageStyle.DECORATED);
        // enterMainScene();
 	//	primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();

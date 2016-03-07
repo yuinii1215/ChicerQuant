@@ -7,14 +7,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController">
    <children>
       <Label id="titleLabel" alignment="CENTER" layoutX="100.0" prefHeight="32.0" prefWidth="852.0" style="-fx-background-color: #FAF0E6;" text="股票详情">
          <font>
             <Font name="Arial" size="22.0" />
          </font>
       </Label>
-      <ComboBox id="keyWordBox" layoutX="110.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" onAction="handleComboboxAction" prefWidth="100.0" promptText="关键字">
+      <ComboBox id="keyWordBox" layoutX="110.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleComboboxAction" prefWidth="100.0" promptText="关键字">
          <effect>
             <Blend mode="HARD_LIGHT" />
          </effect>
