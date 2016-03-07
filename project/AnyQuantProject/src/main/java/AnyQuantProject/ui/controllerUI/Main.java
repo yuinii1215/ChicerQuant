@@ -75,7 +75,7 @@ public static Stage getPrimaryStage() {
 		instance=this;
 		this.primaryStage = primaryStage;
 		mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-	//	benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
+		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 
 //		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
@@ -133,6 +133,8 @@ public static Stage getPrimaryStage() {
     	Main.getPrimaryStage().setScene(new Scene(h_box));
         MainPageController.getInstance().initPanel();
     }
+    
+    
 
 	public void buttons(){
 		  close = ButtonBuilder.create().text("close").onAction(new EventHandler<ActionEvent>(){
