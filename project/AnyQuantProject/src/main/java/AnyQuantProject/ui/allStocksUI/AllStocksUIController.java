@@ -100,7 +100,6 @@ public class AllStocksUIController  implements Initializable{
      //   stockListImplement=new StockListBLController();
         allStocksList=stockListImplement.getAllStocks();
         
-        System.out.println("allStocksList"+allStocksList.get(0).getDate());
         allStocksTableView.setItems(FXCollections.observableArrayList(allStocksList));
 
         allStocksTableView.setRowFactory(new Callback<TableView<Stock>, TableRow<Stock>>() {

@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
+import javax.naming.InitialContext;
+
 import org.python.antlr.PythonParser.raise_stmt_return;
 import org.python.modules.thread.thread;
 
@@ -37,6 +39,11 @@ public class StockListBLController implements StockListBLService,Runnable {
 	
 	
 	public StockListBLController() {
+		
+		
+	}
+	
+	public void init(){
 		try {
 			avaliable=(List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
 			if (avaliable==null) {
@@ -68,17 +75,14 @@ public class StockListBLController implements StockListBLService,Runnable {
 			Thread thread=new Thread(this);
 			thread.start();
 		}
-		
 	}
 
 	@Override
 	public List<Stock> getAllStocks() {
 
 		if (isAlive) {
-			int currentSize=stockData.size();
-			List<Stock> temp=new ArrayList<>(currentSize);
-			temp=stockData.subList(0, currentSize);
-			return temp;
+			
+			return this.stockData;
 		}
 		else {
 			return this.stockData;
