@@ -1,5 +1,6 @@
 package AnyQuantProject.ui.singleStockInfoUI;
 
+import AnyQuantProject.bl.favoriteBL.FavoriteBLController;
 import AnyQuantProject.bl.listFilterBL.ListFilterBLImpl;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.blService.singleStockInfoBLService.SingleStockInfoBLService;
@@ -51,6 +52,7 @@ import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableRow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -111,7 +113,7 @@ public class SingleStockInfoUIController implements Initializable {
 
     private static SingleStockInfoUIController instance = null;
 
-    public Parent getInstance(String stockNumber) {
+    public Parent getInstance(Parent root,String stockNumber) {
           Stock data1=new Stock();
           Stock data2=new Stock();
           data1.setFavor(true);
@@ -124,12 +126,13 @@ public class SingleStockInfoUIController implements Initializable {
          */
         //singleStockList.add(singleStockBlImpl.getSingleStockInfo(null));
        
+       this.root=root;
        System.out.println("here is the instance of SingleStockInfoUIController");
-       try {
-            this.root = FXMLLoader.load(getClass().getResource("/singleStockInfoPanel.fxml"));
-        } catch (IOException ex) {
-            Logger.getLogger(SingleStockInfoUIController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//       try {
+//            this.root = FXMLLoader.load(getClass().getResource("../singleStockInfoPanel.fxml"));
+//        } catch (IOException ex) {
+//            Logger.getLogger(SingleStockInfoUIController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 //        return (instance==null)?(instance=new SingleStockInfoUIController()):instance;
         init(singleStockList);
         return root;
@@ -244,6 +247,8 @@ public class SingleStockInfoUIController implements Initializable {
 
     @FXML
     private void handleFavorAction(ActionEvent actionEvent) {
+          favoriteBlImpl=new FavoriteBLController();
+
         if (singleStockList.get(0).isFavor() == false) {
             // change the state of the stock into being favored
             favoriteBlImpl.favorStock(singleStockList.get(0).getName());
@@ -295,6 +300,8 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * initialize the table
          */
+//        ScrollPane sp=(ScrollPane)root.lookup("#scrooler");
+//        table=sp.
         table = (TableView) root.lookup("#tableView");
         table.setItems(FXCollections.observableArrayList(singleStockList));
 
