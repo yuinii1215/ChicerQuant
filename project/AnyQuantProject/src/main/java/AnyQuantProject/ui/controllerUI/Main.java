@@ -1,5 +1,6 @@
 package AnyQuantProject.ui.controllerUI;
 
+import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
