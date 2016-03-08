@@ -84,7 +84,6 @@ public class Main extends Application {
 		// TODO Auto-generated method stub
 		instance=this;
 		this.primaryStage = primaryStage;
-
 		mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
 		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 		
