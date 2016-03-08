@@ -3,6 +3,7 @@
  */
 package AnyQuantProject.dataStructure;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.Calendar;
 import java.util.StringTokenizer;
@@ -14,7 +15,7 @@ import AnyQuantProject.util.method.Checker;
  * @author G
  *
  */
-public class AbstractStock {
+public class AbstractStock implements Serializable{
 	String name;	//
 	boolean isFavor;     //是否被关注
 	String date;    // 数据日期

@@ -1,5 +1,9 @@
 package AnyQuantProject.ui.controllerUI;
 
+import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
+import AnyQuantProject.bl.factoryBL.StockListBLFactory;
+import AnyQuantProject.bl.singleStockBL.SingleStockBLController;
+import AnyQuantProject.bl.stockListBL.StockListBLController;
 import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
@@ -88,7 +92,7 @@ public class Main extends Application {
 		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 		
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
-		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+		
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
@@ -101,7 +105,7 @@ public class Main extends Application {
 
 		h_box =new HBox();          
 //		h_box.getChildren().addAll(guidePanel,favouritePanel);
-                h_box.getChildren().addAll(guidePanel,allStocksPanel);
+                h_box.getChildren().addAll(guidePanel,favouritePanel);
 		h_box.setHgrow(guidePanel, Priority.ALWAYS);
 		h_box.setPadding(new Insets(0,0,0,0));
 		h_box.setSpacing(0);
@@ -114,7 +118,8 @@ public class Main extends Application {
 	//  enterMainScene();
 	//  buttons();
 		primaryStage.show();  
-		
+		StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
+		stockListBLController.init();
 }  
 	
 	
@@ -126,12 +131,24 @@ public class Main extends Application {
     }
     
     public  static void enterAllStocksScene(){
+    	try {
+			allStocksPanel=FXMLLoader.load(Main.class.getResource("allStocksPanel.fxml"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		h_box =new HBox(guidePanel,allStocksPanel);
 	    Main.getPrimaryStage().setScene(new Scene(h_box));
         MainPageController.getInstance().initPanel();
     }
     
     public  static void enterFavouriteScene(){
+    	try {
+			allStocksPanel = FXMLLoader.load(Main.class.getResource("allStocksPanel.fxml"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	h_box =new HBox(guidePanel,favouritePanel);
     	Main.getPrimaryStage().setScene(new Scene(h_box));
         MainPageController.getInstance().initPanel();
@@ -179,7 +196,9 @@ public class Main extends Application {
 	}
 	
 	 public static void main(String[] args) {
+		 
 		 launch(args);
+		 
 	   }
   
 	

@@ -10,4 +10,7 @@ public class R {
 	public static final String tail=".chicer";
 	public static final String FavorFilePath="UserInfo/";
 	public static final String FavorFileName="favor";
+	public static final String StockNameFile="name";
+	
+	public static final String CachePath="Cache/";
 }
