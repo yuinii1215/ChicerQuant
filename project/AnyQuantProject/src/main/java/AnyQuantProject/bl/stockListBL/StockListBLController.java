@@ -31,10 +31,10 @@ public class StockListBLController implements StockListBLService {
 		//get names
 		List<String> avaliable=new LinkedList<>();
 		//TODO
-//		List<String> sz=stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
+		List<String> sz=stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
 		List<String> sh=stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
 		avaliable.addAll(sh);
-//		avaliable.addAll(sz);
+		avaliable.addAll(sz);
 		
 		//TODO
 		Calendar c = Calendar.getInstance();

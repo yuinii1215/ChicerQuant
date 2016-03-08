@@ -70,6 +70,10 @@ public class SingleStockInfoUIController implements Initializable {
     public TableView<Stock> table;
     @FXML
     public Label titleLabel;
+    
+    /**
+     * nameLabel is the current name of a single stock and there are things to be added
+     */
     @FXML
     public Label nameLabel;
     @FXML
@@ -126,13 +130,7 @@ public class SingleStockInfoUIController implements Initializable {
     private static SingleStockInfoUIController instance = null;
 
     public SingleStockInfoUIController getInstance() {
-          Stock data1=new Stock();
-          Stock data2=new Stock();
-          data1.setFavor(true);
-          data2.setFavor(true);
-          data1.setName("腾讯科技");
-          singleStockList.add(data1);
-          singleStockList.add(data2);
+       
         /**
          * 此处之后应该对接初始化数据的方法,但好像还是比较有问题?????
          */
@@ -267,6 +265,13 @@ public class SingleStockInfoUIController implements Initializable {
 
 
     public void init() {
+          Stock data1=new Stock();
+          Stock data2=new Stock();
+          data1.setFavor(true);
+          data2.setFavor(true);
+          data1.setName("腾讯科技");
+          singleStockList.add(data1);
+          singleStockList.add(data2);
         /**
          * 之后要改,调用singleStock
          */
