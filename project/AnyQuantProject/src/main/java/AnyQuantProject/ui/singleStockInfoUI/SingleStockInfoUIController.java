@@ -1,8 +1,10 @@
 package AnyQuantProject.ui.singleStockInfoUI;
 
+import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.bl.favoriteBL.FavoriteBLController;
 import AnyQuantProject.bl.listFilterBL.ListFilterBLImpl;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
+import AnyQuantProject.blService.singleStockDealBLService.SingleStockDealBLService;
 import AnyQuantProject.blService.singleStockInfoBLService.SingleStockInfoBLService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
@@ -92,6 +94,7 @@ public class SingleStockInfoUIController implements Initializable {
     public DatePicker endDatePicker;
 
     public List<Stock> singleStockList = new ArrayList<Stock>();
+    public Stock singleStock=new Stock();
     @FXML
     public TableColumn<Stock, String> dateColumn;
     @FXML
@@ -119,8 +122,9 @@ public class SingleStockInfoUIController implements Initializable {
     Double minFilter, maxFilter, targetFilter;
     Calendar minTime, maxTime, targetTime;
     String keyWord;
+    String stockName;
    
-    Parent root;
+    SingleStockDealBLService singleStockDealBlImpl;
     ListFilterBLImpl listFilterBlImpl;
     FavoriteBLService favoriteBlImpl;
     OperationResult operationResult;
@@ -134,7 +138,7 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * 此处之后应该对接初始化数据的方法,但好像还是比较有问题?????
          */
-        //singleStockList.add(singleStockBlImpl.getSingleStockInfo(null));  
+        //initialize stockName;!!!!!!
         return instance==null?(instance=new SingleStockInfoUIController()):instance;
     }
 
@@ -265,6 +269,15 @@ public class SingleStockInfoUIController implements Initializable {
 
 
     public void init() {
+        /*
+        get数据的方法
+        */ 
+      //  
+      singleStockBlImpl=SingleStockBLFactory.getSingleStockInfoBLService();
+      singleStockDealBlImpl=SingleStockBLFactory.getSingleStockDealBLService();
+      singleStock=singleStockBlImpl.getSingleStockInfo(stockName);
+      singleStockList=singleStockDealBlImpl.getSingleStockDeal(keyWord, minTime);
+      
           Stock data1=new Stock();
           Stock data2=new Stock();
           data1.setFavor(true);
@@ -275,13 +288,13 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * 之后要改,调用singleStock
          */
-        nameLabel.setText(singleStockList.get(0).getName());
+        nameLabel.setText(singleStock.getName());
         
         /**
          * initialize the button
          */
 
-        if (singleStockList.get(0).isFavor() == true) {
+        if (singleStock.isFavor() == true) {
             isFavorButton.setText("取消关注");
         } else {
             isFavorButton.setText("加关注");

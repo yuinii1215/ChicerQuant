@@ -24,11 +24,12 @@ import AnyQuantProject.util.method.Checker;
 
 public class StockListBLController implements StockListBLService {
 	private List<String> avaliable;
+        StockListDATAService stockListDATAService;
 	public StockListBLController() {
 		avaliable=new LinkedList<>();
 		// get dataService
 		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
-		StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
+		stockListDATAService = factoryDATAService.getStockListDATAService();
 		// get names
 		List<String> sz = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
 		List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
