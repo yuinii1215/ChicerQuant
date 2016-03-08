@@ -30,8 +30,7 @@ public class AbstractStock {
 	/**
 	 * 
 	 */
-	public AbstractStock() {
-	}
+
 	public double getValueByName(String name) throws IllegalArgumentException, IllegalAccessException,ClassCastException{
 		//
 		Class<?> cla=this.getClass();
@@ -49,7 +48,7 @@ public class AbstractStock {
 		return 0;
 	}
 	
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}

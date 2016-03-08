@@ -48,6 +48,9 @@ public class SimpleLongProperty  implements ObservableValue<Long>{
 	}
 	@Override
 	public String toString(){
+		if(num==0){
+			return null;
+		}
 		return Long.toString(num);
 	}
 }
