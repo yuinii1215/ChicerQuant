@@ -1,6 +1,8 @@
 package AnyQuantProject.ui.graphUI;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.blService.singleStockDealBLService.SingleStockDealBLService;
@@ -10,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
  
  
@@ -45,13 +49,19 @@ public class LineChartSample extends Application {
         SingleStockDealBLService singleStockDealBLService=SingleStockBLFactory.getSingleStockDealBLService();
         Calendar te=Calendar.getInstance();
         te.set(Calendar.MONTH,1);
-        List<Stock> stocks= singleStockDealBLService.getSingleStockDeal("sz002644", te);
-        LineChart<?, ?> lineChart=LineChartFactory.getMonthKLineChart(stocks);
+//        StockListBLService stockListBLService=StockListBLFactory.getStockListBLService();
+//        List<Stock> anStocks=stockListBLService.getAllStocks();
+        List<String> stockNames=new ArrayList<>();
+        stockNames.add("sh600900");
+        stockNames.add("sh600837");
+        stockNames.add("sh601001");
+        stockNames.add("sh600728");
+        stockNames.add("sh600023");
+        stockNames.add("sh600894");
+        //
         
-        Scene scene  = new Scene(lineChart,800,600);
-       
-        stage.setScene(scene);
-        stage.show();
+        
+        
     }
  
     public static void main(String[] args) {
