@@ -57,7 +57,7 @@ import javafx.scene.layout.Pane;
  * @author GraceHan
  *
  */
-public class SingleStockInfoUIController_1 implements Initializable{
+public class OriginSingleStockInfoUIController implements Initializable{
 
 	Scene singleStockUIScene;
 	TableView<Stock> table;
@@ -95,7 +95,7 @@ public class SingleStockInfoUIController_1 implements Initializable{
 //        Parent parent;
         public static AnchorPane myPane;
    
-        private static SingleStockInfoUIController_1 instance;
+        private static OriginSingleStockInfoUIController instance;
 
 //    	public static SingleStockInfoUIController getInstance(AnchorPane singleStockInfoPanel) {
 //    	System.out.println("here is the instance of SingleStockInfoUIController");
@@ -103,12 +103,12 @@ public class SingleStockInfoUIController_1 implements Initializable{
 //        return instance==null?(instance=new SingleStockInfoUIController()):instance;
 //    }
         
-        public static SingleStockInfoUIController_1 getInstance() {
+        public static OriginSingleStockInfoUIController getInstance() {
     	System.out.println("here is the instance of SingleStockInfoUIController");
-        return instance==null?(instance=new SingleStockInfoUIController_1()):instance;
+        return instance==null?(instance=new OriginSingleStockInfoUIController()):instance;
     }
     
-        public SingleStockInfoUIController_1(){
+        public OriginSingleStockInfoUIController(){
             initialize(null,null);
         }
     /**
