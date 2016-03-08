@@ -1,5 +1,6 @@
-package AnyQuantProject.ui.singleStockInfoUI;
+package AnyQuantProject.util.method;
 
+import AnyQuantProject.ui.singleStockInfoUI.*;
 import javafx.event.EventHandler;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -7,7 +8,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 
-class TableRowControl<T> extends TableRow<T> {  
+public class TableRowControl<T> extends TableRow<T> {  
 //	
       public TableRowControl(TableView<T> tableView) {  
         super();  

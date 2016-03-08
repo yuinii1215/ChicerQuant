@@ -93,16 +93,16 @@ public class Main extends Application {
 /**
  * 以下部分是韩梦虞用来测试的部分
  */
-               Parent parent;
-               String num="abcd";
-               SingleStockInfoUIController controller=new SingleStockInfoUIController();
+//               Parent parent;
+//               String num="abcd";
+//           SingleStockInfoUIController controller=new SingleStockInfoUIController();
 //          try {
 //               parent= FXMLLoader.load(getClass().getResource("/AnyQuantProject/ui/singleStockInfoUI/singleStockInfoPanel.fxml"));
 //         } catch (IOException ex) {
 //            Logger.getLogger(SingleStockInfoUIController.class.getName()).log(Level.SEVERE, null, ex);
 //         }
-               Parent r=controller.getInstance(FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml")),num);
-               primaryStage.setScene(new Scene(r,950,600));
+//               Parent r=controller.getInstance(FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml")),num);
+//               primaryStage.setScene(new Scene(r,950,600));
 
 //
 ////		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
@@ -110,8 +110,9 @@ public class Main extends Application {
 //
 ////		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
 //		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
-////		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
-
+                allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+                AllStocksUIController.getInstance(allStocksPanel);	
+                 primaryStage.setScene(new Scene(allStocksPanel,950,600));
 		
 
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("/AnyQuantProject/ui/singleStockInfoUI/singleStockInfoPanel.fxml"));

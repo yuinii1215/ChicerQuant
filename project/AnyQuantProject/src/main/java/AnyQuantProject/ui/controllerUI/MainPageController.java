@@ -35,7 +35,6 @@ public class MainPageController  implements Initializable {
 	private static BenchMarkUIController benchMarkUIController ;
 	private static FavoriteUIController  favoriteUIController ;
 	private static GuideUIController guideUIController ;
-//	private static SingleStockInfoUIController_1 singleStockInfoUIController ;
 	private static SingleStockUIController singleStocksUIController ;
 	private static StockDealInfoUIController stockDealInfoUIController ;
 	 @FXML
@@ -63,7 +62,6 @@ public class MainPageController  implements Initializable {
 	}
 	  @FXML
 	    private void allStocksBtnFired(ActionEvent e) {
-		    System.out.println("BBBBBBBBBB");
 	        setPanel(Main.allStocksPanel, "打开所有股票界面...");
 	        Button btn = (Button)e.getSource();
 	        if(defaultBtn != null)
@@ -71,7 +69,7 @@ public class MainPageController  implements Initializable {
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
 	        Main.enterAllStocksScene();
-//	        AllStocksUIController.getInstance();
+//	        AllStocksUIController.getInstance(stage.allStocksPanel);
 	    }
 	  @FXML
 	    private void benchMarkBtnFired(ActionEvent e) {

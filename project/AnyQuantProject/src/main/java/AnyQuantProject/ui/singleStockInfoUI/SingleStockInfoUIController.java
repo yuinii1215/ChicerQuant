@@ -56,6 +56,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableRow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import AnyQuantProject.util.method.TableRowControl;
 
 /**
  *
@@ -65,38 +66,49 @@ import javafx.scene.layout.Pane;
 public class SingleStockInfoUIController implements Initializable {
 
     public Scene singleStockUIScene;
+    @FXML
     public TableView<Stock> table;
+    @FXML
     public Label titleLabel;
+    @FXML
     public Label nameLabel;
+    @FXML
+    public  TextField minRange;
+    @FXML
+    public TextField maxRange;
+    @FXML
+    public ComboBox keyWordBox;
+    @FXML
+    public  Button filterButton;
+    @FXML
+    public Button isFavorButton;
+    @FXML
+    public DatePicker startDatePicker;
+    @FXML
+    public DatePicker endDatePicker;
 
+    public List<Stock> singleStockList = new ArrayList<Stock>();
     @FXML
-    public static TextField minRange;
-    @FXML
-    public static TextField maxRange;
-    @FXML
-    public static ComboBox keyWordBox;
-
-    @FXML
-    public static Button filterButton;
-    @FXML
-    public static Button isFavorButton;
-    @FXML
-    public static DatePicker startDatePicker;
-    @FXML
-    public static DatePicker endDatePicker;
-
-    public static List<Stock> singleStockList = new ArrayList<Stock>();
-
     public TableColumn<Stock, String> dateColumn;
+    @FXML
     public TableColumn<Stock, Double> openColumn;
+    @FXML
     public TableColumn<Stock, Double> closeColumn;
+    @FXML
     public TableColumn<Stock, Double> highColumn;
+    @FXML
     public TableColumn<Stock, Double> lowColumn;
+    @FXML
     public TableColumn<Stock, Double> adj_priceColumn;
+    @FXML
     public TableColumn<Stock, Integer> volumeColumn;
+    @FXML
     public TableColumn<Stock, Long> marketValueColumn;
+    @FXML
     public TableColumn<Stock, Long> flowColumn;
+    @FXML
     public TableColumn<Stock, Double> peColumn;
+    @FXML
     public TableColumn<Stock, Double> pbColumn;
 
     boolean[] filterFlag;
@@ -113,7 +125,7 @@ public class SingleStockInfoUIController implements Initializable {
 
     private static SingleStockInfoUIController instance = null;
 
-    public Parent getInstance(Parent root,String stockNumber) {
+    public SingleStockInfoUIController getInstance() {
           Stock data1=new Stock();
           Stock data2=new Stock();
           data1.setFavor(true);
@@ -124,18 +136,8 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * 此处之后应该对接初始化数据的方法,但好像还是比较有问题?????
          */
-        //singleStockList.add(singleStockBlImpl.getSingleStockInfo(null));
-       
-       this.root=root;
-       System.out.println("here is the instance of SingleStockInfoUIController");
-//       try {
-//            this.root = FXMLLoader.load(getClass().getResource("../singleStockInfoPanel.fxml"));
-//        } catch (IOException ex) {
-//            Logger.getLogger(SingleStockInfoUIController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return (instance==null)?(instance=new SingleStockInfoUIController()):instance;
-        init(singleStockList);
-        return root;
+        //singleStockList.add(singleStockBlImpl.getSingleStockInfo(null));  
+        return instance==null?(instance=new SingleStockInfoUIController()):instance;
     }
 
     @FXML
@@ -263,22 +265,15 @@ public class SingleStockInfoUIController implements Initializable {
 
     }
 
-    public void init(List<Stock> thisList) {
-
-        minRange = (TextField) root.lookup("#minRange");
-        maxRange = (TextField) root.lookup("#maxRange");
-        startDatePicker = (DatePicker) root.lookup("#startDatePicker");
-        endDatePicker = (DatePicker) root.lookup("#endDatePicker");
-
-        nameLabel = (Label) root.lookup("#nameLabel");
-        nameLabel.setText(thisList.get(0).getName());
-
-        filterButton = (Button) root.lookup("#filterButton");
-
+    public void init() {
+        /**
+         * 之后要改,调用singleStock
+         */
+        nameLabel.setText(singleStockList.get(0).getName());
+        
         /**
          * initialize the button
          */
-        isFavorButton = (Button) root.lookup("#isFavorButton");
         if (singleStockList.get(0).isFavor() == true) {
             isFavorButton.setText("取消关注");
         } else {
@@ -286,9 +281,8 @@ public class SingleStockInfoUIController implements Initializable {
         }
 
         /*
-                initialize the combobox
+          initialize the combobox
          */
-        keyWordBox = (ComboBox) root.lookup("#keyWordBox");
         keyWordBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue ov, String t, String t1) {
@@ -300,9 +294,6 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * initialize the table
          */
-//        ScrollPane sp=(ScrollPane)root.lookup("#scrooler");
-//        table=sp.
-        table = (TableView) root.lookup("#tableView");
         table.setItems(FXCollections.observableArrayList(singleStockList));
 
         table.setRowFactory(new Callback<TableView<Stock>, TableRow<Stock>>() {
@@ -312,22 +303,9 @@ public class SingleStockInfoUIController implements Initializable {
                 return new TableRowControl(table);
             }
         });
-//
-//		/**
-//		 * initialize the tabel columns
-//		 */
-        dateColumn = (TableColumn<Stock, String>) table.getColumns().get(0);
-        openColumn = (TableColumn<Stock, Double>) table.getColumns().get(1);
-        closeColumn = (TableColumn<Stock, Double>) table.getColumns().get(2);
-        highColumn = (TableColumn<Stock, Double>) table.getColumns().get(3);
-        lowColumn = (TableColumn<Stock, Double>) table.getColumns().get(4);
-        adj_priceColumn = (TableColumn<Stock, Double>) table.getColumns().get(5);
-        volumeColumn = (TableColumn<Stock, Integer>) table.getColumns().get(6);
-        marketValueColumn = (TableColumn<Stock, Long>) table.getColumns().get(7);
-        flowColumn = (TableColumn<Stock, Long>) table.getColumns().get(8);
-        peColumn = (TableColumn<Stock, Double>) table.getColumns().get(9);
-        pbColumn = (TableColumn<Stock, Double>) table.getColumns().get(10);
-
+		/**
+		 * initialize the tabel columns
+		 */
         dateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(
                 cellData.getValue().getDate()));
         openColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
@@ -357,7 +335,7 @@ public class SingleStockInfoUIController implements Initializable {
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-
+        init();
     }
 
 }
