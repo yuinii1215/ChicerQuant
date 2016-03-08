@@ -1,5 +1,6 @@
 package AnyQuantProject.ui.controllerUI;
  
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -80,7 +81,7 @@ public class MainPageController  implements Initializable {
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
 	        Main.enterBenchMarkScene();
-	        BenchMarkUIController.getInstance();
+	        BenchMarkUIController.getInstance().init();
 	    }
 	  
 	  
@@ -93,7 +94,8 @@ public class MainPageController  implements Initializable {
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
 	        Main.enterFavouriteScene();
-	        FavoriteUIController.getInstance();
+			FavoriteUIController.getInstance().init();
+		
 	    }
 	  	
 //		  @FXML

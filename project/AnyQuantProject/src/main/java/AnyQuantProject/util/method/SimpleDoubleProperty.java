@@ -48,6 +48,9 @@ public class SimpleDoubleProperty implements ObservableValue<Double>{
 	}
 	@Override
 	public String toString(){
+		if(num==0.0){
+			return null;
+		}
 		return Double.toString(num);
 	}
 }

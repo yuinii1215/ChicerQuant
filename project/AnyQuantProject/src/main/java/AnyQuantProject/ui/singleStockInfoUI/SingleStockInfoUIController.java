@@ -265,6 +265,7 @@ public class SingleStockInfoUIController implements Initializable {
 
     }
 
+
     public void init() {
         /**
          * 之后要改,调用singleStock
@@ -274,6 +275,7 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * initialize the button
          */
+
         if (singleStockList.get(0).isFavor() == true) {
             isFavorButton.setText("取消关注");
         } else {
@@ -283,6 +285,7 @@ public class SingleStockInfoUIController implements Initializable {
         /*
           initialize the combobox
          */
+
         keyWordBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue ov, String t, String t1) {
