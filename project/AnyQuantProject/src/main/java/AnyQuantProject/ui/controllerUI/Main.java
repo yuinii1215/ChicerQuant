@@ -107,6 +107,7 @@ public class Main extends Application {
 		h_box.setSpacing(0);
 
 		primaryStage.setScene(new Scene(h_box));
+
                 primaryStage.initStyle(StageStyle.DECORATED);
 //		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();

@@ -17,4 +17,16 @@ public interface StockListBLService {
 	 * @warning 信息是昨天（最新）信息
 	 */
 	List<Stock> getAllStocks();
+	/**
+	 * 预测的结果，比如输入600，返回所有含600的股票的名称
+	 * @param target 目标字符
+	 * @return
+	 */
+	List<String> searchPredict(String target);
+	/**
+	 * 用来检测目标是否合法，true代表合法
+	 * @param target
+	 * @return
+	 */
+	boolean searchLegal(String target);
 }
