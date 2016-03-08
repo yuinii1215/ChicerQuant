@@ -73,6 +73,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 
 	@Override
 	public List<Stock> getAllStocks() {
+
 		if (isAlive) {
 			int currentSize=stockData.size();
 			List<Stock> temp=new ArrayList<>(currentSize);
@@ -82,6 +83,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 		else {
 			return this.stockData;
 		}
+
 	}
 
 	@Override

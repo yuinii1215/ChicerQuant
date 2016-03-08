@@ -92,8 +92,7 @@ public class Main extends Application {
 		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 
-//		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("/AnyQuantProject/ui/singleStockInfoUI/singleStockInfoPanel.fxml"));
-
+//		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 
@@ -102,14 +101,16 @@ public class Main extends Application {
 		primaryStage.setTitle("AnyQuant");	
 
 		h_box =new HBox();          
-		h_box.getChildren().addAll(guidePanel,favouritePanel);
+//		h_box.getChildren().addAll(guidePanel,favouritePanel);
+                h_box.getChildren().addAll(guidePanel,allStocksPanel);
 		h_box.setHgrow(guidePanel, Priority.ALWAYS);
 		h_box.setPadding(new Insets(0,0,0,0));
 		h_box.setSpacing(0);
 
 		primaryStage.setScene(new Scene(h_box));
-        primaryStage.initStyle(StageStyle.DECORATED);
-	//	primaryStage.initStyle(StageStyle.UNDECORATED);
+
+                primaryStage.initStyle(StageStyle.DECORATED);
+//		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
 	//  enterMainScene();
 	//  buttons();
