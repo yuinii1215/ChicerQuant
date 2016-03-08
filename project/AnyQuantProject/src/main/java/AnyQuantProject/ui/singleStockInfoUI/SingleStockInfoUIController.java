@@ -67,7 +67,8 @@ public class SingleStockInfoUIController implements Initializable {
     public Scene singleStockUIScene;
     public TableView<Stock> table;
     public Label titleLabel;
-    public Label nameLabel;
+    @FXML
+     Label nameLabel;
 
     @FXML
     public static TextField minRange;
@@ -265,20 +266,20 @@ public class SingleStockInfoUIController implements Initializable {
 
     public void init(List<Stock> thisList) {
 
-        minRange = (TextField) root.lookup("#minRange");
-        maxRange = (TextField) root.lookup("#maxRange");
-        startDatePicker = (DatePicker) root.lookup("#startDatePicker");
-        endDatePicker = (DatePicker) root.lookup("#endDatePicker");
+//        minRange = (TextField) root.lookup("#minRange");
+//        maxRange = (TextField) root.lookup("#maxRange");
+//        startDatePicker = (DatePicker) root.lookup("#startDatePicker");
+//        endDatePicker = (DatePicker) root.lookup("#endDatePicker");
+//
+//        nameLabel = (Label) root.lookup("#nameLabel");
+    	nameLabel.setText(thisList.get(0).getName());
 
-        nameLabel = (Label) root.lookup("#nameLabel");
-        nameLabel.setText(thisList.get(0).getName());
-
-        filterButton = (Button) root.lookup("#filterButton");
+   //     filterButton = (Button) root.lookup("#filterButton");
 
         /**
          * initialize the button
          */
-        isFavorButton = (Button) root.lookup("#isFavorButton");
+  //      isFavorButton = (Button) root.lookup("#isFavorButton");
         if (singleStockList.get(0).isFavor() == true) {
             isFavorButton.setText("取消关注");
         } else {
@@ -288,7 +289,7 @@ public class SingleStockInfoUIController implements Initializable {
         /*
                 initialize the combobox
          */
-        keyWordBox = (ComboBox) root.lookup("#keyWordBox");
+  //      keyWordBox = (ComboBox) root.lookup("#keyWordBox");
         keyWordBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue ov, String t, String t1) {

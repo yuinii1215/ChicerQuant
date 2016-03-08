@@ -77,11 +77,11 @@ public class FavoriteUIController implements Initializable{
 	 * 
 	 */
     public  void init(){
-    	myFavorList=favoriteBLService.getMyFavor();
-    	
-        table.setItems(FXCollections.observableArrayList(myFavorList));
-
-        table.getItems().add(new Stock());
+//    	myFavorList=favoriteBLService.getMyFavor();
+//    	
+//        table.setItems(FXCollections.observableArrayList(myFavorList));
+//
+//        table.getItems().add(new Stock());
          /**
 
 	/**
