@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.benchMarkUI.BenchMarkUIController">
-   <children>
-      <AnchorPane fx:id="KgraphPanel" layoutY="43.0" prefHeight="356.0" prefWidth="850.0" style="-fx-background-color: #fffffb;">
+ <children>
+      <AnchorPane fx:id="KgraphPanel" layoutY="40.0" prefHeight="356.0" prefWidth="850.0" style="-fx-background-color: #fffffb;">
          <effect>
             <Blend opacity="0.0" />
          </effect>
@@ -88,63 +88,81 @@
             </VBox>
             <VBox layoutX="4.0" layoutY="6.0" prefHeight="45.0" prefWidth="264.0">
                <children>
-                  <Label text="2897.34+23.19 (+0.81%)">
+                  <Label fx:id="showMessage" text="2897.34+23.19 (+0.81%)">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="15.0" prefWidth="247.0" text="2016/03/07 15:00:00 已收盘 （北京时间）" />
+                  <Label fx:id="currentTime" prefHeight="15.0" prefWidth="130.0" text="2016/03/07 15:00:00 " />
                </children>
             </VBox>
+            <ComboBox fx:id="benchMarkID" layoutX="682.0" layoutY="22.0" prefHeight="23.0" prefWidth="106.0" promptText="上证指数" />
             <HBox layoutX="199.0" layoutY="329.0" prefHeight="15.0" prefWidth="433.0">
                <children>
-                  <Label text="09:30">
+                  <Label fx:id="time1" text="09:30">
                      <padding>
                         <Insets right="55.0" />
                      </padding>
                   </Label>
-                  <Label text="10:30">
+                  <Label fx:id="time2" text="10:30">
                      <padding>
                         <Insets right="55.0" />
                      </padding>
                   </Label>
-                  <Label text="11:30/13:30">
+                  <Label fx:id="time3" text="11:30/13:30">
                      <padding>
                         <Insets right="55.0" />
                      </padding>
                   </Label>
-                  <Label text="14:00">
+                  <Label fx:id="time4" text="14:00">
                      <padding>
                         <Insets right="55.0" />
                      </padding>
                   </Label>
-                  <Label text="15:00" />
+                  <Label fx:id="time5" text="15:00" />
                </children>
             </HBox>
-            <ComboBox fx:id="benchMarkID" layoutX="682.0" layoutY="22.0" prefHeight="23.0" prefWidth="106.0" promptText="上证指数" />
+            <HBox layoutX="138.0" layoutY="33.0" prefHeight="15.0" prefWidth="160.0">
+               <children>
+                  <Label fx:id="ifClosing" prefHeight="15.0" prefWidth="49.0" text="已收盘">
+                     <opaqueInsets>
+                        <Insets right="8.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="BeijingTimeLabel" prefHeight="15.0" prefWidth="59.0" text="北京时间">
+                     <opaqueInsets>
+                        <Insets left="5.0" />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </HBox>
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="scrollPane1" layoutY="400.0" prefHeight="200.0" prefWidth="850.0">
+      <ScrollPane fx:id="scrollPane1" layoutY="394.0" prefHeight="206.0" prefWidth="850.0">
          <content>
-            <TableView fx:id="table" layoutY="300.0" prefHeight="200.0" prefWidth="830.0">
+            <TableView fx:id="table" layoutY="300.0" prefHeight="211.0" prefWidth="830.0">
               <columns>
-                <TableColumn fx:id="timeTable" prefWidth="128.0" text="时间" />
-                  <TableColumn fx:id="openTable" prefWidth="88.0" text="开盘价" />
-                  <TableColumn fx:id="highTable" prefWidth="91.0" text="最高价" />
-                  <TableColumn fx:id="lowTable" prefWidth="84.0" text="最低价" />
-                  <TableColumn fx:id="closeTable" prefWidth="99.0" text="收盘价" />
-                  <TableColumn fx:id="volumTable" prefWidth="100.0" text="成交量" />
-                  <TableColumn fx:id="turnoverTable" prefWidth="78.0" text="成交额" />
-                  <TableColumn fx:id="adj_priceTable" prefWidth="90.0" text="后复权价" />
-                  <TableColumn fx:id="marketvalueTable" prefWidth="69.0" text="市值" />
-                  <TableColumn fx:id="flow" prefWidth="77.0" text="流通量" />
+                <TableColumn fx:id="timeTable" prefWidth="100.0" text="时间" />
+                  <TableColumn fx:id="allBenchMarkID" prefWidth="79.0" text="名称" />
+                  <TableColumn fx:id="openTable" prefWidth="76.0" text="开盘价" />
+                  <TableColumn fx:id="highTable" prefWidth="74.0" text="最高价" />
+                  <TableColumn fx:id="lowTable" prefWidth="74.0" text="最低价" />
+                  <TableColumn fx:id="closeTable" prefWidth="74.0" text="收盘价" />
+                  <TableColumn fx:id="volumTable" prefWidth="74.0" text="成交量" />
+                  <TableColumn fx:id="turnoverTable" prefWidth="74.0" text="成交额" />
+                  <TableColumn fx:id="adj_priceTable" prefWidth="74.0" text="后复权价" />
+                  <TableColumn fx:id="marketvalueTable" prefWidth="62.0" text="市值" />
+                  <TableColumn fx:id="flow" prefWidth="74.0" text="流通量" />
               </columns>
             </TableView>
          </content>
       </ScrollPane>
-      <AnchorPane id="searchtitle" fx:id="titlePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="850.0" style="-fx-background-color: #AAAAAA;">
+      <AnchorPane id="searchtitle" fx:id="titlePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="850.0" style="-fx-background-color: #AAAAAA;">
          <children>
-            <Label fx:id="title1" layoutX="354.0" layoutY="11.0" text="大盘走势">
+            <Label fx:id="title1" layoutX="354.0" layoutY="6.0" text="大盘走势">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>

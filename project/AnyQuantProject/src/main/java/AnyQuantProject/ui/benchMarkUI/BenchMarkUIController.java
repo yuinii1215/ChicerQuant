@@ -5,21 +5,20 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import AnyQuantProject.bl.factoryBL.BenchMarkBLFactory;
-import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
 import AnyQuantProject.blService.benchMarkBLService.BenchMarkBLService;
-import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.dataStructure.BenchMark;
 import AnyQuantProject.dataStructure.Stock;
-import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
-import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
 import AnyQuantProject.util.method.SimpleLongProperty;
@@ -36,6 +35,8 @@ public class BenchMarkUIController implements Initializable{
 	private  TableView<BenchMark> table;
 	@FXML
 	private TableColumn<BenchMark, String> timeTable;
+	@FXML
+	private TableColumn<BenchMark, String> allBenchMarkID;
 	@FXML
 	private  TableColumn<BenchMark, Double> openTable;
 	@FXML
@@ -54,7 +55,9 @@ public class BenchMarkUIController implements Initializable{
 	private  TableColumn<BenchMark, Long> marketvalueTable;
 	@FXML
 	private  TableColumn<BenchMark, Long> flow;
-
+	@FXML
+	public  ComboBox benchMarkID;
+	String  benchMarkid;
 	
 	private BenchMarkBLService benchMarkBLService =BenchMarkBLFactory.getBenchMarBLService();  
 	private  List<BenchMark> benchMarkList;
@@ -86,13 +89,23 @@ public class BenchMarkUIController implements Initializable{
         table.setItems(FXCollections.observableArrayList(benchMarkList));
 
         table.getItems().add(new BenchMark());
-         /**
+       
 
+        benchMarkID.valueProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue ov, String t, String t1) {
+            	 benchMarkid = t1;
+                System.out.println("the selected is: " + t1);
+            }
+        });
+	
 	/**
 	 * initialize the tabel columns
 	 */
         timeTable .setCellValueFactory(cellData -> new SimpleStringProperty(
         		   cellData.getValue().getDate()));
+        allBenchMarkID.setCellValueFactory(cellData -> new SimpleStringProperty(
+     		   cellData.getValue().getName()));
         openTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(
         		   cellData.getValue().getOpen()));
         highTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(

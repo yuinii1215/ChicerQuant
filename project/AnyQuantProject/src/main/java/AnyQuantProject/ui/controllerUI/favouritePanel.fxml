@@ -8,12 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.favoriteUI.FavoriteUIController">
    <children>
-      <AnchorPane fx:id="flowingInfo" layoutY="45.0" prefHeight="33.0" prefWidth="850.0" style="-fx-background-color: #DDDDDD;">
+      <AnchorPane fx:id="flowingInfo" layoutY="40.0" prefHeight="33.0" prefWidth="850.0" style="-fx-background-color: #DDDDDD;">
          <effect>
             <Blend opacity="0.0" />
          </effect>
       </AnchorPane>
-      <ScrollPane fx:id="scrollPane1" layoutY="78.0" prefHeight="522.0" prefWidth="850.0">
+      <ScrollPane fx:id="scrollPane1" layoutY="73.0" prefHeight="527.0" prefWidth="850.0">
          <content>
             <TableView fx:id="table" prefHeight="522.0" prefWidth="850.0">
               <columns>
@@ -32,14 +32,14 @@
             </TableView>
          </content>
       </ScrollPane>
-      <AnchorPane id="searchtitle" fx:id="titlePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="850.0" style="-fx-background-color: #AAAAAA;">
+      <AnchorPane id="searchtitle" fx:id="titlePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="850.0" style="-fx-background-color: #AAAAAA;">
          <children>
-            <Label fx:id="title1" layoutX="354.0" layoutY="11.0" text="我的关注">
+            <Label fx:id="title1" layoutX="354.0" layoutY="6.0" text="我的关注">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="search" layoutX="673.0" layoutY="12.0" text="股票代码">
+            <TextField fx:id="search" layoutX="673.0" layoutY="8.0" text="股票代码">
                <font>
                   <Font size="11.0" />
                </font>
