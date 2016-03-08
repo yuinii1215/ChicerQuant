@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
-
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController">
    <children>
@@ -16,7 +15,7 @@
             <Font name="Arial" size="22.0" />
          </font>
       </Label>
-      <ComboBox id="keyWordBox" layoutX="110.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="100.0" promptText="关键字">
+      <ComboBox id="keyWordBox" layoutX="110.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="100.0" promptText="关键字">
          <effect>
             <Blend mode="HARD_LIGHT" />
          </effect>
@@ -36,11 +35,11 @@
             </FXCollections>  
           </items>  
       </ComboBox>
-      <TextField id="minRange" layoutX="224.0" layoutY="32.0" prefHeight="26.0" prefWidth="64.0" />
-      <TextField id="maxRange" layoutX="300.0" layoutY="32.0" prefHeight="26.0" prefWidth="64.0" />
-      <DatePicker id="startDatePicker" layoutX="393.0" layoutY="32.0" prefHeight="26.0" prefWidth="89.0" />
-      <DatePicker id="endDatePicker" layoutX="496.0" layoutY="31.0" prefHeight="26.0" prefWidth="91.0" />
-      <TableView id="tableView" layoutX="100.0" layoutY="57.0" prefHeight="545.0" prefWidth="564.0">
+      <TextField id="minRange" layoutX="224.0" layoutY="32.0" prefHeight="29.0" prefWidth="64.0" />
+      <TextField id="maxRange" layoutX="300.0" layoutY="32.0" prefHeight="29.0" prefWidth="64.0" />
+      <DatePicker id="startDatePicker" layoutX="393.0" layoutY="32.0" prefHeight="29.0" prefWidth="89.0" />
+      <DatePicker id="endDatePicker" layoutX="496.0" layoutY="31.0" prefHeight="29.0" prefWidth="91.0" />
+      <TableView id="tableView" layoutX="100.0" layoutY="60.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="537.0" prefWidth="555.0" tableMenuButtonVisible="true">
         <columns>
           <TableColumn id="dateColumn" prefWidth="78.13650512695312" text="日期" />
           <TableColumn id="openColumn" prefWidth="71.86349487304688" text="开盘价" />
@@ -49,11 +48,14 @@
             <TableColumn id="closeColumn" prefWidth="71.86349487304688" text="收盘价" />
             <TableColumn id="volumeColumn" prefWidth="71.86349487304688" text="成交量" />
              <TableColumn id="marketValueColumn" prefWidth="71.86349487304688" text="市值" />
-            <TableColumn id="adj_priceColumn" prefWidth="71.86349487304688" text="后复权价" />
+            <TableColumn id="adj_priceColumn" editable="false" prefWidth="71.86349487304688" text="后复权价" />
             <TableColumn id="flowColumn" prefWidth="71.86349487304688" text="流通" />
             <TableColumn id="peColumn" prefWidth="71.86349487304688" text="市盈率" />
             <TableColumn id="pbColumn" prefWidth="71.86349487304688" text="市净率" />
         </columns>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </TableView>
       <Button id="filterButton" layoutX="612.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleFilterAction" prefHeight="18.0" prefWidth="28.0" style="-fx-background-color: #f16a6a;" text="查找" textFill="#f8f8f8">
          <font>
@@ -65,7 +67,7 @@
             <Font name="Arial Black" size="46.0" />
          </font>
       </Label>
-      <Button id="isFavorButton" layoutX="856.0" layoutY="119.0" mnemonicParsing="false" onAction="#handleFavorAction" prefHeight="29.0" prefWidth="70.0" style="-fx-background-color: #6495ED;" textFill="WHITE" >
+      <Button id="isFavorButton" layoutX="837.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleFavorAction" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6495ED;" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

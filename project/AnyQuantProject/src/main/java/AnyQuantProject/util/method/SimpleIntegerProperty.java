@@ -47,6 +47,9 @@ public class SimpleIntegerProperty implements ObservableValue<Integer>{
 	}
 	@Override
 	public String toString(){
+		if(num==0){
+			return null;
+		}
 		return Integer.toString(num);
 	}
 }

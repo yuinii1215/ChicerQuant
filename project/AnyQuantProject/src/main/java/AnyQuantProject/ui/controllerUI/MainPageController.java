@@ -1,5 +1,6 @@
 package AnyQuantProject.ui.controllerUI;
  
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,7 +20,7 @@ import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
 import AnyQuantProject.ui.guideUI.GuideUIController;
-import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController_1;
+import AnyQuantProject.ui.singleStockInfoUI.OriginSingleStockInfoUIController;
 import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
 import AnyQuantProject.ui.stockDealInfoUI.StockDealInfoUIController;
 /**
@@ -35,7 +36,6 @@ public class MainPageController  implements Initializable {
 	private static BenchMarkUIController benchMarkUIController ;
 	private static FavoriteUIController  favoriteUIController ;
 	private static GuideUIController guideUIController ;
-	private static SingleStockInfoUIController_1 singleStockInfoUIController ;
 	private static SingleStockUIController singleStocksUIController ;
 	private static StockDealInfoUIController stockDealInfoUIController ;
 	 @FXML
@@ -63,7 +63,6 @@ public class MainPageController  implements Initializable {
 	}
 	  @FXML
 	    private void allStocksBtnFired(ActionEvent e) {
-		    System.out.println("BBBBBBBBBB");
 	        setPanel(Main.allStocksPanel, "打开所有股票界面...");
 	        Button btn = (Button)e.getSource();
 	        if(defaultBtn != null)
@@ -71,7 +70,7 @@ public class MainPageController  implements Initializable {
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
 	        Main.enterAllStocksScene();
-//	        AllStocksUIController.getInstance();
+//	        AllStocksUIController.getInstance(stage.allStocksPanel);
 	    }
 	  @FXML
 	    private void benchMarkBtnFired(ActionEvent e) {
@@ -82,7 +81,7 @@ public class MainPageController  implements Initializable {
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
 	        Main.enterBenchMarkScene();
-	        BenchMarkUIController.getInstance();
+	        BenchMarkUIController.getInstance().init();
 	    }
 	  
 	  
@@ -95,7 +94,8 @@ public class MainPageController  implements Initializable {
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
 	        Main.enterFavouriteScene();
-	        FavoriteUIController.getInstance();
+			FavoriteUIController.getInstance().init();
+		
 	    }
 	  	
 //		  @FXML
@@ -118,7 +118,7 @@ public class MainPageController  implements Initializable {
 		            defaultBtn.setDefaultButton(false);
 		        btn.setDefaultButton(true);
 		        defaultBtn = btn;
-		        SingleStockInfoUIController_1.getInstance();
+		        OriginSingleStockInfoUIController.getInstance();
 		    }
 		  @FXML
 		    private void singleStockBtnFired(ActionEvent e) {

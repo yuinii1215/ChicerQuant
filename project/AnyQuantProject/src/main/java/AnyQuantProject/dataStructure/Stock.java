@@ -15,6 +15,7 @@ public class Stock extends AbstractStock{
 	double pe_ttm;			//市盈率
 	double pb;			//市净率
 	
+	
 	public double getTurnover() {
 		return turnover;
 	}

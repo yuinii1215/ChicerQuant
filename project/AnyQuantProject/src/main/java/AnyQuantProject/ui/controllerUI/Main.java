@@ -1,7 +1,15 @@
 package AnyQuantProject.ui.controllerUI;
 
 import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
+
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
+
+import AnyQuantProject.ui.singleStockInfoUI.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -67,57 +75,40 @@ public class Main extends Application {
 		return primaryScene;
 	}
     
-public static Stage getPrimaryStage() {
+        public static Stage getPrimaryStage() {
 	// TODO Auto-generated method stub
 	return primaryStage;
-}
+        }
 
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		instance=this;
 		this.primaryStage = primaryStage;
-//		mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-
-/**
- * 以下部分是韩梦虞用来测试的部分
- */
-              
-               String num="abcd";
-               SingleStockInfoUIController controller=new SingleStockInfoUIController();
-               Parent root=controller.getInstance(num);
-               primaryStage.setScene(new Scene(root,950,600));
-
-
-//		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
-//		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
-
-//		titlePanel= FXMLLoader.load(getClass().getResource("titlePanel.fxml"));
-//		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
-//		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
-
+		mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 		
+		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
+		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("/AnyQuantProject/ui/singleStockInfoUI/singleStockInfoPanel.fxml"));
 
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 
+		primaryStage.setHeight(600);
+		primaryStage.setWidth(950);
+		primaryStage.setTitle("AnyQuant");	
 
-//		primaryStage.setHeight(600);
-//		primaryStage.setWidth(950);
-//		primaryStage.setTitle("AnyQuant");	
+		h_box =new HBox();          
+		h_box.getChildren().addAll(guidePanel,favouritePanel);
+		h_box.setHgrow(guidePanel, Priority.ALWAYS);
+		h_box.setPadding(new Insets(0,0,0,0));
+		h_box.setSpacing(0);
 
-//		h_box =new HBox();
-//                
-//		h_box.getChildren().addAll(guidePanel,favouritePanel);
-//		h_box.setHgrow(guidePanel, Priority.ALWAYS);
-//		h_box.setPadding(new Insets(0,0,0,0));
-//		h_box.setSpacing(0);
-//
-//		primaryStage.setScene(new Scene(h_box));
-                primaryStage.initStyle(StageStyle.DECORATED);
-
-	//	primaryStage.initStyle(StageStyle.UNDECORATED);
+		primaryStage.setScene(new Scene(h_box));
+        primaryStage.initStyle(StageStyle.DECORATED);
+//		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
 	//  enterMainScene();
 	//  buttons();
