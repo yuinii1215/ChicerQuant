@@ -115,7 +115,8 @@ public class AllStocksUIController  implements Initializable{
         
         allStocksTableView.setItems(FXCollections.observableArrayList(allStocksList));
 
-        
+
+        allStocksTableView.getItems().add(new Stock());
         
         allStocksTableView.setRowFactory(new Callback<TableView<Stock>, TableRow<Stock>>() {
             @Override

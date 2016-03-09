@@ -88,11 +88,11 @@ public class Main extends Application {
 		// TODO Auto-generated method stub
 		instance=this;
 		this.primaryStage = primaryStage;
-		mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+	//	mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
 		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 		
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
-		
+		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
@@ -103,9 +103,8 @@ public class Main extends Application {
 		primaryStage.setWidth(950);
 		primaryStage.setTitle("AnyQuant");	
 
-		h_box =new HBox();          
-//		h_box.getChildren().addAll(guidePanel,favouritePanel);
-                h_box.getChildren().addAll(guidePanel,favouritePanel);
+		h_box =new HBox(); 
+		h_box.getChildren().addAll(guidePanel,favouritePanel);    
 		h_box.setHgrow(guidePanel, Priority.ALWAYS);
 		h_box.setPadding(new Insets(0,0,0,0));
 		h_box.setSpacing(0);

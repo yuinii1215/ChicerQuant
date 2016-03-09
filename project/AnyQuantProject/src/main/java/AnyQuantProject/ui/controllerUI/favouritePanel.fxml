@@ -17,17 +17,18 @@
          <content>
             <TableView fx:id="table" prefHeight="522.0" prefWidth="850.0">
               <columns>
-                <TableColumn fx:id="number" prefWidth="75.0" text="序号" />
-                <TableColumn fx:id="id" prefWidth="76.0" text="代码" />
-                  <TableColumn fx:id="name" prefWidth="87.0" text="名称" />
-                  <TableColumn fx:id="open" prefWidth="73.0" text="开盘价" />
-                  <TableColumn fx:id="high" prefWidth="73.0" text="最高价" />
-                  <TableColumn fx:id="low" prefWidth="78.0" text="最低价" />
-                  <TableColumn fx:id="close" prefWidth="74.0" text="收盘价" />
-                  <TableColumn fx:id="volum" prefWidth="74.0" text="成交量" />
-                  <TableColumn fx:id="adj_price" prefWidth="76.0" text="后复权价" />
-                  <TableColumn fx:id="marketvalue" prefWidth="70.0" text="市值" />
-                  <TableColumn fx:id="flow" prefWidth="92.99993896484375" text="流通量" />
+                 <TableColumn fx:id="id" prefWidth="65.0" text="代码" />
+                  <TableColumn fx:id="name" prefWidth="69.0" text="名称" />
+                  <TableColumn fx:id="open" text="开盘价" />
+                  <TableColumn fx:id="high" prefWidth="67.0" text="最高价" />
+                  <TableColumn fx:id="low" prefWidth="73.0" text="最低价" />
+                  <TableColumn fx:id="close" prefWidth="76.0" text="收盘价" />
+                  <TableColumn fx:id="volum" prefWidth="70.0" text="成交量" />
+                  <TableColumn fx:id="adj_price" prefWidth="83.0" text="后复权价" />
+                  <TableColumn fx:id="marketvalue" prefWidth="61.0" text="市值" />
+                  <TableColumn fx:id="flow" minWidth="0.0" prefWidth="73.0" text="流通量" />
+                  <TableColumn fx:id="pe" prefWidth="66.0" text="市盈率" />
+                  <TableColumn fx:id="pb" prefWidth="65.99993896484375" text="市净率" />
               </columns>
             </TableView>
          </content>
