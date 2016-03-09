@@ -25,14 +25,17 @@ public class JsonHelper {
 		JSONArray jarr = new JSONArray();
 		JSONArray result = new JSONArray();
 		try {
-			jarr = helper.getAPI(keyheader+Pkey);
+			jarr = helper.getAnyAPI(keyheader+Pkey);
 		} catch (IOException e) {
 			return new JSONArray();
 		}
 
 		for (int i = 0; i < jarr.size(); i++) {
 			JSONObject jo = (JSONObject) jarr.get(i);
-			result.add(jo.get("name"));
+//			result.add(jo.get("name"));
+			String name = helper.getSingleStockChineseName((String) jo.get("name"));
+			result.add(name);
+			
 		}
 		
 		return result;
@@ -42,7 +45,7 @@ public class JsonHelper {
 		key = getKeyWithDate(type, name, date, date);
 		JSONObject jo = new JSONObject();
 		try {
-			jo = helper.getAPI(keyheader+key).getJSONObject(0);
+			jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
 		} catch (IOException e) {
 			return new JSONObject();
 		}
@@ -54,10 +57,10 @@ public class JsonHelper {
 			Calendar end) {
 		key = getKeyWithDate(type, name, start, end);
 		//TODO
-		System.out.println("jhelper  key : "+key);
+//		System.out.println("jhelper  key : "+key);
 		JSONObject jo = new JSONObject();
 		try {
-			jo = helper.getAPI(keyheader+key).getJSONObject(0);
+			jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
 		} catch (IOException e) {
 			return new JSONArray();
 		}
