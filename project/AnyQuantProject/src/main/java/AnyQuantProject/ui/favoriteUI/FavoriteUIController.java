@@ -133,7 +133,6 @@ public class FavoriteUIController implements Initializable{
 				   cellData.getValue().getPe_ttm()));
            pb.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 				   cellData.getValue().getPb()));
-           search();
       
    }
 

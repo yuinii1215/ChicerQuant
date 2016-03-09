@@ -35,19 +35,7 @@ import AnyQuantProject.util.method.IOHelper;
 public class StockListBLController implements StockListBLService,Runnable {
 	private List<String> avaliable;
         
-//<<<<<<< HEAD
-//        StockListDATAService stockListDATAService;
-//	public StockListBLController() {
-//		avaliable=new LinkedList<>();
-//		// get dataService
-//		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
-//		stockListDATAService = factoryDATAService.getStockListDATAService();
-//		// get names
-//		List<String> sz = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
-//		List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
-//		avaliable.addAll(sh);
-//		avaliable.addAll(sz);
-//=======
+
 	private volatile List<Stock> stockData;
 	private volatile boolean isAlive=false;
 	
@@ -73,6 +61,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 			List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
 			avaliable.addAll(sh);
 			avaliable.addAll(sz);
+			avaliable.stream().forEach(na->System.out.println(na));
 			//save
 			IOHelper.save(R.CachePath, R.StockNameFile, (Serializable) avaliable);
 		}
@@ -84,6 +73,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 			}
 		}
 		catch(NullPointerException e){
+			System.out.println("111111");
 			stockData=new ArrayList<>();
 			isAlive=true;
 			Thread thread=new Thread(this);
