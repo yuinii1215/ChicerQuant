@@ -3,14 +3,18 @@ package AnyQuantProject.ui.favoriteUI;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.dataStructure.Stock;
@@ -27,8 +31,6 @@ public class FavoriteUIController implements Initializable{
 	
 	@FXML
 	private  TableView<Stock> table;
-	@FXML
-	private TableColumn<Stock, Integer> number;
 	@FXML
 	private  TableColumn<Stock, String> id;
 	@FXML
@@ -49,7 +51,12 @@ public class FavoriteUIController implements Initializable{
 	private  TableColumn<Stock, Long> marketvalue;
 	@FXML
 	private  TableColumn<Stock, Long> flow;
-
+	@FXML
+	private  TableColumn<Stock, Double> pe;
+	@FXML
+	private  TableColumn<Stock, Double> pb;
+	@FXML
+	private  TextField search;
 	
 	private FavoriteBLService favoriteBLService =FavoriteBLFactory.getFavoriteBLService();  
 	private  List<Stock> myFavorList;
@@ -77,12 +84,13 @@ public class FavoriteUIController implements Initializable{
 	 * 
 	 */
     public  void init(){
-//    	myFavorList=favoriteBLService.getMyFavor();
-//    	
-//        table.setItems(FXCollections.observableArrayList(myFavorList));
-//
-//        table.getItems().add(new Stock());
-         /**
+    	myFavorList=favoriteBLService.getMyFavor();
+    	
+        table.setItems(FXCollections.observableArrayList(myFavorList));
+
+        table.getItems().add(new Stock());
+     
+       
 
 	/**
 	 * initialize the tabel columns
@@ -107,9 +115,39 @@ public class FavoriteUIController implements Initializable{
 				cellData.getValue().getMarketvalue()));
            flow.setCellValueFactory(cellData -> new SimpleLongProperty(
 			    cellData.getValue().getFlow()));
-            
+           pe.setCellValueFactory(cellData -> new SimpleDoubleProperty(
+				   cellData.getValue().getPe_ttm()));
+           pb.setCellValueFactory(cellData -> new SimpleDoubleProperty(
+				   cellData.getValue().getPb()));
+      
    }
 
+    public void Listens(){
+    	if(  table.onMouseClickedProperty() != null){
+  
+    		String n=	table.getSelectionModel().getSelectedItem().getName();
+    		System.out.println("-------------"+n+"---------------");
+    	}
+    	
+    	
+    	
+    }
+    public void search(){
+    	search.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				search.setText("");
+			}
+    		
+    	});
+    //	search.onKeyPressedProperty()
+    	
+    }
+
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -117,6 +155,7 @@ public class FavoriteUIController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         instance = this;
         init();
+     
     }
     
     

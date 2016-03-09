@@ -231,40 +231,5 @@ public class MainPageController  implements Initializable {
 //		                new KeyFrame(Duration.seconds(delay+0.15), new KeyValue(centralPanel.translateXProperty(), 0), new KeyValue(centralPanel.opacityProperty(), 1)),
 //		                new KeyFrame(Duration.seconds(delay+0.16), eh2)).play();
 //		    }
-//	  private static void launchByStaff(StaffTypeEnum staffTypeEnum){
-//	        switch (staffTypeEnum){
-//			    case ALLSTOCKS:
-//			    	allStocksController= new AllStocksUIController() ;
-//			    	allStocksController.lanch();
-//			    	break;
-//			    case BENCHMARK:
-//			    	benchMarkUIController = new BenchMarkUIController();
-//			    	benchMarkUIController.lanch();
-//			    	break;
-//			    case FAVORITE:
-//			    	favoriteUIController = new FavoriteUIController(); 
-//			    	favoriteUIController.lanch();
-//			    	break;
-//			    case GUIDE:
-//			    	guideUIController = new GuideUIController();
-//			    	guideUIController.lanch();
-//			    	break;
-//			    case SINGLESTOCK_INFO:
-//			    	singleStockInfoUIController = new SingleStockInfoUIController();
-//			    	singleStockInfoUIController.lanch();
-//			    	break;
-//			    case SINGLESTOCK:
-//			    	singleStocksUIController = new SingleStockUIController();
-//			    	singleStocksUIController.lanch();
-//			    	break;
-//			    case STOCKDEAL_INFO:
-//			    	stockDealInfoUIController = new StockDealInfoUIController();
-//			    	stockDealInfoUIController.lanch();
-//			    	break;
-//			    default:
-//			    	break;
-//			}
-//	        }
-	
 		  }
 }
