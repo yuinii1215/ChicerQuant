@@ -3,6 +3,7 @@
  */
 package AnyQuantProject.dataStructure;
 
+import java.io.Serializable;
 import java.util.StringTokenizer;
 
 /**
@@ -10,7 +11,7 @@ import java.util.StringTokenizer;
  * @param <T>
  *
  */
-public class Stock extends AbstractStock{
+public class Stock extends AbstractStock implements Serializable{
 	double turnover;	//换手率
 	double pe_ttm;			//市盈率
 	double pb;			//市净率

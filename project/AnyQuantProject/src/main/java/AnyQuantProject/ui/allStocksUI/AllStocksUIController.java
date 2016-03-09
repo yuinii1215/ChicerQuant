@@ -28,9 +28,17 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableRow;
 import javafx.util.Callback;
-import AnyQuantProject.util.method.TableRowControl;
+//import AnyQuantProject.util.method.TableRowControl;
 import java.util.ArrayList;
+import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableCell;
+import static javafx.scene.input.KeyCode.T;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 /**
  * 
  * @author GraceHan
@@ -41,7 +49,9 @@ public class AllStocksUIController  implements Initializable{
 	Scene allStockUIScene;
     
     List<Stock> allStocksList=new ArrayList<Stock>();
-    
+    String targetStockName;
+    @FXML
+    public TableColumn<Stock, String> nameColumn;
     @FXML
     public TableView<Stock>  allStocksTableView;
     @FXML
@@ -66,6 +76,10 @@ public class AllStocksUIController  implements Initializable{
     public TableColumn<Stock, Double> peColumn;
     @FXML
     public TableColumn<Stock, Double> pbColumn;
+    
+    
+
+    int selectedIndex;
 	
 	private static AllStocksUIController instance;
         StockListBLService stockListImplement = StockListBLFactory.getStockListBLService();
@@ -89,30 +103,47 @@ public class AllStocksUIController  implements Initializable{
 
    public void init(){
        
-           Stock data1=new Stock();
+          Stock data1=new Stock();
           Stock data2=new Stock();
           data1.setFavor(true);
           data2.setFavor(true);
           data1.setName("腾讯科技");
+          data2.setName("哈药六厂");
           allStocksList.add(data1);
           allStocksList.add(data2);
        
      //   stockListImplement=new StockListBLController();
+<<<<<<< HEAD
       //  allStocksList=stockListImplement.getAllStocks();
         
         System.out.println("allStocksList"+allStocksList.get(0).getDate());
      //   allStocksTableView.setItems(FXCollections.observableArrayList(allStocksList));
+=======
+//        allStocksList=stockListImplement.getAllStocks();
+        
+        allStocksTableView.setItems(FXCollections.observableArrayList(allStocksList));
+>>>>>>> 52d2c41bd452fb70b1c94d4a4eff25f89c417463
 
+        
+        
         allStocksTableView.setRowFactory(new Callback<TableView<Stock>, TableRow<Stock>>() {
             @Override
             public TableRow<Stock> call(TableView<Stock> table) {
                 // TODO Auto-generated method stub
-                return new TableRowControl(table);
+               return new TableRowControl(table);
             }
         });
+//        allStocksTableView.setRowFactory((TableView<Stock> table) -> {
+//            // TODO Auto-generated method stub
+//            return new TableRowControl(table);
+//           });
+     
+        
 		/**
 		 * initialize the tabel columns
 		 */
+        nameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(
+                cellData.getValue().getName()));
         dateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(
                 cellData.getValue().getDate()));
         openColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
@@ -139,4 +170,21 @@ public class AllStocksUIController  implements Initializable{
                 cellData.getValue().getPb()));
        
    }
+   
+   public class TableRowControl<T> extends TableRow<T> {
+       
+      public TableRowControl(TableView<T> tableView) {  
+        super();  
+        this.setOnMouseClicked(new EventHandler<MouseEvent>() {  
+            @Override  
+            public void handle(MouseEvent event) { 
+                 selectedIndex=TableRowControl.this.getIndex();
+                 String stockName=nameColumn.getCellData(selectedIndex);
+                 /*
+                 这里需要调用界面的切换方法,我不知道是什么.......
+                 */
+            }  
+        });  
+    }  
+}  
 }
