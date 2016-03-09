@@ -92,13 +92,8 @@ public class Main extends Application {
 		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 		
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
-<<<<<<< HEAD
-	//	allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
-	//	benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
-=======
-		
+		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
->>>>>>> 52d2c41bd452fb70b1c94d4a4eff25f89c417463
 
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
@@ -108,13 +103,8 @@ public class Main extends Application {
 		primaryStage.setWidth(950);
 		primaryStage.setTitle("AnyQuant");	
 
-		h_box =new HBox();          
-<<<<<<< HEAD
+		h_box =new HBox(); 
 		h_box.getChildren().addAll(guidePanel,favouritePanel);    
-=======
-//		h_box.getChildren().addAll(guidePanel,favouritePanel);
-                h_box.getChildren().addAll(guidePanel,favouritePanel);
->>>>>>> 52d2c41bd452fb70b1c94d4a4eff25f89c417463
 		h_box.setHgrow(guidePanel, Priority.ALWAYS);
 		h_box.setPadding(new Insets(0,0,0,0));
 		h_box.setSpacing(0);
