@@ -288,7 +288,7 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * 之后要改,调用singleStock
          */
-        nameLabel.setText(singleStock.getName());
+//        nameLabel.setText(singleStock.getName());
         
         /**
          * initialize the button

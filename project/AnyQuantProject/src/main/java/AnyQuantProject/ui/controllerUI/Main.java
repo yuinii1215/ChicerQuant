@@ -94,10 +94,10 @@ public class Main extends Application {
 		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
 		
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
-		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+//		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 
-		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
+//		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 
@@ -119,8 +119,13 @@ public class Main extends Application {
 	//  enterMainScene();
 	//  buttons();
 		primaryStage.show();  
-	//	StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
-	//	stockListBLController.init();
+		//
+		/**
+		 * @warning
+		 * 下面这句话，死都别删！！！！！！！
+		 */
+		StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
+		stockListBLController.init();
 }  
 	
 	
