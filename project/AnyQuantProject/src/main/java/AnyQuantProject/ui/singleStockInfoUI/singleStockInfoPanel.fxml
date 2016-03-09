@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController">
    <children>
-      <Label id="titleLabel" alignment="CENTER" layoutX="100.0" prefHeight="32.0" prefWidth="852.0" style="-fx-background-color: #FAF0E6;" text="股票详情">
+      <Label id="titleLabel" alignment="CENTER" prefHeight="40.0" prefWidth="852.0" style="-fx-background-color: #AAAAAA;" text="股票详情">
          <font>
             <Font name="Arial" size="22.0" />
          </font>
       </Label>
-      <ComboBox id="keyWordBox" layoutX="110.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="100.0" promptText="关键字">
+      <ComboBox id="keyWordBox" fx:id="keyWordBox" layoutX="11.0" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="100.0" promptText="关键字">
          <effect>
             <Blend mode="HARD_LIGHT" />
          </effect>
@@ -35,39 +35,39 @@
             </FXCollections>  
           </items>  
       </ComboBox>
-      <TextField id="minRange" layoutX="224.0" layoutY="32.0" prefHeight="29.0" prefWidth="64.0" />
-      <TextField id="maxRange" layoutX="300.0" layoutY="32.0" prefHeight="29.0" prefWidth="64.0" />
-      <DatePicker id="startDatePicker" layoutX="393.0" layoutY="32.0" prefHeight="29.0" prefWidth="89.0" />
-      <DatePicker id="endDatePicker" layoutX="496.0" layoutY="31.0" prefHeight="29.0" prefWidth="91.0" />
-      <TableView id="tableView" layoutX="100.0" layoutY="60.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="537.0" prefWidth="555.0" tableMenuButtonVisible="true">
+      <TextField id="minRange" fx:id="minRange" layoutX="126.0" layoutY="40.0" prefHeight="29.0" prefWidth="64.0" />
+      <TextField id="maxRange" fx:id="maxRange" layoutX="199.0" layoutY="40.0" prefHeight="29.0" prefWidth="64.0" />
+      <DatePicker id="startDatePicker" fx:id="startDatePicker" layoutX="284.0" layoutY="40.0" prefHeight="29.0" prefWidth="89.0" />
+      <DatePicker id="endDatePicker" fx:id="endDatePicker" layoutX="380.0" layoutY="40.0" prefHeight="29.0" prefWidth="91.0" />
+      <TableView id="tableView" fx:id="table" layoutY="69.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="530.0" prefWidth="555.0" tableMenuButtonVisible="true">
         <columns>
-          <TableColumn id="dateColumn" prefWidth="78.13650512695312" text="日期" />
-          <TableColumn id="openColumn" prefWidth="71.86349487304688" text="开盘价" />
-            <TableColumn id="highColumn" prefWidth="71.86349487304688" text="最高价" />
-            <TableColumn id="lowColumn" prefWidth="71.86349487304688" text="最低价" />
-            <TableColumn id="closeColumn" prefWidth="71.86349487304688" text="收盘价" />
-            <TableColumn id="volumeColumn" prefWidth="71.86349487304688" text="成交量" />
-             <TableColumn id="marketValueColumn" prefWidth="71.86349487304688" text="市值" />
-            <TableColumn id="adj_priceColumn" editable="false" prefWidth="71.86349487304688" text="后复权价" />
-            <TableColumn id="flowColumn" prefWidth="71.86349487304688" text="流通" />
-            <TableColumn id="peColumn" prefWidth="71.86349487304688" text="市盈率" />
-            <TableColumn id="pbColumn" prefWidth="71.86349487304688" text="市净率" />
+          <TableColumn id="dateColumn" fx:id="dateColumn" prefWidth="78.13650512695312" text="日期" />
+          <TableColumn id="openColumn" fx:id="openColumn" prefWidth="71.86349487304688" text="开盘价" />
+            <TableColumn id="highColumn" fx:id="highColumn" prefWidth="71.86349487304688" text="最高价" />
+            <TableColumn id="lowColumn" fx:id="lowColumn" prefWidth="71.86349487304688" text="最低价" />
+            <TableColumn id="closeColumn" fx:id="closeColumn" prefWidth="71.86349487304688" text="收盘价" />
+            <TableColumn id="volumeColumn" fx:id="volumeColumn" prefWidth="71.86349487304688" text="成交量" />
+             <TableColumn id="marketValueColumn" fx:id="marketValueColumn" prefWidth="71.86349487304688" text="市值" />
+            <TableColumn id="adj_priceColumn" fx:id="adj_priceColumn" editable="false" prefWidth="71.86349487304688" text="后复权价" />
+            <TableColumn id="flowColumn" fx:id="flowColumn" prefWidth="71.86349487304688" text="流通" />
+            <TableColumn id="peColumn" fx:id="peColumn" prefWidth="71.86349487304688" text="市盈率" />
+            <TableColumn id="pbColumn" fx:id="pbColumn" prefWidth="71.86349487304688" text="市净率" />
         </columns>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </TableView>
-      <Button id="filterButton" layoutX="612.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleFilterAction" prefHeight="18.0" prefWidth="28.0" style="-fx-background-color: #f16a6a;" text="查找" textFill="#f8f8f8">
+      <Button id="filterButton" fx:id="filterButton" layoutX="501.0" layoutY="43.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleFilterAction" prefHeight="18.0" prefWidth="28.0" style="-fx-background-color: #f16a6a;" text="查找" textFill="#f8f8f8">
          <font>
             <Font size="8.0" />
          </font>
       </Button>
-      <Label id="nameLabel" layoutX="690.0" layoutY="47.0" prefHeight="82.0" prefWidth="209.0" text="腾讯科技">
+      <Label id="nameLabel" fx:id="nameLabel" layoutX="574.0" layoutY="47.0" prefHeight="82.0" prefWidth="209.0" text="腾讯科技">
          <font>
-            <Font name="Arial Black" size="46.0" />
+            <Font name="Arial Black" size="30.0" />
          </font>
       </Label>
-      <Button id="isFavorButton" layoutX="837.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleFavorAction" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6495ED;" textFill="WHITE">
+      <Button id="isFavorButton" fx:id="isFavorButton" layoutX="741.0" layoutY="117.0" mnemonicParsing="false" onAction="#handleFavorAction" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6495ED;" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

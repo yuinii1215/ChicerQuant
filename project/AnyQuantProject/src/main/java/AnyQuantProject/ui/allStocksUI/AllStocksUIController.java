@@ -3,6 +3,7 @@ package AnyQuantProject.ui.allStocksUI;
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.bl.stockListBL.StockListBLController;
 import AnyQuantProject.blService.stockListBLService.StockListBLService;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.ui.controllerUI.Main;
 import AnyQuantProject.ui.controllerUI.MainPageController;
+import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
 import AnyQuantProject.util.method.SimpleLongProperty;
@@ -28,8 +30,11 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableRow;
 import javafx.util.Callback;
+
+
 //import AnyQuantProject.util.method.TableRowControl;
 import java.util.ArrayList;
+
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -85,6 +90,7 @@ public class AllStocksUIController  implements Initializable{
     StockListBLService stockListImplement = StockListBLFactory.getStockListBLService();
 
     public static AllStocksUIController getInstance() {
+    	 System.out.println("here is the instance of AllStocksUIController ");
         return instance==null?(instance=new AllStocksUIController()):instance;
     }
     
@@ -162,7 +168,12 @@ public class AllStocksUIController  implements Initializable{
                 cellData.getValue().getPb()));
        
    }
-   
+  /**
+   * TO be tested
+   * @author QiHan
+   *
+   * @param <T>
+   */
    public class TableRowControl<T> extends TableRow<T> {
        
       public TableRowControl(TableView<T> tableView) {  
@@ -172,9 +183,11 @@ public class AllStocksUIController  implements Initializable{
             public void handle(MouseEvent event) { 
                  selectedIndex=TableRowControl.this.getIndex();
                  String stockName=nameColumn.getCellData(selectedIndex);
-                 /*
-                 这里需要调用界面的切换方法,我不知道是什么.......
-                 */
+
+            //     MainPageController.getInstance().setPanel(Main.singleStockInfoPanel, "打开单只股票下部信息界面...");
+                   Main.enterSingleStockInfoScene(stockName);
+                 
+                 
             }  
         });  
     }  

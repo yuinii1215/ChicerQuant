@@ -25,6 +25,7 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 
 	@Override
 	public List<Stock> getSingleStockDeal(String name, Calendar year) {
+		
 		//name check
 		if (!Checker.checkStringNotNull(name)) {
 			return new ArrayList<Stock>();
@@ -33,21 +34,26 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 		if (!Checker.checkCalendarBefore(year)) {
 			return new ArrayList<>();
 		}
+		System.out.println(name+" "+CalendarHelper.getDate(year));
 		//
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		//
 		try {
+			System.out.println(name+CalendarHelper.getDate(CalendarHelper.getMonthStart(year))+ CalendarHelper.getDate(CalendarHelper.getMonthEnd(year)));
 			List<Stock> ans=singleStockDATAService
 					.getStockAmongDate(name, CalendarHelper.getMonthStart(year), CalendarHelper.getMonthEnd(year));
+			System.out.println(ans.size());
 			return ans;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new ArrayList<>();
 		}
 	}
 
 	@Override
 	public Stock getSingleStockInfo(String name) {
+		System.out.println(name);
 		//check name
 		if (!Checker.checkStringNotNull(name)) {
 			return null;

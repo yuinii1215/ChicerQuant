@@ -144,7 +144,7 @@ public class CalendarHelper {
 	public static Calendar getMonthStart(Calendar src){
 		Calendar ans=Calendar.getInstance();
 		ans.setTimeInMillis(src.getTimeInMillis());
-		ans.set(Calendar.DAY_OF_MONTH, 2);
+		ans.set(Calendar.DAY_OF_MONTH, 1);
 		return ans;
 	}
 	public static Calendar getMonthEnd(Calendar src){

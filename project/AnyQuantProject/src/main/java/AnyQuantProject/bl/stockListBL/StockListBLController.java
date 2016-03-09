@@ -35,60 +35,19 @@ import AnyQuantProject.util.method.IOHelper;
 public class StockListBLController implements StockListBLService,Runnable {
 	private List<String> avaliable;
         
-//<<<<<<< HEAD
-//        StockListDATAService stockListDATAService;
-//	public StockListBLController() {
-//		avaliable=new LinkedList<>();
-//		// get dataService
-//		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
-//		stockListDATAService = factoryDATAService.getStockListDATAService();
-//		// get names
-//		List<String> sz = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
-//		List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
-//		avaliable.addAll(sh);
-//		avaliable.addAll(sz);
-//=======
+
 	private volatile List<Stock> stockData;
 	private volatile boolean isAlive=false;
 	
 	
 	public StockListBLController() {
-		
-		
+		avaliable = (List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
+		Calendar today = Calendar.getInstance();
+		stockData=(List<Stock>) IOHelper.read(R.CachePath, CalendarHelper.getDate(today));
 	}
 	
-	public void init(){
-		try {
-			avaliable=(List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
-			if (avaliable==null) {
-				throw new NullPointerException();
-			}
-		} catch (Exception e) {
-			avaliable=new ArrayList<>();
-			// get dataService
-			FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
-			StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
-			// get names
-			List<String> sz = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
-			List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
-			avaliable.addAll(sh);
-			avaliable.addAll(sz);
-			//save
-			IOHelper.save(R.CachePath, R.StockNameFile, (Serializable) avaliable);
-		}
-		try{
-			Calendar today=Calendar.getInstance();
-			stockData=(List<Stock>) IOHelper.read(R.CachePath, CalendarHelper.getDate(today));
-			if (stockData==null) {
-				throw new NullPointerException();
-			}
-		}
-		catch(NullPointerException e){
-			stockData=new ArrayList<>();
-			isAlive=true;
-			Thread thread=new Thread(this);
-			thread.start();
-		}
+	public boolean shouldInit(){
+		return avaliable==null||stockData==null;
 	}
 
 	@Override
@@ -105,16 +64,8 @@ public class StockListBLController implements StockListBLService,Runnable {
 	}
 
 	@Override
-	public List<String> searchPredict(String target) {
-		if (Checker.checkStringNotNull(target)) {
-			return new ArrayList<>();
-		}
-		// get names
-		List<String> ans=avaliable
-				.stream()
-				.filter(nam->nam.contains(target))
-				.collect(Collectors.toList());
-		return ans;
+	public List<String> getSearchList() {
+		return this.avaliable;
 		
 	}
 
@@ -132,8 +83,22 @@ public class StockListBLController implements StockListBLService,Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//
+		//init avaliable
+		avaliable=new ArrayList<>();
+		// get dataService
 		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
+		StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
+		// get names
+		List<String> sz = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
+		List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
+		avaliable.addAll(sh);
+		avaliable.addAll(sz);
+		avaliable.stream().forEach(na->System.out.println(na));
+		//save
+		IOHelper.save(R.CachePath, R.StockNameFile, (Serializable) avaliable);
+		//init data
+		stockData=new ArrayList<>();
+		isAlive=true;
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		Calendar c = Calendar.getInstance();
 		avaliable.stream()

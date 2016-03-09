@@ -63,8 +63,10 @@ public class Main extends Application {
 	private static Group root;
 	private static HBox h_box,hbox;	
 	static AnchorPane mainPanel,guidePanel,writePanel;
-	static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel,
-				singleStockInfoPanel,singleStockPanel,stockDealInfoPanel;
+	static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel;
+	public static AnchorPane singleStockInfoPanel;
+	static AnchorPane singleStockPanel;
+	static AnchorPane stockDealInfoPanel;
 	
 	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	private static double scrH =primaryScreenBounds.getHeight();
@@ -117,8 +119,12 @@ public class Main extends Application {
 	//  enterMainScene();
 	//  buttons();
 		primaryStage.show();  
-		StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
-		stockListBLController.init();
+		//
+		/**
+		 * @warning
+		 * 下面这句话，死都别删！！！！！！！
+		 */
+		
 }  
 	
 	
@@ -154,6 +160,25 @@ public class Main extends Application {
         MainPageController.getInstance().initPanel();
     }
     
+/**
+ * TO be tested
+ * @param name
+ */
+	public static void enterSingleStockInfoScene(String name) {
+		// TODO Auto-generated method stub
+		try {
+			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
+			singleStockInfoPanel = (AnchorPane)fxmlLoader.load();
+			SingleStockInfoUIController singleStockInfoUIController=fxmlLoader.getController();
+			singleStockInfoUIController.laterInit(name);
+        } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			h_box =new HBox(guidePanel,singleStockInfoPanel);
+			Main.getPrimaryStage().setScene(new Scene(h_box));
+			MainPageController.getInstance().initPanel();
+	}
     
 
 	public void buttons(){
@@ -190,10 +215,15 @@ public class Main extends Application {
 	}
 	
 	 public static void main(String[] args) {
-		 
+		 StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
+		 if (stockListBLController.shouldInit()) {
+			Thread thread=new Thread(stockListBLController);
+			thread.start();
+		}
 		 launch(args);
 		 
 	   }
+
   
 	
 }

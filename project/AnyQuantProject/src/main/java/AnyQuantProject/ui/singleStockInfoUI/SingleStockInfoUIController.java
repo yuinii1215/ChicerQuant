@@ -1,5 +1,6 @@
 package AnyQuantProject.ui.singleStockInfoUI;
 
+import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
 import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.bl.favoriteBL.FavoriteBLController;
 import AnyQuantProject.bl.listFilterBL.ListFilterBLImpl;
@@ -67,6 +68,10 @@ import AnyQuantProject.util.method.TableRowControl;
  */
 public class SingleStockInfoUIController implements Initializable {
 
+    public static void getInstance() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Scene singleStockUIScene;
     @FXML
     public TableView<Stock> table;
@@ -122,7 +127,7 @@ public class SingleStockInfoUIController implements Initializable {
     Double minFilter, maxFilter, targetFilter;
     Calendar minTime, maxTime, targetTime;
     String keyWord;
-    String stockName;
+    private String stockName =null;
    
     SingleStockDealBLService singleStockDealBlImpl;
     ListFilterBLImpl listFilterBlImpl;
@@ -131,15 +136,10 @@ public class SingleStockInfoUIController implements Initializable {
     SingleStockInfoBLService singleStockBlImpl;
     CalendarHelper calendarHelper = new CalendarHelper();
 
-    private static SingleStockInfoUIController instance = null;
-
-    public SingleStockInfoUIController getInstance() {
-       
-        /**
-         * 此处之后应该对接初始化数据的方法,但好像还是比较有问题?????
-         */
-        //initialize stockName;!!!!!!
-        return instance==null?(instance=new SingleStockInfoUIController()):instance;
+    public void laterInit(String name) {
+    	this.stockName =name;
+    	minTime=Calendar.getInstance();
+        this.init();
     }
 
     @FXML
@@ -251,7 +251,7 @@ public class SingleStockInfoUIController implements Initializable {
 
     @FXML
     private void handleFavorAction(ActionEvent actionEvent) {
-          favoriteBlImpl=new FavoriteBLController();
+          favoriteBlImpl=FavoriteBLFactory.getFavoriteBLService();
 
         if (singleStockList.get(0).isFavor() == false) {
             // change the state of the stock into being favored
@@ -276,20 +276,23 @@ public class SingleStockInfoUIController implements Initializable {
       singleStockBlImpl=SingleStockBLFactory.getSingleStockInfoBLService();
       singleStockDealBlImpl=SingleStockBLFactory.getSingleStockDealBLService();
       singleStock=singleStockBlImpl.getSingleStockInfo(stockName);
-      singleStockList=singleStockDealBlImpl.getSingleStockDeal(keyWord, minTime);
-      
-          Stock data1=new Stock();
-          Stock data2=new Stock();
-          data1.setFavor(true);
-          data2.setFavor(true);
-          data1.setName("腾讯科技");
-          singleStockList.add(data1);
-          singleStockList.add(data2);
+      singleStockList=singleStockDealBlImpl.getSingleStockDeal(stockName, minTime);
+//          Stock data1=new Stock();
+//          Stock data2=new Stock();
+//          data1.setFavor(true);
+//          data2.setFavor(true);
+//          data1.setName("腾讯科技");
+//          singleStockList.add(data1);
+//          singleStockList.add(data2);
         /**
          * 之后要改,调用singleStock
          */
-        nameLabel.setText(singleStock.getName());
+//        nameLabel.setText(singleStock.getName());
         
+          
+          
+          nameLabel.setText(stockName);
+          
         /**
          * initialize the button
          */
@@ -356,7 +359,7 @@ public class SingleStockInfoUIController implements Initializable {
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        init();
+        
     }
 
 }
