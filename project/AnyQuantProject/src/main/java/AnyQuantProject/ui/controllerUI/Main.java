@@ -119,8 +119,8 @@ public class Main extends Application {
 	//  enterMainScene();
 	//  buttons();
 		primaryStage.show();  
-		StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
-		stockListBLController.init();
+	//	StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
+	//	stockListBLController.init();
 }  
 	
 	
