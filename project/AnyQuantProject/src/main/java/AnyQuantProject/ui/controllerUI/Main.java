@@ -124,8 +124,7 @@ public class Main extends Application {
 		 * @warning
 		 * 下面这句话，死都别删！！！！！！！
 		 */
-		StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
-		stockListBLController.init();
+		
 }  
 	
 	
@@ -168,12 +167,14 @@ public class Main extends Application {
 	public static void enterSingleStockInfoScene(String name) {
 		// TODO Auto-generated method stub
 		try {
-			singleStockInfoPanel = (AnchorPane)FXMLLoader.load(Main.class.getResource("singleStockInfoPanel.fxml"));
+			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
+			singleStockInfoPanel = (AnchorPane)fxmlLoader.load();
+			SingleStockInfoUIController singleStockInfoUIController=fxmlLoader.getController();
+			singleStockInfoUIController.laterInit(name);
         } catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			SingleStockInfoUIController.getInstance(name);
 			h_box =new HBox(guidePanel,singleStockInfoPanel);
 			Main.getPrimaryStage().setScene(new Scene(h_box));
 			MainPageController.getInstance().initPanel();
@@ -214,7 +215,11 @@ public class Main extends Application {
 	}
 	
 	 public static void main(String[] args) {
-		 
+		 StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
+		 if (stockListBLController.shouldInit()) {
+			Thread thread=new Thread(stockListBLController);
+			thread.start();
+		}
 		 launch(args);
 		 
 	   }

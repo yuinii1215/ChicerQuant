@@ -141,7 +141,7 @@ public class FavoriteUIController implements Initializable{
     * TO be tested
     */
     public void search(){
-    	searchTipList = stockListBLService.searchPredict(searchInput);
+    	searchTipList = stockListBLService.getSearchList();
    // 	FXCollections.observableArrayList(searchTipList);
     	SearchTextField auto=SeachTextFieldBuilder.build(search);
     	auto.setCacheDataList(searchTipList);
@@ -151,6 +151,7 @@ public class FavoriteUIController implements Initializable{
     				public void handle(ActionEvent arg0){
     					searchName=search.getText();
     					System.out.println("...SearchName ..."+searchName+".......");
+    					
     				    Main.enterSingleStockInfoScene(searchName);
     				}
     	});

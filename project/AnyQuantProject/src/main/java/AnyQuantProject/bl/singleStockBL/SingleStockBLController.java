@@ -48,6 +48,7 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 
 	@Override
 	public Stock getSingleStockInfo(String name) {
+		System.out.println(name);
 		//check name
 		if (!Checker.checkStringNotNull(name)) {
 			return null;

@@ -135,15 +135,9 @@ public class SingleStockInfoUIController implements Initializable {
     SingleStockInfoBLService singleStockBlImpl;
     CalendarHelper calendarHelper = new CalendarHelper();
 
-    private static SingleStockInfoUIController instance = null;
-
-    public static SingleStockInfoUIController getInstance(String name) {
+    public void laterInit(String name) {
     	SingleStockInfoUIController.stockName =name;
-        /**
-         * 此处之后应该对接初始化数据的方法,但好像还是比较有问题?????
-         */
-        //initialize stockName;!!!!!!
-        return instance==null?(instance=new SingleStockInfoUIController()):instance;
+        this.init();
     }
 
     @FXML
@@ -364,7 +358,7 @@ public class SingleStockInfoUIController implements Initializable {
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        init();
+        
     }
 
 }
