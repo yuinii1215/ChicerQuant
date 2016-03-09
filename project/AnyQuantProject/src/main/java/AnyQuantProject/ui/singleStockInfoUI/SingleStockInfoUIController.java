@@ -77,7 +77,6 @@ public class SingleStockInfoUIController implements Initializable {
     public TableView<Stock> table;
     @FXML
     public Label titleLabel;
-    
     /**
      * nameLabel is the current name of a single stock and there are things to be added
      */
@@ -126,7 +125,7 @@ public class SingleStockInfoUIController implements Initializable {
     boolean[] filterFlag;
     Double minFilter, maxFilter, targetFilter;
     Calendar minTime, maxTime, targetTime;
-    String keyWord;
+    String keyWord,selectedColumnName;
     private String stockName =null;
    
     SingleStockDealBLService singleStockDealBlImpl;
@@ -152,33 +151,31 @@ public class SingleStockInfoUIController implements Initializable {
         for (int i = 0; i < 5; i++) {
             filterFlag[i] = false;
         }
-        System.out.println("this is FILTER ");
+     
         if (minRange.getText().trim().length() >= 1) {
-            System.out.println("the minRange is not Empty");
+           
             minFilter = Double.valueOf(minRange.getText());
             filterFlag[1] = true;
         } else {
-            System.out.println("the minRange is Empty");
+       
         }
 
         if (maxRange.getText().trim().length() >= 1) {
-            System.out.println("the maxRange is not Empty");
+         
             maxFilter = Double.valueOf(maxRange.getText());
             filterFlag[2] = true;
         } else {
-            System.out.println("the maxRange is Empty");
+  
         }
 
         if (startDatePicker.getValue() != null) {
-            System.out.println("the startDate is not Empty");
+            
             LocalDate startLocalDate = startDatePicker.getValue();
             minTime = calendarHelper.convert2LocalDate(startLocalDate);
             filterFlag[3] = true;
-            /**
-             * 此处缺少把minTime赋值的功能
-             */
+           
         } else {
-            System.out.println("the startDate is Empty");
+            
         }
 
         if (endDatePicker.getValue() != null) {
@@ -186,12 +183,11 @@ public class SingleStockInfoUIController implements Initializable {
             LocalDate endLocalDate = endDatePicker.getValue();
             maxTime = calendarHelper.convert2LocalDate(endLocalDate);
             filterFlag[4] = true;
-            /**
-             * 此处缺少把minTime赋值的功能
-             */
+         
         } else {
-            System.out.println("the startDate is Empty");
+            
         }
+       
         singleStockList = filterControl(singleStockList);
     }
 
@@ -228,16 +224,16 @@ public class SingleStockInfoUIController implements Initializable {
             filterFlag[2] = false;
         } else if (filterFlag[1] && filterFlag[2]) {
             filteredList = listFilterBlImpl.filterStocksByFieldAmong(
-                    currentList, keyWord, minFilter, maxFilter);
+                    currentList, selectedColumnName, minFilter, maxFilter);
             filterFlag[1] = false;
             filterFlag[2] = false;
         } else if (filterFlag[1] && (!filterFlag[2])) {
             filteredList = listFilterBlImpl.filterStocksByFieldGreater(
-                    currentList, keyWord, minFilter);
+                    currentList, selectedColumnName, minFilter);
             filterFlag[1] = false;
         } else if ((!filterFlag[1]) && filterFlag[2]) {
             filteredList = listFilterBlImpl.filterStocksByFieldLess(
-                    currentList, keyWord, maxFilter);
+                    currentList, selectedColumnName, maxFilter);
             filterFlag[2] = false;
         }
 
@@ -277,20 +273,10 @@ public class SingleStockInfoUIController implements Initializable {
       singleStockDealBlImpl=SingleStockBLFactory.getSingleStockDealBLService();
       singleStock=singleStockBlImpl.getSingleStockInfo(stockName);
       singleStockList=singleStockDealBlImpl.getSingleStockDeal(stockName, minTime);
-//          Stock data1=new Stock();
-//          Stock data2=new Stock();
-//          data1.setFavor(true);
-//          data2.setFavor(true);
-//          data1.setName("腾讯科技");
-//          singleStockList.add(data1);
-//          singleStockList.add(data2);
+
         /**
          * 之后要改,调用singleStock
          */
-//        nameLabel.setText(singleStock.getName());
-        
-          
-          
           nameLabel.setText(stockName);
           
         /**
@@ -307,11 +293,21 @@ public class SingleStockInfoUIController implements Initializable {
           initialize the combobox
          */
 
+        String[] options={"开盘价","收盘价","最高价","最低价","成交量","后复权价","市值","流通","换手率","市盈率","市净率"};
+        String[] columnNameList={"open","close","high","low","volume","adj_price","marketvalue","flow","turnover","pe_ttm","pb"};
+        ObservableList items= FXCollections.observableArrayList (options);
+        keyWordBox.setItems(items);
+        
         keyWordBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue ov, String t, String t1) {
-                keyWord = t1;
-                System.out.println("the selected is: " + t1);
+                keyWord=t1;
+//                System.out.println("the selected is: " + t1);
+                for(int i=0;i<=10;i++){
+                if(keyWord.equals(options[i])){
+                selectedColumnName=columnNameList[i];
+                }
+                }
             }
         });
 

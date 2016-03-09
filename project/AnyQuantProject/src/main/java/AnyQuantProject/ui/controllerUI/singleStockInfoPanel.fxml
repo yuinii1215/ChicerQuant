@@ -19,21 +19,21 @@
          <effect>
             <Blend mode="HARD_LIGHT" />
          </effect>
-          <items>  
-            <FXCollections fx:factory="observableArrayList">  
-               <String fx:value="开盘价" />  
-               <String fx:value="收盘价" />  
-               <String fx:value="最高价" />    
-               <String fx:value="最低价" />  
-               <String fx:value="成交量" />  
-               <String fx:value="后复权价" />  
-               <String fx:value="市值" />  
-               <String fx:value="流通" />    
-               <String fx:value="换手率" />   
-               <String fx:value="市盈率" />  
-               <String fx:value="市净率" />  
+<!--          <items>  
+            <FXCollections fx:id="observableComboBoxList" fx:factory="observableArrayList">  
+               <String fx:value="开盘价" fx:id="open"/>  
+               <String fx:value="收盘价" fx:id="close"/>  
+               <String fx:value="最高价" fx:id="high"/>    
+               <String fx:value="最低价" fx:id="low"/>  
+               <String fx:value="成交量" fx:id="volume"/>  
+               <String fx:value="后复权价" fx:id="adj_price" />  
+               <String fx:value="市值" fx:id="marketvalue"/>  
+               <String fx:value="流通" fx:id="flow"/>    
+               <String fx:value="换手率" fx:id="turnover"/>   
+               <String fx:value="市盈率" fx:id="pe_ttm"/>  
+               <String fx:value="市净率" fx:id="pb"/>  
             </FXCollections>  
-          </items>  
+          </items>  -->
       </ComboBox>
       <TextField id="minRange" fx:id="minRange" layoutX="126.0" layoutY="40.0" prefHeight="29.0" prefWidth="64.0" />
       <TextField id="maxRange" fx:id="maxRange" layoutX="199.0" layoutY="40.0" prefHeight="29.0" prefWidth="64.0" />
