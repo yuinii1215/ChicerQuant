@@ -110,7 +110,6 @@ public class StockListBLController implements StockListBLService,Runnable {
 		List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
 		avaliable.addAll(sh);
 		avaliable.addAll(sz);
-		avaliable.stream().forEach(na->System.out.println(na));
 		//save
 		IOHelper.save(R.CachePath, R.StockNameFile, (Serializable) avaliable);
 		//init data

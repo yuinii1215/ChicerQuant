@@ -34,7 +34,6 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 		if (!Checker.checkCalendarBefore(year)) {
 			return new ArrayList<>();
 		}
-		System.out.println(name+" "+CalendarHelper.getDate(year));
 		//
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();

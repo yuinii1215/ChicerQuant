@@ -11,6 +11,7 @@ import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 import AnyQuantProject.ui.singleStockInfoUI.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -91,7 +92,7 @@ public class Main extends Application {
 		instance=this;
 		this.primaryStage = primaryStage;
 	//	mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-		guidePanel= FXMLLoader.load(getClass().getResource("guidePanel.fxml"));
+		guidePanel= FXMLLoader.load(Main.class.getResource("guidePanel.fxml"));
 		
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 //		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
@@ -138,6 +139,7 @@ public class Main extends Application {
     public  static void enterAllStocksScene(){
     	try {
 			allStocksPanel=FXMLLoader.load(Main.class.getResource("allStocksPanel.fxml"));
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

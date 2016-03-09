@@ -11,6 +11,7 @@ import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import net.sf.json.util.CycleDetectionStrategy;
 import AnyQuantProject.data.jsonDATA.JSONBenchMarkDATA;
+import AnyQuantProject.data.util.APIHelper;
 import AnyQuantProject.dataService.jsonDATAService.JSONBenchMarkDATAService;
 import AnyQuantProject.dataService.realDATAService.benchMarkDATAService.BenchMarkDATAService;
 import AnyQuantProject.dataStructure.BenchMark;
@@ -24,6 +25,8 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 
 	
 	JSONBenchMarkDATAService JSONBenchMark = new JSONBenchMarkDATA();
+	APIHelper aHelper = new APIHelper();
+	
 	private static BenchMarkDATA benchMarkDATA;
 	
 	private BenchMarkDATA() {
@@ -44,7 +47,6 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 		return resultList;
 	}
 
-	
 	@Override
 	public BenchMark getOperation(String name, Calendar date) {
 		JSONObject result = JSONBenchMark.getOperation(name, date);
@@ -52,7 +54,7 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 //		JsonConfig config = getJsonConfig();    
 //	    result = JSONObject.fromObject(result,config); 
 		BenchMark re = (BenchMark) JSONObject.toBean(result, BenchMark.class);
-		re.setName(name);
+		re.setName(getChineseName(name));
 		return re;
 	}
 
@@ -64,7 +66,7 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 		@SuppressWarnings("unchecked")
 		List<BenchMark> resultList = JSONArray.toList(result, new BenchMark(), getJsonConfig());
 		for (int i = 0; i < resultList.size(); i++) {
-			resultList.get(i).setName(name);
+			resultList.get(i).setName(getChineseName(name));
 		}
 		return resultList;
 	}
@@ -79,6 +81,9 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	    return config;
 	}
 
+	private String getChineseName(String name) {
+		return aHelper.getSingleStockChineseName(name);
+	}
 	public static void main(String[] args) {
 		BenchMarkDATA b = BenchMarkDATA.getInstance();
 		List<String> list = b.getAllBenchMark();

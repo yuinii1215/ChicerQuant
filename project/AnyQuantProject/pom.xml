@@ -15,17 +15,17 @@
 
 	<build>
 		<plugins>
-		     <plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.0.2</version>
-				<configuration>                                 
-                                        <source>1.8</source>
-					<target>1.8</target>                                      
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
-		     </plugin>
+			</plugin>
 		</plugins>
-     <resources>    
+    <resources>    
         <resource>  
             <directory>src/main/java</directory>  
             <includes>  
@@ -36,8 +36,8 @@
             </includes>  
             <filtering>false</filtering>  
         </resource>  
-     </resources>  
-        </build>
+    </resources>  
+	</build>
         
         
         
