@@ -76,9 +76,12 @@ public class APIHelper {
 		}
 	     JSONObject object = JSONObject.fromObject(result);
 	     JSONArray resulto = (JSONArray) object.get("result");
-	     JSONArray jsonArray = JSONArray.fromObject(((JSONObject) resulto.get(0)).get("data".toString()));
-	     JSONObject jo = (JSONObject) jsonArray.get(0);
-	     name = jo.getString("name");
+	     if (resulto.size() != 0) {
+	    	 JSONArray jsonArray = JSONArray.fromObject(((JSONObject) resulto.get(0)).get("data".toString()));
+		     JSONObject jo = (JSONObject) jsonArray.get(0);
+		     name = jo.getString("name");
+		}
+	     
 //	     if(object.getInt("error_code")==0){
 //	    	 System.out.println("success");
 //	     }else{
