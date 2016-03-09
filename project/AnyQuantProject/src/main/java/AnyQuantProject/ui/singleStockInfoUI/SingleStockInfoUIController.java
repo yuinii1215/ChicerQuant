@@ -67,6 +67,10 @@ import AnyQuantProject.util.method.TableRowControl;
  */
 public class SingleStockInfoUIController implements Initializable {
 
+    public static void getInstance() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Scene singleStockUIScene;
     @FXML
     public TableView<Stock> table;
