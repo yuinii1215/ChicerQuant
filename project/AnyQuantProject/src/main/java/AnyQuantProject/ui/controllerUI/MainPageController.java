@@ -36,7 +36,7 @@ public class MainPageController  implements Initializable {
 	private static BenchMarkUIController benchMarkUIController ;
 	private static FavoriteUIController  favoriteUIController ;
 	private static GuideUIController guideUIController ;
-	private static SingleStockUIController singleStocksUIController ;
+	public  static SingleStockUIController singleStocksUIController ;
 	private static StockDealInfoUIController stockDealInfoUIController ;
 	 @FXML
 	private static AnchorPane titlePanel, guidePanel, centralPanel;
@@ -70,7 +70,7 @@ public class MainPageController  implements Initializable {
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
 	        Main.enterAllStocksScene();
-//	        AllStocksUIController.getInstance(stage.allStocksPanel);
+	   //     AllStocksUIController.getInstance.init();
 	    }
 	  @FXML
 	    private void benchMarkBtnFired(ActionEvent e) {

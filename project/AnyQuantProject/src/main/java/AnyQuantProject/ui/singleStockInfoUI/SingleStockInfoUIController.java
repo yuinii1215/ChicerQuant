@@ -122,7 +122,7 @@ public class SingleStockInfoUIController implements Initializable {
     Double minFilter, maxFilter, targetFilter;
     Calendar minTime, maxTime, targetTime;
     String keyWord;
-    String stockName;
+    static String stockName;
    
     SingleStockDealBLService singleStockDealBlImpl;
     ListFilterBLImpl listFilterBlImpl;
@@ -133,8 +133,8 @@ public class SingleStockInfoUIController implements Initializable {
 
     private static SingleStockInfoUIController instance = null;
 
-    public SingleStockInfoUIController getInstance() {
-       
+    public static SingleStockInfoUIController getInstance(String name) {
+    	SingleStockInfoUIController.stockName =name;
         /**
          * 此处之后应该对接初始化数据的方法,但好像还是比较有问题?????
          */

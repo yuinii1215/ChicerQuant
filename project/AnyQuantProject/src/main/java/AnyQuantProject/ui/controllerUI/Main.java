@@ -63,8 +63,10 @@ public class Main extends Application {
 	private static Group root;
 	private static HBox h_box,hbox;	
 	static AnchorPane mainPanel,guidePanel,writePanel;
-	static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel,
-				singleStockInfoPanel,singleStockPanel,stockDealInfoPanel;
+	static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel;
+	public static AnchorPane singleStockInfoPanel;
+	static AnchorPane singleStockPanel;
+	static AnchorPane stockDealInfoPanel;
 	
 	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	private static double scrH =primaryScreenBounds.getHeight();
@@ -95,7 +97,7 @@ public class Main extends Application {
 		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 
-//		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
+		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 
@@ -159,6 +161,17 @@ public class Main extends Application {
         MainPageController.getInstance().initPanel();
     }
     
+/**
+ * TO be tested
+ * @param name
+ */
+	public static void enterSingleStockInfoScene(String name) {
+		// TODO Auto-generated method stub
+		SingleStockInfoUIController.getInstance(name);
+		h_box =new HBox(guidePanel,singleStockInfoPanel);
+		Main.getPrimaryStage().setScene(new Scene(h_box));
+        MainPageController.getInstance().initPanel();
+	}
     
 
 	public void buttons(){
@@ -199,6 +212,7 @@ public class Main extends Application {
 		 launch(args);
 		 
 	   }
+
   
 	
 }
