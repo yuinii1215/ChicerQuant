@@ -105,7 +105,7 @@ public class FavoriteUIController implements Initializable{
         table.getItems().add(new Stock());
      
        
-
+  
 	/**
 	 * initialize the tabel columns
 	 */
