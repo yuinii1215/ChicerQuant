@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Built-By: cxworks
+Class-Path: lib/pinyin4j-2.5.0.jar lib/json-lib-2.4-jdk15.jar lib/comm
+ ons-logging-1.1.1.jar lib/ezmorph-1.0.6.jar lib/commons-beanutils-1.9
+ .2.jar lib/commons-collections-3.1.jar lib/commons-lang-2.5.jar lib/j
+ son-20160212.jar lib/jython-2.7.0.jar
+Created-By: Apache Maven 3.3.3
+Build-Jdk: 1.8.0_73
+Main-Class: AnyQuantProject.ui.controllerUI.Main
+
