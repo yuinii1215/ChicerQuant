@@ -10,6 +10,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import AnyQuantProject.data.jsonDATA.JSONSingleStockDATA;
+import AnyQuantProject.data.util.APIHelper;
 import AnyQuantProject.dataService.jsonDATAService.JSONSingleStockDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataStructure.Stock;
@@ -20,6 +21,8 @@ import AnyQuantProject.dataStructure.Stock;
  */
 public class SingleStockDATA implements SingleStockDATAService{
 
+	APIHelper aHelper = new APIHelper();
+	
 	JSONSingleStockDATAService JSONSingleStock = new JSONSingleStockDATA();
 	private static SingleStockDATA singleStockDATA;
 
@@ -40,7 +43,7 @@ public class SingleStockDATA implements SingleStockDATAService{
 	public Stock getOperation(String name, Calendar date) {
 		JSONObject resultJsonObject = JSONSingleStock.getOperation(name, date);
 		Stock result = (Stock) JSONObject.toBean(resultJsonObject,Stock.class);
-		result.setName(name);
+		result.setName(getChineseName(name));
 		return result;
 	}
 
@@ -52,11 +55,15 @@ public class SingleStockDATA implements SingleStockDATAService{
 		@SuppressWarnings("unchecked")
 		List<Stock> resultList = JSONArray.toList(resultArray, new Stock(), new JsonConfig());
 		for (int i = 0; i < resultList.size(); i++) {
-			resultList.get(i).setName(name);
+			resultList.get(i).setName(getChineseName(name));
 		}
 		return resultList;
 	}
 
+
+	private String getChineseName(String name) {
+		return aHelper.getSingleStockChineseName(name);
+	}
 	
 	public static void main(String[] args) {
 		SingleStockDATA s = new SingleStockDATA();
