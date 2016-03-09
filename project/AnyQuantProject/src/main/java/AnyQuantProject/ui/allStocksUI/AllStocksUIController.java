@@ -82,9 +82,9 @@ public class AllStocksUIController  implements Initializable{
     int selectedIndex;
 	
 	private static AllStocksUIController instance;
-        StockListBLService stockListImplement = StockListBLFactory.getStockListBLService();
+    StockListBLService stockListImplement = StockListBLFactory.getStockListBLService();
 
-    	public static AllStocksUIController getInstance() {
+    public static AllStocksUIController getInstance() {
         return instance==null?(instance=new AllStocksUIController()):instance;
     }
     
@@ -103,17 +103,15 @@ public class AllStocksUIController  implements Initializable{
 
    public void init(){
        
-          Stock data1=new Stock();
-          Stock data2=new Stock();
-          data1.setFavor(true);
-          data2.setFavor(true);
-          data1.setName("腾讯科技");
-          data2.setName("哈药六厂");
-          allStocksList.add(data1);
-          allStocksList.add(data2);
-       
-     //   stockListImplement=new StockListBLController();
-//        allStocksList=stockListImplement.getAllStocks();
+//          Stock data1=new Stock();
+//          Stock data2=new Stock();
+//          data1.setFavor(true);
+//          data2.setFavor(true);
+//          data1.setName("腾讯科技");
+//          data2.setName("哈药六厂");
+//          allStocksList.add(data1);
+//          allStocksList.add(data2);
+        allStocksList=stockListImplement.getAllStocks();
         
         allStocksTableView.setItems(FXCollections.observableArrayList(allStocksList));
 

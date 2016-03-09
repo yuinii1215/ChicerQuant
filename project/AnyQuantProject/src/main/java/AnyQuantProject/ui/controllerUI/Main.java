@@ -143,12 +143,7 @@ public class Main extends Application {
     }
     
     public  static void enterFavouriteScene(){
-    	try {
-			allStocksPanel = FXMLLoader.load(Main.class.getResource("allStocksPanel.fxml"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	
     	h_box =new HBox(guidePanel,favouritePanel);
     	Main.getPrimaryStage().setScene(new Scene(h_box));
         MainPageController.getInstance().initPanel();

@@ -137,7 +137,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		Calendar c = Calendar.getInstance();
 		avaliable.stream()
-		.map(nam->singleStockDATAService.getOperation(nam, CalendarHelper.getPreviousDay(c)))
+		.map(nam->singleStockDATAService.getOperation(nam, c))
 		.forEach(st->stockData.add(st));
 		//save
 		IOHelper.save(R.CachePath, CalendarHelper.getDate(c), (Serializable) stockData);

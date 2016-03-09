@@ -64,15 +64,15 @@ public class JsonHelper {
 	}
 	
 	public String getKeyWithDate(DataType type, String name, Calendar start, Calendar end) {
-		Calendar previousdate = CalendarHelper.getPreviousDay(start);
-		String previousday = CalendarHelper.getDate(previousdate);
+//		Calendar previousdate = CalendarHelper.getPreviousDay(start);
+//		String previousday = CalendarHelper.getDate(previousdate);
 		Calendar afterdate = CalendarHelper.getAfterDay(end);
 		String afterday = CalendarHelper.getDate(afterdate);
 		switch (type) {
 		case BENCHMARK:
-			return "benchmark/"+name+"?start="+previousday+"&end="+afterday+"&fields=open+high+low+close+volume+adj_price";
+			return "benchmark/"+name+"?start="+start+"&end="+afterday+"&fields=open+high+low+close+volume+adj_price";
 		default:
-			return "stock/"+name+"/?start="+previousday+"&end="+afterday+"&fields=open+high+low+close+volume+adj_price+turnover+pe_ttm+pb";
+			return "stock/"+name+"/?start="+start+"&end="+afterday+"&fields=open+high+low+close+volume+adj_price+turnover+pe_ttm+pb";
 		}
 	}
 
