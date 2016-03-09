@@ -40,10 +40,8 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		//
 		try {
-			System.out.println(name+CalendarHelper.getDate(CalendarHelper.getMonthStart(year))+ CalendarHelper.getDate(CalendarHelper.getMonthEnd(year)));
 			List<Stock> ans=singleStockDATAService
 					.getStockAmongDate(name, CalendarHelper.getMonthStart(year), CalendarHelper.getMonthEnd(year));
-			System.out.println(ans.size());
 			return ans;
 		} catch (Exception e) {
 			e.printStackTrace();
