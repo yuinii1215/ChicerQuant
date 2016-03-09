@@ -167,10 +167,16 @@ public class Main extends Application {
  */
 	public static void enterSingleStockInfoScene(String name) {
 		// TODO Auto-generated method stub
-		SingleStockInfoUIController.getInstance(name);
-		h_box =new HBox(guidePanel,singleStockInfoPanel);
-		Main.getPrimaryStage().setScene(new Scene(h_box));
-        MainPageController.getInstance().initPanel();
+		try {
+			singleStockInfoPanel = (AnchorPane)FXMLLoader.load(Main.class.getResource("singleStockInfoPanel.fxml"));
+        } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			SingleStockInfoUIController.getInstance(name);
+			h_box =new HBox(guidePanel,singleStockInfoPanel);
+			Main.getPrimaryStage().setScene(new Scene(h_box));
+			MainPageController.getInstance().initPanel();
 	}
     
 

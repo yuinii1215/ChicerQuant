@@ -126,7 +126,7 @@ public class SingleStockInfoUIController implements Initializable {
     Double minFilter, maxFilter, targetFilter;
     Calendar minTime, maxTime, targetTime;
     String keyWord;
-    static String stockName;
+    static String stockName =null;
    
     SingleStockDealBLService singleStockDealBlImpl;
     ListFilterBLImpl listFilterBlImpl;
@@ -294,6 +294,10 @@ public class SingleStockInfoUIController implements Initializable {
          */
 //        nameLabel.setText(singleStock.getName());
         
+          
+          
+          nameLabel.setText(stockName);
+          
         /**
          * initialize the button
          */

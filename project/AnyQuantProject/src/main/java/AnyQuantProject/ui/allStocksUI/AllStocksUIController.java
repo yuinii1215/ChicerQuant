@@ -31,6 +31,7 @@ import javafx.collections.FXCollections;
 import javafx.scene.control.TableRow;
 import javafx.util.Callback;
 
+
 //import AnyQuantProject.util.method.TableRowControl;
 import java.util.ArrayList;
 
@@ -89,6 +90,7 @@ public class AllStocksUIController  implements Initializable{
     StockListBLService stockListImplement = StockListBLFactory.getStockListBLService();
 
     public static AllStocksUIController getInstance() {
+    	 System.out.println("here is the instance of AllStocksUIController ");
         return instance==null?(instance=new AllStocksUIController()):instance;
     }
     
@@ -183,7 +185,7 @@ public class AllStocksUIController  implements Initializable{
                  String stockName=nameColumn.getCellData(selectedIndex);
 
             //     MainPageController.getInstance().setPanel(Main.singleStockInfoPanel, "打开单只股票下部信息界面...");
-                 Main.enterSingleStockInfoScene(stockName);
+                   Main.enterSingleStockInfoScene(stockName);
                  
                  
             }  

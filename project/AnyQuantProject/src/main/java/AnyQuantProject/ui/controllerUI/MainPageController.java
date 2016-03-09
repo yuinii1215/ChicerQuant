@@ -70,7 +70,7 @@ public class MainPageController  implements Initializable {
 	        btn.setDefaultButton(true);
 	        defaultBtn = btn;
 	        Main.enterAllStocksScene();
-	   //     AllStocksUIController.getInstance.init();
+	        AllStocksUIController.getInstance();
 	    }
 	  @FXML
 	    private void benchMarkBtnFired(ActionEvent e) {

@@ -98,9 +98,9 @@ public class FavoriteUIController implements Initializable{
 	 */
     public  void init(){
     	
-//    	myFavorList=favoriteBLService.getMyFavor();
-//    	
-//      table.setItems(FXCollections.observableArrayList(myFavorList));
+    	myFavorList=favoriteBLService.getMyFavor();
+    	
+       table.setItems(FXCollections.observableArrayList(myFavorList));
 
         table.getItems().add(new Stock());
      
@@ -133,8 +133,9 @@ public class FavoriteUIController implements Initializable{
 				   cellData.getValue().getPe_ttm()));
            pb.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 				   cellData.getValue().getPb()));
-      
-   }
+      search();
+  
+    }
 
    /**
     * TO be tested
