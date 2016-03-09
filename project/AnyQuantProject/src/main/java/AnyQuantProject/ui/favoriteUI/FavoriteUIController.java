@@ -17,6 +17,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
@@ -103,7 +104,14 @@ public class FavoriteUIController implements Initializable{
        table.setItems(FXCollections.observableArrayList(myFavorList));
 
         table.getItems().add(new Stock());
-     
+        
+        table.setRowFactory(new Callback<TableView<Stock>, TableRow<Stock>>() {
+         @Override
+         public TableRow<Stock> call(TableView<Stock> table) {
+             // TODO Auto-generated method stub
+            return new TableRowControl(table);
+         }
+     });
        
   
 	/**
