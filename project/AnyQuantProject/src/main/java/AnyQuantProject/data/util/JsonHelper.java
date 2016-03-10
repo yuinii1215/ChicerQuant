@@ -54,7 +54,7 @@ public class JsonHelper {
 		for (int i = 0; i < jarr.size(); i++) {
 			JSONObject jo = (JSONObject) jarr.get(i);
 			String name = (String) jo.get("name");
-			String nameWithChinese = name + helper.getSingleStockChineseName(name);
+			String nameWithChinese = name + " " + helper.getSingleStockChineseName(name);
 			result.add(nameWithChinese);
 			
 		}
@@ -77,7 +77,6 @@ public class JsonHelper {
 	public JSONArray getAmongDate(DataType type, String name, Calendar start,
 			Calendar end) {
 		key = getKeyWithDate(type, name, start, end);
-		//TODO
 //		System.out.println("jhelper  key : "+key);
 		JSONObject jo = new JSONObject();
 		try {
