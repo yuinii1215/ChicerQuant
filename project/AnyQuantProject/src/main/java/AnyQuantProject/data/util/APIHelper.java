@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -72,7 +73,13 @@ public class APIHelper {
 			result =net(url, params, "GET");
 		} catch (Exception e) {
 			System.out.println("juhe getname failed!");
-			e.printStackTrace();
+			 try {
+		            Thread.sleep(1000);
+		            result =net(url, params, "GET"); 
+		        } catch (Exception e1) {
+		            e1.printStackTrace(); 
+		        }
+//			e.printStackTrace();
 		}
 	     JSONObject object = JSONObject.fromObject(result);
 	     JSONArray resulto = (JSONArray) object.get("result");
@@ -97,7 +104,6 @@ public class APIHelper {
 			a.getSingleStockChineseName("sh601009");
 			a.getAnyAPI("http://121.41.106.89:8010/api/stock/sh600000/?start=2016-03-10&end=2016-03-10&fields=open+high+close");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -134,12 +140,8 @@ public class APIHelper {
            conn.setInstanceFollowRedirects(false);
            conn.connect();
            if (params!= null && method.equals("POST")) {
-               try {
-                   DataOutputStream out = new DataOutputStream(conn.getOutputStream());
-                       out.writeBytes(urlencode(params));
-               } catch (Exception e) {
-                   // TODO: handle exception
-               }
+        	   DataOutputStream out = new DataOutputStream(conn.getOutputStream());
+               out.writeBytes(urlencode(params));
            }
            InputStream is = conn.getInputStream();
            reader = new BufferedReader(new InputStreamReader(is, DEF_CHATSET));
