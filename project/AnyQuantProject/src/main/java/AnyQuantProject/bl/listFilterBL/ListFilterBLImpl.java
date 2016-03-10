@@ -42,6 +42,7 @@ public class ListFilterBLImpl implements ListFilterBLService{
 
 	@Override
 	public List<Stock> filterStocksByFieldGreater(List<Stock> srcStocks, String columnName, double min) {
+		System.out.println(columnName+" min "+min);
 		//check
 		if (!Checker.checkListNotNull(srcStocks)||!Checker.checkStringNotNull(columnName)) {
 			return srcStocks;
@@ -63,6 +64,7 @@ public class ListFilterBLImpl implements ListFilterBLService{
 
 	@Override
 	public List<Stock> filterStocksByFieldLess(List<Stock> srcStocks, String columnName, double max) {
+		System.out.println(columnName+" max "+max);
 		//check
 		if (!Checker.checkListNotNull(srcStocks)||!Checker.checkStringNotNull(columnName)) {
 			return srcStocks;
@@ -108,6 +110,7 @@ public class ListFilterBLImpl implements ListFilterBLService{
 		if (!Checker.checkListNotNull(srcStocks)||min==null||max==null||min.after(max)) {
 			return srcStocks;
 		}
+		max.add(Calendar.DAY_OF_MONTH, 1);
 		//filter
 		List<Stock> ans=srcStocks.stream()
 				.filter(stock->

@@ -113,7 +113,7 @@ public class AbstractStock implements Serializable{
 		this.flow = flow;
 	}
 	public Calendar getDateInCalendar(){
-		if (!Checker.checkStringNotNull(date)) {
+		if (Checker.checkStringNotNull(date)) {
 			return CalendarHelper.convert2Calendar(date);
 		}
 		return Calendar.getInstance();
