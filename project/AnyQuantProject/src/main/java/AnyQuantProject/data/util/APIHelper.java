@@ -95,7 +95,7 @@ public class APIHelper {
 		APIHelper a = new APIHelper();
 		try {
 			a.getSingleStockChineseName("sh601009");
-			a.getAnyAPI("http://121.41.106.89:8010/api/stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
+			a.getAnyAPI("http://121.41.106.89:8010/api/stock/sh600000/?start=2016-03-10&end=2016-03-10&fields=open+high+close");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
