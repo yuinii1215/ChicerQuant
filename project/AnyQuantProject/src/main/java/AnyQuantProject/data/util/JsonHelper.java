@@ -32,9 +32,27 @@ public class JsonHelper {
 
 		for (int i = 0; i < jarr.size(); i++) {
 			JSONObject jo = (JSONObject) jarr.get(i);
-//			result.add(jo.get("name"));
-			String name = helper.getSingleStockChineseName((String) jo.get("name"));
-			result.add(name);
+			result.add(jo.get("name"));			
+		}
+		
+		return result;
+	}
+	
+	
+	public JSONArray getAllWithChinese(String Pkey){
+		JSONArray jarr = new JSONArray();
+		JSONArray result = new JSONArray();
+		try {
+			jarr = helper.getAnyAPI(keyheader+Pkey);
+		} catch (IOException e) {
+			return new JSONArray();
+		}
+
+		for (int i = 0; i < jarr.size(); i++) {
+			JSONObject jo = (JSONObject) jarr.get(i);
+			String name = (String) jo.get("name");
+			String nameWithChinese = name + " " + helper.getSingleStockChineseName(name);
+			result.add(nameWithChinese);
 			
 		}
 		
@@ -45,18 +63,26 @@ public class JsonHelper {
 		key = getKeyWithDate(type, name, date, date);
 		JSONObject jo = new JSONObject();
 		try {
-			jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
+		
+				
+				jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
+			
 		} catch (IOException e) {
 			return new JSONObject();
 		}
-		JSONArray arr = jo.getJSONArray("trading_info");
-		return arr.getJSONObject(0);
+		
+		if (jo.size() != 0) {
+			JSONArray arr = jo.getJSONArray("trading_info");
+			return arr.getJSONObject(0);
+		}else {
+			return jo;
+		}
+		
 	}
 	
 	public JSONArray getAmongDate(DataType type, String name, Calendar start,
 			Calendar end) {
 		key = getKeyWithDate(type, name, start, end);
-		//TODO
 //		System.out.println("jhelper  key : "+key);
 		JSONObject jo = new JSONObject();
 		try {
@@ -79,6 +105,13 @@ public class JsonHelper {
 		default:
 			return "stock/"+name+"/?start="+startday+"&end="+afterday+"&fields=open+high+low+close+volume+adj_price+turnover+pe_ttm+pb";
 		}
+	}
+	
+	public static void main(String[] args) {
+		JsonHelper j = new JsonHelper();
+//		j.getAllWithChinese("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
+//		j.getAll("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
+		j.getOperation(DataType.BENCHMARK, "hs300", Calendar.getInstance());
 	}
 
 }

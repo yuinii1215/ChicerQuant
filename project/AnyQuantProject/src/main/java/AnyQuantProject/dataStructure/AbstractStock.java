@@ -16,7 +16,8 @@ import AnyQuantProject.util.method.Checker;
  *
  */
 public class AbstractStock implements Serializable{
-	String name;	//
+	String name;	//代号名
+	String chinese;  //中文名 
 	boolean isFavor;     //是否被关注
 	String date;    // 数据日期
 	double open;		//开盘价
@@ -112,7 +113,7 @@ public class AbstractStock implements Serializable{
 		this.flow = flow;
 	}
 	public Calendar getDateInCalendar(){
-		if (!Checker.checkStringNotNull(date)) {
+		if (Checker.checkStringNotNull(date)) {
 			return CalendarHelper.convert2Calendar(date);
 		}
 		return Calendar.getInstance();
@@ -168,6 +169,16 @@ public class AbstractStock implements Serializable{
 	
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+
+	public String getChinese() {
+		return chinese;
+	}
+
+
+	public void setChinese(String chinese) {
+		this.chinese = chinese;
 	}
 	
 

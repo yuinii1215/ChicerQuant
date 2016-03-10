@@ -233,7 +233,7 @@ public class SingleStockInfoUI extends SingleStockUI {
 				if (startDatePicker.getValue() != null) {
 					System.out.println("the startDate is not Empty");
 					LocalDate startLocalDate = startDatePicker.getValue();
-					minTime = calendarHelper.convert2LocalDate(startLocalDate);
+					minTime = calendarHelper.convert2Calendar(startLocalDate);
 					filterFlag[3] = true;
 					/**
 					 * 此处缺少把minTime赋值的功能
@@ -245,7 +245,7 @@ public class SingleStockInfoUI extends SingleStockUI {
 				if (endDatePicker.getValue() != null) {
 					System.out.println("the endDate is not Empty");
 					LocalDate endLocalDate = endDatePicker.getValue();
-					maxTime = calendarHelper.convert2LocalDate(endLocalDate);
+					maxTime = calendarHelper.convert2Calendar(endLocalDate);
 					filterFlag[4] = true;
 					/**
 					 * 此处缺少把minTime赋值的功能
@@ -420,7 +420,7 @@ public class SingleStockInfoUI extends SingleStockUI {
 					if (startDatePicker.getValue() != null) {
 						System.out.println("the startDate is not Empty");
 						LocalDate startLocalDate = startDatePicker.getValue();
-						minTime = calendarHelper.convert2LocalDate(startLocalDate);
+						minTime = calendarHelper.convert2Calendar(startLocalDate);
 						filterFlag[3] = true;
 						/**
 						 * 此处缺少把minTime赋值的功能
@@ -432,7 +432,7 @@ public class SingleStockInfoUI extends SingleStockUI {
 					if (endDatePicker.getValue() != null) {
 						System.out.println("the endDate is not Empty");
 						LocalDate endLocalDate = endDatePicker.getValue();
-						maxTime = calendarHelper.convert2LocalDate(endLocalDate);
+						maxTime = calendarHelper.convert2Calendar(endLocalDate);
 						filterFlag[4] = true;
 						/**
 						 * 此处缺少把minTime赋值的功能

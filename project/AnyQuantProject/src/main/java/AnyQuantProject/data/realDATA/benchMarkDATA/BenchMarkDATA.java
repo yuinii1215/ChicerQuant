@@ -54,7 +54,8 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 //		JsonConfig config = getJsonConfig();    
 //	    result = JSONObject.fromObject(result,config); 
 		BenchMark re = (BenchMark) JSONObject.toBean(result, BenchMark.class);
-		re.setName(getChineseName(name));
+		re.setName(name);
+		re.setChinese(getChineseName(name));
 		return re;
 	}
 
@@ -66,7 +67,8 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 		@SuppressWarnings("unchecked")
 		List<BenchMark> resultList = JSONArray.toList(result, new BenchMark(), getJsonConfig());
 		for (int i = 0; i < resultList.size(); i++) {
-			resultList.get(i).setName(getChineseName(name));
+			resultList.get(i).setName(name);
+			resultList.get(i).setChinese(getChineseName(name));
 		}
 		return resultList;
 	}
@@ -82,7 +84,8 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	}
 
 	private String getChineseName(String name) {
-		return aHelper.getSingleStockChineseName(name);
+		return null;
+//		return aHelper.getSingleStockChineseName(name);
 	}
 	public static void main(String[] args) {
 		BenchMarkDATA b = BenchMarkDATA.getInstance();
@@ -91,5 +94,14 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 		System.out.println("list 0 :" + list.get(0));
 //		b.getBenchMarkAmongDate("hs300", Calendar.getInstance(), Calendar.getInstance());
 //		System.out.println("ben : "+ben.getOpen()+" "+ben.getClose());
+	}
+
+	@Override
+	public List<String> getAllBenchMarkWithChinese() {
+		// TODO Auto-generated method stub
+		JSONArray allBenchMarkList = JSONBenchMark.getAllBenchMarkWithChinese();
+		@SuppressWarnings("unchecked")
+		List<String> resultList = JSONArray.toList(allBenchMarkList, new String(), new JsonConfig());
+		return resultList;
 	}
 }

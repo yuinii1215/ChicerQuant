@@ -46,4 +46,14 @@ public class JSONBenchMarkDATA implements JSONBenchMarkDATAService{
 //		j.getOperation("hs300", Calendar.getInstance());
 //		j.getBenchMarkAmongDate("hs300", CalendarHelper.getPreviousDay(Calendar.getInstance()), Calendar.getInstance());
 	}
+
+
+	/* (non-Javadoc)
+	 * @see AnyQuantProject.dataService.jsonDATAService.JSONBenchMarkDATAService#getAllBenchMarkWithChinese()
+	 */
+	@Override
+	public JSONArray getAllBenchMarkWithChinese() {
+		String key = "benchmark/all";
+		return jHelper.getAllWithChinese(key);
+	}
 }

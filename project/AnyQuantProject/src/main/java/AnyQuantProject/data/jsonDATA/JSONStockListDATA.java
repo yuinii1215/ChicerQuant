@@ -30,4 +30,13 @@ public class JSONStockListDATA implements JSONStockListDATAService{
 		j.getAllStocks(Calendar.getInstance(), Exchange.SH);
 	}
 
+
+	
+	@Override
+	public JSONArray getAllStocksWithChinese(Calendar date, Exchange exchange) {
+		int year = date.get(Calendar.YEAR)-1;
+		String key = "stocks/?year="+year+"&exchange="+exchange.getEnglish();
+		return jHelper.getAllWithChinese(key);
+	}
+
 }

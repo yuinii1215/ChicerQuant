@@ -1,6 +1,8 @@
 package AnyQuantProject.ui.benchMarkUI;
 
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -13,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import AnyQuantProject.bl.factoryBL.BenchMarkBLFactory;
@@ -57,6 +60,10 @@ public class BenchMarkUIController implements Initializable{
 	private  TableColumn<BenchMark, Long> flow;
 	@FXML
 	public  ComboBox benchMarkID;
+	@FXML
+	private Label currentTime;
+	
+	private Calendar calendar;
 	String  benchMarkid;
 	
 	private BenchMarkBLService benchMarkBLService =BenchMarkBLFactory.getBenchMarBLService();  
@@ -84,6 +91,12 @@ public class BenchMarkUIController implements Initializable{
 	 * 
 	 */
     public  void init(){
+    	
+    	calendar=Calendar.getInstance();
+    	
+    	currentTime.setText(String.valueOf(calendar.getTime()));
+    	System.out.println(currentTime);
+    	
     	benchMarkList=benchMarkBLService.getAllBenchMark();
     	
         table.setItems(FXCollections.observableArrayList(benchMarkList));

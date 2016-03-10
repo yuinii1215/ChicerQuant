@@ -1,10 +1,12 @@
 package AnyQuantProject.ui.singleStockInfoUI;
 
 import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
+import AnyQuantProject.bl.factoryBL.ListFilterBLFactory;
 import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.bl.favoriteBL.FavoriteBLController;
 import AnyQuantProject.bl.listFilterBL.ListFilterBLImpl;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
+import AnyQuantProject.blService.listFilterBLService.ListFilterBLService;
 import AnyQuantProject.blService.singleStockDealBLService.SingleStockDealBLService;
 import AnyQuantProject.blService.singleStockInfoBLService.SingleStockInfoBLService;
 import AnyQuantProject.dataStructure.OperationResult;
@@ -129,7 +131,7 @@ public class SingleStockInfoUIController implements Initializable {
     private String stockName =null;
    
     SingleStockDealBLService singleStockDealBlImpl;
-    ListFilterBLImpl listFilterBlImpl;
+    ListFilterBLService listFilterBlImpl;
     FavoriteBLService favoriteBlImpl;
     OperationResult operationResult;
     SingleStockInfoBLService singleStockBlImpl;
@@ -151,6 +153,9 @@ public class SingleStockInfoUIController implements Initializable {
         for (int i = 0; i < 5; i++) {
             filterFlag[i] = false;
         }
+        if (keyWord==null||!keyWord.equalsIgnoreCase("关键字")) {
+			filterFlag[0]=true;
+		}
      
         if (minRange.getText().trim().length() >= 1) {
            
@@ -171,7 +176,7 @@ public class SingleStockInfoUIController implements Initializable {
         if (startDatePicker.getValue() != null) {
             
             LocalDate startLocalDate = startDatePicker.getValue();
-            minTime = calendarHelper.convert2LocalDate(startLocalDate);
+            minTime = calendarHelper.convert2Calendar(startLocalDate);
             filterFlag[3] = true;
            
         } else {
@@ -179,9 +184,8 @@ public class SingleStockInfoUIController implements Initializable {
         }
 
         if (endDatePicker.getValue() != null) {
-            System.out.println("the endDate is not Empty");
             LocalDate endLocalDate = endDatePicker.getValue();
-            maxTime = calendarHelper.convert2LocalDate(endLocalDate);
+            maxTime = calendarHelper.convert2Calendar(endLocalDate);
             filterFlag[4] = true;
          
         } else {
@@ -189,15 +193,17 @@ public class SingleStockInfoUIController implements Initializable {
         }
        
         singleStockList = filterControl(singleStockList);
+        table.getItems().clear();
+        table.getItems().addAll(singleStockList);
     }
 
     public List<Stock> filterControl(List<Stock> currentList) {
         List<Stock> filteredList = currentList;
-        listFilterBlImpl = new ListFilterBLImpl();
+        listFilterBlImpl =ListFilterBLFactory.getListFilterBLService();
 
         if (!filterFlag[0]) {
             return singleStockList;
-        } else if (filterFlag[3] && filterFlag[4] && minTime == maxTime) {
+        } else if (filterFlag[3] && filterFlag[4] && minTime.equals(maxTime)) {
             targetTime = minTime;
             filteredList = listFilterBlImpl.filterStocksByDateEqual(
                     currentList, targetTime);
@@ -209,6 +215,7 @@ public class SingleStockInfoUIController implements Initializable {
             filterFlag[3] = false;
             filterFlag[4] = false;
         } else if (filterFlag[3] && (!filterFlag[4])) {
+        	System.out.println("uuuu");
             filteredList = listFilterBlImpl.filterStocksByDateGreater(
                     currentList, minTime);
             filterFlag[3] = false;
@@ -228,6 +235,7 @@ public class SingleStockInfoUIController implements Initializable {
             filterFlag[1] = false;
             filterFlag[2] = false;
         } else if (filterFlag[1] && (!filterFlag[2])) {
+        	System.out.println("used");
             filteredList = listFilterBlImpl.filterStocksByFieldGreater(
                     currentList, selectedColumnName, minFilter);
             filterFlag[1] = false;

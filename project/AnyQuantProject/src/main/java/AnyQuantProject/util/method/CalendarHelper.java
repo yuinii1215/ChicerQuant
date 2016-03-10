@@ -24,7 +24,7 @@ public class CalendarHelper {
 	 * @param localDate
 	 * @return
 	 */
-	public static Calendar convert2LocalDate(LocalDate localDate){
+	public static Calendar convert2Calendar(LocalDate localDate){
         if(localDate == null)
             return null;
         ZoneId zone = ZoneId.systemDefault();
@@ -39,7 +39,7 @@ public class CalendarHelper {
 	 * @param calendar
 	 * @return
 	 */
-    public static LocalDate convert2Calendar(Calendar calendar) {
+    public static LocalDate convert2LocalDate(Calendar calendar) {
     	int year = calendar.get(Calendar.YEAR);
     	int month = calendar.get(Calendar.MONTH);
     	int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
@@ -163,7 +163,7 @@ public class CalendarHelper {
 		int year=Integer.parseInt(temp);
 		//month
 		temp=stringTokenizer.nextToken();
-		int month=Integer.parseInt(temp);
+		int month=Integer.parseInt(temp)-1;
 		//day
 		temp=stringTokenizer.nextToken();
 		int day=Integer.parseInt(temp);
