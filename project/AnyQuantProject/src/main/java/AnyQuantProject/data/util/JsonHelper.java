@@ -41,6 +41,27 @@ public class JsonHelper {
 		return result;
 	}
 	
+	
+	public JSONArray getAllWithChinese(String Pkey){
+		JSONArray jarr = new JSONArray();
+		JSONArray result = new JSONArray();
+		try {
+			jarr = helper.getAnyAPI(keyheader+Pkey);
+		} catch (IOException e) {
+			return new JSONArray();
+		}
+
+		for (int i = 0; i < jarr.size(); i++) {
+			JSONObject jo = (JSONObject) jarr.get(i);
+			String name = (String) jo.get("name");
+			String nameWithChinese = name + helper.getSingleStockChineseName(name);
+			result.add(nameWithChinese);
+			
+		}
+		
+		return result;
+	}
+	
 	public JSONObject getOperation(DataType type, String name, Calendar date) {
 		key = getKeyWithDate(type, name, date, date);
 		JSONObject jo = new JSONObject();

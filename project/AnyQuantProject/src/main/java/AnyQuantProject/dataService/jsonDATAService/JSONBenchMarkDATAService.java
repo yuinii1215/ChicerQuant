@@ -17,9 +17,16 @@ import net.sf.json.JSONObject;
  */
 public interface JSONBenchMarkDATAService {
 	/**
-	 * 返回当前的大盘列表
+	 * 返回当前的大盘代号名列表
 	 */
 	public JSONArray getAllBenchMark();	
+	
+	
+	
+	/**
+	 * 返回当前的大盘代号名和中文名列表
+	 */
+	public JSONArray getAllBenchMarkWithChinese();	
 	
 	/**
 	 * 由大盘名称、指定日期得到该大盘指定日期的数据

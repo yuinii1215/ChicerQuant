@@ -43,7 +43,8 @@ public class SingleStockDATA implements SingleStockDATAService{
 	public Stock getOperation(String name, Calendar date) {
 		JSONObject resultJsonObject = JSONSingleStock.getOperation(name, date);
 		Stock result = (Stock) JSONObject.toBean(resultJsonObject,Stock.class);
-		result.setName(getChineseName(name));
+		result.setName(name);
+		result.setChinese(getChineseName(name));
 		return result;
 	}
 
@@ -55,7 +56,8 @@ public class SingleStockDATA implements SingleStockDATAService{
 		@SuppressWarnings("unchecked")
 		List<Stock> resultList = JSONArray.toList(resultArray, new Stock(), new JsonConfig());
 		for (int i = 0; i < resultList.size(); i++) {
-			resultList.get(i).setName(getChineseName(name));
+			resultList.get(i).setName(name);
+			resultList.get(i).setChinese(getChineseName(name));
 		}
 		return resultList;
 	}

@@ -33,10 +33,19 @@ public class StockListDATA implements StockListDATAService{
 		}
 		return stockListDATA;
 	}
+	
+	
 	@SuppressWarnings("null")
 	@Override
+
 	public List<String> getAllStocks(Calendar date, Exchange exchange) {
 		JSONArray resultArray = JSONStockList.getAllStocks(date, exchange);
+		List<String> resultList = JSONArray.toList(resultArray, new String(), new JsonConfig());
+		return resultList;
+	}
+	
+	public List<String> getAllStocksWithChinese(Calendar date, Exchange exchange) {
+		JSONArray resultArray = JSONStockList.getAllStocksWithChinese(date, exchange);
 		List<String> resultList = JSONArray.toList(resultArray, new String(), new JsonConfig());
 		return resultList;
 	}

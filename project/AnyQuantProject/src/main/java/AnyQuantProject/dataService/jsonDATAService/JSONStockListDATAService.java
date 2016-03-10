@@ -20,4 +20,15 @@ public interface JSONStockListDATAService {
 	 * @return
 	 */
 	public JSONArray getAllStocks(Calendar date, Exchange exchange);
+
+
+	/**
+	 * 由指定年份、指定交易所的信息得到股票名称和中文名列表，代号名和中文名以空格隔开
+	 * @param date
+	 * @param exchange
+	 * @return
+	 */
+	public JSONArray getAllStocksWithChinese(Calendar date, Exchange exchange);
+
+	
 }
