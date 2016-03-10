@@ -93,7 +93,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="currentTime" prefHeight="15.0" prefWidth="130.0" text="2016/03/07 15:00:00 " />
+                  <Label fx:id="currentTime" prefHeight="15.0" prefWidth="181.0" text="2016/03/10 14:52:00 " />
                </children>
             </VBox>
             <ComboBox fx:id="benchMarkID" layoutX="682.0" layoutY="22.0" prefHeight="23.0" prefWidth="106.0" promptText="上证指数" />
@@ -122,7 +122,7 @@
                   <Label fx:id="time5" text="15:00" />
                </children>
             </HBox>
-            <HBox layoutX="138.0" layoutY="33.0" prefHeight="15.0" prefWidth="160.0">
+			<HBox layoutX="196.0" layoutY="33.0" prefHeight="15.0" prefWidth="160.0">
                <children>
                   <Label fx:id="ifClosing" prefHeight="15.0" prefWidth="49.0" text="已收盘">
                      <opaqueInsets>
