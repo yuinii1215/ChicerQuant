@@ -95,7 +95,7 @@ public class Main extends Application {
 		guidePanel= FXMLLoader.load(Main.class.getResource("guidePanel.fxml"));
 		
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
-//		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
@@ -114,7 +114,7 @@ public class Main extends Application {
 
 		primaryStage.setScene(new Scene(h_box));
 
-                primaryStage.initStyle(StageStyle.DECORATED);
+        primaryStage.initStyle(StageStyle.DECORATED);
 //		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
 	//  enterMainScene();
