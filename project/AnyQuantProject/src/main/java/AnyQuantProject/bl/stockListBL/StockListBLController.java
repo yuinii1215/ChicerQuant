@@ -44,6 +44,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 		avaliable = (List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
 		Calendar today = Calendar.getInstance();
 		stockData=(List<Stock>) IOHelper.read(R.CachePath, CalendarHelper.getDate(today));
+		System.out.println(stockData==null);
 	}
 	
 	public boolean shouldInit(){
@@ -73,24 +74,6 @@ public class StockListBLController implements StockListBLService,Runnable {
 	public boolean searchLegal(String target) {
 		return avaliable.contains(target);
 	}
-	public static void main(String[] args) {
-		StockListBLController stockListBLController=new StockListBLController();
-		//init avaliable
-				stockListBLController.avaliable=new ArrayList<>();
-				// get dataService
-				FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
-				StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
-				// get names
-				List<String> sz = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
-				List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
-				stockListBLController.avaliable.addAll(sh);
-				stockListBLController.avaliable.addAll(sz);
-				stockListBLController.avaliable.stream().forEach(na->System.out.println(na));
-				//save
-				IOHelper.save(R.CachePath, R.StockNameFile, (Serializable) stockListBLController.avaliable);
-				//init data
-	}
-
 	@Override
 	public void run() {
 		
@@ -117,8 +100,10 @@ public class StockListBLController implements StockListBLService,Runnable {
 		isAlive=true;
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		Calendar c = Calendar.getInstance();
+		System.out.println("can do");
+		avaliable.stream().forEach(na->System.out.println(na));
 		avaliable.stream()
-		.map(nam->singleStockDATAService.getOperation(nam, c))
+		.map(nam->singleStockDATAService.getOperation(nam, CalendarHelper.getPreviousDay(c)))
 		.forEach(st->stockData.add(st));
 		//save
 		IOHelper.save(R.CachePath, CalendarHelper.getDate(c), (Serializable) stockData);

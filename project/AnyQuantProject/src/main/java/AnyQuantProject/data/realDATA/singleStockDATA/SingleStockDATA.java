@@ -64,7 +64,8 @@ public class SingleStockDATA implements SingleStockDATAService{
 
 
 	private String getChineseName(String name) {
-		return aHelper.getSingleStockChineseName(name);
+		return null;
+//		return aHelper.getSingleStockChineseName(name);
 	}
 	
 	public static void main(String[] args) {
