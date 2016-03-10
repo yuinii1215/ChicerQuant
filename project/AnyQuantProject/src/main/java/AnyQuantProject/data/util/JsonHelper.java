@@ -32,10 +32,7 @@ public class JsonHelper {
 
 		for (int i = 0; i < jarr.size(); i++) {
 			JSONObject jo = (JSONObject) jarr.get(i);
-//			result.add(jo.get("name"));
-			String name = helper.getSingleStockChineseName((String) jo.get("name"));
-			result.add(name);
-			
+			result.add(jo.get("name"));			
 		}
 		
 		return result;
@@ -99,6 +96,12 @@ public class JsonHelper {
 		default:
 			return "stock/"+name+"/?start="+startday+"&end="+afterday+"&fields=open+high+low+close+volume+adj_price+turnover+pe_ttm+pb";
 		}
+	}
+	
+	public static void main(String[] args) {
+		JsonHelper j = new JsonHelper();
+//		j.getAllWithChinese("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
+		j.getAll("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
 	}
 
 }
