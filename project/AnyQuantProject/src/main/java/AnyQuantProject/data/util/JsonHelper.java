@@ -63,9 +63,9 @@ public class JsonHelper {
 		key = getKeyWithDate(type, name, date, date);
 		JSONObject jo = new JSONObject();
 		try {
-			if (jo.size() != 0) {
+		
+				
 				jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
-			}
 			
 		} catch (IOException e) {
 			return new JSONObject();

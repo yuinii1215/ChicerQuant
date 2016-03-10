@@ -100,8 +100,6 @@ public class StockListBLController implements StockListBLService,Runnable {
 		isAlive=true;
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		Calendar c = Calendar.getInstance();
-		System.out.println("can do");
-		avaliable.stream().forEach(na->System.out.println(na));
 		avaliable.stream()
 		.map(nam->singleStockDATAService.getOperation(nam, CalendarHelper.getPreviousDay(c)))
 		.forEach(st->stockData.add(st));
