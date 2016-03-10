@@ -267,8 +267,7 @@ public class SingleStockInfoUIController implements Initializable {
     public void init() {
         /*
         get数据的方法
-        */ 
-      //  
+        */
       singleStockBlImpl=SingleStockBLFactory.getSingleStockInfoBLService();
       singleStockDealBlImpl=SingleStockBLFactory.getSingleStockDealBLService();
       singleStock=singleStockBlImpl.getSingleStockInfo(stockName);
