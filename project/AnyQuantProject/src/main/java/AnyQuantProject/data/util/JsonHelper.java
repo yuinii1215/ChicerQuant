@@ -63,12 +63,21 @@ public class JsonHelper {
 		key = getKeyWithDate(type, name, date, date);
 		JSONObject jo = new JSONObject();
 		try {
-			jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
+			if (jo.size() != 0) {
+				jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
+			}
+			
 		} catch (IOException e) {
 			return new JSONObject();
 		}
-		JSONArray arr = jo.getJSONArray("trading_info");
-		return arr.getJSONObject(0);
+		
+		if (jo.size() != 0) {
+			JSONArray arr = jo.getJSONArray("trading_info");
+			return arr.getJSONObject(0);
+		}else {
+			return jo;
+		}
+		
 	}
 	
 	public JSONArray getAmongDate(DataType type, String name, Calendar start,
@@ -101,7 +110,8 @@ public class JsonHelper {
 	public static void main(String[] args) {
 		JsonHelper j = new JsonHelper();
 //		j.getAllWithChinese("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
-		j.getAll("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
+//		j.getAll("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
+		j.getOperation(DataType.BENCHMARK, "hs300", Calendar.getInstance());
 	}
 
 }
