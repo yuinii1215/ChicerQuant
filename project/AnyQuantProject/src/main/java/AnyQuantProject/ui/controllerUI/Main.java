@@ -95,7 +95,10 @@ public class Main extends Application {
 		guidePanel= FXMLLoader.load(Main.class.getResource("guidePanel.fxml"));
 		
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
+<<<<<<< HEAD
 	//	allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+=======
+>>>>>>> daac3d1bba54122754e5c55ac77f9dda75e8cbc7
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
