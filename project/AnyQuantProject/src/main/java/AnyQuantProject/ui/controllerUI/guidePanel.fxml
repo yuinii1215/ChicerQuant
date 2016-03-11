@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
@@ -47,4 +48,7 @@
          </children>
       </AnchorPane>
    </children>
+   <stylesheets>
+    <URL value="@tipso.css" />
+  </stylesheets>
 </AnchorPane>
