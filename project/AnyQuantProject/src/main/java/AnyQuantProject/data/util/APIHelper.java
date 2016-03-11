@@ -196,8 +196,11 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.python.antlr.PythonParser.return_stmt_return;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import net.sf.json.util.NewBeanInstanceStrategy;
 
 
 /**
@@ -259,6 +262,9 @@ public class APIHelper {
 		            e1.printStackTrace(); 
 		        }
 //			e.printStackTrace();
+		}
+         if (result.equals(new String("failed"))) {
+			return name;
 		}
 	     JSONObject object = JSONObject.fromObject(result);
 	     JSONArray resulto = (JSONArray) object.get("result");
@@ -330,7 +336,9 @@ public class APIHelper {
            }
            rs = sb.toString();
        } catch (IOException e) {
-           e.printStackTrace();
+//           e.printStackTrace();
+    	   System.out.println("apihelper net -------------- failed");
+           return "failed";
        } finally {
            if (reader != null) {
                reader.close();
