@@ -48,7 +48,4 @@
          </children>
       </AnchorPane>
    </children>
-   <stylesheets>
-    <URL value="@tipso.css" />
-  </stylesheets>
 </AnchorPane>

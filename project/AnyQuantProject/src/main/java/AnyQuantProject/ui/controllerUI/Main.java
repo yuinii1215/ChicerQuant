@@ -1,19 +1,10 @@
 package AnyQuantProject.ui.controllerUI;
 
-import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
-import AnyQuantProject.bl.singleStockBL.SingleStockBLController;
 import AnyQuantProject.bl.stockListBL.StockListBLController;
-import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
-
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 
-import AnyQuantProject.ui.singleStockInfoUI.*;
-import java.io.File;
 import java.io.IOException;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -21,10 +12,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
 import javafx.scene.control.Button;
@@ -95,10 +83,7 @@ public class Main extends Application {
 		guidePanel= FXMLLoader.load(Main.class.getResource("guidePanel.fxml"));
 		
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
-<<<<<<< HEAD
 	//	allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
-=======
->>>>>>> daac3d1bba54122754e5c55ac77f9dda75e8cbc7
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
 
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
