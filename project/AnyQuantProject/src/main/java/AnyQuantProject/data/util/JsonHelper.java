@@ -1,6 +1,3 @@
-/**
- * 
- */
 package AnyQuantProject.data.util;
 
 import java.io.IOException;
@@ -64,7 +61,6 @@ public class JsonHelper {
 		JSONObject jo = new JSONObject();
 		try {
 		
-				
 				jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
 			
 		} catch (IOException e) {
@@ -73,9 +69,13 @@ public class JsonHelper {
 		
 		if (jo.size() != 0) {
 			JSONArray arr = jo.getJSONArray("trading_info");
-			return arr.getJSONObject(0);
+			if (arr.size() != 0) {
+				return arr.getJSONObject(0);
+			}else {
+				return new JSONObject();
+			}			
 		}else {
-			return jo;
+			return new JSONObject();
 		}
 		
 	}

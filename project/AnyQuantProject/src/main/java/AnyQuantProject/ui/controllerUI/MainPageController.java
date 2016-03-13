@@ -97,6 +97,17 @@ public class MainPageController  implements Initializable {
 			FavoriteUIController.getInstance().init();
 		
 	    }
+	  	 private void moduleBtnFired(ActionEvent e) {
+		        setPanel(Main.favouritePanel, "打开我的关注界面...");
+		        Button btn = (Button)e.getSource();
+		        if(defaultBtn != null)
+		            defaultBtn.setDefaultButton(false);
+		        btn.setDefaultButton(true);
+		        defaultBtn = btn;
+		        Main.enterFavouriteScene();
+				FavoriteUIController.getInstance().init();
+			
+		    }
 	  	
 //		  @FXML
 //		    private void guideBtnFired(ActionEvent e) {
@@ -231,5 +242,5 @@ public class MainPageController  implements Initializable {
 //		                new KeyFrame(Duration.seconds(delay+0.15), new KeyValue(centralPanel.translateXProperty(), 0), new KeyValue(centralPanel.opacityProperty(), 1)),
 //		                new KeyFrame(Duration.seconds(delay+0.16), eh2)).play();
 //		    }
-		  }
+                  }
 }

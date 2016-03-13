@@ -1,19 +1,10 @@
 package AnyQuantProject.ui.controllerUI;
 
-import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
-import AnyQuantProject.bl.singleStockBL.SingleStockBLController;
 import AnyQuantProject.bl.stockListBL.StockListBLController;
-import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
-
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 
-import AnyQuantProject.ui.singleStockInfoUI.*;
-import java.io.File;
 import java.io.IOException;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -21,10 +12,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
 import javafx.scene.control.Button;
@@ -94,8 +82,9 @@ public class Main extends Application {
 	//	mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
 		guidePanel= FXMLLoader.load(Main.class.getResource("guidePanel.fxml"));
 		
-		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));               
-//		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
+	//	allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
                 benchMarkPanel.setId("pane");
 
@@ -104,8 +93,10 @@ public class Main extends Application {
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 
-		primaryStage.setHeight(620);
-		primaryStage.setWidth(1000);
+
+		primaryStage.setHeight(600);
+		primaryStage.setWidth(980);
+
 		primaryStage.setTitle("AnyQuant");	
 
 		h_box =new HBox(); 
@@ -144,7 +135,6 @@ public class Main extends Application {
     public  static void enterAllStocksScene(){
     	try {
 			allStocksPanel=FXMLLoader.load(Main.class.getResource("allStocksPanel.fxml"));
-			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -230,7 +220,4 @@ public class Main extends Application {
 		 launch(args);
 		 
 	   }
-
-  
-	
 }
