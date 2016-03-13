@@ -42,16 +42,13 @@
 
 .table-view .scroll-bar:horizontal,.mylistview  .scroll-bar:vertical{
     -fx-background-color: #FFFFFF;
-     -fx-opacity: 0.5;
+     -fx-opacity: 1.0;
 }
 
 .table-cell{ 
     -fx-font-size: 14px; 
 }
 
-
-
-         
 .button-isFavor{
     -fx-background-color: #71C671;
     -fx-font-size: 10pt;
@@ -59,6 +56,20 @@
     -fx-text-fill: white;
     -fx-alignment: center;
 }
+
+
+.tab-pane {
+    -fx-base: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-background-color:transparent;
+    -fx-padding: 5;   
+}
+
+.tab{
+       -fx-background-color: transparent;
+}
+
+
 
 
 

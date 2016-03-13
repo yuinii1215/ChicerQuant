@@ -74,6 +74,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import AnyQuantProject.ui.singleStockInfoUI.StockInfo2Column;
+import java.text.SimpleDateFormat;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 
 /**
  *
@@ -143,6 +146,10 @@ public class SingleStockInfoUIController implements Initializable {
     public TableColumn<Map.Entry<String, Double>, String> key_Column,key_Column2;
     @FXML
     public TableColumn<Map.Entry<String, Double>, Double> value_Column,value_Column2;
+   @FXML
+   public TabPane kLineTabPane;
+    @FXML
+    public Tab tab_dayKLine,tab_weekKLine,tab_monthKLine;
     
     int rowColorFlag=0;//flag取0,-1,1三种状态,0表示不涨不跌,1表示涨了,-1表示跌了
 
@@ -299,7 +306,26 @@ public class SingleStockInfoUIController implements Initializable {
         }
 }
 
+    public void drawDayKLine(){
+          SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+          double highValue = Double.MIN_VALUE;// 设置K线数据当中的最大值
+          double minValue = Double.MAX_VALUE;// 设置K线数据当中的最小值
+          double high2Value = Double.MIN_VALUE;// 设置成交量的最大值
+          double min2Value = Double.MAX_VALUE;// 设置成交量的最低值
+          
+//           OHLCSeries series = new OHLCSeries("");// 高开低收数据序列，股票K线图的四个数据，依次是开，高，低，收
+    }
+    public void drawWeekKLine(){
+    
+    }
+    public void drawMonthKLine(){
+    
+    }
+ 
+    
+    
     public void init() { 
+        kLineTabPane.getTabs().get(0).setStyle("-fx-background-color:transparent");
         helperButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {  
         filterImage.setImage(filterButton_entered);
         }); 
