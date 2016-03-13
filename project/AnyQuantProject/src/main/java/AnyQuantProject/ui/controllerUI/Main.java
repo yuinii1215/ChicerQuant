@@ -94,8 +94,8 @@ public class Main extends Application {
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 
 
-		primaryStage.setHeight(600);
-		primaryStage.setWidth(980);
+		primaryStage.setHeight(636);
+		primaryStage.setWidth(992);
 
 		primaryStage.setTitle("AnyQuant");	
 
