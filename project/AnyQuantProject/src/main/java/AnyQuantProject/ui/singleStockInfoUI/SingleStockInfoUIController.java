@@ -374,6 +374,8 @@ public class SingleStockInfoUIController implements Initializable {
          * initialize the table
          */
         table.setItems(FXCollections.observableArrayList(singleStockList));
+        
+       
 	/**
         * initialize the tabel columns
         */  
@@ -411,21 +413,6 @@ public class SingleStockInfoUIController implements Initializable {
                       protected void updateItem(Double item,boolean empty) {        
                       super.updateItem(item, empty); 
                        if (!isEmpty()) {
-                           /**只有开盘,最高,最低要换字体颜色
-                            * 一般的讲,红色: 代表主动买入.绿色: 代表主动卖出. 白色: 代表中性盘
-                            */
-//                            ov1 = getTableColumn().getCellObservableValue(getIndex());
-                            
-//                            ObservableValue ov2;
-//                            ov2=openColumn.getCellObservableValue(getIndex());
-//                            System.out.println("the content is:"+ov1.getValue()+"and"+ov2.getValue()); 
-//                            if((Double)ov1.getValue()>(Double)ov2.getValue()){//收盘时更高,上涨,红色
-//                            this.setTextFill(Color.RED);  
-//                            }
-//                            else if((Double)ov1.getValue()<(Double)ov2.getValue()){//收盘时更低,下降,绿色
-////                            getTableRow().setStyle("-fx-background-color:green");
-//                             this.setTextFill(Color.GREENYELLOW);  
-//                            }
                             double property=Math.random();
                             if(property>0.5){
                             this.setTextFill(Color.RED);  
