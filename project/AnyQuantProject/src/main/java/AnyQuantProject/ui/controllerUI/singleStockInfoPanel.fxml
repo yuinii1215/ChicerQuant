@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
@@ -7,41 +11,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
+<?import java.net.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController">
+<AnchorPane id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController">
    <children>
-      <Label id="titleLabel" alignment="CENTER" prefHeight="40.0" prefWidth="852.0" style="-fx-background-color: #AAAAAA;" text="股票详情">
-         <font>
-            <Font name="Arial" size="22.0" />
-         </font>
-      </Label>
-      <ComboBox id="keyWordBox" fx:id="keyWordBox" layoutX="11.0" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="100.0" promptText="关键字">
-         <effect>
-            <Blend mode="HARD_LIGHT" />
-         </effect>
-<!--          <items>  
-            <FXCollections fx:id="observableComboBoxList" fx:factory="observableArrayList">  
-               <String fx:value="开盘价" fx:id="open"/>  
-               <String fx:value="收盘价" fx:id="close"/>  
-               <String fx:value="最高价" fx:id="high"/>    
-               <String fx:value="最低价" fx:id="low"/>  
-               <String fx:value="成交量" fx:id="volume"/>  
-               <String fx:value="后复权价" fx:id="adj_price" />  
-               <String fx:value="市值" fx:id="marketvalue"/>  
-               <String fx:value="流通" fx:id="flow"/>    
-               <String fx:value="换手率" fx:id="turnover"/>   
-               <String fx:value="市盈率" fx:id="pe_ttm"/>  
-               <String fx:value="市净率" fx:id="pb"/>  
-            </FXCollections>  
-          </items>  -->
-      </ComboBox>
-      <TextField id="minRange" fx:id="minRange" layoutX="126.0" layoutY="40.0" prefHeight="29.0" prefWidth="64.0" />
-      <TextField id="maxRange" fx:id="maxRange" layoutX="199.0" layoutY="40.0" prefHeight="29.0" prefWidth="64.0" />
-      <DatePicker id="startDatePicker" fx:id="startDatePicker" layoutX="284.0" layoutY="40.0" prefHeight="29.0" prefWidth="89.0" />
-      <DatePicker id="endDatePicker" fx:id="endDatePicker" layoutX="380.0" layoutY="40.0" prefHeight="29.0" prefWidth="91.0" />
-      <TableView id="tableView" fx:id="table" layoutY="69.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="530.0" prefWidth="555.0" tableMenuButtonVisible="true">
+      <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" editable="true" layoutX="531.0" layoutY="210.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="390.0" prefWidth="377.0" tableMenuButtonVisible="true">
         <columns>
-          <TableColumn id="dateColumn" fx:id="dateColumn" prefWidth="78.13650512695312" text="日期" />
+          <TableColumn id="dateColumn" fx:id="dateColumn" prefWidth="90.13650512695312" text="日期" />
           <TableColumn id="openColumn" fx:id="openColumn" prefWidth="71.86349487304688" text="开盘价" />
             <TableColumn id="highColumn" fx:id="highColumn" prefWidth="71.86349487304688" text="最高价" />
             <TableColumn id="lowColumn" fx:id="lowColumn" prefWidth="71.86349487304688" text="最低价" />
@@ -56,21 +32,90 @@
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </TableView>
-      <Button id="filterButton" fx:id="filterButton" layoutX="501.0" layoutY="43.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleFilterAction" prefHeight="18.0" prefWidth="28.0" style="-fx-background-color: #f16a6a;" text="查找" textFill="#f8f8f8">
+      <ImageView fx:id="filterImage" fitHeight="46.0" fitWidth="49.0" layoutX="479.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/images/filterButton_normal.png" />
+         </image>
+      </ImageView>
+      <Button id="helperButton" fx:id="helperButton" layoutX="479.0" layoutY="224.0" mnemonicParsing="false" opacity="0.0" prefHeight="52.0" prefWidth="37.0" snapToPixel="false">
+        </Button>
+      <Label fx:id="chineseNameLabel" alignment="CENTER" layoutX="516.0" layoutY="6.0" prefHeight="60.0" prefWidth="188.0" text="腾讯科技" textFill="WHITE">
          <font>
-            <Font size="8.0" />
-         </font>
-      </Button>
-      <Label id="nameLabel" fx:id="nameLabel" layoutX="574.0" layoutY="47.0" prefHeight="82.0" prefWidth="209.0" text="腾讯科技">
-         <font>
-            <Font name="Arial Black" size="30.0" />
+            <Font size="30.0" />
          </font>
       </Label>
-      <Button id="isFavorButton" fx:id="isFavorButton" layoutX="741.0" layoutY="117.0" mnemonicParsing="false" onAction="#handleFavorAction" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6495ED;" textFill="WHITE">
+      <Label id="nameLabel" fx:id="nameLabel" layoutX="694.0" layoutY="20.0" prefHeight="33.0" prefWidth="100.0" text="SH3000" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font name="Arial Black" size="17.0" />
          </font>
-      </Button>
+      </Label>
+      <TableView id="tableView" fx:id="tableView2" blendMode="LIGHTEN" editable="true" layoutX="537.0" layoutY="63.0" prefHeight="161.0" prefWidth="160.0" style="-fx-background-color: transparent;">
+        <columns>
+          <TableColumn fx:id="key_Column" prefWidth="75.0" />
+          <TableColumn fx:id="value_Column" prefWidth="75.0" />
+        </columns>
+       <cursor>
+          <Cursor fx:constant="NONE" />
+       </cursor>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TableView>
+       <TableView fx:id="titleTable" blendMode="LIGHTEN" editable="true" layoutX="684.0" layoutY="63.0" prefHeight="161.0" prefWidth="160.0" style="-fx-background-color: transparent;">
+        <columns>
+          <TableColumn fx:id="key_Column2" prefWidth="75.0" />
+          <TableColumn fx:id="value_Column2" prefWidth="75.0" />
+        </columns>
+       <cursor>
+          <Cursor fx:constant="NONE" />
+       </cursor>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TableView>
+      <Pane id="filterConditionPane" fx:id="filterConditionPane" layoutX="531.0" layoutY="250.0" opacity="0.0" prefHeight="216.0" prefWidth="370.0" style="-fx-background-color: #004B97; -fx-background-radius: 20;" styleClass="paneView">
+         <children>
+            <ComboBox fx:id="keyWordBox" layoutX="106.0" layoutY="22.0" prefHeight="26.0" prefWidth="103.0" />
+            <Label layoutX="29.0" layoutY="32.0" prefHeight="19.0" prefWidth="59.0" text="关键字" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="76.0" text="数值区间" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="minRange" layoutX="106.0" layoutY="71.0" prefHeight="26.0" prefWidth="103.0" />
+            <TextField fx:id="maxRange" layoutX="236.0" layoutY="71.0" prefHeight="26.0" prefWidth="103.0" />
+            <DatePicker fx:id="startDatePicker" layoutX="106.0" layoutY="121.0" prefHeight="26.0" prefWidth="103.0" />
+            <DatePicker fx:id="endDatePicker" layoutX="235.0" layoutY="120.0" prefHeight="26.0" prefWidth="103.0" />
+            <Label layoutX="29.0" layoutY="124.0" text="时间区间" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="220.0" layoutY="83.0" text="至" textFill="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="220.0" layoutY="133.0" text="至" textFill="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="filterCancelButton" cancelButton="true" layoutX="114.0" layoutY="171.0" mnemonicParsing="false" onAction="#quitFilterPane" text="取消" />
+            <Button fx:id="filterPerformButton" layoutX="204.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleFilterAction" text="检索" />
+         </children>
+         <effect>
+            <ColorAdjust brightness="0.19" contrast="-0.02" hue="-0.05" />
+         </effect>
+      </Pane>
+      <Button id="button-isFavor" fx:id="isFavorButton" layoutX="780.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleFavorAction" opacity="0.86" prefHeight="26.0" prefWidth="73.0" styleClass="button-isFavor" text="取消关注" textFill="WHITE" />
    </children>
 </AnchorPane>

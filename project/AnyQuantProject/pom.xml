@@ -77,7 +77,7 @@
                 <include>**/*.fxml</include>  
                 <include>**/*.xml</include>  
                 <include>**/*.png</include>
-                <include>**/*.jpg</include> 
+                <include>**/*.jpg</include>  
                 <include>**/*.css</include>  
             </includes>  
             <filtering>false</filtering>  

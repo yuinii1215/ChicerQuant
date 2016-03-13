@@ -1,4 +1,4 @@
-package AnyQuantProject.ui.singleStockInfoUI;
+ package AnyQuantProject.ui.singleStockInfoUI;
 
 import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
 import AnyQuantProject.bl.factoryBL.ListFilterBLFactory;
@@ -15,6 +15,7 @@ import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
 import AnyQuantProject.util.method.SimpleLongProperty;
+import javafx.scene.paint.Color;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -51,17 +52,28 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.concurrent.Task;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableRow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import AnyQuantProject.util.method.TableRowControl;
+import javafx.event.EventHandler;
+import javafx.scene.control.TableCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.layout.Priority;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import AnyQuantProject.ui.singleStockInfoUI.StockInfo2Column;
 
 /**
  *
@@ -79,11 +91,10 @@ public class SingleStockInfoUIController implements Initializable {
     public TableView<Stock> table;
     @FXML
     public Label titleLabel;
-    /**
-     * nameLabel is the current name of a single stock and there are things to be added
-     */
     @FXML
-    public Label nameLabel;
+    public Label nameLabel,chineseNameLabel;
+    @FXML
+    Pane filterConditionPane;
     @FXML
     public  TextField minRange;
     @FXML
@@ -91,16 +102,17 @@ public class SingleStockInfoUIController implements Initializable {
     @FXML
     public ComboBox keyWordBox;
     @FXML
-    public  Button filterButton;
+    public  Button filterCancelButton;
+     @FXML
+    public  Button filterPerformButton;
+    @FXML
+    public ImageView filterImage;
     @FXML
     public Button isFavorButton;
     @FXML
     public DatePicker startDatePicker;
     @FXML
     public DatePicker endDatePicker;
-
-    public List<Stock> singleStockList = new ArrayList<Stock>();
-    public Stock singleStock=new Stock();
     @FXML
     public TableColumn<Stock, String> dateColumn;
     @FXML
@@ -123,8 +135,22 @@ public class SingleStockInfoUIController implements Initializable {
     public TableColumn<Stock, Double> peColumn;
     @FXML
     public TableColumn<Stock, Double> pbColumn;
+    @FXML
+    public Button helperButton;
+    @FXML
+    public TableView<Map.Entry<String, Double>> tableView2,titleTable;
+    @FXML
+    public TableColumn<Map.Entry<String, Double>, String> key_Column,key_Column2;
+    @FXML
+    public TableColumn<Map.Entry<String, Double>, Double> value_Column,value_Column2;
+    
+    int rowColorFlag=0;//flag取0,-1,1三种状态,0表示不涨不跌,1表示涨了,-1表示跌了
 
-    boolean[] filterFlag;
+    Image filterButton_normal = new Image(getClass().getResourceAsStream("/images/filterButton_normal.png"));
+    Image filterButton_pressed = new Image(getClass().getResourceAsStream("/images/filterButton_pressed.png"));
+    Image filterButton_entered = new Image(getClass().getResourceAsStream("/images/filterButton_entered.png"));
+   
+    boolean[] filterFlag={false,false,false,false,false};
     Double minFilter, maxFilter, targetFilter;
     Calendar minTime, maxTime, targetTime;
     String keyWord,selectedColumnName;
@@ -136,29 +162,22 @@ public class SingleStockInfoUIController implements Initializable {
     OperationResult operationResult;
     SingleStockInfoBLService singleStockBlImpl;
     CalendarHelper calendarHelper = new CalendarHelper();
+    
+    public List<Stock> singleStockList = new ArrayList<Stock>();
+    public Stock singleStock=new Stock();
 
     public void laterInit(String name) {
     	this.stockName =name;
     	minTime=Calendar.getInstance();
         this.init();
     }
-
-    @FXML
-    private void handleFilterAction(ActionEvent actionEvent) {
-        /**
-         * the filterFlag is an array to control the filter action
-         *
-         */
-        filterFlag = new boolean[5];
-        for (int i = 0; i < 5; i++) {
-            filterFlag[i] = false;
-        }
-        if (keyWord==null||!keyWord.equalsIgnoreCase("关键字")) {
-			filterFlag[0]=true;
-		}
-     
+    /**
+     * 
+     * @param  TO BE EDIT
+     */
+    private void filterPerformAction() {
+        
         if (minRange.getText().trim().length() >= 1) {
-           
             minFilter = Double.valueOf(minRange.getText());
             filterFlag[1] = true;
         } else {
@@ -166,7 +185,6 @@ public class SingleStockInfoUIController implements Initializable {
         }
 
         if (maxRange.getText().trim().length() >= 1) {
-         
             maxFilter = Double.valueOf(maxRange.getText());
             filterFlag[2] = true;
         } else {
@@ -174,7 +192,7 @@ public class SingleStockInfoUIController implements Initializable {
         }
 
         if (startDatePicker.getValue() != null) {
-            
+            filterFlag[0] = true;
             LocalDate startLocalDate = startDatePicker.getValue();
             minTime = calendarHelper.convert2Calendar(startLocalDate);
             filterFlag[3] = true;
@@ -184,6 +202,7 @@ public class SingleStockInfoUIController implements Initializable {
         }
 
         if (endDatePicker.getValue() != null) {
+            filterFlag[0] = true;
             LocalDate endLocalDate = endDatePicker.getValue();
             maxTime = calendarHelper.convert2Calendar(endLocalDate);
             filterFlag[4] = true;
@@ -191,7 +210,6 @@ public class SingleStockInfoUIController implements Initializable {
         } else {
             
         }
-       
         singleStockList = filterControl(singleStockList);
         table.getItems().clear();
         table.getItems().addAll(singleStockList);
@@ -215,7 +233,6 @@ public class SingleStockInfoUIController implements Initializable {
             filterFlag[3] = false;
             filterFlag[4] = false;
         } else if (filterFlag[3] && (!filterFlag[4])) {
-        	System.out.println("uuuu");
             filteredList = listFilterBlImpl.filterStocksByDateGreater(
                     currentList, minTime);
             filterFlag[3] = false;
@@ -235,7 +252,6 @@ public class SingleStockInfoUIController implements Initializable {
             filterFlag[1] = false;
             filterFlag[2] = false;
         } else if (filterFlag[1] && (!filterFlag[2])) {
-        	System.out.println("used");
             filteredList = listFilterBlImpl.filterStocksByFieldGreater(
                     currentList, selectedColumnName, minFilter);
             filterFlag[1] = false;
@@ -244,7 +260,6 @@ public class SingleStockInfoUIController implements Initializable {
                     currentList, selectedColumnName, maxFilter);
             filterFlag[2] = false;
         }
-
         if (!(filterFlag[1]) && (!filterFlag[2]) && (!filterFlag[3])
                 && (!filterFlag[3])) {
             return filteredList;
@@ -270,9 +285,36 @@ public class SingleStockInfoUIController implements Initializable {
         }
 
     }
+    @FXML
+    public void quitFilterPane(ActionEvent actionEvent){
+        if(filterConditionPane.getOpacity()!=0.0){
+        filterConditionPane.setOpacity(0.0);
+        }
+}
+    @FXML
+    public void handleFilterAction(ActionEvent actionEvent){
+        if(filterConditionPane.getOpacity()!=0.0){
+        filterConditionPane.setOpacity(0.0);
+        filterPerformAction();
+        }
+}
 
-
-    public void init() {
+    public void init() { 
+        helperButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {  
+        filterImage.setImage(filterButton_entered);
+        }); 
+        helperButton.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {  
+        filterImage.setImage(filterButton_normal);
+        }); 
+         helperButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+         filterImage.setImage(filterButton_pressed);
+         if(filterConditionPane.getOpacity()==0.0){
+         filterConditionPane.setOpacity(1.0);
+         
+         }else{
+           filterConditionPane.setOpacity(0.0);
+         }
+        }); 
         /*
         get数据的方法
         */
@@ -284,27 +326,36 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * 之后要改,调用singleStock
          */
-          nameLabel.setText(stockName);
+       
+        nameLabel.setText(stockName);
+        //目前中文名还是空的
+        chineseNameLabel.setText((singleStock.getChinese()==null)?"腾讯科技":singleStock.getChinese());
           
         /**
          * initialize the button
          */
-
         if (singleStock.isFavor() == true) {
             isFavorButton.setText("取消关注");
         } else {
             isFavorButton.setText("加关注");
         }
-
+        
+     
+        tableView2.setItems(FXCollections.observableArrayList(new StockInfo2Column().set(singleStock)));
+        StockInfo2Column.setKValue(key_Column);
+	StockInfo2Column.setVValue(value_Column);
+        
+        titleTable.setItems(FXCollections.observableArrayList(new StockInfo2Column().set2(singleStock)));
+        StockInfo2Column.setKValue(key_Column2);
+	StockInfo2Column.setVValue(value_Column2);
+      
         /*
           initialize the combobox
          */
-
         String[] options={"开盘价","收盘价","最高价","最低价","成交量","后复权价","市值","流通","换手率","市盈率","市净率"};
         String[] columnNameList={"open","close","high","low","volume","adj_price","marketvalue","flow","turnover","pe_ttm","pb"};
         ObservableList items= FXCollections.observableArrayList (options);
         keyWordBox.setItems(items);
-        
         keyWordBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue ov, String t, String t1) {
@@ -313,6 +364,7 @@ public class SingleStockInfoUIController implements Initializable {
                 for(int i=0;i<=10;i++){
                 if(keyWord.equals(options[i])){
                 selectedColumnName=columnNameList[i];
+                filterFlag[0]=true;
                 }
                 }
             }
@@ -322,17 +374,9 @@ public class SingleStockInfoUIController implements Initializable {
          * initialize the table
          */
         table.setItems(FXCollections.observableArrayList(singleStockList));
-
-        table.setRowFactory(new Callback<TableView<Stock>, TableRow<Stock>>() {
-            @Override
-            public TableRow<Stock> call(TableView<Stock> table) {
-                // TODO Auto-generated method stub
-                return new TableRowControl(table);
-            }
-        });
-		/**
-		 * initialize the tabel columns
-		 */
+	/**
+        * initialize the tabel columns
+        */  
         dateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(
                 cellData.getValue().getDate()));
         openColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
@@ -357,12 +401,109 @@ public class SingleStockInfoUIController implements Initializable {
                 cellData.getValue().getPe_ttm()));
         pbColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
                 cellData.getValue().getPb()));
-
+        
+         openColumn.setCellFactory(new Callback<TableColumn<Stock, Double>, TableCell<Stock, Double>>(){  
+          @Override  
+            public TableCell<Stock, Double> call(TableColumn<Stock, Double> arg0) {  
+                   return new TableCell<Stock, Double>() {
+                     ObservableValue ov1; 
+                     @Override  
+                      protected void updateItem(Double item,boolean empty) {        
+                      super.updateItem(item, empty); 
+                       if (!isEmpty()) {
+                           /**只有开盘,最高,最低要换字体颜色
+                            * 一般的讲,红色: 代表主动买入.绿色: 代表主动卖出. 白色: 代表中性盘
+                            */
+//                            ov1 = getTableColumn().getCellObservableValue(getIndex());
+                            
+//                            ObservableValue ov2;
+//                            ov2=openColumn.getCellObservableValue(getIndex());
+//                            System.out.println("the content is:"+ov1.getValue()+"and"+ov2.getValue()); 
+//                            if((Double)ov1.getValue()>(Double)ov2.getValue()){//收盘时更高,上涨,红色
+//                            this.setTextFill(Color.RED);  
+//                            }
+//                            else if((Double)ov1.getValue()<(Double)ov2.getValue()){//收盘时更低,下降,绿色
+////                            getTableRow().setStyle("-fx-background-color:green");
+//                             this.setTextFill(Color.GREENYELLOW);  
+//                            }
+                            double property=Math.random();
+                            if(property>0.5){
+                            this.setTextFill(Color.RED);  
+                            }
+                            else if(property<0.5){
+                             this.setTextFill(Color.GREENYELLOW); 
+                            }
+                            setText(item+"");
+                       }
+            }             
+          };  
+       }  
+});  
+         
+          highColumn.setCellFactory(new Callback<TableColumn<Stock, Double>, TableCell<Stock, Double>>(){  
+          @Override  
+            public TableCell<Stock, Double> call(TableColumn<Stock, Double> arg0) {  
+                   return new TableCell<Stock, Double>() {
+                     ObservableValue ov1; 
+                     @Override  
+                      protected void updateItem(Double item,boolean empty) {        
+                      super.updateItem(item, empty); 
+                       if (!isEmpty()) {                    
+                            double property=Math.random();
+                            if(property>0.5){
+                            this.setTextFill(Color.RED);  
+                            }
+                            else if(property<0.5){
+                             this.setTextFill(Color.GREENYELLOW); 
+                            }
+                            setText(item+"");
+                       }
+            }             
+          };  
+       }  
+});
+               lowColumn.setCellFactory(new Callback<TableColumn<Stock, Double>, TableCell<Stock, Double>>(){  
+          @Override  
+            public TableCell<Stock, Double> call(TableColumn<Stock, Double> arg0) {  
+                   return new TableCell<Stock, Double>() {
+                     ObservableValue ov1; 
+                     @Override  
+                      protected void updateItem(Double item,boolean empty) {        
+                      super.updateItem(item, empty); 
+                       if (!isEmpty()) {                 
+                            double property=Math.random();
+                            if(property>0.5){
+                            this.setTextFill(Color.RED);  
+                            }
+                            else if(property<0.5){
+                             this.setTextFill(Color.GREENYELLOW); 
+                            }
+                            setText(item+"");
+                       }
+            }             
+          };  
+       }  
+});  
     }
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        
     }
+    
+    public class TableRowControl<T> extends TableRow<T> {  
+      public TableRowControl(TableView<T> tableView) {
+        super();  
+        System.out.println(this.indexProperty().intValue());
+//        this.setStyle("-fx-background-color:#FFFFFF");
+        this.setOnMouseClicked(new EventHandler<MouseEvent>() { 
+            public void handle(MouseEvent event) { 
+                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {  
+                   
+                }  
+                
+            }  
+        });  
+    }  
+}  
 
 }

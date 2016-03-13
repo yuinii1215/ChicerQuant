@@ -81,9 +81,9 @@ public class AllStocksUIController  implements Initializable{
     public TableColumn<Stock, Double> peColumn;
     @FXML
     public TableColumn<Stock, Double> pbColumn;
-    
-    
-
+    @FXML
+    public TableView<Stock> table;
+   
     int selectedIndex;
 	
 	private static AllStocksUIController instance;
@@ -109,34 +109,9 @@ public class AllStocksUIController  implements Initializable{
 
    public void init(){
        
-//          Stock data1=new Stock();
-//          Stock data2=new Stock();
-//          data1.setFavor(true);
-//          data2.setFavor(true);
-//          data1.setName("腾讯科技");
-//          data2.setName("哈药六厂");
-//          allStocksList.add(data1);
-//          allStocksList.add(data2);
         allStocksList=stockListImplement.getAllStocks();
         
-        allStocksTableView.setItems(FXCollections.observableArrayList(allStocksList));
-
-
-        allStocksTableView.getItems().add(new Stock());
-        
-        allStocksTableView.setRowFactory(new Callback<TableView<Stock>, TableRow<Stock>>() {
-            @Override
-            public TableRow<Stock> call(TableView<Stock> table) {
-                // TODO Auto-generated method stub
-               return new TableRowControl(table);
-            }
-        });
-//        allStocksTableView.setRowFactory((TableView<Stock> table) -> {
-//            // TODO Auto-generated method stub
-//            return new TableRowControl(table);
-//           });
-     
-        
+        table.setItems(FXCollections.observableArrayList(allStocksList));
 		/**
 		 * initialize the tabel columns
 		 */
@@ -177,15 +152,19 @@ public class AllStocksUIController  implements Initializable{
    public class TableRowControl<T> extends TableRow<T> {
        
       public TableRowControl(TableView<T> tableView) {  
-        super();  
+        super();
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {  
             @Override  
             public void handle(MouseEvent event) { 
-                 selectedIndex=TableRowControl.this.getIndex();
-                 String stockName=nameColumn.getCellData(selectedIndex);
+                
+                 if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {  
+                   selectedIndex=TableRowControl.this.getIndex();
+                   String stockName=nameColumn.getCellData(selectedIndex);
 
             //     MainPageController.getInstance().setPanel(Main.singleStockInfoPanel, "打开单只股票下部信息界面...");
                    Main.enterSingleStockInfoScene(stockName);
+                 
+                } 
                  
                  
             }  

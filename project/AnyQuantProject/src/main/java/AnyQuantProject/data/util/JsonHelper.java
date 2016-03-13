@@ -1,7 +1,3 @@
-
-/**
- * 
- */
 package AnyQuantProject.data.util;
 
 import java.io.IOException;
@@ -115,7 +111,6 @@ public class JsonHelper {
 		JsonHelper j = new JsonHelper();
 //		j.getAllWithChinese("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
 //		j.getAll("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
-		
 		j.getOperation(DataType.BENCHMARK, "hs300", Calendar.getInstance());
 	}
 

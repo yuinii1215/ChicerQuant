@@ -84,14 +84,19 @@ public class Main extends Application {
 		
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 	//	allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
+                benchMarkPanel.setId("pane");
+
 
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 
+
 		primaryStage.setHeight(600);
 		primaryStage.setWidth(980);
+
 		primaryStage.setTitle("AnyQuant");	
 
 		h_box =new HBox(); 
@@ -100,9 +105,12 @@ public class Main extends Application {
 		h_box.setPadding(new Insets(0,0,0,0));
 		h_box.setSpacing(0);
 
+                /**
+                 * 韩梦虞测试使用
+                 */
 		primaryStage.setScene(new Scene(h_box));
 
-        primaryStage.initStyle(StageStyle.DECORATED);
+                primaryStage.initStyle(StageStyle.DECORATED);
 //		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
 	//  enterMainScene();
@@ -213,4 +221,3 @@ public class Main extends Application {
 		 
 	   }
 }
-

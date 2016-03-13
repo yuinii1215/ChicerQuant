@@ -19,8 +19,20 @@ public class StockInfo2Column extends AbstractStock2Column<Stock> {
 	@Override
 	public Set<Entry<String, Double>> set(Stock stock) {
 		Map<String, Double> map=new HashMap<>();
+
+                map.put("开盘价",stock.getOpen());
 		map.put("最高价", stock.getHigh());
 		map.put("最低价", stock.getLow());
+                map.put("收盘价",stock.getClose());
+		return map.entrySet();
+	}
+        	
+	public Set<Entry<String, Double>> set2(Stock stock) {
+		Map<String, Double> map=new HashMap<>();
+                map.put("后复权价",stock.getAdj_price());
+                map.put("换手率",stock.getTurnover());
+                map.put("市盈率",stock.getPe_ttm());
+                map.put("市净率",stock.getPb());           
 		//选择你想要加入显示的属性。。。
 		return map.entrySet();
 	}
