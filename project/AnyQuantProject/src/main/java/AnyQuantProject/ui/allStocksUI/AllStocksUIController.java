@@ -112,6 +112,13 @@ public class AllStocksUIController  implements Initializable{
         allStocksList=stockListImplement.getAllStocks();
         
         table.setItems(FXCollections.observableArrayList(allStocksList));
+        table.setRowFactory(new Callback<TableView<Stock>, TableRow<Stock>>() {
+         @Override
+         public TableRow<Stock> call(TableView<Stock> table) {
+             // TODO Auto-generated method stub
+            return new TableRowControl(table);
+         }
+     });
 		/**
 		 * initialize the tabel columns
 		 */
@@ -141,6 +148,7 @@ public class AllStocksUIController  implements Initializable{
                 cellData.getValue().getPe_ttm()));
         pbColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
                 cellData.getValue().getPb()));
+        
        
    }
   /**
