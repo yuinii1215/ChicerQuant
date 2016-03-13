@@ -12,23 +12,6 @@
    <children>
       <AnchorPane fx:id="guidePanel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="80.0" style="-fx-background-color: #003377;">
          <children>
-            <Button id="favoriteBtn" fx:id="favoriteBtn" disable="true" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
-               <tooltip>
-                  <Tooltip fx:id="myFavorTip" contentDisplay="RIGHT" height="10.0" text="我的关注" width="100.0" />
-               </tooltip></Button>
-            <Button id="allStocksBtn" fx:id="allStocksBtn" layoutY="193.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#allStocksBtnFired" opacity="0.0" prefHeight="85.0" prefWidth="80.0" style="-fx-border-color: #000088;">
-               <tooltip>
-                  <Tooltip fx:id="allStocksTip" contentDisplay="RIGHT" height="10.0" text="所有股票" width="100.0" />
-               </tooltip></Button>
-            <Button id="benchMarkBtn" fx:id="benchMarkBtn" layoutY="274.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#benchMarkBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
-               <tooltip>
-                  <Tooltip fx:id="benchMarkTip" contentDisplay="RIGHT" height="10.0" text="大盘走势" width="100.0" />
-               </tooltip></Button>
-            <Button fx:id="moduleBtn" disable="true" layoutY="353.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
-               <tooltip>
-                  <Tooltip fx:id="moduleTip" contentDisplay="RIGHT" height="10.0" text="股票模块" width="100.0" />
-               </tooltip>
-            </Button>
             <ImageView fx:id="myFavor" fitHeight="55.0" fitWidth="56.0" layoutX="12.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@myFavor.png" />
@@ -60,6 +43,23 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
+             <Button id="favoriteBtn" fx:id="favoriteBtn" disable="true" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+               <tooltip>
+                  <Tooltip fx:id="myFavorTip" contentDisplay="RIGHT" height="10.0" text="我的关注" width="100.0" />
+               </tooltip></Button>
+            <Button id="allStocksBtn" fx:id="allStocksBtn" layoutY="193.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#allStocksBtnFired" opacity="0.0" prefHeight="85.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+               <tooltip>
+                  <Tooltip fx:id="allStocksTip" contentDisplay="RIGHT" height="10.0" text="所有股票" width="100.0" />
+               </tooltip></Button>
+            <Button id="benchMarkBtn" fx:id="benchMarkBtn" layoutY="274.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#benchMarkBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+               <tooltip>
+                  <Tooltip fx:id="benchMarkTip" contentDisplay="RIGHT" height="10.0" text="大盘走势" width="100.0" />
+               </tooltip></Button>
+            <Button fx:id="moduleBtn" disable="true" layoutY="353.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+               <tooltip>
+                  <Tooltip fx:id="moduleTip" contentDisplay="RIGHT" height="10.0" text="股票模块" width="100.0" />
+               </tooltip>
+            </Button>
          </children>
       </AnchorPane>
    </children>
