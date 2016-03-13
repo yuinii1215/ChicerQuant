@@ -78,6 +78,7 @@
                 <include>**/*.xml</include>  
                 <include>**/*.png</include>
                 <include>**/*.jpg</include>  
+                <include>**/*.css</include>  
             </includes>  
             <filtering>false</filtering>  
         </resource>  

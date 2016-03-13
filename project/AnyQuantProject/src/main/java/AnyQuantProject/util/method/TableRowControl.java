@@ -16,7 +16,7 @@ public class TableRowControl<T> extends TableRow<T> {
             @Override  
             public void handle(MouseEvent event) { 
              System.out.println("hi!! I HEAR YOU!");
-                if (event.getButton().equals(MouseButton.PRIMARY)) {  
+                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {  
                    
                 }  
                 
