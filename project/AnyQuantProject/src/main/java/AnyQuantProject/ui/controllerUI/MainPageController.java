@@ -4,18 +4,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
@@ -42,7 +38,9 @@ public class MainPageController  implements Initializable {
 	private static AnchorPane titlePanel, guidePanel, centralPanel;
 	private Button defaultBtn = null;
 	
-  
+	@FXML
+	Tooltip myFavorTip,allStocksTip,benchMarkTip,moduleTip;
+	
 	private static MainPageController instance;
 
     public static MainPageController getInstance() {
@@ -59,8 +57,20 @@ public class MainPageController  implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		 instance = this;
-		
+		init();
 	}
+	
+	private void init(){
+		myFavorTip = new Tooltip("我的关注");
+		myFavorTip.setWidth(30);
+		myFavorTip.setHeight(10);
+		//,allStocksTip,benchMarkTip,moduleTip
+	}
+	
+	
+	
+	
+	
 	  @FXML
 	    private void allStocksBtnFired(ActionEvent e) {
 	        setPanel(Main.allStocksPanel, "打开所有股票界面...");
@@ -97,6 +107,7 @@ public class MainPageController  implements Initializable {
 			FavoriteUIController.getInstance().init();
 		
 	    }
+		@FXML
 	  	 private void moduleBtnFired(ActionEvent e) {
 		        setPanel(Main.favouritePanel, "打开我的关注界面...");
 		        Button btn = (Button)e.getSource();
@@ -151,6 +162,7 @@ public class MainPageController  implements Initializable {
 		        defaultBtn = btn;
 		        StockDealInfoUIController.getInstance();
 		    }
+		  
 		  
 //	  
 //		  public void showAnimation() {

@@ -27,7 +27,11 @@
                   <Image url="@benchMark.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="module" fitHeight="62.0" fitWidth="70.0" layoutX="5.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="module" fitHeight="54.0" fitWidth="56.0" layoutX="11.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
+             <image>
+                  <Image url="@module.png" />
+               </image>
+            </ImageView>
             <Label layoutX="27.0" layoutY="164.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
@@ -43,7 +47,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-             <Button id="favoriteBtn" fx:id="favoriteBtn" disable="true" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+             <Button id="favoriteBtn" fx:id="favoriteBtn" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
                <tooltip>
                   <Tooltip fx:id="myFavorTip" contentDisplay="RIGHT" height="10.0" text="我的关注" width="100.0" />
                </tooltip></Button>
@@ -55,7 +59,7 @@
                <tooltip>
                   <Tooltip fx:id="benchMarkTip" contentDisplay="RIGHT" height="10.0" text="大盘走势" width="100.0" />
                </tooltip></Button>
-            <Button fx:id="moduleBtn" disable="true" layoutY="353.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+            <Button fx:id="moduleBtn" layoutY="358.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#moduleBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
                <tooltip>
                   <Tooltip fx:id="moduleTip" contentDisplay="RIGHT" height="10.0" text="股票模块" width="100.0" />
                </tooltip>
