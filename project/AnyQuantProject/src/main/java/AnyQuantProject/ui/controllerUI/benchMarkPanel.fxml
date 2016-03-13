@@ -10,13 +10,8 @@
 <?import java.net.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.benchMarkUI.BenchMarkUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0"  styleClass="root"  stylesheets="@stageView.css"  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.benchMarkUI.BenchMarkUIController">
    <children>
-      <ImageView fx:id="bgImage" fitHeight="600.0" fitWidth="1002.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@bgImage.png" />
-         </image>
-      </ImageView>
       <AnchorPane fx:id="infoPanel" layoutX="720.0" prefHeight="600.0" prefWidth="180.0" style="-fx-border-color: #000000;" />
       <AnchorPane fx:id="KgraphPanel" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="720.0">
          <effect>
