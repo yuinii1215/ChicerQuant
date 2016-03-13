@@ -91,7 +91,7 @@ public class Main extends Application {
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 
 		primaryStage.setHeight(600);
-		primaryStage.setWidth(950);
+		primaryStage.setWidth(980);
 		primaryStage.setTitle("AnyQuant");	
 
 		h_box =new HBox(); 
