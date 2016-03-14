@@ -1,10 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <groupId>cchh</groupId>
   <artifactId>AnyQuantProject</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
 
   <name>AnyQuantProject</name>
   <url>http://maven.apache.org</url>
@@ -122,6 +120,11 @@
 		<artifactId>commons-lang</artifactId>
 		<version>2.5</version>
 	</dependency>
+	<dependency>
+		<groupId>jfree</groupId>
+		<artifactId>jfreechart</artifactId>
+		<version>1.0.13</version>
+	</dependency>
 	
 
 
@@ -149,4 +152,5 @@
 
 
 
+  <groupId>chicer</groupId>
 </project>
