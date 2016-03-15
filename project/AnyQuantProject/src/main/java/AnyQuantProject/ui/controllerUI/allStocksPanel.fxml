@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+<?import java.net.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.allStocksUI.AllStocksUIController">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.allStocksUI.AllStocksUIController">
    <children>
-      <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="850.0" style="-fx-background-color: #AAAAAA; -fx-border-radius: 20; -fx-padding: 5;" text="所有股票">
-         <font>
-            <Font name="Arial" size="22.0" />
-         </font>
-      </Label>
-      <TableView id="allStocksTableView" fx:id="allStocksTableView" editable="true" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="850.0">
+      <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" editable="true" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="900.0">
         <columns>
             <TableColumn id="dateColumn" fx:id="nameColumn" prefWidth="75.0" text="股票名称" />
-          <TableColumn id="dateColumn" fx:id="dateColumn" prefWidth="75.0" text="数据日期" />
+            <TableColumn id="dateColumn" fx:id="dateColumn" prefWidth="75.0" text="数据日期" />
             <TableColumn id="highColumn" fx:id="highColumn" prefWidth="75.0" text="最高价" />
             <TableColumn id="lowColumn" fx:id="lowColumn" prefWidth="75.0" text="最低价" />
             <TableColumn id="openColumn" fx:id="openColumn" prefWidth="75.0" text="开盘价" />
             <TableColumn id="closeColumn" fx:id="closeColumn" prefWidth="75.0" text="收盘价" />
             <TableColumn id="volumeColumn" fx:id="volumeColumn" prefWidth="75.0" text="成交量" />
             <TableColumn id="adj_priceColumn" fx:id="adj_priceColumn" prefWidth="75.0" text="后复权价" />
-            <TableColumn id="marketValueColumn" fx:id="marketValueColumn" prefWidth="75.0" text="市值" />
-            <TableColumn id="flowColumn" fx:id="flowColumn" prefWidth="75.0" text="流通" />
             <TableColumn id="peColumn" fx:id="peColumn" prefWidth="75.0" text="市盈率" />
             <TableColumn id="pbColumn" fx:id="pbColumn" prefWidth="75.0" text="市净率" />
+            <TableColumn id="marketValueColumn" fx:id="marketValueColumn" prefWidth="75.0" text="市值" />
+            <TableColumn id="flowColumn" fx:id="flowColumn" prefWidth="75.0" text="流通" />
         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
       </TableView>
    </children>
 </AnchorPane>

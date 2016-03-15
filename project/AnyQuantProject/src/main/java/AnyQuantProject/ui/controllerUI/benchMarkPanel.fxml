@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.media.*?>
 <?import javafx.scene.effect.*?>
@@ -8,123 +9,34 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.benchMarkUI.BenchMarkUIController">
- <children>
-      <AnchorPane fx:id="KgraphPanel" layoutY="40.0" prefHeight="356.0" prefWidth="850.0" style="-fx-background-color: #fffffb;">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.benchMarkUI.BenchMarkUIController">
+   <children>
+      <AnchorPane fx:id="infoPanel" layoutX="720.0" prefHeight="600.0" prefWidth="180.0" style="-fx-border-color: #000000;" />
+      <TabPane layoutX="4.0" layoutY="63.0" prefHeight="535.0" prefWidth="707.0" style="-fx-background-color: #999d9c;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="dayChatTab" text="日线" />
+          <Tab fx:id="weekChatTab" text="周线" />
+            <Tab fx:id="monthChatTab" text="月线" />
+        </tabs>
+      </TabPane>
+      <AnchorPane fx:id="KgraphPanel" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="720.0">
          <effect>
             <Blend opacity="0.0" />
          </effect>
          <children>
-            <TabPane layoutX="157.0" layoutY="65.0" prefHeight="256.0" prefWidth="518.0" style="-fx-background-color: #999d9c;" tabClosingPolicy="UNAVAILABLE">
-              <tabs>
-                <Tab text="五日">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </Tab>
-                <Tab text="一月">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="205.0" prefWidth="518.0" />
-                  </content>
-                </Tab>
-              </tabs>
-            </TabPane>
-            <GridPane layoutX="693.0" layoutY="129.0" prefHeight="180.0" prefWidth="142.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+            <VBox layoutX="11.0" layoutY="6.0" prefHeight="30.0" prefWidth="264.0">
                <children>
-                  <Label fx:id="todayTitle" text="今日" />
-                  <Label fx:id="yesterdayTitle" text="昨收" GridPane.rowIndex="1" />
-                  <Label fx:id="maxTitle" text="最高" GridPane.rowIndex="2" />
-                  <Label fx:id="minTitle" text="最低" GridPane.rowIndex="3" />
-                  <Label fx:id="volumeTitle" text="成交量" GridPane.rowIndex="4" />
-                  <Label fx:id="turnoverTitle" text="成交额" GridPane.rowIndex="5" />
-                  <Label fx:id="today" text="0" GridPane.columnIndex="1" />
-                  <Label fx:id="yesterday" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label fx:id="max" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label fx:id="min" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label fx:id="volume" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Label fx:id="turnover" prefHeight="15.0" prefWidth="32.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-               </children>
-            </GridPane>
-            <VBox layoutX="104.0" layoutY="122.0" prefHeight="200.0" prefWidth="59.0">
-               <children>
-                  <Label minHeight="-Infinity" minWidth="-Infinity" text="No.5">
-                     <padding>
-                        <Insets bottom="30.0" left="10.0" />
-                     </padding>
-                  </Label>
-                  <Label text="No.4">
-                     <padding>
-                        <Insets bottom="30.0" left="10.0" />
-                     </padding>
-                  </Label>
-                  <Label text="No.3">
-                     <padding>
-                        <Insets bottom="30.0" left="10.0" />
-                     </padding>
-                  </Label>
-                  <Label text="No.2">
-                     <padding>
-                        <Insets bottom="30.0" left="10.0" />
-                     </padding>
-                  </Label>
-                  <Label text="No.1">
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox layoutX="4.0" layoutY="6.0" prefHeight="45.0" prefWidth="264.0">
-               <children>
-                  <Label fx:id="showMessage" text="2897.34+23.19 (+0.81%)">
+                  <Label fx:id="showMessage" text="2897.34+23.19 (+0.81%)" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="currentTime" prefHeight="15.0" prefWidth="181.0" text="2016/03/10 14:52:00 " />
+                  <Label fx:id="currentTime" prefHeight="15.0" prefWidth="181.0" text="2016/03/07 15:00:00 " textFill="WHITE" />
                </children>
             </VBox>
-            <ComboBox fx:id="benchMarkID" layoutX="682.0" layoutY="22.0" prefHeight="23.0" prefWidth="106.0" promptText="上证指数" />
-            <HBox layoutX="199.0" layoutY="329.0" prefHeight="15.0" prefWidth="433.0">
+            <HBox layoutX="195.0" layoutY="33.0" prefHeight="15.0" prefWidth="160.0">
                <children>
-                  <Label fx:id="time1" text="09:30">
-                     <padding>
-                        <Insets right="55.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="time2" text="10:30">
-                     <padding>
-                        <Insets right="55.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="time3" text="11:30/13:30">
-                     <padding>
-                        <Insets right="55.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="time4" text="14:00">
-                     <padding>
-                        <Insets right="55.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="time5" text="15:00" />
-               </children>
-            </HBox>
-			<HBox layoutX="196.0" layoutY="33.0" prefHeight="15.0" prefWidth="160.0">
-               <children>
-                  <Label fx:id="ifClosing" prefHeight="15.0" prefWidth="49.0" text="已收盘">
+                  <Label fx:id="ifClosing" prefHeight="15.0" prefWidth="49.0" text="已收盘" textFill="WHITE">
                      <opaqueInsets>
                         <Insets right="8.0" />
                      </opaqueInsets>
@@ -132,7 +44,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="BeijingTimeLabel" prefHeight="15.0" prefWidth="59.0" text="北京时间">
+                  <Label fx:id="BeijingTimeLabel" prefHeight="15.0" prefWidth="59.0" text="北京时间" textFill="WHITE">
                      <opaqueInsets>
                         <Insets left="5.0" />
                      </opaqueInsets>
@@ -141,47 +53,49 @@
             </HBox>
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="scrollPane1" layoutY="394.0" prefHeight="206.0" prefWidth="850.0">
-         <content>
-            <TableView fx:id="table" layoutY="300.0" prefHeight="211.0" prefWidth="830.0">
-              <columns>
-                <TableColumn fx:id="timeTable" prefWidth="100.0" text="时间" />
-                  <TableColumn fx:id="allBenchMarkID" prefWidth="79.0" text="名称" />
-                  <TableColumn fx:id="openTable" prefWidth="76.0" text="开盘价" />
-                  <TableColumn fx:id="highTable" prefWidth="74.0" text="最高价" />
-                  <TableColumn fx:id="lowTable" prefWidth="74.0" text="最低价" />
-                  <TableColumn fx:id="closeTable" prefWidth="74.0" text="收盘价" />
-                  <TableColumn fx:id="volumTable" prefWidth="74.0" text="成交量" />
-                  <TableColumn fx:id="turnoverTable" prefWidth="74.0" text="成交额" />
-                  <TableColumn fx:id="adj_priceTable" prefWidth="74.0" text="后复权价" />
-                  <TableColumn fx:id="marketvalueTable" prefWidth="62.0" text="市值" />
-                  <TableColumn fx:id="flow" prefWidth="74.0" text="流通量" />
-              </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
-      <AnchorPane id="searchtitle" fx:id="titlePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="850.0" style="-fx-background-color: #AAAAAA;">
+      <TableView fx:id="table" blendMode="LIGHTEN" layoutX="720.0" layoutY="250.0" prefHeight="350.0" prefWidth="180.0">
+        <columns>
+          <TableColumn fx:id="timeTable" prefWidth="88.0" text="时间" />
+            <TableColumn fx:id="allBenchMarkID" prefWidth="87.0" text="名称" />
+            <TableColumn fx:id="openTable" text="开盘价" />
+            <TableColumn fx:id="highTable" prefWidth="74.0" text="最高价" />
+            <TableColumn fx:id="lowTable" prefWidth="74.0" text="最低价" />
+            <TableColumn fx:id="closeTable" prefWidth="74.0" text="收盘价" />
+            <TableColumn fx:id="volumTable" prefWidth="74.0" text="成交量" />
+            <TableColumn fx:id="turnoverTable" prefWidth="74.0" text="成交额" />
+            <TableColumn fx:id="adj_priceTable" prefWidth="74.0" text="后复权价" />
+            <TableColumn fx:id="marketvalueTable" prefWidth="62.0" text="市值" />
+            <TableColumn fx:id="flow" prefWidth="74.0" text="流通量" />
+        </columns>
+      </TableView>
+      <GridPane layoutX="752.0" layoutY="47.0" prefHeight="180.0" prefWidth="142.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Label fx:id="title1" layoutX="354.0" layoutY="6.0" text="大盘走势">
-               <font>
-                  <Font name="System Bold" size="19.0" />
-               </font>
-            </Label>
+            <Label fx:id="todayTitle" text="今日" textFill="WHITE" />
+            <Label fx:id="yesterdayTitle" text="昨收" textFill="WHITE" GridPane.rowIndex="1" />
+            <Label fx:id="maxTitle" text="最高" textFill="WHITE" GridPane.rowIndex="2" />
+            <Label fx:id="minTitle" text="最低" textFill="WHITE" GridPane.rowIndex="3" />
+            <Label fx:id="volumeTitle" text="成交量" textFill="WHITE" GridPane.rowIndex="4" />
+            <Label fx:id="turnoverTitle" text="成交额" textFill="WHITE" GridPane.rowIndex="5" />
+            <Label fx:id="today" text="0" GridPane.columnIndex="1" />
+            <Label fx:id="yesterday" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="max" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="min" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="volume" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="turnover" prefHeight="15.0" prefWidth="32.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
-         <effect>
-            <Glow level="0.35">
-               <input>
-                  <Blend opacity="0.62">
-                     <topInput>
-                        <Lighting bumpInput="$null" diffuseConstant="1.07" specularConstant="0.49" specularExponent="27.9" surfaceScale="0.0">
-                           <light>
-                              <Light.Distant />
-                           </light>
-                        </Lighting>
-                     </topInput>
-                  </Blend>
-               </input>
-            </Glow>
-         </effect></AnchorPane>
+      </GridPane>
+      <ComboBox fx:id="benchMarkID" layoutX="743.0" layoutY="14.0" prefHeight="23.0" prefWidth="106.0" promptText="上证指数" />
    </children>
 </AnchorPane>
