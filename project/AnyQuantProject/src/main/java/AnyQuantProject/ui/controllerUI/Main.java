@@ -105,12 +105,9 @@ public class Main extends Application {
 		h_box.setPadding(new Insets(0,0,0,0));
 		h_box.setSpacing(0);
 
-                /**
-                 * 韩梦虞测试使用
-                 */
+        
 		primaryStage.setScene(new Scene(h_box));
-
-                primaryStage.initStyle(StageStyle.DECORATED);
+		primaryStage.initStyle(StageStyle.DECORATED);
 //		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
 	//  enterMainScene();
