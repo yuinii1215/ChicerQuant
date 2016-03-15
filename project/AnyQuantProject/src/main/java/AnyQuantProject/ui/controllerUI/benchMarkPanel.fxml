@@ -12,11 +12,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.benchMarkUI.BenchMarkUIController">
    <children>
       <AnchorPane fx:id="infoPanel" layoutX="720.0" prefHeight="600.0" prefWidth="180.0" style="-fx-border-color: #000000;" />
-      <TabPane layoutX="4.0" layoutY="63.0" prefHeight="535.0" prefWidth="707.0" style="-fx-background-color: #999d9c;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane blendMode="LIGHTEN" cache="true"  layoutX="4.0" layoutY="63.0" prefHeight="535.0" prefWidth="707.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE" >
         <tabs>
-          <Tab fx:id="dayChatTab" text="日线" />
-          <Tab fx:id="weekChatTab" text="周线" />
-            <Tab fx:id="monthChatTab" text="月线" />
+          <Tab fx:id="dayChatTab" style="-fx-background-color: transparent;" text="日线" />
+          <Tab fx:id="weekChatTab" style="-fx-background-color: transparent;" text="周线" />
+            <Tab fx:id="monthChatTab" style="-fx-background-color: transparent;" text="月线" />
         </tabs>
       </TabPane>
       <AnchorPane fx:id="KgraphPanel" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="720.0">
