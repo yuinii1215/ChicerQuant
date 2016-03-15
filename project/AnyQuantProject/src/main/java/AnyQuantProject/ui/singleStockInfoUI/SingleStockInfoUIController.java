@@ -436,7 +436,7 @@ public class SingleStockInfoUIController implements Initializable {
         final CandlestickRenderer candlestickRender = new CandlestickRenderer();
         candlestickRender.setUseOutlinePaint(true); // 设置是否使用自定义的边框线，程序自带的边框线的颜色不符合中国股票市场的习惯
         candlestickRender.setAutoWidthMethod(CandlestickRenderer.WIDTHMETHOD_AVERAGE);// 设置如何对K线图的宽度进行设定
-        candlestickRender.setAutoWidthGap(0.0005);// 设置各个K线图之间的间隔
+        candlestickRender.setAutoWidthGap(0.0001);// 设置各个K线图之间的间隔
         
         java.awt.Color awtColorRed = java.awt.Color.getColor("#FF69B4");
         java.awt.Color awtColorGreen = java.awt.Color.GREEN;
@@ -457,14 +457,14 @@ public class SingleStockInfoUIController implements Initializable {
 
         // 设置时间线显示的规则，用这个方法就摒除掉了周六和周日这些没有交易的日期(很多人都不知道有此方法)，使图形看上去连续
         x1Axis.setTimeline(SegmentedTimeline.newMondayThroughFridayTimeline());
-//      x1Axis.setAutoTickUnitSelection(false);// 设置不采用自动选择刻度值
+//        x1Axis.setAutoTickUnitSelection(false);// 设置不采用自动选择刻度值
         x1Axis.setTickMarkPosition(DateTickMarkPosition.MIDDLE);// 设置标记的位置
         x1Axis.setStandardTickUnits(DateAxis.createStandardDateTickUnits());// 设置标准的时间刻度单位
-        x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY, 7));// 设置时间刻度的间隔，一般以周为单位
+        x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY, 1));// 设置时间刻度的间隔，一般以周为单位
         x1Axis.setDateFormatOverride(new SimpleDateFormat("MM-dd"));// 设置显示时间的格式
         NumberAxis y1Axis = new NumberAxis();// 设定y轴，就是数字轴
        
-        y1Axis.setAutoRange(false);// 不不使用自动设定范围
+//        y1Axis.setAutoRange(true);// 不不使用自动设定范围
         y1Axis.setRange(minValue * 0.9, highValue * 1.1);// 设定y轴值的范围，比最低值要低一些，比最大值要大一些，这样图形看起来会美观些
         y1Axis.setTickUnit(new NumberTickUnit((highValue * 1.1 - minValue * 0.9) / 10));// 设置刻度显示的密度
         //y轴坐标值设置颜色
@@ -483,10 +483,11 @@ public class SingleStockInfoUIController implements Initializable {
             }
         };      
         
-        xyBarRender.setMargin(0.1);// 设置柱形图之间的间隔
+        xyBarRender.setMargin(0.2);// 设置柱形图之间的间隔
         NumberAxis y2Axis = new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
         y2Axis.setAutoRange(false);
         y2Axis.setRange(min2Value * 0.9, high2Value * 1.1);
+        y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
         y2Axis.setTickUnit(new NumberTickUnit((high2Value * 1.1 - min2Value * 0.9) / 4));
         XYPlot plot2 = new XYPlot(timeSeriesCollection, null, y2Axis, xyBarRender);// 建立第二个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
        
@@ -503,14 +504,12 @@ public class SingleStockInfoUIController implements Initializable {
         CombinedDomainXYPlot combineddomainxyplot = new CombinedDomainXYPlot(x1Axis);// 建立一个恰当的联合图形区域对象，以x轴为共享轴
         combineddomainxyplot.add(plot1, 2);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域2/3
         combineddomainxyplot.add(plot2, 1);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域1/3
-        combineddomainxyplot.setGap(10);// 设置两个图形区域对象之间的间隔空间
+        combineddomainxyplot.setGap(0);// 设置两个图形区域对象之间的间隔空间
         
         
         JFreeChart dayKChart = new JFreeChart(singleStock.getChinese(), JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
         // 设置总的背景颜色
         dayKChart.setBackgroundPaint(java.awt.Color.BLACK);
-//        dayKChart.setBackgroundImage(icon.getImage());
-//        dayKChart.setBackgroundImageAlpha(0.3f);
 
 
         return dayKChart;
@@ -698,18 +697,18 @@ public class SingleStockInfoUIController implements Initializable {
         JFreeChart chart=drawDayKLine();
         ChartPanel panel = new ChartPanel(chart);
         
-        panel.setPreferredSize(new Dimension(800,500));
-        panel.addChartMouseListener(new ChartMouseListener(){
-            @Override
-            public void chartMouseClicked(ChartMouseEvent cme) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void chartMouseMoved(ChartMouseEvent ecm) {      
-                
-            }
-        });
+//        panel.setPreferredSize(new Dimension(800,500));
+//        panel.addChartMouseListener(new ChartMouseListener(){
+//            @Override
+//            public void chartMouseClicked(ChartMouseEvent cme) {
+//                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//            }
+//
+//            @Override
+//            public void chartMouseMoved(ChartMouseEvent ecm) {      
+//                
+//            }
+//        });
         
     
         SwingNode swingNode = new SwingNode();
