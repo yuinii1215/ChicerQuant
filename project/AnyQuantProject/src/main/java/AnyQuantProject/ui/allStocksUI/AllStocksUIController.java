@@ -168,7 +168,7 @@ public class AllStocksUIController  implements Initializable{
                  if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {  
                    selectedIndex=TableRowControl.this.getIndex();
                    String stockName=nameColumn.getCellData(selectedIndex);
-
+                   System.out.println("......Enter :"+stockName+" panel......");
             //     MainPageController.getInstance().setPanel(Main.singleStockInfoPanel, "打开单只股票下部信息界面...");
                    Main.enterSingleStockInfoScene(stockName);
                  

@@ -33,16 +33,16 @@
     -fx-font-family: "Arial";
     -fx-text-fill: white;
     -fx-alignment: CENTER_LEFT;
-    -fx-opacity: 1;
+    -fx-opacity: 0.7;
 }
 
 .table-view:focused .table-row:filled:focused:selected {
     -fx-background-color: -fx-focus-color;  
 }
 
-.table-view .scroll-bar:horizontal,.mylistview  .scroll-bar:vertical{
+.table-view .scroll-bar:horizontal,.table-view  .scroll-bar:vertical{
     -fx-background-color: #FFFFFF;
-     -fx-opacity: 1.0;
+     -fx-opacity: 0.7;
 }
 
 .table-cell{ 
