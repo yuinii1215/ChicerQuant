@@ -363,12 +363,13 @@ public class SingleStockInfoUIController implements Initializable {
          * 在测试阶段直接进行对singleStockList进行转换,但是之后希望能够提供相应的方法
          */
         OHLCSeries series = new OHLCSeries("");// 高开低收数据序列，股票K线图的四个数据，依次是开，高，低，收
+        System.out.println(dayKLineList.size());
         for (int i = 0; i < dayKLineList.size(); i++) {
-            System.out.println("");
+            
             int date = Integer.parseInt(dayKLineList.get(i).getDay());
-            int month =  Integer.parseInt(dayKLineList.get(i).getMonth())+1;
+            int month =  Integer.parseInt(dayKLineList.get(i).getMonth());
             int year =Integer.parseInt(dayKLineList.get(i).getYear());
-            series.add(new Day(date, month, year), dayKLineList.get(i).getOpen(), dayKLineList.get(i).getHigh(), dayKLineList.get(i).getLow(), singleStockList.get(i).getClose());
+            series.add(new Day(date, month, year), dayKLineList.get(i).getOpen(), dayKLineList.get(i).getHigh(), dayKLineList.get(i).getLow(), dayKLineList.get(i).getClose());
         }
         final OHLCSeriesCollection seriesCollection = new OHLCSeriesCollection();
         seriesCollection.addSeries(series);
