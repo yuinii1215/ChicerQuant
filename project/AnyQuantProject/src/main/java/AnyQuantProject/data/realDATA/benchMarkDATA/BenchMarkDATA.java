@@ -120,6 +120,7 @@ import net.sf.json.JsonConfig;
 import net.sf.json.util.CycleDetectionStrategy;
 import AnyQuantProject.data.jsonDATA.JSONBenchMarkDATA;
 import AnyQuantProject.data.util.APIHelper;
+import AnyQuantProject.data.util.ChineseName;
 import AnyQuantProject.dataService.jsonDATAService.JSONBenchMarkDATAService;
 import AnyQuantProject.dataService.realDATAService.benchMarkDATAService.BenchMarkDATAService;
 import AnyQuantProject.dataStructure.BenchMark;
@@ -192,7 +193,7 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	}
 
 	private String getChineseName(String name) {
-		return aHelper.getSingleStockChineseName(name);
+		return ChineseName.getChineseName(name);
 	}
 	public static void main(String[] args) {
 		BenchMarkDATA b = BenchMarkDATA.getInstance();

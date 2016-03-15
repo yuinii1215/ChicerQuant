@@ -86,7 +86,9 @@
  */
 package AnyQuantProject.data.realDATA.singleStockDATA;
 
+import java.io.Serializable;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 import net.sf.json.JSONArray;
@@ -94,6 +96,7 @@ import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import AnyQuantProject.data.jsonDATA.JSONSingleStockDATA;
 import AnyQuantProject.data.util.APIHelper;
+import AnyQuantProject.data.util.ChineseName;
 import AnyQuantProject.dataService.jsonDATAService.JSONSingleStockDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataStructure.Stock;
@@ -147,7 +150,7 @@ public class SingleStockDATA implements SingleStockDATAService{
 
 
 	private String getChineseName(String name) {
-		return aHelper.getSingleStockChineseName(name);
+		return ChineseName.getChineseName(name);
 	}
 	
 	public static void main(String[] args) {

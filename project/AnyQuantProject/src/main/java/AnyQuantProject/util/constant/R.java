@@ -12,5 +12,8 @@ public class R {
 	public static final String FavorFileName="favor";
 	public static final String StockNameFile="name";
 	
+	
 	public static final String CachePath="Cache/";
+	public static final String ChineseNameFile = "ChineseName";
+	
 }

@@ -29,10 +29,15 @@ public class AbstractStock implements Serializable{
 	long marketvalue;	//市值
 	long flow;			//流通
 	
-	/**
-	 * 
-	 */
-
+	
+	public AbstractStock() {
+	}
+	
+	public AbstractStock(String name, String chinese) {
+		this.name = name;
+		this.chinese = chinese;
+	}
+	
 	public double getValueByName(String name) throws IllegalArgumentException, IllegalAccessException,ClassCastException{
 		//
 		Class<?> cla=this.getClass();
