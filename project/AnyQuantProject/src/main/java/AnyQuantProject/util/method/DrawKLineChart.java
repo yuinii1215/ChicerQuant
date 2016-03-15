@@ -30,7 +30,7 @@ public class DrawKLineChart {
 	
 	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,String id){
 		
-		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getDay()+"-"+dataList.get(0).getDay();
+		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 	     double highValue = Double.MIN_VALUE;// 设置K线数据当中的最大值
 	     double minValue = Double.MAX_VALUE;// 设置K线数据当中的最小值
@@ -44,7 +44,7 @@ public class DrawKLineChart {
 	            int month =Integer.parseInt(dataList.get(i).getMonth());
 	            int year =Integer.parseInt(dataList.get(i).getYear());
 	            series.add(new Day(date, month, year), dataList.get(i).getOpen(),dataList.get(i).getHigh(), dataList.get(i).getLow(), dataList.get(i).getClose());
-	        }
+	      }
 	     
 	     final OHLCSeriesCollection seriesCollection = new OHLCSeriesCollection();// 保留K线数据的数据集，必须申明为final，后面要在匿名内部类里面用到
 	     seriesCollection.addSeries(series);
@@ -204,4 +204,5 @@ public class DrawKLineChart {
 //	           }
 	
 	}
+
 }
