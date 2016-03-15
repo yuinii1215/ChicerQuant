@@ -1,7 +1,5 @@
 package AnyQuantProject.blService.kLineBLService;
 
-import java.util.Calendar;
-
 import AnyQuantProject.dataStructure.KLineData;
 
 /** 
@@ -11,7 +9,7 @@ import AnyQuantProject.dataStructure.KLineData;
 */
 
 public interface KLineBLService {
-	KLineData dayKLineChart(String stockName,Calendar day);
-	KLineData weekKLineChart(String stockName,Calendar week);
-	KLineData monthKLineChart(String stockName,Calendar month);
+	KLineData dayKLineChart(String stockName);
+	KLineData weekKLineChart(String stockName);
+	KLineData monthKLineChart(String stockName);
 }

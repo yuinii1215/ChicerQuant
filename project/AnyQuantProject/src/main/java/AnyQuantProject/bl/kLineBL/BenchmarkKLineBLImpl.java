@@ -1,7 +1,5 @@
 package AnyQuantProject.bl.kLineBL;
 
-import java.util.Calendar;
-
 import AnyQuantProject.blService.kLineBLService.BenchmarkKLineBLService;
 import AnyQuantProject.dataStructure.KLineData;
 
@@ -14,19 +12,19 @@ import AnyQuantProject.dataStructure.KLineData;
 public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 
 	@Override
-	public KLineData dayKLineChart(String stockName, Calendar day) {
+	public KLineData dayKLineChart(String stockName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public KLineData weekKLineChart(String stockName, Calendar week) {
+	public KLineData weekKLineChart(String stockName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public KLineData monthKLineChart(String stockName, Calendar month) {
+	public KLineData monthKLineChart(String stockName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
