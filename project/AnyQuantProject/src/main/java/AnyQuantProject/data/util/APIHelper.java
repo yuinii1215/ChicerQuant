@@ -58,7 +58,7 @@ public class APIHelper {
 	
 	
 	/**
-	 * 由单只股票的代号名得到中文名
+	 * 从网站由单只股票的代号名得到中文名
 	 * @param stockkey
 	 * @return
 	 * @throws Exception
