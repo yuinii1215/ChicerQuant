@@ -85,12 +85,9 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	}
 
 	private String getChineseName(String name) {
-<<<<<<< HEAD
+
 		return ChineseName.getChineseName(name);
-=======
-		return null;
-//		return aHelper.getSingleStockChineseName(name);
->>>>>>> 9ece6e7b84b9618a176c84741a833965047c302b
+
 	}
 	public static void main(String[] args) {
 		BenchMarkDATA b = BenchMarkDATA.getInstance();
