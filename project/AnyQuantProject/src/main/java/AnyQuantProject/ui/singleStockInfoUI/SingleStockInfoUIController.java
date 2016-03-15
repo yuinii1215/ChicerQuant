@@ -79,7 +79,14 @@ import javafx.scene.layout.Priority;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import AnyQuantProject.ui.singleStockInfoUI.StockInfo2Column;
+import AnyQuantProject.util.method.MyChartMouseListener;
+import AnyQuantProject.util.method.MyKLineChartListener;
+import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.GradientPaint;
+import java.awt.event.MouseMotionAdapter;
+import java.text.NumberFormat;
+import org.jfree.chart.ChartPanel;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import javafx.embed.swing.JFXPanel;
@@ -108,10 +115,15 @@ import org.jfree.data.time.ohlc.OHLCSeriesCollection;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import org.jfree.chart.ChartColor;
+import org.jfree.chart.ChartMouseEvent;
+import org.jfree.chart.ChartMouseListener;
+import org.jfree.chart.entity.XYItemEntity;
 import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
+import org.jfree.chart.labels.StandardXYToolTipGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.ui.TextAnchor;
 
 /**
@@ -188,6 +200,7 @@ public class SingleStockInfoUIController implements Initializable {
     public Tab tab_dayKLine, tab_weekKLine, tab_monthKLine;
     @FXML
     AnchorPane anchorPane;
+    private XYItemEntity xyItemEntity;
 
     int rowColorFlag = 0;//flag取0,-1,1三种状态,0表示不涨不跌,1表示涨了,-1表示跌了
 
@@ -355,7 +368,7 @@ public class SingleStockInfoUIController implements Initializable {
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName);
         List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
-
+        System.out.println("the first date is:"+dayKLineList.get(0).getFlow());
 //        List<Stock> dayKLineList=singleStockList;
         
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
@@ -379,11 +392,11 @@ public class SingleStockInfoUIController implements Initializable {
         seriesCollection.addSeries(series);
 
         TimeSeries series2 = new TimeSeries("");//对应于时间成交量
-        for (int i = 0; i < singleStockList.size(); i++) {
-            int date = singleStockList.get(i).getDateInCalendar().get(Calendar.DAY_OF_MONTH);
-            int month = singleStockList.get(i).getDateInCalendar().get(Calendar.MONTH) + 1;
-            int year = singleStockList.get(i).getDateInCalendar().get(Calendar.YEAR);
-            series2.add(new Day(date, month, year), singleStockList.get(i).getVolume() / 100);
+        for (int i = 0; i < dayKLineList.size(); i++) {
+           int date = Integer.parseInt(dayKLineList.get(i).getDay());
+            int month =  Integer.parseInt(dayKLineList.get(i).getMonth());
+            int year =Integer.parseInt(dayKLineList.get(i).getYear());
+            series2.add(new Day(date, month, year), Math.random()*100);
         }
         // 保留成交量数据的集合
         TimeSeriesCollection timeSeriesCollection = new TimeSeriesCollection();
@@ -436,7 +449,7 @@ public class SingleStockInfoUIController implements Initializable {
         //x轴坐标值设置颜色
         x1Axis.setTickLabelPaint(java.awt.Color.WHITE);
         try {
-            x1Axis.setRange(dateFormat.parse("2006-01-01"), dateFormat.parse("2016-03-14"));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
+            x1Axis.setRange(dateFormat.parse("2016-01-1"), dateFormat.parse("2016-03-14"));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -477,8 +490,7 @@ public class SingleStockInfoUIController implements Initializable {
         XYPlot plot2 = new XYPlot(timeSeriesCollection, null, y2Axis, xyBarRender);// 建立第二个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
        
         ImageIcon icon=new ImageIcon("/images/chart_background.jpg");
-        
-       
+            
         plot1.setOutlinePaint(java.awt.Color.LIGHT_GRAY);
         plot1.setBackgroundImage(icon.getImage());
         plot1.setBackgroundAlpha(0.3f);
@@ -491,8 +503,8 @@ public class SingleStockInfoUIController implements Initializable {
         combineddomainxyplot.add(plot1, 2);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域2/3
         combineddomainxyplot.add(plot2, 1);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域1/3
         combineddomainxyplot.setGap(10);// 设置两个图形区域对象之间的间隔空间
-
-                
+        
+        
         JFreeChart dayKChart = new JFreeChart(singleStock.getChinese(), JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
         // 设置总的背景颜色
         dayKChart.setBackgroundPaint(java.awt.Color.BLACK);
@@ -682,10 +694,25 @@ public class SingleStockInfoUIController implements Initializable {
             }
         });
 
-        ChartPanel panel = new ChartPanel(drawDayKLine());
-        panel.setOpaque(false);
+        JFreeChart chart=drawDayKLine();
+        ChartPanel panel = new ChartPanel(chart);
+        
+        panel.setPreferredSize(new Dimension(800,500));
+        panel.addChartMouseListener(new ChartMouseListener(){
+            @Override
+            public void chartMouseClicked(ChartMouseEvent cme) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void chartMouseMoved(ChartMouseEvent ecm) {      
+                
+            }
+        });
+        
+    
         SwingNode swingNode = new SwingNode();
-        swingNode.setContent(panel);
+        swingNode.setContent(panel);      
         tab_dayKLine.setContent(swingNode);
         /**
          * 没有实现吧JFreeChart加到JAVAFX之中

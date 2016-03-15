@@ -117,7 +117,7 @@
          </effect>
       </Pane>
       <Button id="button-isFavor" fx:id="isFavorButton" layoutX="780.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleFavorAction" opacity="0.86" prefHeight="26.0" prefWidth="73.0" styleClass="button-isFavor" text="取消关注" textFill="WHITE" />
-      <TabPane fx:id="kLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="23.0" layoutY="4.0" prefHeight="558.0" prefWidth="438.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="kLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="22.0" layoutY="26.0" prefHeight="548.0" prefWidth="447.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="tab_dayKLine" style="-fx-background-color: transparent;" text="日线" />
           <Tab fx:id="tab_weekKLine" style="-fx-background-color: transparent;" text="周线" />
