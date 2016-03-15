@@ -41,6 +41,9 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 		//try to read cache
 		try{
 			oldStocks=(List<BenchMark>) IOHelper.read(R.CachePath, stockName);
+			if (oldStocks == null) {
+				throw new NullPointerException();
+			}
 			Calendar oldDate=oldStocks.get(oldStocks.size()-1).getDateInCalendar();
 			//get after data
 			if (oldDate.before(CalendarHelper.getPreviousDay(Calendar.getInstance()))) {
@@ -54,7 +57,7 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 			
 		}
 		catch(Exception e){
-			oldStocks=benchMarkDATAService.getBenchMarkAmongDate(stockName, CalendarHelper.convert2Calendar(Begin_Date), Calendar.getInstance());
+			oldStocks=benchMarkDATAService.getBenchMarkAmongDate(stockName, CalendarHelper.convert2Calendar(R.startDate), Calendar.getInstance());
 		}
 		if (shouldSave) {
 			// save
@@ -80,6 +83,9 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 		//try to read cache
 		try{
 			oldStocks=(List<BenchMark>) IOHelper.read(R.CachePath, stockName);
+			if (oldStocks == null) {
+				throw new NullPointerException();
+			}
 			Calendar oldDate=oldStocks.get(oldStocks.size()-1).getDateInCalendar();
 			//get after data
 			if (oldDate.before(CalendarHelper.getPreviousDay(Calendar.getInstance()))) {
@@ -93,7 +99,7 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 			
 		}
 		catch(Exception e){
-			oldStocks=benchMarkDATAService.getBenchMarkAmongDate(stockName, CalendarHelper.convert2Calendar(Begin_Date), Calendar.getInstance());
+			oldStocks=benchMarkDATAService.getBenchMarkAmongDate(stockName, CalendarHelper.convert2Calendar(R.startDate), Calendar.getInstance());
 		}
 		if (shouldSave) {
 			// save
@@ -118,6 +124,9 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 		//try to read cache
 		try{
 			oldStocks=(List<BenchMark>) IOHelper.read(R.CachePath, stockName);
+			if (oldStocks == null) {
+				throw new NullPointerException();
+			}
 			Calendar oldDate=oldStocks.get(oldStocks.size()-1).getDateInCalendar();
 			//get after data
 			if (oldDate.before(CalendarHelper.getPreviousDay(Calendar.getInstance()))) {
@@ -131,7 +140,7 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 			
 		}
 		catch(Exception e){
-			oldStocks=benchMarkDATAService.getBenchMarkAmongDate(stockName, CalendarHelper.convert2Calendar(Begin_Date), Calendar.getInstance());
+			oldStocks=benchMarkDATAService.getBenchMarkAmongDate(stockName, CalendarHelper.convert2Calendar(R.startDate), Calendar.getInstance());
 		}
 		if (shouldSave) {
 			// save

@@ -39,10 +39,10 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		//try to read cache
 		try{
-			oldStocks=(List<Stock>) IOHelper.read(R.CachePath, stockName);
-                        if(oldStocks==null){
-                            throw new NullPointerException();
-                        }
+			oldStocks = (List<Stock>) IOHelper.read(R.CachePath, stockName);
+			if (oldStocks == null) {
+				throw new NullPointerException();
+			}
 			Calendar oldDate=oldStocks.get(oldStocks.size()-1).getDateInCalendar();
 			//get after data
 			if (oldDate.before(CalendarHelper.getPreviousDay(Calendar.getInstance()))) {
@@ -57,7 +57,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		}
 		catch(Exception e){
 			oldStocks=singleStockDATAService
-					.getStockAmongDate(stockName, CalendarHelper.convert2Calendar(Begin_Date), Calendar.getInstance());
+					.getStockAmongDate(stockName, CalendarHelper.convert2Calendar(R.startDate), Calendar.getInstance());
 		}
 		if (shouldSave) {
 			// save
@@ -83,10 +83,10 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		//try to read cache
 		try{
-			oldStocks=(List<Stock>) IOHelper.read(R.CachePath, stockName);
-                        if(oldStocks==null){
-                            throw new NullPointerException();
-                        }
+			oldStocks = (List<Stock>) IOHelper.read(R.CachePath, stockName);
+			if (oldStocks == null) {
+				throw new NullPointerException();
+			}
 			Calendar oldDate=oldStocks.get(oldStocks.size()-1).getDateInCalendar();
 			//get after data
 			if (oldDate.before(CalendarHelper.getPreviousDay(Calendar.getInstance()))) {
@@ -99,7 +99,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		}
 		catch(Exception e){
 			oldStocks=singleStockDATAService
-					.getStockAmongDate(stockName, CalendarHelper.convert2Calendar(Begin_Date), Calendar.getInstance());
+					.getStockAmongDate(stockName, CalendarHelper.convert2Calendar(R.startDate), Calendar.getInstance());
 		}
 		if (shouldSave) {
 			// save
@@ -131,6 +131,9 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		//try to read cache
 		try{
 			oldStocks=(List<Stock>) IOHelper.read(R.CachePath, stockName);
+			if (oldStocks == null) {
+				throw new NullPointerException();
+			}
 			Calendar oldDate=oldStocks.get(oldStocks.size()-1).getDateInCalendar();
 			//get after data
 			if (oldDate.before(CalendarHelper.getPreviousDay(Calendar.getInstance()))) {
@@ -143,7 +146,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		}
 		catch(Exception e){
 			oldStocks=singleStockDATAService
-					.getStockAmongDate(stockName, CalendarHelper.convert2Calendar(Begin_Date), Calendar.getInstance());
+					.getStockAmongDate(stockName, CalendarHelper.convert2Calendar(R.startDate), Calendar.getInstance());
 		}
 		if (shouldSave) {
 			// save
