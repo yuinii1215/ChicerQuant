@@ -29,6 +29,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 	@Override
 	public KLineData dayKLineChart(String stockName) {
 		if (!Checker.checkStringNotNull(stockName)) {
+                    
 			return new KLineData("", null);
 		}
 		boolean shouldSave=true;
@@ -39,6 +40,9 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		//try to read cache
 		try{
 			oldStocks=(List<Stock>) IOHelper.read(R.CachePath, stockName);
+                        if(oldStocks==null){
+                            throw new NullPointerException();
+                        }
 			Calendar oldDate=oldStocks.get(oldStocks.size()-1).getDateInCalendar();
 			//get after data
 			if (oldDate.before(CalendarHelper.getPreviousDay(Calendar.getInstance()))) {
@@ -80,6 +84,9 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		//try to read cache
 		try{
 			oldStocks=(List<Stock>) IOHelper.read(R.CachePath, stockName);
+                        if(oldStocks==null){
+                            throw new NullPointerException();
+                        }
 			Calendar oldDate=oldStocks.get(oldStocks.size()-1).getDateInCalendar();
 			//get after data
 			if (oldDate.before(CalendarHelper.getPreviousDay(Calendar.getInstance()))) {

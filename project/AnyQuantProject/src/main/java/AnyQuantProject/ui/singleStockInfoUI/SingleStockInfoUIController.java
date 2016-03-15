@@ -2,14 +2,18 @@ package AnyQuantProject.ui.singleStockInfoUI;
 
 import javafx.embed.swing.SwingNode;
 import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
+import AnyQuantProject.bl.factoryBL.KLineBLFactory;
 import AnyQuantProject.bl.factoryBL.ListFilterBLFactory;
 import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.bl.favoriteBL.FavoriteBLController;
 import AnyQuantProject.bl.listFilterBL.ListFilterBLImpl;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
+import AnyQuantProject.blService.kLineBLService.StockKLineBLService;
 import AnyQuantProject.blService.listFilterBLService.ListFilterBLService;
 import AnyQuantProject.blService.singleStockDealBLService.SingleStockDealBLService;
 import AnyQuantProject.blService.singleStockInfoBLService.SingleStockInfoBLService;
+import AnyQuantProject.dataStructure.KLineData;
+import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.method.CalendarHelper;
@@ -341,22 +345,30 @@ public class SingleStockInfoUIController implements Initializable {
     }
 
     public JFreeChart drawDayKLine() {
+        /**
+         * first get the kline data from the StockKLineBLService,the later singleStockList should be replaced by the klineData
+         * 
+         */
+        StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
+        KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName);
+        List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
         double highValue = 50.0;// 设置K线数据当中的最大值
         double minValue = 10.0;// 设置K线数据当中的最小值
-        double high2Value = Double.MIN_VALUE;// 设置成交量的最大值
-        double min2Value = Double.MAX_VALUE;// 设置成交量的最低值
+        double high2Value = 110.0;// 设置成交量的最大值
+        double min2Value =50.0;// 设置成交量的最低值
 
         /**
          * 在测试阶段直接进行对singleStockList进行转换,但是之后希望能够提供相应的方法
          */
         OHLCSeries series = new OHLCSeries("");// 高开低收数据序列，股票K线图的四个数据，依次是开，高，低，收
-        for (int i = 0; i < singleStockList.size(); i++) {
+        for (int i = 0; i < dayKLineList.size(); i++) {
             System.out.println("");
-            int date = singleStockList.get(i).getDateInCalendar().get(Calendar.DAY_OF_MONTH);
-            int month = singleStockList.get(i).getDateInCalendar().get(Calendar.MONTH) + 1;
-            int year = singleStockList.get(i).getDateInCalendar().get(Calendar.YEAR);
-            series.add(new Day(date, month, year), singleStockList.get(i).getOpen(), singleStockList.get(i).getHigh(), singleStockList.get(i).getLow(), singleStockList.get(i).getClose());
+            int date = Integer.parseInt(dayKLineList.get(i).getDay());
+            int month =  Integer.parseInt(dayKLineList.get(i).getMonth())+1;
+            int year =Integer.parseInt(dayKLineList.get(i).getYear());
+            series.add(new Day(date, month, year), dayKLineList.get(i).getOpen(), dayKLineList.get(i).getHigh(), dayKLineList.get(i).getLow(), singleStockList.get(i).getClose());
         }
         final OHLCSeriesCollection seriesCollection = new OHLCSeriesCollection();
         seriesCollection.addSeries(series);
@@ -366,7 +378,7 @@ public class SingleStockInfoUIController implements Initializable {
             int date = singleStockList.get(i).getDateInCalendar().get(Calendar.DAY_OF_MONTH);
             int month = singleStockList.get(i).getDateInCalendar().get(Calendar.MONTH) + 1;
             int year = singleStockList.get(i).getDateInCalendar().get(Calendar.YEAR);
-            series2.add(new Day(date, month, year), singleStockList.get(i).getFlow() / 100);
+            series2.add(new Day(date, month, year), singleStockList.get(i).getVolume() / 100);
         }
         // 保留成交量数据的集合
         TimeSeriesCollection timeSeriesCollection = new TimeSeriesCollection();
