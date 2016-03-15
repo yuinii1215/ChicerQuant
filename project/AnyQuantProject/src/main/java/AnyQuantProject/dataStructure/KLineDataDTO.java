@@ -16,5 +16,6 @@ public interface KLineDataDTO {
 	public double getOpen();
 	public double getHigh();
 	public double getLow();
+	public long getFlow();
 	public boolean isRed();
 }
