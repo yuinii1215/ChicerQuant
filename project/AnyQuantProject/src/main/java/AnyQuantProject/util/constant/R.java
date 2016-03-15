@@ -11,6 +11,6 @@ public class R {
 	public static final String FavorFilePath="UserInfo/";
 	public static final String FavorFileName="favor";
 	public static final String StockNameFile="name";
-	
+	public static final String startDate = "2006-01-01";	
 	public static final String CachePath="Cache/";
 }

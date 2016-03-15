@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.DateTickMarkPosition;
@@ -31,14 +32,17 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.embed.swing.SwingNode;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import AnyQuantProject.bl.factoryBL.BenchMarkBLFactory;
 import AnyQuantProject.bl.factoryBL.KLineBLFactory;
 import AnyQuantProject.blService.benchMarkBLService.BenchMarkBLService;
@@ -47,6 +51,7 @@ import AnyQuantProject.dataStructure.BenchMark;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
 import AnyQuantProject.util.method.SimpleLongProperty;
@@ -87,6 +92,11 @@ public class BenchMarkUIController implements Initializable{
 	public  ComboBox benchMarkID;
 	@FXML
 	private Label currentTime;
+	@FXML
+	private Tab dayChatTab,monthChatTab,weekChatTab;
+	@FXML
+	private AnchorPane dayChatPanel,weekChatPanel,monthChatPanel;
+	
 	
 	private Calendar calendar;
 	String  benchMarkid;
@@ -95,6 +105,7 @@ public class BenchMarkUIController implements Initializable{
 	private  List<BenchMark> benchMarkList;
 	
 	//K线数据
+	private  String startDate = R.startDate;
 	private  BenchmarkKLineBLService benchmarkKLineBLService=KLineBLFactory.getBenchmarkBLService();
 	private  KLineData benchMarkKLineDate;
 	private List<KLineDataDTO>  benchMarkKLineDataList; 
@@ -166,7 +177,28 @@ public class BenchMarkUIController implements Initializable{
 				cellData.getValue().getMarketvalue()));
         flow.setCellValueFactory(cellData -> new SimpleLongProperty(
 			    cellData.getValue().getFlow()));
+      
+        benchMarkID.valueProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue ov, String t, String t1) {
+            	benchMarkid = t1;
+                System.out.println("the selected benchMarkID is: " + benchMarkid);
+               
+                ChartPanel panel = new ChartPanel(drawDayKLine());
+                panel.setOpaque(false);
+                SwingNode swingNode = new SwingNode();
+                swingNode.setContent(panel);
+                dayChatTab.setContent(swingNode);     
             
+            
+            }
+        });
+        
+//        ChartPanel panel = new ChartPanel(drawDayKLine());
+//        panel.setOpaque(false);
+//        SwingNode swingNode = new SwingNode();
+//        swingNode.setContent(panel);
+//        dayChatTab.setContent(swingNode);  
    }
     
     
@@ -174,7 +206,6 @@ public class BenchMarkUIController implements Initializable{
     public JFreeChart drawDayKLine() {
     	 benchMarkKLineDate=benchmarkKLineBLService.dayKLineChart(benchMarkid);
     	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
-    	 benchMarkKLineDataList.get(0);
     	 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 	     double highValue = Double.MIN_VALUE;// 设置K线数据当中的最大值
 	     double minValue = Double.MAX_VALUE;// 设置K线数据当中的最小值
@@ -182,9 +213,8 @@ public class BenchMarkUIController implements Initializable{
 	     double min2Value = Double.MAX_VALUE;// 设置成交量的最低值
 	     
 	     OHLCSeries series = new OHLCSeries("");// 高开低收数据序列，股票K线图的四个数据，依次是开，高，低，收
-	   
 	     for (int i = 0; i < benchMarkList.size(); i++) {
-	            System.out.println("");
+	            System.out.println("----------------"+benchMarkKLineDataList.get(i));
 	            int date =Integer.parseInt(benchMarkKLineDataList.get(i).getDay());
 	            int month =Integer.parseInt(benchMarkKLineDataList.get(i).getMonth());
 	            int year =Integer.parseInt(benchMarkKLineDataList.get(i).getYear());
@@ -193,6 +223,7 @@ public class BenchMarkUIController implements Initializable{
 	     
 	     final OHLCSeriesCollection seriesCollection = new OHLCSeriesCollection();// 保留K线数据的数据集，必须申明为final，后面要在匿名内部类里面用到
 	     seriesCollection.addSeries(series);
+	    
 	     TimeSeries series2=new TimeSeries("");// 对应时间成交量数据
 	     for (int i = 0; i < benchMarkKLineDataList.size(); i++) {
 	    	  int date =Integer.parseInt(benchMarkKLineDataList.get(i).getDay());
@@ -200,71 +231,85 @@ public class BenchMarkUIController implements Initializable{
 	            int year =Integer.parseInt(benchMarkKLineDataList.get(i).getYear());
 	            series2.add(new Day(date, month, year), benchMarkKLineDataList.get(i).getFlow()/ 100);
 	        }
-	     
-	     
 	     TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// 保留成交量数据的集合
 	     timeSeriesCollection.addSeries(series2);
 	 
+	     
 	     // 获取K线数据的最高值和最低值
 	     int seriesCount = seriesCollection.getSeriesCount();// 一共有多少个序列，目前为一个
-	     for (int i = 0; i < seriesCount; i++) {
-	      int itemCount = seriesCollection.getItemCount(i);// 每一个序列有多少个数据项
-	      for (int j = 0; j < itemCount; j++) {
-	       if (highValue < seriesCollection.getHighValue(i, j)) {// 取第i个序列中的第j个数据项的最大值
-	        highValue = seriesCollection.getHighValue(i, j);
-	       }
-	       if (minValue > seriesCollection.getLowValue(i, j)) {// 取第i个序列中的第j个数据项的最小值
-	        minValue = seriesCollection.getLowValue(i, j);
-	       }
-	      }
+	     	for (int i = 0; i < seriesCount; i++) {
+	     		int itemCount = seriesCollection.getItemCount(i);// 每一个序列有多少个数据项
+	     		for (int j = 0; j < itemCount; j++) {
+	     			if (highValue < seriesCollection.getHighValue(i, j)) {// 取第i个序列中的第j个数据项的最大值
+	     				highValue = seriesCollection.getHighValue(i, j);
+	     			}
+	     			if (minValue > seriesCollection.getLowValue(i, j)) {// 取第i个序列中的第j个数据项的最小值
+	     				minValue = seriesCollection.getLowValue(i, j);
+	     			}
+	     		}
 	     }
 	     // 获取最高值和最低值
 	     int seriesCount2 = timeSeriesCollection.getSeriesCount();// 一共有多少个序列，目前为一个
-	     for (int i = 0; i < seriesCount2; i++) {
-	      int itemCount = timeSeriesCollection.getItemCount(i);// 每一个序列有多少个数据项
-	      for (int j = 0; j < itemCount; j++) {
-	       if (high2Value < timeSeriesCollection.getYValue(i,j)) {// 取第i个序列中的第j个数据项的值
-	        high2Value = timeSeriesCollection.getYValue(i,j);
-	       }
-	       if (min2Value > timeSeriesCollection.getYValue(i, j)) {// 取第i个序列中的第j个数据项的值
-	        min2Value = timeSeriesCollection.getYValue(i, j);
-	       }
+	     	for (int i = 0; i < seriesCount2; i++) {
+	     		int itemCount = timeSeriesCollection.getItemCount(i);// 每一个序列有多少个数据项
+	     		for (int j = 0; j < itemCount; j++) {
+	     			if (high2Value < timeSeriesCollection.getYValue(i,j)) {// 取第i个序列中的第j个数据项的值
+	     				high2Value = timeSeriesCollection.getYValue(i,j);
+	     			}
+	     			if (min2Value > timeSeriesCollection.getYValue(i, j)) {// 取第i个序列中的第j个数据项的值
+	     				min2Value = timeSeriesCollection.getYValue(i, j);
+	     			}
+	     		}
 	      }
-	     }
+	     	
+	     /**
+	      * 设置K线图的画图器
+	      */
 	     final CandlestickRenderer candlestickRender=new CandlestickRenderer();// 设置K线图的画图器，必须申明为final，后面要在匿名内部类里面用到
 	     candlestickRender.setUseOutlinePaint(true); // 设置是否使用自定义的边框线，程序自带的边框线的颜色不符合中国股票市场的习惯
 	     candlestickRender.setAutoWidthMethod(CandlestickRenderer.WIDTHMETHOD_AVERAGE);// 设置如何对K线图的宽度进行设定
 	     candlestickRender.setAutoWidthGap(0.001);// 设置各个K线图之间的间隔
-	     candlestickRender.setUpPaint(Color.RED);// 设置股票上涨的K线图颜色
-	     candlestickRender.setDownPaint(Color.GREEN);// 设置股票下跌的K线图颜色
-	     DateAxis x1Axis=new DateAxis();// 设置x轴，也就是时间轴
+	     java.awt.Color awtColorRed = java.awt.Color.getColor("#FF69B4");
+	     java.awt.Color awtColorGreen = java.awt.Color.GREEN;
+	     candlestickRender.setUpPaint(awtColorRed);// 设置股票上涨的K线图颜色
+	     candlestickRender.setDownPaint(awtColorGreen);// 设置股票下跌的K线图颜色
+	     
+	     // 设置x轴，也就是时间轴
+	     DateAxis x1Axis=new DateAxis();
 	     x1Axis.setAutoRange(false);// 设置不采用自动设置时间范围
+	     x1Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     try{
-	     x1Axis.setRange(dateFormat.parse("2007-08-20"),dateFormat.parse("2007-09-29"));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
+	    	 x1Axis.setRange(dateFormat.parse(startDate),dateFormat.parse(dateFormat.format(new Date())));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
 	     }catch(Exception e){
-	      e.printStackTrace();
+	    	 e.printStackTrace();
 	     }
-	    x1Axis.setTimeline(SegmentedTimeline.newMondayThroughFridayTimeline());// 设置时间线显示的规则，用这个方法就摒除掉了周六和周日这些没有交易的日期(很多人都不知道有此方法)，使图形看上去连续
+	     
+	     // 设置时间线显示的规则，用这个方法就摒除掉了周六和周日这些没有交易的日期
+	     x1Axis.setTimeline(SegmentedTimeline.newMondayThroughFridayTimeline());
 	     x1Axis.setAutoTickUnitSelection(false);// 设置不采用自动选择刻度值
 	     x1Axis.setTickMarkPosition(DateTickMarkPosition.MIDDLE);// 设置标记的位置
 	     x1Axis.setStandardTickUnits(DateAxis.createStandardDateTickUnits());// 设置标准的时间刻度单位
-	     x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,7));// 设置时间刻度的间隔，一般以周为单位
-	     x1Axis.setDateFormatOverride(new SimpleDateFormat("yyyy-MM-dd"));// 设置显示时间的格式
-	     NumberAxis y1Axis=new NumberAxis();// 设定y轴，就是数字轴
-	     y1Axis.setAutoRange(false);// 不不使用自动设定范围
+	     x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));// 设置时间刻度的间隔，一般以周为单位
+	     x1Axis.setDateFormatOverride(new SimpleDateFormat("MM-dd"));// 设置显示时间的格式
+	     
+	     // 设定y轴，就是数字轴
+	     NumberAxis y1Axis=new NumberAxis();
+	     y1Axis.setAutoRange(false);
 	     y1Axis.setRange(minValue*0.9, highValue*1.1);// 设定y轴值的范围，比最低值要低一些，比最大值要大一些，这样图形看起来会美观些
 	     y1Axis.setTickUnit(new NumberTickUnit((highValue*1.1-minValue*0.9)/10));// 设置刻度显示的密度
+	     y1Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     XYPlot plot1=new XYPlot(seriesCollection,x1Axis,y1Axis,candlestickRender);// 设置画图区域对象
 	 
 	     XYBarRenderer xyBarRender=new XYBarRenderer(){
-	     private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
-	     public Paint getItemPaint(int i, int j){// 匿名内部类用来处理当日的成交量柱形图的颜色与K线图的颜色保持一致
-	       if(seriesCollection.getCloseValue(i,j)>seriesCollection.getOpenValue(i,j)){// 收盘价高于开盘价，股票上涨，选用股票上涨的颜色
-	        return candlestickRender.getUpPaint();
-	       }else{
-	        return candlestickRender.getDownPaint();
-	       }
+	    	 private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
+	    	 public Paint getItemPaint(int i, int j){// 匿名内部类用来处理当日的成交量柱形图的颜色与K线图的颜色保持一致
+	    		 if(seriesCollection.getCloseValue(i,j)>seriesCollection.getOpenValue(i,j)){// 收盘价高于开盘价，股票上涨，选用股票上涨的颜色
+	    			 return candlestickRender.getUpPaint();
+	    		 }else{
+	    			 return candlestickRender.getDownPaint();
+	    		 }
 	     }};
+	     
 	     xyBarRender.setMargin(0.1);// 设置柱形图之间的间隔
 	     NumberAxis y2Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
 	     y2Axis.setAutoRange(false);
@@ -279,13 +324,14 @@ public class BenchMarkUIController implements Initializable{
 	        ChartFrame frame = new ChartFrame("中国联通股票", chart);
 	     frame.pack();
 	     frame.setVisible(true);
-	     JFreeChart dayKChart = new JFreeChart(singleStock.getChinese(), JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
+	     JFreeChart dayKChart = new JFreeChart(benchMarkid, JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
 	        // 设置总的背景颜色
-	        dayKChart.setBackgroundPaint(java.awt.Color.BLACK);
-//	        dayKChart.setBackgroundImage(icon.getImage());
-//	        dayKChart.setBackgroundImageAlpha(0.3f);
-	        //统一上影线，下影线
-	      //Paint p = getItemPaint(series, item);
+	       dayKChart.setBackgroundPaint(java.awt.Color.BLACK);
+//	       dayKChart.setBackgroundImageAlpha(0.3f);
+	      
+	  
+		//统一上影线，下影线
+//	      Paint p = getItemPaint(series, item);
 //	           Paint outlinePaint = null;
 //	           if (this.useOutlinePaint) {
 //	            if(yClose>yOpen){

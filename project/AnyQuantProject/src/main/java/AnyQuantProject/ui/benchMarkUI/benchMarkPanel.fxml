@@ -9,51 +9,21 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.benchMarkUI.BenchMarkUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.benchMarkUI.BenchMarkUIController">
    <children>
-      <ImageView fx:id="bgImage" fitHeight="600.0" fitWidth="1002.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@bgImage.png" />
-         </image>
-      </ImageView>
       <AnchorPane fx:id="infoPanel" layoutX="720.0" prefHeight="600.0" prefWidth="180.0" style="-fx-border-color: #000000;" />
-      <AnchorPane fx:id="KgraphPanel" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="720.0">
+      <TabPane layoutX="4.0" layoutY="63.0" prefHeight="535.0" prefWidth="707.0" style="-fx-background-color: #999d9c;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="dayChatTab" text="日线" />
+          <Tab fx:id="weekChatTab" text="周线" />
+            <Tab fx:id="monthChatTab" text="月线" />
+        </tabs>
+      </TabPane>
+      <AnchorPane fx:id="KgraphPanel" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="720.0">
          <effect>
             <Blend opacity="0.0" />
          </effect>
          <children>
-            <TabPane layoutX="7.0" layoutY="61.0" prefHeight="535.0" prefWidth="707.0" style="-fx-background-color: #999d9c;" tabClosingPolicy="UNAVAILABLE">
-              <tabs>
-                <Tab fx:id="dayChatTab" text="日线">
-                  <content>
-                    <AnchorPane fx:id="dayChatPanel" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <AnchorPane fx:id="dayKChartPanel" layoutX="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="707.0" style="-fx-border-color: #000000;" />
-                              <AnchorPane fx:id="dayBarChartPanel" layoutX="1.0" layoutY="285.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="707.0" style="-fx-border-color: #000000;" />
-                           </children></AnchorPane>
-                  </content>
-                </Tab>
-                <Tab fx:id="weekChatTab" text="周线">
-                  <content>
-                    <AnchorPane fx:id="weekKChatPanel" minHeight="0.0" minWidth="0.0" prefHeight="205.0" prefWidth="518.0">
-                           <children>
-                              <AnchorPane fx:id="weekChatPanel" layoutX="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="707.0" style="-fx-border-color: #000000;" />
-                              <AnchorPane fx:id="weekBarChatPanel" layoutX="1.0" layoutY="285.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="707.0" style="-fx-border-color: #000000;" />
-                           </children></AnchorPane>
-                  </content>
-                </Tab>
-                  <Tab fx:id="monthChatTab" text="月线">
-                    <content>
-                      <AnchorPane fx:id="monthChatPanel" minHeight="0.0" minWidth="0.0" opacity="0.3" prefHeight="497.0" prefWidth="707.0">
-                           <children>
-                              <AnchorPane fx:id="monthKChatPanel" layoutX="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="707.0" style="-fx-border-color: #000000;" />
-                              <AnchorPane fx:id="monthBarChatPanel" layoutX="1.0" layoutY="285.0" prefHeight="200.0" prefWidth="707.0" style="-fx-border-color: #000000;" />
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </Tab>
-              </tabs>
-            </TabPane>
             <VBox layoutX="11.0" layoutY="6.0" prefHeight="30.0" prefWidth="264.0">
                <children>
                   <Label fx:id="showMessage" text="2897.34+23.19 (+0.81%)" textFill="WHITE">
@@ -83,25 +53,21 @@
             </HBox>
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="scrollPane1" layoutX="720.0" layoutY="250.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="180.0">
-         <content>
-            <TableView fx:id="table" layoutX="720.0" layoutY="250.0" prefHeight="350.0" prefWidth="180.0">
-              <columns>
-                <TableColumn fx:id="timeTable" prefWidth="88.0" text="时间" />
-                  <TableColumn fx:id="allBenchMarkID" prefWidth="87.0" text="名称" />
-                  <TableColumn fx:id="openTable" text="开盘价" />
-                  <TableColumn fx:id="highTable" prefWidth="74.0" text="最高价" />
-                  <TableColumn fx:id="lowTable" prefWidth="74.0" text="最低价" />
-                  <TableColumn fx:id="closeTable" prefWidth="74.0" text="收盘价" />
-                  <TableColumn fx:id="volumTable" prefWidth="74.0" text="成交量" />
-                  <TableColumn fx:id="turnoverTable" prefWidth="74.0" text="成交额" />
-                  <TableColumn fx:id="adj_priceTable" prefWidth="74.0" text="后复权价" />
-                  <TableColumn fx:id="marketvalueTable" prefWidth="62.0" text="市值" />
-                  <TableColumn fx:id="flow" prefWidth="74.0" text="流通量" />
-              </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
+      <TableView fx:id="table" blendMode="LIGHTEN" layoutX="720.0" layoutY="250.0" prefHeight="350.0" prefWidth="180.0">
+        <columns>
+          <TableColumn fx:id="timeTable" prefWidth="88.0" text="时间" />
+            <TableColumn fx:id="allBenchMarkID" prefWidth="87.0" text="名称" />
+            <TableColumn fx:id="openTable" text="开盘价" />
+            <TableColumn fx:id="highTable" prefWidth="74.0" text="最高价" />
+            <TableColumn fx:id="lowTable" prefWidth="74.0" text="最低价" />
+            <TableColumn fx:id="closeTable" prefWidth="74.0" text="收盘价" />
+            <TableColumn fx:id="volumTable" prefWidth="74.0" text="成交量" />
+            <TableColumn fx:id="turnoverTable" prefWidth="74.0" text="成交额" />
+            <TableColumn fx:id="adj_priceTable" prefWidth="74.0" text="后复权价" />
+            <TableColumn fx:id="marketvalueTable" prefWidth="62.0" text="市值" />
+            <TableColumn fx:id="flow" prefWidth="74.0" text="流通量" />
+        </columns>
+      </TableView>
       <GridPane layoutX="752.0" layoutY="47.0" prefHeight="180.0" prefWidth="142.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

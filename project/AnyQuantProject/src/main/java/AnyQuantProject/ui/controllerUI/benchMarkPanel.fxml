@@ -11,36 +11,19 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.benchMarkUI.BenchMarkUIController">
    <children>
-      <ImageView fx:id="bgImage" fitHeight="600.0" fitWidth="1002.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@bgImage.png" />
-         </image>
-      </ImageView>
       <AnchorPane fx:id="infoPanel" layoutX="720.0" prefHeight="600.0" prefWidth="180.0" style="-fx-border-color: #000000;" />
-      <AnchorPane fx:id="KgraphPanel" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="720.0">
+      <TabPane layoutX="4.0" layoutY="63.0" prefHeight="535.0" prefWidth="707.0" style="-fx-background-color: #999d9c;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="dayChatTab" text="日线" />
+          <Tab fx:id="weekChatTab" text="周线" />
+            <Tab fx:id="monthChatTab" text="月线" />
+        </tabs>
+      </TabPane>
+      <AnchorPane fx:id="KgraphPanel" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="720.0">
          <effect>
             <Blend opacity="0.0" />
          </effect>
          <children>
-            <TabPane layoutX="7.0" layoutY="61.0" prefHeight="535.0" prefWidth="707.0" style="-fx-background-color: #999d9c;" tabClosingPolicy="UNAVAILABLE">
-              <tabs>
-                <Tab fx:id="dayChatTab" text="日线">
-                  <content>
-                    <AnchorPane fx:id="dayChatPanel" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </Tab>
-                <Tab fx:id="weekChatTab" text="周线">
-                  <content>
-                    <AnchorPane fx:id="weekKChatPanel" minHeight="0.0" minWidth="0.0" prefHeight="205.0" prefWidth="518.0" />
-                  </content>
-                </Tab>
-                  <Tab fx:id="monthChatTab" text="月线">
-                    <content>
-                      <AnchorPane fx:id="monthChatPanel" minHeight="0.0" minWidth="0.0" opacity="0.3" prefHeight="497.0" prefWidth="707.0" />
-                    </content>
-                  </Tab>
-              </tabs>
-            </TabPane>
             <VBox layoutX="11.0" layoutY="6.0" prefHeight="30.0" prefWidth="264.0">
                <children>
                   <Label fx:id="showMessage" text="2897.34+23.19 (+0.81%)" textFill="WHITE">
