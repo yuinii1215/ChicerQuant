@@ -16,7 +16,7 @@ import AnyQuantProject.util.method.Checker;
  * @author G
  *
  */
-public class AbstractStock implements Serializable{
+public class AbstractStock implements Serializable,KLineDataDTO{
 	String name;	//代号名
 	String chinese;  //中文名 
 	boolean isFavor;     //是否被关注
@@ -185,6 +185,11 @@ public class AbstractStock implements Serializable{
 
 	public void setChinese(String chinese) {
 		this.chinese = chinese;
+	}
+
+	@Override
+	public boolean isRed() {
+		return close>open;
 	}
 	
 
