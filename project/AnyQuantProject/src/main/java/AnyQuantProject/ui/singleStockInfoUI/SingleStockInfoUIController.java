@@ -108,8 +108,11 @@ import org.jfree.data.time.ohlc.OHLCSeriesCollection;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import org.jfree.chart.ChartColor;
+import org.jfree.chart.labels.ItemLabelAnchor;
+import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.ui.TextAnchor;
 
 /**
  *
@@ -353,6 +356,8 @@ public class SingleStockInfoUIController implements Initializable {
         KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName);
         List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
 
+//        List<Stock> dayKLineList=singleStockList;
+        
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
         double highValue = 50.0;// 设置K线数据当中的最大值
         double minValue = 10.0;// 设置K线数据当中的最小值
@@ -418,7 +423,7 @@ public class SingleStockInfoUIController implements Initializable {
         final CandlestickRenderer candlestickRender = new CandlestickRenderer();
         candlestickRender.setUseOutlinePaint(true); // 设置是否使用自定义的边框线，程序自带的边框线的颜色不符合中国股票市场的习惯
         candlestickRender.setAutoWidthMethod(CandlestickRenderer.WIDTHMETHOD_AVERAGE);// 设置如何对K线图的宽度进行设定
-        candlestickRender.setAutoWidthGap(0.001);// 设置各个K线图之间的间隔
+        candlestickRender.setAutoWidthGap(0.0005);// 设置各个K线图之间的间隔
         
         java.awt.Color awtColorRed = java.awt.Color.getColor("#FF69B4");
         java.awt.Color awtColorGreen = java.awt.Color.GREEN;
@@ -432,7 +437,7 @@ public class SingleStockInfoUIController implements Initializable {
         //x轴坐标值设置颜色
         x1Axis.setTickLabelPaint(java.awt.Color.WHITE);
         try {
-            x1Axis.setRange(dateFormat.parse("2016-03-01"), dateFormat.parse("2016-03-14"));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
+            x1Axis.setRange(dateFormat.parse("2006-01-01"), dateFormat.parse("2016-03-14"));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -442,7 +447,7 @@ public class SingleStockInfoUIController implements Initializable {
 //      x1Axis.setAutoTickUnitSelection(false);// 设置不采用自动选择刻度值
         x1Axis.setTickMarkPosition(DateTickMarkPosition.MIDDLE);// 设置标记的位置
         x1Axis.setStandardTickUnits(DateAxis.createStandardDateTickUnits());// 设置标准的时间刻度单位
-        x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY, 1));// 设置时间刻度的间隔，一般以周为单位
+        x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY, 7));// 设置时间刻度的间隔，一般以周为单位
         x1Axis.setDateFormatOverride(new SimpleDateFormat("MM-dd"));// 设置显示时间的格式
         NumberAxis y1Axis = new NumberAxis();// 设定y轴，就是数字轴
        
@@ -463,8 +468,8 @@ public class SingleStockInfoUIController implements Initializable {
                     return candlestickRender.getDownPaint();
                 }
             }
-        };
-
+        };      
+        
         xyBarRender.setMargin(0.1);// 设置柱形图之间的间隔
         NumberAxis y2Axis = new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
         y2Axis.setAutoRange(false);
@@ -473,6 +478,8 @@ public class SingleStockInfoUIController implements Initializable {
         XYPlot plot2 = new XYPlot(timeSeriesCollection, null, y2Axis, xyBarRender);// 建立第二个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
        
         ImageIcon icon=new ImageIcon("/images/chart_background.jpg");
+        
+       
         plot1.setOutlinePaint(java.awt.Color.LIGHT_GRAY);
         plot1.setBackgroundImage(icon.getImage());
         plot1.setBackgroundAlpha(0.3f);
