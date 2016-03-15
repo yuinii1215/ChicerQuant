@@ -9,6 +9,7 @@ import AnyQuantProject.dataStructure.KLineData;
 */
 
 public interface KLineBLService {
+	static String Begin_Date="2006-1-1";
 	KLineData dayKLineChart(String stockName);
 	KLineData weekKLineChart(String stockName);
 	KLineData monthKLineChart(String stockName);
