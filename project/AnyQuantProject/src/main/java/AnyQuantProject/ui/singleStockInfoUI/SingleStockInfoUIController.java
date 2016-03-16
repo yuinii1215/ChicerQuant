@@ -16,10 +16,12 @@ import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.util.constant.TimeType;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
 import AnyQuantProject.util.method.SimpleLongProperty;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -28,10 +30,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.awt.Paint;//画笔系统
+
 import org.jfree.chart.axis.*;
+
 import javafx.scene.paint.Color;
 import javafx.event.ActionEvent;
-
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -41,7 +44,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -56,12 +58,14 @@ import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.concurrent.Task;
 import javafx.fxml.Initializable;
@@ -82,20 +86,26 @@ import AnyQuantProject.ui.singleStockInfoUI.StockInfo2Column;
 import AnyQuantProject.util.method.DrawKLineChart;
 import AnyQuantProject.util.method.MyChartMouseListener;
 import AnyQuantProject.util.method.MyKLineChartListener;
+
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GradientPaint;
 import java.awt.event.MouseMotionAdapter;
 import java.text.NumberFormat;
+
 import org.jfree.chart.ChartPanel;
+
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
+
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.HBox;
+
 import javax.swing.ImageIcon;
+
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
@@ -113,8 +123,10 @@ import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.ohlc.OHLCSeries;
 import org.jfree.data.time.ohlc.OHLCSeriesCollection;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+
 import org.jfree.chart.ChartColor;
 import org.jfree.chart.ChartMouseEvent;
 import org.jfree.chart.ChartMouseListener;
@@ -371,7 +383,7 @@ public class SingleStockInfoUIController implements Initializable {
         List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
         System.out.println("the first date is:"+dayKLineList.get(0).getFlow());
         
-    	return  DrawKLineChart.DayKLineChart (dayKLineList,stockName);
+    	return  DrawKLineChart.DayKLineChart (dayKLineList,stockName,TimeType.DAY);
         
         
         

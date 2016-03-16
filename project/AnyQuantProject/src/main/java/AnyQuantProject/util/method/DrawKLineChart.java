@@ -1,8 +1,10 @@
 package AnyQuantProject.util.method;
 
 import java.awt.Paint;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -29,21 +31,37 @@ import AnyQuantProject.util.constant.TimeType;
 
 public class DrawKLineChart {
 	
-	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,String id){
-		//,TimeType type 
+	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,String id,TimeType type ){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		
 		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
-//		if(type.equals(type.DAY)){
+		System.out.println("......startDate......"+startDate);
+//		if(type.equals(TimeType.DAY)){
 //			startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
 //		 }
-//		 else if(type.equals(type.WEEK)){
-//			 SimpleDateFormat df= new SimpleDateFormat("EEEE");// 设置日期格式
-//			 String week =df.format(date);
+//		 else if(type.equals(TimeType.WEEK)){
+//			 Calendar cal =Calendar.getInstance();
+//			 Date date;
+//			try {
+//				date = dateFormat.parse(startDate);
+//				cal.setTime(date);
+//				cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+//				date=cal.getTime();
+//				startDate =dateFormat.format(date);
+//				System.out.println("......WeekstartDate......"+startDate);
+//				
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			
 //			 
 //		 }
-//		 else if(type.equals(type.MONTH)){
+//		 else if(type.equals(TimeType.MONTH)){
 //			 startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-01";
+//			 System.out.println("......MonthstartDate......"+startDate);
 //		 }
-		 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+//		
 	     double highValue = Double.MIN_VALUE;// 设置K线数据当中的最大值
 	     double minValue = Double.MAX_VALUE;// 设置K线数据当中的最小值
 	     double high2Value = Double.MIN_VALUE;// 设置成交量的最大值
@@ -118,7 +136,7 @@ public class DrawKLineChart {
 	    	}
 	    	
 	     	String leastTime=calendar.get(Calendar.YEAR)+"-"+leastmonth+"-"+leastday;
-	     	System.out.println("-----------------"+leastTime);
+	     	System.out.println("-------leastTime----------"+leastTime);
 	     /**
 	      * 设置K线图的画图器
 	      */
@@ -136,6 +154,7 @@ public class DrawKLineChart {
 	     x1Axis.setAutoRange(true);// 设置不采用自动设置时间范围
 	     x1Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     try{
+	    	 System.out.println("||||startdate||||"+startDate);
 	    	 x1Axis.setRange(dateFormat.parse(startDate),dateFormat.parse(leastTime));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
 	     }catch(Exception e){
 	    	 e.printStackTrace();
@@ -146,17 +165,17 @@ public class DrawKLineChart {
 	     x1Axis.setAutoTickUnitSelection(false);// 设置不采用自动选择刻度值
 	     x1Axis.setTickMarkPosition(DateTickMarkPosition.MIDDLE);// 设置标记的位置
 	     x1Axis.setStandardTickUnits(DateAxis.createStandardDateTickUnits());// 设置标准的时间刻度单位
-	     x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));// 设置时间刻度的间隔，一般以周为单位
-//	     if(type.equals(type.DAY)){
-//	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));// 设置时间刻度的间隔，一般以周为单位
-//	     }
-//	     else if(type.equals(type.WEEK)){
-//	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,7));
-//	     }
-//	     else if(type.equals(type.MONTH)){
-//	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.MONTH,1));
-//	     }
-	     x1Axis.setDateFormatOverride(new SimpleDateFormat("MM-dd"));// 设置显示时间的格式
+	 //   x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));// 设置时间刻度的间隔，一般以周为单位
+	     if(type.equals(TimeType.DAY)){
+	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));
+	     }
+	     else if(type.equals(TimeType.WEEK)){
+	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,7));
+	     }
+	     else if(type.equals(TimeType.MONTH)){
+	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.MONTH,1));
+	     }
+	     x1Axis.setDateFormatOverride(new SimpleDateFormat("YYYY-MM-dd"));// 设置显示时间的格式
 	     
 	     // 设定y轴，就是数字轴
 	     NumberAxis y1Axis=new NumberAxis();

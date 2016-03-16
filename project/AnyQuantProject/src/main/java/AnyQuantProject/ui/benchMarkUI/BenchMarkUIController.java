@@ -31,6 +31,7 @@ import AnyQuantProject.blService.kLineBLService.BenchmarkKLineBLService;
 import AnyQuantProject.dataStructure.BenchMark;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
+import AnyQuantProject.util.constant.TimeType;
 import AnyQuantProject.util.method.DrawKLineChart;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
@@ -232,17 +233,17 @@ public class BenchMarkUIController implements Initializable{
     private JFreeChart drawDayKLine() {
     	 benchMarkKLineDate=benchmarkKLineBLService.dayKLineChart(benchMarkid);
     	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
-    	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,benchMarkid);
+    	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,benchMarkid,TimeType.DAY);
 	}
     private JFreeChart drawWeekKLine() {
    	 benchMarkKLineDate=benchmarkKLineBLService.weekKLineChart(benchMarkid);
    	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
-   	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,benchMarkid);
+   	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,benchMarkid,TimeType.WEEK);
 	}
     private JFreeChart drawMonthKLine() {
    	 benchMarkKLineDate=benchmarkKLineBLService.monthKLineChart(benchMarkid);
    	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
-   	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,benchMarkid);
+   	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,benchMarkid,TimeType.MONTH);
 	}
 
     /**
