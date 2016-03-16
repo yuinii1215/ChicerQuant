@@ -54,7 +54,7 @@ public class DrawKLineChart {
 	    	  int date =Integer.parseInt(dataList.get(i).getDay());
 	            int month =Integer.parseInt(dataList.get(i).getMonth());
 	            int year =Integer.parseInt(dataList.get(i).getYear());
-	            series2.add(new Day(date, month, year), dataList.get(i).getFlow()/ 100);
+	            series2.add(new Day(date, month, year), dataList.get(i).getVolume()/ 100.0);
 	        }
 	     TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// 保留成交量数据的集合
 	     timeSeriesCollection.addSeries(series2);
@@ -147,17 +147,20 @@ public class DrawKLineChart {
 	 
 	     XYBarRenderer xyBarRender=new XYBarRenderer(){
 	    	 private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
+                     @Override
 	    	 public Paint getItemPaint(int i, int j){// 匿名内部类用来处理当日的成交量柱形图的颜色与K线图的颜色保持一致
-	    		 if(seriesCollection.getCloseValue(i,j)>seriesCollection.getOpenValue(i,j)){// 收盘价高于开盘价，股票上涨，选用股票上涨的颜色
-	    			 return candlestickRender.getUpPaint();
+	    		 if(seriesCollection.getCloseValue(i,j)>seriesCollection.getOpenValue(i,j)){// 收盘价高于开盘价，股票上涨，选用股票上涨的颜色                    
+//                         java.awt.Color red = java.awt.Color.RED;
+                             return java.awt.Color.RED;
 	    		 }else{
-	    			 return candlestickRender.getDownPaint();
+	                  return awtColorGreen;
 	    		 }
 	     }};
 	     
 	     xyBarRender.setMargin(0.1);// 设置柱形图之间的间隔
 	     NumberAxis y2Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
 	     y2Axis.setAutoRange(false);
+             y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     y2Axis.setRange(min2Value*0.9, high2Value*1.1);
 	     y2Axis.setTickUnit(new NumberTickUnit((high2Value*1.1-min2Value*0.9)/4));
 	     XYPlot plot2=new XYPlot(timeSeriesCollection,null,y2Axis,xyBarRender);// 建立第二个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
