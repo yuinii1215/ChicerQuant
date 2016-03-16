@@ -105,6 +105,8 @@ public class StockListBLController implements StockListBLService,Runnable {
 		.forEach(st->stockData.add(st));
 		//save
 		IOHelper.save(R.CachePath, CalendarHelper.getDate(c), (Serializable) stockData);
+		//delete
+		IOHelper.deleteFile(R.CachePath, CalendarHelper.getDate(CalendarHelper.getPreviousDay(c)));
 		//
 		isAlive=false;
 	}
