@@ -1,35 +1,14 @@
 package AnyQuantProject.ui.benchMarkUI;
 
-import java.awt.Color;
-import java.awt.Paint;
+import java.awt.event.ItemEvent;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javax.swing.ImageIcon;
-
-import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.DateAxis;
-import org.jfree.chart.axis.DateTickMarkPosition;
-import org.jfree.chart.axis.DateTickUnit;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.NumberTickUnit;
-import org.jfree.chart.axis.SegmentedTimeline;
-import org.jfree.chart.plot.CombinedDomainXYPlot;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.CandlestickRenderer;
-import org.jfree.chart.renderer.xy.XYBarRenderer;
-import org.jfree.data.time.Day;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesCollection;
-import org.jfree.data.time.ohlc.OHLCSeries;
-import org.jfree.data.time.ohlc.OHLCSeriesCollection;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
@@ -40,13 +19,11 @@ import javafx.embed.swing.SwingNode;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.AnchorPane;
 import AnyQuantProject.bl.factoryBL.BenchMarkBLFactory;
 import AnyQuantProject.bl.factoryBL.KLineBLFactory;
 import AnyQuantProject.blService.benchMarkBLService.BenchMarkBLService;
@@ -54,8 +31,6 @@ import AnyQuantProject.blService.kLineBLService.BenchmarkKLineBLService;
 import AnyQuantProject.dataStructure.BenchMark;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
-import AnyQuantProject.dataStructure.Stock;
-import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.method.DrawKLineChart;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
@@ -94,13 +69,16 @@ public class BenchMarkUIController implements Initializable{
 	@FXML
 	private  TableColumn<BenchMark, Long> flow;
 	@FXML
+	private Label today,yeaterday,max,min,volume,turnover;
+	@FXML
 	public  ComboBox benchMarkID;
 	@FXML
 	private Label currentTime;
 	@FXML
 	private Tab dayChatTab,monthChatTab,weekChatTab;
 	
-	private  ChartPanel panel ;
+	private  ChartPanel daypanel,weekpanel,monthpanel;
+	private SwingNode dayswingNode,weekswingNode,monthswingNode;
 	
 	private Calendar calendar;
 	String  benchMarkid;
@@ -153,17 +131,32 @@ public class BenchMarkUIController implements Initializable{
         }
             ObservableList items = FXCollections.observableArrayList(options);
             benchMarkID.setItems(items);
+            benchMarkID.setPromptText((String) items.get(0));
             benchMarkID.valueProperty().addListener(new ChangeListener<String>() {
                 @Override
                 public void changed(ObservableValue ov, String t, String t1) {
                 	benchMarkid = t1;
+               // 	simpleInfo(benchMarkid);
                     System.out.println("the selected benchMarkID is: " + benchMarkid);
-                    panel = new ChartPanel(drawDayKLine());
-                    panel.setOpaque(false);
-                    SwingNode swingNode = new SwingNode();
-                    swingNode.setContent(panel);
-                    dayChatTab.setContent(swingNode);     
-                
+                       
+                    daypanel = new ChartPanel(drawDayKLine());
+                    daypanel.setOpaque(false);
+                    dayswingNode = new SwingNode();
+                    dayswingNode.setContent(daypanel);
+                    dayChatTab.setContent(dayswingNode);    
+                    
+                    weekpanel = new ChartPanel(drawWeekKLine());
+                    weekpanel.setOpaque(false);
+                    weekswingNode = new SwingNode();
+                    weekswingNode.setContent(weekpanel);
+                    weekChatTab.setContent(weekswingNode);    
+                    
+                    monthpanel = new ChartPanel(drawMonthKLine());
+                    monthpanel.setOpaque(false);
+                    monthswingNode = new SwingNode();
+                    monthswingNode.setContent(monthpanel);
+                    monthChatTab.setContent(monthswingNode);    
+                    
                 
                 }
             });
@@ -194,21 +187,69 @@ public class BenchMarkUIController implements Initializable{
         flow.setCellValueFactory(cellData -> new SimpleLongProperty(
 			    cellData.getValue().getFlow()));
         
-      
-        
-//        ChartPanel panel = new ChartPanel(drawDayKLine());
-//        panel.setOpaque(false);
-//        SwingNode swingNode = new SwingNode();
-//        swingNode.setContent(panel);
-//        dayChatTab.setContent(swingNode);  
+//        if( dayChatTab.getOnSelectionChanged() != null){
+//        	daypanel = new ChartPanel(drawDayKLine());
+//            daypanel.setOpaque(false);
+//            dayswingNode = new SwingNode();
+//            dayswingNode.setContent(daypanel);
+//            dayChatTab.setContent(dayswingNode);    
+//    	}
+//        
+//        if( weekChatTab.getOnSelectionChanged() != null){
+//        	benchMarkid=benchMarkID.getPromptText();
+//        	weekpanel = new ChartPanel(drawWeekKLine());
+//        	weekpanel.setOpaque(false);
+//        	weekswingNode = new SwingNode();
+//        	weekswingNode.setContent(weekpanel);
+//        	weekChatTab.setContent(weekswingNode);    
+//        }
+//        
+//        if( monthChatTab.getOnSelectionChanged() != null){
+//        	benchMarkid=benchMarkID.getPromptText();
+//        	monthpanel = new ChartPanel(drawMonthKLine());
+//        	monthpanel.setOpaque(false);
+//        	monthswingNode = new SwingNode();
+//        	monthswingNode.setContent(monthpanel);
+//        	monthChatTab.setContent(monthswingNode);    
+//        }
    }
     
+    private void simpleInfo(String id){
+    	  for(int i=0;i<benchMarkList.size();i++){
+          	if(benchMarkList.get(i).getName()==id){
+          		today.setText(benchMarkList.get(i).getOpen()+"");
+          		yeaterday.setText(benchMarkList.get(i).getClose()+"");
+          		max.setText(benchMarkList.get(i).getHigh()+"");
+          		min.setText(benchMarkList.get(i).getLow()+"");
+          		volume.setText(benchMarkList.get(i).getVolume()+"");
+          		turnover.setText(benchMarkList.get(i).getTransaction()+"");
+          		break;
+          	}
+          }
+    }
     
+    private void showDayChart(){
+    	if( dayChatTab.getOnSelectionChanged() != null){
+    		
+    	}
+    }
+    private void showWeekChart(){}
+    private void showMonthChart(){}
     
-    public JFreeChart drawDayKLine() {
+    private JFreeChart drawDayKLine() {
     	 benchMarkKLineDate=benchmarkKLineBLService.dayKLineChart(benchMarkid);
     	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
     	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,benchMarkid);
+	}
+    private JFreeChart drawWeekKLine() {
+   	 benchMarkKLineDate=benchmarkKLineBLService.weekKLineChart(benchMarkid);
+   	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
+   	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,benchMarkid);
+	}
+    private JFreeChart drawMonthKLine() {
+   	 benchMarkKLineDate=benchmarkKLineBLService.monthKLineChart(benchMarkid);
+   	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
+   	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,benchMarkid);
 	}
 
     /**

@@ -1,7 +1,8 @@
-package AnyQuantProject.ui.controllerUI;
+package AnyQuantProject.starter;
 
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.bl.stockListBL.StockListBLController;
+import AnyQuantProject.ui.controllerUI.MainPageController;
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 
 import java.io.IOException;
@@ -52,11 +53,7 @@ public class Main extends Application {
 	private static Group root;
 	private static HBox h_box,hbox;	
 	static AnchorPane mainPanel,guidePanel,writePanel;
-	static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel;
-	public static AnchorPane singleStockInfoPanel;
-	static AnchorPane singleStockPanel;
-	static AnchorPane stockDealInfoPanel;
-	
+	public static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
 	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	private static double scrH =primaryScreenBounds.getHeight();
 	private static double scrW =primaryScreenBounds.getWidth();

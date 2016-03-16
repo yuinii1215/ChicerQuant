@@ -14,7 +14,7 @@
       <AnchorPane fx:id="infoPanel" layoutX="720.0" prefHeight="600.0" prefWidth="180.0" style="-fx-border-color: #000000;" />
       <TabPane blendMode="LIGHTEN" cache="true"  layoutX="4.0" layoutY="63.0" prefHeight="535.0" prefWidth="707.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE" >
         <tabs>
-          <Tab fx:id="dayChatTab" style="-fx-background-color: transparent;" text="日线" />
+          <Tab fx:id="dayChatTab"  style="-fx-background-color: transparent;" text="日线" />
           <Tab fx:id="weekChatTab" style="-fx-background-color: transparent;" text="周线" />
             <Tab fx:id="monthChatTab" style="-fx-background-color: transparent;" text="月线" />
         </tabs>
