@@ -25,13 +25,25 @@ import org.jfree.data.time.ohlc.OHLCSeries;
 import org.jfree.data.time.ohlc.OHLCSeriesCollection;
 
 import AnyQuantProject.dataStructure.KLineDataDTO;
+//import AnyQuantProject.util.constant.TimeType;
 
 public class DrawKLineChart {
 	
 	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,String id){
-		
+		//,TimeType type 
 		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+//		if(type.equals(type.DAY)){
+//			startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
+//		 }
+//		 else if(type.equals(type.WEEK)){
+//			 SimpleDateFormat df= new SimpleDateFormat("EEEE");// 设置日期格式
+//			 String week =df.format(date);
+//			 
+//		 }
+//		 else if(type.equals(type.MONTH)){
+//			 startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-01";
+//		 }
+		 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 	     double highValue = Double.MIN_VALUE;// 设置K线数据当中的最大值
 	     double minValue = Double.MAX_VALUE;// 设置K线数据当中的最小值
 	     double high2Value = Double.MIN_VALUE;// 设置成交量的最大值
@@ -135,6 +147,15 @@ public class DrawKLineChart {
 	     x1Axis.setTickMarkPosition(DateTickMarkPosition.MIDDLE);// 设置标记的位置
 	     x1Axis.setStandardTickUnits(DateAxis.createStandardDateTickUnits());// 设置标准的时间刻度单位
 	     x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));// 设置时间刻度的间隔，一般以周为单位
+//	     if(type.equals(type.DAY)){
+//	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));// 设置时间刻度的间隔，一般以周为单位
+//	     }
+//	     else if(type.equals(type.WEEK)){
+//	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,7));
+//	     }
+//	     else if(type.equals(type.MONTH)){
+//	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.MONTH,1));
+//	     }
 	     x1Axis.setDateFormatOverride(new SimpleDateFormat("MM-dd"));// 设置显示时间的格式
 	     
 	     // 设定y轴，就是数字轴
@@ -160,7 +181,7 @@ public class DrawKLineChart {
 	     xyBarRender.setMargin(0.1);// 设置柱形图之间的间隔
 	     NumberAxis y2Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
 	     y2Axis.setAutoRange(false);
-             y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
+         y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     y2Axis.setRange(min2Value*0.9, high2Value*1.1);
 	     y2Axis.setTickUnit(new NumberTickUnit((high2Value*1.1-min2Value*0.9)/4));
 	     XYPlot plot2=new XYPlot(timeSeriesCollection,null,y2Axis,xyBarRender);// 建立第二个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
@@ -169,7 +190,7 @@ public class DrawKLineChart {
 	     plot1.setOutlinePaint(java.awt.Color.LIGHT_GRAY);
 	     plot1.setBackgroundImage(icon.getImage());
 	     plot1.setBackgroundAlpha(0.3f);
-	        
+	  //   plot1.setRangeGridlinesVisible(false);
 	     plot2.setOutlinePaint(java.awt.Color.LIGHT_GRAY);
 	     plot2.setBackgroundImage(icon.getImage());
 	     plot2.setBackgroundAlpha(0.3f);
