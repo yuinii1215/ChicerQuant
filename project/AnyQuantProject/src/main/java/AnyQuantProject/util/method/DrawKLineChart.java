@@ -25,7 +25,7 @@ import org.jfree.data.time.ohlc.OHLCSeries;
 import org.jfree.data.time.ohlc.OHLCSeriesCollection;
 
 import AnyQuantProject.dataStructure.KLineDataDTO;
-//import AnyQuantProject.util.constant.TimeType;
+import AnyQuantProject.util.constant.TimeType;
 
 public class DrawKLineChart {
 	

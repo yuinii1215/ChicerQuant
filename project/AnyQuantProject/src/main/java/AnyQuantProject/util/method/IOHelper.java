@@ -55,4 +55,19 @@ public class IOHelper {
 			return null;
 		}
 	}
+	
+	public static OperationResult deleteFile(String path,String name){
+		String filePath=path+name+R.tail;
+		File file=new File(filePath);
+		try {
+			if (file.exists()) {
+				file.delete();
+			}
+			return new OperationResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new OperationResult(false, e.getMessage());
+		}
+		
+	}
 }

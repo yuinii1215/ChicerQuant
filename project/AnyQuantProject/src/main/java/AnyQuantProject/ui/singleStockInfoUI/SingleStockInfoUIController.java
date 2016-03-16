@@ -114,6 +114,7 @@ import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.ohlc.OHLCSeries;
 import org.jfree.data.time.ohlc.OHLCSeriesCollection;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import org.jfree.chart.ChartColor;
 import org.jfree.chart.ChartMouseEvent;
@@ -700,6 +701,7 @@ public class SingleStockInfoUIController implements Initializable {
 
         JFreeChart chart=drawDayKLine();
         ChartPanel panel = new ChartPanel(chart);
+        JScrollPane jsp=new JScrollPane();
         
 //        panel.setPreferredSize(new Dimension(800,500));
 //        panel.addChartMouseListener(new ChartMouseListener(){

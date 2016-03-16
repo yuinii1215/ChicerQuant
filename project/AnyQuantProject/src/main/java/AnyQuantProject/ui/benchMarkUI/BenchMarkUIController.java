@@ -150,7 +150,7 @@ public class BenchMarkUIController implements Initializable{
                     weekswingNode = new SwingNode();
                     weekswingNode.setContent(weekpanel);
                     weekChatTab.setContent(weekswingNode);    
-                    
+                   
                     monthpanel = new ChartPanel(drawMonthKLine());
                     monthpanel.setOpaque(false);
                     monthswingNode = new SwingNode();
@@ -187,31 +187,31 @@ public class BenchMarkUIController implements Initializable{
         flow.setCellValueFactory(cellData -> new SimpleLongProperty(
 			    cellData.getValue().getFlow()));
         
-//        if( dayChatTab.getOnSelectionChanged() != null){
-//        	daypanel = new ChartPanel(drawDayKLine());
-//            daypanel.setOpaque(false);
-//            dayswingNode = new SwingNode();
-//            dayswingNode.setContent(daypanel);
-//            dayChatTab.setContent(dayswingNode);    
-//    	}
-//        
-//        if( weekChatTab.getOnSelectionChanged() != null){
-//        	benchMarkid=benchMarkID.getPromptText();
-//        	weekpanel = new ChartPanel(drawWeekKLine());
-//        	weekpanel.setOpaque(false);
-//        	weekswingNode = new SwingNode();
-//        	weekswingNode.setContent(weekpanel);
-//        	weekChatTab.setContent(weekswingNode);    
-//        }
-//        
-//        if( monthChatTab.getOnSelectionChanged() != null){
-//        	benchMarkid=benchMarkID.getPromptText();
-//        	monthpanel = new ChartPanel(drawMonthKLine());
-//        	monthpanel.setOpaque(false);
-//        	monthswingNode = new SwingNode();
-//        	monthswingNode.setContent(monthpanel);
-//        	monthChatTab.setContent(monthswingNode);    
-//        }
+        if( dayChatTab.getOnSelectionChanged() != null){
+        	daypanel = new ChartPanel(drawDayKLine());
+            daypanel.setOpaque(false);
+            dayswingNode = new SwingNode();
+            dayswingNode.setContent(daypanel);
+            dayChatTab.setContent(dayswingNode);    
+    	}
+        
+        if( true){
+        	benchMarkid=benchMarkID.getPromptText();
+        	weekpanel = new ChartPanel(drawWeekKLine());
+        	weekpanel.setOpaque(false);
+        	weekswingNode = new SwingNode();
+        	weekswingNode.setContent(weekpanel);
+        	weekChatTab.setContent(weekswingNode);    
+        }
+        
+        if( monthChatTab.getOnSelectionChanged() != null){
+        	benchMarkid=benchMarkID.getPromptText();
+        	monthpanel = new ChartPanel(drawMonthKLine());
+        	monthpanel.setOpaque(false);
+        	monthswingNode = new SwingNode();
+        	monthswingNode.setContent(monthpanel);
+        	monthChatTab.setContent(monthswingNode);    
+        }
    }
     
     private void simpleInfo(String id){
@@ -228,14 +228,7 @@ public class BenchMarkUIController implements Initializable{
           }
     }
     
-    private void showDayChart(){
-    	if( dayChatTab.getOnSelectionChanged() != null){
-    		
-    	}
-    }
-    private void showWeekChart(){}
-    private void showMonthChart(){}
-    
+
     private JFreeChart drawDayKLine() {
     	 benchMarkKLineDate=benchmarkKLineBLService.dayKLineChart(benchMarkid);
     	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
