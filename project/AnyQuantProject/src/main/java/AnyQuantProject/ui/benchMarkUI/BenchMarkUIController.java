@@ -145,17 +145,17 @@ public class BenchMarkUIController implements Initializable{
                     dayswingNode.setContent(daypanel);
                     dayChatTab.setContent(dayswingNode);    
                     
-//                    weekpanel = new ChartPanel(drawWeekKLine());
-//                    weekpanel.setOpaque(false);
-//                    weekswingNode = new SwingNode();
-//                    weekswingNode.setContent(weekpanel);
-//                    weekChatTab.setContent(weekswingNode);    
-////                    
-//                    monthpanel = new ChartPanel(drawMonthKLine());
-//                    monthpanel.setOpaque(false);
-//                    monthswingNode = new SwingNode();
-//                    monthswingNode.setContent(monthpanel);
-//                    monthChatTab.setContent(monthswingNode);    
+                    weekpanel = new ChartPanel(drawWeekKLine());
+                    weekpanel.setOpaque(false);
+                    weekswingNode = new SwingNode();
+                    weekswingNode.setContent(weekpanel);
+                    weekChatTab.setContent(weekswingNode);    
+                   
+                    monthpanel = new ChartPanel(drawMonthKLine());
+                    monthpanel.setOpaque(false);
+                    monthswingNode = new SwingNode();
+                    monthswingNode.setContent(monthpanel);
+                    monthChatTab.setContent(monthswingNode);    
                     
                 
                 }

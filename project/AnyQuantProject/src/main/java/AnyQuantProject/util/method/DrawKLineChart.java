@@ -29,8 +29,8 @@ import AnyQuantProject.util.constant.TimeType;
 
 public class DrawKLineChart {
 	
-	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,String id,TimeType type ){
-		
+	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,String id){
+		//,TimeType type 
 		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
 //		if(type.equals(type.DAY)){
 //			startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
