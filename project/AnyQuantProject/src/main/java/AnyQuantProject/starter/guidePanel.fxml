@@ -14,22 +14,22 @@
          <children>
             <ImageView fx:id="myFavor" fitHeight="55.0" fitWidth="56.0" layoutX="12.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@myFavor.png" />
+                  <Image url="@/images/myFavor.png" />
                </image>
             </ImageView>
             <ImageView fx:id="allStocks" fitHeight="55.0" fitWidth="55.0" layoutX="11.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@allStocks.png" />
+                  <Image url="@/images/allStocks.png" />
                </image>
             </ImageView>
             <ImageView fx:id="BenchMark" fitHeight="85.0" fitWidth="86.0" layoutX="-3.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@benchMark.png" />
+                  <Image url="@/images/benchMark.png" />
                </image>
             </ImageView>
             <ImageView fx:id="module" fitHeight="54.0" fitWidth="56.0" layoutX="11.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
              <image>
-                  <Image url="@module.png" />
+                  <Image url="@/images/module.png" />
                </image>
             </ImageView>
             <Label layoutX="27.0" layoutY="164.0" textFill="WHITE">
