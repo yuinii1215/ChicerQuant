@@ -10,6 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import AnyQuantProject.starter.Main;
@@ -40,9 +43,23 @@ public class MainPageController  implements Initializable {
 	private Button defaultBtn = null;
 	
 	@FXML
+	private Button favoriteBtn,allStocksBtn,benchMarkBtn,moduleBtn;
+	@FXML
+	private ImageView myFavor,BenchMark,allStocks,module;
+	
+	@FXML
 	Tooltip myFavorTip,allStocksTip,benchMarkTip,moduleTip;
 	
-	private static MainPageController instance;
+	Image myFavor_Selected = new Image(getClass().getResourceAsStream("/images/myFavorSelected.png"));
+    Image allStocks_Selected = new Image(getClass().getResourceAsStream("/images/allStocksSelected.png"));
+    Image benchMark_Selected = new Image(getClass().getResourceAsStream("/images/benchMarkSelected.png"));
+    Image module_Selected = new Image(getClass().getResourceAsStream("/images/moduleSelected.png"));
+    Image myFavor_Exited = new Image(getClass().getResourceAsStream("/images/myFavor.png"));
+    Image allStocks_Exited= new Image(getClass().getResourceAsStream("/images/allStocks.png"));
+    Image benchMark_Exited = new Image(getClass().getResourceAsStream("/images/benchMark.png"));
+    Image module_Exited = new Image(getClass().getResourceAsStream("/images/module.png"));
+   
+    private static MainPageController instance;
 
     public static MainPageController getInstance() {
         return instance;
@@ -61,12 +78,36 @@ public class MainPageController  implements Initializable {
 		init();
 	}
 	
+	
 	private void init(){
-		myFavorTip = new Tooltip("我的关注");
-		myFavorTip.setWidth(30);
-		myFavorTip.setHeight(10);
-		//,allStocksTip,benchMarkTip,moduleTip
-	}
+
+		//pressed
+		favoriteBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Selected);
+			allStocks.setImage(allStocks_Exited);
+			BenchMark.setImage(benchMark_Exited);
+			module.setImage(module_Exited );
+        });
+		allStocksBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Exited);
+			allStocks.setImage(allStocks_Selected);
+			BenchMark.setImage(benchMark_Exited);
+			module.setImage(module_Exited );
+        });
+		benchMarkBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Exited);
+			allStocks.setImage(allStocks_Exited);
+			BenchMark.setImage(benchMark_Selected);
+			module.setImage(module_Exited );
+        });
+		moduleBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Exited);
+			allStocks.setImage(allStocks_Exited);
+			BenchMark.setImage(benchMark_Exited);
+			module.setImage(module_Selected );
+        });
+
+}
 	
 	
 	
