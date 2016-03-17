@@ -28,6 +28,7 @@ import org.jfree.data.time.ohlc.OHLCSeriesCollection;
 
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.util.constant.TimeType;
+import org.jfree.chart.axis.ValueAxis;
 
 public class DrawKLineChart {
 	
@@ -180,9 +181,10 @@ public class DrawKLineChart {
 	     // 设定y轴，就是数字轴
 	     NumberAxis y1Axis=new NumberAxis();
 	     y1Axis.setAutoRange(false);
-	     y1Axis.setRange(minValue*0.9, highValue*1.1);// 设定y轴值的范围，比最低值要低一些，比最大值要大一些，这样图形看起来会美观些
-	     y1Axis.setTickUnit(new NumberTickUnit((highValue*1.1-minValue*0.9)/10));// 设置刻度显示的密度
+	     y1Axis.setRange(minValue*0.8, highValue*1.1);// 设定y轴值的范围，比最低值要低一些，比最大值要大一些，这样图形看起来会美观些
+	     y1Axis.setTickUnit(new NumberTickUnit((highValue*1.1-minValue*0.9)/5));// 设置刻度显示的密度
 	     y1Axis.setTickLabelPaint(java.awt.Color.WHITE);
+             
 	     XYPlot plot1=new XYPlot(seriesCollection,x1Axis,y1Axis,candlestickRender);// 设置画图区域对象
 	 
 	     XYBarRenderer xyBarRender=new XYBarRenderer(){
@@ -200,11 +202,13 @@ public class DrawKLineChart {
 	     xyBarRender.setMargin(0.1);// 设置柱形图之间的间隔
 	     NumberAxis y2Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
 	     y2Axis.setAutoRange(false);
-         y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
+             y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     y2Axis.setRange(min2Value*0.9, high2Value*1.1);
 	     y2Axis.setTickUnit(new NumberTickUnit((high2Value*1.1-min2Value*0.9)/4));
 	     XYPlot plot2=new XYPlot(timeSeriesCollection,null,y2Axis,xyBarRender);// 建立第二个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
 
+	
+	     plot1.setOutlinePaint(java.awt.Color.LIGHT_GRAY);
 	     ImageIcon icon=new ImageIcon("/images/chart_background.jpg");
 	     plot1.setOutlinePaint(java.awt.Color.LIGHT_GRAY);
 	     plot1.setBackgroundImage(icon.getImage());
@@ -219,8 +223,10 @@ public class DrawKLineChart {
 	     combineddomainxyplot.add(plot2, 1);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域1/3
 	     combineddomainxyplot.setGap(10);// 设置两个图形区域对象之间的间隔空间
 	       
+             
 	     JFreeChart dayKChart = new JFreeChart(id, JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
 	     // 设置总的背景颜色
+       
 	     dayKChart.setBackgroundPaint(java.awt.Color.BLACK);
 	  //     dayKChart.setBackgroundImageAlpha(1f);
 	      return dayKChart;
