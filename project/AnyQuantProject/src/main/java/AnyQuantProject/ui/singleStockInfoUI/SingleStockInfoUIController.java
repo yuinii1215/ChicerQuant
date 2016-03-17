@@ -214,6 +214,10 @@ public class SingleStockInfoUIController implements Initializable {
     public Tab tab_dayKLine, tab_weekKLine, tab_monthKLine;
     @FXML
     AnchorPane anchorPane;
+    
+    SwingNode swingNode1,swingNode2,swingNode3;
+    ChartPanel panel1,panel2,panel3;
+      
     private XYItemEntity xyItemEntity;
 
     int rowColorFlag = 0;//flag取0,-1,1三种状态,0表示不涨不跌,1表示涨了,-1表示跌了
@@ -237,6 +241,8 @@ public class SingleStockInfoUIController implements Initializable {
 
     public List<Stock> singleStockList = new ArrayList<Stock>();
     public Stock singleStock = new Stock();
+    
+    private JFreeChart dayChart,weekChart,monthChart;
 
     public void laterInit(String name) {
         this.stockName = name;
@@ -374,6 +380,8 @@ public class SingleStockInfoUIController implements Initializable {
         }
     }
 
+    
+    
     public JFreeChart drawDayKLine() {
         /**
          * first get the kline data from the StockKLineBLService,the later singleStockList should be replaced by the klineData
@@ -381,17 +389,11 @@ public class SingleStockInfoUIController implements Initializable {
          */
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName);
+        
 //        List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
 //        System.out.println("the first date is:"+dayKLineList.get(0).getFlow());
-        
-<<<<<<< HEAD
-    	return  DrawKLineChart.DayKLineChart (dayKLineList,stockName,TimeType.DAY);
-=======
-//    	return  DrawKLineChart.DayKLineChart (dayKLineList,stockName);
->>>>>>> e4414b0172842612c058d0bc6e7f1fcebfeedc8c
-        
-        
-        
+//    	return  DrawKLineChart.DayKLineChart (dayKLineList,stockName,TimeType.DAY);
+     
         List<Stock> dayKLineList=singleStockList;
         
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
@@ -536,11 +538,18 @@ public class SingleStockInfoUIController implements Initializable {
         return dayKChart;
     }
 
-    public void drawWeekKLine() {
-
+    public JFreeChart drawWeekKLine() {      
+        StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
+        KLineData weekKLineData=stockKLineImpl.weekKLineChart(stockName);
+        List<KLineDataDTO> weekKLineList=weekKLineData.geKLineDataDTOs();
+    	return  DrawKLineChart.DayKLineChart (weekKLineList,stockName,TimeType.WEEK);
     }
 
-    public void drawMonthKLine() {
+    public JFreeChart drawMonthKLine() {
+        StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
+        KLineData monthKLineData=stockKLineImpl.monthKLineChart(stockName);
+        List<KLineDataDTO> monthKLineList=monthKLineData.geKLineDataDTOs();
+    	return  DrawKLineChart.DayKLineChart (monthKLineList,stockName,TimeType.WEEK);
 
     }
 
@@ -715,30 +724,33 @@ public class SingleStockInfoUIController implements Initializable {
             }
         });
 
-        JFreeChart chart=drawDayKLine();
-        ChartPanel panel = new ChartPanel(chart);
-        JScrollPane jsp=new JScrollPane();
         
-//        panel.setPreferredSize(new Dimension(800,500));
-//        panel.addChartMouseListener(new ChartMouseListener(){
-//            @Override
-//            public void chartMouseClicked(ChartMouseEvent cme) {
-//                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//            }
-//
-//            @Override
-//            public void chartMouseMoved(ChartMouseEvent ecm) {      
-//                
-//            }
-//        });
-        
-    
-        SwingNode swingNode = new SwingNode();
-        swingNode.setContent(panel);      
-        tab_dayKLine.setContent(swingNode);
         /**
-         * 没有实现吧JFreeChart加到JAVAFX之中
+         * add the JFREECHART into the tabpane
          */
+        swingNode1 = new SwingNode();
+        swingNode2 = new SwingNode();
+        swingNode3 = new SwingNode();
+        
+        dayChart=drawDayKLine();
+        weekChart=drawWeekKLine();
+        monthChart=drawMonthKLine();
+     
+        panel1 = new ChartPanel(dayChart);
+//      JScrollPane jsp=new JScrollPane();
+        swingNode1.setContent(panel1);    
+        tab_dayKLine.setContent(swingNode1);
+        
+        panel2 = new ChartPanel(weekChart);
+//       JScrollPane jsp=new JScrollPane();
+        swingNode2.setContent(panel2);  
+        tab_weekKLine.setContent(swingNode2);
+        
+        panel3 = new ChartPanel(monthChart);
+        swingNode3.setContent(panel3);      
+        tab_monthKLine.setContent(swingNode3);
+            
+ 
 
     }
 
