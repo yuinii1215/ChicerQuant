@@ -86,6 +86,7 @@ import AnyQuantProject.ui.singleStockInfoUI.StockInfo2Column;
 import AnyQuantProject.util.method.DrawKLineChart;
 import AnyQuantProject.util.method.MyChartMouseListener;
 import AnyQuantProject.util.method.MyKLineChartListener;
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Root;
 import java.awt.BorderLayout;
 
 import java.awt.Dimension;
@@ -100,6 +101,7 @@ import java.text.SimpleDateFormat;
 import java.util.Iterator;
 
 import javafx.embed.swing.JFXPanel;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -171,25 +173,7 @@ public class SingleStockInfoUIController implements Initializable {
     @FXML
     public Label nameLabel, chineseNameLabel;
     @FXML
-    Pane filterConditionPane;
-    @FXML
-    public TextField minRange;
-    @FXML
-    public TextField maxRange;
-    @FXML
-    public ComboBox keyWordBox;
-    @FXML
-    public Button filterCancelButton;
-    @FXML
-    public Button filterPerformButton;
-    @FXML
-    public ImageView filterImage;
-    @FXML
     public Button isFavorButton;
-    @FXML
-    public DatePicker startDatePicker;
-    @FXML
-    public DatePicker endDatePicker;
     @FXML
     public TableColumn<Stock, String> dateColumn;
     @FXML
@@ -227,13 +211,33 @@ public class SingleStockInfoUIController implements Initializable {
     @FXML
     AnchorPane anchorPane;
     
+    @FXML
+    public Pane filterConditionPane;
+    
+    @FXML
+    public TextField minRange;
+    @FXML
+    public TextField maxRange;
+    @FXML
+    public ComboBox keyWordBox;
+    @FXML
+    public Button filterCancelButton;
+    @FXML
+    public Button filterPerformButton;  
+    @FXML
+    public ImageView filterImage;
+    @FXML
+    Label toLabel1,toLabel2,keyWordLabel,valueLabel,periodLabel;
+    @FXML
+    public DatePicker startDatePicker;
+    @FXML
+    public DatePicker endDatePicker;
+    Group filterPaneContent;
+   
+    
     SwingNode swingNode1,swingNode2,swingNode3;
     ChartPanel panel1,panel2,panel3;
-      
-    private XYItemEntity xyItemEntity;
-
-    int rowColorFlag = 0;//flag取0,-1,1三种状态,0表示不涨不跌,1表示涨了,-1表示跌了
-
+    
     Image filterButton_normal = new Image(getClass().getResourceAsStream("/images/filterButton_normal.png"));
     Image filterButton_pressed = new Image(getClass().getResourceAsStream("/images/filterButton_pressed.png"));
     Image filterButton_entered = new Image(getClass().getResourceAsStream("/images/filterButton_entered.png"));
@@ -419,9 +423,9 @@ public class SingleStockInfoUIController implements Initializable {
     	return  DrawKLineChart.DayKLineChart (monthKLineList,stockName,TimeType.WEEK);
 
     }
-
+    
     public void init() {
-
+        
         helperButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
             filterImage.setImage(filterButton_entered);
         });
@@ -432,9 +436,13 @@ public class SingleStockInfoUIController implements Initializable {
             filterImage.setImage(filterButton_pressed);
             if (filterConditionPane.getOpacity() == 0.0) {
                 filterConditionPane.setOpacity(1.0);
+                filterConditionPane.setPrefSize(370, 227);
+                filterConditionPane.getChildren().add(filterPaneContent);
 
             } else {
                 filterConditionPane.setOpacity(0.0);
+                filterConditionPane.setPrefSize(0, 0);
+                filterConditionPane.getChildren().clear();
             }
         });
         /*
@@ -472,8 +480,8 @@ public class SingleStockInfoUIController implements Initializable {
         /*
           initialize the combobox
          */
-        String[] options = {"开盘价", "收盘价", "最高价", "最低价", "成交量", "后复权价", "市值", "流通", "换手率", "市盈率", "市净率"};
-        String[] columnNameList = {"open", "close", "high", "low", "volume", "adj_price", "marketvalue", "flow", "turnover", "pe_ttm", "pb"};
+        String[] options = {"时间","开盘价", "收盘价", "最高价", "最低价", "成交量", "后复权价", "市值", "流通", "换手率", "市盈率", "市净率"};
+        String[] columnNameList = {"date","open", "close", "high", "low", "volume", "adj_price", "marketvalue", "flow", "turnover", "pe_ttm", "pb"};
         ObservableList items = FXCollections.observableArrayList(options);
         keyWordBox.setItems(items);
         keyWordBox.valueProperty().addListener(new ChangeListener<String>() {
@@ -532,6 +540,7 @@ public class SingleStockInfoUIController implements Initializable {
                     @Override
                     protected void updateItem(Double item, boolean empty) {
                         super.updateItem(item, empty);
+                        if(this.getIndex()<singleStockList.size()){ 
                         if (!isEmpty()) {
                             double property = Math.random();
                             if (property > 0.5) {
@@ -540,6 +549,7 @@ public class SingleStockInfoUIController implements Initializable {
                                 this.setTextFill(Color.GREENYELLOW);
                             }
                             setText(item + "");
+                        }
                         }
                     }
                 };
@@ -591,40 +601,42 @@ public class SingleStockInfoUIController implements Initializable {
             }
         });
 
+        filterPaneContent=new Group();
+        filterPaneContent.getChildren().addAll(minRange,maxRange,keyWordBox,filterCancelButton,filterPerformButton,toLabel1,toLabel2,keyWordLabel,valueLabel,periodLabel,startDatePicker,endDatePicker);
+        filterConditionPane.setPrefSize(0, 0);
         
         /**
-         * add the JFREECHART into the tabpane
-         */
+         * add the JFreechart into the tabpane
+             */
         swingNode1 = new SwingNode();
-        swingNode2 = new SwingNode();
-        swingNode3 = new SwingNode();
-        
         dayChart=drawDayKLine();
-        weekChart=drawWeekKLine();
-        monthChart=drawMonthKLine();
-        
         panel1 = new ChartPanel(dayChart);
-        panel1.setMaximumSize(new Dimension(100000,50000));
+        panel1.setMaximumSize(new Dimension(1000,600));
         swingNode1.setContent(panel1);    
-       
-        /**
-         * add swing node  to a scroll
-         */
-        ScrollPane scroller=new ScrollPane();
-        scroller.setContent(swingNode1);
-        scroller.setFitToHeight(true);
-        tab_dayKLine.setContent(scroller);
+        ScrollPane scroller1=new ScrollPane();
+        scroller1.setContent(swingNode1);
+        scroller1.setFitToHeight(true);
+        tab_dayKLine.setContent(scroller1);
         
-//        panel2 = new ChartPanel(weekChart);
-////       JScrollPane jsp=new JScrollPane();
-//        swingNode2.setContent(panel2);  
-//        tab_weekKLine.setContent(swingNode2);
-//        
-//        panel3 = new ChartPanel(monthChart);
-//        swingNode3.setContent(panel3);      
-//        tab_monthKLine.setContent(swingNode3);
-            
- 
+        swingNode2 = new SwingNode();
+        weekChart=drawWeekKLine();
+        panel2 = new ChartPanel(weekChart);
+        panel2.setMaximumSize(new Dimension(1000,600));
+        swingNode2.setContent(panel2);    
+        ScrollPane scroller2=new ScrollPane();
+        scroller2.setContent(swingNode2);
+        scroller2.setFitToHeight(true);
+        tab_weekKLine.setContent(scroller2);
+       
+        swingNode3 = new SwingNode();
+        monthChart=drawMonthKLine();
+        panel3 = new ChartPanel(monthChart);
+        panel3.setMaximumSize(new Dimension(1000,600));
+        swingNode3.setContent(panel3);    
+        ScrollPane scroller3=new ScrollPane();
+        scroller3.setContent(swingNode3);
+        scroller3.setFitToHeight(true);
+        tab_monthKLine.setContent(scroller3);
 
     }
 

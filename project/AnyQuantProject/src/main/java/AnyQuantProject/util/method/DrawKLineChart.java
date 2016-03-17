@@ -127,7 +127,7 @@ public class DrawKLineChart {
 	     
 	     // 设置x轴，也就是时间轴
 	     DateAxis x1Axis=new DateAxis();
-	     x1Axis.setAutoRange(true);// 设置不采用自动设置时间范围
+	     x1Axis.setAutoRange(false);// 设置不采用自动设置时间范围
 	     x1Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     try{
 	    	 System.out.println("||||startdate||||"+startDate);
@@ -138,12 +138,9 @@ public class DrawKLineChart {
 	     
 	     // 设置时间线显示的规则，用这个方法就摒除掉了周六和周日这些没有交易的日期
 	     x1Axis.setTimeline(SegmentedTimeline.newMondayThroughFridayTimeline());
-//	     x1Axis.setAutoTickUnitSelection(false);// 设置不采用自动选择刻度值
-
-	     x1Axis.setAutoTickUnitSelection(true);// 设置不采用自动选择刻度值
-             
+	     x1Axis.setAutoTickUnitSelection(false);// 设置不采用自动选择刻度值       
 	     x1Axis.setTickMarkPosition(DateTickMarkPosition.START);// 设置标记的位置
-//	     x1Axis.setStandardTickUnits(DateAxis.createStandardDateTickUnits());// 设置标准的时间刻度单位
+	     x1Axis.setStandardTickUnits(DateAxis.createStandardDateTickUnits());// 设置标准的时间刻度单位
 	 //   x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));// 设置时间刻度的间隔，一般以周为单位
 	     if(type.equals(TimeType.DAY)){
 	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));
@@ -180,7 +177,7 @@ public class DrawKLineChart {
 	    		 }
 	     }};
 	     
-	     xyBarRender.setMargin(0.3);// 设置柱形图之间的间隔
+	     xyBarRender.setMargin(0.5);// 设置柱形图之间的间隔
 	     NumberAxis y2Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
 	     y2Axis.setAutoRange(false);
              y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
