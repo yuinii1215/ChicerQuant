@@ -106,6 +106,7 @@ public class MainPageController  implements Initializable {
 			BenchMark.setImage(benchMark_Exited);
 			module.setImage(module_Selected );
         });
+		
 
 }
 	

@@ -785,7 +785,7 @@ public class SingleStockInfoUIController implements Initializable {
         tab_dayKLine.setContent(scroller);
         
 //        panel2 = new ChartPanel(weekChart);
-////       JScrollPane jsp=new JScrollPane();
+//        JScrollPane jsp=new JScrollPane();
 //        swingNode2.setContent(panel2);  
 //        tab_weekKLine.setContent(swingNode2);
 //        

@@ -21,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -80,7 +81,7 @@ public class BenchMarkUIController implements Initializable{
 	
 	private  ChartPanel daypanel,weekpanel,monthpanel;
 	private SwingNode dayswingNode,weekswingNode,monthswingNode;
-	
+	private ScrollPane dayScroller,weekScroller,monthScroller;
 	private Calendar calendar;
 	String  benchMarkid;
 	//表格数据
@@ -142,18 +143,33 @@ public class BenchMarkUIController implements Initializable{
                        
                     daypanel = new ChartPanel(drawDayKLine());
                     dayswingNode = new SwingNode();
-                    dayswingNode.setContent(daypanel);
+                    dayswingNode .setContent(daypanel);    
+           //         dayScroller=new ScrollPane();
+            //        dayScroller.setFitToHeight(true);
+             //       dayScroller.setContent(dayswingNode);
+              //      dayChatTab.setContent(dayScroller);    
                     dayChatTab.setContent(dayswingNode);    
                     
                     weekpanel = new ChartPanel(drawWeekKLine());
+                    weekpanel.setBounds(0, 0, 2000, 800);
                     weekswingNode = new SwingNode();
-                    weekswingNode.setContent(weekpanel);
-                    weekChatTab.setContent(weekswingNode);    
+                    weekswingNode .setContent(weekpanel);    
+                    weekScroller=new ScrollPane();
+                    weekScroller.setFitToHeight(true);
+                    weekScroller.setFitToWidth(true);;
+                    weekScroller.setContent(weekswingNode);
+                    weekChatTab.setContent(weekScroller);    
                    
                     monthpanel = new ChartPanel(drawMonthKLine());
                     monthswingNode = new SwingNode();
-                    monthswingNode.setContent(monthpanel);
-                    monthChatTab.setContent(monthswingNode);    
+                    monthswingNode .setContent(monthpanel);    
+                    monthScroller=new ScrollPane();
+                    monthScroller.setFitToHeight(true);
+                    monthScroller.setContent(monthswingNode);
+                    monthChatTab.setContent(monthScroller);    
+                   
+                    
+                   
                     
                 
                 }
