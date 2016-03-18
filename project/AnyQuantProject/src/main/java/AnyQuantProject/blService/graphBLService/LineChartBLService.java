@@ -3,6 +3,7 @@ package AnyQuantProject.blService.graphBLService;
 import java.util.List;
 
 import AnyQuantProject.dataStructure.AbstractStock;
+import AnyQuantProject.dataStructure.BarData;
 import AnyQuantProject.dataStructure.LineChartData;
 
 /** 
@@ -16,4 +17,6 @@ public interface LineChartBLService extends GraphBLService {
 	public LineChartData drawMonthLineChart(List<? extends AbstractStock> src);
 	
 	public LineChartData drawMonthKLineChart(List<? extends AbstractStock> src);
+	
+	public List<BarData> drawKLineChart(String name);
 }
