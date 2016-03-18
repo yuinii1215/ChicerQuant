@@ -36,13 +36,10 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 			return new KLineData("", null);
 		}
 		refreshData(stockName);
-<<<<<<< HEAD
-		final List<KLineDataDTO> ans = oldStocks.stream().filter(st->st.getDateInCalendar().get(Calendar.YEAR)==2015).map(st -> (KLineDataDTO) st).collect(Collectors.toList());
-=======
+
 		final List<KLineDataDTO> ans = oldStocks.stream()
 				.filter(st->st.getDateInCalendar().before(end)&&st.getDateInCalendar().after(start))
 				.map(st -> (KLineDataDTO) st).collect(Collectors.toList());
->>>>>>> ccc380fa44439b2cc93f11ae08eee7dc69385c8e
 		return new KLineData(stockName+" 日线图", ans);
 		
 	}

@@ -404,7 +404,7 @@ public class SingleStockInfoUIController implements Initializable {
          * 
          */
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
-        KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName);
+        KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName,null,null);
         List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
     	return  DrawKLineChart.DayKLineChart (dayKLineList,stockName,TimeType.DAY);
     }

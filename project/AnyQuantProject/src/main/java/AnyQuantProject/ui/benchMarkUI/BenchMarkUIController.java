@@ -227,7 +227,7 @@ public class BenchMarkUIController implements Initializable{
     
 
     private JFreeChart drawDayKLine() {
-    	 benchMarkKLineDate=benchmarkKLineBLService.dayKLineChart(benchMarkid);
+    	 benchMarkKLineDate=benchmarkKLineBLService.dayKLineChart(benchMarkid,null,null);
     	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
     	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,benchMarkid,TimeType.DAY);
 	}
