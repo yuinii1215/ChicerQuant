@@ -64,6 +64,24 @@
                   <Tooltip fx:id="moduleTip" contentDisplay="RIGHT" height="10.0" text="股票模块" width="100.0" />
                </tooltip>
             </Button>
+            <ImageView fx:id="exit"  fitHeight="42.0" fitWidth="44.0" layoutY="556.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/exit.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="min"  fitHeight="42.0" fitWidth="42.0" layoutX="38.0" layoutY="556.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/min.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="minBtn" layoutX="40.0" layoutY="556.0" mnemonicParsing="false" opacity="0.0" prefHeight="42.0" prefWidth="42.0">
+               <tooltip>
+                  <Tooltip fx:id="minTip" contentDisplay="TOP" height="10.0" text="最小化" width="100.0" />
+               </tooltip></Button>
+            <Button fx:id="exitBtn" layoutX="-1.0" layoutY="556.0" mnemonicParsing="false" opacity="0.0" prefHeight="42.0" prefWidth="42.0">
+               <tooltip>
+                  <Tooltip fx:id="closeTip" contentDisplay="TOP" height="10.0" text="关闭" width="100.0" />
+               </tooltip></Button>
          </children>
       </AnchorPane>
    </children>

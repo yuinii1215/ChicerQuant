@@ -1,5 +1,6 @@
 package AnyQuantProject.ui.benchMarkUI;
 
+import java.awt.Dimension;
 import java.awt.event.ItemEvent;
 import java.net.URL;
 import java.util.ArrayList;
@@ -143,24 +144,30 @@ public class BenchMarkUIController implements Initializable{
                        
                     daypanel = new ChartPanel(drawDayKLine());
                     dayswingNode = new SwingNode();
-                    dayswingNode .setContent(daypanel);    
-           //         dayScroller=new ScrollPane();
-            //        dayScroller.setFitToHeight(true);
-             //       dayScroller.setContent(dayswingNode);
-              //      dayChatTab.setContent(dayScroller);    
-                    dayChatTab.setContent(dayswingNode);    
+                    daypanel.setMinimumSize(new Dimension(1000,300));
+                    daypanel.setMaximumSize(new Dimension(10000,600));
+                    dayswingNode .setContent(daypanel); 
+                    dayScroller=new ScrollPane();
+                    dayScroller.setContent(dayswingNode);
+             //       dayScroller.setFitToWidth(true);
+                    dayScroller.setFitToHeight(true);
+                    dayChatTab.setContent(dayScroller);    
+              
                     
                     weekpanel = new ChartPanel(drawWeekKLine());
-                    weekpanel.setBounds(0, 0, 2000, 800);
+                    weekpanel.setMinimumSize(new Dimension(1000,300));
+                    weekpanel.setMaximumSize(new Dimension(10000,600));
                     weekswingNode = new SwingNode();
                     weekswingNode .setContent(weekpanel);    
                     weekScroller=new ScrollPane();
                     weekScroller.setFitToHeight(true);
-                    weekScroller.setFitToWidth(true);;
+              //      weekScroller.setFitToWidth(true)
                     weekScroller.setContent(weekswingNode);
                     weekChatTab.setContent(weekScroller);    
                    
                     monthpanel = new ChartPanel(drawMonthKLine());
+                    monthpanel.setMinimumSize(new Dimension(1000,300));
+                    monthpanel.setMaximumSize(new Dimension(10000,600));
                     monthswingNode = new SwingNode();
                     monthswingNode .setContent(monthpanel);    
                     monthScroller=new ScrollPane();
