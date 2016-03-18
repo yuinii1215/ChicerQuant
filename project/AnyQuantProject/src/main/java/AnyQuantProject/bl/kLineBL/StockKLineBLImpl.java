@@ -28,14 +28,16 @@ public class StockKLineBLImpl implements StockKLineBLService {
 	private List<Stock> oldStocks;
 
 	@Override
-	public KLineData dayKLineChart(String stockName) {
+	public KLineData dayKLineChart(String stockName,Calendar start,Calendar end) {
 		if (!Checker.checkStringNotNull(stockName)) {
                     
 			return new KLineData("", null);
 		}
 		//
 		refreshData(stockName);
-		List<KLineDataDTO> ans = oldStocks.stream().map(st -> (KLineDataDTO) st).collect(Collectors.toList());
+		List<KLineDataDTO> ans = oldStocks.stream()
+				.filter(st->st.getDateInCalendar().before(end)&&st.getDateInCalendar().after(start))
+				.map(st -> (KLineDataDTO) st).collect(Collectors.toList());
 		return new KLineData(stockName+" 日线图", ans);
 		
 	}

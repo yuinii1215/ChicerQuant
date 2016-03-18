@@ -5,11 +5,13 @@ import java.util.List;
 import AnyQuantProject.bl.factoryBL.LineChartBLFactory;
 import AnyQuantProject.blService.graphBLService.LineChartBLService;
 import AnyQuantProject.dataStructure.AbstractStock;
+import AnyQuantProject.dataStructure.BarData;
 import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.method.Checker;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
 
 /** 
@@ -56,5 +58,12 @@ public class LineChartFactory {
 		data.getSeries().stream().forEach(ser->{
 			ans.getData().add((Series<String, Number>) ser);});
 		return ans;
+	}
+	public static XYChart<String, Number> getKLineChart(String name){
+		LineChartBLService lineChartBLService=LineChartBLFactory.getLineChartBLService();
+		List<BarData> barDatas=lineChartBLService.drawKLineChart(name);
+		CandleStickChart xyChart=new CandleStickChart(name, barDatas);
+		xyChart.setYAxisFormatter(new DecimalAxisFormatter("#000.00"));
+		return xyChart;
 	}
 }
