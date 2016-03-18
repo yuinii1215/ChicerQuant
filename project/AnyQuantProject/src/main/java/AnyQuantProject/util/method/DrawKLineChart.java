@@ -1,5 +1,6 @@
 package AnyQuantProject.util.method;
 
+import java.awt.Color;
 import java.awt.Paint;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,6 +10,7 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 
+import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.DateTickMarkPosition;
@@ -20,6 +22,8 @@ import org.jfree.chart.plot.CombinedDomainXYPlot;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.CandlestickRenderer;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
@@ -28,6 +32,7 @@ import org.jfree.data.time.ohlc.OHLCSeriesCollection;
 
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.util.constant.TimeType;
+
 import org.jfree.chart.axis.ValueAxis;
 
 public class DrawKLineChart {
@@ -118,23 +123,26 @@ public class DrawKLineChart {
 	      */
 	     final CandlestickRenderer candlestickRender=new CandlestickRenderer();// 设置K线图的画图器，必须申明为final，后面要在匿名内部类里面用到
 	     candlestickRender.setUseOutlinePaint(true); // 设置是否使用自定义的边框线，程序自带的边框线的颜色不符合中国股票市场的习惯
-	     candlestickRender.setAutoWidthMethod(CandlestickRenderer.WIDTHMETHOD_AVERAGE);// 设置如何对K线图的宽度进行设定
+	     candlestickRender.setAutoWidthMethod(CandlestickRenderer.WIDTHMETHOD_AVERAGE);// 设置如何对K线图的宽度进行设定    
 	     candlestickRender.setAutoWidthGap(0.001);// 设置各个K线图之间的间隔
 	     java.awt.Color awtColorRed = java.awt.Color.getColor("#FF69B4");
 	     java.awt.Color awtColorGreen = java.awt.Color.GREEN;
 	     candlestickRender.setUpPaint(awtColorRed);// 设置股票上涨的K线图颜色
 	     candlestickRender.setDownPaint(awtColorGreen);// 设置股票下跌的K线图颜色
-	     
+	     candlestickRender.setCandleWidth(5);
+	   
 	     // 设置x轴，也就是时间轴
 	     DateAxis x1Axis=new DateAxis();
 	     x1Axis.setAutoRange(false);// 设置不采用自动设置时间范围
 	     x1Axis.setTickLabelPaint(java.awt.Color.WHITE);
+
 	     try{
 	    	 System.out.println("||||startdate||||"+startDate);
 	    	 x1Axis.setRange(dateFormat.parse(startDate),dateFormat.parse(leastTime));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
 	     }catch(Exception e){
 	    	 e.printStackTrace();
 	     }
+	  
 	     
 	     // 设置时间线显示的规则，用这个方法就摒除掉了周六和周日这些没有交易的日期
 	     x1Axis.setTimeline(SegmentedTimeline.newMondayThroughFridayTimeline());
@@ -143,15 +151,15 @@ public class DrawKLineChart {
 	     x1Axis.setStandardTickUnits(DateAxis.createStandardDateTickUnits());// 设置标准的时间刻度单位
 	 //   x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));// 设置时间刻度的间隔，一般以周为单位
 	     if(type.equals(TimeType.DAY)){
-	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));
+	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.MONTH,1));
 	    	 System.out.println("..........day...........");
 	     }
 	     else if(type.equals(TimeType.WEEK)){
-	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,7));
+	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.YEAR,1));
 	    	 System.out.println("..........week...........");
 	     }
 	     else if(type.equals(TimeType.MONTH)){
-	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.MONTH,1));
+	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.MONTH,6));
 	    	 System.out.println("..........month...........");
 	     }
 	     x1Axis.setDateFormatOverride(new SimpleDateFormat("YYYY-MM-dd"));// 设置显示时间的格式
@@ -202,12 +210,14 @@ public class DrawKLineChart {
 	     combineddomainxyplot.setGap(10);// 设置两个图形区域对象之间的间隔空间
 	  
              
-	     JFreeChart dayKChart = new JFreeChart(id, JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
+	     JFreeChart chart = new JFreeChart(id, JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
 	     // 设置总的背景颜色
        
-	     dayKChart.setBackgroundPaint(java.awt.Color.BLACK);
+	     chart.setBackgroundPaint(java.awt.Color.BLACK);
 	  //     dayKChart.setBackgroundImageAlpha(1f);
-	      return dayKChart;
+	   
+	     
+	      return chart;
 	  
 		//统一上影线，下影线
 //	      Paint p = getItemPaint(series, item);

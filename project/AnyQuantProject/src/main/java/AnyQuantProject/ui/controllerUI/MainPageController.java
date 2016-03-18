@@ -96,6 +96,12 @@ public class MainPageController  implements Initializable {
 			BenchMark.setImage(benchMark_Exited);
 			module.setImage(module_Exited );
         });
+		favoriteBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Selected);
+			allStocks.setImage(allStocks_Exited);
+			BenchMark.setImage(benchMark_Exited);
+			module.setImage(module_Exited );
+        });
 		favoriteBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
 			myFavor.setImage(myFavor_Selected);
 		});

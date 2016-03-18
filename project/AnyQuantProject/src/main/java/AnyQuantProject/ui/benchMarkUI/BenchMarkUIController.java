@@ -144,8 +144,8 @@ public class BenchMarkUIController implements Initializable{
                        
                     daypanel = new ChartPanel(drawDayKLine());
                     dayswingNode = new SwingNode();
-                    daypanel.setMinimumSize(new Dimension(1000,300));
-                    daypanel.setMaximumSize(new Dimension(10000,600));
+                    daypanel.setMinimumSize(new Dimension(1000,400));
+        //            daypanel.setMaximumSize(new Dimension(10000,600));
                     dayswingNode .setContent(daypanel); 
                     dayScroller=new ScrollPane();
                     dayScroller.setContent(dayswingNode);
@@ -155,8 +155,8 @@ public class BenchMarkUIController implements Initializable{
               
                     
                     weekpanel = new ChartPanel(drawWeekKLine());
-                    weekpanel.setMinimumSize(new Dimension(1000,300));
-                    weekpanel.setMaximumSize(new Dimension(10000,600));
+                    weekpanel.setMinimumSize(new Dimension(1000,400));
+            //        weekpanel.setMaximumSize(new Dimension(10000,600));
                     weekswingNode = new SwingNode();
                     weekswingNode .setContent(weekpanel);    
                     weekScroller=new ScrollPane();
@@ -166,8 +166,8 @@ public class BenchMarkUIController implements Initializable{
                     weekChatTab.setContent(weekScroller);    
                    
                     monthpanel = new ChartPanel(drawMonthKLine());
-                    monthpanel.setMinimumSize(new Dimension(1000,300));
-                    monthpanel.setMaximumSize(new Dimension(10000,600));
+                    monthpanel.setMinimumSize(new Dimension(1000,400));
+          //          monthpanel.setMaximumSize(new Dimension(10000,600));
                     monthswingNode = new SwingNode();
                     monthswingNode .setContent(monthpanel);    
                     monthScroller=new ScrollPane();
