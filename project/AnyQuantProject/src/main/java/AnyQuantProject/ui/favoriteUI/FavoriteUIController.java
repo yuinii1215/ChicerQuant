@@ -23,7 +23,7 @@ import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.blService.stockListBLService.StockListBLService;
 import AnyQuantProject.dataStructure.Stock;
-import AnyQuantProject.ui.controllerUI.Main;
+import AnyQuantProject.starter.Main;
 import AnyQuantProject.ui.favoriteUI.search_method.SearchTextField;
 import AnyQuantProject.ui.favoriteUI.search_method.SeachTextFieldBuilder;
 import AnyQuantProject.util.method.SimpleDoubleProperty;

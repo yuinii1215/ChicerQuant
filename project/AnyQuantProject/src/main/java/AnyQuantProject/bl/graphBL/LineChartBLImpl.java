@@ -4,8 +4,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import AnyQuantProject.bl.factoryBL.KLineBLFactory;
 import AnyQuantProject.blService.graphBLService.LineChartBLService;
+import AnyQuantProject.blService.kLineBLService.KLineBLService;
+import AnyQuantProject.blService.kLineBLService.StockKLineBLService;
 import AnyQuantProject.dataStructure.AbstractStock;
+import AnyQuantProject.dataStructure.BarData;
+import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.method.Checker;
@@ -95,6 +100,13 @@ public class LineChartBLImpl implements LineChartBLService {
 		.forEach(da->closeSeries.getData().add(da));
 		//
 		return new LineChartData(title, xAxis, yAxis,highlowSeries, openSeries,closeSeries,averSeries);
+	}
+
+	@Override
+	public List<BarData> drawKLineChart(String name) {
+		StockKLineBLService stockKLineBLService=KLineBLFactory.getStockKLineBLService();
+		KLineData data=stockKLineBLService.dayKLineChart(name);
+		return null;
 	}
 
 }

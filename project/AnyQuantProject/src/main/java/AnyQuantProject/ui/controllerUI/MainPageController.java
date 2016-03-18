@@ -5,13 +5,20 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBuilder;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import AnyQuantProject.starter.Main;
 import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
@@ -39,9 +46,27 @@ public class MainPageController  implements Initializable {
 	private Button defaultBtn = null;
 	
 	@FXML
-	Tooltip myFavorTip,allStocksTip,benchMarkTip,moduleTip;
+	private Button favoriteBtn,allStocksBtn,benchMarkBtn,moduleBtn,minBtn,exitBtn;
+	@FXML
+	private ImageView myFavor,BenchMark,allStocks,module,exit,min;
 	
-	private static MainPageController instance;
+	@FXML
+	Tooltip myFavorTip,allStocksTip,benchMarkTip,moduleTip,minTip,closeTip;
+	
+	Image myFavor_Selected = new Image(getClass().getResourceAsStream("/images/myFavorSelected.png"));
+    Image allStocks_Selected = new Image(getClass().getResourceAsStream("/images/allStocksSelected.png"));
+    Image benchMark_Selected = new Image(getClass().getResourceAsStream("/images/benchMarkSelected.png"));
+    Image module_Selected = new Image(getClass().getResourceAsStream("/images/moduleSelected.png"));
+    Image myFavor_Exited = new Image(getClass().getResourceAsStream("/images/myFavor.png"));
+    Image allStocks_Exited= new Image(getClass().getResourceAsStream("/images/allStocks.png"));
+    Image benchMark_Exited = new Image(getClass().getResourceAsStream("/images/benchMark.png"));
+    Image module_Exited = new Image(getClass().getResourceAsStream("/images/module.png"));
+    Image exit_Entered = new Image(getClass().getResourceAsStream("/images/exitEntered.png"));
+    Image min_Entered = new Image(getClass().getResourceAsStream("/images/minEntered.png"));
+    Image exit_Exited = new Image(getClass().getResourceAsStream("/images/exit.png"));
+    Image min_Exited = new Image(getClass().getResourceAsStream("/images/min.png"));
+   
+    private static MainPageController instance;
 
     public static MainPageController getInstance() {
         return instance;
@@ -57,15 +82,92 @@ public class MainPageController  implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		 instance = this;
-		init();
+		 buttons();
 	}
 	
-	private void init(){
-		myFavorTip = new Tooltip("我的关注");
-		myFavorTip.setWidth(30);
-		myFavorTip.setHeight(10);
-		//,allStocksTip,benchMarkTip,moduleTip
-	}
+	
+	@SuppressWarnings("deprecation")
+	private void buttons(){
+
+		//pressed
+		favoriteBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Selected);
+			allStocks.setImage(allStocks_Exited);
+			BenchMark.setImage(benchMark_Exited);
+			module.setImage(module_Exited );
+        });
+		favoriteBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Selected);
+		});
+		favoriteBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Exited);
+		});
+		
+		allStocksBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Exited);
+			allStocks.setImage(allStocks_Selected);
+			BenchMark.setImage(benchMark_Exited);
+			module.setImage(module_Exited );
+        });
+		allStocksBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+			allStocks.setImage(allStocks_Selected);
+		});
+		allStocksBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+			allStocks.setImage(allStocks_Exited);
+		});
+		
+		benchMarkBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Exited);
+			allStocks.setImage(allStocks_Exited);
+			BenchMark.setImage(benchMark_Selected);
+			module.setImage(module_Exited );
+        });
+		benchMarkBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+			BenchMark.setImage(benchMark_Selected);
+		});
+		benchMarkBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+			BenchMark.setImage(benchMark_Exited);
+		});
+		
+		moduleBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+			myFavor.setImage(myFavor_Exited);
+			allStocks.setImage(allStocks_Exited);
+			BenchMark.setImage(benchMark_Exited);
+			module.setImage(module_Selected );
+        });
+		moduleBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+			module.setImage(module_Selected);
+		});
+		moduleBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+			module.setImage(module_Exited);
+		});
+		
+		
+		//exit,min
+		exitBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+			exit.setImage(exit_Entered);
+			Event.fireEvent(Main.getPrimaryStage(), new WindowEvent(Main.getPrimaryStage(), WindowEvent.WINDOW_CLOSE_REQUEST ));
+		});
+		minBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+			min.setImage(min_Entered);
+			Main.getPrimaryStage().setIconified(true);
+		});
+		
+		exitBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+			exit.setImage(exit_Entered);
+        });
+		minBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+			min.setImage(min_Entered);
+        });
+		exitBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+			exit.setImage(exit_Exited);
+        });
+		minBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+			min.setImage(min_Exited);
+        });
+		
+		
+}
 	
 	
 	

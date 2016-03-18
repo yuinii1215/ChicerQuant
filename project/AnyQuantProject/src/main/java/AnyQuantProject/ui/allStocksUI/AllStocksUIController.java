@@ -20,7 +20,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import AnyQuantProject.dataStructure.Stock;
-import AnyQuantProject.ui.controllerUI.Main;
+import AnyQuantProject.starter.Main;
 import AnyQuantProject.ui.controllerUI.MainPageController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
@@ -30,6 +30,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableRow;
 import javafx.util.Callback;
+
 
 
 //import AnyQuantProject.util.method.TableRowControl;

@@ -80,12 +80,12 @@
       <Pane id="filterConditionPane" fx:id="filterConditionPane" layoutX="531.0" layoutY="244.0" opacity="0.0" prefHeight="227.0" prefWidth="370.0" style="-fx-background-color: #004B97; -fx-background-radius: 20;" styleClass="paneView">
          <children>
             <ComboBox fx:id="keyWordBox" layoutX="106.0" layoutY="22.0" prefHeight="26.0" prefWidth="103.0" />
-            <Label layoutX="29.0" layoutY="32.0" prefHeight="19.0" prefWidth="59.0" text="关键字" textFill="WHITE">
+            <Label fx:id="keyWordLabel" layoutX="29.0" layoutY="32.0" prefHeight="19.0" prefWidth="59.0" text="关键字" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="27.0" layoutY="76.0" text="数值区间" textFill="WHITE">
+            <Label fx:id="valueLabel" layoutX="27.0" layoutY="76.0" text="数值区间" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -94,17 +94,17 @@
             <TextField fx:id="maxRange" layoutX="236.0" layoutY="71.0" prefHeight="26.0" prefWidth="103.0" />
             <DatePicker fx:id="startDatePicker" layoutX="106.0" layoutY="121.0" prefHeight="26.0" prefWidth="103.0" />
             <DatePicker fx:id="endDatePicker" layoutX="235.0" layoutY="120.0" prefHeight="26.0" prefWidth="103.0" />
-            <Label layoutX="29.0" layoutY="124.0" text="时间区间" textFill="WHITE">
+            <Label fx:id="periodLabel" layoutX="29.0" layoutY="124.0" text="时间区间" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="220.0" layoutY="83.0" text="至" textFill="WHITE">
+            <Label fx:id="toLabel1" layoutX="220.0" layoutY="83.0" text="至" textFill="WHITE">
                <font>
                   <Font size="12.0" />
                </font>
             </Label>
-            <Label layoutX="220.0" layoutY="133.0" text="至" textFill="WHITE">
+            <Label fx:id="toLabel2" layoutX="220.0" layoutY="133.0" text="至" textFill="WHITE">
                <font>
                   <Font size="12.0" />
                </font>
@@ -117,7 +117,7 @@
          </effect>
       </Pane>
       <Button id="button-isFavor" fx:id="isFavorButton" layoutX="780.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleFavorAction" opacity="0.86" prefHeight="26.0" prefWidth="73.0" styleClass="button-isFavor" text="取消关注" textFill="WHITE" />
-      <TabPane fx:id="kLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="23.0" layoutY="4.0" prefHeight="558.0" prefWidth="438.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="kLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="23.0" layoutY="21.0" prefHeight="558.0" prefWidth="438.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="tab_dayKLine" style="-fx-background-color: transparent;" text="日线" />
           <Tab fx:id="tab_weekKLine" style="-fx-background-color: transparent;" text="周线" />

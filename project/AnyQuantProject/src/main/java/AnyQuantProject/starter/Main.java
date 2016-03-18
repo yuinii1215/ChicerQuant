@@ -1,9 +1,12 @@
-package AnyQuantProject.ui.controllerUI;
+package AnyQuantProject.starter;
 
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.bl.stockListBL.StockListBLController;
+import AnyQuantProject.ui.controllerUI.MainPageController;
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 
+import java.awt.Point;
+import java.awt.event.MouseMotionAdapter;
 import java.io.IOException;
 
 import javafx.application.Application;
@@ -20,6 +23,8 @@ import javafx.scene.control.ButtonBuilder;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -29,6 +34,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -52,14 +58,12 @@ public class Main extends Application {
 	private static Group root;
 	private static HBox h_box,hbox;	
 	static AnchorPane mainPanel,guidePanel,writePanel;
-	static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel;
-	public static AnchorPane singleStockInfoPanel;
-	static AnchorPane singleStockPanel;
-	static AnchorPane stockDealInfoPanel;
-	
+	public static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
 	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	private static double scrH =primaryScreenBounds.getHeight();
 	private static double scrW =primaryScreenBounds.getWidth();
+	private static boolean move=false;
+	private static Point origin = new Point();
 	
 	public static Main getInstance(){
 	        return instance;
@@ -72,7 +76,7 @@ public class Main extends Application {
     
         public static Stage getPrimaryStage() {
 	// TODO Auto-generated method stub
-	return primaryStage;
+        	return primaryStage;
         }
 
 	public void start(Stage primaryStage) throws Exception {
@@ -94,9 +98,10 @@ public class Main extends Application {
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
 
 
-		primaryStage.setHeight(636);
-		primaryStage.setWidth(992);
-
+//		primaryStage.setHeight(636);
+//		primaryStage.setWidth(992);
+                primaryStage.setHeight(600);
+                primaryStage.setWidth(980);
 		primaryStage.setTitle("AnyQuant");	
 
 		h_box =new HBox(); 
@@ -105,20 +110,48 @@ public class Main extends Application {
 		h_box.setPadding(new Insets(0,0,0,0));
 		h_box.setSpacing(0);
 
-        
 		primaryStage.setScene(new Scene(h_box));
-		primaryStage.initStyle(StageStyle.DECORATED);
-//		primaryStage.initStyle(StageStyle.UNDECORATED);
+	//	primaryStage.initStyle(StageStyle.DECORATED);
+		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
+
+		//界面拖拽
+		primaryStage.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>(){
+
+			@Override
+			public void handle(MouseEvent e) {
+				// TODO Auto-generated method stub
+			   if(e.getY()<=(int)((double)primaryStage.getHeight()*22/490)){
+	            	move=true;
+	            	origin.x = (int) e.getX();  
+	                origin.y = (int) e.getY();
+	                }
+			   
+			}});
+		
+		primaryStage.addEventHandler(MouseEvent.MOUSE_RELEASED, new EventHandler<MouseEvent>(){
+
+			@Override
+			public void handle(MouseEvent e) {
+				// TODO Auto-generated method stub
+			   move =false;
+			}});
+
+		primaryStage.addEventHandler(MouseEvent.MOUSE_DRAGGED,new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent e) {	
+				if(move){
+	                double x = primaryStage.getX() ;
+	                double y =primaryStage.getY();
+	
+	                primaryStage.setX(x + e.getX() - origin.x);
+	                primaryStage.setY(y + e.getY() - origin.y);
+	            	}
+	            }
+		});
+		
 	//  enterMainScene();
 	//  buttons();
 		primaryStage.show();  
-		//
-		/**
-		 * @warning
-		 * 下面这句话，死都别删！！！！！！！
-		 */
-		
 }  
 	
 	
