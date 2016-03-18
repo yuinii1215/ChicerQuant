@@ -618,18 +618,7 @@ public class SingleStockInfoUIController implements Initializable {
         scroller1.setFitToHeight(true);
         tab_dayKLine.setContent(scroller1);
         
-<<<<<<< HEAD
-//        panel2 = new ChartPanel(weekChart);
-//        JScrollPane jsp=new JScrollPane();
-//        swingNode2.setContent(panel2);  
-//        tab_weekKLine.setContent(swingNode2);
-//        
-//        panel3 = new ChartPanel(monthChart);
-//        swingNode3.setContent(panel3);      
-//        tab_monthKLine.setContent(swingNode3);
-            
- 
-=======
+
         swingNode2 = new SwingNode();
         weekChart=drawWeekKLine();
         panel2 = new ChartPanel(weekChart);
@@ -649,7 +638,6 @@ public class SingleStockInfoUIController implements Initializable {
         scroller3.setContent(swingNode3);
         scroller3.setFitToHeight(true);
         tab_monthKLine.setContent(scroller3);
->>>>>>> e0451db56eccf992dfda6a5b3e6094e144500858
 
     }
 
