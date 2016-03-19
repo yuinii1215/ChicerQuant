@@ -34,9 +34,17 @@ public class StockKLineBLImpl implements StockKLineBLService {
 			return new KLineData("", null);
 		}
 		//
+		if (start==null) {
+			start=CalendarHelper.convert2Calendar(R.startDate);
+		}
+		if (end==null) {
+			end=Calendar.getInstance();
+		}
+		Calendar localStart=start;
+		Calendar localEnd=end;
 		refreshData(stockName);
 		List<KLineDataDTO> ans = oldStocks.stream()
-				.filter(st->st.getDateInCalendar().before(end)&&st.getDateInCalendar().after(start))
+				.filter(st->st.getDateInCalendar().before(localEnd)&&st.getDateInCalendar().after(localStart))
 				.map(st -> (KLineDataDTO) st).collect(Collectors.toList());
 		return new KLineData(stockName+" 日线图", ans);
 		
