@@ -37,7 +37,7 @@ import org.jfree.chart.axis.ValueAxis;
 
 public class DrawKLineChart {
 	
-	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,String id,TimeType type ){
+	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,String id,TimeType type,String endTime ){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		
 		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
@@ -117,7 +117,10 @@ public class DrawKLineChart {
 	    	}
 	    	
 	     	String leastTime=calendar.get(Calendar.YEAR)+"-"+leastmonth+"-"+leastday;
-	     	System.out.println("-------leastTime----------"+leastTime);
+	     	if(endTime==null){
+	     		endTime=leastTime;
+	     	}
+	     	System.out.println("-------leastTime----------"+endTime);
 	     /**
 	      * 设置K线图的画图器
 	      */
@@ -138,7 +141,7 @@ public class DrawKLineChart {
 
 	     try{
 	    	 System.out.println("||||startdate||||"+startDate);
-	    	 x1Axis.setRange(dateFormat.parse(startDate),dateFormat.parse(leastTime));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
+	    	 x1Axis.setRange(dateFormat.parse(startDate),dateFormat.parse(endTime));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
 	     }catch(Exception e){
 	    	 e.printStackTrace();
 	     }
