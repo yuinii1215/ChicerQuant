@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -105,7 +106,7 @@ public class BenchMarkUIController implements Initializable{
 	private ScrollPane dayScroller,weekScroller,monthScroller;
 	private Calendar calendar,startTime=null,endTime=null;
 	private CalendarHelper calendarHelper = new CalendarHelper();
-	
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
 	
 	String  benchMarkid;
 	//表格数据
@@ -139,7 +140,8 @@ public class BenchMarkUIController implements Initializable{
 	 * initialize the table
 	 * 
 	 */
-    public  void init(){
+    @SuppressWarnings("deprecation")
+	public  void init(){
     	
     	calendar=Calendar.getInstance();
     	
@@ -157,8 +159,23 @@ public class BenchMarkUIController implements Initializable{
         	options.add(benchMarkList.get(i).getName());
         }   
              
-        benchMarkid=benchMarkList.get(0).getName();
-        newTab();
+        	benchMarkid=benchMarkList.get(0).getName();
+        
+        	//init the dayTabPane
+        	int year =Integer.parseInt(String.valueOf(calendar.get(Calendar.YEAR)));
+        	int month =Integer.parseInt(String.valueOf(calendar.get(Calendar.MONTH)));
+        	int day =Integer.parseInt(String.valueOf(calendar.get(Calendar.DATE)));
+        	startTime = Calendar.getInstance();
+        	startTime.set(year,1,1);
+        	endTime = Calendar.getInstance();
+        	endTime.set(year,month+1,day-1);//yeaterday
+        	
+        	minTime.setValue(LocalDate.of(year, 1, 1));
+        	maxTime.setValue(LocalDate.of(year, month+1,day-1));
+        
+        	newDayTab();
+        	newWeek_MonthTab();
+        
         	ObservableList items = FXCollections.observableArrayList(options);
             benchMarkID.setItems(items);
             benchMarkID.setPromptText((String) items.get(0));
@@ -168,8 +185,10 @@ public class BenchMarkUIController implements Initializable{
                 	benchMarkid = t1;
                // 	simpleInfo(benchMarkid);
                     System.out.println("the selected benchMarkID is: " + benchMarkid);
-                   
-                    newTab();
+                  
+                    newDayTab();
+                    newWeek_MonthTab();
+                 
                 }
             });
 	
@@ -204,8 +223,7 @@ public class BenchMarkUIController implements Initializable{
 
   //      tabPane.getTabs().addAll(dayChatTab, weekChatTab,monthChatTab);
    
-        tabPane.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>()
-        {
+        tabPane.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>(){
             @Override
             public void changed(ObservableValue<? extends Tab> arg0, Tab arg1, Tab mostRecentlySelectedTab){
                 if (mostRecentlySelectedTab.equals(dayChatTab)){
@@ -251,9 +269,9 @@ public class BenchMarkUIController implements Initializable{
     //       dayScroller.setFitToWidth(true);
            dayScroller.setFitToHeight(true);
            dayChatTab.setContent(dayScroller);    
+    
     }
-    private void newTab(){
-           
+    private void newWeek_MonthTab(){
            weekpanel = new ChartPanel(drawWeekKLine());
            weekpanel.setMinimumSize(new Dimension(1000,400));
    //        weekpanel.setMaximumSize(new Dimension(10000,600));
@@ -314,7 +332,6 @@ public class BenchMarkUIController implements Initializable{
     	 benchMarkKLineDate=benchmarkKLineBLService.dayKLineChart(benchMarkid,startTime,endTime);
     	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
     	 String endtime=null;
-    	 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
     	 if(endTime==null){
     		 endtime=null;
     	 }
