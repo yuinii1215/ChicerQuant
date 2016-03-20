@@ -324,6 +324,7 @@ public class BenchMarkUIController implements Initializable{
     	 System.out.println("........BenchMark..........Calendar:endtime......"+endtime);
     	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,benchMarkid,TimeType.DAY,endtime);
 	}
+    
     private JFreeChart drawWeekKLine() {
     	LineChart();
     	benchMarkKLineDate=benchmarkKLineBLService.weekKLineChart(benchMarkid);
