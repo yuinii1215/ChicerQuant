@@ -1,6 +1,5 @@
 package AnyQuantProject.dataStructure;
 
-import org.python.antlr.base.boolop;
 
 /** 
 * AnyQuantProject//AnyQuantProject.dataStructure//KLineDataDTO.java

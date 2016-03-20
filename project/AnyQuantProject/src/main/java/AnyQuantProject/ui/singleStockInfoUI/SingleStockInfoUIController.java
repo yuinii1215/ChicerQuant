@@ -425,33 +425,31 @@ public class SingleStockInfoUIController implements Initializable {
     }
     
 //    public JFreeChart drawDayKLine() {
-    public CandleStickChart drawDayKLine(){
+    public JFreeChart drawDayKLine(){
         /**
          * first get the kline data from the StockKLineBLService,the later singleStockList should be replaced by the klineData
          * 
          */
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
-        KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName);
-        dayKLineList=dayKLineData.geKLineDataDTOs();
-        CandleStickChart candleStickChart = new CandleStickChart("dayChart", buildBars(dayKLineList));
-        candleStickChart.setPrefWidth(800);
-        return candleStickChart;
-       
-//    	return  DrawKLineChart.DayKLineChart (dayKLineList,stockName,TimeType.DAY);
+
+        KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName,null,null);
+        List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
+    	return  DrawKLineChart.DayKLineChart (dayKLineList,null,null,null,stockName,TimeType.DAY,null);
+
     }
 
     public JFreeChart drawWeekKLine() {      
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData weekKLineData=stockKLineImpl.weekKLineChart(stockName);
         List<KLineDataDTO> weekKLineList=weekKLineData.geKLineDataDTOs();
-    	return  DrawKLineChart.DayKLineChart (weekKLineList,stockName,TimeType.WEEK);
+    	return  DrawKLineChart.DayKLineChart (weekKLineList,null,null,null,stockName,TimeType.WEEK,null);
     }
 
     public JFreeChart drawMonthKLine() {
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData monthKLineData=stockKLineImpl.monthKLineChart(stockName);
         List<KLineDataDTO> monthKLineList=monthKLineData.geKLineDataDTOs();
-    	return  DrawKLineChart.DayKLineChart (monthKLineList,stockName,TimeType.WEEK);
+    	return  DrawKLineChart.DayKLineChart (monthKLineList,null,null,null,stockName,TimeType.WEEK,null);
 
     }
     
@@ -639,16 +637,16 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * add the JFreechart into the tabpane
              */
-//        swingNode1 = new SwingNode();
-//        dayChart=drawDayKLine();
-//        panel1 = new ChartPanel(dayChart);
-//        panel1.setMaximumSize(new Dimension(1000,600));
-//        swingNode1.setContent(panel1);    
-         ScrollPane scroller1=new ScrollPane();
-         scroller1.setContent(drawDayKLine());
-         scroller1.setFitToHeight(true);
-         tab_dayKLine.setContent(scroller1);
-        
+
+        swingNode1 = new SwingNode();
+        dayChart=drawDayKLine();
+        panel1 = new ChartPanel(dayChart);
+        panel1.setPopupMenu(null);
+        swingNode1.setContent(panel1);    
+        ScrollPane scroller1=new ScrollPane();
+        scroller1.setContent(swingNode1);
+        scroller1.setFitToHeight(true);
+        tab_dayKLine.setContent(scroller1);
 
         swingNode2 = new SwingNode();
         weekChart=drawWeekKLine();

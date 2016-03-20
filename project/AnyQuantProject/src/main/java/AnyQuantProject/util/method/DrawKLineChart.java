@@ -1,14 +1,17 @@
 package AnyQuantProject.util.method;
 
+import java.awt.Color;
 import java.awt.Paint;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.ImageIcon;
 
+import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.DateTickMarkPosition;
@@ -20,19 +23,30 @@ import org.jfree.chart.plot.CombinedDomainXYPlot;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.CandlestickRenderer;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
+import org.jfree.chart.renderer.xy.XYLine3DRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.Series;
+import org.jfree.data.general.SeriesException;
 import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.ohlc.OHLCSeries;
 import org.jfree.data.time.ohlc.OHLCSeriesCollection;
+import org.jfree.data.xy.XYDataset;
 
+import AnyQuantProject.bl.factoryBL.KLineBLFactory;
+import AnyQuantProject.blService.kLineBLService.BenchmarkKLineBLService;
+import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.util.constant.TimeType;
+
 import org.jfree.chart.axis.ValueAxis;
 
 public class DrawKLineChart {
 	
-	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,String id,TimeType type ){
+	
+	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,List<KLineDataDTO> fiveAvgDataList,List<KLineDataDTO> tenAvgDataList,List<KLineDataDTO> thirtyAvgDataList,String id,TimeType type,String endTime ){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		
 		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
@@ -112,29 +126,36 @@ public class DrawKLineChart {
 	    	}
 	    	
 	     	String leastTime=calendar.get(Calendar.YEAR)+"-"+leastmonth+"-"+leastday;
-	     	System.out.println("-------leastTime----------"+leastTime);
+	     	if(endTime==null){
+	     		endTime=leastTime;
+	     	}
+	     	System.out.println("-------leastTime----------"+endTime);
 	     /**
 	      * 设置K线图的画图器
 	      */
 	     final CandlestickRenderer candlestickRender=new CandlestickRenderer();// 设置K线图的画图器，必须申明为final，后面要在匿名内部类里面用到
 	     candlestickRender.setUseOutlinePaint(true); // 设置是否使用自定义的边框线，程序自带的边框线的颜色不符合中国股票市场的习惯
-	     candlestickRender.setAutoWidthMethod(CandlestickRenderer.WIDTHMETHOD_AVERAGE);// 设置如何对K线图的宽度进行设定
+	     candlestickRender.setAutoWidthMethod(CandlestickRenderer.WIDTHMETHOD_AVERAGE);// 设置如何对K线图的宽度进行设定    
 	     candlestickRender.setAutoWidthGap(0.001);// 设置各个K线图之间的间隔
 	     java.awt.Color awtColorRed = java.awt.Color.getColor("#FF69B4");
 	     java.awt.Color awtColorGreen = java.awt.Color.GREEN;
 	     candlestickRender.setUpPaint(awtColorRed);// 设置股票上涨的K线图颜色
 	     candlestickRender.setDownPaint(awtColorGreen);// 设置股票下跌的K线图颜色
-	     
+	     candlestickRender.setCandleWidth(5);
+	   
 	     // 设置x轴，也就是时间轴
 	     DateAxis x1Axis=new DateAxis();
 	     x1Axis.setAutoRange(false);// 设置不采用自动设置时间范围
 	     x1Axis.setTickLabelPaint(java.awt.Color.WHITE);
+
 	     try{
 	    	 System.out.println("||||startdate||||"+startDate);
-	    	 x1Axis.setRange(dateFormat.parse(startDate),dateFormat.parse(leastTime));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
+	    	 x1Axis.setRange(dateFormat.parse(startDate),dateFormat.parse(endTime));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
+	    	 
 	     }catch(Exception e){
 	    	 e.printStackTrace();
 	     }
+	  
 	     
 	     // 设置时间线显示的规则，用这个方法就摒除掉了周六和周日这些没有交易的日期
 	     x1Axis.setTimeline(SegmentedTimeline.newMondayThroughFridayTimeline());
@@ -143,15 +164,15 @@ public class DrawKLineChart {
 	     x1Axis.setStandardTickUnits(DateAxis.createStandardDateTickUnits());// 设置标准的时间刻度单位
 	 //   x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));// 设置时间刻度的间隔，一般以周为单位
 	     if(type.equals(TimeType.DAY)){
-	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,1));
+	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.MONTH,1));
 	    	 System.out.println("..........day...........");
 	     }
 	     else if(type.equals(TimeType.WEEK)){
-	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.DAY,7));
+	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.YEAR,1));
 	    	 System.out.println("..........week...........");
 	     }
 	     else if(type.equals(TimeType.MONTH)){
-	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.MONTH,1));
+	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.MONTH,6));
 	    	 System.out.println("..........month...........");
 	     }
 	     x1Axis.setDateFormatOverride(new SimpleDateFormat("YYYY-MM-dd"));// 设置显示时间的格式
@@ -163,8 +184,23 @@ public class DrawKLineChart {
 	     y1Axis.setTickUnit(new NumberTickUnit((highValue*1.1-minValue*0.9)/10));// 设置刻度显示的密度
 	     y1Axis.setTickLabelPaint(java.awt.Color.WHITE);
              
-	     XYPlot plot1=new XYPlot(seriesCollection,x1Axis,y1Axis,candlestickRender);// 设置画图区域对象
-	 
+	    // XYPlot plot1=new XYPlot(seriesCollection,x1Axis,y1Axis,candlestickRender);// 设置画图区域对象
+	      XYPlot plot1=new XYPlot();// 设置画图区域对象
+		  plot1.setDataset(seriesCollection);
+		  plot1.setRangeAxis(y1Axis);
+		  plot1.setRenderer(candlestickRender);
+	     
+	     //折线图
+		  if(fiveAvgDataList!=null){
+			 System.out.println(".......benchmark.....lineChart.....");	   	 
+			 
+			 LineChart(plot1,fiveAvgDataList ,5,1);
+			 LineChart(plot1,tenAvgDataList ,10,2);
+			 LineChart(plot1,thirtyAvgDataList ,30,3);
+	    } 
+	     
+		  
+	     //柱状图
 	     XYBarRenderer xyBarRender=new XYBarRenderer(){
 	    	 private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
                      @Override
@@ -180,7 +216,7 @@ public class DrawKLineChart {
 	     xyBarRender.setMargin(0.5);// 设置柱形图之间的间隔
 	     NumberAxis y2Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
 	     y2Axis.setAutoRange(false);
-             y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
+         y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     y2Axis.setRange(min2Value*0.9, high2Value*1.1);
 	     y2Axis.setTickUnit(new NumberTickUnit((high2Value*1.1-min2Value*0.9)/4));
 	     XYPlot plot2=new XYPlot(timeSeriesCollection,null,y2Axis,xyBarRender);// 建立第二个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
@@ -202,12 +238,15 @@ public class DrawKLineChart {
 	     combineddomainxyplot.setGap(10);// 设置两个图形区域对象之间的间隔空间
 	  
              
-	     JFreeChart dayKChart = new JFreeChart(id, JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
+	     JFreeChart chart = new JFreeChart(id, JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
 	     // 设置总的背景颜色
        
-	     dayKChart.setBackgroundPaint(java.awt.Color.BLACK);
+	     chart.setBackgroundPaint(java.awt.Color.BLACK);
+	     
 	  //     dayKChart.setBackgroundImageAlpha(1f);
-	      return dayKChart;
+	   
+	     
+	      return chart;
 	  
 		//统一上影线，下影线
 //	      Paint p = getItemPaint(series, item);
@@ -230,6 +269,38 @@ public class DrawKLineChart {
 //	            }
 //	           }
 	
+	}
+	
+	
+	
+	public static void LineChart(XYPlot plot,List<KLineDataDTO>  AvgDataList ,int aver,int n){
+		 TimeSeries series=new TimeSeries("");
+		 for(int i = 0; i < AvgDataList.size(); i++) {
+		    int date =Integer.parseInt( AvgDataList.get(i).getDay());
+            int month =Integer.parseInt( AvgDataList.get(i).getMonth());
+            int year =Integer.parseInt( AvgDataList.get(i).getYear());
+            series.add(new Day(date, month, year), AvgDataList.get(i).getClose());
+            
+		 }
+		 TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// PMA5
+		 timeSeriesCollection.addSeries(series);
+		 
+		 XYLineAndShapeRenderer xyLineRenderer  =new XYLineAndShapeRenderer();
+		 xyLineRenderer .setBaseItemLabelsVisible(true);  
+	    //xyLineRenderer.setSeriesFillPaint(0, java.awt.Color.yellow);
+		 if(aver==5){
+			 xyLineRenderer.setSeriesPaint(0, java.awt.Color.yellow);   
+		 }else if(aver==10){
+			 xyLineRenderer.setSeriesPaint(0, new Color(238,130,238));   //purple
+		 }else if(aver==30){
+			 xyLineRenderer.setSeriesPaint(0,new Color(64,224,208));   //blue
+		 }else{
+			 xyLineRenderer.setSeriesPaint(0, java.awt.Color.GRAY);   
+		 }
+	
+		 xyLineRenderer.setSeriesShapesVisible(0,false);   
+		 plot.setDataset(n,timeSeriesCollection);
+		 plot.setRenderer(n,xyLineRenderer);
 	}
 
 }

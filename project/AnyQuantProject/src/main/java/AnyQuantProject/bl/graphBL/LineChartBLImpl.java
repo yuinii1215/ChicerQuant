@@ -1,5 +1,8 @@
 package AnyQuantProject.bl.graphBL;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,11 +14,13 @@ import AnyQuantProject.blService.kLineBLService.StockKLineBLService;
 import AnyQuantProject.dataStructure.AbstractStock;
 import AnyQuantProject.dataStructure.BarData;
 import AnyQuantProject.dataStructure.KLineData;
+import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.method.Checker;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -105,8 +110,27 @@ public class LineChartBLImpl implements LineChartBLService {
 	@Override
 	public List<BarData> drawKLineChart(String name) {
 		StockKLineBLService stockKLineBLService=KLineBLFactory.getStockKLineBLService();
-		KLineData data=stockKLineBLService.dayKLineChart(name);
-		return null;
+		KLineData data=stockKLineBLService.monthKLineChart(name);
+		Calendar calendar=Calendar.getInstance();
+		calendar.set(2006, 1, 1);
+		GregorianCalendar gregorianCalendar=new GregorianCalendar();
+		gregorianCalendar.setTimeInMillis(calendar.getTimeInMillis());
+		List<KLineDataDTO> kLineDataDTOs=data.geKLineDataDTOs();
+		List<BarData> barDatas=new ArrayList<>(kLineDataDTOs.size());
+		
+		for (int i = 0; i < kLineDataDTOs.size(); i++) {
+			KLineDataDTO kLineDataDTO=kLineDataDTOs.get(i);
+			
+			BarData barData=new BarData((GregorianCalendar)gregorianCalendar.clone(), kLineDataDTO.getOpen(), kLineDataDTO.getHigh(), kLineDataDTO.getLow(), kLineDataDTO.getClose(), 10);
+			
+			gregorianCalendar.add(GregorianCalendar.MONTH, 1);
+			if (kLineDataDTO.getClose()==0||kLineDataDTO.getOpen()==0) {
+				continue;
+			}
+			barDatas.add(barData);
+		}
+		System.out.println(kLineDataDTOs.size());
+		return barDatas;
 	}
 
 }

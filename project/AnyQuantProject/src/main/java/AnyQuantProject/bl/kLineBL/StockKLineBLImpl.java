@@ -3,6 +3,7 @@ package AnyQuantProject.bl.kLineBL;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,6 +11,7 @@ import AnyQuantProject.blService.kLineBLService.StockKLineBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
+import AnyQuantProject.dataStructure.AbstractStock;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.Stock;
@@ -28,14 +30,24 @@ public class StockKLineBLImpl implements StockKLineBLService {
 	private List<Stock> oldStocks;
 
 	@Override
-	public KLineData dayKLineChart(String stockName) {
+	public KLineData dayKLineChart(String stockName,Calendar start,Calendar end) {
 		if (!Checker.checkStringNotNull(stockName)) {
                     
 			return new KLineData("", null);
 		}
 		//
+		if (start==null) {
+			start=CalendarHelper.convert2Calendar(R.startDate);
+		}
+		if (end==null) {
+			end=Calendar.getInstance();
+		}
+		Calendar localStart=start;
+		Calendar localEnd=end;
 		refreshData(stockName);
-		List<KLineDataDTO> ans = oldStocks.stream().map(st -> (KLineDataDTO) st).collect(Collectors.toList());
+		List<KLineDataDTO> ans = oldStocks.stream()
+				.filter(st->st.getDateInCalendar().before(localEnd)&&st.getDateInCalendar().after(localStart))
+				.map(st -> (KLineDataDTO) st).collect(Collectors.toList());
 		return new KLineData(stockName+" 日线图", ans);
 		
 	}
@@ -106,5 +118,75 @@ public class StockKLineBLImpl implements StockKLineBLService {
 				thread.start();
 			}
 		}
+	}
+
+	@Override
+	public KLineData getAverageLine(String stockName, Calendar start, Calendar end, int aver) {
+		if (!Checker.checkStringNotNull(stockName)) {
+            
+			return new KLineData("", null);
+		}
+		//
+		if (aver<=0) {
+			aver=5;
+		}
+		if (start==null) {
+			start=CalendarHelper.convert2Calendar(R.startDate);
+		}
+		if (end==null) {
+			end=Calendar.getInstance();
+		}
+		Calendar localStart=start;
+		Calendar localEnd=end;
+		refreshData(stockName);
+		List<KLineDataDTO> ans = oldStocks.stream()
+				.filter(st->st.getDateInCalendar().before(localEnd)&&st.getDateInCalendar().after(localStart))
+				.map(st -> (KLineDataDTO) st).collect(Collectors.toList());
+		Iterator<KLineDataDTO> iterator=ans.iterator();
+		List<KLineDataDTO> tar=new ArrayList<>((ans.size()/aver)+5);
+		while (iterator.hasNext()) {
+			//init data
+			double open=0;
+			double close=0;
+			double high=0;
+			double low=0;
+			long flow=0;
+			int volume=0;
+			int total=0;
+			String date=null;
+			for(int i=0;i<aver&&iterator.hasNext();i++){
+				KLineDataDTO temp=iterator.next();
+				if (i==0) {
+					date=((AbstractStock)temp).getDate();
+				}
+				if (temp.getOpen()==0) {
+					continue;
+				}
+				open+=temp.getOpen();
+				close+=temp.getClose();
+				high+=temp.getHigh();
+				low+=temp.getLow();
+				flow+=temp.getFlow();
+				volume+=temp.getVolume();
+				total++;
+			}
+			//build
+			open/=total;
+			close/=total;
+			high/=total;
+			low/=total;
+			flow/=total;
+			volume/=total;
+			Stock stock=new Stock();
+			stock.setDate(date);
+			stock.setOpen(open);
+			stock.setClose(close);
+			stock.setHigh(high);
+			stock.setLow(low);
+			stock.setFlow(flow);
+			stock.setVolume(volume);
+			tar.add(stock);
+		}
+		return new KLineData(stockName, tar);
 	}
 }

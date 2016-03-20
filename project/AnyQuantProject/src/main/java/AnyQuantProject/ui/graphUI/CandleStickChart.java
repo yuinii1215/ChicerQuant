@@ -53,7 +53,7 @@ import javafx.util.Duration;
  */
 public class CandleStickChart extends XYChart<String, Number> {
 
-    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+    SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
     protected static final Logger logger = Logger.getLogger(CandleStickChart.class.getName());
     protected int maxBarsToDisplay;
     protected ObservableList<XYChart.Series<String, Number>> dataSeries;
@@ -102,7 +102,7 @@ public class CandleStickChart extends XYChart<String, Number> {
         yAxis.forceZeroInRangeProperty().setValue(Boolean.FALSE);
         setTitle(title);
         setAnimated(true);
-        getStylesheets().add(getClass().getResource("/styles/CandleStickChartStyles.css").toExternalForm());
+        getStylesheets().add(getClass().getResource("CandleStickChartStyles.css").toExternalForm());
         xAxis.setAnimated(true);
         yAxis.setAnimated(true);
         verticalGridLinesVisibleProperty().set(false);
@@ -112,8 +112,6 @@ public class CandleStickChart extends XYChart<String, Number> {
             String label = "";
             label = sdf.format(bar.getDateTime().getTime());
             series.getData().add(new XYChart.Data<>(label, bar.getOpen(), bar));
-            logger.log(Level.INFO, "Adding bar with date/time: {0}", bar.getDateTime().getTime());
-            logger.log(Level.INFO, "Adding bar with price: {0}", bar.getOpen());
         }
 
         dataSeries = FXCollections.observableArrayList(series);
@@ -178,7 +176,6 @@ public class CandleStickChart extends XYChart<String, Number> {
     
     
     protected List<BarData> getSubList(List<BarData> bars, int maxBars) {
-        List<BarData> sublist;
         if (bars.size() > maxBars) {
             return bars.subList(bars.size() - 1 - maxBars, bars.size() - 1);
         } else {
