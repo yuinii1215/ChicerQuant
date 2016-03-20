@@ -98,6 +98,7 @@ import java.text.NumberFormat;
 import org.jfree.chart.ChartPanel;
 
 import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 
 import javafx.embed.swing.JFXPanel;
@@ -210,10 +211,8 @@ public class SingleStockInfoUIController implements Initializable {
     public Tab tab_dayKLine, tab_weekKLine, tab_monthKLine;
     @FXML
     AnchorPane anchorPane;
-    
     @FXML
-    public Pane filterConditionPane;
-    
+    public Pane filterConditionPane;  
     @FXML
     public TextField minRange;
     @FXML
@@ -259,18 +258,20 @@ public class SingleStockInfoUIController implements Initializable {
     public Stock singleStock = new Stock();
     
     private JFreeChart dayChart,weekChart,monthChart;
-
-    ChartSlider chartSlider;
             
+    private  KLineData singleStockKLineDate,fiveAverageLine,tenAverageLine,thirtyAverageLine;
+    private List<KLineDataDTO>  singleStockKLineDataList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList;
+
+    ScrollPane scroller1,scroller2,scroller3;
+    
     public void laterInit(String name) {
         this.stockName = name;
-        minTime = Calendar.getInstance();
+        maxTime = Calendar.getInstance();
         this.init();
     }
 
     /**
-     *
-     * @param TO BE EDIT
+     *do the filter job
      */
     private void filterPerformAction() {
 
@@ -329,14 +330,48 @@ public class SingleStockInfoUIController implements Initializable {
                     currentList, minTime, maxTime);
             filterFlag[3] = false;
             filterFlag[4] = false;
+            dayChart=drawDayKLine();
+            /*
+            update the timeRange of the stock
+            */
+            dayChart=drawDayKLine();
+            panel1 = new ChartPanel(dayChart);
+            panel1.setPopupMenu(null);
+            swingNode1.setContent(panel1);    
+            scroller1.setContent(swingNode1);
+            scroller1.setFitToHeight(true);
+            tab_dayKLine.setContent(scroller1);
+            
         } else if (filterFlag[3] && (!filterFlag[4])) {
             filteredList = listFilterBlImpl.filterStocksByDateGreater(
                     currentList, minTime);
             filterFlag[3] = false;
+            
+            /*
+            update the timeRange of the stock
+            */
+            dayChart=drawDayKLine();
+            panel1 = new ChartPanel(dayChart);
+            panel1.setPopupMenu(null);
+            swingNode1.setContent(panel1);    
+            scroller1.setContent(swingNode1);
+            scroller1.setFitToHeight(true);
+            tab_dayKLine.setContent(scroller1);
         } else if (!filterFlag[3] && filterFlag[4]) {
             filteredList = listFilterBlImpl.filterStocksByDateLess(currentList,
                     maxTime);
             filterFlag[4] = false;
+            
+                     /*
+            update the timeRange of the stock
+            */
+            dayChart=drawDayKLine();
+            panel1 = new ChartPanel(dayChart);
+            panel1.setPopupMenu(null);
+            swingNode1.setContent(panel1);    
+            scroller1.setContent(swingNode1);
+            scroller1.setFitToHeight(true);
+            tab_dayKLine.setContent(scroller1);
         } else if (filterFlag[1] && filterFlag[2] && minFilter == maxFilter) {
             targetFilter = minFilter;
             filteredList = listFilterBlImpl.filterStocksByFieldEqual(
@@ -398,32 +433,95 @@ public class SingleStockInfoUIController implements Initializable {
         }
     }    
        
-    public JFreeChart drawDayKLine() {
-        /**
-         * first get the kline data from the StockKLineBLService,the later singleStockList should be replaced by the klineData
-         * 
-         */
+    
+    public List<BarData> buildBars(List<KLineDataDTO> dayKLineData) {
+        double previousClose = 1850;
+ 
+        final List<BarData> bars = new ArrayList<>();
+        Calendar calendar=Calendar.getInstance();
+        calendar.set(2006, 1, 1);
+        
+        GregorianCalendar now = new GregorianCalendar();
+        now.setTimeInMillis(calendar.getTimeInMillis());
+        
+        for (int i = 0; i < 200; i++) {     
+            int year=Integer.parseInt(dayKLineData.get(i).getYear());
+            int month=Integer.parseInt(dayKLineData.get(i).getMonth());
+            int day=Integer.parseInt(dayKLineData.get(i).getDay());
+            now.set(year, month, day);
+            double open = dayKLineData.get(i).getOpen();
+            double close = dayKLineData.get(i).getClose();
+            double high =dayKLineData.get(i).getHigh();
+            double low = dayKLineData.get(i).getLow();
+            int volume=dayKLineData.get(i).getVolume();           
+            BarData bar = new BarData((GregorianCalendar)now.clone(), open, high, low, close, volume);
+            now.add((GregorianCalendar.DAY_OF_MONTH), 1);
+            bars.add(bar);
+        }
+        return bars;
+    }
+    
+//    public JFreeChart drawDayKLine() {
+    public JFreeChart drawDayKLine(){
+        LineChart();
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
-        KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName,null,null);
+        KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName,minTime,maxTime);
         List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
-    	return  DrawKLineChart.DayKLineChart (dayKLineList,null,null,null,stockName,TimeType.DAY,null);
+        String endtime=null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        if(maxTime==null){
+             endtime=null;
+        }else{
+             endtime=sdf.format(maxTime.getTime());
+        }
+    	return  DrawKLineChart.DayKLineChart (dayKLineList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.DAY,endtime);
+
     }
 
     public JFreeChart drawWeekKLine() {      
+        LineChart();
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData weekKLineData=stockKLineImpl.weekKLineChart(stockName);
         List<KLineDataDTO> weekKLineList=weekKLineData.geKLineDataDTOs();
-    	return  DrawKLineChart.DayKLineChart (weekKLineList,null,null,null,stockName,TimeType.WEEK,null);
+        String endtime=null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        if(maxTime==null){
+             endtime=null;
+        }else{
+             endtime=sdf.format(maxTime.getTime());
+        }
+    	return  DrawKLineChart.DayKLineChart (weekKLineList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.WEEK,endtime);
     }
 
     public JFreeChart drawMonthKLine() {
+        LineChart();
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData monthKLineData=stockKLineImpl.monthKLineChart(stockName);
         List<KLineDataDTO> monthKLineList=monthKLineData.geKLineDataDTOs();
-    	return  DrawKLineChart.DayKLineChart (monthKLineList,null,null,null,stockName,TimeType.WEEK,null);
+        String endtime=null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        if(maxTime==null){
+             endtime=null;
+        }else{
+             endtime=sdf.format(maxTime.getTime());
+        }
+    	return  DrawKLineChart.DayKLineChart (monthKLineList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.MONTH,endtime);
 
     }
     
+     public void LineChart(){
+         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
+    	//5日线
+   	 fiveAverageLine = stockKLineImpl.getAverageLine(stockName, minTime, maxTime, 5);
+   	 fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
+   	//10日线
+   	 tenAverageLine =stockKLineImpl.getAverageLine(stockName, minTime, maxTime, 10);
+         tenAverageLineDataList=tenAverageLine.geKLineDataDTOs();
+       //30日线
+   	 thirtyAverageLine= stockKLineImpl.getAverageLine(stockName, minTime, maxTime, 30);
+         thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
+    }
+     
     public void init() {
         
         helperButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
@@ -451,8 +549,8 @@ public class SingleStockInfoUIController implements Initializable {
         singleStockBlImpl = SingleStockBLFactory.getSingleStockInfoBLService();
         singleStockDealBlImpl = SingleStockBLFactory.getSingleStockDealBLService();
         singleStock = singleStockBlImpl.getSingleStockInfo(stockName);
-        singleStockList = singleStockDealBlImpl.getSingleStockDeal(stockName, minTime);
-
+        singleStockList = singleStockDealBlImpl.getSingleStockDeal(stockName, maxTime);
+   
         /**
          * 之后要改,调用singleStock
          */
@@ -608,21 +706,21 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * add the JFreechart into the tabpane
              */
+              
         swingNode1 = new SwingNode();
         dayChart=drawDayKLine();
         panel1 = this.getChartPanel(dayChart);
         swingNode1.setContent(panel1);    
-        ScrollPane scroller1=new ScrollPane();
+        scroller1=new ScrollPane();
         scroller1.setContent(swingNode1);
         scroller1.setFitToHeight(true);
         tab_dayKLine.setContent(scroller1);
-        
 
         swingNode2 = new SwingNode();
         weekChart=drawWeekKLine();
         panel2 = this.getChartPanel(weekChart);
         swingNode2.setContent(panel2);    
-        ScrollPane scroller2=new ScrollPane();
+        scroller2=new ScrollPane();
         scroller2.setContent(swingNode2);
         scroller2.setFitToHeight(true);
         tab_weekKLine.setContent(scroller2);
@@ -631,7 +729,7 @@ public class SingleStockInfoUIController implements Initializable {
         monthChart=drawMonthKLine();
         panel3 = this.getChartPanel(monthChart);
         swingNode3.setContent(panel3);    
-        ScrollPane scroller3=new ScrollPane();
+        scroller3=new ScrollPane();
         scroller3.setContent(swingNode3);
         scroller3.setFitToHeight(true);
         tab_monthKLine.setContent(scroller3);
