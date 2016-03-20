@@ -98,6 +98,7 @@ import java.text.NumberFormat;
 import org.jfree.chart.ChartPanel;
 
 import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 
 import javafx.embed.swing.JFXPanel;
@@ -210,10 +211,8 @@ public class SingleStockInfoUIController implements Initializable {
     public Tab tab_dayKLine, tab_weekKLine, tab_monthKLine;
     @FXML
     AnchorPane anchorPane;
-    
     @FXML
-    public Pane filterConditionPane;
-    
+    public Pane filterConditionPane;  
     @FXML
     public TextField minRange;
     @FXML
@@ -259,7 +258,7 @@ public class SingleStockInfoUIController implements Initializable {
     public Stock singleStock = new Stock();
     
     private JFreeChart dayChart,weekChart,monthChart;
-
+    List<KLineDataDTO> dayKLineList;
     ChartSlider chartSlider;
             
     public void laterInit(String name) {
@@ -269,8 +268,7 @@ public class SingleStockInfoUIController implements Initializable {
     }
 
     /**
-     *
-     * @param TO BE EDIT
+     *do the filter job
      */
     private void filterPerformAction() {
 
@@ -398,15 +396,48 @@ public class SingleStockInfoUIController implements Initializable {
         }
     }    
        
-    public JFreeChart drawDayKLine() {
+    
+    public List<BarData> buildBars(List<KLineDataDTO> dayKLineData) {
+        double previousClose = 1850;
+ 
+        final List<BarData> bars = new ArrayList<>();
+        Calendar calendar=Calendar.getInstance();
+        calendar.set(2006, 1, 1);
+        
+        GregorianCalendar now = new GregorianCalendar();
+        now.setTimeInMillis(calendar.getTimeInMillis());
+        
+        for (int i = 0; i < 200; i++) {     
+            int year=Integer.parseInt(dayKLineData.get(i).getYear());
+            int month=Integer.parseInt(dayKLineData.get(i).getMonth());
+            int day=Integer.parseInt(dayKLineData.get(i).getDay());
+            now.set(year, month, day);
+            double open = dayKLineData.get(i).getOpen();
+            double close = dayKLineData.get(i).getClose();
+            double high =dayKLineData.get(i).getHigh();
+            double low = dayKLineData.get(i).getLow();
+            int volume=dayKLineData.get(i).getVolume();           
+            BarData bar = new BarData((GregorianCalendar)now.clone(), open, high, low, close, volume);
+            now.add((GregorianCalendar.DAY_OF_MONTH), 1);
+            bars.add(bar);
+        }
+        return bars;
+    }
+    
+//    public JFreeChart drawDayKLine() {
+    public CandleStickChart drawDayKLine(){
         /**
          * first get the kline data from the StockKLineBLService,the later singleStockList should be replaced by the klineData
          * 
          */
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName);
-        List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
-    	return  DrawKLineChart.DayKLineChart (dayKLineList,stockName,TimeType.DAY);
+        dayKLineList=dayKLineData.geKLineDataDTOs();
+        CandleStickChart candleStickChart = new CandleStickChart("dayChart", buildBars(dayKLineList));
+        candleStickChart.setPrefWidth(800);
+        return candleStickChart;
+       
+//    	return  DrawKLineChart.DayKLineChart (dayKLineList,stockName,TimeType.DAY);
     }
 
     public JFreeChart drawWeekKLine() {      
@@ -608,15 +639,15 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * add the JFreechart into the tabpane
              */
-        swingNode1 = new SwingNode();
-        dayChart=drawDayKLine();
-        panel1 = new ChartPanel(dayChart);
-        panel1.setMaximumSize(new Dimension(1000,600));
-        swingNode1.setContent(panel1);    
-        ScrollPane scroller1=new ScrollPane();
-        scroller1.setContent(swingNode1);
-        scroller1.setFitToHeight(true);
-        tab_dayKLine.setContent(scroller1);
+//        swingNode1 = new SwingNode();
+//        dayChart=drawDayKLine();
+//        panel1 = new ChartPanel(dayChart);
+//        panel1.setMaximumSize(new Dimension(1000,600));
+//        swingNode1.setContent(panel1);    
+         ScrollPane scroller1=new ScrollPane();
+         scroller1.setContent(drawDayKLine());
+         scroller1.setFitToHeight(true);
+         tab_dayKLine.setContent(scroller1);
         
 
         swingNode2 = new SwingNode();
