@@ -22,6 +22,7 @@ import org.jfree.chart.plot.CombinedDomainXYPlot;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.CandlestickRenderer;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
+import org.jfree.chart.renderer.xy.XYLine3DRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.time.Day;
@@ -29,7 +30,11 @@ import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.ohlc.OHLCSeries;
 import org.jfree.data.time.ohlc.OHLCSeriesCollection;
+import org.jfree.data.xy.XYDataset;
 
+import AnyQuantProject.bl.factoryBL.KLineBLFactory;
+import AnyQuantProject.blService.kLineBLService.BenchmarkKLineBLService;
+import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.util.constant.TimeType;
 
@@ -37,7 +42,7 @@ import org.jfree.chart.axis.ValueAxis;
 
 public class DrawKLineChart {
 	
-	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,String id,TimeType type,String endTime ){
+	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,List<KLineDataDTO> fiveAvgDataList,String id,TimeType type,String endTime ){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		
 		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
@@ -174,8 +179,37 @@ public class DrawKLineChart {
 	     y1Axis.setTickUnit(new NumberTickUnit((highValue*1.1-minValue*0.9)/10));// 设置刻度显示的密度
 	     y1Axis.setTickLabelPaint(java.awt.Color.WHITE);
              
-	     XYPlot plot1=new XYPlot(seriesCollection,x1Axis,y1Axis,candlestickRender);// 设置画图区域对象
-	 
+	    // XYPlot plot1=new XYPlot(seriesCollection,x1Axis,y1Axis,candlestickRender);// 设置画图区域对象
+	      XYPlot plot1=new XYPlot();// 设置画图区域对象
+		  plot1.setDataset(1,seriesCollection);
+	//	  plot1.setDomainAxis(1,x1Axis);
+		  plot1.setRangeAxis(y1Axis);
+		  plot1.setRenderer(1,candlestickRender);
+	     
+	     //折线图
+	if(fiveAvgDataList!=null){
+		  DefaultCategoryDataset lineDataset1 = new DefaultCategoryDataset();
+		//  getAverageLine(String stockName, Calendar start, Calendar end, int aver);
+		//  List<KLineDataDTO> fiveAvgDataList
+		
+			System.out.println("nononoo");
+		
+		  for (int i = 0; i < fiveAvgDataList.size(); i++) {
+			  lineDataset1.addValue(fiveAvgDataList.get(i).getClose(),"5日折线图数据",  (Comparable) timeSeriesCollection);
+		  }
+
+		     XYLine3DRenderer xyLineRenderer1  =new XYLine3DRenderer();
+		     xyLineRenderer1 .setBaseFillPaint(Color.ORANGE);
+		     plot1.setDataset(2, (XYDataset) lineDataset1);
+		     plot1.setRenderer(2,xyLineRenderer1);
+	     
+	    } 
+	     
+	     
+	     
+	     
+	     
+	     //柱状图
 	     XYBarRenderer xyBarRender=new XYBarRenderer(){
 	    	 private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
                      @Override
