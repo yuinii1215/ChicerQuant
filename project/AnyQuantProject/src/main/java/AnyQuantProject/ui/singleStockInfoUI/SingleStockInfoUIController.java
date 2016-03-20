@@ -460,8 +460,7 @@ public class SingleStockInfoUIController implements Initializable {
         }
         return bars;
     }
-    
-//    public JFreeChart drawDayKLine() {
+
     public JFreeChart drawDayKLine(){
         LineChart();
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
