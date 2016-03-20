@@ -142,6 +142,7 @@ public class DrawKLineChart {
 	     try{
 	    	 System.out.println("||||startdate||||"+startDate);
 	    	 x1Axis.setRange(dateFormat.parse(startDate),dateFormat.parse(endTime));// 设置时间范围，注意时间的最大值要比已有的时间最大值要多一天
+	    	 
 	     }catch(Exception e){
 	    	 e.printStackTrace();
 	     }
@@ -217,6 +218,7 @@ public class DrawKLineChart {
 	     // 设置总的背景颜色
        
 	     chart.setBackgroundPaint(java.awt.Color.BLACK);
+	     
 	  //     dayKChart.setBackgroundImageAlpha(1f);
 	   
 	     

@@ -152,7 +152,9 @@ public class MainPageController  implements Initializable {
 		//exit,min
 		exitBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
 			exit.setImage(exit_Entered);
+			
 			Event.fireEvent(Main.getPrimaryStage(), new WindowEvent(Main.getPrimaryStage(), WindowEvent.WINDOW_CLOSE_REQUEST ));
+			System.exit(0);
 		});
 		minBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
 			min.setImage(min_Entered);
