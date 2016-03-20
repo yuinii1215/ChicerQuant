@@ -73,4 +73,31 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 		}
 	}
 
+	@Override
+	public List<Stock> getSingleStockDeal(String name, Calendar start, Calendar end) {
+		//name check
+				if (!Checker.checkStringNotNull(name)) {
+					return new ArrayList<Stock>();
+				}
+				if (start==null||end==null) {
+					return new ArrayList<>();
+				}
+				//year check
+				if (start.after(end)) {
+					return new ArrayList<>();
+				}
+				//
+				FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+				SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
+				//
+				try {
+					List<Stock> ans=singleStockDATAService
+							.getStockAmongDate(name, start, end);
+					return ans;
+				} catch (Exception e) {
+					e.printStackTrace();
+					return new ArrayList<>();
+				}
+	}
+
 }

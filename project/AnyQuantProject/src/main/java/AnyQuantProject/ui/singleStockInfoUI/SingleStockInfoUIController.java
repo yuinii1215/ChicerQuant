@@ -610,8 +610,7 @@ public class SingleStockInfoUIController implements Initializable {
              */
         swingNode1 = new SwingNode();
         dayChart=drawDayKLine();
-        panel1 = new ChartPanel(dayChart);
-        panel1.setPopupMenu(null);
+        panel1 = this.getChartPanel(dayChart);
         swingNode1.setContent(panel1);    
         ScrollPane scroller1=new ScrollPane();
         scroller1.setContent(swingNode1);
@@ -621,8 +620,7 @@ public class SingleStockInfoUIController implements Initializable {
 
         swingNode2 = new SwingNode();
         weekChart=drawWeekKLine();
-        panel2 = new ChartPanel(weekChart);
-        panel2.setMaximumSize(new Dimension(1000,600));
+        panel2 = this.getChartPanel(weekChart);
         swingNode2.setContent(panel2);    
         ScrollPane scroller2=new ScrollPane();
         scroller2.setContent(swingNode2);
@@ -631,14 +629,21 @@ public class SingleStockInfoUIController implements Initializable {
        
         swingNode3 = new SwingNode();
         monthChart=drawMonthKLine();
-        panel3 = new ChartPanel(monthChart);
-        panel3.setMaximumSize(new Dimension(1000,600));
+        panel3 = this.getChartPanel(monthChart);
         swingNode3.setContent(panel3);    
         ScrollPane scroller3=new ScrollPane();
         scroller3.setContent(swingNode3);
         scroller3.setFitToHeight(true);
         tab_monthKLine.setContent(scroller3);
 
+    }
+    private ChartPanel getChartPanel(JFreeChart jFreeChart){
+    	ChartPanel chartPanel=new ChartPanel(jFreeChart);
+    	chartPanel.setMaximumSize(new Dimension(1000, 600));
+    	chartPanel.setMouseWheelEnabled(true);
+    	chartPanel.setPopupMenu(null);
+    	chartPanel.setMouseZoomable(false);
+    	return chartPanel;
     }
 
     @FXML

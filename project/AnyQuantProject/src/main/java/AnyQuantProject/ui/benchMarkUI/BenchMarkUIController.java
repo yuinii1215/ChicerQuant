@@ -152,7 +152,7 @@ public class BenchMarkUIController implements Initializable{
 
         table.getItems().add(new BenchMark());
        
-        ArrayList<String> options = new  ArrayList<String>();
+        List<String> options = new  ArrayList<String>();
         for(int i=0;i<benchMarkList.size();i++){
         	options.add(benchMarkList.get(i).getName());
         }   
@@ -239,9 +239,16 @@ public class BenchMarkUIController implements Initializable{
         });
 
     }
+    private ChartPanel getChartPanel(JFreeChart jFreeChart){
+    	ChartPanel chartPanel=new ChartPanel(jFreeChart);
+    	chartPanel.setMaximumSize(new Dimension(1000, 600));
+    	chartPanel.setMouseWheelEnabled(true);
+    	chartPanel.setPopupMenu(null);
+    	return chartPanel;
+    }
     
     private void newDayTab(){
-    	   daypanel = new ChartPanel(drawDayKLine());
+    	   daypanel = getChartPanel(drawDayKLine());
            dayswingNode = new SwingNode();
            daypanel.setMinimumSize(new Dimension(1000,400));
 //            daypanel.setMaximumSize(new Dimension(10000,600));
@@ -254,7 +261,7 @@ public class BenchMarkUIController implements Initializable{
     }
     private void newTab(){
            
-           weekpanel = new ChartPanel(drawWeekKLine());
+           weekpanel = getChartPanel(drawWeekKLine());
            weekpanel.setMinimumSize(new Dimension(1000,400));
    //        weekpanel.setMaximumSize(new Dimension(10000,600));
            weekswingNode = new SwingNode();
@@ -265,7 +272,7 @@ public class BenchMarkUIController implements Initializable{
            weekScroller.setContent(weekswingNode);
            weekChatTab.setContent(weekScroller);    
           
-           monthpanel = new ChartPanel(drawMonthKLine());
+           monthpanel = getChartPanel(drawMonthKLine());
            monthpanel.setMinimumSize(new Dimension(1000,400));
  //          monthpanel.setMaximumSize(new Dimension(10000,600));
            monthswingNode = new SwingNode();
@@ -343,13 +350,13 @@ public class BenchMarkUIController implements Initializable{
     
     public void LineChart(){
     	//5日线
-   	 fiveAverageLine = benchmarkKLineBLService.getAverageLine(benchMarkid, startTime, endTime, 5);
+   	 fiveAverageLine = benchmarkKLineBLService.getDayAverageLine(benchMarkid, startTime, endTime, 5);
    	 fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
    	//10日线
-   	 tenAverageLine =benchmarkKLineBLService.getAverageLine(benchMarkid, startTime, endTime, 10);
+   	 tenAverageLine =benchmarkKLineBLService.getDayAverageLine(benchMarkid, startTime, endTime, 10);
      tenAverageLineDataList=tenAverageLine.geKLineDataDTOs();
        //30日线
-   	 thirtyAverageLine= benchmarkKLineBLService.getAverageLine(benchMarkid, startTime, endTime, 30);
+   	 thirtyAverageLine= benchmarkKLineBLService.getDayAverageLine(benchMarkid, startTime, endTime, 30);
      thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
     }
     

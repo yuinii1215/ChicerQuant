@@ -14,5 +14,7 @@ public interface KLineBLService {
 	KLineData dayKLineChart(String stockName,Calendar start,Calendar end);
 	KLineData weekKLineChart(String stockName);
 	KLineData monthKLineChart(String stockName);
-	KLineData getAverageLine(String stockName,Calendar start,Calendar end,int aver);
+	KLineData getDayAverageLine(String stockName,Calendar start,Calendar end,int aver);
+	KLineData getWeekAverageLine(String stockName,int aver);
+	KLineData getMonthAverageLine(String stockName,int aver);
 }

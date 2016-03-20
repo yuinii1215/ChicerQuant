@@ -74,7 +74,7 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 		final List<KLineDataDTO> ans = oldStocks.stream().filter(ben->ben.getDateInCalendar().get(Calendar.DAY_OF_MONTH)==1).map(st -> (KLineDataDTO) st).collect(Collectors.toList());
 		return new KLineData(stockName+" 月线图", ans);
 	}
-	public KLineData getAverageLine(String stockName, Calendar start, Calendar end, int aver) {
+	public KLineData getDayAverageLine(String stockName, Calendar start, Calendar end, int aver) {
 		if (!Checker.checkStringNotNull(stockName)) {
             
 			return new KLineData("", null);
@@ -95,6 +95,11 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 		List<KLineDataDTO> ans = oldStocks.stream()
 				.filter(st->st.getDateInCalendar().before(localEnd)&&st.getDateInCalendar().after(localStart))
 				.map(st -> (KLineDataDTO) st).collect(Collectors.toList());
+		
+		return new KLineData(stockName, calculateAverage(ans, aver));
+	}
+	
+	private List<KLineDataDTO> calculateAverage(List<KLineDataDTO> ans,int aver){
 		Iterator<KLineDataDTO> iterator=ans.iterator();
 		List<KLineDataDTO> tar=new ArrayList<>((ans.size()/aver)+5);
 		while (iterator.hasNext()) {
@@ -140,7 +145,7 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 			stock.setVolume(volume);
 			tar.add(stock);
 		}
-		return new KLineData(stockName, tar);
+		return tar;
 	}
 	
 	private void refreshData(String stockName) {
@@ -178,5 +183,23 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 				thread.start();
 			}
 		}
+	}
+
+	@Override
+	public KLineData getWeekAverageLine(String stockName, int aver) {
+		List<KLineDataDTO> ans=this.weekKLineChart(stockName).geKLineDataDTOs();
+		if (aver<1) {
+			aver=5;
+		}
+		return new KLineData(stockName, calculateAverage(ans, aver));
+	}
+
+	@Override
+	public KLineData getMonthAverageLine(String stockName, int aver) {
+		List<KLineDataDTO> ans=this.monthKLineChart(stockName).geKLineDataDTOs();
+		if (aver<1) {
+			aver=5;
+		}
+		return new KLineData(stockName, calculateAverage(ans, aver));
 	}
 }
