@@ -6,8 +6,16 @@ import AnyQuantProject.ui.controllerUI.MainPageController;
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.MouseMotionAdapter;
+import java.io.File;
 import java.io.IOException;
+
+import javax.swing.ImageIcon;
+
+import org.eclipse.swt.widgets.Scale;
+
+import com.hp.hpl.sparta.xpath.ParentNodeTest;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -17,6 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.ImageCursor;
 import javafx.scene.SceneBuilder;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBuilder;
@@ -38,7 +47,9 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.Node;
 import javafx.stage.WindowEvent;
+import javafx.scene.Cursor;
 
 /**
  * 
@@ -82,6 +93,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		instance=this;
+		
 		this.primaryStage = primaryStage;
 	//	mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
 		guidePanel= FXMLLoader.load(Main.class.getResource("guidePanel.fxml"));
@@ -152,13 +164,24 @@ public class Main extends Application {
 	//  enterMainScene();
 	//  buttons();
 		primaryStage.show();  
+		
 }  
+	
+//	private Scene buildScene(Node node){
+//		Image image = new Image(new File("images/mouse cursor.png").toURI().toString());
+//		//TODO
+//		ImageCursor cursor = new ImageCursor(image, image.getWidth(),image.getHeight());
+//		node.setCursor(cursor);
+//		return node.getScene();
+//	}
 	
 	
     public void enterMainScene(){
     //	Main.getPrimaryStage().setScene(new Scene(guidePanel));
+    	//TODO
         this.primaryStage.setScene(new Scene(mainPanel));
-    //  MainPageController.getInstance().showAnimation();
+//        this.primaryStage.setScene(buildScene(mainPanel));
+//      MainPageController.getInstance().showAnimation();
         MainPageController.getInstance().initPanel();
     }
     
