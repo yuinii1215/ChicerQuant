@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -25,6 +26,8 @@ import org.jfree.chart.renderer.xy.XYBarRenderer;
 import org.jfree.chart.renderer.xy.XYLine3DRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.Series;
+import org.jfree.data.general.SeriesException;
 import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
@@ -42,7 +45,8 @@ import org.jfree.chart.axis.ValueAxis;
 
 public class DrawKLineChart {
 	
-	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,List<KLineDataDTO> fiveAvgDataList,String id,TimeType type,String endTime ){
+	
+	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,List<KLineDataDTO> fiveAvgDataList,List<KLineDataDTO> tenAvgDataList,List<KLineDataDTO> thirtyAvgDataList,String id,TimeType type,String endTime ){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		
 		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
@@ -182,34 +186,20 @@ public class DrawKLineChart {
              
 	    // XYPlot plot1=new XYPlot(seriesCollection,x1Axis,y1Axis,candlestickRender);// 设置画图区域对象
 	      XYPlot plot1=new XYPlot();// 设置画图区域对象
-		  plot1.setDataset(1,seriesCollection);
-	//	  plot1.setDomainAxis(1,x1Axis);
+		  plot1.setDataset(seriesCollection);
 		  plot1.setRangeAxis(y1Axis);
-		  plot1.setRenderer(1,candlestickRender);
+		  plot1.setRenderer(candlestickRender);
 	     
 	     //折线图
-	if(fiveAvgDataList!=null){
-		  DefaultCategoryDataset lineDataset1 = new DefaultCategoryDataset();
-		//  getAverageLine(String stockName, Calendar start, Calendar end, int aver);
-		//  List<KLineDataDTO> fiveAvgDataList
-		
-			System.out.println("nononoo");
-		
-		  for (int i = 0; i < fiveAvgDataList.size(); i++) {
-			  lineDataset1.addValue(fiveAvgDataList.get(i).getClose(),"5日折线图数据",  (Comparable) timeSeriesCollection);
-		  }
-
-		     XYLine3DRenderer xyLineRenderer1  =new XYLine3DRenderer();
-		     xyLineRenderer1 .setBaseFillPaint(Color.ORANGE);
-		     plot1.setDataset(2, (XYDataset) lineDataset1);
-		     plot1.setRenderer(2,xyLineRenderer1);
-	     
+		  if(fiveAvgDataList!=null){
+			 System.out.println(".......benchmark.....lineChart.....");	   	 
+			 
+			 LineChart(plot1,fiveAvgDataList ,5,1);
+			 LineChart(plot1,tenAvgDataList ,10,2);
+			 LineChart(plot1,thirtyAvgDataList ,30,3);
 	    } 
 	     
-	     
-	     
-	     
-	     
+		  
 	     //柱状图
 	     XYBarRenderer xyBarRender=new XYBarRenderer(){
 	    	 private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
@@ -226,7 +216,7 @@ public class DrawKLineChart {
 	     xyBarRender.setMargin(0.5);// 设置柱形图之间的间隔
 	     NumberAxis y2Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
 	     y2Axis.setAutoRange(false);
-             y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
+         y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     y2Axis.setRange(min2Value*0.9, high2Value*1.1);
 	     y2Axis.setTickUnit(new NumberTickUnit((high2Value*1.1-min2Value*0.9)/4));
 	     XYPlot plot2=new XYPlot(timeSeriesCollection,null,y2Axis,xyBarRender);// 建立第二个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
@@ -279,6 +269,38 @@ public class DrawKLineChart {
 //	            }
 //	           }
 	
+	}
+	
+	
+	
+	public static void LineChart(XYPlot plot,List<KLineDataDTO>  AvgDataList ,int aver,int n){
+		 TimeSeries series=new TimeSeries("");
+		 for(int i = 0; i < AvgDataList.size(); i++) {
+		    int date =Integer.parseInt( AvgDataList.get(i).getDay());
+            int month =Integer.parseInt( AvgDataList.get(i).getMonth());
+            int year =Integer.parseInt( AvgDataList.get(i).getYear());
+            series.add(new Day(date, month, year), AvgDataList.get(i).getClose());
+            
+		 }
+		 TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// PMA5
+		 timeSeriesCollection.addSeries(series);
+		 
+		 XYLineAndShapeRenderer xyLineRenderer  =new XYLineAndShapeRenderer();
+		 xyLineRenderer .setBaseItemLabelsVisible(true);  
+	    //xyLineRenderer.setSeriesFillPaint(0, java.awt.Color.yellow);
+		 if(aver==5){
+			 xyLineRenderer.setSeriesPaint(0, java.awt.Color.yellow);   
+		 }else if(aver==10){
+			 xyLineRenderer.setSeriesPaint(0, new Color(238,130,238));   //purple
+		 }else if(aver==30){
+			 xyLineRenderer.setSeriesPaint(0,new Color(64,224,208));   //blue
+		 }else{
+			 xyLineRenderer.setSeriesPaint(0, java.awt.Color.GRAY);   
+		 }
+	
+		 xyLineRenderer.setSeriesShapesVisible(0,false);   
+		 plot.setDataset(n,timeSeriesCollection);
+		 plot.setRenderer(n,xyLineRenderer);
 	}
 
 }

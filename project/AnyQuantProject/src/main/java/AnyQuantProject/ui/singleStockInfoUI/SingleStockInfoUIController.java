@@ -406,21 +406,21 @@ public class SingleStockInfoUIController implements Initializable {
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName,null,null);
         List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
-    	return  DrawKLineChart.DayKLineChart (dayKLineList,null,stockName,TimeType.DAY,null);
+    	return  DrawKLineChart.DayKLineChart (dayKLineList,null,null,null,stockName,TimeType.DAY,null);
     }
 
     public JFreeChart drawWeekKLine() {      
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData weekKLineData=stockKLineImpl.weekKLineChart(stockName);
         List<KLineDataDTO> weekKLineList=weekKLineData.geKLineDataDTOs();
-    	return  DrawKLineChart.DayKLineChart (weekKLineList,null,stockName,TimeType.WEEK,null);
+    	return  DrawKLineChart.DayKLineChart (weekKLineList,null,null,null,stockName,TimeType.WEEK,null);
     }
 
     public JFreeChart drawMonthKLine() {
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData monthKLineData=stockKLineImpl.monthKLineChart(stockName);
         List<KLineDataDTO> monthKLineList=monthKLineData.geKLineDataDTOs();
-    	return  DrawKLineChart.DayKLineChart (monthKLineList,null,stockName,TimeType.WEEK,null);
+    	return  DrawKLineChart.DayKLineChart (monthKLineList,null,null,null,stockName,TimeType.WEEK,null);
 
     }
     
