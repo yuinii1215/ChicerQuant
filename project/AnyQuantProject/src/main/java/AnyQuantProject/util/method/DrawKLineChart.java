@@ -224,7 +224,7 @@ public class DrawKLineChart {
 	     xyBarRender.setMargin(0.5);// 设置柱形图之间的间隔
 	     NumberAxis y2Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
 	     y2Axis.setAutoRange(false);
-         y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
+             y2Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     y2Axis.setRange(min2Value*0.9, high2Value*1.1);
 	     y2Axis.setTickUnit(new NumberTickUnit((high2Value*1.1-min2Value*0.9)/4));
 	     XYPlot plot2=new XYPlot(timeSeriesCollection,null,y2Axis,xyBarRender);// 建立第二个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
