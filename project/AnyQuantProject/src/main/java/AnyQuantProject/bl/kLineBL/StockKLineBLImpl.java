@@ -121,7 +121,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 	}
 
 	@Override
-	public KLineData getAverageLine(String stockName, Calendar start, Calendar end, int aver) {
+	public KLineData getDayAverageLine(String stockName, Calendar start, Calendar end, int aver) {
 		if (!Checker.checkStringNotNull(stockName)) {
             
 			return new KLineData("", null);
@@ -142,6 +142,11 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		List<KLineDataDTO> ans = oldStocks.stream()
 				.filter(st->st.getDateInCalendar().before(localEnd)&&st.getDateInCalendar().after(localStart))
 				.map(st -> (KLineDataDTO) st).collect(Collectors.toList());
+		
+		return new KLineData(stockName, calculateAver(ans, aver));
+	}
+	
+	private List<KLineDataDTO> calculateAver(List<KLineDataDTO> ans,int aver){
 		Iterator<KLineDataDTO> iterator=ans.iterator();
 		List<KLineDataDTO> tar=new ArrayList<>((ans.size()/aver)+5);
 		while (iterator.hasNext()) {
@@ -187,6 +192,24 @@ public class StockKLineBLImpl implements StockKLineBLService {
 			stock.setVolume(volume);
 			tar.add(stock);
 		}
-		return new KLineData(stockName, tar);
+		return tar;
+	}
+
+	@Override
+	public KLineData getWeekAverageLine(String stockName, int aver) {
+		if (aver<1) {
+			aver=5;
+		}
+		List<KLineDataDTO> ans=this.weekKLineChart(stockName).geKLineDataDTOs();
+		return new KLineData(stockName, calculateAver(ans, aver));
+	}
+
+	@Override
+	public KLineData getMonthAverageLine(String stockName, int aver) {
+		if (aver<1) {
+			aver=5;
+		}
+		List<KLineDataDTO> ans=this.monthKLineChart(stockName).geKLineDataDTOs();
+		return new KLineData(stockName, calculateAver(ans, aver));
 	}
 }

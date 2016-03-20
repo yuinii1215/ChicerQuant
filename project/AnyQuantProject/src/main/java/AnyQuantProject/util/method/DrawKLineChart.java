@@ -2,6 +2,9 @@ package AnyQuantProject.util.method;
 
 import java.awt.Color;
 import java.awt.Paint;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -42,6 +45,8 @@ import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.util.constant.TimeType;
 
 import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
+import org.jfree.chart.labels.StandardXYItemLabelGenerator;
 
 public class DrawKLineChart {
 	
@@ -188,7 +193,10 @@ public class DrawKLineChart {
 	      XYPlot plot1=new XYPlot();// 设置画图区域对象
 		  plot1.setDataset(seriesCollection);
 		  plot1.setRangeAxis(y1Axis);
+		  candlestickRender.setBaseItemLabelGenerator(new StandardXYItemLabelGenerator("tt", new SimpleDateFormat("MM-dd"), new DecimalFormat()));
+		  candlestickRender.setBaseItemLabelsVisible(true);
 		  plot1.setRenderer(candlestickRender);
+		  
 	     
 	     //折线图
 		  if(fiveAvgDataList!=null){

@@ -19,4 +19,6 @@ public interface SingleStockDealBLService {
 	 * @return
 	 */
 	List<Stock> getSingleStockDeal(String name, Calendar year);
+	
+	List<Stock> getSingleStockDeal(String name,Calendar start,Calendar end);
 }
