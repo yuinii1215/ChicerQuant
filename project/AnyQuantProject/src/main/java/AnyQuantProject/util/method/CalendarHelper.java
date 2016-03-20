@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.StringTokenizer;
 
-import jnr.ffi.Struct.in_addr_t;
+
 
 /**
  * @author G
