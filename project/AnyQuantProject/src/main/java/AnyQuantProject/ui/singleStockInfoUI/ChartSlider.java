@@ -88,12 +88,12 @@ public class ChartSlider {
         f.setVisible(true);
     }
 
-//    public static void main(String[] args) {
-//        EventQueue.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                display();
-//            }
-//        });
-//    }
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                display();
+            }
+        });
+    }
 }

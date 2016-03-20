@@ -611,7 +611,7 @@ public class SingleStockInfoUIController implements Initializable {
         swingNode1 = new SwingNode();
         dayChart=drawDayKLine();
         panel1 = new ChartPanel(dayChart);
-        panel1.setMaximumSize(new Dimension(1000,600));
+        panel1.setPopupMenu(null);
         swingNode1.setContent(panel1);    
         ScrollPane scroller1=new ScrollPane();
         scroller1.setContent(swingNode1);

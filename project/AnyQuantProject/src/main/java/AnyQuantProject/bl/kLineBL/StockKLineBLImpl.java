@@ -154,7 +154,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 			int volume=0;
 			int total=0;
 			String date=null;
-			for(int i=0;i<aver;i++){
+			for(int i=0;i<aver&&iterator.hasNext();i++){
 				KLineDataDTO temp=iterator.next();
 				if (i==0) {
 					date=((AbstractStock)temp).getDate();
