@@ -511,13 +511,13 @@ public class SingleStockInfoUIController implements Initializable {
      public void LineChart(){
          StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
     	//5日线
-   	 fiveAverageLine = stockKLineImpl.getAverageLine(stockName, minTime, maxTime, 5);
+   	 fiveAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 5);
    	 fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
    	//10日线
-   	 tenAverageLine =stockKLineImpl.getAverageLine(stockName, minTime, maxTime, 10);
+   	 tenAverageLine =stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 10);
          tenAverageLineDataList=tenAverageLine.geKLineDataDTOs();
        //30日线
-   	 thirtyAverageLine= stockKLineImpl.getAverageLine(stockName, minTime, maxTime, 30);
+   	 thirtyAverageLine= stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 30);
          thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
     }
      
