@@ -336,7 +336,7 @@ public class BenchMarkUIController implements Initializable{
     }
     
     private JFreeChart drawDayKLine() {
-    	LineChart();
+    	LineDayChart();
         //K线
     	 benchMarkKLineDate=benchmarkKLineBLService.dayKLineChart(benchMarkid,startTime,endTime);
     	 benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
@@ -352,13 +352,13 @@ public class BenchMarkUIController implements Initializable{
 	}
     
     private JFreeChart drawWeekKLine() {
-    	LineChart();
+    	LineWeekChart();
     	benchMarkKLineDate=benchmarkKLineBLService.weekKLineChart(benchMarkid);
    	 	benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
    	 	return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,benchMarkid,TimeType.WEEK,null);
 	}
     private JFreeChart drawMonthKLine() {
-    	LineChart();
+    	LineMonthChart();
     	benchMarkKLineDate=benchmarkKLineBLService.monthKLineChart(benchMarkid);
    	 	benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
    	 	return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,benchMarkid,TimeType.MONTH,null);
@@ -368,7 +368,7 @@ public class BenchMarkUIController implements Initializable{
      * Initializes the controller class.
      */
     
-    public void LineChart(){
+    public void LineDayChart(){
     	//5日线
    	 fiveAverageLine = benchmarkKLineBLService.getDayAverageLine(benchMarkid, startTime, endTime, 5);
    	 fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
@@ -380,6 +380,28 @@ public class BenchMarkUIController implements Initializable{
      thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
     }
     
+    public void LineWeekChart(){
+    	//5日线
+   	 fiveAverageLine = benchmarkKLineBLService.getWeekAverageLine(benchMarkid, 5);
+   	 fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
+   	//10日线
+   	 tenAverageLine =benchmarkKLineBLService.getWeekAverageLine(benchMarkid,10);
+     tenAverageLineDataList=tenAverageLine.geKLineDataDTOs();
+       //30日线
+   	 thirtyAverageLine= benchmarkKLineBLService.getWeekAverageLine(benchMarkid, 30);
+     thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
+    }
+    public void LineMonthChart(){
+    	//5日线
+   	 fiveAverageLine = benchmarkKLineBLService.getMonthAverageLine(benchMarkid,  5);
+   	 fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
+   	//10日线
+   	 tenAverageLine =benchmarkKLineBLService.getMonthAverageLine(benchMarkid, 10);
+     tenAverageLineDataList=tenAverageLine.geKLineDataDTOs();
+       //30日线
+   	 thirtyAverageLine= benchmarkKLineBLService.getMonthAverageLine(benchMarkid,  30);
+     thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
+    }
     
     
     @Override
