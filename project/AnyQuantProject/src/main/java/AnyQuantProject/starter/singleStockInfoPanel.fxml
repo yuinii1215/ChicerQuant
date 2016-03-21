@@ -15,7 +15,7 @@
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController">
    <children>
-      <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" editable="true" layoutX="531.0" layoutY="210.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="390.0" prefWidth="377.0" tableMenuButtonVisible="true">
+      <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" editable="true" layoutX="531.0" layoutY="221.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="379.0" prefWidth="364.0" tableMenuButtonVisible="true">
         <columns>
           <TableColumn id="dateColumn" fx:id="dateColumn" prefWidth="90.13650512695312" text="日期" />
           <TableColumn id="openColumn" fx:id="openColumn" prefWidth="71.86349487304688" text="开盘价" />

@@ -19,6 +19,40 @@
             <Tab fx:id="monthChatTab" style="-fx-background-color: transparent;" text="月线" />
         </tabs>
       </TabPane>
+       <AnchorPane fx:id="signPane" layoutX="135.0" layoutY="63.0" prefHeight="33.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="fiveColor" layoutX="32.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6.0" prefWidth="11.0" style="-fx-background-color: #FFFF00;" text="  ">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="PMA5" layoutX="-2.0" layoutY="16.0" text="5PMA" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="PMA10" layoutX="51.0" layoutY="16.0" text="10PMA" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="PMA30" layoutX="112.0" layoutY="16.0" text="30PMA" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="tenColor" layoutX="91.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6.0" prefWidth="11.0" style="-fx-background-color: #EE82EE;">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="thirtyColor" layoutX="152.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6.0" prefWidth="11.0" style="-fx-background-color: #40E0D0;">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="calendarPanel" layoutX="379.0" layoutY="63.0" prefHeight="33.0" prefWidth="331.0">
          <children>
             <DatePicker fx:id="minTime" layoutX="77.0" layoutY="6.0" opacity="0.8" prefHeight="23.0" prefWidth="95.0" />

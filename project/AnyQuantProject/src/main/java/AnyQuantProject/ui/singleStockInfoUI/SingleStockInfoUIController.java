@@ -346,8 +346,11 @@ public class SingleStockInfoUIController implements Initializable {
             filterFlag[3] = false;
             filterFlag[4] = false;
         } else if (filterFlag[3] && filterFlag[4]) {
-            filteredList = listFilterBlImpl.filterStocksByDateAmong(
-                    currentList, minTime, maxTime);
+            /**
+             * 默认为只可以通过区间来获得其他时间段的股票信息,不可以通过半个区间
+             */
+            currentList=singleStockDealBlImpl.getSingleStockDeal(stockName, minTime, maxTime);
+            filteredList=currentList;
             filterFlag[3] = false;
             filterFlag[4] = false;
             dayChart=drawDayKLine();
@@ -480,8 +483,7 @@ public class SingleStockInfoUIController implements Initializable {
         }
         return bars;
     }
-    
-//    public JFreeChart drawDayKLine() {
+
     public JFreeChart drawDayKLine(){
         LineChart();
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
