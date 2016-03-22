@@ -116,7 +116,12 @@
             <ColorAdjust brightness="0.19" contrast="-0.02" hue="-0.05" />
          </effect>
       </Pane>
-      <Button id="button-isFavor" fx:id="isFavorButton" layoutX="780.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleFavorAction" opacity="0.86" prefHeight="26.0" prefWidth="73.0" styleClass="button-isFavor" text="取消关注" textFill="WHITE" />
+      <Button id="button-isFavor" fx:id="isFavorButton" layoutX="780.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleFavorAction" prefHeight="26.0" prefWidth="73.0" styleClass="button-isFavor" text="取消关注" textFill="WHITE" />
+      <ImageView fx:id="loadImage" fitHeight="520.0" fitWidth="428.0" layoutX="30.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D width="450.0" />
+         </viewport>
+      </ImageView>
       <TabPane fx:id="kLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="23.0" layoutY="21.0" prefHeight="558.0" prefWidth="438.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="tab_dayKLine" style="-fx-background-color: transparent;" text="日线" />
