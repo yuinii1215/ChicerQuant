@@ -18,6 +18,7 @@ import org.eclipse.swt.widgets.Scale;
 import com.hp.hpl.sparta.xpath.ParentNodeTest;
 
 import javafx.application.Application;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -222,18 +223,25 @@ public class Main extends Application {
  */
 	public static void enterSingleStockInfoScene(String name) {
 		// TODO Auto-generated method stub
+                SingleStockInfoUIController singleStockInfoUIController=null;
 		try {
 			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
 			singleStockInfoPanel = (AnchorPane)fxmlLoader.load();
-			SingleStockInfoUIController singleStockInfoUIController=fxmlLoader.getController();
-			singleStockInfoUIController.laterInit(name);
-        } catch (IOException e) {
+			singleStockInfoUIController=fxmlLoader.getController();
+			singleStockInfoUIController.loadImage.setImage(new Image("/images/load.gif"));
+                        singleStockInfoUIController.laterInit(name);                 
+               } catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+                       
 			h_box =new HBox(guidePanel,singleStockInfoPanel);
 			Main.getPrimaryStage().setScene(new Scene(h_box));
 			MainPageController.getInstance().initPanel();
+                                     
+                      //  TimeMonitor.start(singleStockInfoUIController);
+                        
+                         
 	}
     
 

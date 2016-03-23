@@ -245,14 +245,15 @@ public class MainPageController  implements Initializable {
 		  //为避免冲突
 		  @FXML
 		    private void singleStockInfoBtnFired(ActionEvent e) {
-		        setPanel(Main.singleStockInfoPanel, "打开单只股票下部信息界面...");
+		       // setPanel(Main.singleStockInfoPanel, "打开单只股票下部信息界面...");
 		        Button btn = (Button)e.getSource();
 		        if(defaultBtn != null)
 		            defaultBtn.setDefaultButton(false);
 		        btn.setDefaultButton(true);
-		        defaultBtn = btn;
-		        SingleStockInfoUIController.getInstance();
+		        defaultBtn = btn; 
+		        //SingleStockInfoUIController.getInstance();                         
 		    }
+                    
 		  @FXML
 		    private void singleStockBtnFired(ActionEvent e) {
 		        setPanel(Main.singleStockPanel, "打开单只股票上部界面...");

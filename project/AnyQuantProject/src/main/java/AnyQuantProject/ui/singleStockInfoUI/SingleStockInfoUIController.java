@@ -186,7 +186,7 @@ public class SingleStockInfoUIController implements Initializable {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-//    public Scene singleStockUIScene;
+//  public Scene singleStockUIScene;
     @FXML
     public TableView<Stock> table;
     @FXML
@@ -230,7 +230,7 @@ public class SingleStockInfoUIController implements Initializable {
     @FXML
     public Tab tab_dayKLine, tab_weekKLine, tab_monthKLine;
     @FXML
-    AnchorPane anchorPane;
+    public AnchorPane anchorPane;
     @FXML
     public Pane filterConditionPane;  
     @FXML
@@ -251,6 +251,9 @@ public class SingleStockInfoUIController implements Initializable {
     public DatePicker startDatePicker;
     @FXML
     public DatePicker endDatePicker;
+    @FXML
+    public ImageView loadImage;
+    
     Group filterPaneContent;
    
     
@@ -288,6 +291,11 @@ public class SingleStockInfoUIController implements Initializable {
         this.stockName = name;
         maxTime = Calendar.getInstance();
         this.init();
+    }
+    
+    public void endLoad(){
+        loadImage.setVisible(false);
+        loadImage.toBack();
     }
 
     /**
@@ -728,7 +736,7 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * add the JFreechart into the tabpane
              */
-              
+        
         swingNode1 = new SwingNode();
         dayChart=drawDayKLine();
         panel1 = this.getChartPanel(dayChart);
@@ -736,7 +744,7 @@ public class SingleStockInfoUIController implements Initializable {
         scroller1=new ScrollPane();
         scroller1.setContent(swingNode1);
         
-        scroller1.setFitToHeight(true);
+        scroller1.setFitToHeight(true);       
         tab_dayKLine.setContent(scroller1);
 
         swingNode2 = new SwingNode();
@@ -757,6 +765,7 @@ public class SingleStockInfoUIController implements Initializable {
         scroller3.setFitToHeight(true);
         tab_monthKLine.setContent(scroller3);
 
+        
     }
     private ChartPanel getChartPanel(JFreeChart jFreeChart){
     	ChartPanel chartPanel=new ChartPanel(jFreeChart);
@@ -856,7 +865,6 @@ public class SingleStockInfoUIController implements Initializable {
         public TableRowControl(TableView<T> tableView) {
             super();
             System.out.println(this.indexProperty().intValue());
-//        this.setStyle("-fx-background-color:#FFFFFF");
             this.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent event) {
                     if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
