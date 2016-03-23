@@ -6,38 +6,27 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.favoriteUI.FavoriteUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.favoriteUI.FavoriteUIController">
    <children>
-      <ImageView fx:id="backgroundImage" fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@bgImage.png" />
-         </image>
-         <viewport>
-            <Rectangle2D height="600.0" width="900.0" />
-         </viewport>
-      </ImageView>
-      <ScrollPane fx:id="scrollPane" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="900.0">
-         <content>
-            <TableView fx:id="table" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="900.0">
-              <columns>
-                <TableColumn fx:id="id" prefWidth="66.0" text="代码" />
-                  <TableColumn fx:id="name" prefWidth="82.0" text="名称" />
-                  <TableColumn fx:id="open" prefWidth="87.0" text="开盘价" />
-                  <TableColumn fx:id="high" prefWidth="74.0" text="最高价" />
-                  <TableColumn fx:id="low" prefWidth="78.0" text="最低价" />
-                  <TableColumn fx:id="close" prefWidth="74.0" text="收盘价" />
-                  <TableColumn fx:id="volum" prefWidth="74.0" text="成交量" />
-                  <TableColumn fx:id="adj_price" prefWidth="68.0" text="后复权价" />
-                  <TableColumn fx:id="marketvalue" prefWidth="78.0" text="市值" />
-                  <TableColumn fx:id="flow" prefWidth="72.0" text="流通量" />
-                  <TableColumn fx:id="pe" prefWidth="69.0" text="市盈率" />
-                  <TableColumn fx:id="pb" prefWidth="70.0" text="市净率" />
-              </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
+      <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="900.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="66.0" text="代码" />
+            <TableColumn fx:id="name" prefWidth="82.0" text="名称" />
+            <TableColumn fx:id="open" prefWidth="87.0" text="开盘价" />
+            <TableColumn fx:id="high" prefWidth="74.0" text="最高价" />
+            <TableColumn fx:id="low" prefWidth="78.0" text="最低价" />
+            <TableColumn fx:id="close" prefWidth="74.0" text="收盘价" />
+            <TableColumn fx:id="volum" prefWidth="74.0" text="成交量" />
+            <TableColumn fx:id="adj_price" prefWidth="68.0" text="后复权价" />
+            <TableColumn fx:id="marketvalue" prefWidth="78.0" text="市值" />
+            <TableColumn fx:id="flow" prefWidth="72.0" text="流通量" />
+            <TableColumn fx:id="pe" prefWidth="69.0" text="市盈率" />
+            <TableColumn fx:id="pb" prefWidth="70.0" text="市净率" />
+        </columns>
+      </TableView>
       <AnchorPane id="searchtitle" fx:id="searchPane" layoutX="292.0" layoutY="76.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="66.0" prefWidth="256.0">
          <children>
             <TextField fx:id="search" layoutX="71.0" layoutY="9.0" prefHeight="34.0" prefWidth="170.0" text="股票代码">
@@ -58,7 +47,7 @@
             </TextField>
             <ImageView fx:id="searchImage" fitHeight="41.0" fitWidth="56.0" layoutX="200.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../searchImage.png" />
+                  <Image url="@/images/searchImage.png" />
                </image>
             </ImageView>
          </children>

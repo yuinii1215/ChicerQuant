@@ -70,7 +70,7 @@ public class Main extends Application {
 	private static Group root;
 	private static HBox h_box,hbox;	
 	static AnchorPane mainPanel,guidePanel,writePanel;
-	public static AnchorPane allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
+	public static AnchorPane modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
 	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	private static double scrH =primaryScreenBounds.getHeight();
 	private static double scrW =primaryScreenBounds.getWidth();
@@ -105,7 +105,7 @@ public class Main extends Application {
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
                 benchMarkPanel.setId("pane");
 
-
+        modulePanel = FXMLLoader.load(getClass().getResource("modulePanel.fxml"));
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
@@ -207,6 +207,11 @@ public class Main extends Application {
     
     public  static void enterBenchMarkScene(){
     	h_box =new HBox(guidePanel,benchMarkPanel);
+    	Main.getPrimaryStage().setScene(new Scene(h_box));
+        MainPageController.getInstance().initPanel();
+    }
+    public  static void enterModuleScene(){
+    	h_box =new HBox(guidePanel,modulePanel);
     	Main.getPrimaryStage().setScene(new Scene(h_box));
         MainPageController.getInstance().initPanel();
     }

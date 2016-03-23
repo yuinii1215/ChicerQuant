@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="modulePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.moduleUI.ModuleUIController">
+   <children>
+      <Label layoutX="45.0" layoutY="60.0" text="股票行业" />
+   </children>
+</AnchorPane>
