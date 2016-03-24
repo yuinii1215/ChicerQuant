@@ -1,5 +1,6 @@
 package AnyQuantProject.data.util;
 
+import AnyQuantProject.dataService.IndustryNameDATAService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.method.IOHelper;
@@ -8,9 +9,7 @@ import net.sf.json.JSONObject;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -30,7 +29,7 @@ import java.util.Set;
 /**
  * Created by G on 16/3/24.
  */
-public class IndustryName {
+public class IndustryName implements IndustryNameDATAService{
 
     APIHelper aHelper = new APIHelper();
 
@@ -41,10 +40,11 @@ public class IndustryName {
 
     public static void main(String[] args) {
         IndustryName i = new IndustryName();
+
 //		i.iniIndustry();
 //        System.out.println(i.getIndustryName("sh601186"));
         try {
-            getIndustryNum();
+            i.getIndustryNum();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,7 +54,7 @@ public class IndustryName {
     public OperationResult iniIndustry() {
         OperationResult result = new OperationResult();
         try {
-            HashMap<String, String> list = getIndustryNameArray();
+            Map<String, String> list = getIndustryNameArray();
             result = IOHelper.save(R.CachePath, R.IndustryNameFile, (Serializable) list);
         } catch (IOException e) {
             return result = new OperationResult(false, "Industry IOEXCEPTION ");
@@ -69,8 +69,8 @@ public class IndustryName {
      * @param name
      * @return
      */
-    public static String getIndustryName(String name){
-        HashMap<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+    public String getIndustryName(String name){
+        Map<String, String> list = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
         return list.get(name);
     }
 
@@ -81,9 +81,9 @@ public class IndustryName {
      * @return
      * @throws IOException
      */
-    public HashMap<String, String> getIndustryNameArray() throws IOException	{
+    public Map<String, String> getIndustryNameArray() throws IOException	{
 
-        HashMap<String, String> resultList = new HashMap<String, String>();
+        Map<String, String> resultList = new HashMap<String, String>();
 
         List<String> stockNameList = (List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
         for (int i = 0; i < stockNameList.size(); i++) {
@@ -150,7 +150,7 @@ public class IndustryName {
      * 测试有多少个行业类别
      * @throws IOException
      */
-    private static void getIndustryNum() throws IOException{
+    private void getIndustryNum() throws IOException{
         List<String> stockNameList = (List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
         Set<String> count = new HashSet<String>();
         for (int i = 0; i < stockNameList.size(); i++) {
