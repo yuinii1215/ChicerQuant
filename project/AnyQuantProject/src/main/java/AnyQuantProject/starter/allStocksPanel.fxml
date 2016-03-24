@@ -15,10 +15,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.allStocksUI.AllStocksUIController">
    <children>
-      <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" editable="true" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="900.0">
+      <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" editable="true" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
         <columns>
-            <TableColumn id="dateColumn" fx:id="nameColumn" prefWidth="75.0" text="股票名称" />
-            <TableColumn id="dateColumn" fx:id="dateColumn" prefWidth="75.0" text="数据日期" />
+            <TableColumn fx:id="chineseColumn" prefWidth="75.0" text="股票名称" />
+            <TableColumn id="dateColumn" fx:id="nameColumn" prefWidth="75.0" text="股票代码" />
+            <TableColumn id="dateColumn" fx:id="dateColumn" prefWidth="100.0" text="数据日期" />
             <TableColumn id="highColumn" fx:id="highColumn" prefWidth="75.0" text="最高价" />
             <TableColumn id="lowColumn" fx:id="lowColumn" prefWidth="75.0" text="最低价" />
             <TableColumn id="openColumn" fx:id="openColumn" prefWidth="75.0" text="开盘价" />

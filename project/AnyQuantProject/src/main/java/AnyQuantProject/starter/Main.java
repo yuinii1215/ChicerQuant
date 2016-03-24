@@ -16,6 +16,13 @@ import javax.swing.ImageIcon;
 import org.eclipse.swt.widgets.Scale;
 
 import com.hp.hpl.sparta.xpath.ParentNodeTest;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.application.Application;
 import javafx.concurrent.Task;
@@ -77,7 +84,9 @@ public class Main extends Application {
 	private static double scrW =primaryScreenBounds.getWidth();
 	private static boolean move=false;
 	private static Point origin = new Point();
-	
+        public static FXMLLoader fxmlLoader;
+	public static SingleStockInfoUIController singleStockInfoUIController=null;
+        
 	public static Main getInstance(){
 	        return instance;
 	    }
@@ -221,26 +230,38 @@ public class Main extends Application {
  * TO be tested
  * @param name
  */
+       
+       public static void endSingle() {      
+              singleStockInfoUIController.endLoad();
+       }
+       
 	public static void enterSingleStockInfoScene(String name) {
 		// TODO Auto-generated method stub
-                SingleStockInfoUIController singleStockInfoUIController=null;
-		try {
-			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
-			singleStockInfoPanel = (AnchorPane)fxmlLoader.load();
-			singleStockInfoUIController=fxmlLoader.getController();
-			singleStockInfoUIController.loadImage.setImage(new Image("/images/load.gif"));
-                        singleStockInfoUIController.laterInit(name);                 
-               } catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-                       
-			h_box =new HBox(guidePanel,singleStockInfoPanel);
-			Main.getPrimaryStage().setScene(new Scene(h_box));
-			MainPageController.getInstance().initPanel();
-                                     
-                      //  TimeMonitor.start(singleStockInfoUIController);
-                        
+                fxmlLoader=new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
+            try {
+                singleStockInfoPanel = (AnchorPane)fxmlLoader.load();
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                singleStockInfoUIController=fxmlLoader.getController();       
+	        singleStockInfoUIController.loadImage.setImage(new Image("/images/load.gif"));
+                singleStockInfoUIController.laterInit(name);                 
+              
+                h_box =new HBox(guidePanel,singleStockInfoPanel);
+	        Main.getPrimaryStage().setScene(new Scene(h_box));
+                MainPageController.getInstance().initPanel();
+                           
+                        /**
+                         * use an executor to later close the animation
+                         */
+//                        ScheduledExecutorService service=Executors.newScheduledThreadPool(1);
+//                        ScheduledFuture future=service.schedule(new Callable() {
+//                           public String call(){
+//                            return "taskcancelled!";
+//                           }
+//                        },20,TimeUnit.SECONDS);
+//                        singleStockInfoUIController.endLoad();
+//                        service.shutdown();
                          
 	}
     
