@@ -57,7 +57,8 @@ public class ChineseName {
 		return list.get(name);
 	}
 	
-	
+
+
 	/**
 	 * 得到所有股票的中英文名构成的AbstractStock对象
 	 * @return
