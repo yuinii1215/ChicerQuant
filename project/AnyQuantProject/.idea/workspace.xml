@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7abf1e9c-c40c-4096-b58f-061a84c0de79" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_3_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_3_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/IndustryName.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnyQuantProject.iml" afterPath="$PROJECT_DIR$/AnyQuantProject.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/ChineseName.java" afterPath="$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/ChineseName.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/AnyQuantProject/util/constant/R.java" afterPath="$PROJECT_DIR$/src/main/java/AnyQuantProject/util/constant/R.java" />
     </list>
     <ignored path="AnyQuantProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,8 +37,8 @@
       <file leaf-file-name="ChineseName.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/ChineseName.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="100" selection-end-column="5" />
+            <state relative-caret-position="8">
+              <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -126,11 +115,11 @@
         <option value="$PROJECT_DIR$/src/main/java/AnyQuantProject/starter/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/AnyQuantProject/bl/kLineBL/StockKLineBLImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/AnyQuantProject/bl/kLineBL/BenchmarkKLineBLImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/ChineseName.java" />
         <option value="$PROJECT_DIR$/src/main/java/AnyQuantProject/util/constant/R.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/Name.java" />
         <option value="$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/IndustryName.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/ChineseName.java" />
       </list>
     </option>
   </component>
@@ -997,8 +986,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/ChineseName.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="100" selection-end-column="5" />
+        <state relative-caret-position="8">
+          <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
           <folding />
         </state>
       </provider>

@@ -28,6 +28,7 @@ import net.sf.json.JSONObject;
 public class ChineseName {
 	
 	APIHelper aHelper = new APIHelper();
+
 	
 	public static void main(String[] args) {
 		ChineseName i = new ChineseName();
@@ -54,6 +55,10 @@ public class ChineseName {
 	 */
 	public static String getChineseName(String name){
 		HashMap<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+        if (list.size() == 0) {
+            ChineseName c = new ChineseName();
+            c.iniChinese();
+        }
 		return list.get(name);
 	}
 	
