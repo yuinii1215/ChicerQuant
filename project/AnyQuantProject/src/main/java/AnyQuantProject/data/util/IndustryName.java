@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -81,7 +82,7 @@ public class IndustryName {
      * @return
      * @throws IOException
      */
-    public HashMap<String, String> getIndustryNameArray() throws IOException	{
+    public Map<String, String> getIndustryNameArray() throws IOException	{
 
         HashMap<String, String> resultList = new HashMap<String, String>();
 
