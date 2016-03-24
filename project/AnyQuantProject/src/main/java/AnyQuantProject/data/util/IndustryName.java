@@ -55,7 +55,7 @@ public class IndustryName {
     public OperationResult iniIndustry() {
         OperationResult result = new OperationResult();
         try {
-            HashMap<String, String> list = getIndustryNameArray();
+            Map<String, String> list = getIndustryNameArray();
             result = IOHelper.save(R.CachePath, R.IndustryNameFile, (Serializable) list);
         } catch (IOException e) {
             return result = new OperationResult(false, "Industry IOEXCEPTION ");
