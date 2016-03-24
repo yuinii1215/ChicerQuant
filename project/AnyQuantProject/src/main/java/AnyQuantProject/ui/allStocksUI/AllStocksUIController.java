@@ -35,6 +35,11 @@ import javafx.util.Callback;
 
 //import AnyQuantProject.util.method.TableRowControl;
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
@@ -56,6 +61,8 @@ public class AllStocksUIController  implements Initializable{
     
     List<Stock> allStocksList=new ArrayList<Stock>();
     String targetStockName;
+    @FXML
+    public TableColumn<Stock, String> chineseColumn;
     @FXML
     public TableColumn<Stock, String> nameColumn;
     @FXML
@@ -123,6 +130,8 @@ public class AllStocksUIController  implements Initializable{
 		/**
 		 * initialize the tabel columns
 		 */
+        chineseColumn.setCellValueFactory(cellData -> new SimpleStringProperty(
+                cellData.getValue().getChinese()));
         nameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(
                 cellData.getValue().getName()));
         dateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(
@@ -172,6 +181,17 @@ public class AllStocksUIController  implements Initializable{
                    System.out.println("......Enter :"+stockName+" panel......");
             //     MainPageController.getInstance().setPanel(Main.singleStockInfoPanel, "打开单只股票下部信息界面...");
                    Main.enterSingleStockInfoScene(stockName);
+                   
+                   ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
+                    ScheduledFuture future = service.schedule(new Callable() {
+                        public String call() {
+                            System.out.print("time is up");
+                            Main.endSingle();                          
+                            return "taskcancelled!";
+                        }
+                    }, 4, TimeUnit.SECONDS);
+     
+                    service.shutdown();
                  
                 } 
                  
