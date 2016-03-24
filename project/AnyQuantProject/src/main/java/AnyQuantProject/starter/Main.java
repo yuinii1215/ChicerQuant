@@ -72,9 +72,9 @@ public class Main extends Application {
 	private static HBox h_box,hbox;	
 	static AnchorPane mainPanel,guidePanel,writePanel;
 	public static AnchorPane modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
-	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-	private static double scrH =primaryScreenBounds.getHeight();
-	private static double scrW =primaryScreenBounds.getWidth();
+//	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+//	private static double scrH =primaryScreenBounds.getHeight();
+//	private static double scrW =primaryScreenBounds.getWidth();
 	private static boolean move=false;
 	private static Point origin = new Point();
 	
@@ -261,14 +261,14 @@ public class Main extends Application {
 		            	primaryStage.setFullScreen(true);
 		            }
 		      }).build();
-		   max = ButtonBuilder.create().text("max").onAction(new EventHandler<ActionEvent>(){
-		            @Override public void handle(ActionEvent e){
-		                primaryStage.setX(primaryScreenBounds.getMinX());
-		                primaryStage.setY(primaryScreenBounds.getMinY());
-		                primaryStage.setWidth(scrW);
-		                primaryStage.setHeight(scrH);
-		            }
-		        }).build();
+//		   max = ButtonBuilder.create().text("max").onAction(new EventHandler<ActionEvent>(){
+//		            @Override public void handle(ActionEvent e){
+//		                primaryStage.setX(primaryScreenBounds.getMinX());
+//		                primaryStage.setY(primaryScreenBounds.getMinY());
+//		                primaryStage.setWidth(scrW);
+//		                primaryStage.setHeight(scrH);
+//		            }
+//		        }).build();
 		   
 		  // ((Group)primaryScene.getRoot()).getChildren().addAll(full,min,max,close);
 		    hbox = new HBox(-2);
