@@ -91,9 +91,10 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	}
 	public static void main(String[] args) {
 		BenchMarkDATA b = BenchMarkDATA.getInstance();
-		List<String> list = b.getAllBenchMark();
-		System.out.println("list  : " + list.size());
-		System.out.println("list 0 :" + list.get(0));
+		System.out.println(b.getChineseName("hs300"));
+//		List<String> list = b.getAllBenchMark();
+//		System.out.println("list  : " + list.size());
+//		System.out.println("list 0 :" + list.get(0));
 //		b.getBenchMarkAmongDate("hs300", Calendar.getInstance(), Calendar.getInstance());
 //		System.out.println("ben : "+ben.getOpen()+" "+ben.getClose());
 	}

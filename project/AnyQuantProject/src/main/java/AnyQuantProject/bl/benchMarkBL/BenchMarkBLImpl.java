@@ -38,6 +38,7 @@ public class BenchMarkBLImpl implements BenchMarkBLService {
 					.map(bench -> 
 					benchMarkDATAService.getOperation(bench, CalendarHelper.getPreviousDay(Calendar.getInstance())))
 					.collect(Collectors.toList());
+			ans.get(0).setChinese("沪深300指数");
 			return ans;
 		
 		
