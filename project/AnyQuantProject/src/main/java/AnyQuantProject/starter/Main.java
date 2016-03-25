@@ -70,7 +70,8 @@ public class Main extends Application {
 	private static Button full; //全屏
 	private static Group root;
 	private static HBox h_box,hbox;	
-	static AnchorPane mainPanel,guidePanel,writePanel;
+	private static VBox vbox;	
+	static AnchorPane mainPanel,guidePanel,headPanel,writePanel;
 	public static AnchorPane modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
 	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	private static double scrH =primaryScreenBounds.getHeight();
@@ -98,15 +99,17 @@ public class Main extends Application {
 		
 		this.primaryStage = primaryStage;
 	//	mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+		headPanel= FXMLLoader.load(getClass().getResource("headPanel.fxml"));
 		guidePanel= FXMLLoader.load(Main.class.getResource("guidePanel.fxml"));
 		
 		favouritePanel= FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
-	//	allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
+//		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 
-		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel.fxml"));
+		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel1.fxml"));
                 benchMarkPanel.setId("pane");
 
         modulePanel = FXMLLoader.load(getClass().getResource("modulePanel.fxml"));
+
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
 //		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
@@ -114,7 +117,7 @@ public class Main extends Application {
 
 //		primaryStage.setHeight(636);
 //		primaryStage.setWidth(992);
-                primaryStage.setHeight(600);
+                primaryStage.setHeight(625);
                 primaryStage.setWidth(980);
 		primaryStage.setTitle("AnyQuant");	
 
@@ -124,7 +127,12 @@ public class Main extends Application {
 		h_box.setPadding(new Insets(0,0,0,0));
 		h_box.setSpacing(0);
 
-		primaryStage.setScene(new Scene(h_box));
+		vbox =new VBox(); 
+		vbox.getChildren().addAll(headPanel,h_box);    
+		vbox.setPadding(new Insets(0,0,0,0));
+		vbox.setSpacing(0);
+		
+		primaryStage.setScene(new Scene(vbox));
 	//	primaryStage.initStyle(StageStyle.DECORATED);
 		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
@@ -161,13 +169,30 @@ public class Main extends Application {
 	                primaryStage.setY(y + e.getY() - origin.y);
 	            	}
 	            }
-		});
-		
+		});	
 	//  enterMainScene();
 	//  buttons();
 		primaryStage.show();  
 		
 }  
+	
+	
+//	    static double ix;
+//	    static double iy;
+//	    private static void enableDrag(Scene scene){
+//	        scene.setOnMousePressed(
+//	                event -> {
+//	                    ix = event.getScreenX() - primaryStage.getX();
+//	                    iy = event.getScreenY() - primaryStage.getY();
+//	                }
+//	        );
+//	        scene.setOnMouseDragged(
+//	                event -> {
+//	                    primaryStage.setX(event.getScreenX() - ix);
+//	                    primaryStage.setY(event.getScreenY() - iy);
+//	                }
+//	        );
+//	    }
 	
 //	private Scene buildScene(Node node){
 //		Image image = new Image(new File("images/mouse cursor.png").toURI().toString());
@@ -179,11 +204,8 @@ public class Main extends Application {
 	
 	
     public void enterMainScene(){
-    //	Main.getPrimaryStage().setScene(new Scene(guidePanel));
     	//TODO
         this.primaryStage.setScene(new Scene(mainPanel));
-//        this.primaryStage.setScene(buildScene(mainPanel));
-//      MainPageController.getInstance().showAnimation();
         MainPageController.getInstance().initPanel();
     }
     
@@ -195,25 +217,30 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		h_box =new HBox(guidePanel,allStocksPanel);
-	    Main.getPrimaryStage().setScene(new Scene(h_box));
+	    vbox=new VBox(headPanel,h_box);    
+    	Main.getPrimaryStage().setScene(new Scene(vbox));
         MainPageController.getInstance().initPanel();
     }
     
     public  static void enterFavouriteScene(){
     	
     	h_box =new HBox(guidePanel,favouritePanel);
-    	Main.getPrimaryStage().setScene(new Scene(h_box));
+    	vbox=new VBox(headPanel,h_box);    
+    	Main.getPrimaryStage().setScene(new Scene(vbox));
         MainPageController.getInstance().initPanel();
     }
     
     public  static void enterBenchMarkScene(){
     	h_box =new HBox(guidePanel,benchMarkPanel);
-    	Main.getPrimaryStage().setScene(new Scene(h_box));
+    	vbox=new VBox(headPanel,h_box);    
+    	Main.getPrimaryStage().setScene(new Scene(vbox));
         MainPageController.getInstance().initPanel();
     }
+    
     public  static void enterModuleScene(){
     	h_box =new HBox(guidePanel,modulePanel);
-    	Main.getPrimaryStage().setScene(new Scene(h_box));
+    	vbox=new VBox(headPanel,h_box);    
+    	Main.getPrimaryStage().setScene(new Scene(vbox));
         MainPageController.getInstance().initPanel();
     }
     
@@ -236,7 +263,8 @@ public class Main extends Application {
 		}
                        
 			h_box =new HBox(guidePanel,singleStockInfoPanel);
-			Main.getPrimaryStage().setScene(new Scene(h_box));
+			vbox=new VBox(headPanel,h_box);    
+			Main.getPrimaryStage().setScene(new Scene(vbox));
 			MainPageController.getInstance().initPanel();
                                      
                       //  TimeMonitor.start(singleStockInfoUIController);

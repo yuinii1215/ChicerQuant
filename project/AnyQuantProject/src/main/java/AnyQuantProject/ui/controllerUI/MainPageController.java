@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBuilder;
@@ -22,7 +23,7 @@ import AnyQuantProject.starter.Main;
 import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
-import AnyQuantProject.ui.guideUI.GuideUIController;
+import AnyQuantProject.ui.headUI.HeadUIController;
 import AnyQuantProject.ui.moduleUI.ModuleUIController;
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
@@ -39,20 +40,18 @@ public class MainPageController  implements Initializable {
 	private static AllStocksUIController allStocksController ;
 	private static BenchMarkUIController benchMarkUIController ;
 	private static FavoriteUIController  favoriteUIController ;
-	private static GuideUIController guideUIController ;
 	public  static SingleStockUIController singleStocksUIController ;
-	private static StockDealInfoUIController stockDealInfoUIController ;
 	 @FXML
 	private static AnchorPane titlePanel, guidePanel, centralPanel;
 	private Button defaultBtn = null;
+	static AnchorPane headPanel;
+	@FXML
+	private Button favoriteBtn,allStocksBtn,benchMarkBtn,moduleBtn;
+	@FXML
+	private ImageView myFavor,BenchMark,allStocks,module;
 	
 	@FXML
-	private Button favoriteBtn,allStocksBtn,benchMarkBtn,moduleBtn,minBtn,exitBtn;
-	@FXML
-	private ImageView myFavor,BenchMark,allStocks,module,exit,min;
-	
-	@FXML
-	Tooltip myFavorTip,allStocksTip,benchMarkTip,moduleTip,minTip,closeTip;
+	private Tooltip myFavorTip,allStocksTip,benchMarkTip,moduleTip;
 	
 	Image myFavor_Selected = new Image(getClass().getResourceAsStream("/images/myFavorSelected.png"));
     Image allStocks_Selected = new Image(getClass().getResourceAsStream("/images/allStocksSelected.png"));
@@ -72,10 +71,7 @@ public class MainPageController  implements Initializable {
     public static MainPageController getInstance() {
         return instance;
     }
-	public static void start() throws Exception{
-	//	  primaryStage = MainStage.getPrimaryStage();
-	      stage.start(primaryStage);
-	}
+
     /**
      * Initializes the controller class.
      */
@@ -89,7 +85,7 @@ public class MainPageController  implements Initializable {
 	
 	@SuppressWarnings("deprecation")
 	private void buttons(){
-
+		
 		//pressed
 		favoriteBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
 			myFavor.setImage(myFavor_Selected);
@@ -150,32 +146,32 @@ public class MainPageController  implements Initializable {
 		});
 		
 		
-		//exit,min
-		exitBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
-			exit.setImage(exit_Entered);
-			
-			Event.fireEvent(Main.getPrimaryStage(), new WindowEvent(Main.getPrimaryStage(), WindowEvent.WINDOW_CLOSE_REQUEST ));
-			System.exit(0);
-		});
-		minBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
-			min.setImage(min_Entered);
-			Main.getPrimaryStage().setIconified(true);
-		});
-		
-		exitBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
-			exit.setImage(exit_Entered);
-        });
-		minBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
-			min.setImage(min_Entered);
-        });
-		exitBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
-			exit.setImage(exit_Exited);
-        });
-		minBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
-			min.setImage(min_Exited);
-        });
-		
-		
+//		//exit,min
+//		exitBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+//			exit.setImage(exit_Entered);
+//			
+//			Event.fireEvent(Main.getPrimaryStage(), new WindowEvent(Main.getPrimaryStage(), WindowEvent.WINDOW_CLOSE_REQUEST ));
+//			System.exit(0);
+//		});
+//		minBtn.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+//			min.setImage(min_Entered);
+//			Main.getPrimaryStage().setIconified(true);
+//		});
+//		
+//		exitBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+//			exit.setImage(exit_Entered);
+//        });
+//		minBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+//			min.setImage(min_Entered);
+//        });
+//		exitBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+//			exit.setImage(exit_Exited);
+//        });
+//		minBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+//			min.setImage(min_Exited);
+//        });
+//		
+//		
 }
 	
 	

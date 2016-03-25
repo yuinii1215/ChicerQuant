@@ -86,10 +86,14 @@ public class BenchMarkUIController implements Initializable{
 	private  TableColumn<BenchMark, Long> marketvalueTable;
 	@FXML
 	private  TableColumn<BenchMark, Long> flow;
+	
+	private  TableColumn<BenchMark, Double> upOrDownRateTable;
 	@FXML
-	private Label today,yeaterday,max,min,volume,turnover, currentTime,toLabel,dateChoiceLabel;;
-	@FXML
-	public  ComboBox benchMarkID;
+	private Label today,yesterday,max,min,volume,turnover,adj_price,currentTime,toLabel,dateChoiceLabel,
+				benchMarkChineseID,benchMarkID,todayTitle,yesterdayTitle,maxTitle,volumeTitle,minTitle,
+				turnoverTitle,adj_priceTitle;
+//	@FXML
+	//public  ComboBox benchMarkID;
 	@FXML
 	private Button okBtn;
 	@FXML
@@ -107,6 +111,7 @@ public class BenchMarkUIController implements Initializable{
 	private Calendar calendar,startTime=null,endTime=null;
 	private CalendarHelper calendarHelper = new CalendarHelper();
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
 	
 	String  benchMarkid;
 	//表格数据
@@ -144,8 +149,8 @@ public class BenchMarkUIController implements Initializable{
 	public  void init(){
     	
     	calendar=Calendar.getInstance();
-    	
-    	currentTime.setText(String.valueOf(calendar.getTime()));
+
+    	currentTime.setText(dateFormat.format(new Date()));
     	System.out.println(currentTime);
     	
     	benchMarkList=benchMarkBLService.getAllBenchMark();
@@ -176,47 +181,52 @@ public class BenchMarkUIController implements Initializable{
         	newDayTab();
         	newWeek_MonthTab();
         
-        	ObservableList items = FXCollections.observableArrayList(options);
-            benchMarkID.setItems(items);
-            benchMarkID.setPromptText((String) items.get(0));
-            benchMarkID.valueProperty().addListener(new ChangeListener<String>() {
-                @Override
-                public void changed(ObservableValue ov, String t, String t1) {
-                	benchMarkid = t1;
-               // 	simpleInfo(benchMarkid);
-                    System.out.println("the selected benchMarkID is: " + benchMarkid);
-                  
-                    newDayTab();
-                    newWeek_MonthTab();
-                 
-                }
-            });
+        	benchMarkChineseID.setText("上证指数");
+        	benchMarkID.setText(benchMarkid);;
+        	simpleInfo(benchMarkid);
+        	
+        //	cambox
+//        	ObservableList items = FXCollections.observableArrayList(options);
+//            benchMarkID.setItems(items);
+//            benchMarkID.setPromptText((String) items.get(0));
+//            benchMarkID.valueProperty().addListener(new ChangeListener<String>() {
+//                @Override
+//                public void changed(ObservableValue ov, String t, String t1) {
+//                	benchMarkid = t1;
+//               // 	simpleInfo(benchMarkid);
+//                    System.out.println("the selected benchMarkID is: " + benchMarkid);
+//                  
+//                    newDayTab();
+//                    newWeek_MonthTab();
+//                 
+//                }
+//            });
 	
 	/**
 	 * initialize the tabel columns
 	 */
-        timeTable .setCellValueFactory(cellData -> new SimpleStringProperty(
-        		   cellData.getValue().getDate()));
+//        timeTable .setCellValueFactory(cellData -> new SimpleStringProperty(
+//        		   cellData.getValue().getDate()));
         allBenchMarkID.setCellValueFactory(cellData -> new SimpleStringProperty(
      		   cellData.getValue().getName()));
         openTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(
         		   cellData.getValue().getOpen()));
-        highTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(
-        		   cellData.getValue().getHigh()));
-        lowTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(
-        		   cellData.getValue().getLow()));
-        closeTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(
-        		   cellData.getValue().getClose()));
-        volumTable.setCellValueFactory(cellData -> new SimpleIntegerProperty(
-        		   cellData.getValue().getVolume()));
-        adj_priceTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(
-				   cellData.getValue().getAdj_price()));
-        turnoverTable.setCellValueFactory(cellData -> new SimpleLongProperty(
-				   cellData.getValue().getTransaction()));
-        marketvalueTable.setCellValueFactory(cellData -> new SimpleLongProperty(
-				cellData.getValue().getMarketvalue()));
-        flow.setCellValueFactory(cellData -> new SimpleLongProperty(
-			    cellData.getValue().getFlow()));
+//        highTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(
+//        		   cellData.getValue().getHigh()));
+//        lowTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(
+//        		   cellData.getValue().getLow()));
+//        closeTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(
+//        		   cellData.getValue().getClose()));
+//        volumTable.setCellValueFactory(cellData -> new SimpleIntegerProperty(
+//        		   cellData.getValue().getVolume()));
+//        adj_priceTable.setCellValueFactory(cellData -> new SimpleDoubleProperty(
+//				   cellData.getValue().getAdj_price()));
+//        turnoverTable.setCellValueFactory(cellData -> new SimpleLongProperty(
+//				   cellData.getValue().getTransaction()));
+//        marketvalueTable.setCellValueFactory(cellData -> new SimpleLongProperty(
+//				cellData.getValue().getMarketvalue()));
+//        flow.setCellValueFactory(cellData -> new SimpleLongProperty(
+//			    cellData.getValue().getFlow()));
    }
     
     private void datePanellisteners(){
@@ -308,11 +318,12 @@ public class BenchMarkUIController implements Initializable{
     	  for(int i=0;i<benchMarkList.size();i++){
           	if(benchMarkList.get(i).getName()==id){
           		today.setText(benchMarkList.get(i).getOpen()+"");
-          		yeaterday.setText(benchMarkList.get(i).getClose()+"");
+          		yesterday.setText(benchMarkList.get(i).getClose()+"");
           		max.setText(benchMarkList.get(i).getHigh()+"");
           		min.setText(benchMarkList.get(i).getLow()+"");
           		volume.setText(benchMarkList.get(i).getVolume()+"");
           		turnover.setText(benchMarkList.get(i).getTransaction()+"");
+          		adj_price.setText(benchMarkList.get(i).getAdj_price()+"");
           		break;
           	}
           }

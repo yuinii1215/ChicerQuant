@@ -69,6 +69,12 @@
        -fx-background-color: transparent;
 }
 
+.div{
+	position:absolute;
+	height:600px;
+	border:1px solid;
+	overflow-y:scroll;
+}
 
 
 
