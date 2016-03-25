@@ -301,6 +301,7 @@ public class Main extends Application {
 	
 	 public static void main(String[] args) {
 		 StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
+		 
 		 if (stockListBLController.shouldInit()) {
 			Thread thread=new Thread(stockListBLController);
 			thread.start();

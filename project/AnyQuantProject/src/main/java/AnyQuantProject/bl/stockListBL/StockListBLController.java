@@ -24,17 +24,36 @@ import AnyQuantProject.util.method.IOHelper;
 
 public class StockListBLController implements StockListBLService,Runnable {
 	private List<String> avaliable;
-        
+    private List<String> avaliableCHN;
 
 	private volatile List<Stock> stockData;
 	private volatile boolean isAlive=false;
 	
 	
 	public StockListBLController() {
+		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
+		StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
+		avaliableCHN=new ArrayList<>(3000);
+		List<String> szCHN = stockListDATAService.getAllStocksWithChinese(Calendar.getInstance(), Exchange.SZ);
+		List<String> shCHN = stockListDATAService.getAllStocksWithChinese(Calendar.getInstance(), Exchange.SH);
+		avaliableCHN.addAll(shCHN);
+		avaliableCHN.addAll(szCHN);
+		System.out.println("here");
 		avaliable = (List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
 		Calendar today = Calendar.getInstance();
 		stockData=(List<Stock>) IOHelper.read(R.CachePath, CalendarHelper.getDate(today));
-		System.out.println(stockData==null);
+		
+		
+	}
+	public static void main(String[] args) {
+		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
+		StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
+		List<String> avaliableCHN=new ArrayList<>(3000);
+		List<String> szCHN = stockListDATAService.getAllStocksWithChinese(Calendar.getInstance(), Exchange.SZ);
+		List<String> shCHN = stockListDATAService.getAllStocksWithChinese(Calendar.getInstance(), Exchange.SH);
+		avaliableCHN.addAll(shCHN);
+		avaliableCHN.addAll(szCHN);
+		avaliableCHN.forEach(s->System.out.println(s));
 	}
 	
 	public boolean shouldInit(){
@@ -56,8 +75,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 
 	@Override
 	public List<String> getSearchList() {
-		return this.avaliable;
-		
+		return this.avaliableCHN;
 	}
 
 	@Override
@@ -85,6 +103,9 @@ public class StockListBLController implements StockListBLService,Runnable {
 		avaliable.addAll(sz);
 		//save
 		IOHelper.save(R.CachePath, R.StockNameFile, (Serializable) avaliable);
+		//
+		
+//		avaliableCHN.forEach(s->System.out.println(s));
 		//init data
 		stockData=new ArrayList<>();
 		isAlive=true;

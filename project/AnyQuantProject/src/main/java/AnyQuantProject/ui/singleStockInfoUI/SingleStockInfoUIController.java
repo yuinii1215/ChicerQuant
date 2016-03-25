@@ -90,6 +90,7 @@ import javafx.scene.text.TextAlignment;
 import AnyQuantProject.ui.singleStockInfoUI.StockInfo2Column;
 import AnyQuantProject.util.method.DrawKLineChart;
 import AnyQuantProject.util.method.MyChartMouseListener;
+import AnyQuantProject.util.method.MyCrossOverlay;
 import AnyQuantProject.util.method.MyKLineChartListener;
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Root;
 

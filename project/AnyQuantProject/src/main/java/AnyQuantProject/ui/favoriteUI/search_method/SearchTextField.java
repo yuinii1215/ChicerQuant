@@ -47,7 +47,7 @@ public class SearchTextField{
 	private ObservableList<String> showCacheDataList = FXCollections.<String> observableArrayList();
 
 	/** 用来存储缓存的信息列表 重写indexOf方法来获取匹配到的数据 */
-	private List<String> cacheDataList = new ArrayList<String>(){
+	private volatile List<String> cacheDataList = new ArrayList<String>(){
 		private static final long serialVersionUID = 281687373227150590L;
 
 		@Override
@@ -107,8 +107,7 @@ public class SearchTextField{
 	}
 
 	public void setCacheDataList(List<String> cacheDataList){
-		this.cacheDataList.clear();
-		this.cacheDataList.addAll(cacheDataList);
+		this.cacheDataList=cacheDataList;
 	}
 
 	/**
