@@ -107,7 +107,8 @@ public class SearchTextField{
 	}
 
 	public void setCacheDataList(List<String> cacheDataList){
-		this.cacheDataList=cacheDataList;
+		this.cacheDataList.clear();
+		this.cacheDataList.addAll(cacheDataList);
 	}
 
 	/**

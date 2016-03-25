@@ -34,26 +34,15 @@ public class StockListBLController implements StockListBLService,Runnable {
 		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
 		StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
 		avaliableCHN=new ArrayList<>(3000);
-		List<String> szCHN = stockListDATAService.getAllStocksWithChinese(Calendar.getInstance(), Exchange.SZ);
-		List<String> shCHN = stockListDATAService.getAllStocksWithChinese(Calendar.getInstance(), Exchange.SH);
+		List<String> szCHN = stockListDATAService.getAllWithChinese(Calendar.getInstance(), Exchange.SZ);
+		List<String> shCHN = stockListDATAService.getAllWithChinese(Calendar.getInstance(), Exchange.SH);
 		avaliableCHN.addAll(shCHN);
 		avaliableCHN.addAll(szCHN);
-		System.out.println("here");
 		avaliable = (List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
 		Calendar today = Calendar.getInstance();
 		stockData=(List<Stock>) IOHelper.read(R.CachePath, CalendarHelper.getDate(today));
 		
 		
-	}
-	public static void main(String[] args) {
-		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
-		StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
-		List<String> avaliableCHN=new ArrayList<>(3000);
-		List<String> szCHN = stockListDATAService.getAllStocksWithChinese(Calendar.getInstance(), Exchange.SZ);
-		List<String> shCHN = stockListDATAService.getAllStocksWithChinese(Calendar.getInstance(), Exchange.SH);
-		avaliableCHN.addAll(shCHN);
-		avaliableCHN.addAll(szCHN);
-		avaliableCHN.forEach(s->System.out.println(s));
 	}
 	
 	public boolean shouldInit(){
