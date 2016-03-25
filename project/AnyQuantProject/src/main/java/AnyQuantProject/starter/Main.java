@@ -264,7 +264,6 @@ public class Main extends Application {
        
 	public static void enterSingleStockInfoScene(String name) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
                 SingleStockInfoUIController singleStockInfoUIController=null;
 		try {
 			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
@@ -284,20 +283,6 @@ public class Main extends Application {
                                      
                       //  TimeMonitor.start(singleStockInfoUIController);
                         
-=======
-                fxmlLoader=new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
-            try {
-                singleStockInfoPanel = (AnchorPane)fxmlLoader.load();
-            } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                singleStockInfoUIController=fxmlLoader.getController();       
-	        singleStockInfoUIController.loadImage.setImage(new Image("/images/load.gif"));
-                singleStockInfoUIController.laterInit(name);                 
-              
-                h_box =new HBox(guidePanel,singleStockInfoPanel);
-	        Main.getPrimaryStage().setScene(new Scene(h_box));
-                MainPageController.getInstance().initPanel();
                            
                         /**
                          * use an executor to later close the animation
@@ -310,7 +295,6 @@ public class Main extends Application {
 //                        },20,TimeUnit.SECONDS);
 //                        singleStockInfoUIController.endLoad();
 //                        service.shutdown();
->>>>>>> 2499483d918998c1008a60efb79c47bbfed3d4a8
                          
 	}
     
