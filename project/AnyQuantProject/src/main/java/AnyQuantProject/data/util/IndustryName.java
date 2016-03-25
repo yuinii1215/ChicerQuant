@@ -1,6 +1,6 @@
 package AnyQuantProject.data.util;
 
-import AnyQuantProject.dataService.IndustryNameDATAService;
+import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.method.IOHelper;
@@ -167,4 +167,16 @@ public class IndustryName implements IndustryNameDATAService{
         System.out.println(count.size());
 
     }
+
+	@Override
+	public List<String> getAllIndustries() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getStockByIndustry(String industry) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
