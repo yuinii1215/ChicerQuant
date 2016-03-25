@@ -90,6 +90,7 @@ import javafx.scene.text.TextAlignment;
 import AnyQuantProject.ui.singleStockInfoUI.StockInfo2Column;
 import AnyQuantProject.util.method.DrawKLineChart;
 import AnyQuantProject.util.method.MyChartMouseListener;
+import AnyQuantProject.util.method.MyCrossOverlay;
 import AnyQuantProject.util.method.MyKLineChartListener;
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Root;
 
@@ -182,10 +183,12 @@ import org.jfree.ui.TextAnchor;
  */
 public class SingleStockInfoUIController implements Initializable {
 
-    public static void getInstance() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static SingleStockInfoUIController getInstance() {
+        return SingleStockInfoUIController.getInstance();
     }
-
+    
+    SingleStockInfoUIController singleStockInfoUIController;
+    
 //  public Scene singleStockUIScene;
     @FXML
     public TableView<Stock> table;
@@ -294,8 +297,9 @@ public class SingleStockInfoUIController implements Initializable {
     }
     
     public void endLoad(){
-        loadImage.setVisible(false);
-        loadImage.toBack();
+      // loadImage.setVisible(false);
+       loadImage.setImage(null);
+     //  anchorPane.getChildren().remove(loadImage);
     }
 
     /**

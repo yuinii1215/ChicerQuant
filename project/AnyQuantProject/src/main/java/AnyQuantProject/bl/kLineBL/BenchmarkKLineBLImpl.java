@@ -129,6 +129,10 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 				total++;
 			}
 			//build
+			//first check
+            if (total==0){
+                total=1;
+            }
 			open/=total;
 			close/=total;
 			high/=total;

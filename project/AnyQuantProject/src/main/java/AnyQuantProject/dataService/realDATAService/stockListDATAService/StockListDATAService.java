@@ -22,11 +22,18 @@ public interface StockListDATAService {
 	public List<String> getAllStocks(Calendar date, Exchange exchange);
 
 	/**
-	 * 由指定年份、指定交易所的信息得到股票名称列表
+	 * 由指定年份、指定交易所的信息得到股票名称列表, string = 英文代号 + " " + 中文名
 	 * @param date
 	 * @param exchange
 	 * @return
 	 */
-	public List<String> getAllStocksWithChinese(Calendar date, Exchange exchange);
+	public List<String> getAllWithChinese(Calendar date, Exchange exchange);
+
+	/**
+	 * 从缓存的文件由单只股票的代号名得到中文名
+	 * @param name
+	 * @return
+     */
+	public String getChineseName(String name);
 
 }

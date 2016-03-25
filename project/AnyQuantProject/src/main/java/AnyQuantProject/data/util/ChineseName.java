@@ -10,9 +10,7 @@ import java.io.Serializable;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
+import java.util.*;
 import AnyQuantProject.dataStructure.AbstractStock;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.util.constant.R;
@@ -28,11 +26,15 @@ import net.sf.json.JSONObject;
 public class ChineseName {
 	
 	APIHelper aHelper = new APIHelper();
+
 	
 	public static void main(String[] args) {
 		ChineseName i = new ChineseName();
 //		i.iniChinese();
-		System.out.println(i.getChineseName("sh601186"));
+//		System.out.println(i.getChineseName("sh601186"));
+        List<String> list = getAllChineseName();
+        System.out.println(list.size());
+        System.out.println(list.get(0));
 	}
 	public OperationResult iniChinese() {
 		OperationResult result = new OperationResult();
@@ -54,10 +56,15 @@ public class ChineseName {
 	 */
 	public static String getChineseName(String name){
 		HashMap<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+        if (list == null) {
+            ChineseName c = new ChineseName();
+            c.iniChinese();
+        }
 		return list.get(name);
 	}
 	
-	
+
+
 	/**
 	 * 得到所有股票的中英文名构成的AbstractStock对象
 	 * @return
@@ -98,4 +105,22 @@ public class ChineseName {
 		
 		return resultList;
 	}
+
+	public static List<String> getAllChineseName() {
+		Map<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+		List<String> resultList = new ArrayList<>();
+		Set entries = list.entrySet();
+		if (entries != null) {
+			Iterator iterator = entries.iterator();
+			while (iterator.hasNext()) {
+				Map.Entry entry = (Map.Entry) iterator.next();
+                String str = (String) entry.getKey();
+                str = str + " " + entry.getValue();
+                resultList.add(str);
+			}
+		}
+		return resultList;
+	}
+
+
 }

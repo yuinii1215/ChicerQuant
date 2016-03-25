@@ -14,5 +14,6 @@ public class R {
 	public static final String CachePath="Cache/";
 	public static final String startDate="2006-01-01";
 	public static final String ChineseNameFile = "ChineseName";
+	public static final String IndustryNameFile = "Industry";
 }
 

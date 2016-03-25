@@ -1,4 +1,4 @@
-package AnyQuantProject.ui.singleStockInfoUI;
+package AnyQuantProject.util.method;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

@@ -7,6 +7,7 @@ package AnyQuantProject.data.realDATA.stockListDATA;
 import java.util.Calendar;
 import java.util.List;
 
+import AnyQuantProject.data.util.ChineseName;
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
 import AnyQuantProject.data.jsonDATA.JSONStockListDATA;
@@ -43,11 +44,22 @@ public class StockListDATA implements StockListDATAService{
 		List<String> resultList = JSONArray.toList(resultArray, new String(), new JsonConfig());
 		return resultList;
 	}
-	
+
+	@Override
+	public List<String> getAllWithChinese(Calendar date, Exchange exchange) {
+		return ChineseName.getAllChineseName();
+	}
+
+
 	public List<String> getAllStocksWithChinese(Calendar date, Exchange exchange) {
 		JSONArray resultArray = JSONStockList.getAllStocksWithChinese(date, exchange);
 		List<String> resultList = JSONArray.toList(resultArray, new String(), new JsonConfig());
 		return resultList;
+	}
+
+	@Override
+	public String getChineseName(String name) {
+		return ChineseName.getChineseName(name);
 	}
 
 }
