@@ -4,6 +4,7 @@ import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.method.IOHelper;
+import com.sun.xml.internal.bind.v2.runtime.property.StructureLoaderBuilder;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -11,11 +12,7 @@ import java.io.IOException;
 import java.io.Serializable;
 
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
 
 
 import org.apache.http.HttpEntity;
@@ -31,7 +28,6 @@ import javax.net.ssl.X509TrustManager;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
-import java.util.Set;
 
 /**
  * Created by G on 16/3/24.
@@ -50,11 +46,10 @@ public class IndustryName implements IndustryNameDATAService{
 
 //		i.iniIndustry();
 //        System.out.println(i.getIndustryName("sh601186"));
-        try {
-            i.getIndustryNum();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+//        List<String> list = i.getAllIndustries();
+        i.getStockByIndustry("银行");
+
 
     }
 
@@ -70,6 +65,14 @@ public class IndustryName implements IndustryNameDATAService{
         return result;
     }
 
+    private Map<String, String> readIndustryFile() {
+        Map<String, String> list = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+        if (list == null) {
+            iniIndustry();
+            list = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+        }
+        return list;
+    }
 
     /**
      * 从缓存的文件由单只股票的代号名得到对应的行业
@@ -77,7 +80,7 @@ public class IndustryName implements IndustryNameDATAService{
      * @return
      */
     public String getIndustryName(String name){
-        Map<String, String> list = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+        Map<String, String> list = readIndustryFile();
         return list.get(name);
     }
 
@@ -170,13 +173,37 @@ public class IndustryName implements IndustryNameDATAService{
 
 	@Override
 	public List<String> getAllIndustries() {
-		// TODO Auto-generated method stub
-		return null;
+        Map<String, String> list = readIndustryFile();
+        Set<String> resultSet = new HashSet<String>();
+
+        Set entries = list.entrySet();
+        if (entries != null) {
+            Iterator iterator = entries.iterator();
+            while (iterator.hasNext()) {
+                Map.Entry entry = (Map.Entry) iterator.next();
+                resultSet.add((String)entry.getValue());
+            }
+        }
+        List<String> resultList = new ArrayList<>(resultSet);
+        return resultList;
+
 	}
 
 	@Override
 	public List<String> getStockByIndustry(String industry) {
 		// TODO Auto-generated method stub
-		return null;
+        Map<String, String> stockNameList = readIndustryFile();
+        Set set = stockNameList.entrySet();
+        List<String> resultList = new ArrayList<>();
+
+        Iterator it = set.iterator();
+        while (it.hasNext()) {
+            Map.Entry entry = (Map.Entry) it.next();
+            if (entry.getValue().equals(industry)){
+                resultList.add((String)entry.getKey());
+            }
+        }
+        
+		return resultList;
 	}
 }

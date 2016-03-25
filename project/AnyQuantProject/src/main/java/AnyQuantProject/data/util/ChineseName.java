@@ -56,7 +56,7 @@ public class ChineseName {
 	 */
 	public static String getChineseName(String name){
 		HashMap<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
-        if (list.size() == 0) {
+        if (list == null) {
             ChineseName c = new ChineseName();
             c.iniChinese();
         }
@@ -108,7 +108,7 @@ public class ChineseName {
 
 	public static List<String> getAllChineseName() {
 		Map<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
-		List<String> resultList = new LinkedList<>();
+		List<String> resultList = new ArrayList<>();
 		Set entries = list.entrySet();
 		if (entries != null) {
 			Iterator iterator = entries.iterator();
