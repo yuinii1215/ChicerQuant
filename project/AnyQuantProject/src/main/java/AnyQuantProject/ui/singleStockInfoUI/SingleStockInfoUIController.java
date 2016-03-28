@@ -297,9 +297,8 @@ public class SingleStockInfoUIController implements Initializable {
     }
     
     public void endLoad(){
-      // loadImage.setVisible(false);
+       loadImage.setOpacity(0);
        loadImage.setImage(null);
-     //  anchorPane.getChildren().remove(loadImage);
     }
 
     /**

@@ -211,8 +211,7 @@ public class FavoriteUIController implements Initializable {
                             Main.endSingle();                          
                             return "taskcancelled!";
                         }
-                    }, 3, TimeUnit.SECONDS);
-     
+                    }, 3, TimeUnit.SECONDS);    
                     service.shutdown();
                     }
                 }

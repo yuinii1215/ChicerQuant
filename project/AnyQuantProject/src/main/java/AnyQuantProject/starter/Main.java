@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import org.eclipse.swt.widgets.Scale;
 
 import com.hp.hpl.sparta.xpath.ParentNodeTest;
+import java.net.MalformedURLException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -59,6 +60,10 @@ import javafx.stage.StageStyle;
 import javafx.scene.Node;
 import javafx.stage.WindowEvent;
 import javafx.scene.Cursor;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.stage.FileChooser;
 
 /**
  * 
@@ -105,7 +110,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		instance=this;
-		
+                
 		this.primaryStage = primaryStage;
 	//	mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
 		headPanel= FXMLLoader.load(getClass().getResource("headPanel.fxml"));
@@ -117,7 +122,7 @@ public class Main extends Application {
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel1.fxml"));
                 benchMarkPanel.setId("pane");
 
-        modulePanel = FXMLLoader.load(getClass().getResource("modulePanel.fxml"));
+               modulePanel = FXMLLoader.load(getClass().getResource("modulePanel.fxml"));
 
 //		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
 //		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
@@ -141,7 +146,11 @@ public class Main extends Application {
 		vbox.setPadding(new Insets(0,0,0,0));
 		vbox.setSpacing(0);
 		
-		primaryStage.setScene(new Scene(vbox));
+                
+                primaryStage.setScene(initAnimation());         
+               
+                            
+	//	primaryStage.setScene(new Scene(vbox));
 	//	primaryStage.initStyle(StageStyle.DECORATED);
 		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
@@ -182,6 +191,19 @@ public class Main extends Application {
 	//  enterMainScene();
 	//  buttons();
 		primaryStage.show();  
+                
+                ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
+                ScheduledFuture future = service.schedule(new Callable() {
+                        public String call() {
+                            System.out.print("time is up");                     
+                            primaryStage.setScene(new Scene(vbox));
+                             System.out.print("set scene success!!!!!!!!!!");
+                          
+                            primaryStage.show();
+                            return "taskcancelled!";
+                        }
+                    }, 12, TimeUnit.SECONDS);
+                      service.shutdown();
 		
 }  
 	
@@ -258,13 +280,13 @@ public class Main extends Application {
  * @param name
  */
        
-       public static void endSingle() {      
+       public static void endSingle() {                  
               singleStockInfoUIController.endLoad();
+             
        }
        
 	public static void enterSingleStockInfoScene(String name) {
-		// TODO Auto-generated method stub
-                SingleStockInfoUIController singleStockInfoUIController=null;
+		// TODO Auto-generated method stub                
 		try {
 			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
 			singleStockInfoPanel = (AnchorPane)fxmlLoader.load();
@@ -281,20 +303,7 @@ public class Main extends Application {
 			Main.getPrimaryStage().setScene(new Scene(vbox));
 			MainPageController.getInstance().initPanel();
                                      
-                      //  TimeMonitor.start(singleStockInfoUIController);
-                        
-                           
-                        /**
-                         * use an executor to later close the animation
-                         */
-//                        ScheduledExecutorService service=Executors.newScheduledThreadPool(1);
-//                        ScheduledFuture future=service.schedule(new Callable() {
-//                           public String call(){
-//                            return "taskcancelled!";
-//                           }
-//                        },20,TimeUnit.SECONDS);
-//                        singleStockInfoUIController.endLoad();
-//                        service.shutdown();
+                      
                          
 	}
     
@@ -332,6 +341,49 @@ public class Main extends Application {
 		    primaryStage.setScene(primaryScene);
 	}
 	
+        Player player;
+	FileChooser fileChooser;
+        public Scene initAnimation(){
+                MenuItem open = new MenuItem("Open");
+		Menu file = new Menu("");
+		//MenuBar menu = new MenuBar();
+
+		file.getItems().add(open);
+		//menu.getMenus().add(file);
+
+		fileChooser = new FileChooser();
+
+		open.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				player.player.pause();
+				File file = fileChooser.showOpenDialog(primaryStage);
+				if(file != null){
+					try {
+						player = new Player(file.toURI().toURL().toExternalForm());
+						//player.setTop(menu);
+						Scene scene = new Scene(player, 1000, 650, Color.BLACK);
+						primaryStage.setScene(scene);
+					} catch (MalformedURLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+
+
+		//replace filePath with path of your file
+		String filePath = "file:/Users/GraceHan/NetBeansProjects/JavaFXApplication3/src/StockMarket.mp4";
+		player = new Player(filePath);
+		//player.setTop(menu);
+		Scene scene = new Scene(player, 1000, 650, Color.BLACK);
+	//	primaryStage.setScene(scene);
+	//	primaryStage.show();
+                return scene;
+        }
+        
+
+        
 	 public static void main(String[] args) {
 		 StockListBLController stockListBLController=(StockListBLController) StockListBLFactory.getStockListBLService();
 		 
