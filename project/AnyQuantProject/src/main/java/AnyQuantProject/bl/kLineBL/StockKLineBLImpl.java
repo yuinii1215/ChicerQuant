@@ -147,32 +147,23 @@ public class StockKLineBLImpl implements StockKLineBLService {
 	}
 	
 	private List<KLineDataDTO> calculateAver(List<KLineDataDTO> ans,int aver){
-		Iterator<KLineDataDTO> iterator=ans.iterator();
-		List<KLineDataDTO> tar=new ArrayList<>((ans.size()/aver)+5);
-		while (iterator.hasNext()) {
+		List<KLineDataDTO> tar=new ArrayList<>(ans.size());
+		for(int j=0;j<ans.size()-aver;j++){
 			//init data
-			double open=0;
 			double close=0;
-			double high=0;
-			double low=0;
-			long flow=0;
-			int volume=0;
 			int total=0;
 			String date=null;
-			for(int i=0;i<aver&&iterator.hasNext();i++){
-				KLineDataDTO temp=iterator.next();
+			for(int i=0;i<aver;i++){
+				KLineDataDTO temp=ans.get(j+i);
 				if (i==0) {
 					date=((AbstractStock)temp).getDate();
 				}
 				if (temp.getOpen()==0) {
 					continue;
 				}
-				open+=temp.getOpen();
+				
 				close+=temp.getClose();
-				high+=temp.getHigh();
-				low+=temp.getLow();
-				flow+=temp.getFlow();
-				volume+=temp.getVolume();
+				
 				total++;
 			}
 			//build
@@ -180,20 +171,10 @@ public class StockKLineBLImpl implements StockKLineBLService {
 			if (total==0){
 				total=1;
 			}
-			open/=total;
 			close/=total;
-			high/=total;
-			low/=total;
-			flow/=total;
-			volume/=total;
 			Stock stock=new Stock();
 			stock.setDate(date);
-			stock.setOpen(open);
 			stock.setClose(close);
-			stock.setHigh(high);
-			stock.setLow(low);
-			stock.setFlow(flow);
-			stock.setVolume(volume);
 			tar.add(stock);
 		}
 		return tar;

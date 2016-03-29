@@ -148,8 +148,8 @@ public class Main extends Application {
 		vbox.setPadding(new Insets(0,0,0,0));
 		vbox.setSpacing(0);
                  
-//            primaryStage.setScene(new Scene(vbox));
-          primaryStage.setScene(initAnimation());
+            primaryStage.setScene(new Scene(vbox));
+//          primaryStage.setScene(initAnimation());
         ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
         ScheduledFuture future = service.schedule(new Callable() {
             @Override
@@ -348,41 +348,41 @@ public class Main extends Application {
     Player player;
     FileChooser fileChooser;
     Scene scene;
-    public Scene initAnimation() {  
-		MenuItem open = new MenuItem("Open");
-		Menu file = new Menu("");
-		//MenuBar menu = new MenuBar();
-		file.getItems().add(open);
-		//menu.getMenus().add(file);
-
-		fileChooser = new FileChooser();
-
-		open.setOnAction(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent event) {
-				player.player.pause();
-				File file = fileChooser.showOpenDialog(primaryStage);
-				if(file != null){
-					try {
-						player = new Player(file.toURI().toURL().toExternalForm());
-						//player.setTop(menu);
-						Scene scene = new Scene(player, 1000, 650, Color.BLACK);
-						primaryStage.setScene(scene);
-					} catch (MalformedURLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-		});
+//    public Scene initAnimation() {  
+//		MenuItem open = new MenuItem("Open");
+//		Menu file = new Menu("");
+//		//MenuBar menu = new MenuBar();
+//		file.getItems().add(open);
+//		//menu.getMenus().add(file);
+//
+//		fileChooser = new FileChooser();
+//
+//		open.setOnAction(new EventHandler<ActionEvent>() {
+//			public void handle(ActionEvent event) {
+//				player.player.pause();
+//				File file = fileChooser.showOpenDialog(primaryStage);
+//				if(file != null){
+//					try {
+//						player = new Player(file.toURI().toURL().toExternalForm());
+//						//player.setTop(menu);
+//						Scene scene = new Scene(player, 1000, 650, Color.BLACK);
+//						primaryStage.setScene(scene);
+//					} catch (MalformedURLException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//		});
 
 
 		//replace filePath with path of your file
-		String filePath ="/StockMarket.mp4";
-		System.out.println(filePath);
-                player = new Player(filePath);
-		Scene scene = new Scene(player, 1000, 650, Color.BLACK);	
-                return scene;
-    }
+//		String filePath ="/StockMarket.mp4";
+//		System.out.println(filePath);
+//                player = new Player(filePath);
+//		Scene scene = new Scene(player, 1000, 650, Color.BLACK);	
+//                return scene;
+//    }
 
     public static void main(String[] args) {
         StockListBLController stockListBLController = (StockListBLController) StockListBLFactory.getStockListBLService();
