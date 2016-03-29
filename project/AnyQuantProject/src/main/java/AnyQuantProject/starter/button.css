@@ -1,83 +1,18 @@
-.root{
-     -fx-background-image: url("background_image.png");
-    -fx-height: 600px; 
-    -fx-width: 900px;
-}
-
-.table-view {
-    -fx-base: #1d1d1d;
-    -fx-control-inner-background: #1d1d1d;
-    -fx-background-color: #1d1d1d;
-    -fx-table-cell-border-color: transparent;
-    -fx-table-header-border-color: transparent;
-    -fx-padding: 5;   
-}
-
-.table-view .column-header-background {
-    -fx-background-color: transparent;
-}
-
-.table-view .column-header, .table-view .filler {
-    -fx-size: 30;
-    -fx-border-width: 0 0 1 0;
-    -fx-background-color: transparent;
-    -fx-border-color: 
-        transparent
-        transparent
-        derive(-fx-base, 80%) 
-        transparent;
-}
-
-.table-view .column-header .label {
-    -fx-font-size: 10pt;
-    -fx-font-family: "Arial";
-    -fx-text-fill: white;
-    -fx-alignment: CENTER_LEFT;
-    -fx-opacity: 0.7;
-}
-
-.table-view:focused .table-row:filled:focused:selected {
-    -fx-background-color: -fx-focus-color;  
-}
-
-.table-view .scroll-bar:horizontal,.table-view  .scroll-bar:vertical{
-    -fx-background-color: #FFFFFF;
-     -fx-opacity: 0.7;
-}
-
-.table-cell{ 
-    -fx-font-size: 14px; 
-}
-
-.button-isFavor{
-    -fx-background-color: #71C671;
-    -fx-font-size: 10pt;
-    -fx-font-family: "Arial";
-    -fx-text-fill: white;
-    -fx-alignment: center;
-}
-
-
-.tab-pane {
-    -fx-base: transparent;
-    -fx-control-inner-background: transparent;
-    -fx-background-color:transparent;
-    -fx-padding: 5;   
-}
-
-.tab{
-       -fx-background-color: transparent;
-}
-
-.div{
-	position:absolute;
-	height:600px;
-	border:1px solid;
-	overflow-y:scroll;
-}
-
-
-
+/*
+* Glowing Buttons
+*
+* A pulse like glow that appears
+* rythmically around the edges of
+* a button.
+*/
+/*
+* Glow animation mixin for Compass users
+*
+*/
+/*
+* Glowing Keyframes
+*
+*/
 @-webkit-keyframes glowing {
   from {
     -webkit-box-shadow: 0 0 0 rgba(44, 154, 219, 0.3);
@@ -98,7 +33,10 @@
   to {
     -webkit-box-shadow: 0 0 0 rgba(44, 154, 219, 0.3);
             box-shadow: 0 0 0 rgba(44, 154, 219, 0.3); } }
-
+/*
+* Glowing Keyframes for various colors
+*
+*/
 @-webkit-keyframes glowing-primary {
   from {
     -webkit-box-shadow: 0 0 0 rgba(27, 154, 247, 0.3);
@@ -239,8 +177,16 @@
   to {
     -webkit-box-shadow: 0 0 0 rgba(123, 114, 233, 0.3);
             box-shadow: 0 0 0 rgba(123, 114, 233, 0.3); } }
-
+/*
+* Glowing Buttons Base Styes
+*
+* A pulse like glow that appears
+* rythmically around the edges of
+* a button.
+*/
 .button-glow {
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   -webkit-animation-name: glowing;
@@ -249,7 +195,11 @@
     -webkit-animation-name: none;
             animation-name: none; }
 
-
+/*
+* Glowing Button Colors
+*
+* Create colors for glowing buttons
+*/
 .button-glow.button-primary {
   -webkit-animation-name: glowing-primary;
           animation-name: glowing-primary; }
@@ -271,4 +221,3 @@
 .button-glow.button-royal {
   -webkit-animation-name: glowing-royal;
           animation-name: glowing-royal; }
-

@@ -4,7 +4,6 @@ import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.method.IOHelper;
-import com.sun.xml.internal.bind.v2.runtime.property.StructureLoaderBuilder;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -39,10 +38,11 @@ public class IndustryName implements IndustryNameDATAService{
 
     private static CloseableHttpClient httpClient = createHttpsClient();
     private static final String ACCESS_TOKEN = "e6d6d1f9e67a41a324a81b8c973548d82de6aab175e1cc3883f6f13b60f94543";
-
+    private static IndustryName industryName;
 
     public static void main(String[] args) {
         IndustryName i = new IndustryName();
+        System.out.println(i.getStockByIndustry("综合"));
 
 //		i.iniIndustry();
 //        System.out.println(i.getIndustryName("sh601186"));
@@ -52,6 +52,16 @@ public class IndustryName implements IndustryNameDATAService{
 
 
     }
+
+    private IndustryName(){}
+
+    public static IndustryName getInstance(){
+        if ( industryName == null) {
+            industryName = new IndustryName();
+        }
+        return industryName;
+    }
+
 
     public OperationResult iniIndustry() {
         OperationResult result = new OperationResult();
@@ -191,7 +201,6 @@ public class IndustryName implements IndustryNameDATAService{
 
 	@Override
 	public List<String> getStockByIndustry(String industry) {
-		// TODO Auto-generated method stub
         Map<String, String> stockNameList = readIndustryFile();
         Set set = stockNameList.entrySet();
         List<String> resultList = new ArrayList<>();
@@ -199,11 +208,13 @@ public class IndustryName implements IndustryNameDATAService{
         Iterator it = set.iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
-            if (entry.getValue().equals(industry)){
-                resultList.add((String)entry.getKey());
+            if (entry.getValue().equals(industry)) {
+                resultList.add((String) entry.getKey());
             }
         }
-        
-		return resultList;
-	}
+
+        return resultList;
+    }
+
+
 }
