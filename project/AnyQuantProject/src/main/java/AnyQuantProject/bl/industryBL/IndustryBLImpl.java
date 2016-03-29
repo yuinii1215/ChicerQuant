@@ -24,6 +24,7 @@ public class IndustryBLImpl implements IndustryBLService {
 	@Override
 	public List<String> getAllIndustries() {
 		IndustryNameDATAService industryNameDATAService=new IndustryName();
+		System.out.println(industryNameDATAService.getAllIndustries().size());
 		return industryNameDATAService.getAllIndustries();
 	}
 

@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import org.eclipse.swt.widgets.Scale;
 
 import com.hp.hpl.sparta.xpath.ParentNodeTest;
+
 import java.net.MalformedURLException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
@@ -84,7 +85,7 @@ public class Main extends Application {
 	private static HBox h_box,hbox;	
 	private static VBox vbox;	
 	static AnchorPane mainPanel,guidePanel,headPanel,writePanel;
-	public static AnchorPane modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
+	public static AnchorPane 	moreModulePanel,modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
 //	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 //	private static double scrH =primaryScreenBounds.getHeight();
 //	private static double scrW =primaryScreenBounds.getWidth();
@@ -122,12 +123,7 @@ public class Main extends Application {
 		benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel1.fxml"));
                 benchMarkPanel.setId("pane");
 
-               modulePanel = FXMLLoader.load(getClass().getResource("modulePanel.fxml"));
-
-//		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
-//		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
-//		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
-
+        modulePanel = FXMLLoader.load(getClass().getResource("modulePanel.fxml"));
 
 //		primaryStage.setHeight(636);
 //		primaryStage.setWidth(992);
@@ -147,7 +143,7 @@ public class Main extends Application {
 		vbox.setSpacing(0);
 		
                 
-                primaryStage.setScene(initAnimation());         
+ //        primaryStage.setScene(initAnimation());         
                
                             
 	//	primaryStage.setScene(new Scene(vbox));
@@ -190,21 +186,23 @@ public class Main extends Application {
 		});	
 	//  enterMainScene();
 	//  buttons();
+		primaryStage.setScene(new Scene(vbox));
 		primaryStage.show();  
-                
-                ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
-                ScheduledFuture future = service.schedule(new Callable() {
-                        public String call() {
-                            System.out.print("time is up");                     
-                            primaryStage.setScene(new Scene(vbox));
-                             System.out.print("set scene success!!!!!!!!!!");
-                          
-                            primaryStage.show();
-                            return "taskcancelled!";
-                        }
-                    }, 12, TimeUnit.SECONDS);
-                      service.shutdown();
-		
+                  
+//                ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
+//                ScheduledFuture future = service.schedule(new Callable() {
+//                        public String call() {
+//                     //   	System.out.print("time is up");
+//                             service.shutdown();
+//                             System.out.println("???????!!!!!??:::"+service.isShutdown());
+//                            
+//                             return "taskcancelled!";
+//                        }
+//                    }, 11, TimeUnit.SECONDS);
+//                     
+                   
+              
+          
 }  
 	
 	
@@ -275,6 +273,21 @@ public class Main extends Application {
         MainPageController.getInstance().initPanel();
     }
     
+    public  static void enterMoreModuleScene(){
+    
+    	try {
+			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("moreModulePanel.fxml"));
+			moreModulePanel= (AnchorPane)fxmlLoader.load();
+			h_box =new HBox(guidePanel,moreModulePanel);
+	    	vbox=new VBox(headPanel,h_box);    
+	    	Main.getPrimaryStage().setScene(new Scene(vbox));
+	
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+    }
+     
 /**
  * TO be tested
  * @param name
@@ -284,7 +297,7 @@ public class Main extends Application {
               singleStockInfoUIController.endLoad();
              
        }
-       
+ 
 	public static void enterSingleStockInfoScene(String name) {
 		// TODO Auto-generated method stub                
 		try {
@@ -373,7 +386,7 @@ public class Main extends Application {
 
 
 		//replace filePath with path of your file
-		String filePath = "file:/Users/GraceHan/NetBeansProjects/JavaFXApplication3/src/StockMarket.mp4";
+		String filePath = "file:/course/Class/SE3/assignment/AnyQuant_Project/project/AnyQuantProject/src/main/java/AnyQuantProject/starter/StockMarket.mp4";
 		player = new Player(filePath);
 		//player.setTop(menu);
 		Scene scene = new Scene(player, 1000, 650, Color.BLACK);
