@@ -23,11 +23,7 @@ public class IndustryBLImpl implements IndustryBLService {
 
 	@Override
 	public List<String> getAllIndustries() {
-<<<<<<< HEAD
-		IndustryNameDATAService industryNameDATAService=new IndustryName();
-		System.out.println(industryNameDATAService.getAllIndustries().size());
-		return industryNameDATAService.getAllIndustries();
-=======
+
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		IndustryNameDATAService industryNameDATAService=factoryDATAService.getIndustryDATAService();
 		List<String> temp=industryNameDATAService.getAllIndustries();
@@ -37,7 +33,6 @@ public class IndustryBLImpl implements IndustryBLService {
 			return f2-f1;
 		}).collect(Collectors.toList());
 		return ans;
->>>>>>> f983f42c56d735af4d285811b7228c0457c6a57f
 	}
 
 	@Override

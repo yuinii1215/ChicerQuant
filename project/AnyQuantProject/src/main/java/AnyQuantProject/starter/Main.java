@@ -74,7 +74,7 @@ import javafx.stage.FileChooser;
  *
  */
 public class Main extends Application {
-<<<<<<< HEAD
+
 	private static Main instance; 
 	private static Stage primaryStage;   //舞台
 	private static Scene primaryScene;
@@ -88,22 +88,7 @@ public class Main extends Application {
 	private static VBox vbox;	
 	static AnchorPane mainPanel,guidePanel,headPanel,writePanel;
 	public static AnchorPane 	moreModulePanel,modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
-=======
 
-    private static Main instance;
-    private static Stage primaryStage;   //舞台
-    private static Scene primaryScene;
-    private static Pane head; //
-    private static Button close;
-    private static Button min;
-    private static Button max;
-    private static Button full; //全屏
-    private static Group root;
-    private static HBox h_box, hbox;
-    private static VBox vbox;
-    static AnchorPane mainPanel, guidePanel, headPanel, writePanel;
-    public static AnchorPane modulePanel, allStocksPanel, benchMarkPanel, favouritePanel, singleStockPanel, stockDealInfoPanel, singleStockInfoPanel;
->>>>>>> f983f42c56d735af4d285811b7228c0457c6a57f
 //	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 //	private static double scrH =primaryScreenBounds.getHeight();
 //	private static double scrW =primaryScreenBounds.getWidth();
@@ -145,12 +130,7 @@ public class Main extends Application {
 
         modulePanel = FXMLLoader.load(getClass().getResource("modulePanel.fxml"));
 
-<<<<<<< HEAD
-=======
-//		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
-//		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
-//		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
->>>>>>> f983f42c56d735af4d285811b7228c0457c6a57f
+
 //		primaryStage.setHeight(636);
 //		primaryStage.setWidth(992);
         primaryStage.setHeight(625);
@@ -167,8 +147,7 @@ public class Main extends Application {
 		vbox.getChildren().addAll(headPanel,h_box);    
 		vbox.setPadding(new Insets(0,0,0,0));
 		vbox.setSpacing(0);
-<<<<<<< HEAD
-		
+
                 
  //        primaryStage.setScene(initAnimation());         
                
@@ -230,28 +209,25 @@ public class Main extends Application {
                    
               
           
-}  
-	
-	
-=======
-                 
-            primaryStage.setScene(new Scene(vbox));
-//          primaryStage.setScene(initAnimation());
-        ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
-        ScheduledFuture future = service.schedule(new Callable() {
-            @Override
-            public String call() {
-                System.out.print("time is up");
-                primaryStage.setScene(new Scene(vbox));
-                primaryStage.show();
-                return "taskcancelled!";
-            }
-        }, 10, TimeUnit.SECONDS);
-        service.shutdown();
-              
-        //	primaryStage.initStyle(StageStyle.DECORATED);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.isResizable();
+ 
+	      
+//            primaryStage.setScene(new Scene(vbox));
+////          primaryStage.setScene(initAnimation());
+//        ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
+//        ScheduledFuture future = service.schedule(new Callable() {
+//            @Override
+//            public String call() {
+//                System.out.print("time is up");
+//                primaryStage.setScene(new Scene(vbox));
+//                primaryStage.show();
+//                return "taskcancelled!";
+//            }
+//        }, 10, TimeUnit.SECONDS);
+//        service.shutdown();
+//              
+//        //	primaryStage.initStyle(StageStyle.DECORATED);
+//        primaryStage.initStyle(StageStyle.UNDECORATED);
+//        primaryStage.isResizable();
 
         //界面拖拽
         primaryStage.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
@@ -301,7 +277,6 @@ public class Main extends Application {
         primaryStage.show();
     }
 
->>>>>>> f983f42c56d735af4d285811b7228c0457c6a57f
 //	    static double ix;
 //	    static double iy;
 //	    private static void enableDrag(Scene scene){
@@ -366,7 +341,7 @@ public class Main extends Application {
         Main.getPrimaryStage().setScene(new Scene(vbox));
         MainPageController.getInstance().initPanel();
     }
-<<<<<<< HEAD
+
     
     public  static void enterMoreModuleScene(){
     
@@ -415,38 +390,6 @@ public class Main extends Application {
                          
 	}
     
-=======
->>>>>>> f983f42c56d735af4d285811b7228c0457c6a57f
-
-    /**
-     * TO be tested
-     *
-     * @param name
-     */
-    public static void endSingle() {
-        singleStockInfoUIController.endLoad();
-
-    }
-
-    public static void enterSingleStockInfoScene(String name) {
-        // TODO Auto-generated method stub                
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
-            singleStockInfoPanel = (AnchorPane) fxmlLoader.load();
-            singleStockInfoUIController = fxmlLoader.getController();
-            singleStockInfoUIController.loadImage.setImage(new Image("/images/load.gif"));
-            singleStockInfoUIController.laterInit(name);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        h_box = new HBox(guidePanel, singleStockInfoPanel);
-        vbox = new VBox(headPanel, h_box);
-        Main.getPrimaryStage().setScene(new Scene(vbox));
-        MainPageController.getInstance().initPanel();
-
-    }
 
     public void buttons() {
         close = ButtonBuilder.create().text("close").onAction(new EventHandler<ActionEvent>() {
@@ -486,7 +429,7 @@ public class Main extends Application {
 
     Player player;
     FileChooser fileChooser;
-    Scene scene;
+//    Scene scene;
 //    public Scene initAnimation() {  
 //		MenuItem open = new MenuItem("Open");
 //		Menu file = new Menu("");
@@ -516,15 +459,15 @@ public class Main extends Application {
 
 
 		//replace filePath with path of your file
-<<<<<<< HEAD
-		String filePath = "file:/course/Class/SE3/assignment/AnyQuant_Project/project/AnyQuantProject/src/main/java/AnyQuantProject/starter/StockMarket.mp4";
-		player = new Player(filePath);
-		//player.setTop(menu);
-		Scene scene = new Scene(player, 1000, 650, Color.BLACK);
-	//	primaryStage.setScene(scene);
-	//	primaryStage.show();
-                return scene;
-=======
+
+//		String filePath = "file:/course/Class/SE3/assignment/AnyQuant_Project/project/AnyQuantProject/src/main/java/AnyQuantProject/starter/StockMarket.mp4";
+//		player = new Player(filePath);
+//		//player.setTop(menu);
+//		Scene scene = new Scene(player, 1000, 650, Color.BLACK);
+//	//	primaryStage.setScene(scene);
+//	//	primaryStage.show();
+//                return scene;
+
 //		String filePath ="/StockMarket.mp4";
 //		System.out.println(filePath);
 //                player = new Player(filePath);
@@ -538,9 +481,9 @@ public class Main extends Application {
         if (stockListBLController.shouldInit()) {
             Thread thread = new Thread(stockListBLController);
             thread.start();
->>>>>>> f983f42c56d735af4d285811b7228c0457c6a57f
         }
         launch(args);
 
-    }
+    	}
+	
 }
