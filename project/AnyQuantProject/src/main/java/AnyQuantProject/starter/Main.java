@@ -377,7 +377,8 @@ public class Main extends Application {
 
 
 		//replace filePath with path of your file
-		String filePath =  "file:/Users/GraceHan/Desktop/gitlab/AnyQuant_Project/project/AnyQuantProject/src/main/java/AnyQuantProject/starter/StockMarket.mp4";
+		String filePath ="/StockMarket.mp4";
+		System.out.println(filePath);
                 player = new Player(filePath);
 		Scene scene = new Scene(player, 1000, 650, Color.BLACK);	
                 return scene;

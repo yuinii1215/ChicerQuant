@@ -4,8 +4,6 @@ import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.method.IOHelper;
-import com.sun.xml.internal.bind.v2.runtime.property.StructureLoaderBuilder;
-import com.sun.xml.internal.rngom.digested.Main;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
