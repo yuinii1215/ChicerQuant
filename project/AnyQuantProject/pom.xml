@@ -78,6 +78,7 @@
                 <include>**/*.gif</include>
                 <include>**/*.jpg</include>  
                 <include>**/*.css</include>  
+                <include>**/*.mp4</include>
             </includes>  
             <filtering>false</filtering>  
         </resource>  

@@ -61,7 +61,12 @@ public class CalendarHelper {
 
 		return sdf.format(date.getTime());
 	}
-	
+	public static Calendar getPreviousYear(Calendar date){
+		Calendar ans=Calendar.getInstance();
+		ans.setTimeInMillis(date.getTimeInMillis());
+		ans.add(Calendar.YEAR, -1);
+		return ans;
+	}
 	/**
 	 * 得到所给日期的前一天
 	 * @param date

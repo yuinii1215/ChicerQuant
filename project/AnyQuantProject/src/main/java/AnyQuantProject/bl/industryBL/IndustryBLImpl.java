@@ -23,9 +23,21 @@ public class IndustryBLImpl implements IndustryBLService {
 
 	@Override
 	public List<String> getAllIndustries() {
+<<<<<<< HEAD
 		IndustryNameDATAService industryNameDATAService=new IndustryName();
 		System.out.println(industryNameDATAService.getAllIndustries().size());
 		return industryNameDATAService.getAllIndustries();
+=======
+		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		IndustryNameDATAService industryNameDATAService=factoryDATAService.getIndustryDATAService();
+		List<String> temp=industryNameDATAService.getAllIndustries();
+		List<String> ans=temp.stream().sorted((s1,s2)->{
+			int f1=industryNameDATAService.getStockByIndustry(s1).size();
+			int f2=industryNameDATAService.getStockByIndustry(s2).size();
+			return f2-f1;
+		}).collect(Collectors.toList());
+		return ans;
+>>>>>>> f983f42c56d735af4d285811b7228c0457c6a57f
 	}
 
 	@Override
@@ -34,7 +46,9 @@ public class IndustryBLImpl implements IndustryBLService {
 		if (!Checker.checkStringNotNull(industry)) {
 			return new ArrayList<>();
 		}
-		IndustryNameDATAService industryNameDATAService=new IndustryName();
+		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		IndustryNameDATAService industryNameDATAService=factoryDATAService.getIndustryDATAService();
+	
 		List<String> stocks=industryNameDATAService.getStockByIndustry(industry);
 		List<Stock> all=StockListBLFactory.getStockListBLService().getAllStocks();
 		List<Stock> ans=all.stream().filter(st->stocks.contains(st)).collect(Collectors.toList());
@@ -47,7 +61,9 @@ public class IndustryBLImpl implements IndustryBLService {
 		if (!Checker.checkStringNotNull(stockName)) {
 			return null;
 		}
-		IndustryNameDATAService industryNameDATAService=new IndustryName();
+		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		IndustryNameDATAService industryNameDATAService=factoryDATAService.getIndustryDATAService();
+	
 		return industryNameDATAService.getIndustryName(stockName);
 	}
 
