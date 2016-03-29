@@ -21,7 +21,7 @@ import javafx.scene.chart.XYChart.Data;
 * @author cxworks
 * 2016年3月29日 下午7:32:29
 */
-public class LineChartBLImpl implements CalculateLineBLService {
+public class CalculateLineBLImpl implements CalculateLineBLService {
 
 	@Override
 	public LineChartData drawRSI(String name) {
