@@ -148,8 +148,8 @@ public class Main extends Application {
 		vbox.setPadding(new Insets(0,0,0,0));
 		vbox.setSpacing(0);
                  
-//            primaryStage.setScene(new Scene(vbox));
-          primaryStage.setScene(initAnimation());
+            primaryStage.setScene(new Scene(vbox));
+//          primaryStage.setScene(initAnimation());
         ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
         ScheduledFuture future = service.schedule(new Callable() {
             @Override
@@ -377,7 +377,7 @@ public class Main extends Application {
 
 
 		//replace filePath with path of your file
-		String filePath =  "file:/Users/GraceHan/Desktop/gitlab/AnyQuant_Project/project/AnyQuantProject/src/main/java/AnyQuantProject/starter/StockMarket.mp4";
+		String filePath =  "file:/AnyQuant_Project/project/AnyQuantProject/src/main/java/AnyQuantProject/starter/StockMarket.mp4";
                 player = new Player(filePath);
 		Scene scene = new Scene(player, 1000, 650, Color.BLACK);	
                 return scene;

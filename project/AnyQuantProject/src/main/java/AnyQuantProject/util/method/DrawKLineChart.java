@@ -76,7 +76,7 @@ public class DrawKLineChart {
 	    
 	     TimeSeries series2=new TimeSeries("");// 对应时间成交量数据
 	     for (int i = 0; i < dataList.size(); i++) {
-	    	  int date =Integer.parseInt(dataList.get(i).getDay());
+	    	    int date =Integer.parseInt(dataList.get(i).getDay());
 	            int month =Integer.parseInt(dataList.get(i).getMonth());
 	            int year =Integer.parseInt(dataList.get(i).getYear());
 	            series2.add(new Day(date, month, year), dataList.get(i).getVolume()/ 100.0);
@@ -150,6 +150,7 @@ public class DrawKLineChart {
 	   
 	     // 设置x轴，也就是时间轴
 	     DateAxis x1Axis=new DateAxis();
+             //x1Axis.setVerticalTickLabels(true);//日期竖向显示
 	     x1Axis.setAutoRange(false);// 设置不采用自动设置时间范围
 	     x1Axis.setTickLabelPaint(java.awt.Color.WHITE);
 
@@ -163,6 +164,7 @@ public class DrawKLineChart {
 	  
 	     
 	     // 设置时间线显示的规则，用这个方法就摒除掉了周六和周日这些没有交易的日期
+           
 	     x1Axis.setTimeline(SegmentedTimeline.newMondayThroughFridayTimeline());
 	     x1Axis.setAutoTickUnitSelection(false);// 设置不采用自动选择刻度值       
 	     x1Axis.setTickMarkPosition(DateTickMarkPosition.START);// 设置标记的位置
@@ -180,7 +182,7 @@ public class DrawKLineChart {
 	    	 x1Axis.setTickUnit(new DateTickUnit(DateTickUnit.MONTH,6));
 	    	 System.out.println("..........month...........");
 	     }
-	     x1Axis.setDateFormatOverride(new SimpleDateFormat("YYYY-MM-dd"));// 设置显示时间的格式
+	     x1Axis.setDateFormatOverride(new SimpleDateFormat("YY-MM-dd"));// 设置显示时间的格式
 	     
 	     // 设定y轴，就是数字轴
 	     NumberAxis y1Axis=new NumberAxis();

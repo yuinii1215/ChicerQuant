@@ -15,7 +15,7 @@ import AnyQuantProject.util.method.AbstractStock2Column;
 */
 
 public class StockInfo2Column extends AbstractStock2Column<Stock> {
-
+  
 	@Override
 	public Set<Entry<String, Double>> set(Stock stock) {
 		Map<String, Double> map=new HashMap<>();

@@ -23,6 +23,7 @@ import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.starter.Main;
 import AnyQuantProject.ui.controllerUI.MainPageController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
+import AnyQuantProject.ui.singleStockInfoUI.StockInfo2Column;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
 import AnyQuantProject.util.method.SimpleLongProperty;
@@ -35,6 +36,7 @@ import javafx.util.Callback;
 
 //import AnyQuantProject.util.method.TableRowControl;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -46,6 +48,8 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableCell;
+import javafx.scene.control.TablePosition;
+import javafx.scene.control.TableView.TableViewSelectionModel;
 import static javafx.scene.input.KeyCode.T;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -61,6 +65,8 @@ public class AllStocksUIController  implements Initializable{
     
     List<Stock> allStocksList=new ArrayList<Stock>();
     String targetStockName;
+    @FXML
+    public Label nameLabel;
     @FXML
     public TableColumn<Stock, String> chineseColumn;
     @FXML
@@ -91,8 +97,15 @@ public class AllStocksUIController  implements Initializable{
     public TableColumn<Stock, Double> pbColumn;
     @FXML
     public TableView<Stock> table;
-   
+     @FXML
+    public TableView<Map.Entry<String, Double>> titleTable, valueTable;
+    @FXML
+    public TableColumn<Map.Entry<String, Double>, String> key_column, key_column2;
+    @FXML
+    public TableColumn<Map.Entry<String, Double>, Double> value_column, value_column2;
+
     int selectedIndex;
+    public Stock singleStock;
 	
 	private static AllStocksUIController instance;
     StockListBLService stockListImplement = StockListBLFactory.getStockListBLService();
@@ -124,9 +137,11 @@ public class AllStocksUIController  implements Initializable{
          @Override
          public TableRow<Stock> call(TableView<Stock> table) {
              // TODO Auto-generated method stub
+             
             return new TableRowControl(table);
          }
      });
+//         table.setSelectionModel(allStocksList.get(0));
 		/**
 		 * initialize the tabel columns
 		 */
@@ -160,6 +175,7 @@ public class AllStocksUIController  implements Initializable{
                 cellData.getValue().getPb()));
         
        
+    
    }
   /**
    * TO be tested
@@ -170,11 +186,28 @@ public class AllStocksUIController  implements Initializable{
    public class TableRowControl<T> extends TableRow<T> {
        
       public TableRowControl(TableView<T> tableView) {  
-        super();
+        super();               
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {  
-            @Override  
-            public void handle(MouseEvent event) { 
-                
+            @Override            
+            public void handle(MouseEvent event) {                 
+                  if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 1) {                   
+                   selectedIndex=TableRowControl.this.getIndex();
+                   singleStock=allStocksList.get(selectedIndex);
+                   
+                   String stockName=nameColumn.getCellData(selectedIndex);
+                   System.out.println("......Enter :"+stockName+" panel......");
+          
+                   nameLabel.setText(chineseColumn.getCellData(selectedIndex));
+                   
+                   valueTable.setItems(FXCollections.observableArrayList(new StockInfo2Column().set(singleStock)));
+                   StockInfo2Column.setKValue(key_column);
+                   StockInfo2Column.setVValue(value_column);
+
+                   titleTable.setItems(FXCollections.observableArrayList(new StockInfo2Column().set2(singleStock)));
+                   StockInfo2Column.setKValue(key_column2);
+                   StockInfo2Column.setVValue(value_column2);
+
+                } 
                  if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {  
                    selectedIndex=TableRowControl.this.getIndex();
                    String stockName=nameColumn.getCellData(selectedIndex);
