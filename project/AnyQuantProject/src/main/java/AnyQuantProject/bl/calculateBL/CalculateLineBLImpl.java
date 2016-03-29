@@ -2,6 +2,7 @@ package AnyQuantProject.bl.calculateBL;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import AnyQuantProject.blService.kLineBLService.CalculateLineBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
@@ -32,10 +33,12 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		Calendar now=Calendar.getInstance();
 		
-		List<Stock> data=singleStockDATAService.getStockAmongDate(name, CalendarHelper.getPreviousYear(now), now);
-		if (data==null||data.isEmpty()) {
+		List<Stock> dataT=singleStockDATAService.getStockAmongDate(name, CalendarHelper.getPreviousYear(now), now);
+		if (dataT==null||dataT.isEmpty()) {
 			return new LineChartData();
 		}
+		
+		List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
 		//
 		String title=data.get(0).getChinese()+"";
 		// 
