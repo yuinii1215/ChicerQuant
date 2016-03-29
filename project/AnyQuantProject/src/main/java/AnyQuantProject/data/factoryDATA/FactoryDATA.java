@@ -6,7 +6,9 @@ package AnyQuantProject.data.factoryDATA;
 import AnyQuantProject.data.realDATA.benchMarkDATA.BenchMarkDATA;
 import AnyQuantProject.data.realDATA.singleStockDATA.SingleStockDATA;
 import AnyQuantProject.data.realDATA.stockListDATA.StockListDATA;
+import AnyQuantProject.data.util.IndustryName;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
+import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataService.realDATAService.benchMarkDATAService.BenchMarkDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataService.realDATAService.stockListDATAService.StockListDATAService;
@@ -45,7 +47,11 @@ public class FactoryDATA implements FactoryDATAService{
 	public StockListDATAService getStockListDATAService() {
 		return StockListDATA.getInstance();
 	}
-	
-	
-	
+
+	@Override
+	public IndustryNameDATAService getIndustryDATAService() {
+		return IndustryName.getInstance();
+	}
+
+
 }
