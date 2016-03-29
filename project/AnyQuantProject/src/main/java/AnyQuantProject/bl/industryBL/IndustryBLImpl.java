@@ -23,6 +23,7 @@ public class IndustryBLImpl implements IndustryBLService {
 
 	@Override
 	public List<String> getAllIndustries() {
+
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		IndustryNameDATAService industryNameDATAService=factoryDATAService.getIndustryDATAService();
 		List<String> temp=industryNameDATAService.getAllIndustries();

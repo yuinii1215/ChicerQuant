@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import org.eclipse.swt.widgets.Scale;
 
 import com.hp.hpl.sparta.xpath.ParentNodeTest;
+
 import java.net.MalformedURLException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
@@ -74,19 +75,20 @@ import javafx.stage.FileChooser;
  */
 public class Main extends Application {
 
-    private static Main instance;
-    private static Stage primaryStage;   //舞台
-    private static Scene primaryScene;
-    private static Pane head; //
-    private static Button close;
-    private static Button min;
-    private static Button max;
-    private static Button full; //全屏
-    private static Group root;
-    private static HBox h_box, hbox;
-    private static VBox vbox;
-    static AnchorPane mainPanel, guidePanel, headPanel, writePanel;
-    public static AnchorPane modulePanel, allStocksPanel, benchMarkPanel, favouritePanel, singleStockPanel, stockDealInfoPanel, singleStockInfoPanel;
+	private static Main instance; 
+	private static Stage primaryStage;   //舞台
+	private static Scene primaryScene;
+	private static Pane head ; //
+	private static Button close;
+	private static Button min;
+	private static Button max;
+	private static Button full; //全屏
+	private static Group root;
+	private static HBox h_box,hbox;	
+	private static VBox vbox;	
+	static AnchorPane mainPanel,guidePanel,headPanel,writePanel;
+	public static AnchorPane 	moreModulePanel,modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
+
 //	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 //	private static double scrH =primaryScreenBounds.getHeight();
 //	private static double scrW =primaryScreenBounds.getWidth();
@@ -128,9 +130,7 @@ public class Main extends Application {
 
         modulePanel = FXMLLoader.load(getClass().getResource("modulePanel.fxml"));
 
-//		singleStockInfoPanel = (AnchorPane)FXMLLoader.load(getClass().getResource("singleStockInfoPanel.fxml"));
-//		singleStockPanel = FXMLLoader.load(getClass().getResource("singleStockPanel.fxml"));
-//		stockDealInfoPanel = FXMLLoader.load(getClass().getResource("stockDealInfoPanel.fxml"));
+
 //		primaryStage.setHeight(636);
 //		primaryStage.setWidth(992);
         primaryStage.setHeight(625);
@@ -147,24 +147,87 @@ public class Main extends Application {
 		vbox.getChildren().addAll(headPanel,h_box);    
 		vbox.setPadding(new Insets(0,0,0,0));
 		vbox.setSpacing(0);
-                 
-            primaryStage.setScene(new Scene(vbox));
-//          primaryStage.setScene(initAnimation());
-        ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
-        ScheduledFuture future = service.schedule(new Callable() {
-            @Override
-            public String call() {
-                System.out.print("time is up");
-                primaryStage.setScene(new Scene(vbox));
-                primaryStage.show();
-                return "taskcancelled!";
-            }
-        }, 10, TimeUnit.SECONDS);
-        service.shutdown();
+
+                
+ //        primaryStage.setScene(initAnimation());         
+               
+                            
+	//	primaryStage.setScene(new Scene(vbox));
+	//	primaryStage.initStyle(StageStyle.DECORATED);
+		primaryStage.initStyle(StageStyle.UNDECORATED);
+		primaryStage.isResizable();
+
+		//界面拖拽
+		primaryStage.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>(){
+
+			@Override
+			public void handle(MouseEvent e) {
+				// TODO Auto-generated method stub
+			   if(e.getY()<=(int)((double)primaryStage.getHeight()*22/490)){
+	            	move=true;
+	            	origin.x = (int) e.getX();  
+	                origin.y = (int) e.getY();
+	                }
+			   
+			}});
+		
+		primaryStage.addEventHandler(MouseEvent.MOUSE_RELEASED, new EventHandler<MouseEvent>(){
+
+			@Override
+			public void handle(MouseEvent e) {
+				// TODO Auto-generated method stub
+			   move =false;
+			}});
+
+		primaryStage.addEventHandler(MouseEvent.MOUSE_DRAGGED,new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent e) {	
+				if(move){
+	                double x = primaryStage.getX() ;
+	                double y =primaryStage.getY();
+	
+	                primaryStage.setX(x + e.getX() - origin.x);
+	                primaryStage.setY(y + e.getY() - origin.y);
+	            	}
+	            }
+		});	
+	//  enterMainScene();
+	//  buttons();
+		primaryStage.setScene(new Scene(vbox));
+		primaryStage.show();  
+                  
+//                ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
+//                ScheduledFuture future = service.schedule(new Callable() {
+//                        public String call() {
+//                     //   	System.out.print("time is up");
+//                             service.shutdown();
+//                             System.out.println("???????!!!!!??:::"+service.isShutdown());
+//                            
+//                             return "taskcancelled!";
+//                        }
+//                    }, 11, TimeUnit.SECONDS);
+//                     
+                   
               
-        //	primaryStage.initStyle(StageStyle.DECORATED);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.isResizable();
+          
+ 
+	      
+//            primaryStage.setScene(new Scene(vbox));
+////          primaryStage.setScene(initAnimation());
+//        ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
+//        ScheduledFuture future = service.schedule(new Callable() {
+//            @Override
+//            public String call() {
+//                System.out.print("time is up");
+//                primaryStage.setScene(new Scene(vbox));
+//                primaryStage.show();
+//                return "taskcancelled!";
+//            }
+//        }, 10, TimeUnit.SECONDS);
+//        service.shutdown();
+//              
+//        //	primaryStage.initStyle(StageStyle.DECORATED);
+//        primaryStage.initStyle(StageStyle.UNDECORATED);
+//        primaryStage.isResizable();
 
         //界面拖拽
         primaryStage.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
@@ -279,35 +342,54 @@ public class Main extends Application {
         MainPageController.getInstance().initPanel();
     }
 
-    /**
-     * TO be tested
-     *
-     * @param name
-     */
-    public static void endSingle() {
-        singleStockInfoUIController.endLoad();
-
+    
+    public  static void enterMoreModuleScene(){
+    
+    	try {
+			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("moreModulePanel.fxml"));
+			moreModulePanel= (AnchorPane)fxmlLoader.load();
+			h_box =new HBox(guidePanel,moreModulePanel);
+	    	vbox=new VBox(headPanel,h_box);    
+	    	Main.getPrimaryStage().setScene(new Scene(vbox));
+	
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
     }
-
-    public static void enterSingleStockInfoScene(String name) {
-        // TODO Auto-generated method stub                
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
-            singleStockInfoPanel = (AnchorPane) fxmlLoader.load();
-            singleStockInfoUIController = fxmlLoader.getController();
-            singleStockInfoUIController.loadImage.setImage(new Image("/images/load.gif"));
-            singleStockInfoUIController.laterInit(name);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        h_box = new HBox(guidePanel, singleStockInfoPanel);
-        vbox = new VBox(headPanel, h_box);
-        Main.getPrimaryStage().setScene(new Scene(vbox));
-        MainPageController.getInstance().initPanel();
-
-    }
+     
+/**
+ * TO be tested
+ * @param name
+ */
+       
+       public static void endSingle() {                  
+              singleStockInfoUIController.endLoad();
+             
+       }
+ 
+	public static void enterSingleStockInfoScene(String name) {
+		// TODO Auto-generated method stub                
+		try {
+			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("singleStockInfoPanel.fxml"));
+			singleStockInfoPanel = (AnchorPane)fxmlLoader.load();
+			singleStockInfoUIController=fxmlLoader.getController();
+			singleStockInfoUIController.loadImage.setImage(new Image("/images/load.gif"));
+                        singleStockInfoUIController.laterInit(name);                 
+               } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+                       
+			h_box =new HBox(guidePanel,singleStockInfoPanel);
+			vbox=new VBox(headPanel,h_box);    
+			Main.getPrimaryStage().setScene(new Scene(vbox));
+			MainPageController.getInstance().initPanel();
+                                     
+                      
+                         
+	}
+    
 
     public void buttons() {
         close = ButtonBuilder.create().text("close").onAction(new EventHandler<ActionEvent>() {
@@ -347,7 +429,7 @@ public class Main extends Application {
 
     Player player;
     FileChooser fileChooser;
-    Scene scene;
+//    Scene scene;
 //    public Scene initAnimation() {  
 //		MenuItem open = new MenuItem("Open");
 //		Menu file = new Menu("");
@@ -377,6 +459,15 @@ public class Main extends Application {
 
 
 		//replace filePath with path of your file
+
+//		String filePath = "file:/course/Class/SE3/assignment/AnyQuant_Project/project/AnyQuantProject/src/main/java/AnyQuantProject/starter/StockMarket.mp4";
+//		player = new Player(filePath);
+//		//player.setTop(menu);
+//		Scene scene = new Scene(player, 1000, 650, Color.BLACK);
+//	//	primaryStage.setScene(scene);
+//	//	primaryStage.show();
+//                return scene;
+
 //		String filePath ="/StockMarket.mp4";
 //		System.out.println(filePath);
 //                player = new Player(filePath);
@@ -393,5 +484,6 @@ public class Main extends Application {
         }
         launch(args);
 
-    }
+    	}
+	
 }
