@@ -23,51 +23,90 @@ import javafx.scene.chart.XYChart.Data;
 * 2016年3月29日 下午7:32:29
 */
 public class CalculateLineBLImpl implements CalculateLineBLService {
-
-	@Override
-	public LineChartData drawRSI(String name) {
-		if (Checker.checkStringNotNull(name)) {
-			return new LineChartData();
-		}
+	private List<Stock> getData(String name) {
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		Calendar now=Calendar.getInstance();
 		
 		List<Stock> dataT=singleStockDATAService.getStockAmongDate(name, CalendarHelper.getPreviousYear(now), now);
 		if (dataT==null||dataT.isEmpty()) {
-			return new LineChartData();
+			return null;
 		}
 		
 		List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
 		//
-		String title=data.get(0).getChinese()+"";
+		return data;
+	}
+
+	@Override
+	public LineChartData drawRSI(String name) {
+		if (Checker.checkStringNotNull(name)) {
+			return new LineChartData();
+		}
+		List<Stock> data=this.getData(name);
+		String title=data.get(0).getChinese()+"相对强弱指数折线图";
 		// 
-		List<Stock> rsi1=RSI.calculateRSI(data, 6);
-		List<Stock> rsi2=RSI.calculateRSI(data, 12);
-		List<Stock> rsi3=RSI.calculateRSI(data, 24);
+		List<DataCell> rsi1=RSI.calculateRSI(data, 6);
+		List<DataCell> rsi2=RSI.calculateRSI(data, 12);
+		List<DataCell> rsi3=RSI.calculateRSI(data, 24);
 		//
 		CategoryAxis xAxis=new CategoryAxis();
 		NumberAxis yAxis=new NumberAxis();
 		//
 		XYChart.Series<String,Double> rsi1Series=new XYChart.Series();
 		rsi1.stream()
-		.map(st->new XYChart.Data<>(st.getDate(), st.getClose()))
+		.map(st->new XYChart.Data<>(st.x, st.y))
 		.forEach(d->rsi1Series.getData().add( d));
 		rsi1Series.setName("6 days RSI");
 		//
 		XYChart.Series<String,Double> rsi2Series=new XYChart.Series();
 		rsi2.stream()
-		.map(st->new XYChart.Data<>(st.getDate(), st.getClose()))
-		.forEach(d->rsi1Series.getData().add( d));
+		.map(st->new XYChart.Data<>(st.x, st.y))
+		.forEach(d->rsi2Series.getData().add( d));
 		rsi2Series.setName("12 days RSI");
 		//
 		XYChart.Series<String,Double> rsi3Series=new XYChart.Series();
 		rsi3.stream()
-		.map(st->new XYChart.Data<>(st.getDate(), st.getClose()))
-		.forEach(d->rsi1Series.getData().add( d));
-		rsi3Series.setName("12 days RSI");
+		.map(st->new XYChart.Data<>(st.x, st.y))
+		.forEach(d->rsi3Series.getData().add( d));
+		rsi3Series.setName("24 days RSI");
 		//
 		return new LineChartData(title, xAxis, yAxis, rsi1Series,rsi2Series,rsi3Series);
+	}
+
+	@Override
+	public LineChartData drawBIAS(String name) {
+		if (Checker.checkStringNotNull(name)) {
+			return new LineChartData();
+		}
+		List<Stock> data=this.getData(name);
+		String title=data.get(0).getChinese()+"乖离率折线图";
+		// 
+		List<DataCell> bias1=BIAS.calculateBIAS(data, 6);
+		List<DataCell> bias2=BIAS.calculateBIAS(data, 12);
+		List<DataCell> bias3=BIAS.calculateBIAS(data, 24);
+		//
+		CategoryAxis xAxis=new CategoryAxis();
+		NumberAxis yAxis=new NumberAxis();
+		//
+		XYChart.Series<String,Double> bias1Series=new XYChart.Series();
+		bias1.stream()
+		.map(st->new XYChart.Data<>(st.x, st.y))
+		.forEach(d->bias1Series.getData().add( d));
+		bias1Series.setName("6 days BIAS");
+		//
+		XYChart.Series<String,Double> bias2Series=new XYChart.Series();
+		bias2.stream()
+		.map(st->new XYChart.Data<>(st.x, st.y))
+		.forEach(d->bias2Series.getData().add( d));
+		bias2Series.setName("12 days BIAS");
+		//
+		XYChart.Series<String,Double> bias3Series=new XYChart.Series();
+		bias3.stream()
+		.map(st->new XYChart.Data<>(st.x, st.y))
+		.forEach(d->bias3Series.getData().add( d));
+		bias3Series.setName("24 days BIAS");
+		return new LineChartData(title, xAxis, yAxis, bias1Series,bias2Series,bias3Series);
 	}
 
 	
