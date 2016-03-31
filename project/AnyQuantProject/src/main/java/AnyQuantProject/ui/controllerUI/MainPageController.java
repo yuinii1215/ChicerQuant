@@ -24,7 +24,7 @@ import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
 import AnyQuantProject.ui.headUI.HeadUIController;
-import AnyQuantProject.ui.moduleUI.ModuleUIController;
+import AnyQuantProject.ui.moduleUI.ModuleUI_1Controller;
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
 import AnyQuantProject.ui.stockDealInfoUI.StockDealInfoUIController;
@@ -223,7 +223,7 @@ public class MainPageController  implements Initializable {
 		        btn.setDefaultButton(true);
 		        defaultBtn = btn;
 		        Main.enterModuleScene();
-				ModuleUIController.getInstance().init();
+				ModuleUI_1Controller.getInstance().init();
 			
 		    }
 	  	

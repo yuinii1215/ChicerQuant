@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="modulePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="900.0" style="-fx-background-color: transparent;" styleClass="edge-to-edge"  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.moduleUI.ModuleUI_1Controller">
+   <children>
+      <GridPane layoutX="42.0" layoutY="-2.0" opacity="0.88" prefHeight="528.0" prefWidth="829.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Circle fill="#85b9eb" radius="36.0" stroke="WHITE" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin>
+            </Circle>
+            <Label prefHeight="15.0" prefWidth="139.0" text="             ...更多" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets left="25.0" />
+               </opaqueInsets>
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="moreBtn" mnemonicParsing="false" onAction="#toMoreModulePane" opacity="0.0" prefHeight="67.0" prefWidth="73.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Rectangle fx:id="Rect1" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" />
+            <Rectangle fx:id="Rect2" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" />
+            <Rectangle fx:id="Rect3" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" />
+            <Rectangle fx:id="Rect4" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" />
+            <Rectangle fx:id="Rect5" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="1" />
+            <Rectangle fx:id="Rect6" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Rectangle fx:id="Rect14" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Rectangle fx:id="Rect13" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="3" />
+            <Rectangle fx:id="Rect8" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Rectangle fx:id="Rect10" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Rectangle fx:id="Rect9" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="2" />
+            <Rectangle fx:id="Rect7" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Rectangle fx:id="Rect11" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Rectangle fx:id="Rect15" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Rectangle fx:id="Rect12" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Text fx:id="Text1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text12" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text8" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text11" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text15" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text14" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text13" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text10" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text9" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text7" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text6" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text5" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text4" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text3" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="Text2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
