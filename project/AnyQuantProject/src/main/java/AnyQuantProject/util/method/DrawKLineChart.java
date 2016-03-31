@@ -7,11 +7,14 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+
 import org.jfree.chart.block.LabelBlock;
+
 import javax.swing.ImageIcon;
 
 import org.jfree.chart.ChartFactory;
@@ -43,8 +46,11 @@ import AnyQuantProject.blService.kLineBLService.BenchmarkKLineBLService;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.util.constant.TimeType;
+
 import com.sun.javafx.charts.Legend;
+
 import java.awt.Font;
+
 import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.block.BlockContainer;
@@ -123,20 +129,32 @@ public class DrawKLineChart {
 	     	
 	     	String leastmonth,leastday;
 	     	Calendar calendar =Calendar.getInstance();
-	     	if(calendar.get(Calendar.MONTH)+1<10){
-	     		leastmonth="0"+(calendar.get(Calendar.MONTH)+1)+"";
-	     	}
-	     	else{
-	     		leastmonth=(calendar.get(Calendar.MONTH)+1)+"";
-	     	}
-	    	if(calendar.get(Calendar.DATE)-1<10){
-	     		leastday="0"+(calendar.get(Calendar.DATE)-1)+"";
-	     	}
-	    	else{
-	    		leastday=(calendar.get(Calendar.DATE)-1)+"";
-	    	}
-	    	
-	     	String leastTime=calendar.get(Calendar.YEAR)+"-"+leastmonth+"-"+leastday;
+//	     	if(calendar.get(Calendar.MONTH)+1<10){
+//	     		leastmonth="0"+(calendar.get(Calendar.MONTH)+1)+"";
+//	     	}
+//	     	else{
+//	     		leastmonth=(calendar.get(Calendar.MONTH)+1)+"";
+//	     	}
+//	    	if(calendar.get(Calendar.DATE)-1<10){
+//	     		leastday="0"+(calendar.get(Calendar.DATE)-1)+"";
+//	     	}
+//	    	else{
+//	    		leastday=(calendar.get(Calendar.DATE)-1)+"";
+//	    	}
+//	    	
+	     	Calendar endtime=null;
+	    	//init the dayTabPane
+        	int year =Integer.parseInt(String.valueOf(calendar.get(Calendar.YEAR)));
+        	int month =Integer.parseInt(String.valueOf(calendar.get(Calendar.MONTH)));
+        	int day =Integer.parseInt(String.valueOf(calendar.get(Calendar.DATE)));
+        	endtime = Calendar.getInstance();
+        	endtime.set(year,month+1,day-1);//yeaterday
+        	
+        	if(day==1){
+        		endtime.set(year,month,day);//yeaterday
+        	}
+        	
+	     	String leastTime= dateFormat.format(endtime.getTime());
 	     	if(endTime==null){
 	     		endTime=leastTime;
 	     	}

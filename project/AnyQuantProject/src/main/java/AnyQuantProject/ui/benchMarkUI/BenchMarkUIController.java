@@ -195,8 +195,15 @@ public class BenchMarkUIController implements Initializable{
         	endTime.set(year,month+1,day-1);//yeaterday
         	
         	minTime.setValue(LocalDate.of(year, 1, 1));
-        	maxTime.setValue(LocalDate.of(year, month+1,day-1));
-        
+        	
+        	if(day==1){
+        		minTime.setValue(LocalDate.of(year-1, 1, 1));
+        		maxTime.setValue(LocalDate.of(year, month+1,day));
+        		startTime.set(year,1,1);
+        		endTime.set(year,month,day);//yeaterday
+        	}else {
+        		maxTime.setValue(LocalDate.of(year, month+1,day-1));
+        	}
         	newDayTab();
         	newWeek_MonthTab();
         
