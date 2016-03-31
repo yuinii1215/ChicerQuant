@@ -1,5 +1,6 @@
 package AnyQuantProject.bl.calculateBL;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -107,6 +108,49 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		.forEach(d->bias3Series.getData().add( d));
 		bias3Series.setName("24 days BIAS");
 		return new LineChartData(title, xAxis, yAxis, bias1Series,bias2Series,bias3Series);
+	}
+
+	@Override
+	public LineChartData drawKDJ(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LineChartData drawPreview(String name) {
+		if (Checker.checkStringNotNull(name)) {
+			return new LineChartData();
+		}
+		List<Stock> data=this.getData(name);
+		String title=data.get(0).getChinese()+" 价格走势";
+		//
+		CategoryAxis xAxis=new CategoryAxis();
+		NumberAxis yAxis=new NumberAxis();
+		//
+		XYChart.Series<String,Double> xSeries=new XYChart.Series();
+		data.stream()
+		.map(st->new XYChart.Data(st.getDate(),st.getClose()))
+		.forEach(d->xSeries.getData().add(d));
+		
+		XYChart.Series<String,Double> percentSeries=new XYChart.Series();
+		List<DataCell> percent=new ArrayList<>(data.size());
+		//calculate percent
+		for (int i = 1; i < data.size(); i++) {
+			double before=data.get(i-1).getClose();
+			Stock stock=data.get(i);
+			String date=stock.getDate();
+			double now=stock.getClose();
+			double per=(now-before)/before*100;
+			DataCell dataCell=new DataCell(date, per);
+			percent.add(dataCell);
+		}
+		percent.stream().map(cell->new XYChart.Data<>(cell.x, cell.y)).forEach(d->percentSeries.getData().add(d));
+		
+		XYChart.Series<String,Double> volume=new XYChart.Series();
+		data.stream()
+		.map(st->new XYChart.Data(st.getDate(),st.getVolume()))
+		.forEach(d->xSeries.getData().add(d));
+		return new LineChartData(title, xAxis, yAxis, xSeries,percentSeries,volume);
 	}
 
 	

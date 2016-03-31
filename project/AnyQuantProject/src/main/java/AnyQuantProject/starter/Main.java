@@ -163,12 +163,12 @@ public class Main extends Application {
 
 
                 
- //        primaryStage.setScene(initAnimation());         
+         primaryStage.setScene(initAnimation());         
                
                             
 	//	primaryStage.setScene(new Scene(vbox));
-	//	primaryStage.initStyle(StageStyle.DECORATED);
-		primaryStage.initStyle(StageStyle.UNDECORATED);
+		primaryStage.initStyle(StageStyle.DECORATED);
+//		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
 
 		//界面拖拽
@@ -440,42 +440,42 @@ public class Main extends Application {
 
     Player player;
     FileChooser fileChooser;
-//    Scene scene;
-//    public Scene initAnimation() {  
-//		MenuItem open = new MenuItem("Open");
-//		Menu file = new Menu("");
-//		//MenuBar menu = new MenuBar();
-//		file.getItems().add(open);
-//		//menu.getMenus().add(file);
-//
-//		fileChooser = new FileChooser();
-//
-//		open.setOnAction(new EventHandler<ActionEvent>() {
-//			public void handle(ActionEvent event) {
-//				player.player.pause();
-//				File file = fileChooser.showOpenDialog(primaryStage);
-//				if(file != null){
-//					try {
-//						player = new Player(file.toURI().toURL().toExternalForm());
-//						//player.setTop(menu);
-//						Scene scene = new Scene(player, 1000, 650, Color.BLACK);
-//						primaryStage.setScene(scene);
-//					} catch (MalformedURLException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				}
-//			}
-//		});
+    Scene scene;
+    public Scene initAnimation() {  
+		MenuItem open = new MenuItem("Open");
+		Menu file = new Menu("");
+		//MenuBar menu = new MenuBar();
+		file.getItems().add(open);
+		//menu.getMenus().add(file);
+
+		fileChooser = new FileChooser();
+
+		open.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				player.player.pause();
+				File file = fileChooser.showOpenDialog(primaryStage);
+				if(file != null){
+					try {
+						player = new Player(file.toURI().toURL().toExternalForm());
+						//player.setTop(menu);
+						Scene scene = new Scene(player, 1000, 650, Color.BLACK);
+						primaryStage.setScene(scene);
+					} catch (MalformedURLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		});
 
 
 		//replace filePath with path of your file
 
-//		String filePath =  "file:/AnyQuant_Project/project/AnyQuantProject/src/main/java/AnyQuantProject/starter/StockMarket.mp4";
-//                player = new Player(filePath);
-//		Scene scene = new Scene(player, 1000, 650, Color.BLACK);	
-//                return scene;
-//    }
+		String filePath =  "file://AnyQuant_Project//project//AnyQuantProject//src//main//java//AnyQuantProject//starter//StockMarket.mp4";
+                player = new Player(filePath);
+		Scene scene = new Scene(player, 1000, 650, Color.BLACK);	
+                return scene;
+    }
 //=======
 
 //		String filePath = "file:/course/Class/SE3/assignment/AnyQuant_Project/project/AnyQuantProject/src/main/java/AnyQuantProject/starter/StockMarket.mp4";

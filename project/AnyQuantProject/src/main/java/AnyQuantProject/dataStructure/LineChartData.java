@@ -1,5 +1,7 @@
 package AnyQuantProject.dataStructure;
 
+import java.util.List;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.Axis;
@@ -18,6 +20,7 @@ public class LineChartData extends GraphData {
 	private Axis<?> yAxis;
 	//
 	private ObservableList<XYChart.Series<?,?>> series;
+	
 	@Deprecated
 	public LineChartData(){
 		super("not found");
