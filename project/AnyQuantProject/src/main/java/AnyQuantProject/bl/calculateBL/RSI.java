@@ -11,32 +11,32 @@ import AnyQuantProject.dataStructure.Stock;
 * 2016年3月29日 下午8:19:01
 */
 public class RSI {
-	public static List<Stock> calculateRSI(List<Stock> src,int day){
-		List<Stock> ans=new ArrayList<>(src.size());
-		for (int i = 0; i < src.size()-day; i++) {
-			Stock stock = new Stock();
-			double close=0.0;
-			int total=0;
-			String date=null;
+	public static List<DataCell> calculateRSI(List<Stock> src,int day){
+		List<DataCell> ans=new ArrayList<>(src.size());
+		for (int i = day-1; i < src.size(); i++) {
+			Stock first=src.get(i);
+			double close=first.getClose();
+			String date=first.getDate();
+			double up=0;
+			double down=0;
 			//
-			for (int j = 0; j < day; j++) {
-				Stock temp=src.get(i+j);
-				if (j==0) {
-					date=temp.getDate();
+			for (int j = 1; j < day; j++) {
+				Stock temp=src.get(i-j);
+				if (temp.getClose()>close) {
+					up+=temp.getClose()-close;
 				}
-				if (temp.getClose()>0) {
-					close+=temp.getClose();
-					total++;
+				else {
+					down+=close-temp.getClose();
 				}
 			}
-			if (total==0) {
-				total=1;
-			}
-			//
-			close/=total;
-			stock.setDate(date);
-			stock.setClose(close);
-			ans.add(stock);
+			
+			up/=day;
+			down/=day;
+			double rsi=up/down;
+			rsi/=(1+rsi);
+			rsi*=100;
+			DataCell dataCell=new DataCell(date, rsi);
+			ans.add(dataCell);
 		}
 		return ans;
 	}

@@ -15,7 +15,43 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.allStocksUI.AllStocksUIController">
    <children>
-      <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" editable="true" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
+      <Pane layoutX="691.0" layoutY="-2.0" prefHeight="607.0" prefWidth="209.0" style="-fx-background-color: #00C5CD;">
+         <children>
+            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="87.0" prefWidth="209.0" style="-fx-background-color: #00C5CD;" text="Label" textFill="WHITE">
+               <effect>
+                  <Blend mode="GREEN" />
+               </effect>
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <TableView id="tableView" fx:id="titleTable" blendMode="LIGHTEN" editable="true" layoutY="87.0" prefHeight="196.0" prefWidth="209.0" style="-fx-background-color: #292929;">
+               <columns>
+                  <TableColumn fx:id="key_column" prefWidth="98.0" />
+                  <TableColumn fx:id="value_column" minWidth="0.0" prefWidth="92.0" />
+               </columns>
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TableView>
+            <TableView id="tableView" fx:id="valueTable" blendMode="LIGHTEN" editable="true" layoutY="258.0" prefHeight="196.0" prefWidth="209.0" style="-fx-background-color: #292929;">
+               <columns>
+                  <TableColumn fx:id="key_column2" prefWidth="94.0" />
+                  <TableColumn fx:id="value_column2" prefWidth="84.0" />
+               </columns>
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TableView>
+         </children>
+      </Pane>
+      <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" editable="true" layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="691.0">
         <columns>
             <TableColumn fx:id="chineseColumn" prefWidth="75.0" text="股票名称" />
             <TableColumn id="dateColumn" fx:id="nameColumn" prefWidth="75.0" text="股票代码" />

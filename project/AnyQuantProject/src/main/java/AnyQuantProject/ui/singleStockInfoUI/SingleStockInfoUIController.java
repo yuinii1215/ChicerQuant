@@ -16,6 +16,7 @@ import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.util.constant.TimeType;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
@@ -189,7 +190,6 @@ public class SingleStockInfoUIController implements Initializable {
     
     SingleStockInfoUIController singleStockInfoUIController;
     
-//  public Scene singleStockUIScene;
     @FXML
     public TableView<Stock> table;
     @FXML
@@ -342,6 +342,7 @@ public class SingleStockInfoUIController implements Initializable {
         singleStockList = filterControl(singleStockList);
         table.getItems().clear();
         table.getItems().addAll(singleStockList);
+        filterConditionPane.getChildren().clear();
     }
 
     public List<Stock> filterControl(List<Stock> currentList) {
@@ -498,6 +499,7 @@ public class SingleStockInfoUIController implements Initializable {
     public JFreeChart drawDayKLine(){
         LineChart();
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
+        
         KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName,minTime,maxTime);
         List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
         String endtime=null;
@@ -555,6 +557,11 @@ public class SingleStockInfoUIController implements Initializable {
          thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
     }
      
+//   @FXML
+//   public void  handleHelperButton(ActionEvent actionEvent){
+//         filterConditionPane.getChildren().clear();
+//
+//   }
     public void init() {
         
         helperButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
@@ -607,7 +614,33 @@ public class SingleStockInfoUIController implements Initializable {
         titleTable.setItems(FXCollections.observableArrayList(new StockInfo2Column().set2(singleStock)));
         StockInfo2Column.setKValue(key_Column2);
         StockInfo2Column.setVValue(value_Column2);
-
+        
+        value_Column.setCellFactory(new Callback<TableColumn<Map.Entry<String, Double>, Double>, TableCell<Map.Entry<String, Double>, Double>>() {
+            @Override
+            public TableCell<Map.Entry<String, Double>, Double> call(TableColumn<Map.Entry<String, Double>, Double> arg0) {
+                return new TableCell<Map.Entry<String, Double>, Double>() {
+                    ObservableValue ov1;
+                    @Override
+                    protected void updateItem(Double item, boolean empty) {
+                        super.updateItem(item, empty);
+                      
+                        if(this.getIndex()<singleStockList.size()){ 
+                        if (!isEmpty()) {
+                            double property = Math.random();
+                             if(this.getIndex()==0){ 
+                             this.setTextFill(Color.GREENYELLOW);
+                           }
+                             else if(this.getIndex()==1){ 
+                             this.setTextFill(Color.RED);
+                           }
+                            setText(item + "");
+                        }
+                        }
+                    }
+                };
+            }
+        });
+ 
         /*
           initialize the combobox
          */
@@ -739,16 +772,18 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * add the JFreechart into the tabpane
              */
-        
+        minTime=Calendar.getInstance();
+        minTime.set(2016,1,1,0,0);
         swingNode1 = new SwingNode();
         dayChart=drawDayKLine();
         panel1 = this.getChartPanel(dayChart);
         swingNode1.setContent(panel1);    
         scroller1=new ScrollPane();
-        scroller1.setContent(swingNode1);
-        
-        scroller1.setFitToHeight(true);       
+        scroller1.setContent(swingNode1);        
+        scroller1.setFitToHeight(true);
+        scroller1.setHvalue(1);
         tab_dayKLine.setContent(scroller1);
+        
 
         swingNode2 = new SwingNode();
         weekChart=drawWeekKLine();
@@ -772,7 +807,7 @@ public class SingleStockInfoUIController implements Initializable {
     }
     private ChartPanel getChartPanel(JFreeChart jFreeChart){
     	ChartPanel chartPanel=new ChartPanel(jFreeChart);
-    	chartPanel.setMaximumSize(new Dimension(1000, 600));
+        chartPanel.setMinimumSize(new Dimension(800, 500));
     	chartPanel.setMouseWheelEnabled(true);
     	chartPanel.setPopupMenu(null);
     	chartPanel.setMouseZoomable(false);
@@ -863,13 +898,14 @@ public class SingleStockInfoUIController implements Initializable {
 
     }
 
-    public class TableRowControl<T> extends TableRow<T> {
-
-        public TableRowControl(TableView<T> tableView) {
+    public class TableRowController<T> extends TableRow<T> {
+        public TableRowController(TableView<T> tableView) {
             super();
             System.out.println(this.indexProperty().intValue());
+            this.setTextFill(Color.RED);
             this.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent event) {
+                    
                     if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
 
                     }

@@ -9,5 +9,34 @@ import AnyQuantProject.dataStructure.LineChartData;
 
 
 public interface CalculateLineBLService{
-	public LineChartData drawRSI(String name);	
+	/**
+	 * 返回股票的价格波动情况以及涨跌幅、成交量
+	 * 只有一条价格曲线，涨跌幅、成交量依次排列
+	 * @param name
+	 * @return
+	 */
+	public LineChartData drawPreview(String name);
+	/**
+	 * 股票相对强弱指数，RSI（Relative Strength Index）
+	 * 返回共三条折线，分别是6、12、24日的RSI
+	 * X轴为String的日期，Y轴为0~100的数字，是百分数
+	 * @param name 股票代号
+	 * @return 
+	 */
+	public LineChartData drawRSI(String name);
+	/**
+	 * 股票乖离率，BIAS（没有找到全名）
+	 * 返回共三条折线，分别是6、12、24日的乖离率
+	 * X轴为String的日期，Y轴为0~100的数字，是百分数
+	 * @param name 股票代号
+	 * @return
+	 */
+	public	LineChartData drawBIAS(String name);
+	/**
+	 * 股票随机指标，(Stochastics)
+	 * 共三条曲线，分别是KDJ的值
+	 * @param name
+	 * @return
+	 */
+	public LineChartData drawKDJ(String name);
 }
