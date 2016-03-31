@@ -163,7 +163,7 @@ public class Main extends Application {
 
 
                 
-         primaryStage.setScene(initAnimation());         
+    //     primaryStage.setScene(initAnimation());         
                
                             
 	//	primaryStage.setScene(new Scene(vbox));
