@@ -69,12 +69,6 @@
        -fx-background-color: transparent;
 }
 
-.div{
-	position:absolute;
-	height:600px;
-	border:1px solid;
-	overflow-y:scroll;
-}
 
 
 
@@ -245,7 +239,7 @@
           animation-iteration-count: infinite;
   -webkit-animation-name: glowing;
           animation-name: glowing; }
-  .button-glow:active, .button-glow.active, .button-glow.is-active {
+.button-glow:active, .button-glow.active, .button-glow.is-active {
     -webkit-animation-name: none;
             animation-name: none; }
 

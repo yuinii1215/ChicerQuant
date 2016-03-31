@@ -128,7 +128,7 @@ public class Main extends Application {
         benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel1.fxml"));
         benchMarkPanel.setId("pane");
 
-        modulePanel = FXMLLoader.load(getClass().getResource("modulePanel.fxml"));
+        modulePanel = FXMLLoader.load(getClass().getResource("modulePanel0.fxml"));
 
 
 //		primaryStage.setHeight(636);
@@ -354,7 +354,7 @@ public class Main extends Application {
     }
 
     
-    public  static void enterMoreModuleScene(){
+    public  static void enterSingleModuleScene(){
     
     	try {
 			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("moreModulePanel.fxml"));
