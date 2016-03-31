@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.paint.*?>
@@ -17,7 +18,8 @@
    <children>
       <Pane layoutX="691.0" layoutY="-2.0" prefHeight="607.0" prefWidth="209.0" style="-fx-background-color: #00C5CD;">
          <children>
-            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="87.0" prefWidth="209.0" style="-fx-background-color: #00C5CD;" text="Label" textFill="WHITE">
+            <Pane fx:id="chartPane" layoutX="-5.0" layoutY="406.0" prefHeight="224.0" prefWidth="219.0" />
+            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="87.0" prefWidth="209.0" style="-fx-background-color: #00C5CD;" text="Label" textFill="WHITE">
                <effect>
                   <Blend mode="GREEN" />
                </effect>
@@ -25,7 +27,7 @@
                   <Font size="32.0" />
                </font>
             </Label>
-            <TableView id="tableView" fx:id="titleTable" blendMode="LIGHTEN" editable="true" layoutY="87.0" prefHeight="196.0" prefWidth="209.0" style="-fx-background-color: #292929;">
+            <TableView id="tableView" fx:id="titleTable" blendMode="LIGHTEN" editable="true" layoutY="62.0" prefHeight="196.0" prefWidth="209.0" style="-fx-background-color: #292929;">
                <columns>
                   <TableColumn fx:id="key_column" prefWidth="98.0" />
                   <TableColumn fx:id="value_column" minWidth="0.0" prefWidth="92.0" />
@@ -37,7 +39,7 @@
                   <Insets />
                </opaqueInsets>
             </TableView>
-            <TableView id="tableView" fx:id="valueTable" blendMode="LIGHTEN" editable="true" layoutY="258.0" prefHeight="196.0" prefWidth="209.0" style="-fx-background-color: #292929;">
+            <TableView id="tableView" fx:id="valueTable" blendMode="LIGHTEN" editable="true" layoutY="227.0" prefHeight="196.0" prefWidth="209.0" style="-fx-background-color: #292929;">
                <columns>
                   <TableColumn fx:id="key_column2" prefWidth="94.0" />
                   <TableColumn fx:id="value_column2" prefWidth="84.0" />

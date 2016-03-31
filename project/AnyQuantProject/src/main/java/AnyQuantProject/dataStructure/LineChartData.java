@@ -26,13 +26,14 @@ public class LineChartData extends GraphData {
 		super("not found");
 		xAxis=new NumberAxis();
 		yAxis=new NumberAxis();
-		series=FXCollections.observableArrayList(new XYChart.Series());
+		series=FXCollections.observableArrayList(new XYChart.Series());              
 	}
 	public LineChartData(String title,Axis<?> x,Axis<?> y,XYChart.Series<?,?>... series ) {
 		super(title);
 		this.xAxis=x;
 		this.yAxis=y;
 		this.series=FXCollections.observableArrayList(series);
+                
 	}
 	public Axis<?> getxAxis() {
 		return xAxis;

@@ -138,5 +138,39 @@
             <Insets />
          </opaqueInsets>
       </TabPane>
+      <AnchorPane fx:id="signPane" layoutX="170.0" layoutY="25.0" prefHeight="33.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="fiveColor" layoutX="32.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6.0" prefWidth="11.0" style="-fx-background-color: #FFFF00;" text="  ">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="PMA5" layoutX="-2.0" layoutY="16.0" text="5PMA" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="PMA10" layoutX="51.0" layoutY="16.0" text="10PMA" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="PMA30" layoutX="112.0" layoutY="16.0" text="30PMA" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="tenColor" layoutX="91.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6.0" prefWidth="11.0" style="-fx-background-color: #EE82EE;">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="thirtyColor" layoutX="152.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6.0" prefWidth="11.0" style="-fx-background-color: #40E0D0;">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

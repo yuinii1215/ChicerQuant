@@ -546,7 +546,7 @@ public class SingleStockInfoUIController implements Initializable {
     
      public void LineChart(){
          StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
-    	//5日线
+    	//5日线   
    	 fiveAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 5);
    	 fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
    	//10日线

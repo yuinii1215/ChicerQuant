@@ -11,7 +11,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-
+import org.jfree.chart.block.LabelBlock;
 import javax.swing.ImageIcon;
 
 import org.jfree.chart.ChartFactory;
@@ -43,11 +43,17 @@ import AnyQuantProject.blService.kLineBLService.BenchmarkKLineBLService;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.util.constant.TimeType;
-
+import com.sun.javafx.charts.Legend;
+import java.awt.Font;
+import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.block.BlockContainer;
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.labels.StandardXYItemLabelGenerator;
-
+import org.jfree.chart.title.LegendTitle;
+import org.jfree.ui.HorizontalAlignment;
+import org.jfree.ui.RectangleEdge;
+import org.jfree.chart.block.BorderArrangement;
 public class DrawKLineChart {
 	
 	
@@ -250,34 +256,12 @@ public class DrawKLineChart {
              
 	     JFreeChart chart = new JFreeChart(id, JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
 	     // 设置总的背景颜色
-       
-	     chart.setBackgroundPaint(java.awt.Color.BLACK);
-	     
-	  //     dayKChart.setBackgroundImageAlpha(1f);
-	   
-	     
+        
+	     chart.setBackgroundPaint(java.awt.Color.BLACK);	           
+             
 	      return chart;
 	  
 		//统一上影线，下影线
-//	      Paint p = getItemPaint(series, item);
-//	           Paint outlinePaint = null;
-//	           if (this.useOutlinePaint) {
-//	            if(yClose>yOpen){
-//	             if (this.upPaint != null) {
-//	              	outlinePaint=this.upPaint;
-//	                   }
-//	                   else {
-//	                    outlinePaint=p;
-//	                   }
-//	            }else{
-//	             if (this.downPaint != null) {
-//	              outlinePaint=this.downPaint;
-//	                   }
-//	                   else {
-//	                    outlinePaint=p;
-//	                   }
-//	            }
-//	           }
 	
 	}
 	
@@ -287,16 +271,17 @@ public class DrawKLineChart {
 		 TimeSeries series=new TimeSeries("");
 		 for(int i = 0; i < AvgDataList.size(); i++) {
 		    int date =Integer.parseInt( AvgDataList.get(i).getDay());
-            int month =Integer.parseInt( AvgDataList.get(i).getMonth());
-            int year =Integer.parseInt( AvgDataList.get(i).getYear());
+                int month =Integer.parseInt( AvgDataList.get(i).getMonth());
+                int year =Integer.parseInt( AvgDataList.get(i).getYear());
             series.add(new Day(date, month, year), AvgDataList.get(i).getClose());
             
 		 }
+                 
 		 TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// PMA5
 		 timeSeriesCollection.addSeries(series);
-		 
+
 		 XYLineAndShapeRenderer xyLineRenderer  =new XYLineAndShapeRenderer();
-		 xyLineRenderer .setBaseItemLabelsVisible(true);  
+		 xyLineRenderer.setBaseItemLabelsVisible(true);  
 	    //xyLineRenderer.setSeriesFillPaint(0, java.awt.Color.yellow);
 		 if(aver==5){
 			 xyLineRenderer.setSeriesPaint(0, java.awt.Color.yellow);   
@@ -311,6 +296,7 @@ public class DrawKLineChart {
 		 xyLineRenderer.setSeriesShapesVisible(0,false);   
 		 plot.setDataset(n,timeSeriesCollection);
 		 plot.setRenderer(n,xyLineRenderer);
+                
 	}
 
 }
