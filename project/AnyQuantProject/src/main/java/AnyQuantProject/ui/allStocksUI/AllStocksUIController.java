@@ -246,53 +246,35 @@ public class AllStocksUIController implements Initializable {
        //final NumberAxis yAxis = new NumberAxis();
         previewLineChart=LineChartBLFactory.getCalculateLineBL().drawPreview(stockName);     
         
-        CategoryAxis xAxis=new CategoryAxis();
-        NumberAxis yAxis =new NumberAxis();
-        stockLineChart = new LineChart<>(xAxis, yAxis);
-        stockLineChart.setTitle("2016指数");
         
-        XYChart.Series series1=new XYChart.Series();
-//        XYChart.Series<String,Number> series2=previewLineChart.getSeries();
-//        series1.setName("Portfolio 1");  
-//        for(int j=0;j<series2.size();j++){
-//        series1.setData(series2.get(j));
-//        }
+        stockLineChart = (LineChart<String, Number>) new LineChart<>(previewLineChart.getxAxis(),previewLineChart.getyAxis());
+        stockLineChart.setTitle(previewLineChart.getTitle());
+        
+//        XYChart.Series series1=new XYChart.Series();
         
         
-        series1.getData().add(new XYChart.Data("Jan", 23));
-        series1.getData().add(new XYChart.Data("Feb", 14));
-        series1.getData().add(new XYChart.Data("Mar", 15));
-        series1.getData().add(new XYChart.Data("Apr", 24));
-        series1.getData().add(new XYChart.Data("May", 34));
-        series1.getData().add(new XYChart.Data("Jun", 36));
-        series1.getData().add(new XYChart.Data("Jul", 22));
-        series1.getData().add(new XYChart.Data("Aug", 45));
-        series1.getData().add(new XYChart.Data("Sep", 43));
-        series1.getData().add(new XYChart.Data("Oct", 17));
-        series1.getData().add(new XYChart.Data("Nov", 29));
-        series1.getData().add(new XYChart.Data("Dec", 25));
 
-        stockLineChart.getData().addAll(series1);
-        stockLineChart.setLayoutX(0);
-        stockLineChart.setLayoutY(0);
+        stockLineChart.getData().add((XYChart.Series<String, Number>)previewLineChart.getSeries().get(0));
+//        stockLineChart.setLayoutX(0);
+//        stockLineChart.setLayoutY(0);
         stockLineChart.setPrefSize(205, 210);
 
-//        chartPane.getChildren().add(stockLineChart);
+        chartPane.getChildren().add(stockLineChart);
        
-        animation = new Timeline();
-        animation.getKeyFrames().add(new KeyFrame(Duration.millis(1000 / 60), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                for (int count = 0; count < 6; count++) {
-                    nextTime();
-                    plotTime();
-                }
-            }
-        }));
-        animation.setCycleCount(Animation.INDEFINITE);
-        animation.setCycleCount(100);
-        chartPane.getChildren().add(createChart());
-        play();
+//        animation = new Timeline();
+//        animation.getKeyFrames().add(new KeyFrame(Duration.millis(1000 / 60), new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                for (int count = 0; count < 6; count++) {
+//                    nextTime();
+//                    plotTime();
+//                }
+//            }
+//        }));
+//        animation.setCycleCount(Animation.INDEFINITE);
+//        animation.setCycleCount(100);
+//        chartPane.getChildren().add(createChart());
+//        play();
     }
 
     /**

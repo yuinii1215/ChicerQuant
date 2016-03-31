@@ -41,7 +41,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 
 	@Override
 	public LineChartData drawRSI(String name) {
-		if (Checker.checkStringNotNull(name)) {
+		if (!Checker.checkStringNotNull(name)) {
 			return new LineChartData();
 		}
 		List<Stock> data=this.getData(name);
@@ -77,7 +77,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 
 	@Override
 	public LineChartData drawBIAS(String name) {
-		if (Checker.checkStringNotNull(name)) {
+		if (!Checker.checkStringNotNull(name)) {
 			return new LineChartData();
 		}
 		List<Stock> data=this.getData(name);
@@ -118,20 +118,36 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 
 	@Override
 	public LineChartData drawPreview(String name) {
-		if (Checker.checkStringNotNull(name)) {
+		
+		if (!Checker.checkStringNotNull(name)) {
 			return new LineChartData();
 		}
-		List<Stock> data=this.getData(name);
-		String title=data.get(0).getChinese()+" 价格走势";
+		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
+		Calendar ins=Calendar.getInstance();
+		Calendar weekBefore=Calendar.getInstance();
+		weekBefore.add(Calendar.DAY_OF_WEEK, -14);
+		List<Stock> dataT=singleStockDATAService.getStockAmongDate(name, weekBefore, ins);
+		if (dataT==null||dataT.isEmpty()) {
+			return null;
+		}
+		
+		List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
+		data.stream().forEach(d->System.out.println(d.getClose()));
+		String title="近期价格走势";
 		//
 		CategoryAxis xAxis=new CategoryAxis();
-		NumberAxis yAxis=new NumberAxis();
+		
 		//
 		XYChart.Series<String,Double> xSeries=new XYChart.Series();
 		data.stream()
 		.map(st->new XYChart.Data(st.getDate(),st.getClose()))
 		.forEach(d->xSeries.getData().add(d));
-		
+		double max=data.stream().max((s1,s2)->(int)(s1.getClose()-s2.getClose())).get().getClose();
+		double min=data.stream().min((s1,s2)->(int)(s1.getClose()-s2.getClose())).get().getClose();
+		double low=min-(max-min)*0.2;
+		double high=max+(max-min)*0.2;
+		NumberAxis yAxis=new NumberAxis(low,high,0.01);
 		XYChart.Series<String,Double> percentSeries=new XYChart.Series();
 		List<DataCell> percent=new ArrayList<>(data.size());
 		//calculate percent
@@ -149,7 +165,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		XYChart.Series<String,Double> volume=new XYChart.Series();
 		data.stream()
 		.map(st->new XYChart.Data(st.getDate(),st.getVolume()))
-		.forEach(d->xSeries.getData().add(d));
+		.forEach(d->volume.getData().add(d));
 		return new LineChartData(title, xAxis, yAxis, xSeries,percentSeries,volume);
 	}
 
