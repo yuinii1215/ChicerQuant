@@ -148,11 +148,8 @@ public class DrawKLineChart {
         	int month =Integer.parseInt(String.valueOf(calendar.get(Calendar.MONTH)));
         	int day =Integer.parseInt(String.valueOf(calendar.get(Calendar.DATE)));
         	endtime = Calendar.getInstance();
-        	endtime.set(year,month+1,day-1);//yeaterday
+        	endtime.add(Calendar.DATE,-1);//yseterday
         	
-        	if(day==1){
-        		endtime.set(year,month,day);//yeaterday
-        	}
         	
 	     	String leastTime= dateFormat.format(endtime.getTime());
 	     	if(endTime==null){

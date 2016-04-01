@@ -192,15 +192,14 @@ public class BenchMarkUIController implements Initializable{
         	startTime = Calendar.getInstance();
         	startTime.set(year,1,1);
         	endTime = Calendar.getInstance();
-        	endTime.set(year,month+1,day-1);//yeaterday
-        	
+        	endTime.add(Calendar.DATE,-1);//yseterday
         	minTime.setValue(LocalDate.of(year, 1, 1));
         	
         	if(day==1){
         		minTime.setValue(LocalDate.of(year-1, 1, 1));
         		maxTime.setValue(LocalDate.of(year, month+1,day));
         		startTime.set(year,1,1);
-        		endTime.set(year,month,day);//yeaterday
+        	//	endTime.set(year,month,day);//yeaterday
         	}else {
         		maxTime.setValue(LocalDate.of(year, month+1,day-1));
         	}
