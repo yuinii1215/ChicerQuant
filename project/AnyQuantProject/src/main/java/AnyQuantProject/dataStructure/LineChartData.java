@@ -1,6 +1,8 @@
 package AnyQuantProject.dataStructure;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,7 +21,7 @@ public class LineChartData extends GraphData {
 	private Axis<?> xAxis;
 	private Axis<?> yAxis;
 	//
-	private ObservableList<XYChart.Series<?,?>> series;
+	private List<XYChart.Series<?,?>> series;
 	
 	@Deprecated
 	public LineChartData(){
@@ -32,7 +34,10 @@ public class LineChartData extends GraphData {
 		super(title);
 		this.xAxis=x;
 		this.yAxis=y;
-		this.series=FXCollections.observableArrayList(series);
+		this.series= new ArrayList<>(series.length);
+		for (int i=0;i<series.length;i++){
+			this.series.add(series[i]);
+		}
                 
 	}
 	public Axis<?> getxAxis() {
@@ -41,7 +46,7 @@ public class LineChartData extends GraphData {
 	public Axis<?> getyAxis() {
 		return yAxis;
 	}
-	public ObservableList<XYChart.Series<?,?>> getSeries() {
+	public List<XYChart.Series<?,?>> getSeries() {
 		return series;
 	}
 	
