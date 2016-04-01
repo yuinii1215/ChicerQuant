@@ -2,6 +2,7 @@ package AnyQuantProject.blService.industryBLService;
 
 import java.util.List;
 
+import AnyQuantProject.dataStructure.IndustryInfo;
 import AnyQuantProject.dataStructure.Stock;
 
 /** 
@@ -28,5 +29,12 @@ public interface IndustryBLService {
 	 * @return
 	 */
 	public String getIndustryByName(String stockName);
+
+    /**
+     * 获取行业信息
+     * @param industry 行业名称
+     * @return
+     */
+	public IndustryInfo getIndustryInfo(String industry);
 
 }

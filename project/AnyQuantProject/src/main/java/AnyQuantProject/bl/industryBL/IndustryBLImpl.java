@@ -1,6 +1,7 @@
 package AnyQuantProject.bl.industryBL;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,7 +11,10 @@ import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.data.util.IndustryName;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
+import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
+import AnyQuantProject.dataStructure.IndustryInfo;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
 
 /** 
@@ -60,6 +64,29 @@ public class IndustryBLImpl implements IndustryBLService {
 		IndustryNameDATAService industryNameDATAService=factoryDATAService.getIndustryDATAService();
 	
 		return industryNameDATAService.getIndustryName(stockName);
+	}
+
+	@Override
+	public IndustryInfo getIndustryInfo(String industry) {
+		//check
+		if (!Checker.checkStringNotNull(industry)){
+			return  new IndustryInfo();
+		}
+		List<Stock> todaydata=this.getStocksByIndustry(industry);
+		long today=todaydata.stream().mapToLong(s->s.getMarketvalue()).sum();
+		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		//get yesterday
+		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
+		Calendar date= CalendarHelper.convert2Calendar(todaydata.get(0).getDate());
+		date.add(Calendar.DAY_OF_MONTH,-1);
+		List<Stock> yesterdata=todaydata.stream()
+				.map(s->singleStockDATAService.getOperation(s.getName(),date))
+				.collect(Collectors.toList());
+		long yesterday=yesterdata.stream().mapToLong(s->s.getMarketvalue()).sum();
+		IndustryInfo ans=new IndustryInfo(industry);
+		ans.setPure(today);
+		ans.setUpdown((double)(today-yesterday)/yesterday);
+		return  ans;
 	}
 
 }
