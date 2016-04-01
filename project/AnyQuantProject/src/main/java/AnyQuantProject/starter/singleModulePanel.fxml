@@ -18,7 +18,7 @@
    <children>
       <TableView fx:id="table" blendMode="LIGHTEN" layoutY="241.0" prefHeight="359.0" prefWidth="900.0">
         <columns>
-          <TableColumn fx:id="englishNameColumn" prefWidth="79.0" text="股票代码" />
+          <TableColumn fx:id="idColumn" prefWidth="79.0" text="股票代码" />
             <TableColumn fx:id="chineseNameColumn" prefWidth="78.0" text="股票名称" />
             <TableColumn fx:id="highColumn" prefWidth="75.0" text="最高价" />
             <TableColumn fx:id="lowColumn" prefWidth="71.0" text="最低价" />
@@ -85,10 +85,12 @@
             </GridPane>
          </children>
       </VBox>
-      <Label fx:id="guideLabel" layoutX="8.0" layoutY="8.0" text="股票分类 &gt; 所有模块 &gt; 港口航运" textFill="WHITE" />
+     <Label fx:id="guideLabel2" layoutX="81.0" layoutY="10.0" text="所有模块 " textFill="WHITE" underline="true" />
+      <Label fx:id="guideLabel1" layoutX="17.0" layoutY="10.0" text="股票分类 &gt;                " textFill="WHITE" />
+      <Label fx:id="guideLabel" layoutX="135.0" layoutY="10.0" text="&gt; 港口航运" textFill="WHITE" />
+      <Button fx:id="allModuleBtn" onAction="#toReturnPane" layoutX="80.0" layoutY="6.0" mnemonicParsing="false" opacity="0.0" text="Button" />
+      <Button layoutX="14.0" layoutY="6.0" mnemonicParsing="false" opacity="0.0" text="Button" />
+      <Button fx:id="SingleModuleBtn" layoutX="142.0" layoutY="6.0" mnemonicParsing="false" opacity="0.0" text="Button" />
       <AnchorPane layoutX="6.0" layoutY="28.0" prefHeight="207.0" prefWidth="599.0" />
-      <Button layoutX="3.0" layoutY="3.0" mnemonicParsing="false" opacity="0.0" text="Button" />
-      <Button fx:id="allModuleBtn" layoutX="69.0" layoutY="3.0" mnemonicParsing="false" opacity="0.0" text="Button" />
-      <Button fx:id="SingleModuleBtn" layoutX="134.0" layoutY="4.0" mnemonicParsing="false" opacity="0.0" text="Button" />
    </children>
 </AnchorPane>

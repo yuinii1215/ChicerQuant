@@ -1,5 +1,8 @@
 package AnyQuantProject.ui.moduleUI;
 
+/**
+ * @author QiHan
+ */
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -52,19 +55,12 @@ public class MoreModuleUIController implements Initializable{
 	private void toDetailMoulePane(){
 		
 	}
+	
 	@FXML
 	private void toReturnPane() {
-		FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("modulePane0.fxml"));
-		try {
-			modulePanel = (AnchorPane)fxmlLoader.load();
-			moduleUI_1Controller=fxmlLoader.getController();
-			moduleUI_1Controller.init();   
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		     
+		Main.returnToModuleScene();
 	}
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
