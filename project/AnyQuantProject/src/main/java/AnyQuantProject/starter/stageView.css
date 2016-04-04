@@ -266,3 +266,31 @@
   -webkit-animation-name: glowing-royal;
           animation-name: glowing-royal; }
 
+.chart{
+    -fx-padding: 0px;  
+}
+.chart-content{
+    -fx-padding: 0px;
+}
+.chart-plot-background{
+    -fx-background-color: transparent;
+}
+.chart-vertical-grid-lines{
+    -fx-stroke: #3278fa;
+}
+.chart-horizontal-grid-lines{
+    -fx-stroke:#3278fa;
+}
+.chart-alternative-row-fill{
+    -fx-fill: #99bcfd;
+    -fx-stroke: transparent;
+    -fx-stroke-width:0;
+}
+.chart-series-line {    
+    -fx-stroke-width: 2px;
+    -fx-effect: null;
+}
+ 
+.default-color.chart-series-line { -fx-stroke: #e9967a; }
+
+.default-color.chart-line-symbol { -fx-background-color: #e9967a, white; }
