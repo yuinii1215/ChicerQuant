@@ -12,6 +12,7 @@ import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataService.realDATAService.benchMarkDATAService.BenchMarkDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataService.realDATAService.stockListDATAService.StockListDATAService;
+import AnyQuantProject.dataService.realDATAService.stockListDATAService.TurnoverDATAService;
 
 /**
  * @author G
@@ -51,6 +52,11 @@ public class FactoryDATA implements FactoryDATAService{
 	@Override
 	public IndustryNameDATAService getIndustryDATAService() {
 		return IndustryName.getInstance();
+	}
+
+	@Override
+	public TurnoverDATAService geTurnoverDATAService() {
+		return SingleStockDATA.getInstance();
 	}
 
 

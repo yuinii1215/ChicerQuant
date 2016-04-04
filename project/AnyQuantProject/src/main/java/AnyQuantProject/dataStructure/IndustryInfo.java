@@ -7,6 +7,7 @@ public class IndustryInfo {
     String industry;
     double updown;//涨跌幅,百分数
     long pure;//净额,
+    double total;
     @Deprecated
     public IndustryInfo(){}
 
@@ -19,5 +20,8 @@ public class IndustryInfo {
     }
     public  void  setPure(long pure){
         this.pure=pure;
+    }
+    public void setTotal(double total){
+    	this.total=total;
     }
 }

@@ -133,7 +133,6 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		}
 		
 		List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
-		data.stream().forEach(d->System.out.println(d.getClose()));
 		String title="近期价格走势";
 		//
 		CategoryAxis xAxis=new CategoryAxis();
@@ -148,25 +147,25 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		double low=min-(max-min)*0.2;
 		double high=max+(max-min)*0.2;
 		NumberAxis yAxis=new NumberAxis(low,high,0.01);
-		XYChart.Series<String,Double> percentSeries=new XYChart.Series();
-		List<DataCell> percent=new ArrayList<>(data.size());
-		//calculate percent
-		for (int i = 1; i < data.size(); i++) {
-			double before=data.get(i-1).getClose();
-			Stock stock=data.get(i);
-			String date=stock.getDate();
-			double now=stock.getClose();
-			double per=(now-before)/before*100;
-			DataCell dataCell=new DataCell(date, per);
-			percent.add(dataCell);
-		}
-		percent.stream().map(cell->new XYChart.Data<>(cell.x, cell.y)).forEach(d->percentSeries.getData().add(d));
-		
-		XYChart.Series<String,Double> volume=new XYChart.Series();
-		data.stream()
-		.map(st->new XYChart.Data(st.getDate(),st.getVolume()))
-		.forEach(d->volume.getData().add(d));
-		return new LineChartData(title, xAxis, yAxis, xSeries,percentSeries,volume);
+//		XYChart.Series<String,Double> percentSeries=new XYChart.Series();
+//		List<DataCell> percent=new ArrayList<>(data.size());
+//		//calculate percent
+//		for (int i = 1; i < data.size(); i++) {
+//			double before=data.get(i-1).getClose();
+//			Stock stock=data.get(i);
+//			String date=stock.getDate();
+//			double now=stock.getClose();
+//			double per=(now-before)/before*100;
+//			DataCell dataCell=new DataCell(date, per);
+//			percent.add(dataCell);
+//		}
+//		percent.stream().map(cell->new XYChart.Data<>(cell.x, cell.y)).forEach(d->percentSeries.getData().add(d));
+//		
+//		XYChart.Series<String,Double> volume=new XYChart.Series();
+//		data.stream()
+//		.map(st->new XYChart.Data(st.getDate(),st.getVolume()))
+//		.forEach(d->volume.getData().add(d));
+		return new LineChartData(title, xAxis, yAxis, xSeries);
 	}
 
 	

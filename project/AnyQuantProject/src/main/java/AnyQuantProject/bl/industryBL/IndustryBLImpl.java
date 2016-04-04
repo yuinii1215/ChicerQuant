@@ -12,6 +12,7 @@ import AnyQuantProject.data.util.IndustryName;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
+import AnyQuantProject.dataService.realDATAService.stockListDATAService.TurnoverDATAService;
 import AnyQuantProject.dataStructure.IndustryInfo;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.method.CalendarHelper;
@@ -83,9 +84,16 @@ public class IndustryBLImpl implements IndustryBLService {
 				.map(s->singleStockDATAService.getOperation(s.getName(),date))
 				.collect(Collectors.toList());
 		long yesterday=yesterdata.stream().mapToLong(s->s.getMarketvalue()).sum();
+		//get vol
+		TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
+		List<Stock> turnover=todaydata.stream()
+				.map(s->turnoverDATAService.getTurnOverVolume(s.getName()))
+				.collect(Collectors.toList());
+		double total=turnover.stream().mapToDouble(s->s.getTurnoverValue()).sum();
 		IndustryInfo ans=new IndustryInfo(industry);
 		ans.setPure(today);
 		ans.setUpdown((double)(today-yesterday)/yesterday);
+		ans.setTotal(total);
 		return  ans;
 	}
 
