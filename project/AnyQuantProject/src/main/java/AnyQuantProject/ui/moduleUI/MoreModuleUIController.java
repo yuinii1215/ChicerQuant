@@ -35,6 +35,7 @@ public class MoreModuleUIController implements Initializable{
 	private Button[] buttons =new Button[13];
 	private IndustryBLService industryBLService = IndustryBLFactory.getIndustryBLService();
 	private List<String> allIndustryName;
+	private String singleModuleName ;
 	public static MoreModuleUIController  getInstance() {
 		 System.out.println("here is the instance of MoreModuleUIController  ");
         FXMLLoader loader = new FXMLLoader();
@@ -46,8 +47,13 @@ public class MoreModuleUIController implements Initializable{
 		buttons =new Button[]{btn16,btn17,btn18,btn19,btn20,btn21,btn22,btn23,btn24,btn25,btn26,btn27,btn28}; 
 		allIndustryName = industryBLService.getAllIndustries();
 		for (int i=0;i<num;i++){
+			singleModuleName =allIndustryName.get(i+15);
 			buttons[i].setText(
-					allIndustryName.get(i+15));
+					singleModuleName);
+			buttons[i].setOnMouseClicked(me ->{
+				System.out.println("...singleModuleName..."+singleModuleName);
+				Main.enterSingleModuleScene(singleModuleName);
+				});
 		}
 	}
 
