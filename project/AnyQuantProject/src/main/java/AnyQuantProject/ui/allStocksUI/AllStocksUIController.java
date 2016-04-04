@@ -256,7 +256,14 @@ public class AllStocksUIController implements Initializable {
         stockLineChart = (LineChart<String, Number>) new LineChart<>(xAxis, yAxis);
         stockLineChart.setTitle(previewLineChart.getTitle());
 
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        
+//        XYChart.Series series1=new XYChart.Series();
+        
+        
+        stockLineChart.getData().add((XYChart.Series<String, Number>)previewLineChart.getSeries().get(0));
+//        stockLineChart.setLayoutX(0);
+//        stockLineChart.setLayoutY(0);
+        stockLineChart.setPrefSize(205, 210);
 
         // series=(XYChart.Series<String, Number>)previewLineChart.getSeries();
         stockLineChart.getData().add((XYChart.Series<String, Number>) previewLineChart.getSeries().get(0));

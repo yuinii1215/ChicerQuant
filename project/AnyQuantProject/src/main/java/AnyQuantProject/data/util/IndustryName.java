@@ -37,18 +37,18 @@ public class IndustryName implements IndustryNameDATAService{
 
 
     private static CloseableHttpClient httpClient = createHttpsClient();
-    private static final String ACCESS_TOKEN = "e6d6d1f9e67a41a324a81b8c973548d82de6aab175e1cc3883f6f13b60f94543";
+    private static final String ACCESS_TOKEN = "a426949d7db2b7a49da5d4a65d171eeb687ecdb8c07ab1dad6a38ffcd7818f2a";
     private static IndustryName industryName;
 
     public static void main(String[] args) {
         IndustryName i = new IndustryName();
-        System.out.println(i.getStockByIndustry("综合"));
-
+//        System.out.println(i.getStockByIndustry("综合"));
+        getMktIndustryFlow();
 //		i.iniIndustry();
 //        System.out.println(i.getIndustryName("sh601186"));
 
 //        List<String> list = i.getAllIndustries();
-        i.getStockByIndustry("银行");
+//        i.getStockByIndustry("银行");
 
 
     }
@@ -131,6 +131,26 @@ public class IndustryName implements IndustryNameDATAService{
 
 
         return resultList;
+    }
+
+    /**
+     * 行业日资金流向
+     */
+    public static void getMktIndustryFlow() {
+        String url = "https://api.wmcloud.com:443/data/v1/api/market/getMktIndustryFlow.json?field=&tradeDate=20151023&beginDate=&endDate=";
+        HttpGet httpGet = new HttpGet(url);
+        //在header里加入 Bearer {token}，添加认证的token，并执行get请求获取json数据
+        httpGet.addHeader("Authorization", "Bearer " + ACCESS_TOKEN);
+        CloseableHttpResponse response = null;
+        try {
+            response = httpClient.execute(httpGet);
+            HttpEntity entity = response.getEntity();
+            String body = EntityUtils.toString(entity);
+            System.out.println(body);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

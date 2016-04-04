@@ -3,6 +3,8 @@ package AnyQuantProject.starter;
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.bl.stockListBL.StockListBLController;
 import AnyQuantProject.ui.controllerUI.MainPageController;
+import AnyQuantProject.ui.moduleUI.ModuleUI_1Controller;
+import AnyQuantProject.ui.moduleUI.SingleModuleUIController;
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 
 import java.awt.Point;
@@ -87,7 +89,7 @@ public class Main extends Application {
 	private static HBox h_box,hbox;	
 	private static VBox vbox;	
 	static AnchorPane mainPanel,guidePanel,headPanel,writePanel;
-	public static AnchorPane 	moreModulePanel,modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
+	public static AnchorPane singleModulePanel,moreModulePanel,modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
 
 //	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 //	private static double scrH =primaryScreenBounds.getHeight();
@@ -96,6 +98,8 @@ public class Main extends Application {
     private static Point origin = new Point();
     public static FXMLLoader fxmlLoader;
     public static SingleStockInfoUIController singleStockInfoUIController = null;
+    public static SingleModuleUIController  singleModuleInfoUIController = null;
+    public static ModuleUI_1Controller   moduleUI_1Controller  = null;
 
     public static Main getInstance() {
         return instance;
@@ -103,6 +107,8 @@ public class Main extends Application {
 
     public static Scene getPrimaryScene() {
         // TODO Auto-generated method stub
+        Image image = new Image("images/mouse cursor.png");
+        primaryScene.setCursor(new ImageCursor(image, image.getWidth()/2, image.getHeight()/2));
         return primaryScene;
     }
 
@@ -116,7 +122,7 @@ public class Main extends Application {
         instance = this;
 
         this.primaryStage = primaryStage;
-    
+        primaryStage.setScene(getPrimaryScene());
         
         //	mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         headPanel = FXMLLoader.load(getClass().getResource("headPanel.fxml"));
@@ -352,21 +358,43 @@ public class Main extends Application {
         Main.getPrimaryStage().setScene(new Scene(vbox));
         MainPageController.getInstance().initPanel();
     }
-
     
-    public  static void enterSingleModuleScene(){
-    
+    public static void returnToModuleScene(){
     	try {
-			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("moreModulePanel.fxml"));
-			moreModulePanel= (AnchorPane)fxmlLoader.load();
-			h_box =new HBox(guidePanel,moreModulePanel);
-	    	vbox=new VBox(headPanel,h_box);    
-	    	Main.getPrimaryStage().setScene(new Scene(vbox));
-	
+			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("modulePanel0.fxml"));
+			 modulePanel = (AnchorPane)fxmlLoader.load();
+			 moduleUI_1Controller =fxmlLoader.getController();
+			 moduleUI_1Controller .init();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+    	
+    	h_box =new HBox(guidePanel,modulePanel);
+		vbox=new VBox(headPanel,h_box);    
+		Main.getPrimaryStage().setScene(new Scene(vbox));
+		MainPageController.getInstance().initPanel();
+                                 
+    
+    }
+    
+    public  static void enterSingleModuleScene(String singleModuleName){
+    
+    	try {
+			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("singleModulePanel.fxml"));
+			singleModulePanel= (AnchorPane)fxmlLoader.load();
+			singleModuleInfoUIController=fxmlLoader.getController();
+			singleModuleInfoUIController.laterInit(singleModuleName); 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+    	
+    	h_box =new HBox(guidePanel,singleModulePanel);
+		vbox=new VBox(headPanel,h_box);    
+		Main.getPrimaryStage().setScene(new Scene(vbox));
+		MainPageController.getInstance().initPanel();
+                                 
     }
      
 /**

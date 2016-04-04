@@ -1,5 +1,8 @@
 package AnyQuantProject.ui.moduleUI;
 
+/**
+ * @author QiHan
+ */
 import java.awt.Color;
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +19,7 @@ import javafx.animation.AnimationTimer;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,6 +30,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.BlendMode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
@@ -42,7 +47,7 @@ public class ModuleUI_1Controller implements Initializable{
 	private static ModuleUI_1Controller  instance = null;
 	@FXML
 	private AnchorPane modulePanel;
-	private AnchorPane moreModulePanel,module2Panel;
+	private AnchorPane moreModulePanel,module2Panel,singeModulePanel;
 	@FXML
 	private GridPane gridPane;
 	@FXML
@@ -57,8 +62,10 @@ public class ModuleUI_1Controller implements Initializable{
 	@FXML
 	private Text Text1,Text2,Text3,Text4,Text5,Text6,Text7,Text8,Text9,Text10,Text11,Text12,Text13,Text14,Text15;
 //	Text16,Text17,Text18,Text19,Text20,Text21,Text22,Text23,Text24,Text25,Text26,Text27,Text28;
+	private String singleModuleName;
 	private int num=15;
-	private Text[] texts =new Text[15];
+	private Rectangle[] rect = new  Rectangle[num]; 
+	private Text[] texts =new Text[num];
 	private IndustryBLService industryBLService = IndustryBLFactory.getIndustryBLService();
 	private List<String> allIndustryName;
 	
@@ -74,16 +81,28 @@ public class ModuleUI_1Controller implements Initializable{
 * 
 */
 	public  void init(){
-	
+		rect = new Rectangle[]{Rect1,Rect2,Rect3,Rect4,Rect5,Rect6,Rect7,Rect8,Rect9,Rect10,Rect11,Rect12,Rect13,Rect14,Rect15};
 		texts =new Text[]{Text1,Text2,Text3,Text4,Text5,Text6,Text7,Text8,Text9,Text10,Text11,Text12,Text13,Text14,Text15};			
 		allIndustryName = industryBLService.getAllIndustries();
 		for (int i=0;i<num;i++){
+			singleModuleName = allIndustryName.get(i);
 			texts[i].setText(
-					allIndustryName.get(i));
+					singleModuleName);
+			rect[i].setOnMouseClicked(me ->{
+				System.out.println("...singleModuleName..."+singleModuleName);
+				Main.enterSingleModuleScene(singleModuleName);
+				});
+//			rect[i].addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+//				   public void handle(MouseEvent e) {
+//						System.out.println("...singleModuleName..."+singleModuleName);
+//						Main.enterSingleModuleScene(singleModuleName);
+//				   }
+//			  });
 		}
-       
-		
 	}
+	
+
+
 	@FXML
 	private void allModulesBtnPane(){
 		LineLabel1.setStyle("-fx-background-color: #71C671;");//#71C671 #b5b5b5"-fx-background-color: #b5b5b5;"

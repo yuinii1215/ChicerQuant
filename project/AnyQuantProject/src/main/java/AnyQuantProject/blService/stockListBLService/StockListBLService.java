@@ -28,4 +28,5 @@ public interface StockListBLService {
 	 * @return
 	 */
 	boolean searchLegal(String target);
+
 }
