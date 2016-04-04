@@ -3,11 +3,14 @@
  */
 package AnyQuantProject.data.realDATA.singleStockDATA;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
+import AnyQuantProject.data.util.Turnover;
+import AnyQuantProject.dataService.realDATAService.stockListDATAService.TurnoverDATAService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
@@ -22,7 +25,7 @@ import AnyQuantProject.dataStructure.Stock;
  * @author G
  *
  */
-public class SingleStockDATA implements SingleStockDATAService{
+public class SingleStockDATA implements SingleStockDATAService, TurnoverDATAService{
 
 	APIHelper aHelper = new APIHelper();
 	
@@ -71,6 +74,16 @@ public class SingleStockDATA implements SingleStockDATAService{
 		return ChineseName.getChineseName(name);
 
 	}
+	@Override
+	public Stock getTurnOverVolume(String name) {
+		Stock s = new Stock();
+		try {
+			s = Turnover.getTurnOverVolume(name);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return s;
+	}
 	
 	public static void main(String[] args) {
 		SingleStockDATA s = new SingleStockDATA();
@@ -82,4 +95,6 @@ public class SingleStockDATA implements SingleStockDATAService{
 ////		System.out.println(stock.getName());
 //		System.out.println(stock.getClose());
 	}
+
+
 }

@@ -26,6 +26,7 @@ public class AbstractStock implements Serializable,KLineDataDTO{
 	double low;			//最低价	
 	double close;		//收盘价
 	int	volume;			//成交量
+	double turnoverValue; //成交金额
 	double adj_price;	//后复权价
 	long marketvalue;	//市值
 	long flow;			//流通
@@ -191,9 +192,13 @@ public class AbstractStock implements Serializable,KLineDataDTO{
 	public boolean isRed() {
 		return close>open;
 	}
-	
 
-	
-	
+	public double getTurnoverValue() {
+		return turnoverValue;
+	}
+
+	public void setTurnoverValue(double turnoverValue) {
+		this.turnoverValue = turnoverValue;
+	}
 }
 

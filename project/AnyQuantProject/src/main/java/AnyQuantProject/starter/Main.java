@@ -107,6 +107,8 @@ public class Main extends Application {
 
     public static Scene getPrimaryScene() {
         // TODO Auto-generated method stub
+        Image image = new Image("images/mouse cursor.png");
+        primaryScene.setCursor(new ImageCursor(image, image.getWidth()/2, image.getHeight()/2));
         return primaryScene;
     }
 
@@ -120,7 +122,7 @@ public class Main extends Application {
         instance = this;
 
         this.primaryStage = primaryStage;
-    
+        primaryStage.setScene(getPrimaryScene());
         
         //	mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         headPanel = FXMLLoader.load(getClass().getResource("headPanel.fxml"));
