@@ -107,6 +107,7 @@ public class Main extends Application {
         return instance;
     }
 
+
     public static Scene getFactoryScene(Parent parent) {
     	/**
     	 * change cursor
@@ -118,6 +119,7 @@ public class Main extends Application {
         Scene ans=new Scene(parent); 
 //        ans.setCursor(imageCursor);
         return ans;
+
     }
 
     public static Stage getPrimaryStage() {
