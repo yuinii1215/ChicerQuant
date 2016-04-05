@@ -122,7 +122,7 @@ public class Main extends Application {
         instance = this;
 
         this.primaryStage = primaryStage;
-        primaryStage.setScene(getPrimaryScene());
+//        primaryStage.setScene(getPrimaryScene());
         
         //	mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         headPanel = FXMLLoader.load(getClass().getResource("headPanel.fxml"));

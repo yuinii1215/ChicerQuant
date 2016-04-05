@@ -154,17 +154,9 @@ public class AllStocksUIController implements Initializable {
     private CategoryAxis xAxis;
     private NumberAxis yAxis;
     private Timeline animation;
+    private XYChart.Series<String, Number> series;
 
-    private double hours = 0;
-    private double minutes = 0;
-    private double timeInHours = 0;
-    private double prevY = 10;
-
-    private double y = 10;
     LineChartData previewLineChart;
-
-    ;
-
 
     public static AllStocksUIController getInstance() {
         System.out.println("here is the instance of AllStocksUIController ");
@@ -204,16 +196,16 @@ public class AllStocksUIController implements Initializable {
         valueTable.setItems(FXCollections.observableArrayList(new StockInfo2Column().set(singleStock)));
         StockInfo2Column.setKValue(key_column);
         StockInfo2Column.setVValue(value_column);
-        key_column.setStyle("-fx-font-size: 15pt;");
-        value_column.setStyle("-fx-font-size: 15pt;");
+        key_column.setStyle("-fx-font-size: 13pt;");
+        value_column.setStyle("-fx-font-size: 13pt;");
 
         titleTable.setItems(FXCollections.observableArrayList(new StockInfo2Column().set2(singleStock)));
         StockInfo2Column.setKValue(key_column2);
         StockInfo2Column.setVValue(value_column2);
-        key_column2.setStyle("-fx-font-size: 15pt;");
-        value_column2.setStyle("-fx-font-size: 15pt;");
+        key_column2.setStyle("-fx-font-size: 13pt;");
+        value_column2.setStyle("-fx-font-size: 13pt;");
 
-//         table.setSelectionModel(allStocksList.get(0));
+
         /**
          * initialize the tabel columns
          */
@@ -249,26 +241,24 @@ public class AllStocksUIController implements Initializable {
         previewLineChart = LineChartBLFactory.getCalculateLineBL().drawPreview(stockName);
         xAxis = new CategoryAxis();
         xAxis = (CategoryAxis) previewLineChart.getxAxis();
+        xAxis.setTickLabelFill(Color.WHITE);
         yAxis = new NumberAxis();
         yAxis = (NumberAxis) previewLineChart.getyAxis();
+        yAxis.setTickLabelFill(Color.WHITE);
         yAxis.setLowerBound(yAxis.getLowerBound() - 1);
         yAxis.setUpperBound(yAxis.getUpperBound() + 1);
+        yAxis.setTickUnit((yAxis.getUpperBound() - yAxis.getLowerBound()) / 10);
         stockLineChart = (LineChart<String, Number>) new LineChart<>(xAxis, yAxis);
         stockLineChart.setTitle(previewLineChart.getTitle());
 
-        
-//        XYChart.Series series1=new XYChart.Series();
-        
-        
-        stockLineChart.getData().add((XYChart.Series<String, Number>)previewLineChart.getSeries().get(0));
-//        stockLineChart.setLayoutX(0);
-//        stockLineChart.setLayoutY(0);
-        stockLineChart.setPrefSize(205, 210);
+        series = new XYChart.Series<>();
+        series.setName("chart_series");
+        series = (XYChart.Series<String, Number>) previewLineChart.getSeries().get(0);
 
-        // series=(XYChart.Series<String, Number>)previewLineChart.getSeries();
-        stockLineChart.getData().add((XYChart.Series<String, Number>) previewLineChart.getSeries().get(0));
+        stockLineChart.getData().add(series);
+        stockLineChart.setPrefSize(190, 200);
 
-        stockLineChart.setPrefSize(200, 200);
+//       stockLineChart.getData().add((XYChart.Series<String, Number>) previewLineChart.getSeries().get(0));
         chartPane.getChildren().add(stockLineChart);
 
     }
@@ -304,13 +294,15 @@ public class AllStocksUIController implements Initializable {
                         yAxis = (NumberAxis) previewLineChart.getyAxis();
                         yAxis.setLowerBound(yAxis.getLowerBound() - 1);
                         yAxis.setUpperBound(yAxis.getUpperBound() + 1);
+                        yAxis.setTickUnit((yAxis.getUpperBound() - yAxis.getLowerBound()) / 10);
                         stockLineChart = (LineChart<String, Number>) new LineChart<>(xAxis, yAxis);
                         stockLineChart.setTitle(previewLineChart.getTitle());
 
-//                        XYChart.Series<String, Number> series = new XYChart.Series<>();
-                        // series=(XYChart.Series<String, Number>)previewLineChart.getSeries();
+                        series = new XYChart.Series<>();
+                        series.setName("chart_series");
+                        series = (XYChart.Series<String, Number>) previewLineChart.getSeries().get(0);
                         
-                        stockLineChart.getData().add((XYChart.Series<String, Number>) previewLineChart.getSeries().get(0));
+                        stockLineChart.getData().add(series);
                         stockLineChart.setPrefSize(200, 200);
                         chartPane.getChildren().clear();
                         chartPane.getChildren().add(stockLineChart);
