@@ -107,8 +107,8 @@ public class Main extends Application {
 
     public static Scene getPrimaryScene() {
         // TODO Auto-generated method stub
-        Image image = new Image("images/mouse cursor.png");
-        primaryScene.setCursor(new ImageCursor(image, image.getWidth()/2, image.getHeight()/2));
+//        Image image = new Image("images/mouse cursor.png");
+//        primaryScene.setCursor(new ImageCursor(image, image.getWidth()/2, image.getHeight()/2));
         return primaryScene;
     }
 
