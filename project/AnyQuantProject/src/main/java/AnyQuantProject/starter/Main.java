@@ -68,8 +68,8 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.Parent;
 import javafx.stage.FileChooser;
-
 /**
  *
  * @author QiHan
@@ -100,16 +100,24 @@ public class Main extends Application {
     public static SingleStockInfoUIController singleStockInfoUIController = null;
     public static SingleModuleUIController  singleModuleInfoUIController = null;
     public static ModuleUI_1Controller   moduleUI_1Controller  = null;
+    static ImageCursor imageCursor;
+    
 
     public static Main getInstance() {
         return instance;
     }
 
-    public static Scene getPrimaryScene() {
-        // TODO Auto-generated method stub
-        Image image = new Image("images/mouse cursor.png");
-        primaryScene.setCursor(new ImageCursor(image, image.getWidth()/2, image.getHeight()/2));
-        return primaryScene;
+    public static Scene getFactoryScene(Parent parent) {
+    	/**
+    	 * change cursor
+    	 */
+//		if (imageCursor==null) {
+//    		Image image=new Image("images/mouse cursor.png");
+//    		imageCursor = new ImageCursor(image, image.getWidth()/2, image.getHeight()/2);
+//		}
+        Scene ans=new Scene(parent); 
+//        ans.setCursor(imageCursor);
+        return ans;
     }
 
     public static Stage getPrimaryStage() {
@@ -122,7 +130,6 @@ public class Main extends Application {
         instance = this;
 
         this.primaryStage = primaryStage;
-        primaryStage.setScene(getPrimaryScene());
         
         //	mainPanel = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         headPanel = FXMLLoader.load(getClass().getResource("headPanel.fxml"));
@@ -212,7 +219,7 @@ public class Main extends Application {
 		});	
 	//  enterMainScene();
 	//  buttons();
-		primaryStage.setScene(new Scene(vbox));
+		primaryStage.setScene(getFactoryScene(vbox));
 		primaryStage.show();  
                   
 //                ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
@@ -290,7 +297,7 @@ public class Main extends Application {
         //TODO
         h_box = new HBox(guidePanel, favouritePanel);
         vbox = new VBox(headPanel, h_box);        
-        primaryStage.setScene(new Scene(vbox));
+        primaryStage.setScene(getFactoryScene(vbox));
         primaryStage.show();
     }
 
@@ -319,7 +326,7 @@ public class Main extends Application {
 //	}
     public void enterMainScene() {
         //TODO
-        this.primaryStage.setScene(new Scene(mainPanel));
+        this.primaryStage.setScene(getFactoryScene(mainPanel));
         MainPageController.getInstance().initPanel();
     }
 
@@ -332,7 +339,7 @@ public class Main extends Application {
         }
         h_box = new HBox(guidePanel, allStocksPanel);
         vbox = new VBox(headPanel, h_box);
-        Main.getPrimaryStage().setScene(new Scene(vbox));
+        Main.getPrimaryStage().setScene(getFactoryScene(vbox));
         MainPageController.getInstance().initPanel();
     }
 
@@ -340,7 +347,7 @@ public class Main extends Application {
 
         h_box = new HBox(guidePanel, favouritePanel);
         vbox = new VBox(headPanel, h_box);        
-        Main.getPrimaryStage().setScene(new Scene(vbox));
+        Main.getPrimaryStage().setScene(getFactoryScene(vbox));
         MainPageController.getInstance().initPanel();
         
     }
@@ -348,14 +355,14 @@ public class Main extends Application {
     public static void enterBenchMarkScene() {
         h_box = new HBox(guidePanel, benchMarkPanel);
         vbox = new VBox(headPanel, h_box);
-        Main.getPrimaryStage().setScene(new Scene(vbox));
+        Main.getPrimaryStage().setScene(getFactoryScene(vbox));
         MainPageController.getInstance().initPanel();
     }
 
     public static void enterModuleScene() {
         h_box = new HBox(guidePanel, modulePanel);
         vbox = new VBox(headPanel, h_box);
-        Main.getPrimaryStage().setScene(new Scene(vbox));
+        Main.getPrimaryStage().setScene(getFactoryScene(vbox));
         MainPageController.getInstance().initPanel();
     }
     
@@ -372,7 +379,7 @@ public class Main extends Application {
     	
     	h_box =new HBox(guidePanel,modulePanel);
 		vbox=new VBox(headPanel,h_box);    
-		Main.getPrimaryStage().setScene(new Scene(vbox));
+		Main.getPrimaryStage().setScene(getFactoryScene(vbox));
 		MainPageController.getInstance().initPanel();
                                  
     
@@ -392,7 +399,7 @@ public class Main extends Application {
     	
     	h_box =new HBox(guidePanel,singleModulePanel);
 		vbox=new VBox(headPanel,h_box);    
-		Main.getPrimaryStage().setScene(new Scene(vbox));
+		Main.getPrimaryStage().setScene(getFactoryScene(vbox));
 		MainPageController.getInstance().initPanel();
                                  
     }
@@ -422,7 +429,7 @@ public class Main extends Application {
                        
 			h_box =new HBox(guidePanel,singleStockInfoPanel);
 			vbox=new VBox(headPanel,h_box);    
-			Main.getPrimaryStage().setScene(new Scene(vbox));
+			Main.getPrimaryStage().setScene(getFactoryScene(vbox));
 			MainPageController.getInstance().initPanel();
                                      
                       

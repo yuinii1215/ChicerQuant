@@ -164,7 +164,7 @@ public class FavoriteUIController implements Initializable {
             public void handle(ActionEvent arg0) {
                 searchName = search.getText();
                 System.out.println("...SearchName ..." + searchName + ".......");
-
+                   searchName=searchName.substring(0, 8);
                 Main.enterSingleStockInfoScene(searchName);
                 
                  ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
