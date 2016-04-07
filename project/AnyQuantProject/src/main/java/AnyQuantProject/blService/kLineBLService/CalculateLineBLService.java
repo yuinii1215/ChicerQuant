@@ -5,6 +5,7 @@ package AnyQuantProject.blService.kLineBLService;
 * 2016年3月29日 下午7:20:19
 */
 
+import AnyQuantProject.dataStructure.JFreeLineData;
 import AnyQuantProject.dataStructure.LineChartData;
 
 
@@ -38,12 +39,12 @@ public interface CalculateLineBLService{
 	 * @param name
 	 * @return
 	 */
-	public LineChartData drawKDJ(String name);
+	public JFreeLineData drawKDJ(String name);
 	/**
 	 * 指数平滑异同平均线,(Moving Average Convergence / Divergence)
 	 * DIF,DEA,MACD
 	 * @param name
 	 * @return
 	 */
-	public LineChartData drawMACD(String name);
+	public JFreeLineData drawMACD(String name);
 }

@@ -5,10 +5,14 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.swing.plaf.basic.BasicSliderUI.ActionScroller;
+
 import AnyQuantProject.blService.kLineBLService.CalculateLineBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
+import AnyQuantProject.dataStructure.Cell;
+import AnyQuantProject.dataStructure.JFreeLineData;
 import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.method.CalendarHelper;
@@ -111,9 +115,9 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 	}
 
 	@Override
-	public LineChartData drawKDJ(String name) {
+	public JFreeLineData drawKDJ(String name) {
 		if (!Checker.checkStringNotNull(name)) {
-			return new LineChartData();
+			return new JFreeLineData();
 		}
 		List<Stock> data=this.getData(name);
 		String title=data.get(0).getChinese()+"KDJ";
@@ -121,27 +125,10 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		List<DataCell> rsi=KDJ.calculateRSI(data, 6);
 		List<DataCell> kdj=KDJ.calculateKDJ(rsi);
 		//
-		CategoryAxis xAxis=new CategoryAxis();
-		NumberAxis yAxis=new NumberAxis();
-		//
-		XYChart.Series<String,Double> kSeries=new XYChart.Series();
-		kdj.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y))
-		.forEach(d->kSeries.getData().add( d));
-		kSeries.setName("K");
-		//
-		XYChart.Series<String,Double> dSeries=new XYChart.Series();
-		kdj.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y2))
-		.forEach(d->dSeries.getData().add( d));
-		dSeries.setName("D");
-		//
-		XYChart.Series<String,Double> jSeries=new XYChart.Series();
-		kdj.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y3))
-		.forEach(d->jSeries.getData().add( d));
-		jSeries.setName("J");
-		return new LineChartData(title, xAxis, yAxis, kSeries,dSeries,jSeries);
+		List<Cell> k=kdj.stream().map(ce->new Cell(ce.x, ce.y)).collect(Collectors.toList());
+		List<Cell> d=kdj.stream().map(ce->new Cell(ce.x, ce.y2)).collect(Collectors.toList());
+		List<Cell> j=kdj.stream().map(ce->new Cell(ce.x, ce.y3)).collect(Collectors.toList());
+		return new JFreeLineData(title, k,d,j);
 	}
 
 	@Override
@@ -197,36 +184,19 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 	}
 
 	@Override
-	public LineChartData drawMACD(String name) {
+	public JFreeLineData drawMACD(String name) {
 		if (!Checker.checkStringNotNull(name)) {
-			return new LineChartData();
+			return new JFreeLineData();
 		}
 		List<Stock> data=this.getData(name);
 		String title=data.get(0).getChinese()+"MACD";
 		//
 		List<DataCell> macd=MACD.calculateMACD(data, 12, 9, 26);
 		//
-		CategoryAxis xAxis=new CategoryAxis();
-		NumberAxis yAxis=new NumberAxis();
-		//
-		XYChart.Series<String,Double> difSeries=new XYChart.Series();
-		macd.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y))
-		.forEach(d->difSeries.getData().add( d));
-		difSeries.setName("DIF");
-		//
-		XYChart.Series<String,Double> deaSeries=new XYChart.Series();
-		macd.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y2))
-		.forEach(d->deaSeries.getData().add( d));
-		deaSeries.setName("DEA");
-		//
-		XYChart.Series<String,Double> macdSeries=new XYChart.Series();
-		macd.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y3))
-		.forEach(d->macdSeries.getData().add( d));
-		macdSeries.setName("MACD");
-		return new LineChartData(title, xAxis, yAxis, difSeries,deaSeries,macdSeries);
+		List<Cell> dif=macd.stream().map(ce->new Cell(ce.x, ce.y)).collect(Collectors.toList());
+		List<Cell> dea=macd.stream().map(ce->new Cell(ce.x, ce.y2)).collect(Collectors.toList());
+		List<Cell> macdBar=macd.stream().map(ce->new Cell(ce.x, ce.y3)).collect(Collectors.toList());
+		return new JFreeLineData(title,dif,dea,macdBar);
 	}
 
 	
