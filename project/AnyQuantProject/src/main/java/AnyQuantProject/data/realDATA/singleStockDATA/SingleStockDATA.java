@@ -4,9 +4,7 @@
 package AnyQuantProject.data.realDATA.singleStockDATA;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
 
 import AnyQuantProject.data.util.Turnover;
@@ -75,7 +73,7 @@ public class SingleStockDATA implements SingleStockDATAService, TurnoverDATAServ
 
 	}
 	@Override
-	public Stock getTurnOverVolume(String name) {
+	public Stock getTurnover(String name) {
 		Stock s = new Stock();
 		try {
 			s = Turnover.getTurnOverVolume(name);
