@@ -5,9 +5,11 @@ import java.util.Calendar;
 import java.util.List;
 
 import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
+import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.blService.singleStockDealBLService.SingleStockDealBLService;
 import AnyQuantProject.blService.singleStockInfoBLService.SingleStockInfoBLService;
+import AnyQuantProject.blService.stockListBLService.StockListBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
@@ -59,6 +61,10 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		//get favor info
 		FavoriteBLService favoriteBLService=FavoriteBLFactory.getFavoriteBLService();
+		StockListBLService stockListBLService=StockListBLFactory.getStockListBLService();
+		if (!stockListBLService.searchLegal(name)) {
+			return null;
+		}
 		//
 		try{
 			Stock ans=singleStockDATAService
