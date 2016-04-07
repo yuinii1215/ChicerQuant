@@ -112,8 +112,36 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 
 	@Override
 	public LineChartData drawKDJ(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		if (!Checker.checkStringNotNull(name)) {
+			return new LineChartData();
+		}
+		List<Stock> data=this.getData(name);
+		String title=data.get(0).getChinese()+"KDJ";
+		//
+		List<DataCell> rsi=KDJ.calculateRSI(data, 6);
+		List<DataCell> kdj=KDJ.calculateKDJ(rsi);
+		//
+		CategoryAxis xAxis=new CategoryAxis();
+		NumberAxis yAxis=new NumberAxis();
+		//
+		XYChart.Series<String,Double> kSeries=new XYChart.Series();
+		kdj.stream()
+		.map(st->new XYChart.Data<>(st.x, st.y))
+		.forEach(d->kSeries.getData().add( d));
+		kSeries.setName("K");
+		//
+		XYChart.Series<String,Double> dSeries=new XYChart.Series();
+		kdj.stream()
+		.map(st->new XYChart.Data<>(st.x, st.y2))
+		.forEach(d->dSeries.getData().add( d));
+		dSeries.setName("D");
+		//
+		XYChart.Series<String,Double> jSeries=new XYChart.Series();
+		kdj.stream()
+		.map(st->new XYChart.Data<>(st.x, st.y3))
+		.forEach(d->jSeries.getData().add( d));
+		jSeries.setName("J");
+		return new LineChartData(title, xAxis, yAxis, kSeries,dSeries,jSeries);
 	}
 
 	@Override
@@ -166,6 +194,39 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 //		.map(st->new XYChart.Data(st.getDate(),st.getVolume()))
 //		.forEach(d->volume.getData().add(d));
 		return new LineChartData(title, xAxis, yAxis, xSeries);
+	}
+
+	@Override
+	public LineChartData drawMACD(String name) {
+		if (!Checker.checkStringNotNull(name)) {
+			return new LineChartData();
+		}
+		List<Stock> data=this.getData(name);
+		String title=data.get(0).getChinese()+"MACD";
+		//
+		List<DataCell> macd=MACD.calculateMACD(data, 12, 9, 26);
+		//
+		CategoryAxis xAxis=new CategoryAxis();
+		NumberAxis yAxis=new NumberAxis();
+		//
+		XYChart.Series<String,Double> difSeries=new XYChart.Series();
+		macd.stream()
+		.map(st->new XYChart.Data<>(st.x, st.y))
+		.forEach(d->difSeries.getData().add( d));
+		difSeries.setName("DIF");
+		//
+		XYChart.Series<String,Double> deaSeries=new XYChart.Series();
+		macd.stream()
+		.map(st->new XYChart.Data<>(st.x, st.y2))
+		.forEach(d->deaSeries.getData().add( d));
+		deaSeries.setName("DEA");
+		//
+		XYChart.Series<String,Double> macdSeries=new XYChart.Series();
+		macd.stream()
+		.map(st->new XYChart.Data<>(st.x, st.y3))
+		.forEach(d->macdSeries.getData().add( d));
+		macdSeries.setName("MACD");
+		return new LineChartData(title, xAxis, yAxis, difSeries,deaSeries,macdSeries);
 	}
 
 	

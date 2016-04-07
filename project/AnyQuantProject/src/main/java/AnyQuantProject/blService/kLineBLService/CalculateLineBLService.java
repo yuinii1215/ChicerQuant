@@ -39,4 +39,11 @@ public interface CalculateLineBLService{
 	 * @return
 	 */
 	public LineChartData drawKDJ(String name);
+	/**
+	 * 指数平滑异同平均线,(Moving Average Convergence / Divergence)
+	 * DIF,DEA,MACD
+	 * @param name
+	 * @return
+	 */
+	public LineChartData drawMACD(String name);
 }

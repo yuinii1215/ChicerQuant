@@ -7,6 +7,8 @@ package AnyQuantProject.bl.calculateBL;
 public class DataCell {
 	public String x;
 	public double y;
+	public double y2;
+	public double y3;
 	public DataCell(String x,double y) {
 		this.x=x;
 		this.y=y;
