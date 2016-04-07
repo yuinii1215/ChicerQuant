@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.blService.industryBLService.IndustryBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
-import AnyQuantProject.data.util.IndustryName;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
@@ -87,7 +86,7 @@ public class IndustryBLImpl implements IndustryBLService {
 		//get vol
 		TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
 		List<Stock> turnover=todaydata.stream()
-				.map(s->turnoverDATAService.getTurnOverVolume(s.getName()))
+				.map(s->turnoverDATAService.getTurnover(s.getName()))
 				.collect(Collectors.toList());
 		double total=turnover.stream().mapToDouble(s->s.getTurnoverValue()).sum();
 		IndustryInfo ans=new IndustryInfo(industry);
