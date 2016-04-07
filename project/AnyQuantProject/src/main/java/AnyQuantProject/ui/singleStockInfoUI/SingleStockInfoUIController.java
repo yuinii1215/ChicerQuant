@@ -5,8 +5,6 @@ import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
 import AnyQuantProject.bl.factoryBL.KLineBLFactory;
 import AnyQuantProject.bl.factoryBL.ListFilterBLFactory;
 import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
-import AnyQuantProject.bl.favoriteBL.FavoriteBLController;
-import AnyQuantProject.bl.listFilterBL.ListFilterBLImpl;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.blService.kLineBLService.StockKLineBLService;
 import AnyQuantProject.blService.listFilterBLService.ListFilterBLService;
@@ -16,66 +14,43 @@ import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
-import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.util.constant.TimeType;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
 import AnyQuantProject.util.method.SimpleLongProperty;
-
-import java.io.IOException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.awt.Paint;//画笔系统
-import java.awt.PaintContext;
 import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.awt.Stroke;
 
 import org.jfree.chart.axis.*;
 
 import javafx.scene.paint.Color;
-import javafx.event.ActionEvent;
-import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Font;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.concurrent.Task;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableRow;
 import javafx.scene.layout.AnchorPane;
@@ -85,97 +60,38 @@ import javafx.scene.control.TableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.Priority;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import AnyQuantProject.ui.singleStockInfoUI.StockInfo2Column;
 import AnyQuantProject.util.method.DrawKLineChart;
-import AnyQuantProject.util.method.MyChartMouseListener;
 import AnyQuantProject.util.method.MyCrossOverlay;
-import AnyQuantProject.util.method.MyKLineChartListener;
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Root;
+import AnyQuantProject.util.method.errorInputHint.MonologFX;
+import AnyQuantProject.util.method.errorInputHint.MonologFXBuilder;
+import AnyQuantProject.util.method.errorInputHint.MonologFXButton;
+import AnyQuantProject.util.method.errorInputHint.MonologFXButtonBuilder;
 
 import java.awt.BasicStroke;
-import java.awt.Stroke;
-import java.awt.BorderLayout;
 
 import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.GradientPaint;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
-import java.awt.image.ColorModel;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
-import org.jfree.chart.ChartPanel;
-
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
-import java.util.Iterator;
-
-import javafx.embed.swing.JFXPanel;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.layout.HBox;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-
-import javax.swing.ImageIcon;
-
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
-import org.jfree.chart.axis.DateTickMarkPosition;
-import org.jfree.chart.axis.DateTickUnit;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.NumberTickUnit;
-import org.jfree.chart.axis.SegmentedTimeline;
 import org.jfree.chart.plot.CombinedDomainXYPlot;
 import org.jfree.chart.plot.Crosshair;
 import org.jfree.chart.plot.Plot;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.CandlestickRenderer;
-import org.jfree.chart.renderer.xy.XYBarRenderer;
-import org.jfree.data.general.DatasetUtilities;
-import org.jfree.data.time.Day;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesCollection;
-import org.jfree.data.time.ohlc.OHLCSeries;
-import org.jfree.data.time.ohlc.OHLCSeriesCollection;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSlider;
-import javax.swing.SwingUtilities;
-import javax.swing.event.ChangeEvent;
-
-import org.jfree.chart.ChartColor;
-import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartMouseEvent;
 import org.jfree.chart.ChartMouseListener;
-import org.jfree.chart.entity.XYItemEntity;
 import org.jfree.chart.labels.CrosshairLabelGenerator;
-import org.jfree.chart.labels.ItemLabelAnchor;
-import org.jfree.chart.labels.ItemLabelPosition;
-import org.jfree.chart.labels.StandardXYToolTipGenerator;
 import org.jfree.chart.panel.CrosshairOverlay;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.ui.RectangleAnchor;
 import org.jfree.ui.RectangleEdge;
-import org.jfree.ui.TextAnchor;
 
 /**
  *
@@ -290,6 +206,9 @@ public class SingleStockInfoUIController implements Initializable {
 
     ScrollPane scroller1,scroller2,scroller3;
     
+    MonologFX mono;
+    MonologFXButton mlb;
+    
     public void laterInit(String name) {
         this.stockName = name;
         maxTime = Calendar.getInstance();
@@ -310,39 +229,49 @@ public class SingleStockInfoUIController implements Initializable {
             minFilter = Double.valueOf(minRange.getText());
             filterFlag[1] = true;
         } else {
-
+            minFilter = 0.0;
         }
-
         if (maxRange.getText().trim().length() >= 1) {
             maxFilter = Double.valueOf(maxRange.getText());
             filterFlag[2] = true;
         } else {
-
+            maxFilter= 0.0;
         }
-
-        if (startDatePicker.getValue() != null) {
+        if(minFilter-maxFilter>0){
+            minRange.setText(null);
+            maxRange.setText(null);
+            filterFlag[1]=false;
+            filterFlag[2]=false;
+            MonologFXButton.Type retval=mono.showDialog(800,400);
+        }
+        else{          
+         if (startDatePicker.getValue() != null) {
             filterFlag[0] = true;
             LocalDate startLocalDate = startDatePicker.getValue();
             minTime = calendarHelper.convert2Calendar(startLocalDate);
             filterFlag[3] = true;
-
-        } else {
-
-        }
-
-        if (endDatePicker.getValue() != null) {
+          }       
+         if (endDatePicker.getValue() != null) {
             filterFlag[0] = true;
             LocalDate endLocalDate = endDatePicker.getValue();
             maxTime = calendarHelper.convert2Calendar(endLocalDate);
             filterFlag[4] = true;
-
-        } else {
-
+         }
+         if(filterFlag[3]&&filterFlag[4]&&minTime.after(maxTime)){           
+             filterFlag[3]=false;
+             filterFlag[4]=false;
+             minTime=null;
+             maxTime=null;
+             MonologFXButton.Type retval=mono.showDialog(800,400);          
+         }
+         else{
+         singleStockList = filterControl(singleStockList);
+         table.getItems().clear();
+         table.getItems().addAll(singleStockList);
+         }
         }
-        singleStockList = filterControl(singleStockList);
-        table.getItems().clear();
-        table.getItems().addAll(singleStockList);
-        filterConditionPane.getChildren().clear();
+        filterConditionPane.getChildren().removeAll(filterPaneContent);
+        //filterConditionPane.getChildren().clear();
     }
 
     public List<Stock> filterControl(List<Stock> currentList) {
@@ -360,7 +289,7 @@ public class SingleStockInfoUIController implements Initializable {
         } else if (filterFlag[3] && filterFlag[4]) {
             /**
              * 默认为只可以通过区间来获得其他时间段的股票信息,不可以通过半个区间
-             */
+             */          
             currentList=singleStockDealBlImpl.getSingleStockDeal(stockName, minTime, maxTime);
             filteredList=currentList;
             filterFlag[3] = false;
@@ -376,7 +305,8 @@ public class SingleStockInfoUIController implements Initializable {
             scroller1.setContent(swingNode1);
             scroller1.setFitToHeight(true);
             tab_dayKLine.setContent(scroller1);
-            
+        
+          
         } else if (filterFlag[3] && (!filterFlag[4])) {
             filteredList = listFilterBlImpl.filterStocksByDateGreater(
                     currentList, minTime);
@@ -465,7 +395,7 @@ public class SingleStockInfoUIController implements Initializable {
         if (filterConditionPane.getOpacity() != 0.0) {
             filterConditionPane.setOpacity(0.0);
             filterPerformAction();
-        }
+        }        
     }    
        
     
@@ -803,7 +733,8 @@ public class SingleStockInfoUIController implements Initializable {
         scroller3.setFitToHeight(true);
         tab_monthKLine.setContent(scroller3);
 
-        
+        mlb=MonologFXButtonBuilder.create().defaultButton(true).icon("Dialog-accept.jpg").type(MonologFXButton.Type.OK).build();
+        mono=MonologFXBuilder.create().modal(true).message("输入无效:起始值应小于结束值").titleText("Error Input").button(mlb).buttonAlignment(MonologFX.ButtonAlignment.CENTER).build();        
     }
     private ChartPanel getChartPanel(JFreeChart jFreeChart){
     	ChartPanel chartPanel=new ChartPanel(jFreeChart);

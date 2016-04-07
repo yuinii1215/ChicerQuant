@@ -149,11 +149,9 @@ public class AllStocksUIController implements Initializable {
     StockListBLService stockListImplement = StockListBLFactory.getStockListBLService();
     CalculateLineBLService calculateLineImplement = LineChartBLFactory.getCalculateLineBL();
 
-    private XYChart.Series<Number, Number> hourDataSeries;
-    private XYChart.Series<Number, Number> minuteDataSeries;
+
     private CategoryAxis xAxis;
     private NumberAxis yAxis;
-    private Timeline animation;
     private XYChart.Series<String, Number> series;
 
     LineChartData previewLineChart;
