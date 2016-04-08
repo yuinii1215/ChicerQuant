@@ -69,10 +69,10 @@ public class DrawKLineChart {
 	     timeSeriesCollection.addSeries(series2);
 	
              TimeSeries series3=new TimeSeries("");// 对应于MACD的柱状图
-	     for (int i = 0; i < dataList.size(); i++) {
-	    	    int date =Integer.parseInt(dataList.get(i).getDay());
-	            int month =Integer.parseInt(dataList.get(i).getMonth());
-	            int year =Integer.parseInt(dataList.get(i).getYear());
+	     for (int i = 0; i < macdListMACD.size(); i++) {
+	    	    int date =Integer.parseInt(macdListMACD.get(i).getDay());
+	            int month =Integer.parseInt(macdListMACD.get(i).getMonth());
+	            int year =Integer.parseInt(macdListMACD.get(i).getYear());
 	            series3.add(new Day(date, month, year), macdListMACD.get(i).y/ 100.0);
 	        }	   
              TimeSeriesCollection timeSeriesCollection1=new TimeSeriesCollection();// 保留MACD数据的集合    
