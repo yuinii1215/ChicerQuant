@@ -138,6 +138,16 @@
             <Insets />
          </opaqueInsets>
       </TabPane>
+      <Button fx:id="kdj_button" layoutX="463.0" layoutY="437.0" mnemonicParsing="false" onAction="#kdjButtonHandle" opacity="0.61" prefHeight="15.0" prefWidth="48.0" style="-fx-background-color: #96FED1; -fx-background-radius: 1;" text="KDJ" AnchorPane.topAnchor="437.0">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="macd_button" layoutX="463.0" layoutY="418.0" mnemonicParsing="false" onAction="#macdButtonHandle" opacity="0.61" prefHeight="19.0" prefWidth="48.0" style="-fx-background-color: #84C1FF; -fx-background-radius: 1;" text="MACD">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
       <AnchorPane fx:id="signPane" layoutX="170.0" layoutY="25.0" prefHeight="33.0" prefWidth="200.0">
          <children>
             <Label fx:id="fiveColor" layoutX="32.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6.0" prefWidth="11.0" style="-fx-background-color: #FFFF00;" text="  ">

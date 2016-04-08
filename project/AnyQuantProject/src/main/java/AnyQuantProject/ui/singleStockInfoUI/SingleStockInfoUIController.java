@@ -212,6 +212,7 @@ public class SingleStockInfoUIController implements Initializable {
     private List<KLineDataDTO>  singleStockKLineDataList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList;
 
     ScrollPane scroller1,scroller2,scroller3;
+    CalcuLineType calcuLineType=CalcuLineType.TYPE_MACD;
     
     MonologFX mono;
     MonologFXButton mlb;
@@ -403,6 +404,16 @@ public class SingleStockInfoUIController implements Initializable {
             filterPerformAction();
         }        
     }    
+    @FXML
+    public void macdButtonHandle(ActionEvent actionEvent){
+    
+    }
+    
+    @FXML
+    public void kdjButtonHandle(ActionEvent actionEvent){
+    
+    }
+    
        
     
     public List<BarData> buildBars(List<KLineDataDTO> dayKLineData) {
@@ -433,20 +444,10 @@ public class SingleStockInfoUIController implements Initializable {
     }
 
     public JFreeChart drawDayKLine(){
+        CalcuLineChart();
         LineChart();
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();      
         KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName,minTime,maxTime);
-       
-        CalculateLineBLService calculateLineBlImpl=new CalculateLineBLImpl();
-        List<AnyQuantProject.dataStructure.Cell>[] macdLineData=calculateLineBlImpl.drawMACD(stockName).cells;
-   //macdLineData has three list
-   //each list is the dataList for a singleStock in the area 
-       macdList1=new ArrayList<AnyQuantProject.dataStructure.Cell>();
-       macdList1=macdLineData[0]; //DIF
-       macdList2=macdLineData[1]; //DEA
-       macdList3=macdLineData[2]; //MACD
-
- 
         List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
         String endtime=null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -459,7 +460,8 @@ public class SingleStockInfoUIController implements Initializable {
 
     }
 
-    public JFreeChart drawWeekKLine() {      
+    public JFreeChart drawWeekKLine() { 
+        CalcuLineChart();
         LineChart();
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData weekKLineData=stockKLineImpl.weekKLineChart(stockName);
@@ -475,6 +477,7 @@ public class SingleStockInfoUIController implements Initializable {
     }
 
     public JFreeChart drawMonthKLine() {
+        CalcuLineChart();
         LineChart();
         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         KLineData monthKLineData=stockKLineImpl.monthKLineChart(stockName);
@@ -490,7 +493,7 @@ public class SingleStockInfoUIController implements Initializable {
 
     }
     
-     public void LineChart(){
+     public void LineChart(){   
          StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
     	//5日线   
    	 fiveAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 5);
@@ -501,7 +504,19 @@ public class SingleStockInfoUIController implements Initializable {
        //30日线
    	 thirtyAverageLine= stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 30);
          thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
+        
     }
+     public void CalcuLineChart(){
+        CalculateLineBLService calculateLineBlImpl=new CalculateLineBLImpl();
+        List<AnyQuantProject.dataStructure.Cell>[] macdLineData=calculateLineBlImpl.drawMACD(stockName).cells;
+        //macdLineData has three list,each list is the dataList for a singleStock in the area   
+         macdList1=macdLineData[0]; //DIF
+         macdList2=macdLineData[1]; //DEA
+         macdList3=macdLineData[2]; //MACD
+         System.out.println("macdNum is:"+macdList1.get(0).y);
+         System.out.println("macdNum is:"+macdList2.get(0).y);
+         System.out.println("macdNum is:"+macdList3.get(0).y);
+     }
      
 //    public void calcuLineChart(){
 //           macdLineChart=LineChartBLFactory.getCalculateLineBL().drawPreview(stockName);
@@ -733,7 +748,6 @@ public class SingleStockInfoUIController implements Initializable {
         scroller1.setHvalue(1);
         tab_dayKLine.setContent(scroller1);
         
-
         swingNode2 = new SwingNode();
         weekChart=drawWeekKLine();
         panel2 = this.getChartPanel(weekChart);
@@ -755,6 +769,20 @@ public class SingleStockInfoUIController implements Initializable {
         mlb=MonologFXButtonBuilder.create().defaultButton(true).icon("Dialog-accept.jpg").type(MonologFXButton.Type.OK).build();
         mono=MonologFXBuilder.create().modal(true).message("输入无效:起始值应小于结束值").titleText("Error Input").button(mlb).buttonAlignment(MonologFX.ButtonAlignment.CENTER).build();        
     }
+    
+    private void updateChartContent(CalcuLineType calcuLineType){
+        /**
+         * 每次选择同时更新三个tab上面的东西
+         */
+        if(calcuLineType==CalcuLineType.TYPE_MACD)
+        dayChart=drawDayKLine();
+        panel1 = this.getChartPanel(dayChart);
+        swingNode1.setContent(panel1);
+        
+        
+    
+    }
+    
     private ChartPanel getChartPanel(JFreeChart jFreeChart){
     	ChartPanel chartPanel=new ChartPanel(jFreeChart);
         chartPanel.setMinimumSize(new Dimension(800, 500));

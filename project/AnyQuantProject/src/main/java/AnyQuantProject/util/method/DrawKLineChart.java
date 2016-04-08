@@ -1,7 +1,6 @@
 package AnyQuantProject.util.method;
 
 import AnyQuantProject.dataStructure.Cell;
-import AnyQuantProject.dataStructure.JFreeLineData;
 import java.awt.Color;
 import java.awt.Paint;
 import java.text.DecimalFormat;
@@ -46,9 +45,7 @@ public class DrawKLineChart {
 	     double min2Value = Double.MAX_VALUE;// 设置成交量的最低值
              double high3Value=100;// 设置macd的最大值
 	     double min3Value =-200;// 设置macd的最低值
-	     
-	     
-	     
+	  	     
 	     OHLCSeries series = new OHLCSeries("");// 高开低收数据序列，股票K线图的四个数据，依次是开，高，低，收
 	     for (int i = 0; i < dataList.size(); i++) {
 	            int date =Integer.parseInt(dataList.get(i).getDay());
@@ -221,14 +218,11 @@ public class DrawKLineChart {
 	     
 	     //折线图
 		  if(fiveAvgDataList!=null){
-			 System.out.println(".......benchmark.....lineChart.....");	   	 
-			 
-			 LineChart(plot1,fiveAvgDataList ,5,1);
-			 LineChart(plot1,tenAvgDataList ,10,2);
+			 System.out.println(".......benchmark.....lineChart.....");	   	 			 
+			 LineChart(plot1,fiveAvgDataList ,5,   1);
+			 LineChart(plot1,tenAvgDataList ,10,   2);
 			 LineChart(plot1,thirtyAvgDataList ,30,3);
-	    } 
-	     
-		  
+	           }		  
 	     //柱状图
 	     XYBarRenderer xyBarRender=new XYBarRenderer(){
 	    	 private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
@@ -264,7 +258,7 @@ public class DrawKLineChart {
 	     XYBarRenderer macdXYBarRender=new XYBarRenderer(){
 	    	 private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
                      @Override
-	    	 public Paint getItemPaint(int i, int j){// 匿名内部类用来处理当日的成交量柱形图的颜色与K线图的颜色保持一致
+	    	 public Paint getItemPaint(int i, int j){// 匿名内部类用来处理当日的MACD的颜色与K线图的颜色保持一致
 	    		 if(seriesCollection.getCloseValue(i,j)>seriesCollection.getOpenValue(i,j)){// 收盘价高于开盘价，股票上涨，选用股票上涨的颜色                    
 //                         java.awt.Color red = java.awt.Color.RED;
                              return java.awt.Color.RED;
@@ -278,8 +272,13 @@ public class DrawKLineChart {
              y3Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     y3Axis.setRange(min3Value*0.9, high3Value*1.1);
 	     y3Axis.setTickUnit(new NumberTickUnit((high3Value*1.1-min3Value*0.9)/4));
-	     XYPlot plot3=new XYPlot(timeSeriesCollection,null,y3Axis,macdXYBarRender);// 建立第三个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
-	        
+	     XYPlot plot3=new XYPlot(timeSeriesCollection1,null,y3Axis,macdXYBarRender);// 建立第三个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴	                   
+            
+             if(macdListDIF!=null){
+                         MACDLineChart(plot3,macdListMACD,"DIF",1);
+                         MACDLineChart(plot3,macdListMACD,"DEA",2);
+              }  
+             
 	     CombinedDomainXYPlot combineddomainxyplot = new CombinedDomainXYPlot(x1Axis);// 建立一个恰当的联合图形区域对象，以x轴为共享轴
 	     combineddomainxyplot.add(plot1, 2);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域2/3
 	     combineddomainxyplot.add(plot2, 1);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域1/3
@@ -299,9 +298,9 @@ public class DrawKLineChart {
 		 TimeSeries series=new TimeSeries("");
 		 for(int i = 0; i < AvgDataList.size(); i++) {
 		    int date =Integer.parseInt( AvgDataList.get(i).getDay());
-                int month =Integer.parseInt( AvgDataList.get(i).getMonth());
-                int year =Integer.parseInt( AvgDataList.get(i).getYear());
-            series.add(new Day(date, month, year), AvgDataList.get(i).getClose());
+                    int month =Integer.parseInt( AvgDataList.get(i).getMonth());
+                    int year =Integer.parseInt( AvgDataList.get(i).getYear());
+                    series.add(new Day(date, month, year), AvgDataList.get(i).getClose());
             
 		 }
                  
@@ -323,8 +322,32 @@ public class DrawKLineChart {
 	
 		 xyLineRenderer.setSeriesShapesVisible(0,false);   
 		 plot.setDataset(n,timeSeriesCollection);
-		 plot.setRenderer(n,xyLineRenderer);
-                
+		 plot.setRenderer(n,xyLineRenderer);              
+	} 
+        
+           public static void MACDLineChart(XYPlot plot,List<Cell>  macdList,String macdNum,int n){
+		 TimeSeries series=new TimeSeries("");
+		 for(int i = 0; i < macdList.size(); i++) {
+		    int date =Integer.parseInt( macdList.get(i).getDay());
+                    int month =Integer.parseInt( macdList.get(i).getMonth());
+                    int year =Integer.parseInt( macdList.get(i).getYear());
+                    series.add(new Day(date, month, year), macdList.get(i).y);          
+		 }
+                 
+		 TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// PMA5
+		 timeSeriesCollection.addSeries(series);
+
+		 XYLineAndShapeRenderer xyLineRenderer=new XYLineAndShapeRenderer();
+		 xyLineRenderer.setBaseItemLabelsVisible(true);  
+	    //xyLineRenderer.setSeriesFillPaint(0, java.awt.Color.yellow);
+		 if(macdNum.equals("DIF")){
+			 xyLineRenderer.setSeriesPaint(0, java.awt.Color.yellow);   
+		 }else if(macdNum.equals("DEA")){
+			 xyLineRenderer.setSeriesPaint(0, new Color(238,130,238));   //purple
+		 }	
+		 xyLineRenderer.setSeriesShapesVisible(0,false);   
+		 plot.setDataset(n,timeSeriesCollection);
+		 plot.setRenderer(n,xyLineRenderer);              
 	}
 
 }
