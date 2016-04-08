@@ -140,8 +140,8 @@ public class Main extends Application {
         favouritePanel = FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 //		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 
-        benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel1.fxml"));
-        benchMarkPanel.setId("pane");
+//        benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel1.fxml"));
+//        benchMarkPanel.setId("pane");
 
         modulePanel = FXMLLoader.load(getClass().getResource("modulePanel0.fxml"));
 
@@ -427,15 +427,11 @@ public class Main extends Application {
                } catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-                       
+		}                     
 			h_box =new HBox(guidePanel,singleStockInfoPanel);
 			vbox=new VBox(headPanel,h_box);    
 			Main.getPrimaryStage().setScene(getFactoryScene(vbox));
-			MainPageController.getInstance().initPanel();
-                                     
-                      
-                         
+			MainPageController.getInstance().initPanel();                       
 	}
     
 

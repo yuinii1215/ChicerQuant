@@ -1,17 +1,22 @@
 package AnyQuantProject.ui.singleStockInfoUI;
 
+import AnyQuantProject.bl.calculateBL.CalculateLineBLImpl;
 import javafx.embed.swing.SwingNode;
 import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
 import AnyQuantProject.bl.factoryBL.KLineBLFactory;
+import AnyQuantProject.bl.factoryBL.LineChartBLFactory;
 import AnyQuantProject.bl.factoryBL.ListFilterBLFactory;
 import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
+import AnyQuantProject.blService.kLineBLService.CalculateLineBLService;
 import AnyQuantProject.blService.kLineBLService.StockKLineBLService;
 import AnyQuantProject.blService.listFilterBLService.ListFilterBLService;
 import AnyQuantProject.blService.singleStockDealBLService.SingleStockDealBLService;
 import AnyQuantProject.blService.singleStockInfoBLService.SingleStockInfoBLService;
+import AnyQuantProject.dataStructure.JFreeLineData;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
+import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.constant.TimeType;
@@ -76,6 +81,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import javafx.scene.Group;
+import javafx.scene.control.Cell;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import org.jfree.chart.ChartPanel;
@@ -195,8 +201,9 @@ public class SingleStockInfoUIController implements Initializable {
     OperationResult operationResult;
     SingleStockInfoBLService singleStockBlImpl;
     CalendarHelper calendarHelper = new CalendarHelper();
+    List<AnyQuantProject.dataStructure.Cell> macdList1,macdList2,macdList3;//DIF,DEA,MACD(bar)
 
-    public List<Stock> singleStockList = new ArrayList<Stock>();
+    public List<Stock> singleStockList = new ArrayList<>();
     public Stock singleStock = new Stock();
     
     private JFreeChart dayChart,weekChart,monthChart;
@@ -326,8 +333,7 @@ public class SingleStockInfoUIController implements Initializable {
             filteredList = listFilterBlImpl.filterStocksByDateLess(currentList,
                     maxTime);
             filterFlag[4] = false;
-            
-                     /*
+            /*
             update the timeRange of the stock
             */
             dayChart=drawDayKLine();
@@ -428,9 +434,19 @@ public class SingleStockInfoUIController implements Initializable {
 
     public JFreeChart drawDayKLine(){
         LineChart();
-        StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
-        
+        StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();      
         KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName,minTime,maxTime);
+       
+        CalculateLineBLService calculateLineBlImpl=new CalculateLineBLImpl();
+        List<AnyQuantProject.dataStructure.Cell>[] macdLineData=calculateLineBlImpl.drawMACD(stockName).cells;
+   //macdLineData has three list
+   //each list is the dataList for a singleStock in the area 
+       macdList1=new ArrayList<AnyQuantProject.dataStructure.Cell>();
+       macdList1=macdLineData[0]; //DIF
+       macdList2=macdLineData[1]; //DEA
+       macdList3=macdLineData[2]; //MACD
+
+ 
         List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
         String endtime=null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -439,7 +455,7 @@ public class SingleStockInfoUIController implements Initializable {
         }else{
              endtime=sdf.format(maxTime.getTime());
         }
-    	return  DrawKLineChart.DayKLineChart (dayKLineList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.DAY,endtime);
+    	return  DrawKLineChart.DayKLineChart (dayKLineList,macdList1,macdList2,macdList3,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.DAY,endtime);
 
     }
 
@@ -455,7 +471,7 @@ public class SingleStockInfoUIController implements Initializable {
         }else{
              endtime=sdf.format(maxTime.getTime());
         }
-    	return  DrawKLineChart.DayKLineChart (weekKLineList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.WEEK,endtime);
+    	return  DrawKLineChart.DayKLineChart (weekKLineList,macdList1,macdList2,macdList3,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.WEEK,endtime);
     }
 
     public JFreeChart drawMonthKLine() {
@@ -470,7 +486,7 @@ public class SingleStockInfoUIController implements Initializable {
         }else{
              endtime=sdf.format(maxTime.getTime());
         }
-    	return  DrawKLineChart.DayKLineChart (monthKLineList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.MONTH,endtime);
+    	return  DrawKLineChart.DayKLineChart (monthKLineList,macdList1,macdList2,macdList3,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.MONTH,endtime);
 
     }
     
@@ -487,11 +503,11 @@ public class SingleStockInfoUIController implements Initializable {
          thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
     }
      
-//   @FXML
-//   public void  handleHelperButton(ActionEvent actionEvent){
-//         filterConditionPane.getChildren().clear();
-//
-//   }
+//    public void calcuLineChart(){
+//           macdLineChart=LineChartBLFactory.getCalculateLineBL().drawPreview(stockName);
+//    
+//    }
+    
     public void init() {
         
         helperButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
@@ -516,11 +532,14 @@ public class SingleStockInfoUIController implements Initializable {
         /*
         get数据的方法
          */
+       
         singleStockBlImpl = SingleStockBLFactory.getSingleStockInfoBLService();
         singleStockDealBlImpl = SingleStockBLFactory.getSingleStockDealBLService();
         singleStock = singleStockBlImpl.getSingleStockInfo(stockName);
         singleStockList = singleStockDealBlImpl.getSingleStockDeal(stockName, maxTime);
-   
+   /**
+    * getMACD Line
+    */        
         /**
          * 之后要改,调用singleStock
          */

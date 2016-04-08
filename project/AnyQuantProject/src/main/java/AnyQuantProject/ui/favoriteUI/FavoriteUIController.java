@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
+import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.blService.stockListBLService.StockListBLService;
@@ -26,10 +27,13 @@ import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.starter.Main;
 import AnyQuantProject.ui.favoriteUI.search_method.SearchTextField;
 import AnyQuantProject.ui.favoriteUI.search_method.SeachTextFieldBuilder;
-import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
 import AnyQuantProject.util.method.SimpleLongProperty;
+import AnyQuantProject.util.method.errorInputHint.MonologFX;
+import AnyQuantProject.util.method.errorInputHint.MonologFXBuilder;
+import AnyQuantProject.util.method.errorInputHint.MonologFXButton;
+import AnyQuantProject.util.method.errorInputHint.MonologFXButtonBuilder;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -82,6 +86,9 @@ public class FavoriteUIController implements Initializable {
     static Parent root;
     String searchName;
     private static FavoriteUIController instance = null;
+    
+    MonologFX mono;
+    MonologFXButton mlb;
 
     /**
      * 此处之后应该对接初始化数据的方法
@@ -146,6 +153,10 @@ public class FavoriteUIController implements Initializable {
                 cellData.getValue().getPe_ttm()));
         pb.setCellValueFactory(cellData -> new SimpleDoubleProperty(
                 cellData.getValue().getPb()));
+        
+        mlb=MonologFXButtonBuilder.create().defaultButton(true).icon("Dialog-accept.jpg").type(MonologFXButton.Type.OK).build();
+        mono=MonologFXBuilder.create().modal(true).message("输入无效:股票ID应如sh600106").titleText("Error Input").button(mlb).buttonAlignment(MonologFX.ButtonAlignment.CENTER).build();        
+        
         search();
 
     }
@@ -164,21 +175,26 @@ public class FavoriteUIController implements Initializable {
             public void handle(ActionEvent arg0) {
                 searchName = search.getText();
                 System.out.println("...SearchName ..." + searchName + ".......");
-                   searchName=searchName.substring(0, 8);
+//                searchName=searchName.substring(0, 8);
+                
+                if(SingleStockBLFactory.getSingleStockInfoBLService().getSingleStockInfo(searchName)==null){
+                MonologFXButton.Type retval=mono.showDialog(500,300);                 
+                }
+                else{               
+                searchName=searchName.substring(0, 8);
                 Main.enterSingleStockInfoScene(searchName);
                 
-                 ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
-                 ScheduledFuture future = service.schedule(new Callable() {
+                ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
+                ScheduledFuture future = service.schedule(new Callable() {
                         public String call() {
                             System.out.print("time is up");
                             Main.endSingle();                          
                             return "taskcancelled!";
                         }
                     }, 4, TimeUnit.SECONDS);
-     
-                    service.shutdown();
-
-            }
+                 service.shutdown();
+           }
+           }
         });
 
     }

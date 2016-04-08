@@ -18,10 +18,9 @@ import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 /**
- *
- * @author Mark Heckler (mark.heckler@gmail.com, @HecklerMark)
+ * 
+ * @author GraceHan
  */
 public class MonologFX extends Stage {
     /**
@@ -126,6 +125,7 @@ public class MonologFX extends Stage {
         btn.setText(btnToAdd.getLabel());
         if ( btnToAdd.getIcon() != null ) {
             btn.setGraphic(btnToAdd.getIcon());
+            btn.setStyle("-fx-background-color:#FFFFFF; -fx-border-color:#000000; -fx-border-radius:5 ;");
         }
         
         btn.setDefaultButton(btnToAdd.isDefaultButton());

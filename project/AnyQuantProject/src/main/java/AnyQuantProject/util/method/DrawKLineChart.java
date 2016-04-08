@@ -1,23 +1,14 @@
 package AnyQuantProject.util.method;
 
+import AnyQuantProject.dataStructure.Cell;
+import AnyQuantProject.dataStructure.JFreeLineData;
 import java.awt.Color;
 import java.awt.Paint;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-
-import org.jfree.chart.block.LabelBlock;
-
 import javax.swing.ImageIcon;
-
-import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.DateTickMarkPosition;
@@ -29,42 +20,22 @@ import org.jfree.chart.plot.CombinedDomainXYPlot;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.CandlestickRenderer;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
-import org.jfree.chart.renderer.xy.XYLine3DRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.Series;
-import org.jfree.data.general.SeriesException;
 import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.ohlc.OHLCSeries;
 import org.jfree.data.time.ohlc.OHLCSeriesCollection;
-import org.jfree.data.xy.XYDataset;
-
-import AnyQuantProject.bl.factoryBL.KLineBLFactory;
-import AnyQuantProject.blService.kLineBLService.BenchmarkKLineBLService;
-import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.util.constant.TimeType;
-
-import com.sun.javafx.charts.Legend;
-
-import java.awt.Font;
-
-import org.jfree.chart.block.BlockBorder;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.block.BlockContainer;
-import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.labels.StandardXYItemLabelGenerator;
-import org.jfree.chart.title.LegendTitle;
-import org.jfree.ui.HorizontalAlignment;
-import org.jfree.ui.RectangleEdge;
-import org.jfree.chart.block.BorderArrangement;
+
 public class DrawKLineChart {
 	
 	
-	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,List<KLineDataDTO> fiveAvgDataList,List<KLineDataDTO> tenAvgDataList,List<KLineDataDTO> thirtyAvgDataList,String id,TimeType type,String endTime ){
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,List<Cell> macdListDIF,List<Cell> macdListDEA,List<Cell> macdListMACD, List<KLineDataDTO> fiveAvgDataList,List<KLineDataDTO> tenAvgDataList,List<KLineDataDTO> thirtyAvgDataList,String id,TimeType type,String endTime ){
+	
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		
 		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
 		System.out.println("......startDate......"+startDate);
@@ -73,6 +44,9 @@ public class DrawKLineChart {
 	     double minValue = Double.MAX_VALUE;// 设置K线数据当中的最小值
 	     double high2Value = Double.MIN_VALUE;// 设置成交量的最大值
 	     double min2Value = Double.MAX_VALUE;// 设置成交量的最低值
+             double high3Value=100;// 设置macd的最大值
+	     double min3Value =-200;// 设置macd的最低值
+	     
 	     
 	     
 	     OHLCSeries series = new OHLCSeries("");// 高开低收数据序列，股票K线图的四个数据，依次是开，高，低，收
@@ -92,11 +66,21 @@ public class DrawKLineChart {
 	            int month =Integer.parseInt(dataList.get(i).getMonth());
 	            int year =Integer.parseInt(dataList.get(i).getYear());
 	            series2.add(new Day(date, month, year), dataList.get(i).getVolume()/ 100.0);
+      
 	        }
 	     TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// 保留成交量数据的集合
 	     timeSeriesCollection.addSeries(series2);
 	
-	     
+             TimeSeries series3=new TimeSeries("");// 对应于MACD的柱状图
+	     for (int i = 0; i < dataList.size(); i++) {
+	    	    int date =Integer.parseInt(dataList.get(i).getDay());
+	            int month =Integer.parseInt(dataList.get(i).getMonth());
+	            int year =Integer.parseInt(dataList.get(i).getYear());
+	            series3.add(new Day(date, month, year), macdListMACD.get(i).y/ 100.0);
+	        }	   
+             TimeSeriesCollection timeSeriesCollection1=new TimeSeriesCollection();// 保留MACD数据的集合    
+	     timeSeriesCollection1.addSeries(series3);
+             	     
 	     // 获取K线数据的最高值和最低值
 	     int seriesCount = seriesCollection.getSeriesCount();// 一共有多少个序列，目前为一个
 	     	for (int i = 0; i < seriesCount; i++) {
@@ -122,7 +106,21 @@ public class DrawKLineChart {
 	     				min2Value = timeSeriesCollection.getYValue(i, j);
 	     			}
 	     		}
-	      }
+	      }           
+              // 获取MACD线的最高值和最低值
+//	     int seriesCount3 = timeSeriesCollection1.getSeriesCount();// 一共有多少个序列，目前为一个
+//	     	for (int i = 0; i < seriesCount3; i++) {
+//	     		int itemCount = timeSeriesCollection1.getItemCount(i);// 每一个序列有多少个数据项
+//	     		for (int j = 0; j < itemCount; j++) {
+//	     			if (high3Value < timeSeriesCollection1.getYValue(i,j)) {// 取第i个序列中的第j个数据项的值
+//	     				high3Value = timeSeriesCollection1.getYValue(i,j);
+//	     			}
+//	     			if (min3Value > timeSeriesCollection1.getYValue(i, j)) {// 取第i个序列中的第j个数据项的值
+//	     				min3Value = timeSeriesCollection1.getYValue(i, j);
+//	     			}
+//	     		}
+//	      }
+                           
 	     	/**
 	     	 * 或者当日前一天的日期 格式为 YYYY-MM-DD
 	     	 */
@@ -251,7 +249,6 @@ public class DrawKLineChart {
 	     y2Axis.setRange(min2Value*0.9, high2Value*1.1);
 	     y2Axis.setTickUnit(new NumberTickUnit((high2Value*1.1-min2Value*0.9)/4));
 	     XYPlot plot2=new XYPlot(timeSeriesCollection,null,y2Axis,xyBarRender);// 建立第二个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
-
 	
 	     plot1.setOutlinePaint(java.awt.Color.LIGHT_GRAY);
 	     ImageIcon icon=new ImageIcon("/images/chart_background.jpg");
@@ -262,22 +259,38 @@ public class DrawKLineChart {
 	     plot2.setOutlinePaint(java.awt.Color.LIGHT_GRAY);
 	     plot2.setBackgroundImage(icon.getImage());
 	     plot2.setBackgroundAlpha(0.3f);
+             
+            //柱状图MACD
+	     XYBarRenderer macdXYBarRender=new XYBarRenderer(){
+	    	 private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
+                     @Override
+	    	 public Paint getItemPaint(int i, int j){// 匿名内部类用来处理当日的成交量柱形图的颜色与K线图的颜色保持一致
+	    		 if(seriesCollection.getCloseValue(i,j)>seriesCollection.getOpenValue(i,j)){// 收盘价高于开盘价，股票上涨，选用股票上涨的颜色                    
+//                         java.awt.Color red = java.awt.Color.RED;
+                             return java.awt.Color.RED;
+	    		 }else{
+	                  return awtColorGreen;
+	    		 }
+	     }};
+             macdXYBarRender.setMargin(0.5);// 设置柱形图之间的间隔
+	     NumberAxis y3Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
+	     y3Axis.setAutoRange(false);
+             y3Axis.setTickLabelPaint(java.awt.Color.WHITE);
+	     y3Axis.setRange(min3Value*0.9, high3Value*1.1);
+	     y3Axis.setTickUnit(new NumberTickUnit((high3Value*1.1-min3Value*0.9)/4));
+	     XYPlot plot3=new XYPlot(timeSeriesCollection,null,y3Axis,macdXYBarRender);// 建立第三个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴
 	        
 	     CombinedDomainXYPlot combineddomainxyplot = new CombinedDomainXYPlot(x1Axis);// 建立一个恰当的联合图形区域对象，以x轴为共享轴
 	     combineddomainxyplot.add(plot1, 2);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域2/3
 	     combineddomainxyplot.add(plot2, 1);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域1/3
-//	     combineddomainxyplot.setGap(10);// 设置两个图形区域对象之间的间隔空间
-	  
-             
+             combineddomainxyplot.add(plot3, 1);
+//	     combineddomainxyplot.setGap(10);// 设置两个图形区域对象之间的间隔空间             
 	     JFreeChart chart = new JFreeChart(id, JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
 	     // 设置总的背景颜色
         
 	     chart.setBackgroundPaint(java.awt.Color.BLACK);	           
              
-	      return chart;
-	  
-		//统一上影线，下影线
-	
+	     return chart;	
 	}
 	
 	

@@ -147,7 +147,7 @@ public class AllStocksUIController implements Initializable {
 
     private static AllStocksUIController instance;
     StockListBLService stockListImplement = StockListBLFactory.getStockListBLService();
-    CalculateLineBLService calculateLineImplement = LineChartBLFactory.getCalculateLineBL();
+//    CalculateLineBLService calculateLineImplement = LineChartBLFactory.getCalculateLineBL();
 
 
     private CategoryAxis xAxis;

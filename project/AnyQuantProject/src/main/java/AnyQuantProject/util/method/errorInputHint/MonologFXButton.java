@@ -12,9 +12,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- *
- * @author Mark Heckler (mark.heckler@gmail.com, @HecklerMark)
+ * 
+ * @author GraceHan
  */
+
+
 public class MonologFXButton {
 
     /**
