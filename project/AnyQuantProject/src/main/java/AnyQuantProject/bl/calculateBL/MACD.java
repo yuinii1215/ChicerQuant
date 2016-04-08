@@ -14,7 +14,7 @@ public class MACD {
 		List<DataCell> ans=new ArrayList<>(src.size());
 		double emaF=src.subList(slow-fast-2, slow-2).stream().mapToDouble(s->s.getClose()).average().getAsDouble();
 		double emaS=src.subList(0, slow-2).stream().mapToDouble(s->s.getClose()).average().getAsDouble();
-		double dea=Double.NaN;
+		double dea=Double.NEGATIVE_INFINITY;
 		double dif=Double.NaN;
 		double macd=Double.NaN;
 		for (int i = slow-1; i < src.size(); i++) {
@@ -24,7 +24,7 @@ public class MACD {
 			emaF=emaF*(fast-1)/(fast+1)+close*2/(fast+1);
 			emaS=emaS*(slow-1)/(slow+1)+close*2/(slow+1);
 			dif=emaF-emaS;
-			if (dea==Double.NaN) {
+			if (dea==Double.NEGATIVE_INFINITY) {
 				dea=dif;
 			}
 			dea=dea*(mid-1)/(mid+1)+dif*2/(mid+1);
