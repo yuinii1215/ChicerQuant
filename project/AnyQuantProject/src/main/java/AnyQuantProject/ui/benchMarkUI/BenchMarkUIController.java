@@ -464,20 +464,20 @@ public class BenchMarkUIController implements Initializable{
     		 endtime=sdf.format(endTime.getTime());
     	 }
     	 System.out.println("........BenchMark..........Calendar:endtime......"+endtime);
-    	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,null,null,null,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,benchMarkid,TimeType.DAY,endtime);
+    	 return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,null,null,null,null,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,benchMarkid,TimeType.DAY,endtime);
 	}
     
     private JFreeChart drawWeekKLine() {
     	LineWeekChart();
     	benchMarkKLineDate=benchmarkKLineBLService.weekKLineChart(benchMarkid);
    	 	benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
-   	 	return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,null,null,null,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,benchMarkid,TimeType.WEEK,null);
+   	 	return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,null,null,null,null,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,benchMarkid,TimeType.WEEK,null);
 	}
     private JFreeChart drawMonthKLine() {
     	LineMonthChart();
     	benchMarkKLineDate=benchmarkKLineBLService.monthKLineChart(benchMarkid);
    	 	benchMarkKLineDataList=benchMarkKLineDate.geKLineDataDTOs();
-   	 	return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,null,null,null,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,benchMarkid,TimeType.MONTH,null);
+   	 	return  DrawKLineChart.DayKLineChart (benchMarkKLineDataList,null,null,null,null,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,benchMarkid,TimeType.MONTH,null);
 	}
 
     /**

@@ -4,7 +4,6 @@ import AnyQuantProject.bl.calculateBL.CalculateLineBLImpl;
 import javafx.embed.swing.SwingNode;
 import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
 import AnyQuantProject.bl.factoryBL.KLineBLFactory;
-import AnyQuantProject.bl.factoryBL.LineChartBLFactory;
 import AnyQuantProject.bl.factoryBL.ListFilterBLFactory;
 import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
@@ -13,10 +12,8 @@ import AnyQuantProject.blService.kLineBLService.StockKLineBLService;
 import AnyQuantProject.blService.listFilterBLService.ListFilterBLService;
 import AnyQuantProject.blService.singleStockDealBLService.SingleStockDealBLService;
 import AnyQuantProject.blService.singleStockInfoBLService.SingleStockInfoBLService;
-import AnyQuantProject.dataStructure.JFreeLineData;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
-import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.constant.TimeType;
@@ -81,7 +78,6 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import javafx.scene.Group;
-import javafx.scene.control.Cell;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import org.jfree.chart.ChartPanel;
@@ -109,9 +105,9 @@ public class SingleStockInfoUIController implements Initializable {
     public static SingleStockInfoUIController getInstance() {
         return SingleStockInfoUIController.getInstance();
     }
-    
+
     SingleStockInfoUIController singleStockInfoUIController;
-    
+
     @FXML
     public TableView<Stock> table;
     @FXML
@@ -157,7 +153,7 @@ public class SingleStockInfoUIController implements Initializable {
     @FXML
     public AnchorPane anchorPane;
     @FXML
-    public Pane filterConditionPane;  
+    public Pane filterConditionPane;
     @FXML
     public TextField minRange;
     @FXML
@@ -167,24 +163,23 @@ public class SingleStockInfoUIController implements Initializable {
     @FXML
     public Button filterCancelButton;
     @FXML
-    public Button filterPerformButton;  
+    public Button filterPerformButton;
     @FXML
     public ImageView filterImage;
     @FXML
-    Label toLabel1,toLabel2,keyWordLabel,valueLabel,periodLabel;
+    Label toLabel1, toLabel2, keyWordLabel, valueLabel, periodLabel;
     @FXML
     public DatePicker startDatePicker;
     @FXML
     public DatePicker endDatePicker;
     @FXML
     public ImageView loadImage;
-    
+
     Group filterPaneContent;
-   
-    
-    SwingNode swingNode1,swingNode2,swingNode3;
-    ChartPanel panel1,panel2,panel3;
-    
+
+    SwingNode swingNode1, swingNode2, swingNode3;
+    ChartPanel panel1, panel2, panel3;
+
     Image filterButton_normal = new Image(getClass().getResourceAsStream("/images/filterButton_normal.png"));
     Image filterButton_pressed = new Image(getClass().getResourceAsStream("/images/filterButton_pressed.png"));
     Image filterButton_entered = new Image(getClass().getResourceAsStream("/images/filterButton_entered.png"));
@@ -201,35 +196,44 @@ public class SingleStockInfoUIController implements Initializable {
     OperationResult operationResult;
     SingleStockInfoBLService singleStockBlImpl;
     CalendarHelper calendarHelper = new CalendarHelper();
-    List<AnyQuantProject.dataStructure.Cell> macdList1,macdList2,macdList3;//DIF,DEA,MACD(bar)
 
     public List<Stock> singleStockList = new ArrayList<>();
     public Stock singleStock = new Stock();
-    
-    private JFreeChart dayChart,weekChart,monthChart;
-            
-    private  KLineData singleStockKLineDate,fiveAverageLine,tenAverageLine,thirtyAverageLine;
-    private List<KLineDataDTO>  singleStockKLineDataList,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList;
 
-    ScrollPane scroller1,scroller2,scroller3;
-    CalcuLineType calcuLineType=CalcuLineType.TYPE_MACD;
+    private JFreeChart dayChart, weekChart, monthChart;
+    ScrollPane scroller1, scroller2, scroller3;
+
+    private KLineData singleStockKLineDate, fiveAverageLine, tenAverageLine, thirtyAverageLine;
+    private List<KLineDataDTO> singleStockKLineDataList, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList;
+
+    List<AnyQuantProject.dataStructure.Cell> calcuList1, calcuList2, calcuList3;//MACD:DIF,DEA,MACD(bar)或者KDJ:K, D, J:
+    List<AnyQuantProject.dataStructure.Cell>[] macdLineData, kdjLineData;
+    CalculateLineBLService calculateLineBlImpl;
+    CalcuLineType calcuLineType = CalcuLineType.TYPE_MACD;
     
+    StockKLineBLService stockKLineImpl = KLineBLFactory.getStockKLineBLService();
+    KLineData dayKLineData, monthKLineData, weekKLineData;
+    List<KLineDataDTO> dayKLineList, monthKLineList, weekKLineList;
+    String endtime = null;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    
+
     MonologFX mono;
     MonologFXButton mlb;
-    
+
     public void laterInit(String name) {
         this.stockName = name;
         maxTime = Calendar.getInstance();
         this.init();
     }
-    
-    public void endLoad(){
-       loadImage.setOpacity(0);
-       loadImage.setImage(null);
+
+    public void endLoad() {
+        loadImage.setOpacity(0);
+        loadImage.setImage(null);
     }
 
     /**
-     *do the filter job
+     * do the filter job
      */
     private void filterPerformAction() {
 
@@ -243,40 +247,38 @@ public class SingleStockInfoUIController implements Initializable {
             maxFilter = Double.valueOf(maxRange.getText());
             filterFlag[2] = true;
         } else {
-            maxFilter= 0.0;
+            maxFilter = 0.0;
         }
-        if(minFilter-maxFilter>0){
+        if (minFilter - maxFilter > 0) {
             minRange.setText(null);
             maxRange.setText(null);
-            filterFlag[1]=false;
-            filterFlag[2]=false;
-            MonologFXButton.Type retval=mono.showDialog(800,400);
-        }
-        else{          
-         if (startDatePicker.getValue() != null) {
-            filterFlag[0] = true;
-            LocalDate startLocalDate = startDatePicker.getValue();
-            minTime = calendarHelper.convert2Calendar(startLocalDate);
-            filterFlag[3] = true;
-          }       
-         if (endDatePicker.getValue() != null) {
-            filterFlag[0] = true;
-            LocalDate endLocalDate = endDatePicker.getValue();
-            maxTime = calendarHelper.convert2Calendar(endLocalDate);
-            filterFlag[4] = true;
-         }
-         if(filterFlag[3]&&filterFlag[4]&&minTime.after(maxTime)){           
-             filterFlag[3]=false;
-             filterFlag[4]=false;
-             minTime=null;
-             maxTime=null;
-             MonologFXButton.Type retval=mono.showDialog(800,400);          
-         }
-         else{
-         singleStockList = filterControl(singleStockList);
-         table.getItems().clear();
-         table.getItems().addAll(singleStockList);
-         }
+            filterFlag[1] = false;
+            filterFlag[2] = false;
+            MonologFXButton.Type retval = mono.showDialog(800, 400);
+        } else {
+            if (startDatePicker.getValue() != null) {
+                filterFlag[0] = true;
+                LocalDate startLocalDate = startDatePicker.getValue();
+                minTime = calendarHelper.convert2Calendar(startLocalDate);
+                filterFlag[3] = true;
+            }
+            if (endDatePicker.getValue() != null) {
+                filterFlag[0] = true;
+                LocalDate endLocalDate = endDatePicker.getValue();
+                maxTime = calendarHelper.convert2Calendar(endLocalDate);
+                filterFlag[4] = true;
+            }
+            if (filterFlag[3] && filterFlag[4] && minTime.after(maxTime)) {
+                filterFlag[3] = false;
+                filterFlag[4] = false;
+                minTime = null;
+                maxTime = null;
+                MonologFXButton.Type retval = mono.showDialog(800, 400);
+            } else {
+                singleStockList = filterControl(singleStockList);
+                table.getItems().clear();
+                table.getItems().addAll(singleStockList);
+            }
         }
         filterConditionPane.getChildren().removeAll(filterPaneContent);
         //filterConditionPane.getChildren().clear();
@@ -297,36 +299,35 @@ public class SingleStockInfoUIController implements Initializable {
         } else if (filterFlag[3] && filterFlag[4]) {
             /**
              * 默认为只可以通过区间来获得其他时间段的股票信息,不可以通过半个区间
-             */          
-            currentList=singleStockDealBlImpl.getSingleStockDeal(stockName, minTime, maxTime);
-            filteredList=currentList;
+             */
+            currentList = singleStockDealBlImpl.getSingleStockDeal(stockName, minTime, maxTime);
+            filteredList = currentList;
             filterFlag[3] = false;
             filterFlag[4] = false;
-            dayChart=drawDayKLine();
+            dayChart = drawDayKLine(calcuLineType);
             /*
             update the timeRange of the stock
-            */
-            dayChart=drawDayKLine();
+             */
+            dayChart = drawDayKLine(calcuLineType);
             panel1 = new ChartPanel(dayChart);
             panel1.setPopupMenu(null);
-            swingNode1.setContent(panel1);    
+            swingNode1.setContent(panel1);
             scroller1.setContent(swingNode1);
             scroller1.setFitToHeight(true);
             tab_dayKLine.setContent(scroller1);
-        
-          
+
         } else if (filterFlag[3] && (!filterFlag[4])) {
             filteredList = listFilterBlImpl.filterStocksByDateGreater(
                     currentList, minTime);
             filterFlag[3] = false;
-            
+
             /*
             update the timeRange of the stock
-            */
-            dayChart=drawDayKLine();
+             */
+            dayChart = drawDayKLine(calcuLineType);
             panel1 = new ChartPanel(dayChart);
             panel1.setPopupMenu(null);
-            swingNode1.setContent(panel1);    
+            swingNode1.setContent(panel1);
             scroller1.setContent(swingNode1);
             scroller1.setFitToHeight(true);
             tab_dayKLine.setContent(scroller1);
@@ -336,11 +337,11 @@ public class SingleStockInfoUIController implements Initializable {
             filterFlag[4] = false;
             /*
             update the timeRange of the stock
-            */
-            dayChart=drawDayKLine();
+             */
+            dayChart = drawDayKLine(calcuLineType);
             panel1 = new ChartPanel(dayChart);
             panel1.setPopupMenu(null);
-            swingNode1.setContent(panel1);    
+            swingNode1.setContent(panel1);
             scroller1.setContent(swingNode1);
             scroller1.setFitToHeight(true);
             tab_dayKLine.setContent(scroller1);
@@ -402,129 +403,153 @@ public class SingleStockInfoUIController implements Initializable {
         if (filterConditionPane.getOpacity() != 0.0) {
             filterConditionPane.setOpacity(0.0);
             filterPerformAction();
-        }        
-    }    
-    @FXML
-    public void macdButtonHandle(ActionEvent actionEvent){
-    
+        }
     }
-    
+
     @FXML
-    public void kdjButtonHandle(ActionEvent actionEvent){
-    
+    public void macdButtonHandle(ActionEvent actionEvent) {
+    calcuLineType=CalcuLineType.TYPE_MACD;
+    this.updateChartContent(calcuLineType);
     }
-    
-       
-    
+
+    @FXML
+    public void kdjButtonHandle(ActionEvent actionEvent) {
+    calcuLineType=CalcuLineType.TYPE_KDJ;
+    this.updateChartContent(calcuLineType);
+    }
+
     public List<BarData> buildBars(List<KLineDataDTO> dayKLineData) {
         double previousClose = 1850;
- 
+
         final List<BarData> bars = new ArrayList<>();
-        Calendar calendar=Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         calendar.set(2006, 1, 1);
-        
+
         GregorianCalendar now = new GregorianCalendar();
         now.setTimeInMillis(calendar.getTimeInMillis());
-        
-        for (int i = 0; i < 200; i++) {     
-            int year=Integer.parseInt(dayKLineData.get(i).getYear());
-            int month=Integer.parseInt(dayKLineData.get(i).getMonth());
-            int day=Integer.parseInt(dayKLineData.get(i).getDay());
+
+        for (int i = 0; i < 200; i++) {
+            int year = Integer.parseInt(dayKLineData.get(i).getYear());
+            int month = Integer.parseInt(dayKLineData.get(i).getMonth());
+            int day = Integer.parseInt(dayKLineData.get(i).getDay());
             now.set(year, month, day);
             double open = dayKLineData.get(i).getOpen();
             double close = dayKLineData.get(i).getClose();
-            double high =dayKLineData.get(i).getHigh();
+            double high = dayKLineData.get(i).getHigh();
             double low = dayKLineData.get(i).getLow();
-            int volume=dayKLineData.get(i).getVolume();           
-            BarData bar = new BarData((GregorianCalendar)now.clone(), open, high, low, close, volume);
+            int volume = dayKLineData.get(i).getVolume();
+            BarData bar = new BarData((GregorianCalendar) now.clone(), open, high, low, close, volume);
             now.add((GregorianCalendar.DAY_OF_MONTH), 1);
             bars.add(bar);
         }
         return bars;
     }
 
-    public JFreeChart drawDayKLine(){
-        CalcuLineChart();
-        LineChart();
-        StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();      
-        KLineData dayKLineData=stockKLineImpl.dayKLineChart(stockName,minTime,maxTime);
-        List<KLineDataDTO> dayKLineList=dayKLineData.geKLineDataDTOs();
-        String endtime=null;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        if(maxTime==null){
-             endtime=null;
-        }else{
-             endtime=sdf.format(maxTime.getTime());
+
+    public JFreeChart drawDayKLine(CalcuLineType calcuLineType) {
+        CalcuLineChart(calcuLineType);
+        dayLineChart();
+        dayKLineData = stockKLineImpl.dayKLineChart(stockName, minTime, maxTime);
+        dayKLineList = dayKLineData.geKLineDataDTOs();
+        if (maxTime == null) {
+            endtime = null;
+        } else {
+            endtime = sdf.format(maxTime.getTime());
         }
-    	return  DrawKLineChart.DayKLineChart (dayKLineList,macdList1,macdList2,macdList3,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.DAY,endtime);
+        return DrawKLineChart.DayKLineChart(dayKLineList, calcuList1, calcuList2, calcuList3,calcuLineType,fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.DAY, endtime);
 
     }
 
-    public JFreeChart drawWeekKLine() { 
-        CalcuLineChart();
-        LineChart();
-        StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
-        KLineData weekKLineData=stockKLineImpl.weekKLineChart(stockName);
-        List<KLineDataDTO> weekKLineList=weekKLineData.geKLineDataDTOs();
-        String endtime=null;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        if(maxTime==null){
-             endtime=null;
-        }else{
-             endtime=sdf.format(maxTime.getTime());
+    public JFreeChart drawWeekKLine(CalcuLineType calcuLineType) {
+        CalcuLineChart(calcuLineType);
+        weekLineChart();
+        weekKLineData = stockKLineImpl.weekKLineChart(stockName);
+        weekKLineList = weekKLineData.geKLineDataDTOs();
+        if (maxTime == null) {
+            endtime = null;
+        } else {
+            endtime = sdf.format(maxTime.getTime());
         }
-    	return  DrawKLineChart.DayKLineChart (weekKLineList,macdList1,macdList2,macdList3,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.WEEK,endtime);
+        return DrawKLineChart.DayKLineChart(weekKLineList, calcuList1, calcuList2, calcuList3,calcuLineType, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.WEEK, endtime);
     }
 
-    public JFreeChart drawMonthKLine() {
-        CalcuLineChart();
-        LineChart();
-        StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
-        KLineData monthKLineData=stockKLineImpl.monthKLineChart(stockName);
-        List<KLineDataDTO> monthKLineList=monthKLineData.geKLineDataDTOs();
-        String endtime=null;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        if(maxTime==null){
-             endtime=null;
-        }else{
-             endtime=sdf.format(maxTime.getTime());
+    public JFreeChart drawMonthKLine(CalcuLineType calcuLineType) {
+        CalcuLineChart(calcuLineType);
+        monthLineChart();
+        monthKLineData = stockKLineImpl.monthKLineChart(stockName);
+        monthKLineList = monthKLineData.geKLineDataDTOs();
+        if (maxTime == null) {
+            endtime = null;
+        } else {
+            endtime = sdf.format(maxTime.getTime());
         }
-    	return  DrawKLineChart.DayKLineChart (monthKLineList,macdList1,macdList2,macdList3,fiveAverageLineDataList,tenAverageLineDataList,thirtyAverageLineDataList,stockName,TimeType.MONTH,endtime);
+        return DrawKLineChart.DayKLineChart(monthKLineList, calcuList1, calcuList2, calcuList3,calcuLineType, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.MONTH, endtime);
+    }
 
+    public void dayLineChart() {
+//         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
+        //5日线   
+        fiveAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 5);
+        fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
+        //10日线
+        tenAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 10);
+        tenAverageLineDataList = tenAverageLine.geKLineDataDTOs();
+        //30日线
+        thirtyAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 30);
+        thirtyAverageLineDataList = thirtyAverageLine.geKLineDataDTOs();
     }
-    
-     public void LineChart(){   
-         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
-    	//5日线   
-   	 fiveAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 5);
-   	 fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
-   	//10日线
-   	 tenAverageLine =stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 10);
-         tenAverageLineDataList=tenAverageLine.geKLineDataDTOs();
-       //30日线
-   	 thirtyAverageLine= stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 30);
-         thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
-        
+
+    public void weekLineChart() {
+        //5日线
+        fiveAverageLine = stockKLineImpl.getWeekAverageLine(stockName, 5);
+        fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
+        //10日线
+        tenAverageLine = stockKLineImpl.getWeekAverageLine(stockName, 10);
+        tenAverageLineDataList = tenAverageLine.geKLineDataDTOs();
+        //30日线
+        thirtyAverageLine = stockKLineImpl.getWeekAverageLine(stockName, 30);
+        thirtyAverageLineDataList = thirtyAverageLine.geKLineDataDTOs();
     }
-     public void CalcuLineChart(){
-        CalculateLineBLService calculateLineBlImpl=new CalculateLineBLImpl();
-        List<AnyQuantProject.dataStructure.Cell>[] macdLineData=calculateLineBlImpl.drawMACD(stockName).cells;
-        //macdLineData has three list,each list is the dataList for a singleStock in the area   
-         macdList1=macdLineData[0]; //DIF
-         macdList2=macdLineData[1]; //DEA
-         macdList3=macdLineData[2]; //MACD
-         System.out.println("macdNum is:"+macdList1.get(0).y);
-         System.out.println("macdNum is:"+macdList2.get(0).y);
-         System.out.println("macdNum is:"+macdList3.get(0).y);
-     }
-     
-//    public void calcuLineChart(){
-//           macdLineChart=LineChartBLFactory.getCalculateLineBL().drawPreview(stockName);
-//    
-//    }
-    
+
+    public void monthLineChart() {
+        //5日线
+        fiveAverageLine = stockKLineImpl.getMonthAverageLine(stockName, 5);
+        fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
+        //10日线
+        tenAverageLine = stockKLineImpl.getMonthAverageLine(stockName, 10);
+        tenAverageLineDataList = tenAverageLine.geKLineDataDTOs();
+        //30日线
+        thirtyAverageLine = stockKLineImpl.getMonthAverageLine(stockName, 30);
+        thirtyAverageLineDataList = thirtyAverageLine.geKLineDataDTOs();
+    }
+
+    public void CalcuLineChart(CalcuLineType calcuLineType) {
+        /**
+         * day, week, month应该调用不同的MACD线,暂时还没有实现
+         */
+        calculateLineBlImpl = new CalculateLineBLImpl();
+        if (calcuLineType == CalcuLineType.TYPE_MACD) {
+            macdLineData = calculateLineBlImpl.drawMACD(stockName).cells;
+            //macdLineData has three list,each list is the dataList for a singleStock in the area   
+            calcuList1 = macdLineData[0]; //DIF
+            calcuList2 = macdLineData[1]; //DEA
+            calcuList3 = macdLineData[2]; //MACD
+            System.out.println("macdNum is:" + calcuList1.get(0).y);
+            System.out.println("macdNum is:" + calcuList2.get(0).y);
+            System.out.println("macdNum is:" + calcuList3.get(0).y);
+        } else if (calcuLineType == CalcuLineType.TYPE_KDJ) {
+            kdjLineData = calculateLineBlImpl.drawKDJ(stockName).cells;
+            calcuList1 = kdjLineData[0];//"K"Line
+            calcuList2 = kdjLineData[1];//"D"Line
+            calcuList3 = kdjLineData[2];//"J"Line
+            System.out.println("kdjNum is:" + calcuList1.get(0).y);
+            System.out.println("kdjNum is:" + calcuList2.get(0).y);
+            System.out.println("kdjNum is:" + calcuList3.get(0).y);
+        }
+    }
+
     public void init() {
-        
+
         helperButton.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
             filterImage.setImage(filterButton_entered);
         });
@@ -547,14 +572,13 @@ public class SingleStockInfoUIController implements Initializable {
         /*
         get数据的方法
          */
-       
         singleStockBlImpl = SingleStockBLFactory.getSingleStockInfoBLService();
         singleStockDealBlImpl = SingleStockBLFactory.getSingleStockDealBLService();
         singleStock = singleStockBlImpl.getSingleStockInfo(stockName);
         singleStockList = singleStockDealBlImpl.getSingleStockDeal(stockName, maxTime);
-   /**
-    * getMACD Line
-    */        
+        /**
+         * getMACD Line
+         */
         /**
          * 之后要改,调用singleStock
          */
@@ -578,38 +602,38 @@ public class SingleStockInfoUIController implements Initializable {
         titleTable.setItems(FXCollections.observableArrayList(new StockInfo2Column().set2(singleStock)));
         StockInfo2Column.setKValue(key_Column2);
         StockInfo2Column.setVValue(value_Column2);
-        
+
         value_Column.setCellFactory(new Callback<TableColumn<Map.Entry<String, Double>, Double>, TableCell<Map.Entry<String, Double>, Double>>() {
             @Override
             public TableCell<Map.Entry<String, Double>, Double> call(TableColumn<Map.Entry<String, Double>, Double> arg0) {
                 return new TableCell<Map.Entry<String, Double>, Double>() {
                     ObservableValue ov1;
+
                     @Override
                     protected void updateItem(Double item, boolean empty) {
                         super.updateItem(item, empty);
-                      
-                        if(this.getIndex()<singleStockList.size()){ 
-                        if (!isEmpty()) {
-                            double property = Math.random();
-                             if(this.getIndex()==0){ 
-                             this.setTextFill(Color.GREENYELLOW);
-                           }
-                             else if(this.getIndex()==1){ 
-                             this.setTextFill(Color.RED);
-                           }
-                            setText(item + "");
-                        }
+
+                        if (this.getIndex() < singleStockList.size()) {
+                            if (!isEmpty()) {
+                                double property = Math.random();
+                                if (this.getIndex() == 0) {
+                                    this.setTextFill(Color.GREENYELLOW);
+                                } else if (this.getIndex() == 1) {
+                                    this.setTextFill(Color.RED);
+                                }
+                                setText(item + "");
+                            }
                         }
                     }
                 };
             }
         });
- 
+
         /*
           initialize the combobox
          */
-        String[] options = {"时间","开盘价", "收盘价", "最高价", "最低价", "成交量", "后复权价", "市值", "流通", "换手率", "市盈率", "市净率"};
-        String[] columnNameList = {"date","open", "close", "high", "low", "volume", "adj_price", "marketvalue", "flow", "turnover", "pe_ttm", "pb"};
+        String[] options = {"时间", "开盘价", "收盘价", "最高价", "最低价", "成交量", "后复权价", "市值", "流通", "换手率", "市盈率", "市净率"};
+        String[] columnNameList = {"date", "open", "close", "high", "low", "volume", "adj_price", "marketvalue", "flow", "turnover", "pe_ttm", "pb"};
         ObservableList items = FXCollections.observableArrayList(options);
         keyWordBox.setItems(items);
         keyWordBox.valueProperty().addListener(new ChangeListener<String>() {
@@ -668,16 +692,16 @@ public class SingleStockInfoUIController implements Initializable {
                     @Override
                     protected void updateItem(Double item, boolean empty) {
                         super.updateItem(item, empty);
-                        if(this.getIndex()<singleStockList.size()){ 
-                        if (!isEmpty()) {
-                            double property = Math.random();
-                            if (property > 0.5) {
-                                this.setTextFill(Color.RED);
-                            } else if (property < 0.5) {
-                                this.setTextFill(Color.GREENYELLOW);
+                        if (this.getIndex() < singleStockList.size()) {
+                            if (!isEmpty()) {
+                                double property = Math.random();
+                                if (property > 0.5) {
+                                    this.setTextFill(Color.RED);
+                                } else if (property < 0.5) {
+                                    this.setTextFill(Color.GREENYELLOW);
+                                }
+                                setText(item + "");
                             }
-                            setText(item + "");
-                        }
                         }
                     }
                 };
@@ -715,7 +739,7 @@ public class SingleStockInfoUIController implements Initializable {
                     @Override
                     protected void updateItem(Double item, boolean empty) {
                         super.updateItem(item, empty);
-                        if (!isEmpty()) {
+                        if (!isEmpty()) {                           
                             double property = Math.random();
                             if (property > 0.5) {
                                 this.setTextFill(Color.RED);
@@ -729,146 +753,162 @@ public class SingleStockInfoUIController implements Initializable {
             }
         });
 
-        filterPaneContent=new Group();
-        filterPaneContent.getChildren().addAll(minRange,maxRange,keyWordBox,filterCancelButton,filterPerformButton,toLabel1,toLabel2,keyWordLabel,valueLabel,periodLabel,startDatePicker,endDatePicker);
+        filterPaneContent = new Group();
+        filterPaneContent.getChildren().addAll(minRange, maxRange, keyWordBox, filterCancelButton, filterPerformButton, toLabel1, toLabel2, keyWordLabel, valueLabel, periodLabel, startDatePicker, endDatePicker);
         filterConditionPane.setPrefSize(0, 0);
-        
+
         /**
          * add the JFreechart into the tabpane
-             */
-        minTime=Calendar.getInstance();
-        minTime.set(2016,1,1,0,0);
-        swingNode1 = new SwingNode();
-        dayChart=drawDayKLine();
-        panel1 = this.getChartPanel(dayChart);
-        swingNode1.setContent(panel1);    
-        scroller1=new ScrollPane();
-        scroller1.setContent(swingNode1);        
-        scroller1.setFitToHeight(true);
-        scroller1.setHvalue(1);
-        tab_dayKLine.setContent(scroller1);
-        
-        swingNode2 = new SwingNode();
-        weekChart=drawWeekKLine();
-        panel2 = this.getChartPanel(weekChart);
-        swingNode2.setContent(panel2);    
-        scroller2=new ScrollPane();
-        scroller2.setContent(swingNode2);
-        scroller2.setFitToHeight(true);
-        tab_weekKLine.setContent(scroller2);
-       
-        swingNode3 = new SwingNode();
-        monthChart=drawMonthKLine();
-        panel3 = this.getChartPanel(monthChart);
-        swingNode3.setContent(panel3);    
-        scroller3=new ScrollPane();
-        scroller3.setContent(swingNode3);
-        scroller3.setFitToHeight(true);
-        tab_monthKLine.setContent(scroller3);
+         */
+        minTime = Calendar.getInstance();
+        minTime.set(2016, 1, 1, 0, 0);
 
-        mlb=MonologFXButtonBuilder.create().defaultButton(true).icon("Dialog-accept.jpg").type(MonologFXButton.Type.OK).build();
-        mono=MonologFXBuilder.create().modal(true).message("输入无效:起始值应小于结束值").titleText("Error Input").button(mlb).buttonAlignment(MonologFX.ButtonAlignment.CENTER).build();        
+        swingNode1 = new SwingNode();
+        scroller1 = new ScrollPane();
+        dayChart = drawDayKLine(calcuLineType);
+        addChart2Tab(dayChart, panel1, swingNode1, scroller1, tab_dayKLine);
+//        panel1 = this.getChartPanel(dayChart);
+//        swingNode1.setContent(panel1);    
+
+//        scroller1.setContent(swingNode1);        
+//        scroller1.setFitToHeight(true);
+//        scroller1.setHvalue(1);
+//        tab_dayKLine.setContent(scroller1);
+        swingNode2 = new SwingNode();
+        scroller2 = new ScrollPane();
+        weekChart = drawWeekKLine(calcuLineType);
+        addChart2Tab(weekChart, panel2, swingNode2, scroller2, tab_weekKLine);
+//        panel2 = this.getChartPanel(weekChart);
+//        swingNode2.setContent(panel2);    
+
+//        scroller2.setContent(swingNode2);
+//        scroller2.setFitToHeight(true);
+//        tab_weekKLine.setContent(scroller2);
+        swingNode3 = new SwingNode();
+        scroller3 = new ScrollPane();
+        monthChart = drawMonthKLine(calcuLineType);
+        addChart2Tab(weekChart, panel3, swingNode3, scroller3, tab_monthKLine);
+//        monthChart=drawMonthKLine(calcuLineType);
+//        panel3 = this.getChartPanel(monthChart);
+//        swingNode3.setContent(panel3);    
+
+//        scroller3.setContent(swingNode3);
+//        scroller3.setFitToHeight(true);
+//        tab_monthKLine.setContent(scroller3);
+        mlb = MonologFXButtonBuilder.create().defaultButton(true).icon("Dialog-accept.jpg").type(MonologFXButton.Type.OK).build();
+        mono = MonologFXBuilder.create().modal(true).message("输入无效:起始值应小于结束值").titleText("Error Input").button(mlb).buttonAlignment(MonologFX.ButtonAlignment.CENTER).build();
     }
-    
-    private void updateChartContent(CalcuLineType calcuLineType){
+
+    private void addChart2Tab(JFreeChart chart, ChartPanel panel, SwingNode swingNode, ScrollPane scroller, Tab tab) {
+        panel = this.getChartPanel(chart);
+        swingNode.setContent(panel);
+        scroller.setContent(swingNode);
+        scroller.setFitToHeight(true);
+        tab.setContent(scroller);
+    }
+
+    private void updateChartContent(CalcuLineType calcuLineType) {
         /**
          * 每次选择同时更新三个tab上面的东西
          */
-        if(calcuLineType==CalcuLineType.TYPE_MACD)
-        dayChart=drawDayKLine();
-        panel1 = this.getChartPanel(dayChart);
-        swingNode1.setContent(panel1);
+        CalcuLineChart(calcuLineType);
+  
+        dayChart = DrawKLineChart.DayKLineChart(dayKLineList, calcuList1, calcuList2, calcuList3,calcuLineType ,fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.DAY, endtime);
+        addChart2Tab(dayChart, panel1, swingNode1, scroller1, tab_dayKLine);
+           // weekChart = DrawKLineChart.WeekKLineChart(WeekKLineList, calcuList1, calcuList2, calcuList3, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.WEEK, endtime);
+           //addChart2Tab(weekChart, panel2, swingNode2, scroller2, tab_weekKLine);
+           // monthChart = DrawKLineChart.MonthKLineChart(weekKLineList, calcuList1, calcuList2, calcuList3, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.WEEK, endtime);
+           //addChart2Tab(monthChart, panel3, swingNode3, scroller3, tab_monthKLine);
         
-        
-    
+
     }
-    
-    private ChartPanel getChartPanel(JFreeChart jFreeChart){
-    	ChartPanel chartPanel=new ChartPanel(jFreeChart);
+
+    private ChartPanel getChartPanel(JFreeChart jFreeChart) {
+        ChartPanel chartPanel = new ChartPanel(jFreeChart);
         chartPanel.setMinimumSize(new Dimension(800, 500));
-    	chartPanel.setMouseWheelEnabled(true);
-    	chartPanel.setPopupMenu(null);
-    	chartPanel.setMouseZoomable(false);
-    	//
-    	CrosshairOverlay crosshairOverlay=new MyCrossOverlay();
-    	Crosshair xCrosshair=new Crosshair(Double.NaN);
-    	xCrosshair.setLabelPaint(java.awt.Color.white);
-    	xCrosshair.setStroke(new BasicStroke(0f));
-    	xCrosshair.setLabelGenerator(new CrosshairLabelGenerator() {
-			@Override
-			public String generateLabel(Crosshair crosshair) {
-				Rectangle2D dataArea=chartPanel.getScreenDataArea();
-				XYPlot plot = (XYPlot) chartPanel.getChart().getPlot();
-		        DateAxis xAxis=(DateAxis) plot.getDomainAxis();
-		        Date date1=xAxis.getMinimumDate();
-		        double start=xAxis.dateToJava2D(date1, dataArea, plot.getDomainAxisEdge());
-		        Date date2=xAxis.getMaximumDate();
-		        double end=xAxis.dateToJava2D(date2, dataArea, plot.getDomainAxisEdge());
-		        double value=xAxis.valueToJava2D(crosshair.getValue(), dataArea, plot.getDomainAxisEdge());
-		        double percent=(value-start)/(end-start);
-		        long time=date2.getTime()-date1.getTime();
-		        long ans=Math.round(time*percent);
-		        Date date=new Date(date1.getTime()+ans);
-				return date.toString();
-			}
-		});
-    	xCrosshair.setLabelVisible(true);
-    	xCrosshair.setLabelAnchor(RectangleAnchor.TOP);
-    	xCrosshair.setPaint(java.awt.Color.white);
-    	xCrosshair.setLabelPaint(java.awt.Color.white);
-    	xCrosshair.setLabelBackgroundPaint(java.awt.Color.yellow);
-    	Crosshair yCrosshair=new Crosshair(Double.NaN);
-    	yCrosshair.setStroke(new BasicStroke(0f));
-    	yCrosshair.setLabelGenerator(new CrosshairLabelGenerator() {
-			
-			@Override
-			public String generateLabel(Crosshair crosshair) {
-				DecimalFormat decimalFormat=new DecimalFormat("#.00");
-				JFreeChart chart=chartPanel.getChart();
-				CombinedDomainXYPlot combinedDomainXYPlot=(CombinedDomainXYPlot) chart.getPlot();
-				List<Plot> plots=combinedDomainXYPlot.getSubplots();
-				double low=((XYPlot)plots.get(0)).getRangeAxis().getLowerBound();
-				double high=((XYPlot)plots.get(0)).getRangeAxis().getUpperBound();
-				double val=high-(high-crosshair.getValue())*1.5;
-				return decimalFormat.format(val);
-		        
-			}
-		});
-    	yCrosshair.setLabelVisible(true);
+        chartPanel.setMouseWheelEnabled(true);
+        chartPanel.setPopupMenu(null);
+        chartPanel.setMouseZoomable(false);
+        //
+        CrosshairOverlay crosshairOverlay = new MyCrossOverlay();
+        Crosshair xCrosshair = new Crosshair(Double.NaN);
+        xCrosshair.setLabelPaint(java.awt.Color.white);
+        xCrosshair.setStroke(new BasicStroke(0f));
+        xCrosshair.setLabelGenerator(new CrosshairLabelGenerator() {
+            @Override
+            public String generateLabel(Crosshair crosshair) {
+                Rectangle2D dataArea = chartPanel.getScreenDataArea();
+                XYPlot plot = (XYPlot) chartPanel.getChart().getPlot();
+                DateAxis xAxis = (DateAxis) plot.getDomainAxis();
+                Date date1 = xAxis.getMinimumDate();
+                double start = xAxis.dateToJava2D(date1, dataArea, plot.getDomainAxisEdge());
+                Date date2 = xAxis.getMaximumDate();
+                double end = xAxis.dateToJava2D(date2, dataArea, plot.getDomainAxisEdge());
+                double value = xAxis.valueToJava2D(crosshair.getValue(), dataArea, plot.getDomainAxisEdge());
+                double percent = (value - start) / (end - start);
+                long time = date2.getTime() - date1.getTime();
+                long ans = Math.round(time * percent);
+                Date date = new Date(date1.getTime() + ans);
+                return date.toString();
+            }
+        });
+        xCrosshair.setLabelVisible(true);
+        xCrosshair.setLabelAnchor(RectangleAnchor.TOP);
+        xCrosshair.setPaint(java.awt.Color.white);
+        xCrosshair.setLabelPaint(java.awt.Color.white);
+        xCrosshair.setLabelBackgroundPaint(java.awt.Color.yellow);
+        Crosshair yCrosshair = new Crosshair(Double.NaN);
+        yCrosshair.setStroke(new BasicStroke(0f));
+        yCrosshair.setLabelGenerator(new CrosshairLabelGenerator() {
+
+            @Override
+            public String generateLabel(Crosshair crosshair) {
+                DecimalFormat decimalFormat = new DecimalFormat("#.00");
+                JFreeChart chart = chartPanel.getChart();
+                CombinedDomainXYPlot combinedDomainXYPlot = (CombinedDomainXYPlot) chart.getPlot();
+                List<Plot> plots = combinedDomainXYPlot.getSubplots();
+                double low = ((XYPlot) plots.get(0)).getRangeAxis().getLowerBound();
+                double high = ((XYPlot) plots.get(0)).getRangeAxis().getUpperBound();
+                double val = high - (high - crosshair.getValue()) * 1.5;
+                return decimalFormat.format(val);
+
+            }
+        });
+        yCrosshair.setLabelVisible(true);
 //    	yCrosshair.setLabelAnchor(RectangleAnchor.RIGHT);
-    	yCrosshair.setPaint(java.awt.Color.white);
-    	yCrosshair.setLabelPaint(java.awt.Color.white);
-    	yCrosshair.setLabelBackgroundPaint(java.awt.Color.yellow);
-    	crosshairOverlay.addDomainCrosshair(xCrosshair);
-    	crosshairOverlay.addRangeCrosshair(yCrosshair);
-    	chartPanel.addOverlay(crosshairOverlay);
-    	
-    	chartPanel.addChartMouseListener(new ChartMouseListener() {
-			
-			@Override
-			public void chartMouseMoved(ChartMouseEvent event) {
-				 	Rectangle2D dataArea = chartPanel.getScreenDataArea();
-			        JFreeChart chart = event.getChart();
-			        Point point=new Point(event.getTrigger().getX(), event.getTrigger().getY());
-			        Point2D point2d=chartPanel.translateScreenToJava2D(point);
-			        XYPlot plot = (XYPlot) chart.getPlot();
-			        ValueAxis xAxis = plot.getDomainAxis();
-			        List<Plot> plots= ((CombinedDomainXYPlot)plot).getSubplots();
-			        NumberAxis yAxis=(NumberAxis) ((XYPlot)plots.get(0)).getRangeAxis();
-			        double x = xAxis.java2DToValue(point2d.getX(), dataArea, 
-			                RectangleEdge.BOTTOM);
-			        
-			        double y = yAxis.java2DToValue(point2d.getY(), dataArea, RectangleEdge.LEFT);
-			        xCrosshair.setValue(x);
-			        yCrosshair.setValue(y);
-			}
-			
-			@Override
-			public void chartMouseClicked(ChartMouseEvent event) {
-			}
-		});
-    	
-    	return chartPanel;
+        yCrosshair.setPaint(java.awt.Color.white);
+        yCrosshair.setLabelPaint(java.awt.Color.white);
+        yCrosshair.setLabelBackgroundPaint(java.awt.Color.yellow);
+        crosshairOverlay.addDomainCrosshair(xCrosshair);
+        crosshairOverlay.addRangeCrosshair(yCrosshair);
+        chartPanel.addOverlay(crosshairOverlay);
+
+        chartPanel.addChartMouseListener(new ChartMouseListener() {
+
+            @Override
+            public void chartMouseMoved(ChartMouseEvent event) {
+                Rectangle2D dataArea = chartPanel.getScreenDataArea();
+                JFreeChart chart = event.getChart();
+                Point point = new Point(event.getTrigger().getX(), event.getTrigger().getY());
+                Point2D point2d = chartPanel.translateScreenToJava2D(point);
+                XYPlot plot = (XYPlot) chart.getPlot();
+                ValueAxis xAxis = plot.getDomainAxis();
+                List<Plot> plots = ((CombinedDomainXYPlot) plot).getSubplots();
+                NumberAxis yAxis = (NumberAxis) ((XYPlot) plots.get(0)).getRangeAxis();
+                double x = xAxis.java2DToValue(point2d.getX(), dataArea,
+                        RectangleEdge.BOTTOM);
+
+                double y = yAxis.java2DToValue(point2d.getY(), dataArea, RectangleEdge.LEFT);
+                xCrosshair.setValue(x);
+                yCrosshair.setValue(y);
+            }
+
+            @Override
+            public void chartMouseClicked(ChartMouseEvent event) {
+            }
+        });
+
+        return chartPanel;
     }
 
     @FXML
@@ -877,13 +917,14 @@ public class SingleStockInfoUIController implements Initializable {
     }
 
     public class TableRowController<T> extends TableRow<T> {
+
         public TableRowController(TableView<T> tableView) {
             super();
             System.out.println(this.indexProperty().intValue());
             this.setTextFill(Color.RED);
             this.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent event) {
-                    
+
                     if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
 
                     }

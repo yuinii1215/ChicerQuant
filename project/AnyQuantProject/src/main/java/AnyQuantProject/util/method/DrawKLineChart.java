@@ -26,18 +26,21 @@ import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.ohlc.OHLCSeries;
 import org.jfree.data.time.ohlc.OHLCSeriesCollection;
 import AnyQuantProject.dataStructure.KLineDataDTO;
+import AnyQuantProject.ui.singleStockInfoUI.CalcuLineType;
 import AnyQuantProject.util.constant.TimeType;
 import org.jfree.chart.labels.StandardXYItemLabelGenerator;
 
 public class DrawKLineChart {
 	
 	
-	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,List<Cell> macdListDIF,List<Cell> macdListDEA,List<Cell> macdListMACD, List<KLineDataDTO> fiveAvgDataList,List<KLineDataDTO> tenAvgDataList,List<KLineDataDTO> thirtyAvgDataList,String id,TimeType type,String endTime ){
+	public static JFreeChart DayKLineChart (List<KLineDataDTO> dataList,List<Cell> calcuList1,List<Cell> calcuList2,List<Cell> calcuList3, CalcuLineType calcuLineType,List<KLineDataDTO> fiveAvgDataList,List<KLineDataDTO> tenAvgDataList,List<KLineDataDTO> thirtyAvgDataList,String id,TimeType type,String endTime){
 	
+            //如果是macd线,calcuList1是DIF, calcuList2是DEA,calcuList3是MACD,macd线是bar
+            //如果是kdj线, calcuList1是K, calcuList2是D,calcuList3是J,三个都是line
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		
-		String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
-		System.out.println("......startDate......"+startDate);
+            String startDate = dataList.get(0).getYear()+"-"+dataList.get(0).getMonth()+"-"+dataList.get(0).getDay();
+            System.out.println("......startDate......"+startDate);
                 
 	     double highValue = Double.MIN_VALUE;// 设置K线数据当中的最大值
 	     double minValue = Double.MAX_VALUE;// 设置K线数据当中的最小值
@@ -66,18 +69,36 @@ public class DrawKLineChart {
       
 	        }
 	     TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// 保留成交量数据的集合
-	     timeSeriesCollection.addSeries(series2);
-	
-             TimeSeries series3=new TimeSeries("");// 对应于MACD的柱状图
-	     for (int i = 0; i < macdListMACD.size(); i++) {
-	    	    int date =Integer.parseInt(macdListMACD.get(i).getDay());
-	            int month =Integer.parseInt(macdListMACD.get(i).getMonth());
-	            int year =Integer.parseInt(macdListMACD.get(i).getYear());
-	            series3.add(new Day(date, month, year), macdListMACD.get(i).y/ 100.0);
-	        }	   
-             TimeSeriesCollection timeSeriesCollection1=new TimeSeriesCollection();// 保留MACD数据的集合    
-	     timeSeriesCollection1.addSeries(series3);
+	     timeSeriesCollection.addSeries(series2);           
              	     
+             TimeSeries series3;
+             TimeSeriesCollection timeSeriesCollection1=new TimeSeriesCollection();// 保留MACD数据的集合;
+             //如果是MACD线,需要绘制柱状图
+             if(calcuLineType==CalcuLineType.TYPE_MACD){
+                 
+             series3=new TimeSeries("");// 对应于MACD的柱状图
+	     for (int i = 0; i < calcuList3.size(); i++) {
+	    	    int date =Integer.parseInt(calcuList3.get(i).getDay());
+	            int month =Integer.parseInt(calcuList3.get(i).getMonth());
+	            int year =Integer.parseInt(calcuList3.get(i).getYear());
+	            series3.add(new Day(date, month, year), calcuList3.get(i).y/ 100.0);
+	        }	   
+             
+	     timeSeriesCollection1.addSeries(series3);           
+                  // 获取MACD线的最高值和最低值
+	     int seriesCount3 = timeSeriesCollection1.getSeriesCount();// 一共有多少个序列，目前为一个
+	     	for (int i = 0; i < seriesCount3; i++) {
+	     		int itemCount = timeSeriesCollection1.getItemCount(i);// 每一个序列有多少个数据项
+	     		for (int j = 0; j < itemCount; j++) {
+	     			if (high3Value < timeSeriesCollection1.getYValue(i,j)) {// 取第i个序列中的第j个数据项的值
+	     				high3Value = timeSeriesCollection1.getYValue(i,j);
+	     			}
+	     			if (min3Value > timeSeriesCollection1.getYValue(i, j)) {// 取第i个序列中的第j个数据项的值
+	     				min3Value = timeSeriesCollection1.getYValue(i, j);
+	     			}
+	     		}
+	      }
+             }
 	     // 获取K线数据的最高值和最低值
 	     int seriesCount = seriesCollection.getSeriesCount();// 一共有多少个序列，目前为一个
 	     	for (int i = 0; i < seriesCount; i++) {
@@ -104,19 +125,6 @@ public class DrawKLineChart {
 	     			}
 	     		}
 	      }           
-              // 获取MACD线的最高值和最低值
-//	     int seriesCount3 = timeSeriesCollection1.getSeriesCount();// 一共有多少个序列，目前为一个
-//	     	for (int i = 0; i < seriesCount3; i++) {
-//	     		int itemCount = timeSeriesCollection1.getItemCount(i);// 每一个序列有多少个数据项
-//	     		for (int j = 0; j < itemCount; j++) {
-//	     			if (high3Value < timeSeriesCollection1.getYValue(i,j)) {// 取第i个序列中的第j个数据项的值
-//	     				high3Value = timeSeriesCollection1.getYValue(i,j);
-//	     			}
-//	     			if (min3Value > timeSeriesCollection1.getYValue(i, j)) {// 取第i个序列中的第j个数据项的值
-//	     				min3Value = timeSeriesCollection1.getYValue(i, j);
-//	     			}
-//	     		}
-//	      }
                            
 	     	/**
 	     	 * 或者当日前一天的日期 格式为 YYYY-MM-DD
@@ -254,7 +262,8 @@ public class DrawKLineChart {
 	     plot2.setBackgroundImage(icon.getImage());
 	     plot2.setBackgroundAlpha(0.3f);
              
-            //柱状图MACD
+          XYPlot plot3=null;
+          if(calcuLineType==CalcuLineType.TYPE_MACD){
 	     XYBarRenderer macdXYBarRender=new XYBarRenderer(){
 	    	 private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
                      @Override
@@ -272,12 +281,26 @@ public class DrawKLineChart {
              y3Axis.setTickLabelPaint(java.awt.Color.WHITE);
 	     y3Axis.setRange(min3Value*0.9, high3Value*1.1);
 	     y3Axis.setTickUnit(new NumberTickUnit((high3Value*1.1-min3Value*0.9)/4));
-	     XYPlot plot3=new XYPlot(timeSeriesCollection1,null,y3Axis,macdXYBarRender);// 建立第三个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴	                   
-            
-             if(macdListDIF!=null){
-                         MACDLineChart(plot3,macdListMACD,"DIF",1);
-                         MACDLineChart(plot3,macdListMACD,"DEA",2);
-              }  
+	     plot3=new XYPlot(timeSeriesCollection1,null,y3Axis,macdXYBarRender);// 建立第三个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴	                   
+        
+             if(calcuList1!=null){
+                         MACDLineChart(plot3,calcuList1,"DIF",1);
+                         MACDLineChart(plot3,calcuList2,"DEA",2);
+               }              
+           }
+        else{             
+             NumberAxis y3Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
+	     y3Axis.setAutoRange(false);
+             y3Axis.setTickLabelPaint(java.awt.Color.WHITE);
+	     y3Axis.setRange(min3Value*0.9, high3Value*1.1);
+	     y3Axis.setTickUnit(new NumberTickUnit((high3Value*1.1-min3Value*0.9)/4));
+             plot3=new XYPlot(timeSeriesCollection1,null,y3Axis,null);
+            if(calcuList1!=null){
+                         MACDLineChart(plot3,calcuList1,"K",1);
+                         MACDLineChart(plot3,calcuList2,"D",2);
+                         MACDLineChart(plot3,calcuList2,"J",3);
+              } 
+        }
              
 	     CombinedDomainXYPlot combineddomainxyplot = new CombinedDomainXYPlot(x1Axis);// 建立一个恰当的联合图形区域对象，以x轴为共享轴
 	     combineddomainxyplot.add(plot1, 2);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域2/3
@@ -307,7 +330,7 @@ public class DrawKLineChart {
 		 TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// PMA5
 		 timeSeriesCollection.addSeries(series);
 
-		 XYLineAndShapeRenderer xyLineRenderer  =new XYLineAndShapeRenderer();
+		 XYLineAndShapeRenderer xyLineRenderer=new XYLineAndShapeRenderer();
 		 xyLineRenderer.setBaseItemLabelsVisible(true);  
 	    //xyLineRenderer.setSeriesFillPaint(0, java.awt.Color.yellow);
 		 if(aver==5){
@@ -325,7 +348,7 @@ public class DrawKLineChart {
 		 plot.setRenderer(n,xyLineRenderer);              
 	} 
         
-           public static void MACDLineChart(XYPlot plot,List<Cell>  macdList,String macdNum,int n){
+           public static void MACDLineChart(XYPlot plot,List<Cell>  macdList,String macdName,int n){
 		 TimeSeries series=new TimeSeries("");
 		 for(int i = 0; i < macdList.size(); i++) {
 		    int date =Integer.parseInt( macdList.get(i).getDay());
@@ -334,17 +357,44 @@ public class DrawKLineChart {
                     series.add(new Day(date, month, year), macdList.get(i).y);          
 		 }
                  
-		 TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// PMA5
+		 TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();
 		 timeSeriesCollection.addSeries(series);
 
 		 XYLineAndShapeRenderer xyLineRenderer=new XYLineAndShapeRenderer();
 		 xyLineRenderer.setBaseItemLabelsVisible(true);  
 	    //xyLineRenderer.setSeriesFillPaint(0, java.awt.Color.yellow);
-		 if(macdNum.equals("DIF")){
+		 if(macdName.equals("DIF")){
 			 xyLineRenderer.setSeriesPaint(0, java.awt.Color.yellow);   
-		 }else if(macdNum.equals("DEA")){
+		 }else if(macdName.equals("DEA")){
 			 xyLineRenderer.setSeriesPaint(0, new Color(238,130,238));   //purple
 		 }	
+		 xyLineRenderer.setSeriesShapesVisible(0,false);   
+		 plot.setDataset(n,timeSeriesCollection);
+		 plot.setRenderer(n,xyLineRenderer);              
+	}
+           
+      public static void KDJLineChart(XYPlot plot,List<Cell>  kdjList,String kdjName,int n){
+		 TimeSeries series=new TimeSeries("");
+		 for(int i = 0; i < kdjList.size(); i++) {
+		    int date =Integer.parseInt(kdjList.get(i).getDay());
+                    int month =Integer.parseInt(kdjList.get(i).getMonth());
+                    int year =Integer.parseInt(kdjList.get(i).getYear());
+                    series.add(new Day(date, month, year), kdjList.get(i).y);          
+		 }
+                 
+		 TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();
+		 timeSeriesCollection.addSeries(series);
+
+		 XYLineAndShapeRenderer xyLineRenderer=new XYLineAndShapeRenderer();
+		 xyLineRenderer.setBaseItemLabelsVisible(true);  
+	         //xyLineRenderer.setSeriesFillPaint(0, java.awt.Color.yellow);
+		 if(kdjName.equals("K")){
+		  xyLineRenderer.setSeriesPaint(0, java.awt.Color.yellow);   
+		 }else if(kdjName.equals("D")){
+	         xyLineRenderer.setSeriesPaint(0, new Color(238,130,238));   //purple
+		 }else if(kdjName.equals("J")){
+		 xyLineRenderer.setSeriesPaint(0, new Color(238,130,238));   //purple
+		 }		
 		 xyLineRenderer.setSeriesShapesVisible(0,false);   
 		 plot.setDataset(n,timeSeriesCollection);
 		 plot.setRenderer(n,xyLineRenderer);              
