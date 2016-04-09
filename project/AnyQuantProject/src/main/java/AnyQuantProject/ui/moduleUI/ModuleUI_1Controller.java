@@ -65,10 +65,11 @@ public class ModuleUI_1Controller implements Initializable{
 //	Text16,Text17,Text18,Text19,Text20,Text21,Text22,Text23,Text24,Text25,Text26,Text27,Text28;
 	private String singleModuleName;
 	private int num=15;
-	private Rectangle[] rect; 
-	private Text[] texts;
+	private Rectangle[] rect ; 
+	private Text[] texts ;	
 	private IndustryBLService industryBLService = IndustryBLFactory.getIndustryBLService();
-	private List<String> allIndustryName;
+	private List<String> allIndustryName;	
+	
 	
 	public static ModuleUI_1Controller  getInstance() {
 		 System.out.println("here is the instance of ModuleUI_1Controller  ");
@@ -79,14 +80,14 @@ public class ModuleUI_1Controller implements Initializable{
 
 /**
 * initialize the table
+* #4f94cd
 * 
 */
 	public  void init(){
 		rect = new Rectangle[]{Rect1,Rect2,Rect3,Rect4,Rect5,Rect6,Rect7,Rect8,Rect9,Rect10,Rect11,Rect12,Rect13,Rect14,Rect15};
-		texts =new Text[]{Text1,Text2,Text3,Text4,Text5,Text6,Text7,Text8,Text9,Text10,Text11,Text12,Text13,Text14,Text15};			
+		texts =new Text[]{Text1,Text2,Text3,Text4,Text5,Text6,Text7,Text8,Text9,Text10,Text11,Text12,Text13,Text14,Text15};	
 		allIndustryName = industryBLService.getAllIndustries();
 		for (int i=0;i<num;i++){
-			
 			singleModuleName = allIndustryName.get(i);
 			texts[i].setText(singleModuleName);;
 			rect[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -100,6 +101,7 @@ public class ModuleUI_1Controller implements Initializable{
 							break;
 						}
 					}
+					System.out.println("....singleModule...."+texts[j].getText());
 					Main.enterSingleModuleScene(texts[j].getText());
 				}
 			});
@@ -138,18 +140,13 @@ public class ModuleUI_1Controller implements Initializable{
 		
 	}
 	
-	@FXML
-	private void toDetailMoulePane(){
-		
-	}
 	
 	@FXML
 	private void toMoreModulePane(){
 		try {
 			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("moreModulePanel.fxml"));
 			moreModulePanel= (AnchorPane)fxmlLoader.load(); 
-			vBox.
-			getChildren().add(1,moreModulePanel);   
+			vBox.getChildren().add(1,moreModulePanel);   
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

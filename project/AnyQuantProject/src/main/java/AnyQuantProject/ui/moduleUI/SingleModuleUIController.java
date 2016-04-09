@@ -113,10 +113,10 @@ public class SingleModuleUIController implements Initializable{
 
 	  
 	public void initTable(){
-		System.out.println("....singleModule...."+industryName);;
+		System.out.println("....InitsingleModuleInfo...."+industryName);;
 		singleIndustryInfoList =industryBLService.getStocksByIndustry(industryName);
 		table.setItems(FXCollections.observableArrayList(singleIndustryInfoList));
-		table.getItems().add(new Stock());
+	//	table.getItems().add(new Stock());
 		table.setRowFactory(new Callback<TableView<Stock>, TableRow<Stock>>() {
 	            @Override
 	            public TableRow<Stock> call(TableView<Stock> table) {

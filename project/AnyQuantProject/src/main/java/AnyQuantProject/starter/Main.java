@@ -388,6 +388,7 @@ public class Main extends Application {
     }
     
     public  static void enterSingleModuleScene(String singleModuleName){
+    	System.out.println("....entersingleModuleSuccess!!...."+singleModuleName);
     
     	try {
 			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("singleModulePanel.fxml"));

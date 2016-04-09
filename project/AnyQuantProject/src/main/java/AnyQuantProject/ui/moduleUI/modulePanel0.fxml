@@ -103,21 +103,21 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Rectangle fx:id="Rect1" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" />
-                        <Rectangle fx:id="Rect2" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" />
-                        <Rectangle fx:id="Rect3" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" />
-                        <Rectangle fx:id="Rect4" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" />
-                        <Rectangle fx:id="Rect5" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="1" />
-                        <Rectangle fx:id="Rect6" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Rectangle fx:id="Rect14" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Rectangle fx:id="Rect13" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="3" />
-                        <Rectangle fx:id="Rect8" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Rectangle fx:id="Rect10" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Rectangle fx:id="Rect9" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="2" />
-                        <Rectangle fx:id="Rect7" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Rectangle fx:id="Rect11" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Rectangle fx:id="Rect15" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <Rectangle fx:id="Rect12" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" onMouseClicked="#toDetailMoulePane" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Rectangle fx:id="Rect1" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" />
+                        <Rectangle fx:id="Rect2" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0"  stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" />
+                        <Rectangle fx:id="Rect3" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" />
+                        <Rectangle fx:id="Rect4" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" />
+                        <Rectangle fx:id="Rect5" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0"  stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="1" />
+                        <Rectangle fx:id="Rect6" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Rectangle fx:id="Rect14" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Rectangle fx:id="Rect13" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="3" />
+                        <Rectangle fx:id="Rect8" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Rectangle fx:id="Rect10" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Rectangle fx:id="Rect9" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="2" />
+                        <Rectangle fx:id="Rect7" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Rectangle fx:id="Rect11" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0"  stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Rectangle fx:id="Rect15" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Rectangle fx:id="Rect12" arcHeight="5.0" arcWidth="5.0" fill="#4f94cd" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                         <Text fx:id="Text1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0">
                            <GridPane.margin>
                               <Insets />
