@@ -66,6 +66,7 @@ public class DrawKLineChart {
 	            int month =Integer.parseInt(dataList.get(i).getMonth());
 	            int year =Integer.parseInt(dataList.get(i).getYear());
 	            series2.add(new Day(date, month, year), dataList.get(i).getVolume()/ 100.0);
+                    System.out.println("volume num is:"+i+" date is:"+year+":"+month+":"+date);
       
 	        }
 	     TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// 保留成交量数据的集合
@@ -82,6 +83,7 @@ public class DrawKLineChart {
 	            int month =Integer.parseInt(calcuList3.get(i).getMonth());
 	            int year =Integer.parseInt(calcuList3.get(i).getYear());
 	            series3.add(new Day(date, month, year), calcuList3.get(i).y/ 100.0);
+                    System.out.println("num is:"+i+" date is:"+year+":"+month+":"+date);
 	        }	   
              
 	     timeSeriesCollection1.addSeries(series3);           
@@ -268,12 +270,13 @@ public class DrawKLineChart {
 	    	 private static final long serialVersionUID = 1L;// 为了避免出现警告消息，特设定此值
                      @Override
 	    	 public Paint getItemPaint(int i, int j){// 匿名内部类用来处理当日的MACD的颜色与K线图的颜色保持一致
-	    		 if(seriesCollection.getCloseValue(i,j)>seriesCollection.getOpenValue(i,j)){// 收盘价高于开盘价，股票上涨，选用股票上涨的颜色                    
-//                         java.awt.Color red = java.awt.Color.RED;
-                             return java.awt.Color.RED;
-	    		 }else{
-	                  return awtColorGreen;
-	    		 }
+//	    		 if(seriesCollection.getCloseValue(i,j)>seriesCollection.getOpenValue(i,j)){// 收盘价高于开盘价，股票上涨，选用股票上涨的颜色                    
+////                         java.awt.Color red = java.awt.Color.RED;
+//                             return java.awt.Color.RED;
+//	    		 }else{
+//	                  return awtColorGreen;
+//	    		 }
+                        return java.awt.Color.RED;
 	     }};
              macdXYBarRender.setMargin(0.5);// 设置柱形图之间的间隔
 	     NumberAxis y3Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置

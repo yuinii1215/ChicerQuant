@@ -534,17 +534,11 @@ public class SingleStockInfoUIController implements Initializable {
             calcuList1 = macdLineData[0]; //DIF
             calcuList2 = macdLineData[1]; //DEA
             calcuList3 = macdLineData[2]; //MACD
-            System.out.println("macdNum is:" + calcuList1.get(0).y);
-            System.out.println("macdNum is:" + calcuList2.get(0).y);
-            System.out.println("macdNum is:" + calcuList3.get(0).y);
         } else if (calcuLineType == CalcuLineType.TYPE_KDJ) {
             kdjLineData = calculateLineBlImpl.drawKDJ(stockName).cells;
             calcuList1 = kdjLineData[0];//"K"Line
             calcuList2 = kdjLineData[1];//"D"Line
-            calcuList3 = kdjLineData[2];//"J"Line
-            System.out.println("kdjNum is:" + calcuList1.get(0).y);
-            System.out.println("kdjNum is:" + calcuList2.get(0).y);
-            System.out.println("kdjNum is:" + calcuList3.get(0).y);
+            calcuList3 = kdjLineData[2];//"J"Line      
         }
     }
 

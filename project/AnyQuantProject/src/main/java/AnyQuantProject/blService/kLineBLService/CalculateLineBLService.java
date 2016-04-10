@@ -7,6 +7,7 @@ package AnyQuantProject.blService.kLineBLService;
 
 import AnyQuantProject.dataStructure.JFreeLineData;
 import AnyQuantProject.dataStructure.LineChartData;
+import java.util.Calendar;
 
 
 public interface CalculateLineBLService{
@@ -32,19 +33,19 @@ public interface CalculateLineBLService{
 	 * @param name 股票代号
 	 * @return
 	 */
-	public	LineChartData drawBIAS(String name);
+	public	LineChartData drawBIAS(String name,Calendar minTime,Calendar maxTime);
 	/**
 	 * 股票随机指标，(Stochastics)
 	 * 共三条曲线，分别是KDJ的值
 	 * @param name
 	 * @return
 	 */
-	public JFreeLineData drawKDJ(String name);
+	public JFreeLineData drawKDJ(String name,Calendar minTime,Calendar maxTime);
 	/**
 	 * 指数平滑异同平均线,(Moving Average Convergence / Divergence)
 	 * DIF,DEA,MACD
 	 * @param name
 	 * @return
 	 */
-	public JFreeLineData drawMACD(String name);
+	public JFreeLineData drawMACD(String name,Calendar minTime,Calendar maxTime);
 }

@@ -80,7 +80,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 	}
 
 	@Override
-	public LineChartData drawBIAS(String name) {
+	public LineChartData drawBIAS(String name,Calendar minTime,Calendar maxTime) {
 		if (!Checker.checkStringNotNull(name)) {
 			return new LineChartData();
 		}
@@ -115,7 +115,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 	}
 
 	@Override
-	public JFreeLineData drawKDJ(String name) {
+	public JFreeLineData drawKDJ(String name,Calendar minTime,Calendar maxTime) {
 		if (!Checker.checkStringNotNull(name)) {
 			return new JFreeLineData();
 		}
@@ -184,7 +184,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 	}
 
 	@Override
-	public JFreeLineData drawMACD(String name) {
+	public JFreeLineData drawMACD(String name,Calendar minTime,Calendar maxTime) {
 		if (!Checker.checkStringNotNull(name)) {
 			return new JFreeLineData();
 		}
