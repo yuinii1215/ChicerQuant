@@ -50,7 +50,7 @@ public class IndustryBLImpl implements IndustryBLService {
 	
 		List<String> stocks=industryNameDATAService.getStockByIndustry(industry);
 		List<Stock> all=StockListBLFactory.getStockListBLService().getAllStocks();
-		List<Stock> ans=all.stream().filter(st->stocks.contains(st)).collect(Collectors.toList());
+		List<Stock> ans=all.stream().filter(st->stocks.contains(st.getName())).collect(Collectors.toList());
 		return ans;
 	}
 
@@ -96,4 +96,13 @@ public class IndustryBLImpl implements IndustryBLService {
 		return  ans;
 	}
 
+
+	public static void main(String[] args) {
+		IndustryBLImpl i = new IndustryBLImpl();
+		List<Stock> list = i.getStocksByIndustry("银行");
+		System.out.println(list.size());
+		for (int k = 0; k < list.size(); ++k) {
+			System.out.println(list.get(k).getName());
+		}
+	}
 }

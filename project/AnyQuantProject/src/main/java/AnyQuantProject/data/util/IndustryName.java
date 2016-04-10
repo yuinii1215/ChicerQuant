@@ -43,14 +43,14 @@ public class IndustryName implements IndustryNameDATAService{
     public static void main(String[] args) {
         IndustryName i = new IndustryName();
 //        System.out.println(i.getStockByIndustry("综合"));
-        getMktIndustryFlow();
+//        getMktIndustryFlow();
 //		i.iniIndustry();
 //        System.out.println(i.getIndustryName("sh601186"));
 
 //        List<String> list = i.getAllIndustries();
 //        i.getStockByIndustry("银行");
 
-
+        System.out.println(i.getIndustryName("600216"));
     }
 
     private IndustryName(){}

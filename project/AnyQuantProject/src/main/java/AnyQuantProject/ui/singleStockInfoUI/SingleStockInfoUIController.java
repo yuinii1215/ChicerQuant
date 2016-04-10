@@ -529,13 +529,15 @@ public class SingleStockInfoUIController implements Initializable {
          */
         calculateLineBlImpl = new CalculateLineBLImpl();
         if (calcuLineType == CalcuLineType.TYPE_MACD) {
-            macdLineData = calculateLineBlImpl.drawMACD(stockName).cells;
+            // TODO: 16/4/10
+//            macdLineData = calculateLineBlImpl.drawMACD(stockName).cells;
             //macdLineData has three list,each list is the dataList for a singleStock in the area   
             calcuList1 = macdLineData[0]; //DIF
             calcuList2 = macdLineData[1]; //DEA
             calcuList3 = macdLineData[2]; //MACD
         } else if (calcuLineType == CalcuLineType.TYPE_KDJ) {
-            kdjLineData = calculateLineBlImpl.drawKDJ(stockName).cells;
+            // TODO: 16/4/10
+//            kdjLineData = calculateLineBlImpl.drawKDJ(stockName).cells;
             calcuList1 = kdjLineData[0];//"K"Line
             calcuList2 = kdjLineData[1];//"D"Line
             calcuList3 = kdjLineData[2];//"J"Line      
