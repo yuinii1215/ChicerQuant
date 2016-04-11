@@ -42,6 +42,20 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		//
 		return data;
 	}
+	
+	private List<Stock> getData(String name,Calendar start,Calendar end){
+		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
+		
+		List<Stock> dataT=singleStockDATAService.getStockAmongDate(name, start, end);
+		if (dataT==null||dataT.isEmpty()) {
+			return null;
+		}
+		
+		List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
+		//
+		return data;
+	}
 
 	@Override
 	public LineChartData drawRSI(String name) {
@@ -84,7 +98,8 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		if (!Checker.checkStringNotNull(name)) {
 			return new LineChartData();
 		}
-		List<Stock> data=this.getData(name);
+		minTime.add(Calendar.DAY_OF_MONTH, -24);
+		List<Stock> data=this.getData(name,minTime,maxTime);
 		String title=data.get(0).getChinese()+"乖离率折线图";
 		// 
 		List<DataCell> bias1=BIAS.calculateBIAS(data, 6);
@@ -119,7 +134,8 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		if (!Checker.checkStringNotNull(name)) {
 			return new JFreeLineData();
 		}
-		List<Stock> data=this.getData(name);
+		minTime.add(Calendar.DAY_OF_MONTH, -7);
+		List<Stock> data=this.getData(name,minTime,maxTime);
 		String title=data.get(0).getChinese()+"KDJ";
 		//
 		List<DataCell> rsi=KDJ.calculateRSI(data, 6);
@@ -188,7 +204,8 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		if (!Checker.checkStringNotNull(name)) {
 			return new JFreeLineData();
 		}
-		List<Stock> data=this.getData(name);
+		minTime.add(Calendar.DAY_OF_MONTH, -26);
+		List<Stock> data=this.getData(name,minTime,maxTime);
 		String title=data.get(0).getChinese()+"MACD";
 		//
 		List<DataCell> macd=MACD.calculateMACD(data, 12, 9, 26);
