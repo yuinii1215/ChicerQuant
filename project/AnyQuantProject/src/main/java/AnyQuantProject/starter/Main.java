@@ -1,75 +1,47 @@
 package AnyQuantProject.starter;
 
+import java.awt.Point;
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Cursor;
+import javafx.scene.Group;
+import javafx.scene.ImageCursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.SceneBuilder;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBuilder;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.bl.stockListBL.StockListBLController;
 import AnyQuantProject.ui.controllerUI.MainPageController;
 import AnyQuantProject.ui.moduleUI.ModuleUI_1Controller;
 import AnyQuantProject.ui.moduleUI.SingleModuleUIController;
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
+import AnyQuantProject.util.constant.R;
 
-import java.awt.Point;
-import java.awt.Toolkit;
-import java.awt.event.MouseMotionAdapter;
-import java.io.File;
-import java.io.IOException;
 
-import javax.swing.ImageIcon;
 
-import org.eclipse.swt.widgets.Scale;
-
-import com.hp.hpl.sparta.xpath.ParentNodeTest;
-
-import java.net.MalformedURLException;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javafx.application.Application;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.ImageCursor;
-import javafx.scene.SceneBuilder;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBuilder;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.scene.Node;
-import javafx.stage.WindowEvent;
-import javafx.scene.Cursor;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.Parent;
-import javafx.stage.FileChooser;
 /**
  *
  * @author QiHan
@@ -182,117 +154,55 @@ public class Main extends Application {
                
                             
 	//	primaryStage.setScene(new Scene(vbox));
-		primaryStage.initStyle(StageStyle.DECORATED);
-//		primaryStage.initStyle(StageStyle.UNDECORATED);
+//		primaryStage.initStyle(StageStyle.DECORATED);
+		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.isResizable();
 
 		//界面拖拽
-		primaryStage.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>(){
+//		primaryStage.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>(){
+//
+//			@Override
+//			public void handle(MouseEvent e) {
+//				// TODO Auto-generated method stub
+//			   if(e.getY()<=(int)((double)primaryStage.getHeight()*22/490)){
+//	            	move=true;
+//	            	origin.x = (int) e.getX();  
+//	                origin.y = (int) e.getY();
+//	                }
+//			   
+//			}});
+//		
+//		primaryStage.addEventHandler(MouseEvent.MOUSE_RELEASED, new EventHandler<MouseEvent>(){
+//
+//			@Override
+//			public void handle(MouseEvent e) {
+//				// TODO Auto-generated method stub
+//			   move =false;
+//			}});
+//
+//		primaryStage.addEventHandler(MouseEvent.MOUSE_DRAGGED,new EventHandler<MouseEvent>(){
+//			public void handle(MouseEvent e) {	
+//				if(move){
+//	                double x = primaryStage.getX() ;
+//	                double y =primaryStage.getY();
+//	
+//	                primaryStage.setX(x + e.getX() - origin.x);
+//	                primaryStage.setY(y + e.getY() - origin.y);
+//	            	}
+//	            }
+//		});	
 
-			@Override
-			public void handle(MouseEvent e) {
-				// TODO Auto-generated method stub
-			   if(e.getY()<=(int)((double)primaryStage.getHeight()*22/490)){
-	            	move=true;
-	            	origin.x = (int) e.getX();  
-	                origin.y = (int) e.getY();
-	                }
-			   
-			}});
+
 		
-		primaryStage.addEventHandler(MouseEvent.MOUSE_RELEASED, new EventHandler<MouseEvent>(){
-
-			@Override
-			public void handle(MouseEvent e) {
-				// TODO Auto-generated method stub
-			   move =false;
-			}});
-
-		primaryStage.addEventHandler(MouseEvent.MOUSE_DRAGGED,new EventHandler<MouseEvent>(){
-			public void handle(MouseEvent e) {	
-				if(move){
-	                double x = primaryStage.getX() ;
-	                double y =primaryStage.getY();
+		
+	//	  enableDragAndResize(primaryStage);
 	
-	                primaryStage.setX(x + e.getX() - origin.x);
-	                primaryStage.setY(y + e.getY() - origin.y);
-	            	}
-	            }
-		});	
-	//  enterMainScene();
-	//  buttons();
+		
+		
+		
 		primaryStage.setScene(getFactoryScene(vbox));
+		enableDragAndResize(  primaryStage.getScene());
 		primaryStage.show();  
-                  
-//                ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
-//                ScheduledFuture future = service.schedule(new Callable() {
-//                        public String call() {
-//                     //   	System.out.print("time is up");
-//                             service.shutdown();
-//                             System.out.println("???????!!!!!??:::"+service.isShutdown());
-//                            
-//                             return "taskcancelled!";
-//                        }
-//                    }, 11, TimeUnit.SECONDS);
-//                     
-                   
-	      
-//            primaryStage.setScene(new Scene(vbox));
-////          primaryStage.setScene(initAnimation());
-//        ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
-//        ScheduledFuture future = service.schedule(new Callable() {
-//            @Override
-//            public String call() {
-//                System.out.print("time is up");
-//                primaryStage.setScene(new Scene(vbox));
-//                primaryStage.show();
-//                return "taskcancelled!";
-//            }
-//        }, 10, TimeUnit.SECONDS);
-//        service.shutdown();
-//              
-//        //	primaryStage.initStyle(StageStyle.DECORATED);
-//        primaryStage.initStyle(StageStyle.UNDECORATED);
-//        primaryStage.isResizable();
-
-        //界面拖拽
-        primaryStage.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent e) {
-                // TODO Auto-generated method stub
-                if (e.getY() <= (int) ((double) primaryStage.getHeight() * 22 / 490)) {
-                    move = true;
-                    origin.x = (int) e.getX();
-                    origin.y = (int) e.getY();
-                }
-
-            }
-        });
-
-        primaryStage.addEventHandler(MouseEvent.MOUSE_RELEASED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent e) {
-                // TODO Auto-generated method stub
-                move = false;
-            }
-        });
-
-        primaryStage.addEventHandler(MouseEvent.MOUSE_DRAGGED, new EventHandler<MouseEvent>() {
-            public void handle(MouseEvent e) {
-                if (move) {
-                    double x = primaryStage.getX();
-                    double y = primaryStage.getY();
-
-                    primaryStage.setX(x + e.getX() - origin.x);
-                    primaryStage.setY(y + e.getY() - origin.y);
-                }
-            }
-        });
-        //  enterMainScene();
-        //  buttons();
-        primaryStage.show();
     }
 
     public void endAnimation(Stage primaryStage) {
@@ -527,7 +437,188 @@ public class Main extends Application {
 //                return scene;
 //    }
 
+    
+    
+    /**
+     * drag
+     */
+    private static double calX;
+    private static double calY;
+    private static double oldPosX;
+    private static double oldPosY;
+    private static double oldWidth;
+    private static double oldHeight;
+    private static boolean dragging = false;
+    private static boolean resizing = false;
+    private static CURSOR_AREA pressedArea = CURSOR_AREA.CENTER;
+    public static final double ResizePadding = 5;
+    private static final double padding = ResizePadding;
+    public static final double titleHeight = 625;//70
+    public static final double LeftTabsWidth = 80;//179
+    
+    
+    private static enum CURSOR_AREA{
+        NORTH_WEST,
+        NORTH_EAST,
+        SOUTH_WEST,
+        SOUTH_EAST,
+        NORTH,
+        SOUTH,
+        WEST,
+        EAST,
+        TITLE,
+        CENTER
+    }
 
+    private static CURSOR_AREA getCursorArea(double x, double y, double width, double height){
+        if(y < padding && x < padding){
+            return CURSOR_AREA.NORTH_WEST;
+        }else if(y < padding && x > width - padding){
+            return CURSOR_AREA.NORTH_EAST;
+        }else if(y > height - padding && x < padding){
+            return CURSOR_AREA.SOUTH_WEST;
+        }else if(y > height - padding && x > width - padding){
+            return CURSOR_AREA.SOUTH_EAST;
+        }else if(y> height - padding){
+            return CURSOR_AREA.SOUTH;
+        }else if(x> width - padding){
+            return CURSOR_AREA.EAST;
+        }else if(y < padding){
+            return CURSOR_AREA.NORTH;
+        }else if(x < padding){
+            return CURSOR_AREA.WEST;
+        }else if(y < titleHeight){
+            return CURSOR_AREA.TITLE;
+        }else{
+            return CURSOR_AREA.CENTER;
+        }
+    }
+
+    private static final double minWidth = 980;
+    private static final double minHeight = 625;
+    private static void setBounds(Stage stage, double x, double y, double w, double h){
+        if(w > minWidth){
+            stage.setWidth(w);
+            stage.setX(x);
+            stage.setY(y);
+        }else{
+            stage.setWidth(minWidth);
+        }
+        if(h > minHeight){
+            stage.setHeight(h);
+            stage.setX(x);
+            stage.setY(y);
+        }else{
+            stage.setHeight(minHeight);
+        }
+    }
+
+    static double ix;
+    static double iy;
+    
+    private static void enableDragAndResize(Scene scene){
+        scene.setOnMousePressed(
+                me -> {
+                    pressedArea = getCursorArea(me.getX(), me.getY(), primaryStage.getWidth(), primaryStage.getHeight());
+                    if (pressedArea == CURSOR_AREA.TITLE) {
+                        resizing = false;
+                        dragging = true;
+                        calX = me.getScreenX() - primaryStage.getX();
+                        calY = me.getScreenY() - primaryStage.getY();
+                    } else if (pressedArea == CURSOR_AREA.CENTER) {
+                        resizing = false;
+                        dragging = false;
+                    } else {
+                        resizing = true;
+                        dragging = false;
+                        oldPosX = primaryStage.getX();
+                        oldPosY = primaryStage.getY();
+                        oldWidth = primaryStage.getWidth();
+                        oldHeight = primaryStage.getHeight();
+                        calX = me.getScreenX();
+                        calY = me.getScreenY();
+                    }
+                }
+        );
+        scene.setOnMouseDragged(
+                me -> {
+                    if (dragging) {
+                        primaryStage.setX(me.getScreenX() - calX);
+                        primaryStage.setY(me.getScreenY() - calY);
+                    } else if (resizing) {
+                        double dx = me.getScreenX() - calX;
+                        double dy = me.getScreenY() - calY;
+                        switch (pressedArea) {
+                            case NORTH_WEST:
+                                setBounds(primaryStage, oldPosX + dx, oldPosY + dy, oldWidth - dx, oldHeight - dy);
+                                break;
+                            case NORTH_EAST:
+                                setBounds(primaryStage, oldPosX, oldPosY + dy, oldWidth + dx, oldHeight - dy);
+                                break;
+                            case SOUTH_WEST:
+                                setBounds(primaryStage, oldPosX + dx, oldPosY, oldWidth - dx, oldHeight + dy);
+                                break;
+                            case SOUTH_EAST:
+                                setBounds(primaryStage, oldPosX, oldPosY, oldWidth + dx, oldHeight + dy);
+                                break;
+                            case NORTH:
+                                setBounds(primaryStage, oldPosX, oldPosY + dy, oldWidth, oldHeight - dy);
+                                break;
+                            case SOUTH:
+                                setBounds(primaryStage, oldPosX, oldPosY, oldWidth, oldHeight + dy);
+                                break;
+                            case WEST:
+                                setBounds(primaryStage, oldPosX + dx, oldPosY, oldWidth - dx, oldHeight);
+                                break;
+                            case EAST:
+                                setBounds(primaryStage, oldPosX, oldPosY, oldWidth + dx, oldHeight);
+                                break;
+                            case TITLE:
+                                break;
+                            case CENTER:
+                                break;
+                        }
+                    }
+                }
+        );
+        // change the look of the mouse when it is moved to the sides
+        scene.setOnMouseMoved(
+                me -> {
+                    CURSOR_AREA area = getCursorArea(me.getX(), me.getY(), primaryStage.getWidth(), primaryStage.getHeight());
+                    Cursor cursor = Cursor.DEFAULT;
+                    switch (area) {
+                        case NORTH_WEST:
+                            cursor = Cursor.NW_RESIZE;
+                            break;
+                        case NORTH_EAST:
+                            cursor = Cursor.NE_RESIZE;
+                            break;
+                        case SOUTH_WEST:
+                            cursor = Cursor.SW_RESIZE;
+                            break;
+                        case SOUTH_EAST:
+                            cursor = Cursor.SE_RESIZE;
+                            break;
+                        case NORTH:
+                        case SOUTH:
+                            cursor = Cursor.V_RESIZE;
+                            break;
+                        case WEST:
+                        case EAST:
+                            cursor = Cursor.H_RESIZE;
+                            break;
+                        case TITLE:
+                        case CENTER:
+                            cursor = Cursor.DEFAULT;
+                            break;
+                    }
+                    primaryStage.getScene().setCursor(cursor);
+                }
+        );
+    }
+    
+
+    
     public static void main(String[] args) {
         StockListBLController stockListBLController = (StockListBLController) StockListBLFactory.getStockListBLService();
 
