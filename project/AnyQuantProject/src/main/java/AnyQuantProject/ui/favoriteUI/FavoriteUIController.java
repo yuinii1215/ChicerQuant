@@ -132,7 +132,7 @@ public class FavoriteUIController implements Initializable {
         id.setCellValueFactory(cellData -> new SimpleStringProperty(
                 cellData.getValue().getName()));
         name.setCellValueFactory(cellData -> new SimpleStringProperty(
-                cellData.getValue().getName()));
+                cellData.getValue().getChinese()));
         open.setCellValueFactory(cellData -> new SimpleDoubleProperty(
                 cellData.getValue().getOpen()));
         high.setCellValueFactory(cellData -> new SimpleDoubleProperty(
@@ -215,7 +215,7 @@ public class FavoriteUIController implements Initializable {
                 public void handle(MouseEvent event) {
                     if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
                     selectedIndex = TableRowControl.this.getIndex();
-                    String stockName = name.getCellData(selectedIndex);
+                    String stockName = id.getCellData(selectedIndex);
 
                     //     MainPageController.getInstance().setPanel(Main.singleStockInfoPanel, "打开单只股票下部信息界面...");
                     Main.enterSingleStockInfoScene(stockName);

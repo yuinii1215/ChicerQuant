@@ -13,8 +13,8 @@
    <children>
       <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="900.0">
         <columns>
-          <TableColumn fx:id="id" prefWidth="66.0" text="代码" />
-            <TableColumn fx:id="name" prefWidth="82.0" text="名称" />
+          <TableColumn fx:id="id" prefWidth="74.0" text="代码" />
+            <TableColumn fx:id="name" prefWidth="74.0" text="名称" />
             <TableColumn fx:id="open" prefWidth="87.0" text="开盘价" />
             <TableColumn fx:id="high" prefWidth="74.0" text="最高价" />
             <TableColumn fx:id="low" prefWidth="78.0" text="最低价" />

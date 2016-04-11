@@ -54,19 +54,20 @@ public class ModuleUI_1Controller implements Initializable{
 	public VBox vBox; 
 	@FXML
 	private Label LineLabel1,LineLabel2;
-//	@FXML
-//	private Button moreBtn,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn10,btn11,btn12,btn13,btn14,btn15,
+	@FXML
+	private Button moreBtn,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn10,btn11,btn12,btn13,btn14,btn15;
 //		btn16,btn17,btn18,btn19,btn20,btn21,btn22,btn23,btn24,btn25,btn26,btn27,btn28;
-	@FXML
-	private Rectangle Rect1,Rect2,Rect3,Rect4,Rect5,Rect6,Rect7,Rect8,Rect9,Rect10,Rect11,Rect12,Rect13,Rect14,Rect15;
+//	@FXML
+//	private Rectangle Rect1,Rect2,Rect3,Rect4,Rect5,Rect6,Rect7,Rect8,Rect9,Rect10,Rect11,Rect12,Rect13,Rect14,Rect15;
 //		Rect16,Rect17,Rect18,Rect19,Rect20,Rect21,Rect22,Rect23,Rect24,Rect25,Rect26,Rect27,Rect28;
-	@FXML
-	private Text Text1,Text2,Text3,Text4,Text5,Text6,Text7,Text8,Text9,Text10,Text11,Text12,Text13,Text14,Text15;
+//	@FXML
+//	private Text Text1,Text2,Text3,Text4,Text5,Text6,Text7,Text8,Text9,Text10,Text11,Text12,Text13,Text14,Text15;
 //	Text16,Text17,Text18,Text19,Text20,Text21,Text22,Text23,Text24,Text25,Text26,Text27,Text28;
 	private String singleModuleName;
 	private int num=15;
-	private Rectangle[] rect ; 
-	private Text[] texts ;	
+//	private Rectangle[] rect ; 
+//	private Text[] texts ;	
+	private Button[] buttons;
 	private IndustryBLService industryBLService = IndustryBLFactory.getIndustryBLService();
 	private List<String> allIndustryName;	
 	
@@ -84,25 +85,26 @@ public class ModuleUI_1Controller implements Initializable{
 * 
 */
 	public  void init(){
-		rect = new Rectangle[]{Rect1,Rect2,Rect3,Rect4,Rect5,Rect6,Rect7,Rect8,Rect9,Rect10,Rect11,Rect12,Rect13,Rect14,Rect15};
-		texts =new Text[]{Text1,Text2,Text3,Text4,Text5,Text6,Text7,Text8,Text9,Text10,Text11,Text12,Text13,Text14,Text15};	
+//		rect = new Rectangle[]{Rect1,Rect2,Rect3,Rect4,Rect5,Rect6,Rect7,Rect8,Rect9,Rect10,Rect11,Rect12,Rect13,Rect14,Rect15};
+//		texts =new Text[]{Text1,Text2,Text3,Text4,Text5,Text6,Text7,Text8,Text9,Text10,Text11,Text12,Text13,Text14,Text15};	
+		buttons = new Button[]{btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn10,btn11,btn12,btn13,btn14,btn15}; 
 		allIndustryName = industryBLService.getAllIndustries();
 		for (int i=0;i<num;i++){
 			singleModuleName = allIndustryName.get(i);
-			texts[i].setText(singleModuleName);;
-			rect[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
+			buttons[i].setText(singleModuleName);
+			buttons[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 				@Override
 				public void handle(MouseEvent event) {
-					Rectangle src=(Rectangle) event.getSource();
+					Button src=(Button)event.getSource();
 					int j=0;
 					for(;j<num;j++){
-						if (rect[j]==src) {
+						if (buttons[j]==src) {
 							break;
 						}
 					}
-					System.out.println("....singleModule...."+texts[j].getText());
-					Main.enterSingleModuleScene(texts[j].getText());
+					System.out.println("....singleModule...."+buttons[j].getText());
+					Main.enterSingleModuleScene(buttons[j].getText());
 				}
 			});
 		}
@@ -146,7 +148,9 @@ public class ModuleUI_1Controller implements Initializable{
 		try {
 			FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("moreModulePanel.fxml"));
 			moreModulePanel= (AnchorPane)fxmlLoader.load(); 
-			vBox.getChildren().add(1,moreModulePanel);   
+			vBox.
+			getChildren().add(1,
+					moreModulePanel);   
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

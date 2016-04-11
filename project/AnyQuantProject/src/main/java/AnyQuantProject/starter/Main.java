@@ -140,10 +140,10 @@ public class Main extends Application {
         favouritePanel = FXMLLoader.load(getClass().getResource("favouritePanel.fxml"));
 //		allStocksPanel = FXMLLoader.load(getClass().getResource("allStocksPanel.fxml"));
 
-//        benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel1.fxml"));
-//        benchMarkPanel.setId("pane");
+//      benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel1.fxml"));
+//      benchMarkPanel.setId("pane");
 
-//        modulePanel = FXMLLoader.load(getClass().getResource("modulePanel0.fxml"));
+        modulePanel = FXMLLoader.load(getClass().getResource("modulePanel0.fxml"));
 
 
 //		primaryStage.setHeight(636);

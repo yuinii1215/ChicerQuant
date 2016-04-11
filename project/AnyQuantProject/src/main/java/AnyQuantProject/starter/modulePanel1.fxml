@@ -15,7 +15,7 @@
 <?import java.net.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="modulePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="900.0" style="-fx-background-color: transparent;" styleClass="edge-to-edge"  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.moduleUI.ModuleUI_1Controller">
+<AnchorPane fx:id="modulePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="900.0" style="-fx-background-color: transparent;" styleClass="edge-to-edge" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.moduleUI.ModuleUI_1Controller">
    <children>
       <GridPane layoutX="42.0" layoutY="-2.0" opacity="0.88" prefHeight="528.0" prefWidth="829.0">
         <columnConstraints>
@@ -55,99 +55,81 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Rectangle fx:id="Rect1" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" />
-            <Rectangle fx:id="Rect2" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" />
-            <Rectangle fx:id="Rect3" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" />
-            <Rectangle fx:id="Rect4" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0"  stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" />
-            <Rectangle fx:id="Rect5" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0"  stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="1" />
-            <Rectangle fx:id="Rect6" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Rectangle fx:id="Rect14" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0"  stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Rectangle fx:id="Rect13" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="3" />
-            <Rectangle fx:id="Rect8" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0"  stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Rectangle fx:id="Rect10" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Rectangle fx:id="Rect9" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.rowIndex="2" />
-            <Rectangle fx:id="Rect7" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0"  stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Rectangle fx:id="Rect11" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Rectangle fx:id="Rect15" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0"  stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Rectangle fx:id="Rect12" arcHeight="5.0" arcWidth="5.0" fill="#44d687" height="91.0" stroke="WHITE" strokeType="INSIDE" width="152.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Text fx:id="Text1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
+            <Button fx:id="btn1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text12" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            </Button>
+            <Button fx:id="btn8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text8" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            </Button>
+            <Button fx:id="btn4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="3">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text11" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            </Button>
+            <Button fx:id="btn3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text15" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            </Button>
+            <Button fx:id="btn7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text14" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            </Button>
+            <Button fx:id="btn11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text13" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.rowIndex="3">
+            </Button>
+            <Button fx:id="btn12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text10" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            </Button>
+            <Button fx:id="btn15" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text9" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.rowIndex="2">
+            </Button>
+            <Button fx:id="btn13" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text7" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            </Button>
+            <Button fx:id="btn10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text6" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            </Button>
+            <Button fx:id="btn9" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text5" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.rowIndex="1">
+            </Button>
+            <Button fx:id="btn6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text4" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="3">
+            </Button>
+            <Button fx:id="btn5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text3" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="2">
+            </Button>
+            <Button fx:id="btn2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fx:id="Text2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="综合" textAlignment="CENTER" wrappingWidth="151.0" GridPane.columnIndex="1">
+            </Button>
+            <Button fx:id="btn14" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="91.0" prefWidth="152.0" style="-fx-background-color: #44d687;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
+            </Button>
          </children>
       </GridPane>
    </children>
