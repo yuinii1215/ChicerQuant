@@ -10,5 +10,5 @@ package AnyQuantProject.ui.singleStockInfoUI;
  * @author GraceHan
  */
 public enum CalcuLineType {
-    TYPE_MACD,TYPE_KDJ;
+    TYPE_MACD,TYPE_KDJ,TYPE_RSI,TYPE_BIAS;
 }
