@@ -8,8 +8,15 @@ public class IndustryInfo {
     double updown;//涨跌幅,百分数
     long pure;//净额,
     double total;
-    @Deprecated
-    public IndustryInfo(){}
+    int companySum;
+    public void setCompanySum(int companySum) {
+		this.companySum = companySum;
+	}
+
+	@Deprecated
+    public IndustryInfo(){
+    	updown=0;
+    }
 
     public IndustryInfo(String name){
         this.industry=name;
@@ -23,5 +30,10 @@ public class IndustryInfo {
     }
     public void setTotal(double total){
     	this.total=total;
+    }
+    
+    @Override
+    public String toString(){
+    	return "Industry "+this.industry+" updown pure total "+updown+" "+pure+" "+total;
     }
 }
