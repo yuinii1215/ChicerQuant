@@ -23,6 +23,9 @@ public class BIAS {
 				all+=src.get(i-j).getClose();
 			}
 			double aver=all/day;
+			if (aver==0) {
+				aver=1;
+			}
 			double bias=(close-aver)/aver*100;
 			DataCell biasData=new DataCell(date, bias);
 			ans.add(biasData);
