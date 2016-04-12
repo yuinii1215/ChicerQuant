@@ -47,6 +47,7 @@ public class SingleStockDATA implements SingleStockDATAService, TurnoverDATAServ
 	public Stock getOperation(String name, Calendar date) {
 		JSONObject resultJsonObject = JSONSingleStock.getOperation(name, date);
 		Stock result = (Stock) JSONObject.toBean(resultJsonObject,Stock.class);
+		System.out.println(result.getVolume());
 		result.setName(name);
 		result.setChinese(getChineseName(name));
 		return result;
@@ -73,20 +74,48 @@ public class SingleStockDATA implements SingleStockDATAService, TurnoverDATAServ
 
 	}
 	@Override
-	public Stock getTurnover(String name) {
-		Stock s = new Stock();
+	public double getTurnoverValue(String name) {
+		double value = 0.0;
 		try {
-			s = Turnover.getTurnOverVolume(name);
+			value = Turnover.getTurnOverValue(name);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return s;
+		return value;
 	}
-	
+
+	@Override
+	public double getTotalShares(String name) {
+		double totalShares = 0;
+		try {
+			String shares = Turnover.getShares(name);
+			String[] strs = shares.split(" ");
+			totalShares = Double.parseDouble(strs[0]);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return totalShares;
+	}
+
+	@Override
+	public double getNonrestFloatShares(String name) {
+		double nonrestFloatShares = 0;
+		try {
+			String shares = Turnover.getShares(name);
+			String[] strs = shares.split(" ");
+			nonrestFloatShares = Double.parseDouble(strs[1]);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return nonrestFloatShares;
+	}
+
 	public static void main(String[] args) {
 		SingleStockDATA s = new SingleStockDATA();
-		
-		s.getStockAmongDate("sh600000", Calendar.getInstance(), Calendar.getInstance());
+
+		System.out.println(s.getTotalShares("sh600216"));
+//		s.getStockAmongDate("sh600000", Calendar.getInstance(), Calendar.getInstance());
+//		s.getTurnoverValue("sh600216");
 //		Calendar c = Calendar.getInstance();
 //		c.set(Calendar.YEAR, 2015);
 //		Stock stock = s.getOperation("sh600000", c);
