@@ -67,7 +67,7 @@ public class SingleModuleUIController implements Initializable{
 	    @FXML
 	    private Label guideLabel;
 	    @FXML
-	    private Text moduleChineseNameLabel,moduleCodeNameLabel,openLabel,highLabel,volumeLabel,yeaterLabel,lowLabel;
+	    private Text moduleChineseNameLabel,openLabel,highLabel,volumeLabel,yeaterLabel,lowLabel;
 		private AnchorPane modulePanel;
 		private ModuleUI_1Controller moduleUI_1Controller =null;
 	    int selectedIndex;
@@ -100,7 +100,6 @@ public class SingleModuleUIController implements Initializable{
 		  for(int i=0;i< allIndustryName.size();i++){
 			  if(allIndustryName.get(i).equals(industryName)){
 				  moduleChineseNameLabel.setText(industryName);
-				  moduleCodeNameLabel.setText(null);
 				  openLabel.setText("今开："+null);
 				  highLabel.setText("最高："+null);
 				  volumeLabel.setText("成交量："+null);
