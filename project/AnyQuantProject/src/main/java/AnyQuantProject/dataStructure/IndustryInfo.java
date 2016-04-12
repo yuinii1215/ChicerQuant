@@ -9,6 +9,8 @@ public class IndustryInfo {
     long pure;//净额,
     double total;
     int companySum;
+    double price;
+    String leader;
     public void setCompanySum(int companySum) {
 		this.companySum = companySum;
 	}
@@ -32,7 +34,15 @@ public class IndustryInfo {
     	this.total=total;
     }
     
-    @Override
+    public void setPrice(double price) {
+		this.price = price;
+	}
+    
+	public void setLeader(String leader) {
+		this.leader = leader;
+	}
+
+	@Override
     public String toString(){
     	return "Industry "+this.industry+" updown pure total "+updown+" "+pure+" "+total;
     }
