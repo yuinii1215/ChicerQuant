@@ -25,7 +25,7 @@ import net.sf.json.JSONObject;
 
 public class ChineseName {
 	
-	APIHelper aHelper = new APIHelper();
+	static APIHelper aHelper = new APIHelper();
 
 	
 	public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class ChineseName {
         System.out.println(list.size());
         System.out.println(list.get(0));
 	}
-	public OperationResult iniChinese() {
+	public static OperationResult iniChinese() {
 		OperationResult result = new OperationResult();
 		try {
 			HashMap<String, String> list = getNameArray();
@@ -56,9 +56,10 @@ public class ChineseName {
 	 */
 	public static String getChineseName(String name){
 		HashMap<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
-        if (list == null) {
+        while (list == null) {
             ChineseName c = new ChineseName();
             c.iniChinese();
+			list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
         }
 		return list.get(name);
 	}
@@ -70,7 +71,7 @@ public class ChineseName {
 	 * @return
 	 * @throws IOException
 	 */
-	public HashMap<String, String> getNameArray() throws IOException	{
+	public static HashMap<String, String> getNameArray() throws IOException	{
 		//exchange=sh
 		URL url = new URL("http://121.41.106.89:8010/api/stocks/?year=2016&exchange=sh");
 		URLConnection connection = url.openConnection();
@@ -108,6 +109,10 @@ public class ChineseName {
 
 	public static List<String> getAllChineseName() {
 		Map<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+		while (list == null) {
+			iniChinese();
+			list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+		}
 		List<String> resultList = new ArrayList<>();
 		Set entries = list.entrySet();
 		if (entries != null) {
