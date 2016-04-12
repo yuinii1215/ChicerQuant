@@ -32,6 +32,9 @@ public class RSI {
 			
 			up/=day;
 			down/=day;
+			if (down==0) {
+				down=1;
+			}
 			double rsi=up/down;
 			rsi/=(1+rsi);
 			rsi*=100;

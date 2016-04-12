@@ -29,6 +29,9 @@ public class KDJ {
 				}
 			}
 			double rsi=(close-low)/(high-low)*100;
+			if (high-low==0) {
+				rsi=0;
+			}
 			DataCell dataCell=new DataCell(date, rsi);
 			ans.add(dataCell);
 		}
@@ -45,8 +48,8 @@ public class KDJ {
 			DataCell dataCell=src.get(i);
 			double rsi=dataCell.y;
 			//
-			k=2/3*k+1/3*rsi;
-			d=2/3*d+1/3*k;
+			k=2.0/3*k+1.0/3*rsi;
+			d=2.0/3*d+1.0/3*k;
 			j=3*k-2*d;
 			DataCell temp=new DataCell(dataCell.x,k );
 			temp.y2=d;
