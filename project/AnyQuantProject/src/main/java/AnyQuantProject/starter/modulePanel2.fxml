@@ -31,7 +31,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TableView blendMode="LIGHTEN" layoutY="258.0" prefHeight="282.0" prefWidth="900.0">
+      <TableView fx:id="table" blendMode="LIGHTEN" layoutY="258.0" prefHeight="282.0" prefWidth="900.0">
         <columns>
           <TableColumn fx:id="IndustryNameColumn" prefWidth="122.0" text="行业" />
           <TableColumn fx:id="ChgColumn" prefWidth="122.0" text="涨跌幅" />

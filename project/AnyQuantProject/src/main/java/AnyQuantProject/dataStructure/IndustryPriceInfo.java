@@ -30,7 +30,6 @@ public class IndustryPriceInfo {
 	public void setMin(double min) {
 		this.min = min;
 	}
-<<<<<<< HEAD
 	public String getIndustry() {
 		return industry;
 	}
@@ -50,10 +49,11 @@ public class IndustryPriceInfo {
 		return min;
 	}
 	
-=======
 	public void setVolume(long volume) {
 		this.volume = volume;
 	}
->>>>>>> 3ed8033b8692f8f178a327491af7fdafe69f3c06
+	public long getVolume() {
+		return volume;
+	}
 	
 }

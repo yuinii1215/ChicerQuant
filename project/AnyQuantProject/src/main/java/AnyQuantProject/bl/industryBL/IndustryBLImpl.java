@@ -11,12 +11,16 @@ import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
+import AnyQuantProject.dataService.realDATAService.stockListDATAService.StockListDATAService;
 import AnyQuantProject.dataService.realDATAService.stockListDATAService.TurnoverDATAService;
+import AnyQuantProject.dataStructure.Exchange;
 import AnyQuantProject.dataStructure.IndustryInfo;
 import AnyQuantProject.dataStructure.IndustryPriceInfo;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
+import AnyQuantProject.util.method.IOHelper;
 
 /** 
 * AnyQuantProject//AnyQuantProject.bl.industryBL//IndustryBLImpl.java
@@ -26,6 +30,8 @@ import AnyQuantProject.util.method.Checker;
 
 public class IndustryBLImpl implements IndustryBLService {
 
+
+	
 	@Override
 	public List<String> getAllIndustries() {
 
@@ -143,6 +149,12 @@ public class IndustryBLImpl implements IndustryBLService {
 	}
 
 	@Override
+	public List<IndustryInfo> getAllIndustryInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
 	public IndustryPriceInfo getIndustryPrice(String industry) {
 		if (!Checker.checkStringNotNull(industry)){
 			return  new IndustryPriceInfo();
@@ -186,4 +198,6 @@ public class IndustryBLImpl implements IndustryBLService {
 		ans.setVolume(volume);
 		return ans;
 	}
+
+
 }

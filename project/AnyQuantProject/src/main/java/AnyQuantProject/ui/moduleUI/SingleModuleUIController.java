@@ -108,7 +108,7 @@ public class SingleModuleUIController implements Initializable{
 				  moduleChineseNameLabel.setText(industryName);
 				  openLabel.setText("今开："+ industryPriceInfo.getOpen());
 				  highLabel.setText("最高："+ industryPriceInfo.getMax());
-				  volumeLabel.setText("成交量：");
+				  volumeLabel.setText("成交量："+industryPriceInfo.getVolume());
 				  yeaterLabel.setText("昨收："+ industryPriceInfo.getClose());
 				  lowLabel.setText("最低："+ industryPriceInfo.getMin());
 			  }
