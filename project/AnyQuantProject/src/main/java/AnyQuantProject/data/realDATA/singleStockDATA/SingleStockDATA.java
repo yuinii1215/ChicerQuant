@@ -47,7 +47,6 @@ public class SingleStockDATA implements SingleStockDATAService, TurnoverDATAServ
 	public Stock getOperation(String name, Calendar date) {
 		JSONObject resultJsonObject = JSONSingleStock.getOperation(name, date);
 		Stock result = (Stock) JSONObject.toBean(resultJsonObject,Stock.class);
-		System.out.println(result.getVolume());
 		result.setName(name);
 		result.setChinese(getChineseName(name));
 		return result;
@@ -113,7 +112,7 @@ public class SingleStockDATA implements SingleStockDATAService, TurnoverDATAServ
 	public static void main(String[] args) {
 		SingleStockDATA s = new SingleStockDATA();
 
-		System.out.println(s.getTotalShares("sh600216"));
+		System.out.println(s.getOperation("sh600216",Calendar.getInstance()).getVolume());
 //		s.getStockAmongDate("sh600000", Calendar.getInstance(), Calendar.getInstance());
 //		s.getTurnoverValue("sh600216");
 //		Calendar c = Calendar.getInstance();
