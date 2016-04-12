@@ -537,10 +537,8 @@ public class SingleStockInfoUIController implements Initializable {
          * day, week, month应该调用不同的MACD线,暂时还没有实现
          */
         calculateLineBlImpl = new CalculateLineBLImpl();        
-        if (calcuLineType == CalcuLineType.TYPE_MACD) {
-        
-            macdLineData = calculateLineBlImpl.drawMACD(stockName,minTime,maxTime).cells;
-            System.out.println("2222222222 the initial minTime is:"+minTime.getTime());
+        if (calcuLineType == CalcuLineType.TYPE_MACD) {        
+            macdLineData = calculateLineBlImpl.drawMACD(stockName,minTime,maxTime).cells;          
             //macdLineData has three list,each list is the dataList for a singleStock in the area   
             calcuList1 = macdLineData[0]; //DIF
             calcuList2 = macdLineData[1]; //DEA
