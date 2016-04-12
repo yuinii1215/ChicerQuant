@@ -25,7 +25,7 @@ public interface CalculateLineBLService{
 	 * @param name 股票代号
 	 * @return 
 	 */
-	public LineChartData drawRSI(String name);
+	public JFreeLineData drawRSI(String name);
 	/**
 	 * 股票乖离率，BIAS（没有找到全名）
 	 * 返回共三条折线，分别是6、12、24日的乖离率
@@ -33,7 +33,7 @@ public interface CalculateLineBLService{
 	 * @param name 股票代号
 	 * @return
 	 */
-	public	LineChartData drawBIAS(String name,Calendar minTime,Calendar maxTime);
+	public	JFreeLineData drawBIAS(String name,Calendar minTime,Calendar maxTime);
 	/**
 	 * 股票随机指标，(Stochastics)
 	 * 共三条曲线，分别是KDJ的值

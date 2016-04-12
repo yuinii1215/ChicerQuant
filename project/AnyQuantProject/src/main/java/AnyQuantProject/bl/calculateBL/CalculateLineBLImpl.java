@@ -58,9 +58,9 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 	}
 
 	@Override
-	public LineChartData drawRSI(String name) {
+	public JFreeLineData drawRSI(String name) {
 		if (!Checker.checkStringNotNull(name)) {
-			return new LineChartData();
+			return new JFreeLineData();
 		}
 		List<Stock> data=this.getData(name);
 		String title=data.get(0).getChinese()+"相对强弱指数折线图";
@@ -69,34 +69,16 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		List<DataCell> rsi2=RSI.calculateRSI(data, 12);
 		List<DataCell> rsi3=RSI.calculateRSI(data, 24);
 		//
-		CategoryAxis xAxis=new CategoryAxis();
-		NumberAxis yAxis=new NumberAxis();
-		//
-		XYChart.Series<String,Double> rsi1Series=new XYChart.Series();
-		rsi1.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y))
-		.forEach(d->rsi1Series.getData().add( d));
-		rsi1Series.setName("6 days RSI");
-		//
-		XYChart.Series<String,Double> rsi2Series=new XYChart.Series();
-		rsi2.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y))
-		.forEach(d->rsi2Series.getData().add( d));
-		rsi2Series.setName("12 days RSI");
-		//
-		XYChart.Series<String,Double> rsi3Series=new XYChart.Series();
-		rsi3.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y))
-		.forEach(d->rsi3Series.getData().add( d));
-		rsi3Series.setName("24 days RSI");
-		//
-		return new LineChartData(title, xAxis, yAxis, rsi1Series,rsi2Series,rsi3Series);
+		List<Cell> rsi6=rsi1.stream().map(ce->new Cell(ce)).collect(Collectors.toList());
+		List<Cell> rsi12=rsi2.stream().map(ce->new Cell(ce)).collect(Collectors.toList());
+		List<Cell> rsi24=rsi3.stream().map(ce->new Cell(ce)).collect(Collectors.toList());
+		return new JFreeLineData(title, rsi6,rsi12,rsi24);
 	}
 
 	@Override
-	public LineChartData drawBIAS(String name,Calendar minTime,Calendar maxTime) {
+	public JFreeLineData drawBIAS(String name,Calendar minTime,Calendar maxTime) {
 		if (!Checker.checkStringNotNull(name)) {
-			return new LineChartData();
+			return new JFreeLineData();
 		}
 		minTime.add(Calendar.DAY_OF_MONTH, -24);
 		List<Stock> data=this.getData(name,minTime,maxTime);
@@ -106,27 +88,10 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		List<DataCell> bias2=BIAS.calculateBIAS(data, 12);
 		List<DataCell> bias3=BIAS.calculateBIAS(data, 24);
 		//
-		CategoryAxis xAxis=new CategoryAxis();
-		NumberAxis yAxis=new NumberAxis();
-		//
-		XYChart.Series<String,Double> bias1Series=new XYChart.Series();
-		bias1.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y))
-		.forEach(d->bias1Series.getData().add( d));
-		bias1Series.setName("6 days BIAS");
-		//
-		XYChart.Series<String,Double> bias2Series=new XYChart.Series();
-		bias2.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y))
-		.forEach(d->bias2Series.getData().add( d));
-		bias2Series.setName("12 days BIAS");
-		//
-		XYChart.Series<String,Double> bias3Series=new XYChart.Series();
-		bias3.stream()
-		.map(st->new XYChart.Data<>(st.x, st.y))
-		.forEach(d->bias3Series.getData().add( d));
-		bias3Series.setName("24 days BIAS");
-		return new LineChartData(title, xAxis, yAxis, bias1Series,bias2Series,bias3Series);
+		List<Cell> bias6=bias1.stream().map(d->new Cell(d)).collect(Collectors.toList());
+		List<Cell> bias12=bias2.stream().map(d->new Cell(d)).collect(Collectors.toList());
+		List<Cell> bias24=bias3.stream().map(d->new Cell(d)).collect(Collectors.toList());
+		return new JFreeLineData(title, bias6,bias12,bias24);
 	}
 
 	@Override
