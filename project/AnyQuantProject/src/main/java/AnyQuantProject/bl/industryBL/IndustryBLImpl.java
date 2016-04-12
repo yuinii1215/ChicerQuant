@@ -13,6 +13,7 @@ import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataService.realDATAService.stockListDATAService.TurnoverDATAService;
 import AnyQuantProject.dataStructure.IndustryInfo;
+import AnyQuantProject.dataStructure.IndustryPriceInfo;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
@@ -92,14 +93,19 @@ public class IndustryBLImpl implements IndustryBLService {
 		//leader
 		double max=-100;
 		String name="";
+		double leaderPrice=0;
+		double leaderUpdown=0;
 		for(int i=0;i<todaydata.size();i++){
-			double it=(todaydata.get(i).getClose()-yesterdata.get(i).getClose())/yesterdata.get(i).getClose();
+			Stock todayy=todaydata.get(i);
+			double it=(todayy.getClose()-yesterdata.get(i).getClose())/yesterdata.get(i).getClose();
 			if (yesterdata.get(i).getClose()==0) {
 				break;
 			}
 			if (it>max) {
 				max=it;
-				name=todaydata.get(i).getChinese()+todaydata.get(i).getName();
+				name=todayy.getChinese()+todayy.getName();
+				leaderPrice=todayy.getClose();
+				leaderUpdown=it;
 			}
 		}
 		//get vol
@@ -131,12 +137,50 @@ public class IndustryBLImpl implements IndustryBLService {
 		ans.setCompanySum(companySum);
 		ans.setPrice(price);
 		ans.setLeader(name);
-		return  ans;
+		ans.setLeaderPrice(leaderPrice);
+		ans.setLeaderUpdown(leaderUpdown);
+		return ans;
 	}
 
-
-	public static void main(String[] args) {
-		IndustryBLImpl i = new IndustryBLImpl();
-		System.out.println(i.getIndustryInfo("银行"));
+	@Override
+	public IndustryPriceInfo getIndustryPrice(String industry) {
+		if (!Checker.checkStringNotNull(industry)){
+			return  new IndustryPriceInfo();
+		}
+		List<Stock> todaydata=this.getStocksByIndustry(industry);
+		//
+		//
+		double c=todaydata.get(0).getClose();
+		if(c==0)
+			return new IndustryPriceInfo();
+		//
+		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
+		List<Double> guben=todaydata.stream()
+				.map(s->turnoverDATAService.getNonrestFloatShares(s.getName()))
+				.collect(Collectors.toList());
+		double totalGuben=guben.stream().mapToDouble(s->s).sum();
+		double open=0;
+		double close=0;
+		double max=0;
+		double min=0;
+		for (int i = 0; i < guben.size(); i++) {
+			double gb=guben.get(i);
+			Stock stock=todaydata.get(i);
+			open+=stock.getOpen()*gb;
+			close+=stock.getClose()*gb;
+			max+=stock.getHigh()*gb;
+			min+=stock.getLow()*gb;
+		}
+		open/=totalGuben;
+		close/=totalGuben;
+		max/=totalGuben;
+		min/=totalGuben;
+		IndustryPriceInfo ans=new IndustryPriceInfo(industry);
+		ans.setOpen(open);
+		ans.setClose(close);
+		ans.setMax(max);
+		ans.setMin(min);
+		return ans;
 	}
 }

@@ -11,6 +11,8 @@ public class IndustryInfo {
     int companySum;
     double price;
     String leader;
+    double leaderPrice;
+    double leaderUpdown;
     public void setCompanySum(int companySum) {
 		this.companySum = companySum;
 	}
@@ -40,6 +42,14 @@ public class IndustryInfo {
     
 	public void setLeader(String leader) {
 		this.leader = leader;
+	}
+	
+	public void setLeaderPrice(double leaderPrice) {
+		this.leaderPrice = leaderPrice;
+	}
+
+	public void setLeaderUpdown(double leaderUpdown) {
+		this.leaderUpdown = leaderUpdown;
 	}
 
 	@Override
