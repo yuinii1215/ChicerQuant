@@ -2,6 +2,8 @@ package AnyQuantProject.dataStructure;
 
 import java.util.StringTokenizer;
 
+import AnyQuantProject.bl.calculateBL.DataCell;
+
 /**
 * AnyQuantProject/AnyQuantProject.dataStructure/Cell.java
 * @author cxworks
@@ -10,6 +12,9 @@ import java.util.StringTokenizer;
 public class Cell{
 	public String x;
 	public double y;
+	public Cell(DataCell d){
+		this(d.x, d.y);
+	}
 	public Cell(String x,double y) {
 		this.x=x;
 		this.y=y;
