@@ -73,11 +73,14 @@ public class IndustryBLImpl implements IndustryBLService {
 			return  new IndustryInfo();
 		}
 		List<Stock> todaydata=this.getStocksByIndustry(industry);
+		//
+		//
 		double c=todaydata.get(0).getClose();
 		if(todaydata.get(0).getClose()==0)
 			return new IndustryInfo();
 		long today=todaydata.stream().mapToLong(s->s.getMarketvalue()).sum();
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		
 		//get yesterday
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		Calendar date= CalendarHelper.convert2Calendar(todaydata.get(0).getDate());
@@ -86,6 +89,19 @@ public class IndustryBLImpl implements IndustryBLService {
 				.map(s->singleStockDATAService.getOperation(s.getName(),date))
 				.collect(Collectors.toList());
 		long yesterday=yesterdata.stream().mapToLong(s->s.getMarketvalue()).sum();
+		//leader
+		double max=-100;
+		String name="";
+		for(int i=0;i<todaydata.size();i++){
+			double it=(todaydata.get(i).getClose()-yesterdata.get(i).getClose())/yesterdata.get(i).getClose();
+			if (yesterdata.get(i).getClose()==0) {
+				break;
+			}
+			if (it>max) {
+				max=it;
+				name=todaydata.get(i).getChinese()+todaydata.get(i).getName();
+			}
+		}
 		//get vol
 		TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
 		List<Double> turnover=todaydata.stream()
@@ -95,12 +111,26 @@ public class IndustryBLImpl implements IndustryBLService {
 		int companySum=todaydata.size();
 
 		double total=turnover.stream().mapToDouble(s->s).sum();
+		//get guben
+		List<Double> guben=todaydata.stream()
+				.map(s->turnoverDATAService.getNonrestFloatShares(s.getName()))
+				.collect(Collectors.toList());
+		double totalGuben=guben.stream().mapToDouble(s->s).sum();
+		double totalValue=0;
+		for (int i = 0; i < guben.size(); i++) {
+			totalValue+=guben.get(i)*todaydata.get(i).getClose();
+		}
+		double price=totalValue/totalGuben;
+		//
+		
 
 		IndustryInfo ans=new IndustryInfo(industry);
 		ans.setPure(today);
 		ans.setUpdown((double)(today-yesterday)/yesterday);
 		ans.setTotal(total);
 		ans.setCompanySum(companySum);
+		ans.setPrice(price);
+		ans.setLeader(name);
 		return  ans;
 	}
 
