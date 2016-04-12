@@ -112,7 +112,20 @@ public class SingleStockDATA implements SingleStockDATAService, TurnoverDATAServ
 	public static void main(String[] args) {
 		SingleStockDATA s = new SingleStockDATA();
 
-		System.out.println(s.getOperation("sh600216",Calendar.getInstance()).getVolume());
+//		System.out.println(s.getOperation("sh600216",Calendar.getInstance()).getVolume());
+		Calendar c1 = Calendar.getInstance();
+		c1.set(Calendar.YEAR,2016);
+		c1.set(Calendar.MONTH,2);
+		c1.set(Calendar.DAY_OF_MONTH,2);
+		Calendar c2 = Calendar.getInstance();
+		c2.set(Calendar.YEAR,2016);
+		c2.set(Calendar.MONTH,2);
+		c2.set(Calendar.DAY_OF_MONTH,20);
+		List<Stock> list = s.getStockAmongDate("sh600121",c1, c2);
+		for (int i=0;i<list.size();++i) {
+			System.out.println(list.get(i).getVolume());
+		}
+
 //		s.getStockAmongDate("sh600000", Calendar.getInstance(), Calendar.getInstance());
 //		s.getTurnoverValue("sh600216");
 //		Calendar c = Calendar.getInstance();

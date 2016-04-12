@@ -6,6 +6,7 @@ import java.util.Calendar;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import AnyQuantProject.util.method.CalendarHelper;
+import org.relaxng.datatype.Datatype;
 
 /**
  * @author G
@@ -57,7 +58,6 @@ public class JsonHelper {
 	}
 	
 	public JSONObject getOperation(DataType type, String name, Calendar date) {
-		// TODO: 16/4/12
 		key = getKeyWithDate(type, name, date, date);
 		JSONObject jo = new JSONObject();
 		try {
