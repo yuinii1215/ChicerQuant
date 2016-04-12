@@ -10,6 +10,7 @@ public class IndustryPriceInfo {
 	double close;
 	double max;
 	double min;
+	long volume;
 	@Deprecated
 	public IndustryPriceInfo() {
 	}
@@ -28,6 +29,9 @@ public class IndustryPriceInfo {
 	}
 	public void setMin(double min) {
 		this.min = min;
+	}
+	public void setVolume(long volume) {
+		this.volume = volume;
 	}
 	
 }
