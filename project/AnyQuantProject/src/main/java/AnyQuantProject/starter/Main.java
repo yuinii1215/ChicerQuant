@@ -115,7 +115,7 @@ public class Main extends Application {
 //      benchMarkPanel = FXMLLoader.load(getClass().getResource("benchMarkPanel1.fxml"));
 //      benchMarkPanel.setId("pane");
 
-        modulePanel = FXMLLoader.load(getClass().getResource("modulePanel0.fxml"));
+//        modulePanel = FXMLLoader.load(getClass().getResource("modulePanel0.fxml"));
 
 
 //		primaryStage.setHeight(636);

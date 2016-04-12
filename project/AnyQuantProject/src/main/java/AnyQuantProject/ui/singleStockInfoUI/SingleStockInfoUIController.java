@@ -209,7 +209,9 @@ public class SingleStockInfoUIController implements Initializable {
     List<AnyQuantProject.dataStructure.Cell> calcuList1, calcuList2, calcuList3;//MACD:DIF,DEA,MACD(bar)或者KDJ:K, D, J:
     List<AnyQuantProject.dataStructure.Cell>[] macdLineData, kdjLineData;
     CalculateLineBLService calculateLineBlImpl;
-    CalcuLineType calcuLineType = CalcuLineType.TYPE_MACD;
+//    CalcuLineType calcuLineType = CalcuLineType.TYPE_MACD;
+    CalcuLineType calcuLineType = CalcuLineType.TYPE_KDJ;
+
     
     StockKLineBLService stockKLineImpl = KLineBLFactory.getStockKLineBLService();
     KLineData dayKLineData, monthKLineData, weekKLineData;
@@ -529,18 +531,22 @@ public class SingleStockInfoUIController implements Initializable {
          */
         calculateLineBlImpl = new CalculateLineBLImpl();
         if (calcuLineType == CalcuLineType.TYPE_MACD) {
-            // TODO: 16/4/10
-//            macdLineData = calculateLineBlImpl.drawMACD(stockName).cells;
+            macdLineData = calculateLineBlImpl.drawMACD(stockName,minTime,maxTime).cells;
             //macdLineData has three list,each list is the dataList for a singleStock in the area   
             calcuList1 = macdLineData[0]; //DIF
             calcuList2 = macdLineData[1]; //DEA
             calcuList3 = macdLineData[2]; //MACD
+            System.out.println("the calcuList1:"+calcuList1.get(0).getDay()+":"+calcuList1.get(0).getMonth()+":"+calcuList1.get(0).getYear());
         } else if (calcuLineType == CalcuLineType.TYPE_KDJ) {
             // TODO: 16/4/10
-//            kdjLineData = calculateLineBlImpl.drawKDJ(stockName).cells;
+            kdjLineData = calculateLineBlImpl.drawKDJ(stockName,minTime,maxTime).cells;            
             calcuList1 = kdjLineData[0];//"K"Line
             calcuList2 = kdjLineData[1];//"D"Line
             calcuList3 = kdjLineData[2];//"J"Line      
+            System.out.println("the kdj data is:"+calcuList1.get(0).y);
+            System.out.println("the kdj data is:"+calcuList1.get(1).y);
+            System.out.println("the kdj data is:"+calcuList1.get(2).y);
+            System.out.println("the kdj data is:"+calcuList1.get(3).y);
         }
     }
 
@@ -763,36 +769,21 @@ public class SingleStockInfoUIController implements Initializable {
         scroller1 = new ScrollPane();
         dayChart = drawDayKLine(calcuLineType);
         addChart2Tab(dayChart, panel1, swingNode1, scroller1, tab_dayKLine);
-//        panel1 = this.getChartPanel(dayChart);
-//        swingNode1.setContent(panel1);    
 
-//        scroller1.setContent(swingNode1);        
-//        scroller1.setFitToHeight(true);
-//        scroller1.setHvalue(1);
-//        tab_dayKLine.setContent(scroller1);
         swingNode2 = new SwingNode();
         scroller2 = new ScrollPane();
         weekChart = drawWeekKLine(calcuLineType);
         addChart2Tab(weekChart, panel2, swingNode2, scroller2, tab_weekKLine);
-//        panel2 = this.getChartPanel(weekChart);
-//        swingNode2.setContent(panel2);    
 
-//        scroller2.setContent(swingNode2);
-//        scroller2.setFitToHeight(true);
-//        tab_weekKLine.setContent(scroller2);
         swingNode3 = new SwingNode();
         scroller3 = new ScrollPane();
         monthChart = drawMonthKLine(calcuLineType);
         addChart2Tab(weekChart, panel3, swingNode3, scroller3, tab_monthKLine);
-//        monthChart=drawMonthKLine(calcuLineType);
-//        panel3 = this.getChartPanel(monthChart);
-//        swingNode3.setContent(panel3);    
 
-//        scroller3.setContent(swingNode3);
-//        scroller3.setFitToHeight(true);
-//        tab_monthKLine.setContent(scroller3);
         mlb = MonologFXButtonBuilder.create().defaultButton(true).icon("Dialog-accept.jpg").type(MonologFXButton.Type.OK).build();
         mono = MonologFXBuilder.create().modal(true).message("输入无效:起始值应小于结束值").titleText("Error Input").button(mlb).buttonAlignment(MonologFX.ButtonAlignment.CENTER).build();
+     
+
     }
 
     private void addChart2Tab(JFreeChart chart, ChartPanel panel, SwingNode swingNode, ScrollPane scroller, Tab tab) {
