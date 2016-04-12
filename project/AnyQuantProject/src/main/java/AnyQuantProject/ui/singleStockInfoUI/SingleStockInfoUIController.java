@@ -209,8 +209,8 @@ public class SingleStockInfoUIController implements Initializable {
     List<AnyQuantProject.dataStructure.Cell> calcuList1, calcuList2, calcuList3;//MACD:DIF,DEA,MACD(bar)或者KDJ:K, D, J:
     List<AnyQuantProject.dataStructure.Cell>[] macdLineData, kdjLineData;
     CalculateLineBLService calculateLineBlImpl;
-//    CalcuLineType calcuLineType = CalcuLineType.TYPE_MACD;
-    CalcuLineType calcuLineType = CalcuLineType.TYPE_KDJ;
+    CalcuLineType calcuLineType = CalcuLineType.TYPE_MACD;
+//    CalcuLineType calcuLineType = CalcuLineType.TYPE_KDJ;
 
     
     StockKLineBLService stockKLineImpl = KLineBLFactory.getStockKLineBLService();
@@ -450,7 +450,13 @@ public class SingleStockInfoUIController implements Initializable {
 
     public JFreeChart drawDayKLine(CalcuLineType calcuLineType) {
         CalcuLineChart(calcuLineType);
+        System.out.println("3333333 the initial minTime is:"+minTime.getTime());
         dayLineChart();
+        //test
+//        minTime = Calendar.getInstance();
+//        minTime.set(2016, 1, 1, 0, 0);
+        
+        System.out.println("BBBBBBBBBB minTime for KLIne is:"+minTime.getTime());
         dayKLineData = stockKLineImpl.dayKLineChart(stockName, minTime, maxTime);
         dayKLineList = dayKLineData.geKLineDataDTOs();
         if (maxTime == null) {
@@ -491,7 +497,8 @@ public class SingleStockInfoUIController implements Initializable {
     public void dayLineChart() {
 //         StockKLineBLService stockKLineImpl=KLineBLFactory.getStockKLineBLService();
         //5日线   
-        fiveAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 5);
+        fiveAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 5);        
+        
         fiveAverageLineDataList = fiveAverageLine.geKLineDataDTOs();
         //10日线
         tenAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 10);
@@ -529,24 +536,25 @@ public class SingleStockInfoUIController implements Initializable {
         /**
          * day, week, month应该调用不同的MACD线,暂时还没有实现
          */
-        calculateLineBlImpl = new CalculateLineBLImpl();
+        calculateLineBlImpl = new CalculateLineBLImpl();        
         if (calcuLineType == CalcuLineType.TYPE_MACD) {
+        
             macdLineData = calculateLineBlImpl.drawMACD(stockName,minTime,maxTime).cells;
+            System.out.println("2222222222 the initial minTime is:"+minTime.getTime());
             //macdLineData has three list,each list is the dataList for a singleStock in the area   
             calcuList1 = macdLineData[0]; //DIF
             calcuList2 = macdLineData[1]; //DEA
             calcuList3 = macdLineData[2]; //MACD
-            System.out.println("the calcuList1:"+calcuList1.get(0).getDay()+":"+calcuList1.get(0).getMonth()+":"+calcuList1.get(0).getYear());
         } else if (calcuLineType == CalcuLineType.TYPE_KDJ) {
             // TODO: 16/4/10
             kdjLineData = calculateLineBlImpl.drawKDJ(stockName,minTime,maxTime).cells;            
             calcuList1 = kdjLineData[0];//"K"Line
             calcuList2 = kdjLineData[1];//"D"Line
             calcuList3 = kdjLineData[2];//"J"Line      
-            System.out.println("the kdj data is:"+calcuList1.get(0).y);
-            System.out.println("the kdj data is:"+calcuList1.get(1).y);
-            System.out.println("the kdj data is:"+calcuList1.get(2).y);
-            System.out.println("the kdj data is:"+calcuList1.get(3).y);
+//            System.out.println("the kdj data is:"+calcuList1.get(0).y);
+//            System.out.println("the kdj data is:"+calcuList1.get(1).y);
+//            System.out.println("the kdj data is:"+calcuList1.get(2).y);
+//            System.out.println("the kdj data is:"+calcuList1.get(3).y);
         }
     }
 
@@ -763,7 +771,8 @@ public class SingleStockInfoUIController implements Initializable {
          * add the JFreechart into the tabpane
          */
         minTime = Calendar.getInstance();
-        minTime.set(2016, 1, 1, 0, 0);
+        minTime.set(2016, 0, 1, 0, 0);
+        System.out.println("1111111111 the initial minTime is:"+minTime.getTime());
 
         swingNode1 = new SwingNode();
         scroller1 = new ScrollPane();
