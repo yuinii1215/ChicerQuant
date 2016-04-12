@@ -48,6 +48,9 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		List<KLineDataDTO> ans = oldStocks.stream()
 				.filter(st->st.getDateInCalendar().before(localEnd)&&st.getDateInCalendar().after(localStart))
 				.map(st -> (KLineDataDTO) st).collect(Collectors.toList());
+		for (int i=0;i<ans.size();i++){
+			System.out.println(ans.get(i).getMonth()+" "+ans.get(i).getDay()+"------"+ans.get(i).getVolume());
+		}
 		return new KLineData(stockName+" 日线图", ans);
 		
 	}

@@ -85,10 +85,10 @@ public class IndustryBLImpl implements IndustryBLService {
 		long yesterday=yesterdata.stream().mapToLong(s->s.getMarketvalue()).sum();
 		//get vol
 		TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
-		List<Stock> turnover=todaydata.stream()
-				.map(s->turnoverDATAService.getTurnover(s.getName()))
+		List<Double> turnover=todaydata.stream()
+				.map(s->turnoverDATAService.getTurnoverValue(s.getName()))
 				.collect(Collectors.toList());
-		double total=turnover.stream().mapToDouble(s->s.getTurnoverValue()).sum();
+		double total=turnover.stream().mapToDouble(s->s).sum();
 		IndustryInfo ans=new IndustryInfo(industry);
 		ans.setPure(today);
 		ans.setUpdown((double)(today-yesterday)/yesterday);
