@@ -164,6 +164,7 @@ public class IndustryBLImpl implements IndustryBLService {
 		double close=0;
 		double max=0;
 		double min=0;
+		long volume=0;
 		for (int i = 0; i < guben.size(); i++) {
 			double gb=guben.get(i);
 			Stock stock=todaydata.get(i);
@@ -171,6 +172,7 @@ public class IndustryBLImpl implements IndustryBLService {
 			close+=stock.getClose()*gb;
 			max+=stock.getHigh()*gb;
 			min+=stock.getLow()*gb;
+			volume+=stock.getVolume();
 		}
 		open/=totalGuben;
 		close/=totalGuben;
@@ -181,6 +183,7 @@ public class IndustryBLImpl implements IndustryBLService {
 		ans.setClose(close);
 		ans.setMax(max);
 		ans.setMin(min);
+		ans.setVolume(volume);
 		return ans;
 	}
 }
