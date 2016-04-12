@@ -26,23 +26,20 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <Label fx:id="leastLabel" layoutX="836.0" layoutY="39.0" text="最新" textFill="WHITE">
+      <Label fx:id="leastLabel" layoutX="824.0" layoutY="37.0" text="最新" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TableView blendMode="LIGHTEN" layoutX="24.0" layoutY="258.0" prefHeight="282.0" prefWidth="853.0">
+      <TableView fx:id="table" blendMode="LIGHTEN" layoutY="258.0" prefHeight="282.0" prefWidth="900.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="行业" />
-          <TableColumn prefWidth="75.0" text="股票代号" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
+          <TableColumn fx:id="IndustryNameColumn" prefWidth="122.0" text="行业" />
+          <TableColumn fx:id="ChgColumn" prefWidth="122.0" text="涨跌幅" />
+            <TableColumn fx:id="PureColumn" prefWidth="126.0" text="净额" />
+            <TableColumn fx:id="SumColumn" prefWidth="135.0" text="公司家数" />
+            <TableColumn fx:id="LedColumn" prefWidth="128.0" text="领涨股" />
+            <TableColumn fx:id="SingleChgColumn" prefWidth="145.0" text="涨跌幅" />
+            <TableColumn fx:id="SinglePrizeColumn" prefWidth="121.0" text="当前价" />
         </columns>
       </TableView>
       <AmbientLight color="CHARTREUSE" layoutX="14.0" layoutY="20.0" lightOn="true" />

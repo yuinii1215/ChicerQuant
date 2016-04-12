@@ -3,6 +3,7 @@ package AnyQuantProject.blService.industryBLService;
 import java.util.List;
 
 import AnyQuantProject.dataStructure.IndustryInfo;
+import AnyQuantProject.dataStructure.IndustryPriceInfo;
 import AnyQuantProject.dataStructure.Stock;
 
 /** 
@@ -36,5 +37,17 @@ public interface IndustryBLService {
      * @return
      */
 	public IndustryInfo getIndustryInfo(String industry);
+	/**
+	 * 返回所有行业信息列表
+	 * @return
+	 * @warning 信息是昨天（最新）信息
+	 */
+	public List<IndustryInfo> getAllIndustryInfo();
+	/**
+	 * get the price of the whole industry
+	 * @param industry
+	 * @return
+	 */
+	public IndustryPriceInfo getIndustryPrice(String industry);
 
 }

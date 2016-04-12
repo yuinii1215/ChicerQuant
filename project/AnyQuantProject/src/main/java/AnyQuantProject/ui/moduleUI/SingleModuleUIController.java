@@ -1,6 +1,7 @@
 package AnyQuantProject.ui.moduleUI;
 /**
  * @author QiHan
+ * 
  */
 import java.io.IOException;
 import java.net.URL;
@@ -11,6 +12,8 @@ import java.util.ResourceBundle;
 import AnyQuantProject.bl.factoryBL.IndustryBLFactory;
 import AnyQuantProject.blService.industryBLService.IndustryBLService;
 import AnyQuantProject.dataStructure.BenchMark;
+import AnyQuantProject.dataStructure.IndustryInfo;
+import AnyQuantProject.dataStructure.IndustryPriceInfo;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.starter.Main;
 import AnyQuantProject.ui.allStocksUI.AllStocksUIController.TableRowControl;
@@ -67,7 +70,7 @@ public class SingleModuleUIController implements Initializable{
 	    @FXML
 	    private Label guideLabel;
 	    @FXML
-	    private Text moduleChineseNameLabel,moduleCodeNameLabel,openLabel,highLabel,volumeLabel,yeaterLabel,lowLabel;
+	    private Text moduleChineseNameLabel,openLabel,highLabel,volumeLabel,yeaterLabel,lowLabel;
 		private AnchorPane modulePanel;
 		private ModuleUI_1Controller moduleUI_1Controller =null;
 	    int selectedIndex;
@@ -76,6 +79,7 @@ public class SingleModuleUIController implements Initializable{
 	    private IndustryBLService industryBLService = IndustryBLFactory.getIndustryBLService();
 		private List<Stock> singleIndustryInfoList;
 		private List<String> allIndustryName;
+		private IndustryPriceInfo industryPriceInfo;
 	    
 	    
 	 public static SingleModuleUIController getInstance() {
@@ -97,15 +101,16 @@ public class SingleModuleUIController implements Initializable{
 	  public void InfoRect(){
 		  allIndustryName = industryBLService.getAllIndustries();
 		  guideLabel.setText("> "+industryName);
+		  
+		  industryPriceInfo = industryBLService.getIndustryPrice(industryName);
 		  for(int i=0;i< allIndustryName.size();i++){
 			  if(allIndustryName.get(i).equals(industryName)){
 				  moduleChineseNameLabel.setText(industryName);
-				  moduleCodeNameLabel.setText(null);
-				  openLabel.setText("今开："+null);
-				  highLabel.setText("最高："+null);
-				  volumeLabel.setText("成交量："+null);
-				  yeaterLabel.setText("昨收："+null);
-				  lowLabel.setText("最低："+null);
+				  openLabel.setText("今开："+ industryPriceInfo.getOpen());
+				  highLabel.setText("最高："+ industryPriceInfo.getMax());
+				  volumeLabel.setText("成交量："+industryPriceInfo.getVolume());
+				  yeaterLabel.setText("昨收："+ industryPriceInfo.getClose());
+				  lowLabel.setText("最低："+ industryPriceInfo.getMin());
 			  }
 		  }
 		 
