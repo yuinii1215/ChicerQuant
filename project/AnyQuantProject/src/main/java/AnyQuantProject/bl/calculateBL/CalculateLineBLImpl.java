@@ -201,11 +201,18 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 
 	@Override
 	public JFreeLineData drawMACD(String name,Calendar minTime,Calendar maxTime) {
+                Calendar tempMinTime=Calendar.getInstance();
+                tempMinTime=minTime;
+                System.out.println("4444444444minTime is:"+tempMinTime.getTime());
 		if (!Checker.checkStringNotNull(name)) {
 			return new JFreeLineData();
 		}
-		minTime.add(Calendar.DAY_OF_MONTH, -26);
+		minTime.add(Calendar.DAY_OF_MONTH, -50);
 		List<Stock> data=this.getData(name,minTime,maxTime);
+                
+                minTime.add(Calendar.DAY_OF_MONTH, 50);
+                 System.out.println("55555555555minTime is:"+minTime.getTime());
+                
 		String title=data.get(0).getChinese()+"MACD";
 		//
 		List<DataCell> macd=MACD.calculateMACD(data, 12, 9, 26);

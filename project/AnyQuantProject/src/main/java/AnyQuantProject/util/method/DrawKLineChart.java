@@ -46,8 +46,8 @@ public class DrawKLineChart {
 	     double minValue = Double.MAX_VALUE;// 设置K线数据当中的最小值
 	     double high2Value = Double.MIN_VALUE;// 设置成交量的最大值
 	     double min2Value = Double.MAX_VALUE;// 设置成交量的最低值
-             double high3Value=0;// 设置macd的最大值
-	     double min3Value=0;// 设置macd的最低值
+             double high3Value=Double.MIN_VALUE;// 设置macd的最大值
+	     double min3Value=Double.MAX_VALUE;// 设置macd的最低值
 	  	     
 	     OHLCSeries series = new OHLCSeries("");// 高开低收数据序列，股票K线图的四个数据，依次是开，高，低，收
 	     for (int i = 0; i < dataList.size(); i++) {
@@ -66,12 +66,12 @@ public class DrawKLineChart {
 	            int month =Integer.parseInt(dataList.get(i).getMonth());
 	            int year =Integer.parseInt(dataList.get(i).getYear());
 	            series2.add(new Day(date, month, year), dataList.get(i).getVolume()/100);
-                    if(i==0){
-                    System.out.println("volume bar start date is:"+i+" date is:"+year+":"+month+":"+date);
-                    }
-                    if(i==dataList.size()-1){
-                    System.out.println("volume bar end date is:"+i+" date is:"+year+":"+month+":"+date);
-                    }
+//                    if(i==0){
+//                    System.out.println("volume bar start date is:"+i+" date is:"+year+":"+month+":"+date);
+//                    }
+//                    if(i==dataList.size()-1){
+//                    System.out.println("volume bar end date is:"+i+" date is:"+year+":"+month+":"+date);
+//                    }
 	        }
 	     TimeSeriesCollection timeSeriesCollection=new TimeSeriesCollection();// 保留成交量数据的集合
 	     timeSeriesCollection.addSeries(series2);           
@@ -79,36 +79,23 @@ public class DrawKLineChart {
              TimeSeries series3=new TimeSeries("");
              TimeSeriesCollection timeSeriesCollection1=new TimeSeriesCollection();// 保留MACD数据的集合;
              //如果是MACD线,需要绘制柱状图
-//             if(calcuLineType==CalcuLineType.TYPE_MACD){
+             if(calcuLineType==CalcuLineType.TYPE_MACD){
              // 对应于MACD的柱状图
 	     for (int i = 0; i < calcuList3.size(); i++) {
 	    	    int date =Integer.parseInt(calcuList3.get(i).getDay());
 	            int month =Integer.parseInt(calcuList3.get(i).getMonth());
 	            int year =Integer.parseInt(calcuList3.get(i).getYear());
-	            series3.add(new Day(date, month, year), calcuList3.get(i).y*300);
+	            series3.add(new Day(date, month, year), calcuList3.get(i).y*200);
                     System.out.println("num is:"+calcuList3.get(i).y+" date is:"+year+":"+month+":"+date);
-                    if(i==0){
-                    System.out.println("macd bar start date is:"+i+" date is:"+year+":"+month+":"+date);
-                    }
-                    if(i==calcuList3.size()-1){
-                    System.out.println("macd bar end date is:"+i+" date is:"+year+":"+month+":"+date);
-                    }
-//	        }	   
-             
+//                    if(i==0){
+//                    System.out.println("macd bar start date is:"+i+" date is:"+year+":"+month+":"+date);
+//                    }
+//                    if(i==calcuList3.size()-1){
+//                    System.out.println("macd bar end date is:"+i+" date is:"+year+":"+month+":"+date);
+//                    }
+	        }	                
 	     timeSeriesCollection1.addSeries(series3);           
                   // 获取MACD线的最高值和最低值
-//	     int seriesCount3 = timeSeriesCollection1.getSeriesCount();// 一共有多少个序列，目前为一个
-//	     	for (int i = 0; i < seriesCount3; i++) {
-//	     		int itemCount = timeSeriesCollection1.getItemCount(i);// 每一个序列有多少个数据项
-//	     		for (int j = 0; j < itemCount; j++) {
-//	     			if (high3Value < timeSeriesCollection1.getYValue(i,j)) {// 取第i个序列中的第j个数据项的值
-//	     				high3Value = timeSeriesCollection1.getYValue(i,j);
-//	     			}
-//	     			if (min3Value > timeSeriesCollection1.getYValue(i, j)) {// 取第i个序列中的第j个数据项的值
-//	     				min3Value = timeSeriesCollection1.getYValue(i, j);
-//	     			}
-//	     		}
-//	      }
              }
              int seriesCount3 = timeSeriesCollection1.getSeriesCount();// 一共有多少个序列，目前为一个
 	     	for (int i = 0; i < seriesCount3; i++) {
@@ -119,9 +106,11 @@ public class DrawKLineChart {
 	     			}
 	     			if (min3Value > timeSeriesCollection1.getYValue(i, j)) {// 取第i个序列中的第j个数据项的值
 	     				min3Value = timeSeriesCollection1.getYValue(i, j);
+                                        System.out.println("the series collection is :"+timeSeriesCollection1.getYValue(i, j));
 	     			}
 	     		}
 	      }
+              System.out.println("the max and min Values are:"+high3Value+" and "+min3Value);
 	     // 获取K线数据的最高值和最低值
 	     int seriesCount = seriesCollection.getSeriesCount();// 一共有多少个序列，目前为一个
 	     	for (int i = 0; i < seriesCount; i++) {
@@ -301,12 +290,11 @@ public class DrawKLineChart {
 	     }};
              macdXYBarRender.setMargin(0.9);// 设置柱形图之间的间隔
 	     NumberAxis y3Axis=new NumberAxis();// 设置Y轴，为数值,后面的设置，参考上面的y轴设置
-	     y3Axis.setAutoRange(false);
+	     y3Axis.setAutoRange(true);
              y3Axis.setTickLabelPaint(java.awt.Color.WHITE);
-	     y3Axis.setRange(min3Value*0.9, high3Value*1.1);
-	     y3Axis.setTickUnit(new NumberTickUnit((high3Value*1.1-min3Value*0.9)/4));
-//	     plot3=new XYPlot(timeSeriesCollection1,null,y3Axis,macdXYBarRender);// 建立第三个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴	                   
-             plot3=new XYPlot(timeSeriesCollection1,null,y3Axis,macdXYBarRender);
+//	     y3Axis.setRange(min3Value*1.1, high3Value*1.1);
+//	     y3Axis.setTickUnit(new NumberTickUnit((high3Value*1.1-min3Value*1.1)/4));
+	     plot3=new XYPlot(timeSeriesCollection1,null,y3Axis,macdXYBarRender);// 建立第三个画图区域对象，主要此时的x轴设为了null值，因为要与第一个画图区域对象共享x轴	                          
              plot3.setOutlinePaint(java.awt.Color.LIGHT_GRAY);
 	     plot3.setBackgroundImage(icon.getImage());
 	     plot3.setBackgroundAlpha(0.3f);
