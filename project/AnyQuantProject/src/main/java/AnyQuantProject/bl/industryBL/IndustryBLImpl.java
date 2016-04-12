@@ -73,6 +73,9 @@ public class IndustryBLImpl implements IndustryBLService {
 			return  new IndustryInfo();
 		}
 		List<Stock> todaydata=this.getStocksByIndustry(industry);
+		double c=todaydata.get(0).getClose();
+		if(todaydata.get(0).getClose()==0)
+			return new IndustryInfo();
 		long today=todaydata.stream().mapToLong(s->s.getMarketvalue()).sum();
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		//get yesterday
@@ -88,21 +91,22 @@ public class IndustryBLImpl implements IndustryBLService {
 		List<Double> turnover=todaydata.stream()
 				.map(s->turnoverDATAService.getTurnoverValue(s.getName()))
 				.collect(Collectors.toList());
+
+		int companySum=todaydata.size();
+
 		double total=turnover.stream().mapToDouble(s->s).sum();
+
 		IndustryInfo ans=new IndustryInfo(industry);
 		ans.setPure(today);
 		ans.setUpdown((double)(today-yesterday)/yesterday);
 		ans.setTotal(total);
+		ans.setCompanySum(companySum);
 		return  ans;
 	}
 
 
 	public static void main(String[] args) {
 		IndustryBLImpl i = new IndustryBLImpl();
-		List<Stock> list = i.getStocksByIndustry("银行");
-		System.out.println(list.size());
-		for (int k = 0; k < list.size(); ++k) {
-			System.out.println(list.get(k).getName());
-		}
+		System.out.println(i.getIndustryInfo("银行"));
 	}
 }
