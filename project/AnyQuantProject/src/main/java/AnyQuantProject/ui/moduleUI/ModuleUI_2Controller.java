@@ -56,7 +56,7 @@ public class ModuleUI_2Controller implements Initializable{
     @FXML
     private TableColumn<IndustryInfo, Double> ChgColumn;
     @FXML
-    private TableColumn<IndustryInfo, Long> PureColumn;
+    private TableColumn<IndustryInfo, Double> PureColumn;
     @FXML
     private TableColumn<IndustryInfo, Double> SumColumn;
     @FXML
@@ -117,7 +117,7 @@ public class ModuleUI_2Controller implements Initializable{
 			                cellData.getValue().getIndustry()));
 				 ChgColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                cellData.getValue().getUpdown()));
-				 PureColumn.setCellValueFactory(cellData -> new SimpleLongProperty(
+				 PureColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                cellData.getValue().getPure()));
 				 SumColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                cellData.getValue().getCompanySum()));
@@ -181,7 +181,7 @@ public class ModuleUI_2Controller implements Initializable{
 		//将净额按从大到小排序
 		allIndustryName = industryBLService.getAllIndustries();
 		String[] industryName = new String[allIndustryName.size()]; 
-		Long[] pures = new Long[allIndustryName.size()];
+		Double[] pures = new Double[allIndustryName.size()];
 		for(int i=0;i<allIndustryName.size();i++){
 			pures[i] = industryInfoList.get(i).getPure();
 			industryName[i] = industryInfoList.get(i).getIndustry();
@@ -190,7 +190,7 @@ public class ModuleUI_2Controller implements Initializable{
 		      for(int i=0 ;i < pures.length ; i++) {  
 		    	  for(int j=i+1 ;j < pures.length ; j++) {  
 		    		  if(pures[i] < pures[j]) {
-		    			  Long temp = pures[i];
+		    			  Double temp = pures[i];
 		    			  pures[i] = pures[j];
 		    			  pures[j] = temp;  
 		    			  String temp1 = industryName[i];
