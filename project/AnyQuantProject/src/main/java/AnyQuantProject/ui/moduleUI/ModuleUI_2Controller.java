@@ -23,6 +23,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -55,6 +59,12 @@ public class ModuleUI_2Controller implements Initializable{
     private TableColumn<IndustryInfo, Double> SinglePrizeColumn;
     @FXML
     private TableView<IndustryInfo> table;
+	@FXML
+	private BarChart barChart;
+	@FXML
+	private CategoryAxis barXAxis;
+	@FXML
+	private NumberAxis barYAxis;
 	
 	private IndustryBLService industryBLService = IndustryBLFactory.getIndustryBLService();
 	private IndustryInfo  industryInfo; 
@@ -71,8 +81,14 @@ public class ModuleUI_2Controller implements Initializable{
 		loader.setLocation(ModuleUI_2Controller .class.getResource("modulePanel2.fxml"));
 		return instance;
   }
+	
 	public void init(){
-		    allIndustryName = industryBLService.getAllIndustries();
+		initTable();
+		
+	}
+	
+	public void initTable(){	
+		allIndustryName = industryBLService.getAllIndustries();
 		    
 		    for(int i=0;i< allIndustryName.size();i++){
 		    	industryInfo= industryBLService.getIndustryInfo(allIndustryName.get(i));
@@ -107,7 +123,51 @@ public class ModuleUI_2Controller implements Initializable{
 		
 	}
 	
+	
+	public void initChart(){
+		//x轴为20支股票 高10支 低10支
+		//y轴为净额
 		
+		//将净额按从大到小排序
+		allIndustryName = industryBLService.getAllIndustries();
+		String[] industryName = new String[allIndustryName.size()]; 
+		Long[] pures = new Long[allIndustryName.size()];
+		for(int i=0;i<allIndustryName.size();i++){
+			pures[i] = industryInfoList.get(i).getPure();
+			industryName[i] = industryInfoList.get(i).getIndustry();
+		}
+			/**  *冒泡排序从大到小 * */ 
+		      for(int i=0 ;i < pures.length ; i++) {  
+		    	  for(int j=i+1 ;j < pures.length ; j++) {  
+		    		  if(pures[i] < pures[j]) {
+		    			  Long temp = pures[i];
+		    			  pures[i] = pures[j];
+		    			  pures[j] = temp;  
+		    			  String temp1 = industryName[i];
+		    			  industryName[i] = industryName[j];
+		    			  industryName[j] = temp1;
+		    			  }
+		    		  }
+		    	  }
+		      for(int i = 0 ; i < pures.length ;i ++) { 
+		    	  System.out.print("every industry sort up to down:"+industryName[i]+":"+pures[i]+" ");   
+		      }
+		 
+		//设置图
+		barChart = new BarChart<String,Number>(barXAxis,barYAxis); 
+		barYAxis.setLabel("净额");
+		
+		XYChart.Series series = new XYChart.Series();
+		for (int i=0;i<10;i++){
+			series.getData().add(new XYChart.Data(industryName[i],pures[i]));
+		}
+		for(int i=0;i<10;i++){
+			series.getData().add(new XYChart.Data(industryName[industryName.length-i-1],pures[pures.length-i-1]));
+		}
+		
+		barChart.getData().addAll(series);
+	}
+	
 	 public class TableRowControl<T> extends TableRow<T> {
 
 	        public TableRowControl(TableView<T> tableView) {
