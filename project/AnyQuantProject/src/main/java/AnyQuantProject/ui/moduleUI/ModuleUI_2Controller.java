@@ -131,49 +131,56 @@ public class ModuleUI_2Controller implements Initializable{
 				 SinglePrizeColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                        cellData.getValue().getLeaderPrice()));
 
-				 ChgColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
-			            @Override
-			            public TableCell<IndustryInfo, Double> call(TableColumn<IndustryInfo, Double> arg0) {
-			                return new TableCell<IndustryInfo, Double>() {
-			                    ObservableValue ov1;
-
-			                    @Override
-			                    protected void updateItem(Double item, boolean empty) {
-			                        super.updateItem(item, empty);
-			                        if (this.getIndex() < industryInfoList.size()) {
-			                            if (this.getText()!=null) {
-			                            	this.setTextFill(Color.RED);
-			                            	  setText(item + "");
-			                            }
-			                        }
-			                    }
-			                };
-			            }
-			        });
+//				 ChgColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
+//			            @Override
+//			            public TableCell<IndustryInfo, Double> call(TableColumn<IndustryInfo, Double> arg0) {
+//			                return new TableCell<IndustryInfo, Double>() {
+//			                    ObservableValue ov1;
+//
+//			                    @Override
+//			                    protected void updateItem(Double item, boolean empty) {
+//			                        super.updateItem(item, empty);
+//			                        if (this.getIndex() < industryInfoList.size()) {
+//			                        	  if (!isEmpty()) {
+//			                        		  String t=this.getText();
+//			                        		  System.out.println(t);
+//			                        		  double v=Double.parseDouble(t);
+//			                        		  
+//			                        		  if(v<0)
+//				                            		this.setTextFill(Color.GREEN);
+//				                            	else if(Double.parseDouble(this.getText())>0)
+//				                            		this.setTextFill(Color.RED);
+//				                            	  setText(item + "");
+//			                            }
+//			                        }
+//			                    }
+//			                };
+//			            }
+//			        });
 				 
-				 PureColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
-			            @Override
-			            public TableCell<IndustryInfo,Double> call(TableColumn<IndustryInfo, Double> arg0) {
-			                return new TableCell<IndustryInfo, Double>() {
-			                    ObservableValue ov1;
-
-			                    @Override
-			                    protected void updateItem(Double item, boolean empty) {
-			                        super.updateItem(item, empty);
-			                        if (this.getIndex() < industryInfoList.size()) {
-			                            if (this.getText()!=null) {
-			                            	if(Double.parseDouble(this.getText())<0)
-			                            		this.setTextFill(Color.GREEN);
-			                            	else if(Double.parseDouble(this.getText())>0)
-			                            		this.setTextFill(Color.RED);
-			                            	  setText(item + "");
-			                            }
-			                         }
-			                    }
-			                };
-			            }
-			        });
-				 
+//				 PureColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
+//			            @Override
+//			            public TableCell<IndustryInfo,Double> call(TableColumn<IndustryInfo, Double> arg0) {
+//			                return new TableCell<IndustryInfo, Double>() {
+//			                    ObservableValue ov1;
+//
+//			                    @Override
+//			                    protected void updateItem(Double item, boolean empty) {
+//			                        super.updateItem(item, empty);
+//			                        if (this.getIndex() < industryInfoList.size()) {
+//			                       	  if (!isEmpty()) {
+//			                            	if(Double.parseDouble(this.getText())<0)
+//			                            		this.setTextFill(Color.GREEN);
+//			                            	else if(Double.parseDouble(this.getText())>0)
+//			                            		this.setTextFill(Color.RED);
+//			                            	  setText(item + "");
+//			                            }
+//			                         }
+//			                    }
+//			                };
+//			            }
+//			        });
+//				 
 				 
 				 
 	}
@@ -189,11 +196,11 @@ public class ModuleUI_2Controller implements Initializable{
 		Double[] pures = new Double[allIndustryName.size()];
 		for(int i=0;i<allIndustryName.size();i++){
 			pures[i] = industryInfoList.get(i).getPure();
+			pures[i] = Double.parseDouble(String .format("%.3f",pures[i]));
 			industryName[i] = industryInfoList.get(i).getIndustry(); 
 			System.out.print("....test...."+industryName[i]+":"+pures[i]+" ");   
 		}
 
-		System.out.println();
 
 		
 			/**  *冒泡排序从大到小 * */ 
@@ -215,8 +222,8 @@ public class ModuleUI_2Controller implements Initializable{
 		      for(int i = 0 ; i < pures.length ;i ++) { 
 		    	  System.out.print(industryName[i]+":"+pures[i]+" ");   
 		      }
-		 System.out.println();
-
+		      barXAxis=new CategoryAxis();
+		  	barYAxis=new NumberAxis();
 		//设置图
 		barChart = new BarChart<String,Number>(barXAxis,barYAxis); 
 		barYAxis.setLabel("净额");
@@ -232,7 +239,6 @@ public class ModuleUI_2Controller implements Initializable{
 					series.getData().add(new XYChart.Data(industryName[i],pures[i]));
 				}
 				for(int i=0;i<10;i++){
-						System.out.println("getData is null"+series.getData().size());
 					
 					series
 					.getData()
