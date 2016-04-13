@@ -58,11 +58,12 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 	}
 
 	@Override
-	public JFreeLineData drawRSI(String name) {
+	public JFreeLineData drawRSI(String name, Calendar min, Calendar max) {
 		if (!Checker.checkStringNotNull(name)) {
 			return new JFreeLineData();
 		}
-		List<Stock> data=this.getData(name);
+		min.add(Calendar.DAY_OF_MONTH, -6);
+		List<Stock> data=this.getData(name,min,max);
 		String title=data.get(0).getChinese()+"相对强弱指数折线图";
 		// 
 		List<DataCell> rsi1=RSI.calculateRSI(data, 6);
