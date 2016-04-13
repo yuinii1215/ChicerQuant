@@ -198,11 +198,8 @@ public class Main extends Application {
 		
 	//	  enableDragAndResize(primaryStage);
 	
-		
-		
-		
 		primaryStage.setScene(getFactoryScene(vbox));
-		enableDragAndResize(  primaryStage.getScene());
+		enableDragAndResize(primaryStage.getScene());
 		primaryStage.show();  
     }
 

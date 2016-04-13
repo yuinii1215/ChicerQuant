@@ -100,6 +100,7 @@ public class ModuleUI_2Controller implements Initializable{
 		
 		    for(int i=0;i< allIndustryName.size();i++){
 		    	industryInfo= industryBLService.getIndustryInfo(allIndustryName.get(i));
+		    	System.out.println("...stockName..."+allIndustryName.get(i)+"...");
 		    	industryInfoList.add(i, industryInfo);
 		    }
 		    
@@ -184,8 +185,11 @@ public class ModuleUI_2Controller implements Initializable{
 		Double[] pures = new Double[allIndustryName.size()];
 		for(int i=0;i<allIndustryName.size();i++){
 			pures[i] = industryInfoList.get(i).getPure();
-			industryName[i] = industryInfoList.get(i).getIndustry();
+			industryName[i] = industryInfoList.get(i).getIndustry(); 
+			System.out.print("....test...."+industryName[i]+":"+pures[i]+" ");   
 		}
+		System.out.println();
+		
 			/**  *冒泡排序从大到小 * */ 
 		      for(int i=0 ;i < pures.length ; i++) {  
 		    	  for(int j=i+1 ;j < pures.length ; j++) {  
@@ -204,7 +208,7 @@ public class ModuleUI_2Controller implements Initializable{
 		      for(int i = 0 ; i < pures.length ;i ++) { 
 		    	  System.out.print(industryName[i]+":"+pures[i]+" ");   
 		      }
-		 
+		 System.out.println();
 		//设置图
 		barChart = new BarChart<String,Number>(barXAxis,barYAxis); 
 		barYAxis.setLabel("净额");
