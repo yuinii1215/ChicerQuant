@@ -23,9 +23,11 @@ public interface CalculateLineBLService{
 	 * 返回共三条折线，分别是6、12、24日的RSI
 	 * X轴为String的日期，Y轴为0~100的数字，是百分数
 	 * @param name 股票代号
+	 * @param min TODO
+	 * @param max TODO
 	 * @return 
 	 */
-	public JFreeLineData drawRSI(String name);
+	public JFreeLineData drawRSI(String name, Calendar min, Calendar max);
 	/**
 	 * 股票乖离率，BIAS（没有找到全名）
 	 * 返回共三条折线，分别是6、12、24日的乖离率
