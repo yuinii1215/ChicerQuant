@@ -99,9 +99,11 @@ public class ModuleUI_2Controller implements Initializable{
 		allIndustryName = industryBLService.getAllIndustries();
 		
 		    for(int i=0;i< allIndustryName.size();i++){
+		    	System.out.println(allIndustryName.get(i));
 		    	industryInfo= industryBLService.getIndustryInfo(allIndustryName.get(i));
 		    	System.out.println("...stockName..."+allIndustryName.get(i)+"...");
 		    	industryInfoList.add(i, industryInfo);
+		    	System.out.println("            "+industryInfo.getIndustry());
 		    }
 		    
 			table.setItems(FXCollections.observableArrayList(industryInfoList));
@@ -139,8 +141,9 @@ public class ModuleUI_2Controller implements Initializable{
 			                    protected void updateItem(Double item, boolean empty) {
 			                        super.updateItem(item, empty);
 			                        if (this.getIndex() < industryInfoList.size()) {
-			                            if (!isEmpty()) {
+			                            if (this.getText()!=null) {
 			                            	this.setTextFill(Color.RED);
+			                            	  setText(item + "");
 			                            }
 			                        }
 			                    }
@@ -158,14 +161,15 @@ public class ModuleUI_2Controller implements Initializable{
 			                    protected void updateItem(Double item, boolean empty) {
 			                        super.updateItem(item, empty);
 			                        if (this.getIndex() < industryInfoList.size()) {
-			                            if (!isEmpty()) {
+			                            if (this.getText()!=null) {
 			                            	if(Double.parseDouble(this.getText())<0)
 			                            		this.setTextFill(Color.GREEN);
-			                            	}
 			                            	else if(Double.parseDouble(this.getText())>0)
 			                            		this.setTextFill(Color.RED);
-		                            		}
-			                    	}
+			                            	  setText(item + "");
+			                            }
+			                         }
+			                    }
 			                };
 			            }
 			        });
@@ -188,7 +192,9 @@ public class ModuleUI_2Controller implements Initializable{
 			industryName[i] = industryInfoList.get(i).getIndustry(); 
 			System.out.print("....test...."+industryName[i]+":"+pures[i]+" ");   
 		}
+
 		System.out.println();
+
 		
 			/**  *冒泡排序从大到小 * */ 
 		      for(int i=0 ;i < pures.length ; i++) {  
@@ -204,11 +210,13 @@ public class ModuleUI_2Controller implements Initializable{
 		    		  }
 		    	  }
 		      
+
 		      System.out.print("every industry sort up to down:");
 		      for(int i = 0 ; i < pures.length ;i ++) { 
 		    	  System.out.print(industryName[i]+":"+pures[i]+" ");   
 		      }
 		 System.out.println();
+
 		//设置图
 		barChart = new BarChart<String,Number>(barXAxis,barYAxis); 
 		barYAxis.setLabel("净额");
@@ -218,13 +226,19 @@ public class ModuleUI_2Controller implements Initializable{
 		Timeline tl = new Timeline () ;
 		tl.getKeyFrames().add(new KeyFrame(Duration.millis(500),
 				new EventHandler <ActionEvent> () {
-			@ Override
+			@Override
 			public void handle ( ActionEvent actionEvent ) {
 				for (int i=0;i<10;i++){
 					series.getData().add(new XYChart.Data(industryName[i],pures[i]));
 				}
 				for(int i=0;i<10;i++){
-					series.getData().add(new XYChart.Data(industryName[industryName.length-i-1],pures[pures.length-i-1]));
+						System.out.println("getData is null"+series.getData().size());
+					
+					series
+					.getData()
+					.add(new XYChart.Data(
+							industryName[industryName.length-i-1],
+							pures[pures.length-i-1]));
 				}
 			}
 		
