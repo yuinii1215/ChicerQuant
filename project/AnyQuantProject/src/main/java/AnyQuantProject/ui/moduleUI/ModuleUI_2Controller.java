@@ -147,14 +147,14 @@ public class ModuleUI_2Controller implements Initializable{
 			            }
 			        });
 				 
-				 PureColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Long>, TableCell<IndustryInfo, Long>>() {
+				 PureColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
 			            @Override
-			            public TableCell<IndustryInfo, Long> call(TableColumn<IndustryInfo, Long> arg0) {
-			                return new TableCell<IndustryInfo, Long>() {
+			            public TableCell<IndustryInfo,Double> call(TableColumn<IndustryInfo, Double> arg0) {
+			                return new TableCell<IndustryInfo, Double>() {
 			                    ObservableValue ov1;
 
 			                    @Override
-			                    protected void updateItem(Long item, boolean empty) {
+			                    protected void updateItem(Double item, boolean empty) {
 			                        super.updateItem(item, empty);
 			                        if (this.getIndex() < industryInfoList.size()) {
 			                            if (!isEmpty()) {
@@ -164,7 +164,7 @@ public class ModuleUI_2Controller implements Initializable{
 			                            	else if(Double.parseDouble(this.getText())>0)
 			                            		this.setTextFill(Color.RED);
 		                            		}
-			                    }
+			                    	}
 			                };
 			            }
 			        });
