@@ -1,32 +1,26 @@
 package AnyQuantProject.ui.controllerUI;
  
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBuilder;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import AnyQuantProject.starter.Main;
 import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
-import AnyQuantProject.ui.headUI.HeadUIController;
 import AnyQuantProject.ui.moduleUI.ModuleUI_1Controller;
-import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
+import AnyQuantProject.ui.stasticsInfoUI.StasticsInfoController;
 import AnyQuantProject.ui.stockDealInfoUI.StockDealInfoUIController;
 /**
  * 
@@ -46,14 +40,16 @@ public class MainPageController  implements Initializable {
 	private Button defaultBtn = null;
 	static AnchorPane headPanel;
 	@FXML
-	private Button favoriteBtn,allStocksBtn,benchMarkBtn,moduleBtn;
+	private Button favoriteBtn,allStocksBtn,benchMarkBtn,moduleBtn,stasticsBtn;
 	@FXML
-	private ImageView myFavor,BenchMark,allStocks,module;
+	private ImageView myFavor,BenchMark,allStocks,module,stastics;
 	
 	@FXML
-	private Tooltip myFavorTip,allStocksTip,benchMarkTip,moduleTip;
+	private Tooltip myFavorTip,allStocksTip,benchMarkTip,moduleTip,stasticsTip;
 	
-	Image myFavor_Selected = new Image(getClass().getResourceAsStream("/images/myFavorSelected.png"));
+    Image stastics_Selected=new Image(getClass().getResourceAsStream("/images/stasticsSelected.png"));
+    Image stastics_Exited=new Image(getClass().getResourceAsStream("/images/stastics.png"));
+    Image myFavor_Selected = new Image(getClass().getResourceAsStream("/images/myFavorSelected.png"));
     Image allStocks_Selected = new Image(getClass().getResourceAsStream("/images/allStocksSelected.png"));
     Image benchMark_Selected = new Image(getClass().getResourceAsStream("/images/benchMarkSelected.png"));
     Image module_Selected = new Image(getClass().getResourceAsStream("/images/moduleSelected.png"));
@@ -144,6 +140,12 @@ public class MainPageController  implements Initializable {
 		moduleBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
 			module.setImage(module_Exited);
 		});
+                stasticsBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+			stastics.setImage(stastics_Selected);
+		});
+		stasticsBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+			stastics.setImage(stastics_Exited);
+		});
 		
 		
 //		//exit,min
@@ -223,8 +225,18 @@ public class MainPageController  implements Initializable {
 		        btn.setDefaultButton(true);
 		        defaultBtn = btn;
 		        Main.enterModuleScene();
-				ModuleUI_1Controller.getInstance().init();
-			
+				ModuleUI_1Controller.getInstance().init();			
+		    }
+                @FXML
+	  	 private void stasticsBtnFired(ActionEvent e) {
+		        setPanel(Main.stasticsPanel, "打开统计分析界面...");
+		        Button btn = (Button)e.getSource();
+		        if(defaultBtn != null)
+		            defaultBtn.setDefaultButton(false);
+		        btn.setDefaultButton(true);
+		        defaultBtn = btn;
+		        Main.enterStasticsScene();
+		        StasticsInfoController.getInstance().init();			
 		    }
 	  	
 //		  @FXML

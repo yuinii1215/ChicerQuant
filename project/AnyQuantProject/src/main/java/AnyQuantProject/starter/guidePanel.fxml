@@ -32,6 +32,11 @@
                   <Image url="@/images/module.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="stastics" fitHeight="54.0" fitWidth="56.0" layoutX="12.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/stastics.png" />
+               </image>
+            </ImageView>
             <Label layoutX="27.0" layoutY="164.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
@@ -62,6 +67,11 @@
             <Button fx:id="moduleBtn" layoutY="358.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#moduleBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
                <tooltip>
                   <Tooltip fx:id="moduleTip" contentDisplay="RIGHT" height="10.0" text="股票模块" width="100.0" />
+               </tooltip>
+            </Button>
+            <Button fx:id="stasticsBtn" layoutY="423.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#stasticsBtnFired" opacity="0.0" prefHeight="85.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+               <tooltip>
+                  <Tooltip fx:id="stasticsTip" contentDisplay="RIGHT" height="10.0" text="统计模块" width="100.0" />
                </tooltip>
             </Button>
          </children>

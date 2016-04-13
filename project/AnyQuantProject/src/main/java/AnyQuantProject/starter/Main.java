@@ -61,7 +61,7 @@ public class Main extends Application {
 	private static HBox h_box,hbox;	
 	private static VBox vbox;	
 	static AnchorPane mainPanel,guidePanel,headPanel,writePanel;
-	public static AnchorPane singleModulePanel,moreModulePanel,modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel;
+	public static AnchorPane singleModulePanel,moreModulePanel,modulePanel,allStocksPanel,benchMarkPanel,favouritePanel,singleStockPanel,stockDealInfoPanel,singleStockInfoPanel,stasticsPanel;
 
 //	private static javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 //	private static double scrH =primaryScreenBounds.getHeight();
@@ -116,6 +116,7 @@ public class Main extends Application {
       benchMarkPanel.setId("pane");
 
         modulePanel = FXMLLoader.load(getClass().getResource("modulePanel0.fxml"));
+        stasticsPanel=FXMLLoader.load(getClass().getResource("stasticsInfoPanel.fxml"));
 
 
 //		primaryStage.setHeight(636);
@@ -273,6 +274,12 @@ public class Main extends Application {
 
     public static void enterModuleScene() {
         h_box = new HBox(guidePanel, modulePanel);
+        vbox = new VBox(headPanel, h_box);
+        Main.getPrimaryStage().setScene(getFactoryScene(vbox));
+        MainPageController.getInstance().initPanel();
+    }
+    public static void enterStasticsScene() {
+        h_box = new HBox(guidePanel, stasticsPanel);
         vbox = new VBox(headPanel, h_box);
         Main.getPrimaryStage().setScene(getFactoryScene(vbox));
         MainPageController.getInstance().initPanel();

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.stasticsInfoUI.StasticsInfoController">
+   <children>
+      <TabPane layoutX="-3.0" layoutY="-1.0" prefHeight="600.0" prefWidth="907.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="maMethod" style="-fx-background-color: transparent;" text="MA应用">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="maTitle" layoutX="39.0" layoutY="33.0" prefHeight="35.0" prefWidth="223.0" text="ma名称:股票名+ma分析" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="maImageView" fitHeight="167.0" fitWidth="784.0" pickOnBounds="true" preserveRatio="true" x="52.0" y="70.0" />
+                        <TextArea fx:id="maText" layoutX="52.0" layoutY="232.0" prefHeight="294.0" prefWidth="784.0" style="-fx-background-color: transparent;" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab id="tab1" fx:id="tab_macdMethod" style="-fx-background-color: transparent;" text="MACD应用">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="macdTitle" layoutX="51.0" layoutY="32.0" prefHeight="35.0" prefWidth="223.0" text="macd名称:股票名+macd分析" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="macdImageView" fitHeight="167.0" fitWidth="784.0" pickOnBounds="true" preserveRatio="true" x="52.0" y="70.0" />
+                        <TextArea fx:id="macdText" layoutX="52.0" layoutY="232.0" prefHeight="294.0" prefWidth="784.0" style="-fx-background-color: transparent;" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab id="tab2" fx:id="tab_rsiMethod" style="-fx-background-color: transparent;" text="RSI应用">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="kdjTitle" layoutX="37.0" layoutY="22.0" prefHeight="35.0" prefWidth="223.0" text="kdj名称:股票名+kdj分析" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="kdjImageView" fitHeight="167.0" fitWidth="784.0" pickOnBounds="true" preserveRatio="true" x="52.0" y="70.0" />
+                        <TextArea fx:id="kdjText" layoutX="52.0" layoutY="232.0" prefHeight="294.0" prefWidth="784.0" style="-fx-background-color: transparent;" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab id="tab3" fx:id="tab_biasMethod" style="-fx-background-color: transparent;" text="BIAS应用">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="biasTitle" layoutX="52.0" layoutY="24.0" prefHeight="35.0" prefWidth="223.0" text="bias名称:股票名+bias分析" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="biasText" layoutX="52.0" layoutY="232.0" prefHeight="294.0" prefWidth="784.0" style="-fx-background-color: transparent;" />
+                        <ImageView fx:id="biasImageView" fitHeight="167.0" fitWidth="784.0" layoutX="52.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab id="tab4" fx:id="tab_kdjMethod" style="-fx-background-color: transparent;" text="KDJ应用">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="kdjTitle" layoutX="39.0" layoutY="33.0" prefHeight="35.0" prefWidth="223.0" text="kdj名称:股票名+kdj分析" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="kdjImageView" fitHeight="167.0" fitWidth="784.0" pickOnBounds="true" preserveRatio="true" x="52.0" y="70.0" />
+                        <TextArea fx:id="kdjText" layoutX="52.0" layoutY="232.0" prefHeight="294.0" prefWidth="784.0" style="-fx-background-color: transparent;" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
