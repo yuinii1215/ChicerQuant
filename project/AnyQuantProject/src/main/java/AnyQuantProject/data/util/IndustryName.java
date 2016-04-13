@@ -46,7 +46,6 @@ public class IndustryName implements IndustryNameDATAService{
 //        getMktIndustryFlow();
 //		i.iniIndustry();
 //        System.out.println(i.getIndustryName("sh601186"));
-
 //        List<String> list = i.getAllIndustries();
 //        i.getStockByIndustry("银行");
 
