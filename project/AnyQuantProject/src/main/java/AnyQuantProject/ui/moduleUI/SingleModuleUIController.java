@@ -26,6 +26,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -67,6 +68,8 @@ public class SingleModuleUIController implements Initializable{
 	    private Label guideLabel;
 	    @FXML
 	    private Text moduleChineseNameLabel,openLabel,highLabel,volumeLabel,yeaterLabel,lowLabel;
+	    @FXML
+	    private PieChart pieChart;
 		private AnchorPane modulePanel;
 		private ModuleUI_1Controller moduleUI_1Controller =null;
 	    int selectedIndex;
@@ -92,6 +95,7 @@ public class SingleModuleUIController implements Initializable{
 	  public void init(){
 		  initTable();
 		  InfoRect();
+		  chart();
 	  }
 	  
 	  public void InfoRect(){
@@ -154,6 +158,33 @@ public class SingleModuleUIController implements Initializable{
 	}
 	
 	
+	public void chart(){
+		double[] value = new double[singleIndustryInfoList.size()];
+		for(int i=0;i<singleIndustryInfoList.size();i++){
+			value[i]=singleIndustryInfoList.get(i).getClose() -
+					singleIndustryInfoList.get(i).getOpen();
+		}
+		int up=0,down=0,no=0;
+		for (int i=0;i<singleIndustryInfoList.size();i++){
+			if(value[i]>0){
+				up++;
+			}
+			else if(value[i]<0){
+				down++;
+			}
+			else{
+				no++;
+			}
+		}
+		
+
+		pieChart.getData().add(1,new PieChart.Data("上涨", up));
+		pieChart.getData().add(2,new PieChart.Data("下跌", down));
+		pieChart.getData().add(3,new PieChart.Data("持平", no));
+		pieChart.setId("行业个股涨跌分布");
+		
+		
+	}
 	@FXML
 	private void toReturnPane() {
 		Main.returnToModuleScene();

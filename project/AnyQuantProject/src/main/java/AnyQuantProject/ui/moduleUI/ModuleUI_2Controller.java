@@ -222,7 +222,8 @@ public class ModuleUI_2Controller implements Initializable{
 		      for(int i = 0 ; i < pures.length ;i ++) { 
 		    	  System.out.print(industryName[i]+":"+pures[i]+" ");   
 		      }
-		      barXAxis=new CategoryAxis();
+		      
+		    barXAxis=new CategoryAxis();
 		  	barYAxis=new NumberAxis();
 		//设置图
 		barChart = new BarChart<String,Number>(barXAxis,barYAxis); 
