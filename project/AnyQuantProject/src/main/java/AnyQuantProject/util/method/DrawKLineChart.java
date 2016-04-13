@@ -541,7 +541,7 @@ public class DrawKLineChart {
         combineddomainxyplot.add(plot1, 2);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域2/3
         combineddomainxyplot.add(plot2, 1);// 添加图形区域对象，后面的数字是计算这个区域对象应该占据多大的区域1/3
         combineddomainxyplot.add(plot3, 1);
-        combineddomainxyplot.setGap(20);// 设置两个图形区域对象之间的间隔空间             
+//        combineddomainxyplot.setGap(20);// 设置两个图形区域对象之间的间隔空间             
         JFreeChart chart = new JFreeChart(id, JFreeChart.DEFAULT_TITLE_FONT, combineddomainxyplot, false);
         // 设置总的背景颜色
 

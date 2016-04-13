@@ -17,11 +17,11 @@
 
 <AnchorPane fx:id="modulePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.moduleUI.SingleModuleUIController">
    <children>
-      <TableView fx:id="table" blendMode="LIGHTEN" layoutY="241.0" prefHeight="359.0" prefWidth="900.0">
+      <TableView fx:id="table" blendMode="LIGHTEN" layoutX="312.0" layoutY="34.0" prefHeight="566.0" prefWidth="588.0">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="86.0" text="股票代码" />
-            <TableColumn fx:id="chineseNameColumn" prefWidth="84.0" text="股票名称" />
-            <TableColumn fx:id="highColumn" prefWidth="91.0" text="最高价" />
+          <TableColumn fx:id="idColumn" prefWidth="79.0" text="股票代码" />
+            <TableColumn fx:id="chineseNameColumn" prefWidth="90.0" text="股票名称" />
+            <TableColumn fx:id="highColumn" prefWidth="92.0" text="最高价" />
             <TableColumn fx:id="lowColumn" prefWidth="100.0" text="最低价" />
             <TableColumn fx:id="openColumn" prefWidth="85.0" text="开盘价" />
             <TableColumn fx:id="closeColumn" prefWidth="92.0" text="收盘价" />
@@ -31,8 +31,8 @@
             <TableColumn fx:id="pbColumn" prefWidth="83.0" text="市净率" />
         </columns>
       </TableView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#63e0a4" height="153.0" layoutX="633.0" layoutY="62.0" stroke="WHITE" strokeType="INSIDE" width="255.0" />
-      <VBox layoutX="639.0" layoutY="68.0" prefHeight="143.0" prefWidth="242.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#71c671" height="153.0" layoutX="21.0" layoutY="78.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="274.0" />
+      <VBox layoutX="25.0" layoutY="81.0" prefHeight="143.0" prefWidth="259.0">
          <children>
             <Text fx:id="moduleChineseNameLabel" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="港口航运">
                <font>
@@ -88,16 +88,14 @@
       <Button fx:id="allModuleBtn" layoutX="80.0" layoutY="6.0" mnemonicParsing="false" onAction="#toReturnPane" opacity="0.0" text="Button" />
       <Button layoutX="14.0" layoutY="6.0" mnemonicParsing="false" opacity="0.0" text="Button" />
       <Button fx:id="SingleModuleBtn" layoutX="142.0" layoutY="6.0" mnemonicParsing="false" opacity="0.0" text="Button" />
-      <AnchorPane layoutX="7.0" layoutY="29.0" prefHeight="207.0" prefWidth="619.0">
+      <AnchorPane layoutX="20.0" layoutY="263.0" prefHeight="291.0" prefWidth="270.0">
          <children>
-            <LineChart layoutX="-5.0" prefHeight="207.0" prefWidth="628.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
+            <PieChart fx:id="pieChart" layoutX="-4.0" layoutY="58.0" prefHeight="236.0" prefWidth="278.0" />
+            <Label layoutX="63.0" layoutY="30.0" text="行业个股涨跌分布" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
    </children>
 </AnchorPane>

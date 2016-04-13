@@ -15,6 +15,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JComponent;
 
@@ -65,6 +70,7 @@ import AnyQuantProject.blService.kLineBLService.BenchmarkKLineBLService;
 import AnyQuantProject.dataStructure.BenchMark;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
+import AnyQuantProject.starter.Main;
 import AnyQuantProject.util.constant.TimeType;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.DrawKLineChart;
@@ -110,9 +116,8 @@ public class BenchMarkUIController implements Initializable{
 	@FXML
 	private Label today,yesterday,max,min,volume,turnover,adj_price,currentTime,toLabel,dateChoiceLabel,
 				benchMarkChineseID,benchMarkID,todayTitle,yesterdayTitle,maxTitle,volumeTitle,minTitle,
-				turnoverTitle,adj_priceTitle;
-//	@FXML
-	//public  ComboBox benchMarkID;
+				turnoverTitle,adj_priceTitle,ifOnLanel;
+
 	@FXML
 	private Button okBtn;
 	@FXML
@@ -166,9 +171,28 @@ public class BenchMarkUIController implements Initializable{
 	 */
     @SuppressWarnings("deprecation")
 	public  void init(){
-    	
+   
+    	 
+//        ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
+//        ScheduledFuture future = service.schedule(new Callable() {
+//                public String call() {
+//                	currentTime.setText(dateFormat.format(new Date()));     
+//                    return "taskcancelled!";
+//                }
+//            }, 4, TimeUnit.SECONDS);
+//    //     service.shutdown();
+//        
+    
     	calendar=Calendar.getInstance();
-
+    	 int week=calendar.get(Calendar.DAY_OF_WEEK)-1;  
+    	    if(week ==6 || week==0){
+    	    	 ifOnLanel.setText("交易暂停");
+    	    }
+    	    if(week ==1||week==2||week==3||week==4||week==5){
+    	    	 ifOnLanel.setText("交易中");
+    	    }
+    	
+   
     	currentTime.setText(dateFormat.format(new Date()));
     	System.out.println(currentTime);
     	
@@ -519,6 +543,21 @@ public class BenchMarkUIController implements Initializable{
      thirtyAverageLineDataList =thirtyAverageLine.geKLineDataDTOs();
     }
     
+    
+    
+    class CTime extends Thread {// 创建内部类  
+        public void run() {// 重构父类的方法  
+            while (true) {  
+                Date date = new Date();// 创建日期对象  
+                currentTime.setText(date.toString().substring(11, 19));// 获取当前时间，并显示到时间标签中  
+                try {  
+                    Thread.sleep(1000);// 令线程休眠1秒  
+                } catch (InterruptedException e) {  
+                    e.printStackTrace();  
+                }  
+            }  
+        }  
+    }  
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

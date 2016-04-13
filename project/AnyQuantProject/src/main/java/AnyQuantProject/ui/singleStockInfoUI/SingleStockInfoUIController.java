@@ -462,13 +462,11 @@ public class SingleStockInfoUIController implements Initializable {
 
     public JFreeChart drawDayKLine(CalcuLineType calcuLineType) {
         CalcuLineChart(calcuLineType);
-        System.out.println("3333333 the initial minTime is:"+minTime.getTime());
         dayLineChart();
         //test
 //        minTime = Calendar.getInstance();
 //        minTime.set(2016, 1, 1, 0, 0);
         
-        System.out.println("BBBBBBBBBB minTime for KLIne is:"+minTime.getTime());
         dayKLineData = stockKLineImpl.dayKLineChart(stockName, minTime, maxTime);
         dayKLineList = dayKLineData.geKLineDataDTOs();
         if (maxTime == null) {
@@ -837,8 +835,100 @@ public class SingleStockInfoUIController implements Initializable {
            //addChart2Tab(monthChart, panel3, swingNode3, scroller3, tab_monthKLine);
         
     }
+    private ChartPanel getChartPanelFor3(JFreeChart jFreeChart){
+    	ChartPanel chartPanel = new ChartPanel(jFreeChart);
+        chartPanel.setMinimumSize(new Dimension(800, 500));
+        chartPanel.setMouseWheelEnabled(true);
+        chartPanel.setPopupMenu(null);
+        chartPanel.setMouseZoomable(false);
+        //
+        CrosshairOverlay crosshairOverlay = new MyCrossOverlay();
+        Crosshair xCrosshair = new Crosshair(Double.NaN);
+        xCrosshair.setLabelPaint(java.awt.Color.white);
+        xCrosshair.setStroke(new BasicStroke(0f));
+        xCrosshair.setLabelGenerator(new CrosshairLabelGenerator() {
+            @Override
+            public String generateLabel(Crosshair crosshair) {
+                Rectangle2D dataArea = chartPanel.getScreenDataArea();
+                XYPlot plot = (XYPlot) chartPanel.getChart().getPlot();
+                DateAxis xAxis = (DateAxis) plot.getDomainAxis();
+                Date date1 = xAxis.getMinimumDate();
+                double start = xAxis.dateToJava2D(date1, dataArea, plot.getDomainAxisEdge());
+                Date date2 = xAxis.getMaximumDate();
+                double end = xAxis.dateToJava2D(date2, dataArea, plot.getDomainAxisEdge());
+                double value = xAxis.valueToJava2D(crosshair.getValue(), dataArea, plot.getDomainAxisEdge());
+                double percent = (value - start) / (end - start);
+                long time = date2.getTime() - date1.getTime();
+                long ans = Math.round(time * percent);
+                Date date = new Date(date1.getTime() + ans);
+                return date.toString();
+            }
+        });
+        xCrosshair.setLabelVisible(true);
+        xCrosshair.setLabelAnchor(RectangleAnchor.TOP);
+        xCrosshair.setPaint(java.awt.Color.white);
+        xCrosshair.setLabelPaint(java.awt.Color.white);
+        xCrosshair.setLabelBackgroundPaint(java.awt.Color.yellow);
+        Crosshair yCrosshair = new Crosshair(Double.NaN);
+        yCrosshair.setStroke(new BasicStroke(0f));
+        yCrosshair.setLabelGenerator(new CrosshairLabelGenerator() {
+
+            @Override
+            public String generateLabel(Crosshair crosshair) {
+                DecimalFormat decimalFormat = new DecimalFormat("#.00");
+                JFreeChart chart = chartPanel.getChart();
+                CombinedDomainXYPlot combinedDomainXYPlot = (CombinedDomainXYPlot) chart.getPlot();
+                List<Plot> plots = combinedDomainXYPlot.getSubplots();
+                double low = ((XYPlot) plots.get(0)).getRangeAxis().getLowerBound();
+                double high = ((XYPlot) plots.get(0)).getRangeAxis().getUpperBound();
+                double val = high - (high - crosshair.getValue()) * 2;
+                return decimalFormat.format(val);
+
+            }
+        });
+        yCrosshair.setLabelVisible(true);
+//    	yCrosshair.setLabelAnchor(RectangleAnchor.RIGHT);
+        yCrosshair.setPaint(java.awt.Color.white);
+        yCrosshair.setLabelPaint(java.awt.Color.white);
+        yCrosshair.setLabelBackgroundPaint(java.awt.Color.yellow);
+        crosshairOverlay.addDomainCrosshair(xCrosshair);
+        crosshairOverlay.addRangeCrosshair(yCrosshair);
+        chartPanel.addOverlay(crosshairOverlay);
+
+        chartPanel.addChartMouseListener(new ChartMouseListener() {
+
+            @Override
+            public void chartMouseMoved(ChartMouseEvent event) {
+                Rectangle2D dataArea = chartPanel.getScreenDataArea();
+                JFreeChart chart = event.getChart();
+                Point point = new Point(event.getTrigger().getX(), event.getTrigger().getY());
+                Point2D point2d = chartPanel.translateScreenToJava2D(point);
+                XYPlot plot = (XYPlot) chart.getPlot();
+                
+                ValueAxis xAxis = plot.getDomainAxis();
+                List<Plot> plots = ((CombinedDomainXYPlot) plot).getSubplots();
+                NumberAxis yAxis = (NumberAxis) ((XYPlot) plots.get(0)).getRangeAxis();
+                double x = xAxis.java2DToValue(point2d.getX(), dataArea,
+                        RectangleEdge.BOTTOM);
+
+                double y = yAxis.java2DToValue(point2d.getY(), dataArea, RectangleEdge.LEFT);
+                xCrosshair.setValue(x);
+                yCrosshair.setValue(y);
+            }
+
+            @Override
+            public void chartMouseClicked(ChartMouseEvent event) {
+            }
+        });
+
+        return chartPanel;
+    }
 
     private ChartPanel getChartPanel(JFreeChart jFreeChart) {
+    	CombinedDomainXYPlot combinedDomainXYPlot=(CombinedDomainXYPlot) jFreeChart.getPlot();
+    	if (combinedDomainXYPlot.getSubplots().size()==3) {
+			return getChartPanelFor3(jFreeChart);
+		}
         ChartPanel chartPanel = new ChartPanel(jFreeChart);
         chartPanel.setMinimumSize(new Dimension(800, 500));
         chartPanel.setMouseWheelEnabled(true);
@@ -907,6 +997,7 @@ public class SingleStockInfoUIController implements Initializable {
                 Point point = new Point(event.getTrigger().getX(), event.getTrigger().getY());
                 Point2D point2d = chartPanel.translateScreenToJava2D(point);
                 XYPlot plot = (XYPlot) chart.getPlot();
+                
                 ValueAxis xAxis = plot.getDomainAxis();
                 List<Plot> plots = ((CombinedDomainXYPlot) plot).getSubplots();
                 NumberAxis yAxis = (NumberAxis) ((XYPlot) plots.get(0)).getRangeAxis();

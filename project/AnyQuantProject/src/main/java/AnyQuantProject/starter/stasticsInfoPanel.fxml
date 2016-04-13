@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -10,34 +11,32 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.stasticsInfoUI.StasticsInfoController">
    <children>
-      <TabPane layoutX="-3.0" layoutY="-1.0" prefHeight="600.0" prefWidth="907.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="-3.0" layoutY="-5.0" prefHeight="608.0" prefWidth="907.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="maMethod" style="-fx-background-color: transparent;" text="MA应用">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="maTitle" layoutX="39.0" layoutY="33.0" prefHeight="35.0" prefWidth="223.0" text="ma名称:股票名+ma分析" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <ImageView fx:id="maImageView" fitHeight="167.0" fitWidth="784.0" pickOnBounds="true" preserveRatio="true" x="52.0" y="70.0" />
-                        <TextArea fx:id="maText" layoutX="52.0" layoutY="232.0" prefHeight="294.0" prefWidth="784.0" style="-fx-background-color: transparent;" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
           <Tab id="tab1" fx:id="tab_macdMethod" style="-fx-background-color: transparent;" text="MACD应用">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="macdTitle" layoutX="51.0" layoutY="32.0" prefHeight="35.0" prefWidth="223.0" text="macd名称:股票名+macd分析" textFill="WHITE">
+                        <Label fx:id="macdTitle" layoutX="497.0" layoutY="37.0" prefHeight="35.0" prefWidth="223.0" text="MACD统计分析" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="macdImageView" fitHeight="167.0" fitWidth="784.0" pickOnBounds="true" preserveRatio="true" x="52.0" y="70.0" />
-                        <TextArea fx:id="macdText" layoutX="52.0" layoutY="232.0" prefHeight="294.0" prefWidth="784.0" style="-fx-background-color: transparent;" />
+                        <Button fx:id="macdMathButton" layoutX="746.0" layoutY="42.0" mnemonicParsing="false" text="查看统计公式" />
+                        <TabPane fx:id="macdKLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="-3.0" prefHeight="558.0" prefWidth="426.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <tabs>
+                              <Tab fx:id="tab_macdDayKLine" style="-fx-background-color: transparent;" text="日线" />
+                           </tabs>
+                        </TabPane>
+                        <TextArea fx:id="macdText1" editable="false" layoutX="460.0" layoutY="96.0" prefHeight="119.0" prefWidth="404.0" style="-fx-background-color: transparent;" wrapText="true" />
+                        <TextArea fx:id="macdText2" editable="false" layoutX="460.0" layoutY="216.0" prefHeight="126.0" prefWidth="404.0" style="-fx-background-color: transparent;" wrapText="true" />
+                        <TextArea fx:id="macdText3" editable="false" layoutX="460.0" layoutY="344.0" prefHeight="169.0" prefWidth="404.0" style="-fx-background-color: transparent;" wrapText="true" />
                      </children>
                   </AnchorPane>
             </content>
@@ -46,13 +45,26 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="kdjTitle" layoutX="37.0" layoutY="22.0" prefHeight="35.0" prefWidth="223.0" text="kdj名称:股票名+kdj分析" textFill="WHITE">
+                        <Label fx:id="kdjTitle" layoutX="508.0" layoutY="30.0" prefHeight="35.0" prefWidth="223.0" text="RSI统计分析" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="kdjImageView" fitHeight="167.0" fitWidth="784.0" pickOnBounds="true" preserveRatio="true" x="52.0" y="70.0" />
-                        <TextArea fx:id="kdjText" layoutX="52.0" layoutY="232.0" prefHeight="294.0" prefWidth="784.0" style="-fx-background-color: transparent;" />
+                        <Button fx:id="rsiMathButton" layoutX="738.0" layoutY="34.0" mnemonicParsing="false" text="查看统计公式" />
+                        <TabPane fx:id="rsiKLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="-3.0" prefHeight="558.0" prefWidth="454.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <tabs>
+                              <Tab fx:id="tab_rsiDayKLine" style="-fx-background-color: transparent;" text="日线" />
+                           </tabs>
+                        </TabPane>
+                        <TextArea fx:id="rsiText1" editable="false" layoutX="470.0" layoutY="79.0" prefHeight="144.0" prefWidth="400.0" style="-fx-background-color: transparent;" wrapText="true" />
+                        <TextArea fx:id="rsiText2" editable="false" layoutX="470.0" layoutY="221.0" prefHeight="153.0" prefWidth="400.0" style="-fx-background-color: transparent;" wrapText="true" />
+                        <TextArea fx:id="rsiText3" editable="false" layoutX="470.0" layoutY="356.0" prefHeight="178.0" prefWidth="400.0" style="-fx-background-color: transparent;" wrapText="true" />
                      </children>
                   </AnchorPane>
                </content>
@@ -61,13 +73,26 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="biasTitle" layoutX="52.0" layoutY="24.0" prefHeight="35.0" prefWidth="223.0" text="bias名称:股票名+bias分析" textFill="WHITE">
+                        <Label fx:id="biasTitle" layoutX="508.0" layoutY="29.0" prefHeight="35.0" prefWidth="223.0" text="BIAS统计分析" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="biasText" layoutX="52.0" layoutY="232.0" prefHeight="294.0" prefWidth="784.0" style="-fx-background-color: transparent;" />
-                        <ImageView fx:id="biasImageView" fitHeight="167.0" fitWidth="784.0" layoutX="52.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="biasMathButton" layoutX="742.0" layoutY="31.0" mnemonicParsing="false" text="查看统计公式" />
+                        <TabPane fx:id="biasKLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="-3.0" prefHeight="561.0" prefWidth="424.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <tabs>
+                              <Tab fx:id="tab_biasDayKLine" style="-fx-background-color: transparent;" text="日线" />
+                           </tabs>
+                        </TabPane>
+                        <TextArea fx:id="biasText1" editable="false" layoutX="450.0" layoutY="64.0" prefHeight="195.0" prefWidth="425.0" style="-fx-background-color: transparent;" wrapText="true" />
+                        <TextArea fx:id="biasText2" layoutX="450.0" layoutY="254.0" prefHeight="183.0" prefWidth="425.0" style="-fx-background-color: transparent;" wrapText="true" />
+                        <TextArea fx:id="biasText3" editable="false" layoutX="450.0" layoutY="429.0" prefHeight="114.0" prefWidth="425.0" style="-fx-background-color: transparent;" wrapText="true" />
                      </children>
                   </AnchorPane>
                </content>
@@ -76,13 +101,26 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="kdjTitle" layoutX="39.0" layoutY="33.0" prefHeight="35.0" prefWidth="223.0" text="kdj名称:股票名+kdj分析" textFill="WHITE">
+                        <Label fx:id="kdjTitle" layoutX="515.0" layoutY="39.0" prefHeight="35.0" prefWidth="223.0" text="KDJ统计分析" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="kdjImageView" fitHeight="167.0" fitWidth="784.0" pickOnBounds="true" preserveRatio="true" x="52.0" y="70.0" />
-                        <TextArea fx:id="kdjText" layoutX="52.0" layoutY="232.0" prefHeight="294.0" prefWidth="784.0" style="-fx-background-color: transparent;" />
+                        <Button fx:id="kdjMathButton" layoutX="747.0" layoutY="43.0" mnemonicParsing="false" text="查看统计公式" />
+                        <TabPane fx:id="biasKLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="-3.0" prefHeight="561.0" prefWidth="424.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <tabs>
+                              <Tab fx:id="tab_kdjDayKLine" style="-fx-background-color: transparent;" text="日线" />
+                           </tabs>
+                        </TabPane>
+                        <TextArea fx:id="kdjText1" editable="false" layoutX="460.0" layoutY="81.0" prefHeight="156.0" prefWidth="404.0" style="-fx-background-color: transparent;" wrapText="true" />
+                        <TextArea fx:id="kdjText2" editable="false" layoutX="460.0" layoutY="237.0" prefHeight="129.0" prefWidth="404.0" style="-fx-background-color: transparent;" wrapText="true" />
+                        <TextArea fx:id="kdjText3" editable="false" layoutX="460.0" layoutY="365.0" prefHeight="173.0" prefWidth="404.0" style="-fx-background-color: transparent;" wrapText="true" />
                      </children>
                   </AnchorPane>
                </content>

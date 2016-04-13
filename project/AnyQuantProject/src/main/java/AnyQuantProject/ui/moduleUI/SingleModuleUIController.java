@@ -22,10 +22,12 @@ import AnyQuantProject.util.method.SimpleIntegerProperty;
 import AnyQuantProject.util.method.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -34,6 +36,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 
@@ -64,9 +67,12 @@ public class SingleModuleUIController implements Initializable{
 	    @FXML
 	    private Button allModuleBtn,SingleModuleBtn;
 	    @FXML
-	    private Label guideLabel;
+	    private Label guideLabel,guideLabel2;
 	    @FXML
 	    private Text moduleChineseNameLabel,openLabel,highLabel,volumeLabel,yeaterLabel,lowLabel;
+	    
+	    @FXML
+	    private PieChart pieChart;
 		private AnchorPane modulePanel;
 		private ModuleUI_1Controller moduleUI_1Controller =null;
 	    int selectedIndex;
@@ -92,9 +98,19 @@ public class SingleModuleUIController implements Initializable{
 	  public void init(){
 		  initTable();
 		  InfoRect();
+		  chart();
 	  }
 	  
 	  public void InfoRect(){
+		  allModuleBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
+			  guideLabel2.setStyle("-fx-background-color: #71C671;");
+			});
+		  allModuleBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
+			  guideLabel2.setStyle("-fx-background-color: #ffffff;");
+			});
+		
+		  
+		  
 		  allIndustryName = industryBLService.getAllIndustries();
 		  guideLabel.setText("> "+industryName);
 		  
@@ -154,6 +170,42 @@ public class SingleModuleUIController implements Initializable{
 	}
 	
 	
+	public void chart(){
+		double[] value = new double[singleIndustryInfoList.size()];
+		for(int i=0;i<singleIndustryInfoList.size();i++){
+			value[i]=singleIndustryInfoList.get(i).getClose() -
+					singleIndustryInfoList.get(i).getOpen();
+		}
+		int up=0,down=0,no=0;
+		for (int i=0;i<singleIndustryInfoList.size();i++){
+			if(value[i]>0){
+				up++;
+			}
+			else if(value[i]<0){
+				down++;
+			}
+			else{
+				no++;
+			}
+		}
+
+			
+		 PieChart.Data  data1 = new PieChart.Data("上涨", up);
+//		 data1.getNode().setStyle( "-fx-pie-color: #0bb58a;");
+		 PieChart.Data  data2 = new PieChart.Data("下跌", down);
+	//	 data2.getNode().setStyle( "-fx-pie-color: #0bb58a;");
+		 PieChart.Data  data3 = new PieChart.Data("持平", no);
+	//	 data3.getNode().setStyle( "-fx-pie-color: #e2e4e3;");
+		pieChart.getData().add(data1);
+		pieChart.getData().add(data2);
+		pieChart.getData().add(data3);
+
+		pieChart.setId("行业个股涨跌分布");
+	    pieChart.setClockwise(false);
+		
+		
+		
+	}
 	@FXML
 	private void toReturnPane() {
 		Main.returnToModuleScene();
