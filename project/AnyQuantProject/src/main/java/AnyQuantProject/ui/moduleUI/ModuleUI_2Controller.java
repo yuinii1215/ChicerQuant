@@ -21,6 +21,7 @@ import AnyQuantProject.util.method.SimpleLongProperty;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -32,6 +33,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -40,6 +42,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
 
@@ -89,7 +92,7 @@ public class ModuleUI_2Controller implements Initializable{
 	
 	public void init(){
 		initTable();
-		
+		initChart();	
 	}
 	
 	public void initTable(){	
@@ -125,6 +128,49 @@ public class ModuleUI_2Controller implements Initializable{
 				 SinglePrizeColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                        cellData.getValue().getLeaderPrice()));
 
+				 ChgColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
+			            @Override
+			            public TableCell<IndustryInfo, Double> call(TableColumn<IndustryInfo, Double> arg0) {
+			                return new TableCell<IndustryInfo, Double>() {
+			                    ObservableValue ov1;
+
+			                    @Override
+			                    protected void updateItem(Double item, boolean empty) {
+			                        super.updateItem(item, empty);
+			                        if (this.getIndex() < industryInfoList.size()) {
+			                            if (!isEmpty()) {
+			                            	this.setTextFill(Color.RED);
+			                            }
+			                        }
+			                    }
+			                };
+			            }
+			        });
+				 
+				 PureColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Long>, TableCell<IndustryInfo, Long>>() {
+			            @Override
+			            public TableCell<IndustryInfo, Long> call(TableColumn<IndustryInfo, Long> arg0) {
+			                return new TableCell<IndustryInfo, Long>() {
+			                    ObservableValue ov1;
+
+			                    @Override
+			                    protected void updateItem(Long item, boolean empty) {
+			                        super.updateItem(item, empty);
+			                        if (this.getIndex() < industryInfoList.size()) {
+			                            if (!isEmpty()) {
+			                            	if(Double.parseDouble(this.getText())<0)
+			                            		this.setTextFill(Color.GREEN);
+			                            	}
+			                            	else if(Double.parseDouble(this.getText())>0)
+			                            		this.setTextFill(Color.RED);
+		                            		}
+			                    }
+			                };
+			            }
+			        });
+				 
+				 
+				 
 	}
 	
 	
@@ -153,8 +199,10 @@ public class ModuleUI_2Controller implements Initializable{
 		    			  }
 		    		  }
 		    	  }
+		      
+		      System.out.print("every industry sort up to down:");
 		      for(int i = 0 ; i < pures.length ;i ++) { 
-		    	  System.out.print("every industry sort up to down:"+industryName[i]+":"+pures[i]+" ");   
+		    	  System.out.print(industryName[i]+":"+pures[i]+" ");   
 		      }
 		 
 		//设置图

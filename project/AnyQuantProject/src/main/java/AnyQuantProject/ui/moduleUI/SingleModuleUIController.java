@@ -60,10 +60,6 @@ public class SingleModuleUIController implements Initializable{
 	    @FXML
 	    private TableColumn<Stock, Double> pbColumn;
 	    @FXML
-	    private TableColumn<Stock, Long> marketValueColumn;
-	    @FXML
-	    private TableColumn<Stock, Long> flowColumn;
-	    @FXML
 	    private TableView<Stock> table;
 	    @FXML
 	    private Button allModuleBtn,SingleModuleBtn;
@@ -106,11 +102,15 @@ public class SingleModuleUIController implements Initializable{
 		  for(int i=0;i< allIndustryName.size();i++){
 			  if(allIndustryName.get(i).equals(industryName)){
 				  moduleChineseNameLabel.setText(industryName);
-				  openLabel.setText("今开："+ industryPriceInfo.getOpen());
-				  highLabel.setText("最高："+ industryPriceInfo.getMax());
-				  volumeLabel.setText("成交量："+industryPriceInfo.getVolume());
-				  yeaterLabel.setText("昨收："+ industryPriceInfo.getClose());
-				  lowLabel.setText("最低："+ industryPriceInfo.getMin());
+				  double open = industryPriceInfo.getOpen();
+				  double max = industryPriceInfo.getMax();
+				  double close = industryPriceInfo.getClose();
+				  double min =industryPriceInfo.getMin();
+				  openLabel.setText("今开："+ String .format("%.3f",open));
+				  highLabel.setText("最高："+  String .format("%.3f",max));
+				  volumeLabel.setText("成交量："+ industryPriceInfo.getVolume());
+				  yeaterLabel.setText("昨收："+  String .format("%.3f",close));
+				  lowLabel.setText("最低："+  String .format("%.3f",min));
 			  }
 		  }
 		 
@@ -146,10 +146,6 @@ public class SingleModuleUIController implements Initializable{
 	                        cellData.getValue().getAdj_price()));
 	    volumeColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(
 	                cellData.getValue().getVolume()));
-	    marketValueColumn.setCellValueFactory(cellData -> new SimpleLongProperty(
-	                        cellData.getValue().getMarketvalue()));
-	    flowColumn.setCellValueFactory(cellData -> new SimpleLongProperty(
-	                cellData.getValue().getFlow()));
 	    peColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 	                cellData.getValue().getPe_ttm()));
 	    pbColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(

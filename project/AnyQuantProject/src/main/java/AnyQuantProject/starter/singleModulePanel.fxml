@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.media.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.paint.*?>
@@ -18,22 +19,20 @@
    <children>
       <TableView fx:id="table" blendMode="LIGHTEN" layoutY="241.0" prefHeight="359.0" prefWidth="900.0">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="79.0" text="股票代码" />
-            <TableColumn fx:id="chineseNameColumn" prefWidth="78.0" text="股票名称" />
-            <TableColumn fx:id="highColumn" prefWidth="75.0" text="最高价" />
-            <TableColumn fx:id="lowColumn" prefWidth="71.0" text="最低价" />
-            <TableColumn fx:id="openColumn" prefWidth="76.0" text="开盘价" />
-            <TableColumn fx:id="closeColumn" prefWidth="75.0" text="收盘价" />
-            <TableColumn fx:id="volumeColumn" prefWidth="88.0" text="成交量" />
-            <TableColumn fx:id="adj_priceColumn" prefWidth="87.0" text="后复权价" />
-            <TableColumn fx:id="peColumn" prefWidth="73.0" text="市盈率" />
-            <TableColumn fx:id="pbColumn" prefWidth="70.0" text="市净率" />
-            <TableColumn fx:id="marketValueColumn" prefWidth="50.0" text="市值" />
-            <TableColumn fx:id="flowColumn" prefWidth="73.0" resizable="false" text="流通" />
+          <TableColumn fx:id="idColumn" prefWidth="86.0" text="股票代码" />
+            <TableColumn fx:id="chineseNameColumn" prefWidth="84.0" text="股票名称" />
+            <TableColumn fx:id="highColumn" prefWidth="91.0" text="最高价" />
+            <TableColumn fx:id="lowColumn" prefWidth="100.0" text="最低价" />
+            <TableColumn fx:id="openColumn" prefWidth="85.0" text="开盘价" />
+            <TableColumn fx:id="closeColumn" prefWidth="92.0" text="收盘价" />
+            <TableColumn fx:id="volumeColumn" prefWidth="97.0" text="成交量" />
+            <TableColumn fx:id="adj_priceColumn" prefWidth="91.0" text="后复权价" />
+            <TableColumn fx:id="peColumn" prefWidth="90.0" text="市盈率" />
+            <TableColumn fx:id="pbColumn" prefWidth="83.0" text="市净率" />
         </columns>
       </TableView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#63e0a4" height="166.0" layoutX="620.0" layoutY="49.0" stroke="WHITE" strokeType="INSIDE" width="268.0" />
-      <VBox layoutX="631.0" layoutY="58.0" prefHeight="153.0" prefWidth="255.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#63e0a4" height="153.0" layoutX="633.0" layoutY="62.0" stroke="WHITE" strokeType="INSIDE" width="255.0" />
+      <VBox layoutX="639.0" layoutY="68.0" prefHeight="143.0" prefWidth="242.0">
          <children>
             <Text fx:id="moduleChineseNameLabel" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="港口航运">
                <font>
@@ -89,6 +88,16 @@
       <Button fx:id="allModuleBtn" layoutX="80.0" layoutY="6.0" mnemonicParsing="false" onAction="#toReturnPane" opacity="0.0" text="Button" />
       <Button layoutX="14.0" layoutY="6.0" mnemonicParsing="false" opacity="0.0" text="Button" />
       <Button fx:id="SingleModuleBtn" layoutX="142.0" layoutY="6.0" mnemonicParsing="false" opacity="0.0" text="Button" />
-      <AnchorPane layoutX="6.0" layoutY="28.0" prefHeight="207.0" prefWidth="599.0" />
+      <AnchorPane layoutX="7.0" layoutY="29.0" prefHeight="207.0" prefWidth="619.0">
+         <children>
+            <LineChart layoutX="-5.0" prefHeight="207.0" prefWidth="628.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children></AnchorPane>
    </children>
 </AnchorPane>
