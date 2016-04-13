@@ -50,7 +50,8 @@ public class IndustryName implements IndustryNameDATAService{
 //        List<String> list = i.getAllIndustries();
 //        i.getStockByIndustry("银行");
 
-        System.out.println(i.getIndustryName("600216"));
+        System.out.println(i.getAllIndustries());
+        System.out.println(i.getStockByIndustry("传媒"));
     }
 
     private IndustryName(){}
