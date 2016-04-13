@@ -45,6 +45,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		Calendar localStart=start;
 		
 		Calendar localEnd=end;
+		System.out.println("        "+CalendarHelper.getDate(localStart)+" "+CalendarHelper.getDate(localEnd));
 		refreshData(stockName);
 		List<KLineDataDTO> ans = oldStocks.stream()
 				.filter(st->st.getDateInCalendar().before(localEnd)&&st.getDateInCalendar().after(localStart))
@@ -137,8 +138,10 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		if (end==null) {
 			end=Calendar.getInstance();
 		}
-		start.add(Calendar.DAY_OF_MONTH, -aver-2);
-		Calendar localStart=start;
+		Calendar temp=Calendar.getInstance();
+		temp.setTimeInMillis(start.getTimeInMillis());
+		temp.add(Calendar.DAY_OF_MONTH, -aver-2);
+		Calendar localStart=temp;
 		Calendar localEnd=end;
 		refreshData(stockName);
 		List<KLineDataDTO> ans = oldStocks.stream()

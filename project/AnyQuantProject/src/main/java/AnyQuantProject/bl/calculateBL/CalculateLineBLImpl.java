@@ -1,5 +1,6 @@
 package AnyQuantProject.bl.calculateBL;
 
+import java.lang.invoke.ConstantCallSite;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -62,8 +63,10 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		if (!Checker.checkStringNotNull(name)) {
 			return new JFreeLineData();
 		}
-		min.add(Calendar.DAY_OF_MONTH, -6);
-		List<Stock> data=this.getData(name,min,max);
+		Calendar temp=Calendar.getInstance();
+		temp.setTimeInMillis(min.getTimeInMillis());
+		temp.add(Calendar.DAY_OF_MONTH, -6);
+		List<Stock> data=this.getData(name,temp,max);
 		String title=data.get(0).getChinese()+"相对强弱指数折线图";
 		// 
 		List<DataCell> rsi1=RSI.calculateRSI(data, 6);
@@ -81,8 +84,10 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		if (!Checker.checkStringNotNull(name)) {
 			return new JFreeLineData();
 		}
-		minTime.add(Calendar.DAY_OF_MONTH, -24);
-		List<Stock> data=this.getData(name,minTime,maxTime);
+		Calendar temp=Calendar.getInstance();
+		temp.setTimeInMillis(minTime.getTimeInMillis());
+		temp.add(Calendar.DAY_OF_MONTH, -24);
+		List<Stock> data=this.getData(name,temp,maxTime);
 		String title=data.get(0).getChinese()+"乖离率折线图";
 		// 
 		List<DataCell> bias1=BIAS.calculateBIAS(data, 6);
@@ -100,8 +105,10 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		if (!Checker.checkStringNotNull(name)) {
 			return new JFreeLineData();
 		}
-		minTime.add(Calendar.DAY_OF_MONTH, -7);
-		List<Stock> data=this.getData(name,minTime,maxTime);
+		Calendar temp=Calendar.getInstance();
+		temp.setTimeInMillis(minTime.getTimeInMillis());
+		temp.add(Calendar.DAY_OF_MONTH, -7);
+		List<Stock> data=this.getData(name,temp,maxTime);
 		String title=data.get(0).getChinese()+"KDJ";
 		//
 		List<DataCell> rsi=KDJ.calculateRSI(data, 6);
@@ -139,11 +146,18 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		data.stream()
 		.map(st->new XYChart.Data(st.getDate(),st.getClose()))
 		.forEach(d->xSeries.getData().add(d));
-		double max=data.stream().max((s1,s2)->(int)(s1.getClose()-s2.getClose())).get().getClose();
-		double min=data.stream().min((s1,s2)->(int)(s1.getClose()-s2.getClose())).get().getClose();
-		double low=min-(max-min)*0.2;
-		double high=max+(max-min)*0.2;
-		NumberAxis yAxis=new NumberAxis(low,high,0.01);
+		try {
+			double max=data.stream().max((s1,s2)->(int)(s1.getClose()-s2.getClose())).get().getClose();
+			double min=data.stream().min((s1,s2)->(int)(s1.getClose()-s2.getClose())).get().getClose();
+			double low=min-(max-min)*0.2;
+			double high=max+(max-min)*0.2;
+			NumberAxis yAxis=new NumberAxis(low,high,0.01);
+			return new LineChartData(title, xAxis, yAxis, xSeries);
+		} catch (Exception e) {
+			NumberAxis yAxis=new NumberAxis();
+			return new LineChartData(title, xAxis, yAxis);
+		}
+		
 //		XYChart.Series<String,Double> percentSeries=new XYChart.Series();
 //		List<DataCell> percent=new ArrayList<>(data.size());
 //		//calculate percent
@@ -162,22 +176,19 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 //		data.stream()
 //		.map(st->new XYChart.Data(st.getDate(),st.getVolume()))
 //		.forEach(d->volume.getData().add(d));
-		return new LineChartData(title, xAxis, yAxis, xSeries);
+		
 	}
 
 	@Override
 	public JFreeLineData drawMACD(String name,Calendar minTime,Calendar maxTime) {
-                Calendar tempMinTime=Calendar.getInstance();
-                tempMinTime=minTime;
-                System.out.println("4444444444minTime is:"+tempMinTime.getTime());
+       Calendar tempMinTime=Calendar.getInstance();
+       tempMinTime.setTimeInMillis(minTime.getTimeInMillis());
 		if (!Checker.checkStringNotNull(name)) {
 			return new JFreeLineData();
 		}
-		minTime.add(Calendar.DAY_OF_MONTH, -50);
-		List<Stock> data=this.getData(name,minTime,maxTime);
+		tempMinTime.add(Calendar.DAY_OF_MONTH, -50);
+		List<Stock> data=this.getData(name,tempMinTime,maxTime);
                 
-                minTime.add(Calendar.DAY_OF_MONTH, 50);
-                 System.out.println("55555555555minTime is:"+minTime.getTime());
                 
 		String title=data.get(0).getChinese()+"MACD";
 		//

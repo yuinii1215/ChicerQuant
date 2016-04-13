@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import AnyQuantProject.bl.factoryBL.IndustryBLFactory;
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.blService.industryBLService.IndustryBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
@@ -135,7 +136,13 @@ public class IndustryBLImpl implements IndustryBLService {
 			int f2=industryNameDATAService.getStockByIndustry(s2).size();
 			return f2-f1;
 		}).collect(Collectors.toList());
+		ans.stream().forEach(s->System.out.println(s));
 		return ans;
+	}
+	public static void main(String[] args) {
+		IndustryBLService industryBLService=IndustryBLFactory.getIndustryBLService();
+		IndustryInfo industryInfo=industryBLService.getIndustryInfo("传媒");
+		System.out.println(industryInfo==null);
 	}
 
 	@Override
@@ -175,8 +182,7 @@ public class IndustryBLImpl implements IndustryBLService {
 		//
 		//
 		double c=todaydata.get(0).getClose();
-		if(todaydata.get(0).getClose()==0)
-			return new IndustryInfo();
+		
 //		long today=todaydata.stream().mapToLong(s->s.getMarketvalue()).sum();
 		double todaySum=todaydata.stream().mapToDouble(s->s.getClose()).sum();
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
@@ -193,7 +199,6 @@ public class IndustryBLImpl implements IndustryBLService {
 		double pure=0;
 		for (int i = 0; i < yesterdata.size(); i++) {
 			pure+=turnover.get(i)*todaydata.get(i).getClose();
-			System.out.println(turnover.get(i)+" "+todaydata.get(i).getClose());
 		}
 		//leader
 		double max=-100;
