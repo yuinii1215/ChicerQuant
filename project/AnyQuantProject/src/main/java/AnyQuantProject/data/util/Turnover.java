@@ -5,6 +5,7 @@ package AnyQuantProject.data.util;
  */
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.commons.beanutils.converters.IntegerConverter;
 import org.apache.commons.codec.EncoderException;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -34,7 +35,7 @@ public class Turnover {
        System.out.println(getShares("sh600216"));
     }
 
-    public static String getShares(String name) throws IOException{
+    public static String getShares(String name) {
         double totalShares = 0;
         double nonrestFloatShares = 0;
         String result = new String();
@@ -43,17 +44,34 @@ public class Turnover {
         HttpGet httpGet = new HttpGet(url);
         //在header里加入 Bearer {token}，添加认证的token，并执行get请求获取json数据
         httpGet.addHeader("Authorization", "Bearer " + ACCESS_TOKEN);
-        CloseableHttpResponse response = httpClient.execute(httpGet);
-        HttpEntity entity = response.getEntity();
-        String body = EntityUtils.toString(entity);
-        System.out.println(body);
+        CloseableHttpResponse response = null;
+        String body = new String();
+        try {
+            response = httpClient.execute(httpGet);
+            HttpEntity entity = response.getEntity();
+            body = EntityUtils.toString(entity);
+            System.out.println(body);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         //解析json格式的数据得到行业名字
         JSONObject jo = JSONObject.fromObject(body);
         JSONArray arr = JSONArray.fromObject(jo.get("data"));
         if (! arr.get(0).getClass().equals(net.sf.json.JSONNull.class)) {
-            totalShares = (Integer) ((JSONObject) arr.get(0)).get("totalShares");
-            nonrestFloatShares = (Integer) ((JSONObject) arr.get(0)).get("nonrestFloatShares");
+            System.out.println(((JSONObject) arr.get(0)).get("totalShares").getClass());
+            try {
+                totalShares = (long) ((JSONObject) arr.get(0)).get("totalShares");
+            } catch (ClassCastException e) {
+                totalShares = (Integer) ((JSONObject) arr.get(0)).get("totalShares");
+            }
+
+            try {
+                nonrestFloatShares = (long) ((JSONObject) arr.get(0)).get("nonrestFloatShares");
+            } catch (ClassCastException e) {
+                nonrestFloatShares = (Integer) ((JSONObject) arr.get(0)).get("nonrestFloatShares");
+            }
+
         }
         result = totalShares + " " + nonrestFloatShares;
         return result;

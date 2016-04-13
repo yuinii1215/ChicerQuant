@@ -77,7 +77,7 @@ public class IndustryName implements IndustryNameDATAService{
 
     private Map<String, String> readIndustryFile() {
         Map<String, String> list = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
-        if (list == null) {
+        while (list == null) {
             iniIndustry();
             list = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
         }
