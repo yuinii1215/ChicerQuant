@@ -566,7 +566,10 @@ public class SingleStockInfoUIController implements Initializable {
             calcuList2 = kdjLineData[1];//"D"Line
             calcuList3 = kdjLineData[2];//"J"Line      
         }else if(calcuLineType == CalcuLineType.TYPE_RSI){
-//            rsiLineData=calculateLineBlImpl.drawRSI(stockName,minTime,maxTime).cells;           
+            rsiLineData=calculateLineBlImpl.drawRSI(stockName,minTime,maxTime).cells;  
+            calcuList1 = rsiLineData[0];//"RSI"Line
+            calcuList2 = rsiLineData[1];//"RSI2"Line
+            calcuList3 = rsiLineData[2];//"RSI3"Line    
         }else if(calcuLineType == CalcuLineType.TYPE_BIAS){
             biasLineData=calculateLineBlImpl.drawBIAS(stockName,minTime,maxTime).cells;
             calcuList1 = biasLineData[0];//"6"Line
