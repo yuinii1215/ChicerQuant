@@ -86,26 +86,20 @@ public class SingleStockDATA implements SingleStockDATAService, TurnoverDATAServ
 	@Override
 	public double getTotalShares(String name) {
 		double totalShares = 0;
-		try {
-			String shares = Turnover.getShares(name);
-			String[] strs = shares.split(" ");
-			totalShares = Double.parseDouble(strs[0]);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String shares = Turnover.getShares(name);
+		String[] strs = shares.split(" ");
+		totalShares = Double.parseDouble(strs[0]);
+
 		return totalShares;
 	}
 
 	@Override
 	public double getNonrestFloatShares(String name) {
 		double nonrestFloatShares = 0;
-		try {
-			String shares = Turnover.getShares(name);
-			String[] strs = shares.split(" ");
-			nonrestFloatShares = Double.parseDouble(strs[1]);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String shares = Turnover.getShares(name);
+		String[] strs = shares.split(" ");
+		nonrestFloatShares = Double.parseDouble(strs[1]);
+
 		return nonrestFloatShares;
 	}
 
