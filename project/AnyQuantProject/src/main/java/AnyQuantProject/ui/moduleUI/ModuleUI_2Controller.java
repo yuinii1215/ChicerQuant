@@ -216,10 +216,8 @@ public class ModuleUI_2Controller implements Initializable{
 		    		  }
 		    	  }
 
-		      
-		    barXAxis=new CategoryAxis();
-		  	barYAxis=new NumberAxis();
 		  	barChart.setLegendVisible(false);
+
 
 		//设置图
 		barYAxis.setLabel("净额");
@@ -242,7 +240,8 @@ public class ModuleUI_2Controller implements Initializable{
 //					.add(new XYChart.Data(
 //							industryName[industryName.length-i-1],
 //							pures[pures.length-i-1]));
-//				}
+//		
+//			}
 //			}
 //		
 //		}));

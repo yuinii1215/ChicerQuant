@@ -31,8 +31,8 @@
             <TableColumn fx:id="pbColumn" prefWidth="83.0" text="市净率" />
         </columns>
       </TableView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#63e0a4" height="153.0" layoutX="31.0" layoutY="57.0" stroke="WHITE" strokeType="INSIDE" width="255.0" />
-      <VBox layoutX="40.0" layoutY="62.0" prefHeight="143.0" prefWidth="242.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#71c671" height="153.0" layoutX="21.0" layoutY="78.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="274.0" />
+      <VBox layoutX="25.0" layoutY="81.0" prefHeight="143.0" prefWidth="259.0">
          <children>
             <Text fx:id="moduleChineseNameLabel" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="港口航运">
                <font>
@@ -88,9 +88,14 @@
       <Button fx:id="allModuleBtn" layoutX="80.0" layoutY="6.0" mnemonicParsing="false" onAction="#toReturnPane" opacity="0.0" text="Button" />
       <Button layoutX="14.0" layoutY="6.0" mnemonicParsing="false" opacity="0.0" text="Button" />
       <Button fx:id="SingleModuleBtn" layoutX="142.0" layoutY="6.0" mnemonicParsing="false" opacity="0.0" text="Button" />
-      <AnchorPane layoutX="24.0" layoutY="263.0" prefHeight="238.0" prefWidth="270.0">
+      <AnchorPane layoutX="20.0" layoutY="263.0" prefHeight="291.0" prefWidth="270.0">
          <children>
-            <PieChart fx:id="pieChart" layoutX="11.0" layoutY="14.0" prefHeight="189.0" prefWidth="249.0" />
+            <PieChart fx:id="pieChart" layoutX="-4.0" layoutY="58.0" prefHeight="236.0" prefWidth="278.0" />
+            <Label layoutX="63.0" layoutY="30.0" text="行业个股涨跌分布" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
    </children>
 </AnchorPane>

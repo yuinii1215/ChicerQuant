@@ -39,9 +39,6 @@ import AnyQuantProject.ui.moduleUI.ModuleUI_1Controller;
 import AnyQuantProject.ui.moduleUI.SingleModuleUIController;
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
 import AnyQuantProject.util.constant.R;
-
-
-
 /**
  *
  * @author QiHan
