@@ -68,7 +68,7 @@ public class ModuleUI_2Controller implements Initializable{
     @FXML
     private TableView<IndustryInfo> table;
 	@FXML
-	private BarChart barChart;
+	private BarChart<String,Number> barChart;
 	@FXML
 	private CategoryAxis barXAxis;
 	@FXML
@@ -101,6 +101,7 @@ public class ModuleUI_2Controller implements Initializable{
 		    for(int i=0;i< allIndustryName.size();i++){
 		    	System.out.println(allIndustryName.get(i));
 		    	industryInfo= industryBLService.getIndustryInfo(allIndustryName.get(i));
+		    	System.out.println("...stockName..."+allIndustryName.get(i)+"...");
 		    	industryInfoList.add(i, industryInfo);
 		    	System.out.println("            "+industryInfo.getIndustry());
 		    }
@@ -130,48 +131,56 @@ public class ModuleUI_2Controller implements Initializable{
 				 SinglePrizeColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                        cellData.getValue().getLeaderPrice()));
 
-				 ChgColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
-			            @Override
-			            public TableCell<IndustryInfo, Double> call(TableColumn<IndustryInfo, Double> arg0) {
-			                return new TableCell<IndustryInfo, Double>() {
-			                    ObservableValue ov1;
-
-			                    @Override
-			                    protected void updateItem(Double item, boolean empty) {
-			                        super.updateItem(item, empty);
-			                        if (this.getIndex() < industryInfoList.size()) {
-			                            if (!isEmpty()) {
-			                            	this.setTextFill(Color.RED);
-			                            }
-			                        }
-			                    }
-			                };
-			            }
-			        });
+//				 ChgColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
+//			            @Override
+//			            public TableCell<IndustryInfo, Double> call(TableColumn<IndustryInfo, Double> arg0) {
+//			                return new TableCell<IndustryInfo, Double>() {
+//			                    ObservableValue ov1;
+//
+//			                    @Override
+//			                    protected void updateItem(Double item, boolean empty) {
+//			                        super.updateItem(item, empty);
+//			                        if (this.getIndex() < industryInfoList.size()) {
+//			                        	  if (!isEmpty()) {
+//			                        		  String t=this.getText();
+//			                        		  System.out.println(t);
+//			                        		  double v=Double.parseDouble(t);
+//			                        		  
+//			                        		  if(v<0)
+//				                            		this.setTextFill(Color.GREEN);
+//				                            	else if(Double.parseDouble(this.getText())>0)
+//				                            		this.setTextFill(Color.RED);
+//				                            	  setText(item + "");
+//			                            }
+//			                        }
+//			                    }
+//			                };
+//			            }
+//			        });
 				 
-				 PureColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
-			            @Override
-			            public TableCell<IndustryInfo,Double> call(TableColumn<IndustryInfo, Double> arg0) {
-			                return new TableCell<IndustryInfo, Double>() {
-			                    ObservableValue ov1;
-
-			                    @Override
-			                    protected void updateItem(Double item, boolean empty) {
-			                        super.updateItem(item, empty);
-			                        if (this.getIndex() < industryInfoList.size()) {
-			                            if (this.getText()!=null) {
-			                            	if(Double.parseDouble(this.getText())<0)
-			                            		this.setTextFill(Color.GREEN);
-			                            	else if(Double.parseDouble(this.getText())>0)
-			                            		this.setTextFill(Color.RED);
-		                            		}
-			                            }
-			                            	
-			                    	}
-			                };
-			            }
-			        });
-				 
+//				 PureColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
+//			            @Override
+//			            public TableCell<IndustryInfo,Double> call(TableColumn<IndustryInfo, Double> arg0) {
+//			                return new TableCell<IndustryInfo, Double>() {
+//			                    ObservableValue ov1;
+//
+//			                    @Override
+//			                    protected void updateItem(Double item, boolean empty) {
+//			                        super.updateItem(item, empty);
+//			                        if (this.getIndex() < industryInfoList.size()) {
+//			                       	  if (!isEmpty()) {
+//			                            	if(Double.parseDouble(this.getText())<0)
+//			                            		this.setTextFill(Color.GREEN);
+//			                            	else if(Double.parseDouble(this.getText())>0)
+//			                            		this.setTextFill(Color.RED);
+//			                            	  setText(item + "");
+//			                            }
+//			                         }
+//			                    }
+//			                };
+//			            }
+//			        });
+//				 
 				 
 				 
 	}
@@ -187,8 +196,11 @@ public class ModuleUI_2Controller implements Initializable{
 		Double[] pures = new Double[allIndustryName.size()];
 		for(int i=0;i<allIndustryName.size();i++){
 			pures[i] = industryInfoList.get(i).getPure();
-			industryName[i] = industryInfoList.get(i).getIndustry();
+			pures[i] = Double.parseDouble(String .format("%.3f",pures[i]));
+			industryName[i] = industryInfoList.get(i).getIndustry(); 
 		}
+
+
 		
 			/**  *冒泡排序从大到小 * */ 
 		      for(int i=0 ;i < pures.length ; i++) {  
@@ -204,37 +216,48 @@ public class ModuleUI_2Controller implements Initializable{
 		    		  }
 		    	  }
 		      
-		 
+
+
+		      System.out.print("every industry sort up to down:");
+		      for(int i = 0 ; i < pures.length ;i ++) { 
+		    	  System.out.print(industryName[i]+":"+pures[i]+" ");   
+		      }
+		      
+		    barXAxis=new CategoryAxis();
+		  	barYAxis=new NumberAxis();
+
 		//设置图
-		barChart = new BarChart<String,Number>(barXAxis,barYAxis); 
 		barYAxis.setLabel("净额");
 		
 		XYChart.Series series = new XYChart.Series();
 		
-		Timeline tl = new Timeline () ;
-		tl.getKeyFrames().add(new KeyFrame(Duration.millis(500),
-				new EventHandler <ActionEvent> () {
-			@Override
-			public void handle ( ActionEvent actionEvent ) {
-				for (int i=0;i<10;i++){
-					series.getData().add(new XYChart.Data(industryName[i],pures[i]));
-				}
-				for(int i=0;i<10;i++){
-						System.out.println("getData is null"+series.getData().size());
-					
-					series
-					.getData()
-					.add(new XYChart.Data(
-							industryName[industryName.length-i-1],
-							pures[pures.length-i-1]));
-				}
-			}
 		
-		}));
-
-		tl.setCycleCount (1) ;
-		tl.play();
-		barChart.getData().addAll(series);
+//		Timeline tl = new Timeline () ;
+//		tl.getKeyFrames().add(new KeyFrame(Duration.millis(500),
+//				new EventHandler <ActionEvent> () {
+//			@Override
+//			public void handle ( ActionEvent actionEvent ) {
+//				for (int i=0;i<10;i++){
+//					
+//					series.getData().add(new XYChart.Data(industryName[i],pures[i]));
+//				}
+//				for(int i=0;i<10;i++){
+//					series
+//					.getData()
+//					.add(new XYChart.Data(
+//							industryName[industryName.length-i-1],
+//							pures[pures.length-i-1]));
+//				}
+//			}
+//		
+//		}));
+//
+//		tl.setCycleCount (1) ;
+//		tl.play();
+		for (int i = 0; i < pures.length; i++) {
+			series.getData().add(new XYChart.Data(industryName[i],pures[i]));
+		}
+		barChart.getData().add(series);
 	}
 	
 	 public class TableRowControl<T> extends TableRow<T> {
