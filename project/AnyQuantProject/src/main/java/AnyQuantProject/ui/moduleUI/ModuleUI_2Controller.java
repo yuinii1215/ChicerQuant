@@ -215,8 +215,7 @@ public class ModuleUI_2Controller implements Initializable{
 		    			  }
 		    		  }
 		    	  }
-		      
-<<<<<<< HEAD
+
 
 		      System.out.print("every industry sort up to down:");
 		      for(int i = 0 ; i < pures.length ;i ++) { 
@@ -225,8 +224,6 @@ public class ModuleUI_2Controller implements Initializable{
 		      
 		    barXAxis=new CategoryAxis();
 		  	barYAxis=new NumberAxis();
-=======
->>>>>>> a725cd74a255308d54df7b0cdf1968a2fb33806f
 		//设置图
 		barYAxis.setLabel("净额");
 		
@@ -248,7 +245,8 @@ public class ModuleUI_2Controller implements Initializable{
 //					.add(new XYChart.Data(
 //							industryName[industryName.length-i-1],
 //							pures[pures.length-i-1]));
-//				}
+//		
+//			}
 //			}
 //		
 //		}));
