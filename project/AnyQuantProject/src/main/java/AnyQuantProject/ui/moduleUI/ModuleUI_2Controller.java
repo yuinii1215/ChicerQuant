@@ -21,6 +21,7 @@ import AnyQuantProject.util.method.SimpleLongProperty;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -32,6 +33,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -40,6 +42,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
 
@@ -53,7 +56,7 @@ public class ModuleUI_2Controller implements Initializable{
     @FXML
     private TableColumn<IndustryInfo, Double> ChgColumn;
     @FXML
-    private TableColumn<IndustryInfo, Long> PureColumn;
+    private TableColumn<IndustryInfo, Double> PureColumn;
     @FXML
     private TableColumn<IndustryInfo, Double> SumColumn;
     @FXML
@@ -89,7 +92,7 @@ public class ModuleUI_2Controller implements Initializable{
 	
 	public void init(){
 		initTable();
-		
+		initChart();	
 	}
 	
 	public void initTable(){	
@@ -114,7 +117,7 @@ public class ModuleUI_2Controller implements Initializable{
 			                cellData.getValue().getIndustry()));
 				 ChgColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                cellData.getValue().getUpdown()));
-				 PureColumn.setCellValueFactory(cellData -> new SimpleLongProperty(
+				 PureColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                cellData.getValue().getPure()));
 				 SumColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                cellData.getValue().getCompanySum()));
@@ -125,6 +128,49 @@ public class ModuleUI_2Controller implements Initializable{
 				 SinglePrizeColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                        cellData.getValue().getLeaderPrice()));
 
+				 ChgColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
+			            @Override
+			            public TableCell<IndustryInfo, Double> call(TableColumn<IndustryInfo, Double> arg0) {
+			                return new TableCell<IndustryInfo, Double>() {
+			                    ObservableValue ov1;
+
+			                    @Override
+			                    protected void updateItem(Double item, boolean empty) {
+			                        super.updateItem(item, empty);
+			                        if (this.getIndex() < industryInfoList.size()) {
+			                            if (!isEmpty()) {
+			                            	this.setTextFill(Color.RED);
+			                            }
+			                        }
+			                    }
+			                };
+			            }
+			        });
+				 
+				 PureColumn.setCellFactory(new Callback<TableColumn<IndustryInfo, Double>, TableCell<IndustryInfo, Double>>() {
+			            @Override
+			            public TableCell<IndustryInfo,Double> call(TableColumn<IndustryInfo, Double> arg0) {
+			                return new TableCell<IndustryInfo, Double>() {
+			                    ObservableValue ov1;
+
+			                    @Override
+			                    protected void updateItem(Double item, boolean empty) {
+			                        super.updateItem(item, empty);
+			                        if (this.getIndex() < industryInfoList.size()) {
+			                            if (!isEmpty()) {
+			                            	if(Double.parseDouble(this.getText())<0)
+			                            		this.setTextFill(Color.GREEN);
+			                            	}
+			                            	else if(Double.parseDouble(this.getText())>0)
+			                            		this.setTextFill(Color.RED);
+		                            		}
+			                    	}
+			                };
+			            }
+			        });
+				 
+				 
+				 
 	}
 	
 	
@@ -135,7 +181,7 @@ public class ModuleUI_2Controller implements Initializable{
 		//将净额按从大到小排序
 		allIndustryName = industryBLService.getAllIndustries();
 		String[] industryName = new String[allIndustryName.size()]; 
-		Long[] pures = new Long[allIndustryName.size()];
+		Double[] pures = new Double[allIndustryName.size()];
 		for(int i=0;i<allIndustryName.size();i++){
 			pures[i] = industryInfoList.get(i).getPure();
 			industryName[i] = industryInfoList.get(i).getIndustry();
@@ -144,7 +190,7 @@ public class ModuleUI_2Controller implements Initializable{
 		      for(int i=0 ;i < pures.length ; i++) {  
 		    	  for(int j=i+1 ;j < pures.length ; j++) {  
 		    		  if(pures[i] < pures[j]) {
-		    			  Long temp = pures[i];
+		    			  Double temp = pures[i];
 		    			  pures[i] = pures[j];
 		    			  pures[j] = temp;  
 		    			  String temp1 = industryName[i];
@@ -153,8 +199,10 @@ public class ModuleUI_2Controller implements Initializable{
 		    			  }
 		    		  }
 		    	  }
+		      
+		      System.out.print("every industry sort up to down:");
 		      for(int i = 0 ; i < pures.length ;i ++) { 
-		    	  System.out.print("every industry sort up to down:"+industryName[i]+":"+pures[i]+" ");   
+		    	  System.out.print(industryName[i]+":"+pures[i]+" ");   
 		      }
 		 
 		//设置图

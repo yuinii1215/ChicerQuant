@@ -1,8 +1,11 @@
 package AnyQuantProject.bl.industryBL;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
@@ -29,7 +32,96 @@ import AnyQuantProject.util.method.IOHelper;
 */
 
 public class IndustryBLImpl implements IndustryBLService {
-
+	
+	private Map<String, Stock> yesterday;
+	private Map<String, Double> turnOver;
+	private Map<String, Double> shares;
+	private Map<String, Double> nonRest;
+	private boolean flag=false;
+	private boolean turnFlag=false;
+	private boolean sharesFlag=false;
+	private boolean nonRestFlag=false;
+	public IndustryBLImpl() {
+		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
+		Calendar date= Calendar.getInstance();
+		date.add(Calendar.DAY_OF_MONTH,-2);
+		List<Stock> stocks=null;
+		try {
+		
+			stocks=(List<Stock>) IOHelper.read(R.CachePath, CalendarHelper.getDate(date));
+			if (stocks==null) {
+				throw new NullPointerException();
+			}
+		} catch (Exception e) {
+			List<String> name=(List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
+			if (name!=null) {
+				stocks=name.stream().map(s->singleStockDATAService.getOperation(s, date)).collect(Collectors.toList());
+				IOHelper.save(R.CachePath, CalendarHelper.getDate(date), (Serializable)stocks);
+			}
+		}
+		finally {
+			if (stocks!=null) {
+				flag=true;
+				yesterday=stocks.stream().collect(Collectors.toMap(Stock::getName, (s)->(s)));
+				
+			}
+		}
+		//
+		TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
+		try {
+			List<String> name=(List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
+			date.add(Calendar.DAY_OF_MONTH, 1);
+			turnOver=(Map<String, Double>)IOHelper.read(R.CachePath, CalendarHelper.getDate(date)+R.TurnOver);
+			if (turnOver==null) {
+				throw new NullPointerException();
+			}
+		} catch (Exception e) {
+			List<String> name=(List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
+			turnOver=new HashMap<>(name.size());
+			if (name!=null) {
+				name.stream().forEach(s->turnOver.put(s, turnoverDATAService.getTurnoverValue(s)));
+			}
+		}
+		finally {
+			turnFlag=true;
+			IOHelper.save(R.CachePath, CalendarHelper.getDate(date)+R.TurnOver, (Serializable)turnOver);
+		}
+		//
+		try {
+			shares=(Map<String, Double>)IOHelper.read(R.CachePath, CalendarHelper.getDate(date)+R.SHARES);
+			if (shares==null) {
+				throw new NullPointerException();
+			}
+		} catch (Exception e) {
+			List<String> name=(List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
+			shares=new HashMap<>(name.size());
+			if (name!=null) {
+				name.stream().forEach(s->turnOver.put(s, turnoverDATAService.getTotalShares(s)));
+			}
+		}
+		finally {
+			sharesFlag=true;
+			IOHelper.save(R.CachePath, CalendarHelper.getDate(date)+R.SHARES, (Serializable)shares);
+		}
+		//
+		try {
+			nonRest=(Map<String, Double>)IOHelper.read(R.CachePath, CalendarHelper.getDate(date)+R.NonRest);
+			if (nonRest==null) {
+				throw new NullPointerException();
+			}
+		} catch (Exception e) {
+			List<String> name=(List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
+			nonRest=new HashMap<>(name.size());
+			if (name!=null) {
+				name.stream().forEach(s->nonRest.put(s, turnoverDATAService.getNonrestFloatShares(s)));
+			}
+		}
+		finally {
+			nonRestFlag=true;
+			IOHelper.save(R.CachePath, CalendarHelper.getDate(date)+R.NonRest, (Serializable)nonRest);
+		}
+	}
 
 	
 	@Override
@@ -85,17 +177,24 @@ public class IndustryBLImpl implements IndustryBLService {
 		double c=todaydata.get(0).getClose();
 		if(todaydata.get(0).getClose()==0)
 			return new IndustryInfo();
-		long today=todaydata.stream().mapToLong(s->s.getMarketvalue()).sum();
+//		long today=todaydata.stream().mapToLong(s->s.getMarketvalue()).sum();
+		double todaySum=todaydata.stream().mapToDouble(s->s.getClose()).sum();
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		
 		//get yesterday
-		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
-		Calendar date= CalendarHelper.convert2Calendar(todaydata.get(0).getDate());
-		date.add(Calendar.DAY_OF_MONTH,-1);
-		List<Stock> yesterdata=todaydata.stream()
-				.map(s->singleStockDATAService.getOperation(s.getName(),date))
+		List<Double> turnover=todaydata.stream()
+				.map(s->getTurnOver(s.getName()))
 				.collect(Collectors.toList());
-		long yesterday=yesterdata.stream().mapToLong(s->s.getMarketvalue()).sum();
+		
+		List<Stock> yesterdata=todaydata.stream()
+				.map(s->getYesterday(s.getName()))
+				.collect(Collectors.toList());
+		double yesterSum=yesterdata.stream().mapToDouble(s->s.getClose()).sum();
+		double pure=0;
+		for (int i = 0; i < yesterdata.size(); i++) {
+			pure+=turnover.get(i)*todaydata.get(i).getClose();
+			System.out.println(turnover.get(i)+" "+todaydata.get(i).getClose());
+		}
 		//leader
 		double max=-100;
 		String name="";
@@ -115,17 +214,14 @@ public class IndustryBLImpl implements IndustryBLService {
 			}
 		}
 		//get vol
-		TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
-		List<Double> turnover=todaydata.stream()
-				.map(s->turnoverDATAService.getTurnoverValue(s.getName()))
-				.collect(Collectors.toList());
+		
 
 		int companySum=todaydata.size();
 
 		double total=turnover.stream().mapToDouble(s->s).sum();
 		//get guben
 		List<Double> guben=todaydata.stream()
-				.map(s->turnoverDATAService.getNonrestFloatShares(s.getName()))
+				.map(s->getNonRest(s.getName()))
 				.collect(Collectors.toList());
 		double totalGuben=guben.stream().mapToDouble(s->s).sum();
 		double totalValue=0;
@@ -137,8 +233,8 @@ public class IndustryBLImpl implements IndustryBLService {
 		
 
 		IndustryInfo ans=new IndustryInfo(industry);
-		ans.setPure(today);
-		ans.setUpdown((double)(today-yesterday)/yesterday);
+		ans.setPure(pure);
+		ans.setUpdown((double)(todaySum-yesterSum)/yesterSum);
 		ans.setTotal(total);
 		ans.setCompanySum(companySum);
 		ans.setPrice(price);
@@ -166,10 +262,9 @@ public class IndustryBLImpl implements IndustryBLService {
 		if(c==0)
 			return new IndustryPriceInfo();
 		//
-		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
-		TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
+		
 		List<Double> guben=todaydata.stream()
-				.map(s->turnoverDATAService.getNonrestFloatShares(s.getName()))
+				.map(s->getNonRest(s.getName()))
 				.collect(Collectors.toList());
 		double totalGuben=guben.stream().mapToDouble(s->s).sum();
 		double open=0;
@@ -199,6 +294,46 @@ public class IndustryBLImpl implements IndustryBLService {
 		return ans;
 	}
 
-
-
+	private Stock getYesterday(String name){
+		if (flag) {
+			return yesterday.get(name);
+		}
+		else {
+			FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+			SingleStockDATAService service=factoryDATAService.getSingleStockDATAService();
+			Calendar date= Calendar.getInstance();
+			date.add(Calendar.DAY_OF_MONTH,-2);
+			return service.getOperation(name, date);
+		}
+	}
+	private double getTurnOver(String name){
+		if (turnFlag) {
+			return turnOver.get(name);
+		}
+		else {
+			FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+			TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
+			return turnoverDATAService.getTurnoverValue(name);
+		}
+	}
+	private double getShares(String name){
+		if (sharesFlag) {
+			return shares.get(name);
+		}
+		else {
+			FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+			TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
+			return turnoverDATAService.getTotalShares(name);
+		}
+	}
+	private double getNonRest(String name){
+		if (nonRestFlag) {
+			return nonRest.get(name);
+		}
+		else {
+			FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+			TurnoverDATAService turnoverDATAService=factoryDATAService.geTurnoverDATAService();
+			return turnoverDATAService.getNonrestFloatShares(name);
+		}
+	}
 }

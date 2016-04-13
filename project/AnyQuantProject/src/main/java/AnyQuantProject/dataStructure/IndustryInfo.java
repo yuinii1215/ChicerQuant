@@ -6,7 +6,7 @@ package AnyQuantProject.dataStructure;
 public class IndustryInfo {
     String industry;
     double updown;//涨跌幅,百分数
-    long pure;//净额,
+    double pure;//净额,
     double total;
     int companySum;
     double price;
@@ -29,7 +29,7 @@ public class IndustryInfo {
     public void  setUpdown(double updown){
         this.updown=updown;
     }
-    public  void  setPure(long pure){
+    public  void  setPure(double pure){
         this.pure=pure;
     }
     public void setTotal(double total){
@@ -65,7 +65,7 @@ public class IndustryInfo {
 		return updown;
 	}
 
-	public long getPure() {
+	public double getPure() {
 		return pure;
 	}
 

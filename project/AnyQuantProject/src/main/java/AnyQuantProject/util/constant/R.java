@@ -15,5 +15,8 @@ public class R {
 	public static final String startDate="2006-01-01";
 	public static final String ChineseNameFile = "ChineseName";
 	public static final String IndustryNameFile = "Industry";
+	public static final String TurnOver="TurnOver";
+	public static final String SHARES="Shares";
+	public static final String NonRest="NonRest";
 }
 
