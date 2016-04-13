@@ -215,18 +215,12 @@ public class ModuleUI_2Controller implements Initializable{
 		    			  }
 		    		  }
 		    	  }
-		      
-<<<<<<< HEAD
 
-		      System.out.print("every industry sort up to down:");
-		      for(int i = 0 ; i < pures.length ;i ++) { 
-		    	  System.out.print(industryName[i]+":"+pures[i]+" ");   
-		      }
 		      
 		    barXAxis=new CategoryAxis();
 		  	barYAxis=new NumberAxis();
-=======
->>>>>>> a725cd74a255308d54df7b0cdf1968a2fb33806f
+		  	barChart.setLegendVisible(false);
+
 		//设置图
 		barYAxis.setLabel("净额");
 		

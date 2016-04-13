@@ -178,9 +178,9 @@ public class SingleModuleUIController implements Initializable{
 		}
 		
 
-		pieChart.getData().add(1,new PieChart.Data("上涨", up));
-		pieChart.getData().add(2,new PieChart.Data("下跌", down));
-		pieChart.getData().add(3,new PieChart.Data("持平", no));
+		pieChart.getData().add(new PieChart.Data("上涨", up));
+		pieChart.getData().add(new PieChart.Data("下跌", down));
+		pieChart.getData().add(new PieChart.Data("持平", no));
 		pieChart.setId("行业个股涨跌分布");
 		
 		
