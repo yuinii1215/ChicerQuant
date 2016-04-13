@@ -68,7 +68,7 @@ public class ModuleUI_2Controller implements Initializable{
     @FXML
     private TableView<IndustryInfo> table;
 	@FXML
-	private BarChart barChart;
+	private BarChart<String,Number> barChart;
 	@FXML
 	private CategoryAxis barXAxis;
 	@FXML
@@ -198,7 +198,6 @@ public class ModuleUI_2Controller implements Initializable{
 			pures[i] = industryInfoList.get(i).getPure();
 			pures[i] = Double.parseDouble(String .format("%.3f",pures[i]));
 			industryName[i] = industryInfoList.get(i).getIndustry(); 
-			System.out.print("....test...."+industryName[i]+":"+pures[i]+" ");   
 		}
 
 
@@ -217,6 +216,7 @@ public class ModuleUI_2Controller implements Initializable{
 		    		  }
 		    	  }
 		      
+<<<<<<< HEAD
 
 		      System.out.print("every industry sort up to down:");
 		      for(int i = 0 ; i < pures.length ;i ++) { 
@@ -225,35 +225,40 @@ public class ModuleUI_2Controller implements Initializable{
 		      
 		    barXAxis=new CategoryAxis();
 		  	barYAxis=new NumberAxis();
+=======
+>>>>>>> a725cd74a255308d54df7b0cdf1968a2fb33806f
 		//设置图
-		barChart = new BarChart<String,Number>(barXAxis,barYAxis); 
 		barYAxis.setLabel("净额");
 		
 		XYChart.Series series = new XYChart.Series();
 		
-		Timeline tl = new Timeline () ;
-		tl.getKeyFrames().add(new KeyFrame(Duration.millis(500),
-				new EventHandler <ActionEvent> () {
-			@Override
-			public void handle ( ActionEvent actionEvent ) {
-				for (int i=0;i<10;i++){
-					series.getData().add(new XYChart.Data(industryName[i],pures[i]));
-				}
-				for(int i=0;i<10;i++){
-					
-					series
-					.getData()
-					.add(new XYChart.Data(
-							industryName[industryName.length-i-1],
-							pures[pures.length-i-1]));
-				}
-			}
 		
-		}));
-
-		tl.setCycleCount (1) ;
-		tl.play();
-		barChart.getData().addAll(series);
+//		Timeline tl = new Timeline () ;
+//		tl.getKeyFrames().add(new KeyFrame(Duration.millis(500),
+//				new EventHandler <ActionEvent> () {
+//			@Override
+//			public void handle ( ActionEvent actionEvent ) {
+//				for (int i=0;i<10;i++){
+//					
+//					series.getData().add(new XYChart.Data(industryName[i],pures[i]));
+//				}
+//				for(int i=0;i<10;i++){
+//					series
+//					.getData()
+//					.add(new XYChart.Data(
+//							industryName[industryName.length-i-1],
+//							pures[pures.length-i-1]));
+//				}
+//			}
+//		
+//		}));
+//
+//		tl.setCycleCount (1) ;
+//		tl.play();
+		for (int i = 0; i < pures.length; i++) {
+			series.getData().add(new XYChart.Data(industryName[i],pures[i]));
+		}
+		barChart.getData().add(series);
 	}
 	
 	 public class TableRowControl<T> extends TableRow<T> {
