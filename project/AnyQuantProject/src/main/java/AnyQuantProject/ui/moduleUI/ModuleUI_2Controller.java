@@ -217,10 +217,10 @@ public class ModuleUI_2Controller implements Initializable{
 		    	  }
 
 
-		      System.out.print("every industry sort up to down:");
-		      for(int i = 0 ; i < pures.length ;i ++) { 
-		    	  System.out.print(industryName[i]+":"+pures[i]+" ");   
-		      }
+//		      System.out.print("every industry sort up to down:");
+//		      for(int i = 0 ; i < pures.length ;i ++) { 
+//		    	  System.out.print(industryName[i]+":"+pures[i]+" ");   
+//		      }
 		      
 		    barXAxis=new CategoryAxis();
 		  	barYAxis=new NumberAxis();
