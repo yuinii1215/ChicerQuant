@@ -207,7 +207,7 @@ public class SingleStockInfoUIController implements Initializable {
     private List<KLineDataDTO> singleStockKLineDataList, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList;
 
     List<AnyQuantProject.dataStructure.Cell> calcuList1, calcuList2, calcuList3;//MACD:DIF,DEA,MACD(bar)或者KDJ:K, D, J:
-    List<AnyQuantProject.dataStructure.Cell>[] macdLineData, kdjLineData;
+    List<AnyQuantProject.dataStructure.Cell>[] macdLineData, kdjLineData,rsiLineData,biasLineData;
     CalculateLineBLService calculateLineBlImpl;
     CalcuLineType calcuLineType = CalcuLineType.TYPE_MACD;
 //    CalcuLineType calcuLineType = CalcuLineType.TYPE_KDJ;
@@ -419,6 +419,18 @@ public class SingleStockInfoUIController implements Initializable {
     calcuLineType=CalcuLineType.TYPE_KDJ;
     this.updateChartContent(calcuLineType);
     }
+    @FXML
+    public void rsiButtonHandle(ActionEvent actionEvent) {
+    calcuLineType=CalcuLineType.TYPE_RSI;
+    this.updateChartContent(calcuLineType);
+    }
+    @FXML
+    public void biasButtonHandle(ActionEvent actionEvent) {
+    calcuLineType=CalcuLineType.TYPE_BIAS;
+    this.updateChartContent(calcuLineType);
+    }
+    
+
 
     public List<BarData> buildBars(List<KLineDataDTO> dayKLineData) {
         double previousClose = 1850;
@@ -478,7 +490,9 @@ public class SingleStockInfoUIController implements Initializable {
         } else {
             endtime = sdf.format(maxTime.getTime());
         }
-        return DrawKLineChart.DayKLineChart(weekKLineList, calcuList1, calcuList2, calcuList3,calcuLineType, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.WEEK, endtime);
+//        return DrawKLineChart.DayKLineChart(weekKLineList, calcuList1, calcuList2, calcuList3,calcuLineType, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.WEEK, endtime);
+          return DrawKLineChart.DayKLineChart(weekKLineList,fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.WEEK, endtime);
+
     }
 
     public JFreeChart drawMonthKLine(CalcuLineType calcuLineType) {
@@ -491,7 +505,9 @@ public class SingleStockInfoUIController implements Initializable {
         } else {
             endtime = sdf.format(maxTime.getTime());
         }
-        return DrawKLineChart.DayKLineChart(monthKLineList, calcuList1, calcuList2, calcuList3,calcuLineType, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.MONTH, endtime);
+//        return DrawKLineChart.DayKLineChart(monthKLineList, calcuList1, calcuList2, calcuList3,calcuLineType, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.MONTH, endtime);
+         return DrawKLineChart.DayKLineChart(monthKLineList, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.MONTH, endtime);
+
     }
 
     public void dayLineChart() {
@@ -549,10 +565,13 @@ public class SingleStockInfoUIController implements Initializable {
             calcuList1 = kdjLineData[0];//"K"Line
             calcuList2 = kdjLineData[1];//"D"Line
             calcuList3 = kdjLineData[2];//"J"Line      
-//            System.out.println("the kdj data is:"+calcuList1.get(0).y);
-//            System.out.println("the kdj data is:"+calcuList1.get(1).y);
-//            System.out.println("the kdj data is:"+calcuList1.get(2).y);
-//            System.out.println("the kdj data is:"+calcuList1.get(3).y);
+        }else if(calcuLineType == CalcuLineType.TYPE_RSI){
+//            rsiLineData=calculateLineBlImpl.drawRSI(stockName,minTime,maxTime).cells;           
+        }else if(calcuLineType == CalcuLineType.TYPE_BIAS){
+            biasLineData=calculateLineBlImpl.drawBIAS(stockName,minTime,maxTime).cells;
+            calcuList1 = biasLineData[0];//"6"Line
+            calcuList2 = biasLineData[1];//"12"Line
+            calcuList3 = biasLineData[2];//"24"Line            
         }
     }
 
@@ -806,7 +825,7 @@ public class SingleStockInfoUIController implements Initializable {
          * 每次选择同时更新三个tab上面的东西
          */
         CalcuLineChart(calcuLineType);
-  
+        dayLineChart();
         dayChart = DrawKLineChart.DayKLineChart(dayKLineList, calcuList1, calcuList2, calcuList3,calcuLineType ,fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.DAY, endtime);
         addChart2Tab(dayChart, panel1, swingNode1, scroller1, tab_dayKLine);
            // weekChart = DrawKLineChart.WeekKLineChart(WeekKLineList, calcuList1, calcuList2, calcuList3, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.WEEK, endtime);
@@ -814,7 +833,6 @@ public class SingleStockInfoUIController implements Initializable {
            // monthChart = DrawKLineChart.MonthKLineChart(weekKLineList, calcuList1, calcuList2, calcuList3, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList, stockName, TimeType.WEEK, endtime);
            //addChart2Tab(monthChart, panel3, swingNode3, scroller3, tab_monthKLine);
         
-
     }
 
     private ChartPanel getChartPanel(JFreeChart jFreeChart) {

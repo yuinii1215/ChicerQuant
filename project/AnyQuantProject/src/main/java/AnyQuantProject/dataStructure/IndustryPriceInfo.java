@@ -30,8 +30,30 @@ public class IndustryPriceInfo {
 	public void setMin(double min) {
 		this.min = min;
 	}
+	public String getIndustry() {
+		return industry;
+	}
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+	public double getOpen() {
+		return open;
+	}
+	public double getClose() {
+		return close;
+	}
+	public double getMax() {
+		return max;
+	}
+	public double getMin() {
+		return min;
+	}
+	
 	public void setVolume(long volume) {
 		this.volume = volume;
+	}
+	public long getVolume() {
+		return volume;
 	}
 	
 }

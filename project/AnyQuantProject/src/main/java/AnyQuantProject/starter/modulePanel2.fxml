@@ -31,12 +31,12 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TableView blendMode="LIGHTEN" layoutY="258.0" prefHeight="282.0" prefWidth="900.0">
+      <TableView fx:id="table" blendMode="LIGHTEN" layoutY="258.0" prefHeight="282.0" prefWidth="900.0">
         <columns>
-          <TableColumn fx:id="IndustryColumn" prefWidth="122.0" text="行业" />
+          <TableColumn fx:id="IndustryNameColumn" prefWidth="122.0" text="行业" />
           <TableColumn fx:id="ChgColumn" prefWidth="122.0" text="涨跌幅" />
-            <TableColumn fx:id="NetColumn" prefWidth="126.0" text="净额" />
-            <TableColumn fx:id="NumColumn" prefWidth="135.0" text="公司家数" />
+            <TableColumn fx:id="PureColumn" prefWidth="126.0" text="净额" />
+            <TableColumn fx:id="SumColumn" prefWidth="135.0" text="公司家数" />
             <TableColumn fx:id="LedColumn" prefWidth="128.0" text="领涨股" />
             <TableColumn fx:id="SingleChgColumn" prefWidth="145.0" text="涨跌幅" />
             <TableColumn fx:id="SinglePrizeColumn" prefWidth="121.0" text="当前价" />

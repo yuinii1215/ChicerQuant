@@ -148,6 +148,16 @@
             <Font size="9.0" />
          </font>
       </Button>
+      <Button fx:id="rsi_button" layoutX="463.0" layoutY="455.0" mnemonicParsing="false" onAction="#rsiButtonHandle" opacity="0.61" prefHeight="15.0" prefWidth="48.0" style="-fx-background-color: #BE77FF; -fx-background-radius: 1;" text="RSI">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="bias_button" layoutX="463.0" layoutY="473.0" mnemonicParsing="false" onAction="#biasButtonHandle" opacity="0.61" prefHeight="15.0" prefWidth="48.0" style="-fx-background-color: #F9F900; -fx-background-radius: 1;" text="BIAS">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
       <AnchorPane fx:id="signPane" layoutX="170.0" layoutY="25.0" prefHeight="33.0" prefWidth="200.0">
          <children>
             <Label fx:id="fiveColor" layoutX="32.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6.0" prefWidth="11.0" style="-fx-background-color: #FFFF00;" text="  ">
