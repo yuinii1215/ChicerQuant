@@ -67,10 +67,6 @@ public class FavoriteUIController implements Initializable {
     @FXML
     private TableColumn<Stock, Double> adj_price;
     @FXML
-    private TableColumn<Stock, Long> marketvalue;
-    @FXML
-    private TableColumn<Stock, Long> flow;
-    @FXML
     private TableColumn<Stock, Double> pe;
     @FXML
     private TableColumn<Stock, Double> pb;
@@ -145,10 +141,6 @@ public class FavoriteUIController implements Initializable {
                 cellData.getValue().getVolume()));
         adj_price.setCellValueFactory(cellData -> new SimpleDoubleProperty(
                 cellData.getValue().getAdj_price()));
-        marketvalue.setCellValueFactory(cellData -> new SimpleLongProperty(
-                cellData.getValue().getMarketvalue()));
-        flow.setCellValueFactory(cellData -> new SimpleLongProperty(
-                cellData.getValue().getFlow()));
         pe.setCellValueFactory(cellData -> new SimpleDoubleProperty(
                 cellData.getValue().getPe_ttm()));
         pb.setCellValueFactory(cellData -> new SimpleDoubleProperty(
@@ -159,6 +151,35 @@ public class FavoriteUIController implements Initializable {
         
         search();
 
+    }
+    
+    @FXML
+    private void toSingleStockPanel(){
+    	  searchTipList = stockListBLService.getSearchList();
+          // 	FXCollections.observableArrayList(searchTipList);
+          SearchTextField auto = SeachTextFieldBuilder.build(search);
+          auto.setCacheDataList(searchTipList);
+
+          searchName = search.getText();
+          System.out.println("...SearchName ..." + searchName + ".......");
+          searchName=searchName.substring(0, 8);
+          
+          if(SingleStockBLFactory.getSingleStockInfoBLService().getSingleStockInfo(searchName)==null){
+          MonologFXButton.Type retval=mono.showDialog(500,300);                 
+          }
+          else{               
+          Main.enterSingleStockInfoScene(searchName);
+          
+          ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
+          ScheduledFuture future = service.schedule(new Callable() {
+                  public String call() {
+                      System.out.print("time is up");
+                      Main.endSingle();                          
+                      return "taskcancelled!";
+                  }
+              }, 4, TimeUnit.SECONDS);
+           service.shutdown();
+          }
     }
 
     /**
