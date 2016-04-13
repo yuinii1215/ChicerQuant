@@ -5,6 +5,7 @@ package AnyQuantProject.ui.moduleUI;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -17,8 +18,11 @@ import AnyQuantProject.ui.moduleUI.SingleModuleUIController.TableRowControl;
 import AnyQuantProject.util.method.SimpleDoubleProperty;
 import AnyQuantProject.util.method.SimpleIntegerProperty;
 import AnyQuantProject.util.method.SimpleLongProperty;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,6 +41,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
+import javafx.util.Duration;
 
 public class ModuleUI_2Controller implements Initializable{
 	private static ModuleUI_2Controller  instance = null;
@@ -69,7 +74,7 @@ public class ModuleUI_2Controller implements Initializable{
 	private IndustryBLService industryBLService = IndustryBLFactory.getIndustryBLService();
 	private IndustryInfo  industryInfo; 
 	private List<String> allIndustryName;
-	private List<IndustryInfo> industryInfoList;
+	private List<IndustryInfo> industryInfoList =new ArrayList<>();
     int selectedIndex;
     String industryName; 
     String singleIndustryName;
@@ -89,7 +94,7 @@ public class ModuleUI_2Controller implements Initializable{
 	
 	public void initTable(){	
 		allIndustryName = industryBLService.getAllIndustries();
-		    
+		
 		    for(int i=0;i< allIndustryName.size();i++){
 		    	industryInfo= industryBLService.getIndustryInfo(allIndustryName.get(i));
 		    	industryInfoList.add(i, industryInfo);
@@ -158,13 +163,24 @@ public class ModuleUI_2Controller implements Initializable{
 		barYAxis.setLabel("净额");
 		
 		XYChart.Series series = new XYChart.Series();
-		for (int i=0;i<10;i++){
-			series.getData().add(new XYChart.Data(industryName[i],pures[i]));
-		}
-		for(int i=0;i<10;i++){
-			series.getData().add(new XYChart.Data(industryName[industryName.length-i-1],pures[pures.length-i-1]));
-		}
 		
+		Timeline tl = new Timeline () ;
+		tl.getKeyFrames().add(new KeyFrame(Duration.millis(500),
+				new EventHandler <ActionEvent> () {
+			@ Override
+			public void handle ( ActionEvent actionEvent ) {
+				for (int i=0;i<10;i++){
+					series.getData().add(new XYChart.Data(industryName[i],pures[i]));
+				}
+				for(int i=0;i<10;i++){
+					series.getData().add(new XYChart.Data(industryName[industryName.length-i-1],pures[pures.length-i-1]));
+				}
+			}
+		
+		}));
+
+		tl.setCycleCount (1) ;
+		tl.play();
 		barChart.getData().addAll(series);
 	}
 	
