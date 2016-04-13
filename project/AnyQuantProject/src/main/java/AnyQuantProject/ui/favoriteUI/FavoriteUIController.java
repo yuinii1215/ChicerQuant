@@ -175,13 +175,12 @@ public class FavoriteUIController implements Initializable {
             public void handle(ActionEvent arg0) {
                 searchName = search.getText();
                 System.out.println("...SearchName ..." + searchName + ".......");
-//                searchName=searchName.substring(0, 8);
+                searchName=searchName.substring(0, 8);
                 
                 if(SingleStockBLFactory.getSingleStockInfoBLService().getSingleStockInfo(searchName)==null){
                 MonologFXButton.Type retval=mono.showDialog(500,300);                 
                 }
                 else{               
-                searchName=searchName.substring(0, 8);
                 Main.enterSingleStockInfoScene(searchName);
                 
                 ScheduledExecutorService service = Executors.newScheduledThreadPool(1);

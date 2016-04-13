@@ -125,7 +125,6 @@ public class ModuleUI_2Controller implements Initializable{
 				 SinglePrizeColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
 			                        cellData.getValue().getLeaderPrice()));
 
-		
 	}
 	
 	
