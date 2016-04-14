@@ -49,5 +49,6 @@ public interface IndustryBLService {
 	 * @return
 	 */
 	public IndustryPriceInfo getIndustryPrice(String industry);
-
+	
+	public Stock getYesterday(String name);
 }

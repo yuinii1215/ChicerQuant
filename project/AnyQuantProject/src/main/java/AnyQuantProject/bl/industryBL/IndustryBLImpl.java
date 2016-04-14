@@ -158,6 +158,7 @@ public class IndustryBLImpl implements IndustryBLService {
 		List<String> stocks=industryNameDATAService.getStockByIndustry(industry);
 		List<Stock> all=StockListBLFactory.getStockListBLService().getAllStocks();
 		List<Stock> ans=all.stream().filter(st->stocks.contains(st.getName())).collect(Collectors.toList());
+		ans.stream().forEach(st->st.setYesterday(getYesterday(st.getName())));
 		return ans;
 	}
 
@@ -299,8 +300,8 @@ public class IndustryBLImpl implements IndustryBLService {
 		ans.setVolume(volume);
 		return ans;
 	}
-
-	private Stock getYesterday(String name){
+	@Override
+	public Stock getYesterday(String name){
 		if (flag) {
 			return yesterday.get(name);
 		}
