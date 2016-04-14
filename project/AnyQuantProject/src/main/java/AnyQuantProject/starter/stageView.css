@@ -296,11 +296,15 @@
     -fx-tick-length: 2;
     -fx-minor-tick-length: 2;
 }
-.chart-series-line {
+.chart-series-line0 {
     -fx-stroke:#00CACA; 
 }
+.chart-series-line1 {
+    -fx-stroke:#FFFFFF; 
+}
+
 .chart-line-symbol {
-    -fx-background-color: #00CACA, white;
+    /*-fx-background-color: #00CACA, white;*/
     -fx-background-insets: 0, 2;
     -fx-background-radius: 5px;
     -fx-padding: 2px;

@@ -137,6 +137,15 @@
                   </AnchorPane>
                </content>
             </Tab>
+            <Tab text="三次样条插值预测">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="chartPane" layoutX="52.0" layoutY="27.0" prefHeight="512.0" prefWidth="565.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>
