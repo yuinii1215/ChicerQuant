@@ -19,9 +19,7 @@ import AnyQuantProject.ui.allStocksUI.AllStocksUIController;
 import AnyQuantProject.ui.benchMarkUI.BenchMarkUIController;
 import AnyQuantProject.ui.favoriteUI.FavoriteUIController;
 import AnyQuantProject.ui.moduleUI.ModuleUI_1Controller;
-import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
 import AnyQuantProject.ui.stasticsInfoUI.StasticsInfoController;
-import AnyQuantProject.ui.stockDealInfoUI.StockDealInfoUIController;
 /**
  * 
  * @author QiHan
@@ -34,7 +32,6 @@ public class MainPageController  implements Initializable {
 	private static AllStocksUIController allStocksController ;
 	private static BenchMarkUIController benchMarkUIController ;
 	private static FavoriteUIController  favoriteUIController ;
-	public  static SingleStockUIController singleStocksUIController ;
 	 @FXML
 	private static AnchorPane titlePanel, guidePanel, centralPanel;
 	private Button defaultBtn = null;
@@ -272,16 +269,7 @@ public class MainPageController  implements Initializable {
 		        defaultBtn = btn;
 		     //   SingleStockUIController.getInstance();
 		    }
-		  @FXML
-		    private void stockDealInfoBtnFired(ActionEvent e) {
-		        setPanel(Main.stockDealInfoPanel, "打开股票交易??界面...");
-		        Button btn = (Button)e.getSource();
-		        if(defaultBtn != null)
-		            defaultBtn.setDefaultButton(false);
-		        btn.setDefaultButton(true);
-		        defaultBtn = btn;
-		        StockDealInfoUIController.getInstance();
-		    }
+		 
 		  
 		  
 //	  

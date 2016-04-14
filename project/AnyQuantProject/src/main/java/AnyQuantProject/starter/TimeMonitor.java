@@ -6,7 +6,6 @@
 package AnyQuantProject.starter;
 
 import AnyQuantProject.ui.singleStockInfoUI.SingleStockInfoUIController;
-import AnyQuantProject.ui.singleStockUI.SingleStockUIController;
 import java.util.Timer;
 import java.util.TimerTask;
 
