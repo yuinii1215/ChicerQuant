@@ -220,7 +220,6 @@ public class ModuleUI_2Controller implements Initializable{
 
 		  	barChart.setLegendVisible(false);
 
-
 		//设置图
 		barYAxis.setLabel("净额");
 		
@@ -252,18 +251,7 @@ public class ModuleUI_2Controller implements Initializable{
 //		tl.play();
 		for (int i = 0; i < pures.length; i++) {
 			XYChart.Data data = new XYChart.Data(industryName[i],pures[i]);
-//			data.nodeProperty().addListener(new ChangeListener<Node>() {
-//				  @Override public void changed(ObservableValue<? extends Node> ov, Node oldNode, Node newNode) {
-//				    if (newNode != null) {
-//				      if (((Double) data.getYValue()).intValue() > 0 ) {
-//				        newNode.setStyle("-fx-bar-fill: navy;");
-//				      } else if (((Double) data.getYValue()).intValue()<0 ) {
-//				        newNode.setStyle("-fx-bar-fill: firebrick;");
-//				      }  
-//				    }
-//				  }
-//			});
-		//	series.getData().add(new XYChart.Data(industryName[i],pures[i]));
+			series.getData().add(data);
 		}
 		barChart.getData().add(series);
 	}
