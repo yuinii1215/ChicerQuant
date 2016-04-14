@@ -21,6 +21,7 @@ import AnyQuantProject.util.method.SimpleLongProperty;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -28,6 +29,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
@@ -249,7 +251,19 @@ public class ModuleUI_2Controller implements Initializable{
 //		tl.setCycleCount (1) ;
 //		tl.play();
 		for (int i = 0; i < pures.length; i++) {
-			series.getData().add(new XYChart.Data(industryName[i],pures[i]));
+			XYChart.Data data = new XYChart.Data(industryName[i],pures[i]);
+//			data.nodeProperty().addListener(new ChangeListener<Node>() {
+//				  @Override public void changed(ObservableValue<? extends Node> ov, Node oldNode, Node newNode) {
+//				    if (newNode != null) {
+//				      if (((Double) data.getYValue()).intValue() > 0 ) {
+//				        newNode.setStyle("-fx-bar-fill: navy;");
+//				      } else if (((Double) data.getYValue()).intValue()<0 ) {
+//				        newNode.setStyle("-fx-bar-fill: firebrick;");
+//				      }  
+//				    }
+//				  }
+//			});
+		//	series.getData().add(new XYChart.Data(industryName[i],pures[i]));
 		}
 		barChart.getData().add(series);
 	}

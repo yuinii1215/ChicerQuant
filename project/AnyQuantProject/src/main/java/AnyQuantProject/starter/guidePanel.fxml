@@ -32,7 +32,7 @@
                   <Image url="@/images/module.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="stastics" fitHeight="54.0" fitWidth="56.0" layoutX="12.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="stastics" fitHeight="54.0" fitWidth="56.0" layoutX="10.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/images/stastics.png" />
                </image>
