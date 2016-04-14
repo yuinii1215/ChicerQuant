@@ -1,12 +1,9 @@
 package AnyQuantProject.bl.calculateBL;
 
-import java.lang.invoke.ConstantCallSite;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import javax.swing.plaf.basic.BasicSliderUI.ActionScroller;
 
 import AnyQuantProject.blService.kLineBLService.CalculateLineBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
@@ -21,7 +18,6 @@ import AnyQuantProject.util.method.Checker;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart.Data;
 
 /**
 * AnyQuantProject/AnyQuantProject.bl.calculateBL/LineChartBLImpl.java
@@ -38,7 +34,6 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		if (dataT==null||dataT.isEmpty()) {
 			return null;
 		}
-		
 		List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
 		//
 		return data;

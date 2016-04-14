@@ -8,7 +8,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javafx.beans.property.SimpleStringProperty;
-import AnyQuantProject.ui.singleStockUI.SingleStockUI;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -35,7 +34,6 @@ import AnyQuantProject.bl.listFilterBL.ListFilterBLImpl;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
-import AnyQuantProject.ui.singleStockUI.SingleStockUI;
 /**
  * 
  * @author QiHan
@@ -43,7 +41,7 @@ import AnyQuantProject.ui.singleStockUI.SingleStockUI;
  */
 import AnyQuantProject.util.method.CalendarHelper;
 
-public class SingleStockInfoUI extends SingleStockUI {
+public class SingleStockInfoUI  {
 	Label titleLabel;
 	Label nameLabel;
 	Button isFavorButton;
