@@ -139,7 +139,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 		}
 		Calendar temp=Calendar.getInstance();
 		temp.setTimeInMillis(start.getTimeInMillis());
-		temp.add(Calendar.DAY_OF_MONTH, -aver-2);
+		temp.add(Calendar.DAY_OF_MONTH, -aver-10);
 		Calendar localStart=temp;
 		Calendar localEnd=end;
 		refreshData(stockName);
@@ -152,13 +152,13 @@ public class StockKLineBLImpl implements StockKLineBLService {
 	
 	private List<KLineDataDTO> calculateAver(List<KLineDataDTO> ans,int aver){
 		List<KLineDataDTO> tar=new ArrayList<>(ans.size());
-		for(int j=0;j<ans.size()-aver;j++){
+		for(int j=aver-1;j<ans.size();j++){
 			//init data
 			double close=0;
 			int total=0;
 			String date=null;
 			for(int i=0;i<aver;i++){
-				KLineDataDTO temp=ans.get(j+i);
+				KLineDataDTO temp=ans.get(j-i);
 				if (i==0) {
 					date=((AbstractStock)temp).getDate();
 				}
