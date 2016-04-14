@@ -721,16 +721,16 @@ public class SingleStockInfoUIController implements Initializable {
                     @Override
                     protected void updateItem(Double item, boolean empty) {
                         super.updateItem(item, empty);
+                       
                         if (this.getIndex() < singleStockList.size()) {
-                            if (!isEmpty()) {
-                                double property = Math.random();
-                                if (property > 0.5) {
-                                    this.setTextFill(Color.RED);
-                                } else if (property < 0.5) {
-                                    this.setTextFill(Color.GREENYELLOW);
-                                }
-                                setText(item + "");
+                            if(!isEmpty()){
+                              if(singleStockList.get(this.getIndex()).isRed()){
+                              this.setTextFill(Color.RED);
+                              }else{
+                              this.setTextFill(Color.GREENYELLOW);
+                              }                          
                             }
+                            setText(item + "");
                         }
                     }
                 };
@@ -769,12 +769,7 @@ public class SingleStockInfoUIController implements Initializable {
                     protected void updateItem(Double item, boolean empty) {
                         super.updateItem(item, empty);
                         if (!isEmpty()) {                           
-                            double property = Math.random();
-                            if (property > 0.5) {
-                                this.setTextFill(Color.RED);
-                            } else if (property < 0.5) {
-                                this.setTextFill(Color.GREENYELLOW);
-                            }
+                            this.setTextFill(Color.GREENYELLOW);                       
                             setText(item + "");
                         }
                     }

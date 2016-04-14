@@ -141,7 +141,14 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Pane fx:id="chartPane" layoutX="52.0" layoutY="27.0" prefHeight="512.0" prefWidth="565.0" />
+                        <Pane fx:id="chartPane" layoutX="52.0" layoutY="90.0" prefHeight="438.0" prefWidth="492.0" />
+                        <Label fx:id="predictID" layoutX="52.0" layoutY="31.0" text="sh600030预测曲线" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="newPreviewTextField" layoutX="300.0" layoutY="32.0" prefHeight="26.0" prefWidth="120.0" promptText="待预测股票" style="-fx-background-color: #D9FFFF; -fx-text-fill: #000000;" />
+                        <Button fx:id="predictButton" layoutX="437.0" layoutY="32.0" mnemonicParsing="false" onAction="#handlePredict" style="-fx-background-color: #00AEAE;" text="预测" />
                      </children>
                   </AnchorPane>
               </content>

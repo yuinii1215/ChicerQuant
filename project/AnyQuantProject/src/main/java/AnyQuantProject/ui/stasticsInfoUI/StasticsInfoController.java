@@ -84,6 +84,13 @@ public class StasticsInfoController implements Initializable {
     Tooltip macdMathTip, rsiMathTip, biasMathTip, kdjMathTip;
     @FXML
     Pane chartPane;
+    @FXML
+    Label predictID;
+    @FXML
+    TextField newPreviewTextField;
+    @FXML
+    Button  predictButton;
+            
     SwingNode swingNode1, swingNode2, swingNode3, swingNode4;
     ScrollPane scroller1, scroller2, scroller3, scroller4;
     ChartPanel panel1, panel2, panel3, panel4;
@@ -161,10 +168,10 @@ public class StasticsInfoController implements Initializable {
         kdjDayChart = drawDayKLine(stockName, calcuLineType);
         addChart2Tab(kdjDayChart, panel4, swingNode4, scroller4, tab_kdjDayKLine);
         setText();
+        stockName = "sh601288";
         addLineChart();
     }
-    public void addLineChart(){
-        stockName = "sh601288";
+    public void addLineChart(){       
         predictLineChartData = LineChartBLFactory.getCalculateLineBL().drawPoly(stockName);
         xAxis = new CategoryAxis();
         xAxis = (CategoryAxis) predictLineChartData.getxAxis();
@@ -188,9 +195,7 @@ public class StasticsInfoController implements Initializable {
 //        predictLineChart.setStyle("-fx-stroke:#00CACA; ");
         
         predictLineChart.setPrefSize(400, 400);
-     
-
-
+        predictID.setText(stockName+"预测曲线");
         chartPane.getChildren().add(predictLineChart);
     }
     
@@ -404,4 +409,9 @@ public class StasticsInfoController implements Initializable {
         kdjText3.setText("3.此图表何时适用?\n" +"适用于中短线趋势分析，建议与MACD线一起使用.由RSV可知，其是当前股价在最近周期内股价所处位置的体现。当K线向上突破D线时，说明目前趋势是向上的；当K线向下突破D线时，说明目前趋势是向下的,但是股票持续稳定上涨或下跌都会出现钝化现象，KDJ线持平，此时可以综合MACD线来判断");
     }
     
+    @FXML
+    public void handlePredict(ActionEvent actionEvent){
+        stockName=newPreviewTextField.getText();
+        addLineChart(); 
+    }
 }

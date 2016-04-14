@@ -183,7 +183,7 @@ public class AllStocksUIController implements Initializable {
             @Override
             public TableRow<Stock> call(TableView<Stock> table) {
                 // TODO Auto-generated method stub
-
+               
                 return new TableRowControl(table);
             }
         });
@@ -233,8 +233,31 @@ public class AllStocksUIController implements Initializable {
                 cellData.getValue().getFlow()));
         peColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
                 cellData.getValue().getPe_ttm()));
-        pbColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
-                cellData.getValue().getPb()));
+//        pbColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(
+//                cellData.getValue().getPb()));
+        
+        pbColumn.setCellFactory(new Callback<TableColumn<Stock, Double>, TableCell<Stock, Double>>() {
+            @Override
+            public TableCell<Stock, Double> call(TableColumn<Stock, Double> arg0) {
+                return new TableCell<Stock, Double>() {
+                    ObservableValue ov1;
+                    @Override
+                    protected void updateItem(Double item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (!isEmpty()) {
+                            if(this.getIndex()%2==0){                         
+                            this.setTextFill(Color.WHITE);
+                            }
+                            else{
+                            this.getTableRow().setStyle("-fx-background-color: green");
+                            }               
+                            item=allStocksList.get(this.getIndex()).getPb();
+                            setText(item + "");
+                        }
+                    }
+                };
+            }
+        });
 
         previewLineChart = LineChartBLFactory.getCalculateLineBL().drawPreview(stockName);
         xAxis = new CategoryAxis();
@@ -264,8 +287,8 @@ public class AllStocksUIController implements Initializable {
     public class TableRowControl<T> extends TableRow<T> {
 
         public TableRowControl(TableView<T> tableView) {
-            super();
-
+            super();           
+            this.setTextFill(Color.RED);
             this.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
