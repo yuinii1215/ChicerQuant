@@ -50,6 +50,7 @@ public class IndustryBLImpl implements IndustryBLService {
 		
 			stocks=(List<Stock>) IOHelper.read(R.CachePath, CalendarHelper.getDate(date));
 			if (stocks==null) {
+				System.err.println("nulllll");
 				throw new NullPointerException();
 			}
 		} catch (Exception e) {
