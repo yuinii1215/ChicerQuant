@@ -22,7 +22,10 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button fx:id="macdMathButton" layoutX="746.0" layoutY="42.0" mnemonicParsing="false" text="查看统计公式" />
+                        <Button fx:id="macdMathButton" layoutX="746.0" layoutY="42.0" mnemonicParsing="false" text="查看统计公式">
+                           <tooltip>
+                              <Tooltip fx:id="macdMathTip" text="Empty Tooltip" />
+                           </tooltip></Button>
                         <TabPane fx:id="macdKLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="-3.0" prefHeight="558.0" prefWidth="426.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
                            <cursor>
                               <Cursor fx:constant="DEFAULT" />
@@ -45,12 +48,15 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="kdjTitle" layoutX="508.0" layoutY="30.0" prefHeight="35.0" prefWidth="223.0" text="RSI统计分析" textFill="WHITE">
+                        <Label fx:id="rsiTitle" layoutX="508.0" layoutY="30.0" prefHeight="35.0" prefWidth="223.0" text="RSI统计分析" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button fx:id="rsiMathButton" layoutX="738.0" layoutY="34.0" mnemonicParsing="false" text="查看统计公式" />
+                        <Button fx:id="rsiMathButton" layoutX="738.0" layoutY="34.0" mnemonicParsing="false" text="查看统计公式">
+                           <tooltip>
+                              <Tooltip fx:id="rsiMathTip" text="Empty Tooltip" />
+                           </tooltip></Button>
                         <TabPane fx:id="rsiKLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="-3.0" prefHeight="558.0" prefWidth="454.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
                            <cursor>
                               <Cursor fx:constant="DEFAULT" />
@@ -78,7 +84,10 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button fx:id="biasMathButton" layoutX="742.0" layoutY="31.0" mnemonicParsing="false" text="查看统计公式" />
+                        <Button fx:id="biasMathButton" layoutX="742.0" layoutY="31.0" mnemonicParsing="false" text="查看统计公式">
+                           <tooltip>
+                              <Tooltip fx:id="biasMathTip" text="Empty Tooltip" />
+                           </tooltip></Button>
                         <TabPane fx:id="biasKLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="-3.0" prefHeight="561.0" prefWidth="424.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
                            <cursor>
                               <Cursor fx:constant="DEFAULT" />
@@ -106,8 +115,11 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button fx:id="kdjMathButton" layoutX="747.0" layoutY="43.0" mnemonicParsing="false" text="查看统计公式" />
-                        <TabPane fx:id="biasKLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="-3.0" prefHeight="561.0" prefWidth="424.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
+                        <Button fx:id="kdjMathButton" layoutX="747.0" layoutY="43.0" mnemonicParsing="false" text="查看统计公式">
+                           <tooltip>
+                              <Tooltip fx:id="kdjMathTip" text="Empty Tooltip" />
+                           </tooltip></Button>
+                        <TabPane fx:id="kdjKLineTabPane" blendMode="LIGHTEN" cache="true" layoutX="-3.0" prefHeight="561.0" prefWidth="424.0" style="-fx-background-color: #36648B;" tabClosingPolicy="UNAVAILABLE">
                            <cursor>
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
