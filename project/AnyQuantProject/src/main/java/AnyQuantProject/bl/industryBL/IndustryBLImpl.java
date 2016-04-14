@@ -74,6 +74,7 @@ public class IndustryBLImpl implements IndustryBLService {
 			List<String> name=(List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
 			date.add(Calendar.DAY_OF_MONTH, 1);
 			turnOver=(Map<String, Double>)IOHelper.read(R.CachePath, CalendarHelper.getDate(date)+R.TurnOver);
+			System.out.println(turnoverDATAService.getTurnoverValue("sh600016"));
 			if (turnOver==null) {
 				throw new NullPointerException();
 			}

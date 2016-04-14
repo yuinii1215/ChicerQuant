@@ -2,8 +2,10 @@ package AnyQuantProject.ui.graphUI;
 
 import java.util.List;
 
+import AnyQuantProject.bl.calculateBL.CalculateLineBLImpl;
 import AnyQuantProject.bl.factoryBL.LineChartBLFactory;
 import AnyQuantProject.blService.graphBLService.LineChartBLService;
+import AnyQuantProject.blService.kLineBLService.CalculateLineBLService;
 import AnyQuantProject.dataStructure.AbstractStock;
 import AnyQuantProject.dataStructure.BarData;
 import AnyQuantProject.dataStructure.LineChartData;
@@ -65,5 +67,12 @@ public class LineChartFactory {
 		CandleStickChart xyChart=new CandleStickChart(name, barDatas);
 		xyChart.setYAxisFormatter(new DecimalAxisFormatter("#000.00"));
 		return xyChart;
+	}
+	public static XYChart<String,Number> getPoly(String name){
+		CalculateLineBLService service=new CalculateLineBLImpl();
+		LineChartData data=service.drawPoly(name);
+		LineChart<String,Number> ans=(LineChart<String, Number>) new LineChart<>(data.getxAxis(), data.getyAxis());
+		data.getSeries().stream().forEach(s->ans.getData().add((Series<String, Number>) s));
+		return ans;
 	}
 }
