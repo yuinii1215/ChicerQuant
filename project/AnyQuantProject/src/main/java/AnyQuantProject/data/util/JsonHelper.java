@@ -25,6 +25,7 @@ public class JsonHelper {
 		try {
 			jarr = helper.getAnyAPI(keyheader+Pkey);
 		} catch (IOException e) {
+			e.printStackTrace();
 			return new JSONArray();
 		}
 
@@ -43,6 +44,7 @@ public class JsonHelper {
 		try {
 			jarr = helper.getAnyAPI(keyheader+Pkey);
 		} catch (IOException e) {
+			e.printStackTrace();
 			return new JSONArray();
 		}
 
@@ -63,8 +65,8 @@ public class JsonHelper {
 		try {
 		
 				jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
-			
 		} catch (IOException e) {
+			e.printStackTrace();
 			return new JSONObject();
 		}
 		
@@ -89,6 +91,7 @@ public class JsonHelper {
 		try {
 			jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
 		} catch (IOException e) {
+			e.printStackTrace();
 			return new JSONArray();
 		}
 		JSONArray result = jo.getJSONArray("trading_info");

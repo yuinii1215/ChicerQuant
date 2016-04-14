@@ -143,6 +143,7 @@ public class APIHelper {
                        out.writeBytes(urlencode(params));
                } catch (Exception e) {
                    // TODO: handle exception
+                   e.printStackTrace();
                }
            }
            InputStream is = conn.getInputStream();
@@ -153,7 +154,7 @@ public class APIHelper {
            }
            rs = sb.toString();
        } catch (IOException e) {
-//           e.printStackTrace();
+           e.printStackTrace();
     	   System.out.println("apihelper net -------------- failed");
            return "failed";
        } finally {

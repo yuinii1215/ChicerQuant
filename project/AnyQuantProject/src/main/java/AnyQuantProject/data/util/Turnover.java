@@ -3,6 +3,7 @@ package AnyQuantProject.data.util;
 /**
  * Created by G on 16/4/4.
  */
+import AnyQuantProject.util.method.CalendarHelper;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.commons.beanutils.converters.IntegerConverter;
@@ -31,8 +32,8 @@ public class Turnover {
     private static final String ACCESS_TOKEN = "a426949d7db2b7a49da5d4a65d171eeb687ecdb8c07ab1dad6a38ffcd7818f2a";
 
     public static void main(String[] args) throws IOException, EncoderException {
-//       System.out.println("turnovervalue"+ getTurnOverValue("sh600121"));
-       System.out.println(getShares("sh600216"));
+       System.out.println("turnovervalue"+ getTurnOverValue("sh600216"));
+//       System.out.println(getShares("sh600216"));
     }
 
     public static String getShares(String name) {
@@ -89,10 +90,10 @@ public class Turnover {
         name = name.substring(2);
         Calendar c = Calendar.getInstance();
         Date d = c.getTime();
-
         SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
         String date = sdf.format(d.getTime());
         String url = "https://api.wmcloud.com:443/data/v1/api/market/getMktEqud.json?field=ticker,tradeDate,turnoverValue&beginDate=&endDate=&secID=&ticker="+name+"&tradeDate="+date;
+//        String url = "https://api.wmcloud.com:443/data/v1/api/market/getMktEqud.json?field=ticker,tradeDate,turnoverValue&beginDate=&endDate=&secID=&ticker="+name+"&tradeDate=20160414";
         HttpGet httpGet = new HttpGet(url);
         //在header里加入 Bearer {token}，添加认证的token，并执行get请求获取json数据
         httpGet.addHeader("Authorization", "Bearer " + ACCESS_TOKEN);
