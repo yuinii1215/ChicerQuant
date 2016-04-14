@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@stageView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.favoriteUI.FavoriteUIController">
+   <children>
+      <TableView id="tableView" fx:id="table" blendMode="LIGHTEN" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="900.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="83.0" text="股票名称" />
+            <TableColumn fx:id="id" prefWidth="94.0" text="股票代码" />
+            <TableColumn fx:id="open" prefWidth="91.0" text="开盘价" />
+            <TableColumn fx:id="high" prefWidth="91.0" text="最高价" />
+            <TableColumn fx:id="low" prefWidth="88.0" text="最低价" />
+            <TableColumn fx:id="close" prefWidth="89.0" text="收盘价" />
+            <TableColumn fx:id="volum" prefWidth="90.0" text="成交量" />
+            <TableColumn fx:id="adj_price" text="后复权价" />
+            <TableColumn fx:id="pe" prefWidth="111.0" text="市盈率" />
+            <TableColumn fx:id="pb" prefWidth="82.0" text="市净率" />
+        </columns>
+      </TableView>
+      <AnchorPane id="searchtitle" fx:id="searchPane" layoutX="292.0" layoutY="76.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="66.0" prefWidth="256.0">
+         <children>
+            <TextField fx:id="search" layoutX="71.0" layoutY="9.0" prefHeight="34.0" prefWidth="170.0" text="股票代码">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <effect>
+                  <Blend opacity="0.42">
+                     <topInput>
+                        <InnerShadow blurType="ONE_PASS_BOX" choke="1.0" color="WHITE" height="154.44" radius="56.705" width="74.38">
+                           <input>
+                              <GaussianBlur radius="32.7" />
+                           </input>
+                        </InnerShadow>
+                     </topInput>
+                  </Blend>
+               </effect>
+            </TextField>
+            <ImageView fx:id="searchImage" fitHeight="41.0" fitWidth="56.0" layoutX="200.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/searchImage.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="searchBtn" layoutX="203.0" layoutY="9.0" mnemonicParsing="false" onAction="#toSingleStockPanel" opacity="0.0" prefHeight="34.0" prefWidth="33.0" text="Button" />
+         </children>
+         <effect>
+            <Glow level="0.35">
+               <input>
+                  <Blend opacity="0.62">
+                     <topInput>
+                        <Lighting bumpInput="$null" diffuseConstant="1.07" specularConstant="0.49" specularExponent="27.9" surfaceScale="0.0">
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </topInput>
+                  </Blend>
+               </input>
+            </Glow>
+         </effect></AnchorPane>
+   </children>
+</AnchorPane>

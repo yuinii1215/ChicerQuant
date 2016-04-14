@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="80.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnyQuantProject.ui.controllerUI.MainPageController">
+   <children>
+      <AnchorPane fx:id="guidePanel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="80.0" style="-fx-background-color: #003377;">
+         <children>
+            <ImageView fx:id="myFavor" fitHeight="55.0" fitWidth="56.0" layoutX="12.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/myFavor.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="allStocks" fitHeight="55.0" fitWidth="55.0" layoutX="11.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/allStocks.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="BenchMark" fitHeight="85.0" fitWidth="86.0" layoutX="-3.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/benchMark.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="module" fitHeight="54.0" fitWidth="56.0" layoutX="11.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+             <image>
+                  <Image url="@/images/module.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="stastics" fitHeight="54.0" fitWidth="56.0" layoutX="10.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/stastics.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="27.0" layoutY="164.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="260.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="342.0" prefHeight="33.0" prefWidth="56.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+             <Button id="favoriteBtn" fx:id="favoriteBtn" layoutY="110.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#favoriteBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+               <tooltip>
+                  <Tooltip fx:id="myFavorTip" contentDisplay="RIGHT" height="10.0" text="我的关注" width="100.0" />
+               </tooltip></Button>
+            <Button id="allStocksBtn" fx:id="allStocksBtn" layoutY="193.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#allStocksBtnFired" opacity="0.0" prefHeight="85.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+               <tooltip>
+                  <Tooltip fx:id="allStocksTip" contentDisplay="RIGHT" height="10.0" text="所有股票" width="100.0" />
+               </tooltip></Button>
+            <Button id="benchMarkBtn" fx:id="benchMarkBtn" layoutY="274.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#benchMarkBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+               <tooltip>
+                  <Tooltip fx:id="benchMarkTip" contentDisplay="RIGHT" height="10.0" text="大盘走势" width="100.0" />
+               </tooltip></Button>
+            <Button fx:id="moduleBtn" layoutY="358.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#moduleBtnFired" opacity="0.0" prefHeight="77.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+               <tooltip>
+                  <Tooltip fx:id="moduleTip" contentDisplay="RIGHT" height="10.0" text="股票模块" width="100.0" />
+               </tooltip>
+            </Button>
+            <Button fx:id="stasticsBtn" layoutY="423.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#stasticsBtnFired" opacity="0.0" prefHeight="85.0" prefWidth="80.0" style="-fx-border-color: #000088;">
+               <tooltip>
+                  <Tooltip fx:id="stasticsTip" contentDisplay="RIGHT" height="10.0" text="统计模块" width="100.0" />
+               </tooltip>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
