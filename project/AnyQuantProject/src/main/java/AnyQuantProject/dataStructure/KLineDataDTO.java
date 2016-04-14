@@ -16,6 +16,9 @@ public interface KLineDataDTO {
 	public double getHigh();
 	public double getLow();
 	public long getFlow();
-        public int getVolume();
-	public boolean isRed();
+   public int getVolume();
+	public boolean isCloseRed();
+	public boolean isOpenRed();
+	public boolean isHighRed();
+	public boolean isLowRed();
 }

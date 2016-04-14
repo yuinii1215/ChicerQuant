@@ -215,8 +215,8 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		}
 		graph.add(new Cell(Integer.toString(6), predict));
 		CategoryAxis xAxis=new CategoryAxis();
-		NumberAxis yAxis=new NumberAxis(2.75,3.25,0.01);
-		//series high price
+		
+		//
 		XYChart.Series<String,Number> series1=new XYChart.Series();
 		graph.stream().map(g->new XYChart.Data<>(g.x, (Number)g.y)).forEach(d->series1.getData().add(d));
 		//
@@ -226,6 +226,16 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		}
                 series1.setName("预测曲线");
 		series2.setName("原本曲线");
+		double pmax=graph.stream().mapToDouble(g->g.y).max().getAsDouble();
+		double pmin=graph.stream().mapToDouble(g->g.y).min().getAsDouble();
+		double cmax=datac.subList(datac.size()-graph.size(), datac.size()).stream().mapToDouble(d->d).max().getAsDouble();
+		double cmin=datac.subList(datac.size()-graph.size(), datac.size()).stream().mapToDouble(d->d).min().getAsDouble();
+		pmax=(pmax>cmax)?pmax:cmax;
+		pmin=(pmin>cmin)?cmin:pmin;
+		double range=pmax-pmin;
+		pmax+=range*0.2;
+		pmin-=range*0.2;
+		NumberAxis yAxis=new NumberAxis(pmin,pmax,0.5);
 		return new LineChartData(null, xAxis, yAxis, series1,series2);
 	}
 
