@@ -60,7 +60,7 @@ public class LineChartSample extends Application {
 //        stockNames.add("sh600023");
 //        stockNames.add("sh600894");
         //
-        XYChart<String, Number> xyChart=LineChartFactory.getPoly("sh600030");
+        XYChart<String, Number> xyChart=LineChartFactory.getPoly("sh600137");
         xyChart.setPrefSize(800, 1000);
         StackPane stackPane =new StackPane(xyChart);
         
