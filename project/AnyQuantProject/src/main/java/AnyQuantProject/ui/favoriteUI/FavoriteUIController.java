@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -34,11 +35,13 @@ import AnyQuantProject.util.method.errorInputHint.MonologFX;
 import AnyQuantProject.util.method.errorInputHint.MonologFXBuilder;
 import AnyQuantProject.util.method.errorInputHint.MonologFXButton;
 import AnyQuantProject.util.method.errorInputHint.MonologFXButtonBuilder;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+
 import javafx.scene.input.MouseButton;
 
 /**
@@ -72,7 +75,9 @@ public class FavoriteUIController implements Initializable {
     private TableColumn<Stock, Double> pb;
     @FXML
     private TextField search;
-
+    @FXML
+	private Button searchBtn;
+    
     private FavoriteBLService favoriteBLService = FavoriteBLFactory.getFavoriteBLService();
     private StockListBLService stockListBLService = StockListBLFactory.getStockListBLService();
     private String searchInput;
@@ -191,7 +196,7 @@ public class FavoriteUIController implements Initializable {
         SearchTextField auto = SeachTextFieldBuilder.build(search);
         auto.setCacheDataList(searchTipList);
 
-        search.setOnAction(new EventHandler<ActionEvent>() {
+        searchBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent arg0) {
                 searchName = search.getText();
