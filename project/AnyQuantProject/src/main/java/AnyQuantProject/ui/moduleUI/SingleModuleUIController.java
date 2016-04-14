@@ -3,6 +3,7 @@ package AnyQuantProject.ui.moduleUI;
  * @author QiHan
  * 
  */
+import java.awt.Color;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Calendar;
@@ -36,6 +37,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
@@ -102,11 +104,15 @@ public class SingleModuleUIController implements Initializable{
 	  }
 	  
 	  public void InfoRect(){
+		  guideLabel2.setStyle("-fx-background-color: #1b3264;");
 		  allModuleBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent e) -> {
 			  guideLabel2.setStyle("-fx-background-color: #71C671;");
+			//  guideLabel2.setStyle("-fx-fill: #71C671;");
+			  
 			});
 		  allModuleBtn.addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent e) -> {
-			  guideLabel2.setStyle("-fx-background-color: #ffffff;");
+			    guideLabel2.setStyle("-fx-background-color: #1b3264;");
+			//  guideLabel2.setStyle("-fx-fill: #ffffff;");
 			});
 		
 		  
@@ -193,13 +199,11 @@ public class SingleModuleUIController implements Initializable{
 		 PieChart.Data  data1 = new PieChart.Data("上涨", up);
 //		 data1.getNode().setStyle( "-fx-pie-color: #0bb58a;");
 		 PieChart.Data  data2 = new PieChart.Data("下跌", down);
-	//	 data2.getNode().setStyle( "-fx-pie-color: #0bb58a;");
 		 PieChart.Data  data3 = new PieChart.Data("持平", no);
-	//	 data3.getNode().setStyle( "-fx-pie-color: #e2e4e3;");
 		pieChart.getData().add(data1);
 		pieChart.getData().add(data2);
 		pieChart.getData().add(data3);
-
+		pieChart.getStylesheets().add(Main.class.getResource("pieChart.css").toExternalForm());
 		pieChart.setId("行业个股涨跌分布");
 	    pieChart.setClockwise(false);
 		

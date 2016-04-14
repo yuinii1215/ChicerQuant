@@ -1,5 +1,7 @@
 package AnyQuantProject.dataStructure;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by G on 16/4/1.
  */
@@ -27,6 +29,9 @@ public class IndustryInfo {
     }
 
     public void  setUpdown(double updown){
+    	DecimalFormat  df  = new DecimalFormat(".000");   
+    	updown =Double.parseDouble(df.format(updown));
+    	//updown = Double.parseDouble(String .format("%.3f",updown ));
         this.updown=updown;
     }
     public  void  setPure(double pure){
@@ -49,6 +54,9 @@ public class IndustryInfo {
 	}
 
 	public void setLeaderUpdown(double leaderUpdown) {
+		// leaderUpdown	= Double.parseDouble(String .format("%.3f", leaderUpdown ));
+		DecimalFormat    df   = new DecimalFormat(".000");   
+		 leaderUpdown =Double.parseDouble(df.format( leaderUpdown));
 		this.leaderUpdown = leaderUpdown;
 	}
 
