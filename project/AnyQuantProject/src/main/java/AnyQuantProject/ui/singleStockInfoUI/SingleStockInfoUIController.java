@@ -724,7 +724,7 @@ public class SingleStockInfoUIController implements Initializable {
                        
                         if (this.getIndex() < singleStockList.size()) {
                             if(!isEmpty()){
-                              if(singleStockList.get(this.getIndex()).isCloseRed()){
+                              if(singleStockList.get(this.getIndex()).isOpenRed()==true){
                               this.setTextFill(Color.RED);
                               }else{
                               this.setTextFill(Color.GREENYELLOW);
@@ -746,13 +746,12 @@ public class SingleStockInfoUIController implements Initializable {
                     @Override
                     protected void updateItem(Double item, boolean empty) {
                         super.updateItem(item, empty);
-                        if (!isEmpty()) {
-                            double property = Math.random();
-                            if (property > 0.5) {
-                                this.setTextFill(Color.RED);
-                            } else if (property < 0.5) {
-                                this.setTextFill(Color.GREENYELLOW);
-                            }
+                        if (!isEmpty()) {                         
+                             if(singleStockList.get(this.getIndex()).isHighRed()==true){
+                              this.setTextFill(Color.RED);
+                              }else{
+                              this.setTextFill(Color.GREENYELLOW);
+                              }
                             setText(item + "");
                         }
                     }
