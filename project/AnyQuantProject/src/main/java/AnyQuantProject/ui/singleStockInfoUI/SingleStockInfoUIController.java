@@ -724,7 +724,7 @@ public class SingleStockInfoUIController implements Initializable {
                        
                         if (this.getIndex() < singleStockList.size()) {
                             if(!isEmpty()){
-                              if(singleStockList.get(this.getIndex()).isRed()){
+                              if(singleStockList.get(this.getIndex()).isCloseRed()){
                               this.setTextFill(Color.RED);
                               }else{
                               this.setTextFill(Color.GREENYELLOW);

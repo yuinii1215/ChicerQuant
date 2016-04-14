@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import AnyQuantProject.bl.factoryBL.IndustryBLFactory;
+import AnyQuantProject.blService.industryBLService.IndustryBLService;
 import AnyQuantProject.blService.stockListBLService.StockListBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
@@ -100,10 +102,13 @@ public class StockListBLController implements StockListBLService,Runnable {
 		stockData=new ArrayList<>();
 		isAlive=true;
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
+		IndustryBLService yesterday=IndustryBLFactory.getIndustryBLService();
 		Calendar c = Calendar.getInstance();
 		avaliable.stream()
 		.map(nam->singleStockDATAService.getOperation(nam, CalendarHelper.getPreviousDay(c)))
-		.forEach(st->stockData.add(st));
+		.forEach(st->{
+			st.setYesterday(yesterday.getYesterday(st.getName()));
+			stockData.add(st);});
 		//save
 		IOHelper.save(R.CachePath, CalendarHelper.getDate(c), (Serializable) stockData);
 		//

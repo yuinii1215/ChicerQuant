@@ -189,8 +189,8 @@ public class AbstractStock implements Serializable,KLineDataDTO{
 	}
 
 	@Override
-	public boolean isRed() {
-		return close>open;
+	public boolean isCloseRed() {
+		return close>yesterClose;
 	}
 
 	public double getTurnoverValue() {
@@ -199,6 +199,31 @@ public class AbstractStock implements Serializable,KLineDataDTO{
 
 	public void setTurnoverValue(double turnoverValue) {
 		this.turnoverValue = turnoverValue;
+	}
+	double yesterClose;
+	double yesterOpen;
+	double yesterHigh;
+	double yesterLow;
+	public void setYesterday(AbstractStock yes){
+		yesterClose=yes.close;
+		yesterOpen=yes.open;
+		yesterHigh=yes.high;
+		yesterLow=yes.low;
+	}
+
+	@Override
+	public boolean isOpenRed() {
+		return open>yesterOpen;
+	}
+
+	@Override
+	public boolean isHighRed() {
+		return high>yesterHigh;
+	}
+
+	@Override
+	public boolean isLowRed() {
+		return low>yesterLow;
 	}
 }
 
