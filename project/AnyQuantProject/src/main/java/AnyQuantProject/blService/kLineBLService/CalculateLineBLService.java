@@ -11,6 +11,8 @@ import java.util.Calendar;
 
 
 public interface CalculateLineBLService{
+	
+	public LineChartData drawPoly(String name);
 	/**
 	 * 返回股票的价格波动情况以及涨跌幅、成交量
 	 * 只有一条价格曲线，涨跌幅、成交量依次排列
@@ -50,4 +52,6 @@ public interface CalculateLineBLService{
 	 * @return
 	 */
 	public JFreeLineData drawMACD(String name,Calendar minTime,Calendar maxTime);
+	
+	
 }

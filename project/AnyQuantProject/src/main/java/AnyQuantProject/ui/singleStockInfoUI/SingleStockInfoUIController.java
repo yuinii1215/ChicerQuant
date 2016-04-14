@@ -519,6 +519,7 @@ public class SingleStockInfoUIController implements Initializable {
         tenAverageLineDataList = tenAverageLine.geKLineDataDTOs();
         //30日线
         thirtyAverageLine = stockKLineImpl.getDayAverageLine(stockName, minTime, maxTime, 30);
+        
         thirtyAverageLineDataList = thirtyAverageLine.geKLineDataDTOs();
     }
 

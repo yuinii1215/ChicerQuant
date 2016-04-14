@@ -7,10 +7,12 @@ package AnyQuantProject.ui.stasticsInfoUI;
 
 import AnyQuantProject.bl.calculateBL.CalculateLineBLImpl;
 import AnyQuantProject.bl.factoryBL.KLineBLFactory;
+import AnyQuantProject.bl.factoryBL.LineChartBLFactory;
 import AnyQuantProject.blService.kLineBLService.CalculateLineBLService;
 import AnyQuantProject.blService.kLineBLService.StockKLineBLService;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
+import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.ui.singleStockInfoUI.CalcuLineType;
 import AnyQuantProject.util.constant.TimeType;
 import AnyQuantProject.util.method.DrawKLineChart;
@@ -28,8 +30,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.embed.swing.SwingNode;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -37,7 +43,10 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import org.jfree.chart.ChartMouseEvent;
 import org.jfree.chart.ChartMouseListener;
 import org.jfree.chart.ChartPanel;
@@ -71,6 +80,10 @@ public class StasticsInfoController implements Initializable {
     Button macdMathButton, rsiMathButton, biasMathButton, kdjMathButton;
     @FXML
     Tab tab_macdDayKLine, tab_rsiDayKLine, tab_biasDayKLine, tab_kdjDayKLine;
+    @FXML
+    Tooltip macdMathTip, rsiMathTip, biasMathTip, kdjMathTip;
+    @FXML
+    Pane chartPane;
     SwingNode swingNode1, swingNode2, swingNode3, swingNode4;
     ScrollPane scroller1, scroller2, scroller3, scroller4;
     ChartPanel panel1, panel2, panel3, panel4;
@@ -78,6 +91,8 @@ public class StasticsInfoController implements Initializable {
     private KLineData singleStockKLineDate, fiveAverageLine, tenAverageLine, thirtyAverageLine;
     private List<KLineDataDTO> singleStockKLineDataList, fiveAverageLineDataList, tenAverageLineDataList, thirtyAverageLineDataList;
     
+    LineChartData predictLineChartData;
+    public LineChart<String, Number> predictLineChart;
     CalcuLineType calcuLineType;
     KLineData dayKLineData;
     List<KLineDataDTO> dayKLineList;
@@ -89,6 +104,9 @@ public class StasticsInfoController implements Initializable {
     CalculateLineBLService calculateLineBlImpl;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
+    private CategoryAxis xAxis;
+    private javafx.scene.chart.NumberAxis yAxis;
+    private XYChart.Series<String, Number> series,series1;
     /**
      * Initializes the controller class.
      */
@@ -117,7 +135,7 @@ public class StasticsInfoController implements Initializable {
         
         swingNode1 = new SwingNode();
         scroller1 = new ScrollPane();
-        stockName = "sh600649";
+        stockName = "sh601288";
         calcuLineType = CalcuLineType.TYPE_MACD;
         macdDayChart = drawDayKLine(stockName, calcuLineType);
         addChart2Tab(macdDayChart, panel1, swingNode1, scroller1, tab_macdDayKLine);
@@ -143,7 +161,37 @@ public class StasticsInfoController implements Initializable {
         kdjDayChart = drawDayKLine(stockName, calcuLineType);
         addChart2Tab(kdjDayChart, panel4, swingNode4, scroller4, tab_kdjDayKLine);
         setText();
+        addLineChart();
+    }
+    public void addLineChart(){
+        stockName = "sh601288";
+        predictLineChartData = LineChartBLFactory.getCalculateLineBL().drawPoly(stockName);
+        xAxis = new CategoryAxis();
+        xAxis = (CategoryAxis) predictLineChartData.getxAxis();
+        xAxis.setTickLabelFill(Color.WHITE);
+        yAxis = new javafx.scene.chart.NumberAxis();
+        yAxis = (javafx.scene.chart.NumberAxis) predictLineChartData.getyAxis();
+        yAxis.setTickLabelFill(Color.WHITE);
+        yAxis.setLowerBound(yAxis.getLowerBound() - 1);
+        yAxis.setUpperBound(yAxis.getUpperBound() + 1);
+        yAxis.setTickUnit((yAxis.getUpperBound() - yAxis.getLowerBound()) / 10);
+        predictLineChart = (LineChart<String, Number>) new LineChart<>(xAxis, yAxis);
+        predictLineChart.setTitle(predictLineChart.getTitle());
+
+        series = new XYChart.Series<>();
+        series = (XYChart.Series<String, Number>) predictLineChartData.getSeries().get(0);
+        series1 = new XYChart.Series<>();       
+        series1 = (XYChart.Series<String, Number>) predictLineChartData.getSeries().get(1);
+       
+        predictLineChart.getData().add(0,series);
+        predictLineChart.getData().add(1,series1);
+//        predictLineChart.setStyle("-fx-stroke:#00CACA; ");
         
+        predictLineChart.setPrefSize(400, 400);
+     
+
+
+        chartPane.getChildren().add(predictLineChart);
     }
     
     public JFreeChart drawDayKLine(String stockID, CalcuLineType calcuLineType) {
@@ -305,20 +353,31 @@ public class StasticsInfoController implements Initializable {
     }
     
     private void setText() {
+        macdMathTip.setText("DIF:EMA(CLOSE,12)-EMA(CLOSE,26);\n"
+                + "DEA:EMA(DIF,9);\n"
+                + "MACD柱:(DIF-DEA)*2,COLORSTICK;");
+        rsiMathTip.setText("RSI=100*RS/(1+RS)\n"+"注:其中RS表示14天内收盘价上涨数之和的平均值/14天内收盘价价下跌数之和的平均值");
+        kdjMathTip.setText("n日RSV=（Cn－Ln）/（Hn－Ln）×100\n" +
+"公式中，Cn为第n日收盘价；Ln为n日内的最低价；Hn为n日内的最高价。\n" +
+"K线是快速确认线——K值=2/3×前一日K值+1/3×当日RSV\n" +
+"D线是慢速主干线——D值=2/3×前一日D值+1/3×当日K值\n" +
+"J线为方向敏感线，J值=3*当日K值-2*当日D值");
+        biasMathTip.setText("BIAS是指股价与平均移动线之间的偏离程度，通过百分比的形式来表示股价与平均移动线之间的差距。\n" +
+"N日BIAS=（当日收盘价—N日移动平均价）÷N日移动平均价×100");
         macdText1.setText("我何时该买入?\n" + "DIF由下向上突破 DEA,MACD 值由负变正");
         macdText2.setText("我何时该卖出?\n" + "DIF由上向下突破 DEA,MACD 值由正变负");
         macdText3.setText("此图表何时适用?\n" + "适用于中线趋势分析，建议与KDJ线一起使用");
         
         rsiText1.setText("我何时该买入?\n"
-                + "（1）W形或头肩底 当RSI在低位或底部形成W形或头肩底形时，属最佳买入时期。\n"
-                + "（2）当RSI运行到20以下时为超卖区，易产生返弹。\n"
-                + "（3）黄金交叉:当短天期的RSI向上穿越长天期的RSI时为买入信号。\n"
-                + "（4）牛背离:当股指或股价一波比一波低，而RSI却一波比一波高，叫牛背离，此时股指或股价很容易反转上涨.");
+                + "1.W形或头肩底 当RSI在低位或底部形成W形或头肩底形时，属最佳买入时期。\n"
+                + "2.当RSI运行到20以下时为超卖区，易产生返弹。\n"
+                + "3.黄金交叉:当短天期的RSI向上穿越长天期的RSI时为买入信号。\n"
+                + "4.牛背离:当股指或股价一波比一波低，而RSI却一波比一波高，叫牛背离，此时股指或股价很容易反转上涨.");
         rsiText2.setText("我何时该卖出?\n"
-                + "（1）形态M形、头肩顶形 当RSI在高位或顶部形成M形或头肩顶形时，属最佳卖出时机。\n"
-                + "（2）当RSI运行到80以上时进入超买区，股价很容易下跌。\n"
-                + "（3）顶背离当股指或股价创新高时，而RSI却不创新高，叫顶背离，将是最佳卖出时机。\n"
-                + "（4）当短天期RSI下穿长天期RSI时，叫死亡交叉，为卖出信号。");
+                + "1.形态M形、头肩顶形 当RSI在高位或顶部形成M形或头肩顶形时，属最佳卖出时机。\n"
+                + "2.当RSI运行到80以上时进入超买区，股价很容易下跌。\n"
+                + "3.顶背离当股指或股价创新高时，而RSI却不创新高，叫顶背离，将是最佳卖出时机。\n"
+                + "4.当短天期RSI下穿长天期RSI时，叫死亡交叉，为卖出信号。");
         rsiText3.setText("此图表何时适用?\n"
                 + "稳健型的投资可以使用交叉买入或卖出，SI短线自下而上穿越长期参数即RSI指标长线时，是一个买点，此时介入至少应当有10％左右的获利\n"
                 + "空间；反之则是卖出信号，损失空间也将有10％左右；两条指标线产生"
@@ -340,7 +399,9 @@ public class StasticsInfoController implements Initializable {
                 + "3、当长期BIAS曲线也开始在高位向下掉头时，说明股价的中短期上涨行情已经结束，投资者应全部清仓离场。");
         biasText3.setText("此图表何时适用？\n"
                 + "在分析和预测股价走势时，可以结合乖离率与布林线或其他数据图表进行分析。但如果仅单一适用乖离率作为研判依据，有时会出现偏差，尤其是在极端行情中，乖离率所给出的逆势操作幸好可能会丢失机会或作出错误决策。所以，通过乖离率洞察股市冷暖，符合常规思路：涨多了要跌，跌多了要涨");
-        
+        kdjText1.setText("1.我何时该买?\n" +"K、D、J这三值在20以下，K线向上突破D线");
+        kdjText2.setText("2.我何时该卖?\n" +"K、D、J这三值在80以上，K线向下跌破D线");
+        kdjText3.setText("3.此图表何时适用?\n" +"适用于中短线趋势分析，建议与MACD线一起使用.由RSV可知，其是当前股价在最近周期内股价所处位置的体现。当K线向上突破D线时，说明目前趋势是向上的；当K线向下突破D线时，说明目前趋势是向下的,但是股票持续稳定上涨或下跌都会出现钝化现象，KDJ线持平，此时可以综合MACD线来判断");
     }
     
 }

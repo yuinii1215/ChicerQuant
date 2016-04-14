@@ -200,6 +200,35 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		return new JFreeLineData(title,dif,dea,macdBar);
 	}
 
+	@Override
+	public LineChartData drawPoly(String name) {
+		Calendar today=Calendar.getInstance();
+		Calendar fiveago=Calendar.getInstance();
+		fiveago.add(Calendar.DAY_OF_MONTH, -8);
+		List<Stock> data=this.getData(name, fiveago, today);
+		List<Double> datac=data.stream().map(s->s.getClose()).collect(Collectors.toList());
+		double predict=POLY.calculatePOLY(datac);
+		List<Cell> graph=new ArrayList<>(7);
+		for (int i = 0; i < 5; i++) {
+			Cell cell=new Cell(Integer.toString(i+1), datac.get(i));
+			graph.add(cell);
+		}
+		graph.add(new Cell(Integer.toString(6), predict));
+		CategoryAxis xAxis=new CategoryAxis();
+		NumberAxis yAxis=new NumberAxis(2.75,3.25,0.01);
+		//series high price
+		XYChart.Series<String,Number> series1=new XYChart.Series();
+		graph.stream().map(g->new XYChart.Data<>(g.x, (Number)g.y)).forEach(d->series1.getData().add(d));
+		//
+		XYChart.Series<String,Number> series2=new XYChart.Series();
+		for (int i = 0; i < graph.size(); i++) {
+			series2.getData().add(new XYChart.Data<String, Number>(Integer.toString(i+1), (Number)data.get(i).getClose()));
+		}
+                series1.setName("预测曲线");
+		series2.setName("原本曲线");
+		return new LineChartData(null, xAxis, yAxis, series1,series2);
+	}
+
 	
 
 }

@@ -21,6 +21,7 @@ import AnyQuantProject.util.method.SimpleLongProperty;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -28,6 +29,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
@@ -218,7 +220,6 @@ public class ModuleUI_2Controller implements Initializable{
 
 		  	barChart.setLegendVisible(false);
 
-
 		//设置图
 		barYAxis.setLabel("净额");
 		
@@ -249,7 +250,8 @@ public class ModuleUI_2Controller implements Initializable{
 //		tl.setCycleCount (1) ;
 //		tl.play();
 		for (int i = 0; i < pures.length; i++) {
-			series.getData().add(new XYChart.Data(industryName[i],pures[i]));
+			XYChart.Data data = new XYChart.Data(industryName[i],pures[i]);
+			series.getData().add(data);
 		}
 		barChart.getData().add(series);
 	}
