@@ -5,8 +5,10 @@ import java.util.Calendar;
 import java.util.List;
 
 import AnyQuantProject.bl.factoryBL.FavoriteBLFactory;
+import AnyQuantProject.bl.factoryBL.IndustryBLFactory;
 import AnyQuantProject.bl.factoryBL.StockListBLFactory;
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
+import AnyQuantProject.blService.industryBLService.IndustryBLService;
 import AnyQuantProject.blService.singleStockDealBLService.SingleStockDealBLService;
 import AnyQuantProject.blService.singleStockInfoBLService.SingleStockInfoBLService;
 import AnyQuantProject.blService.stockListBLService.StockListBLService;
@@ -100,6 +102,8 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 				try {
 					List<Stock> ans=singleStockDATAService
 							.getStockAmongDate(name, start, end);
+					IndustryBLService service=IndustryBLFactory.getIndustryBLService();
+					ans.stream().forEach(s->s.setYesterday(service.getYesterday(s.getName())));
 					return ans;
 				} catch (Exception e) {
 					e.printStackTrace();
