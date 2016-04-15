@@ -149,6 +149,7 @@
                         </Label>
                         <TextField fx:id="newPreviewTextField" layoutX="300.0" layoutY="32.0" prefHeight="26.0" prefWidth="120.0" promptText="待预测股票" style="-fx-background-color: #D9FFFF; -fx-text-fill: #000000;" />
                         <Button fx:id="predictButton" layoutX="437.0" layoutY="32.0" mnemonicParsing="false" onAction="#handlePredict" style="-fx-background-color: #00AEAE;" text="预测" />
+                        <TextArea fx:id="polyText" editable="false" layoutX="510.0" layoutY="90.0" prefHeight="438.0" prefWidth="356.0" style="-fx-background-color: transparent;" wrapText="true" />
                      </children>
                   </AnchorPane>
               </content>

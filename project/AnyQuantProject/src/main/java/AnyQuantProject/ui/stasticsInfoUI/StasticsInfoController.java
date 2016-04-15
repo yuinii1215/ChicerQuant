@@ -90,6 +90,8 @@ public class StasticsInfoController implements Initializable {
     TextField newPreviewTextField;
     @FXML
     Button  predictButton;
+    @FXML
+    TextArea polyText;
             
     SwingNode swingNode1, swingNode2, swingNode3, swingNode4;
     ScrollPane scroller1, scroller2, scroller3, scroller4;
@@ -170,6 +172,12 @@ public class StasticsInfoController implements Initializable {
         setText();
         stockName = "sh601288";
         addLineChart();
+        polyText.setText("三次样条函数:\n" +
+"定义:函数S(x)∈C2[a,b] ，且在每个小区间[ xj,xj+1 ]上是三次多项式，其中\n" +
+"a =x0 <x1<...< xn= b 是给定节点，则称S(x)是节点x0,x1,...xn上的三次样条函数。\n" +
+"若在节点x j 上给定函数值Yj= f (Xj).( j =0, 1, , n) ，并成立\n" +
+"S(xj ) =yj .( j= 0, 1, , n) ，则称S(x)为三次样条插值函数。\n" +
+"实际计算时还需要引入边界条件才能完成计算。边界通常有自然边界（边界点的二阶导为0），夹持边界（边界点导数给定），非扭结边界（使两端点的三阶导与这两端点的邻近点的三阶导相等）。一般的计算方法书上都没有说明非扭结边界的定义，但数值计算软件如Matlab都把非扭结边界条件作为默认的边界条件。");
     }
     public void addLineChart(){       
         predictLineChartData = LineChartBLFactory.getCalculateLineBL().drawPoly(stockName);
@@ -196,6 +204,7 @@ public class StasticsInfoController implements Initializable {
         
         predictLineChart.setPrefSize(400, 400);
         predictID.setText(stockName+"预测曲线");
+        chartPane.getChildren().clear();
         chartPane.getChildren().add(predictLineChart);
     }
     
