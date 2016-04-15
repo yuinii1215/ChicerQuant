@@ -18,5 +18,6 @@ public class R {
 	public static final String TurnOver="TurnOver";
 	public static final String SHARES="Shares";
 	public static final String NonRest="NonRest";
+	public static final String IndustryStock="IndustryStock";
 }
 

@@ -15,6 +15,7 @@ import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.constant.R;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
 import AnyQuantProject.util.method.IOHelper;
@@ -88,9 +89,6 @@ public class StockKLineBLImpl implements StockKLineBLService {
 	private void refreshData(String stockName) {
 		boolean shouldSave = true;
 		if (oldStocks == null || !oldStocks.get(0).getName().equalsIgnoreCase(stockName)) {
-			// get data service
-			FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
-			SingleStockDATAService singleStockDATAService = factoryDATAService.getSingleStockDATAService();
 			// try to read cache
 			try {
 				oldStocks = (List<Stock>) IOHelper.read(R.CachePath, stockName);
@@ -100,7 +98,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 				Calendar oldDate = oldStocks.get(oldStocks.size() - 1).getDateInCalendar();
 				// get after data
 				if (oldDate.before(CalendarHelper.getPreviousDay(Calendar.getInstance()))) {
-					List<Stock> newStocks = singleStockDATAService.getStockAmongDate(stockName,
+					List<Stock> newStocks = getData(stockName,
 							CalendarHelper.getAfterDay(oldDate), Calendar.getInstance());
 					if (newStocks.isEmpty()) {
 						shouldSave = false;
@@ -108,7 +106,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 					oldStocks.addAll(newStocks);
 				}
 			} catch (Exception e) {
-				oldStocks = singleStockDATAService.getStockAmongDate(stockName,
+				oldStocks = getData(stockName,
 						CalendarHelper.convert2Calendar(R.startDate), Calendar.getInstance());
 			}
 			if (shouldSave) {
@@ -117,6 +115,19 @@ public class StockKLineBLImpl implements StockKLineBLService {
 				Thread thread = new Thread(() -> IOHelper.save(R.CachePath, stockName, obj));
 				thread.start();
 			}
+		}
+	}
+	
+	private List<Stock> getData(String stockName,Calendar start,Calendar end){
+		// get data service
+		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
+		SingleStockDATAService singleStockDATAService = factoryDATAService.getSingleStockDATAService();
+		try {
+			List<Stock> ans=singleStockDATAService.getStockAmongDate(stockName, start, end);
+			return ans;
+		} catch (NetFailedException e) {
+			// TODO: handle exception
+			return getData(stockName, start, end);
 		}
 	}
 

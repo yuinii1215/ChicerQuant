@@ -17,6 +17,7 @@ import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.constant.R;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
 import AnyQuantProject.util.method.IOHelper;
@@ -154,9 +155,6 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 	private void refreshData(String stockName) {
 		boolean shouldSave = true;
 		if (oldStocks == null || !oldStocks.get(0).getName().equalsIgnoreCase(stockName)) {
-			// get data service
-			FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
-			BenchMarkDATAService benchMarkDATAService = factoryDATAService.getBenchMarkDATAService();
 			// try to read cache
 			try {
 				oldStocks = (List<BenchMark>) IOHelper.read(R.CachePath, stockName);
@@ -166,7 +164,7 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 				Calendar oldDate = oldStocks.get(oldStocks.size() - 1).getDateInCalendar();
 				// get after data
 				if (oldDate.before(CalendarHelper.getPreviousDay(Calendar.getInstance()))) {
-					List<BenchMark> newStocks = benchMarkDATAService.getBenchMarkAmongDate(stockName,
+					List<BenchMark> newStocks = getData(stockName,
 							CalendarHelper.getAfterDay(oldDate), Calendar.getInstance());
 					if (newStocks.isEmpty()) {
 						shouldSave = false;
@@ -176,8 +174,7 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 				//
 
 			} catch (Exception e) {
-				oldStocks = benchMarkDATAService.getBenchMarkAmongDate(stockName,
-						CalendarHelper.convert2Calendar(R.startDate), Calendar.getInstance());
+				oldStocks = getData(stockName, CalendarHelper.convert2Calendar(R.startDate), Calendar.getInstance());
 			}
 			if (shouldSave) {
 				// save
@@ -186,6 +183,20 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 				thread.start();
 			}
 		}
+	}
+	
+	private List<BenchMark> getData(String name,Calendar start,Calendar end){
+		// get data service
+		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
+		BenchMarkDATAService benchMarkDATAService = factoryDATAService.getBenchMarkDATAService();
+		try {
+			List<BenchMark> ans=benchMarkDATAService.getBenchMarkAmongDate(name,
+					start, end);
+			return ans;
+		} catch (NetFailedException e) {
+			return getData(name, start, end);
+		}
+		
 	}
 
 	@Override
