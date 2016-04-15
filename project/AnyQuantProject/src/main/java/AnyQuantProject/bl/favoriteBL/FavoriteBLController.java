@@ -17,6 +17,7 @@ import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.net.TipPop;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
@@ -65,7 +66,7 @@ public class FavoriteBLController implements FavoriteBLService {
 			}
 			return ans;
 		} catch (Exception e) {
-			// TODO: handle exception
+			TipPop.showTip();
 			return this.getMyFavor();
 		}
 		

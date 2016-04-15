@@ -16,8 +16,11 @@ import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.net.TipPop;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
+import AnyQuantProject.util.method.NetCheck;
 
 /** 
 *AnyQuantProject//AnyQuantProject.bl.singleStockBL//SingleStockBLController.java
@@ -47,9 +50,11 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 					.getStockAmongDate(name, CalendarHelper.getMonthStart(year), CalendarHelper.getMonthEnd(year));
 			
 			return ans;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new ArrayList<>();
+		} catch (NetFailedException e) {
+			TipPop.showTip();
+
+			return getSingleStockDeal(name, year);
+			
 		}
 	}
 
@@ -77,8 +82,9 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 			}
 			return ans;
 		}
-		catch(Exception e){
-			return null;
+		catch(NetFailedException e){
+			TipPop.showTip();
+			return getSingleStockInfo(name);
 		}
 	}
 
@@ -105,9 +111,9 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 					IndustryBLService service=IndustryBLFactory.getIndustryBLService();
 					ans.stream().forEach(s->s.setYesterday(service.getYesterday(s.getName())));
 					return ans;
-				} catch (Exception e) {
-					e.printStackTrace();
-					return new ArrayList<>();
+				} catch (NetFailedException e) {
+					TipPop.showTip();
+					return getSingleStockDeal(name, start, end);
 				}
 	}
 

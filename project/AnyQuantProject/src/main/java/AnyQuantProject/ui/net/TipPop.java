@@ -34,6 +34,7 @@ public class TipPop {
 		//625,980 80
 		mono.setHeight(60);
 		mono.setWidth(900);
+		mono.setAlwaysOnTop(true);
 		
 	}
 	public static void listeners(){
@@ -52,4 +53,5 @@ public class TipPop {
 		type = mono.showDialog(80, 565);
 		 
 	}
+	
 }

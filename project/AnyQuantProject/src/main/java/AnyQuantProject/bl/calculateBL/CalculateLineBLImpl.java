@@ -13,6 +13,7 @@ import AnyQuantProject.dataStructure.Cell;
 import AnyQuantProject.dataStructure.JFreeLineData;
 import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.net.TipPop;
 import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
@@ -41,6 +42,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService  {
 			//
 			return data;
 		} catch (NetFailedException e) {
+			TipPop.showTip();
 			return getData(name);
 		}
 		
@@ -60,7 +62,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService  {
 			//
 			return data;
 		} catch (NetFailedException e) {
-			// TODO: handle exception
+			TipPop.showTip();
 			return getData(name, start, end);
 		}
 		
@@ -169,7 +171,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService  {
 				return new LineChartData(title, xAxis, yAxis);
 			}
 		} catch (NetFailedException e) {
-			// TODO: handle exception
+			TipPop.showTip();
 			return drawPreview(name);
 		}
 	}

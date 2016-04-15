@@ -129,7 +129,6 @@ public class LineChartBLImpl implements LineChartBLService {
 			}
 			barDatas.add(barData);
 		}
-		System.out.println(kLineDataDTOs.size());
 		return barDatas;
 	}
 
