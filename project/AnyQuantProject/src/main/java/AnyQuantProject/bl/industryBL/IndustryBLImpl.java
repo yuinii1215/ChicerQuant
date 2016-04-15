@@ -153,7 +153,7 @@ public class IndustryBLImpl implements IndustryBLService {
 		}
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		IndustryNameDATAService industryNameDATAService=factoryDATAService.getIndustryDATAService();
-	
+
 		List<String> stocks=industryNameDATAService.getStockByIndustry(industry);
 		List<Stock> all=StockListBLFactory.getStockListBLService().getAllStocks();
 		List<Stock> ans=all.stream().filter(st->stocks.contains(st.getName())).collect(Collectors.toList());
@@ -169,7 +169,7 @@ public class IndustryBLImpl implements IndustryBLService {
 		}
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		IndustryNameDATAService industryNameDATAService=factoryDATAService.getIndustryDATAService();
-	
+
 		return industryNameDATAService.getIndustryName(stockName);
 	}
 

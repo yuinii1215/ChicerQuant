@@ -13,6 +13,7 @@ import AnyQuantProject.dataStructure.Cell;
 import AnyQuantProject.dataStructure.JFreeLineData;
 import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
 import javafx.scene.chart.CategoryAxis;
@@ -24,13 +25,15 @@ import javafx.scene.chart.XYChart;
 * @author cxworks
 * 2016年3月29日 下午7:32:29
 */
-public class CalculateLineBLImpl implements CalculateLineBLService {
+public class CalculateLineBLImpl implements CalculateLineBLService  {
 	private List<Stock> getData(String name) {
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		Calendar now=Calendar.getInstance();
-		
-		List<Stock> dataT=singleStockDATAService.getStockAmongDate(name, CalendarHelper.getPreviousYear(now), now);
+
+
+		List<Stock> dataT = singleStockDATAService.getStockAmongDate(name, CalendarHelper.getPreviousYear(now), now);
+
 		if (dataT==null||dataT.isEmpty()) {
 			return null;
 		}
@@ -42,8 +45,9 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 	private List<Stock> getData(String name,Calendar start,Calendar end){
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
-		
-		List<Stock> dataT=singleStockDATAService.getStockAmongDate(name, start, end);
+
+		List<Stock> dataT = singleStockDATAService.getStockAmongDate(name, start, end);
+
 		if (dataT==null||dataT.isEmpty()) {
 			return null;
 		}
@@ -126,7 +130,8 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		Calendar ins=Calendar.getInstance();
 		Calendar weekBefore=Calendar.getInstance();
 		weekBefore.add(Calendar.DAY_OF_WEEK, -14);
-		List<Stock> dataT=singleStockDATAService.getStockAmongDate(name, weekBefore, ins);
+		List<Stock> dataT = singleStockDATAService.getStockAmongDate(name, weekBefore, ins);
+
 		if (dataT==null||dataT.isEmpty()) {
 			return null;
 		}

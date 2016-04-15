@@ -14,6 +14,7 @@ import java.util.*;
 import AnyQuantProject.dataStructure.AbstractStock;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.util.constant.R;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.IOHelper;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -32,17 +33,17 @@ public class ChineseName {
 		ChineseName i = new ChineseName();
 //		i.iniChinese();
 //		System.out.println(i.getChineseName("sh601186"));
-        List<String> list = getAllChineseName();
-        System.out.println(list.size());
-        System.out.println(list.get(0));
+//        List<String> list = getAllChineseName();
+//        System.out.println(list.size());
+//        System.out.println(list.get(0));
 	}
-	public static OperationResult iniChinese() {
+	public static OperationResult iniChinese() throws NetFailedException {
 		OperationResult result = new OperationResult();
 		try {
 			HashMap<String, String> list = getNameArray();
 			result = IOHelper.save(R.CachePath, R.ChineseNameFile, (Serializable) list);
 		} catch (IOException e) {
-			return result = new OperationResult(false, "JUHE IOEXCEPTION ");
+			throw new NetFailedException("juhe net connect failed");
 		}
 		
 		return result;
@@ -54,7 +55,7 @@ public class ChineseName {
 	 * @param name
 	 * @return
 	 */
-	public static String getChineseName(String name){
+	public static String getChineseName(String name)throws NetFailedException{
 		HashMap<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
         while (list == null) {
             ChineseName c = new ChineseName();
@@ -107,7 +108,7 @@ public class ChineseName {
 		return resultList;
 	}
 
-	public static List<String> getAllChineseName() {
+	public static List<String> getAllChineseName() throws NetFailedException{
 		Map<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
 		while (list == null) {
 			iniChinese();
