@@ -17,25 +17,26 @@ public class TipPop {
 //	private Popup netPop = new Popup();
 //	private String tips="网络已断开，请检查！";
 //	private Button ok,exit;
-    static MonologFX mono;
+	static MonologFX mono;
 	static MonologFXButton mlb1;
 	static MonologFXButton mlb2;
-	Type type;
+	static MonologFXButton.Type type;
 	
-	public final void showTipPop(){
+	public final static  void showTipPop(){
 	//	MonologFXButton.Type type = MonologFXUtil.confirm("你确定吗?"); 
+	
 		mlb1=MonologFXButtonBuilder.create().defaultButton(true).label("已连接").type(MonologFXButton.Type.OK).build();
 		mlb2=MonologFXButtonBuilder.create().defaultButton(true).label("退出").type(MonologFXButton.Type.CANCEL).build();
+		
 		
 		mono=MonologFXBuilder.create().modal(true).message("网络已断开，请检查！").button(mlb1).button(mlb2).buttonAlignment(MonologFX.ButtonAlignment.RIGHT).build();        
 		mono.initStyle(StageStyle.UNDECORATED);
 		//625,980 80
-		mono.setX(80);
-		mono.setY(565);
 		mono.setHeight(60);
 		mono.setWidth(900);
+		
 	}
-	public void listeners(){
+	public static void listeners(){
 		if(type == MonologFXButton.Type.OK) {
 			
 		}
@@ -45,7 +46,10 @@ public class TipPop {
 		}
 	}
 	
-	public static void showTip(){
-		mono.showAndWait();
+	public static  void showTip(){
+		showTipPop();
+		listeners();
+		type = mono.showDialog(80, 565);
+		 
 	}
 }
