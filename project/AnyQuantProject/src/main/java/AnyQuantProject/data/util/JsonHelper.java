@@ -3,6 +3,7 @@ package AnyQuantProject.data.util;
 import java.io.IOException;
 import java.util.Calendar;
 
+import AnyQuantProject.util.exception.NetFailedException;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import AnyQuantProject.util.method.CalendarHelper;
@@ -19,14 +20,13 @@ public class JsonHelper {
 	String key;
 	
 	
-	public JSONArray getAll(String Pkey){
+	public JSONArray getAll(String Pkey) throws NetFailedException{
 		JSONArray jarr = new JSONArray();
 		JSONArray result = new JSONArray();
 		try {
 			jarr = helper.getAnyAPI(keyheader+Pkey);
 		} catch (IOException e) {
-			e.printStackTrace();
-			return new JSONArray();
+			throw new NetFailedException("anyquant net connect failed");
 		}
 
 		for (int i = 0; i < jarr.size(); i++) {
@@ -38,14 +38,13 @@ public class JsonHelper {
 	}
 	
 	
-	public JSONArray getAllWithChinese(String Pkey){
+	public JSONArray getAllWithChinese(String Pkey) throws NetFailedException{
 		JSONArray jarr = new JSONArray();
 		JSONArray result = new JSONArray();
 		try {
 			jarr = helper.getAnyAPI(keyheader+Pkey);
 		} catch (IOException e) {
-			e.printStackTrace();
-			return new JSONArray();
+			throw new NetFailedException("anyquant net connect failed");
 		}
 
 		for (int i = 0; i < jarr.size(); i++) {
@@ -59,15 +58,15 @@ public class JsonHelper {
 		return result;
 	}
 	
-	public JSONObject getOperation(DataType type, String name, Calendar date) {
+	public JSONObject getOperation(DataType type, String name, Calendar date) throws NetFailedException{
 		key = getKeyWithDate(type, name, date, date);
 		JSONObject jo = new JSONObject();
+
 		try {
 		
 				jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
 		} catch (IOException e) {
-			e.printStackTrace();
-			return new JSONObject();
+			throw new NetFailedException("anyquant net connect failed");
 		}
 		
 		if (jo.size() != 0) {
@@ -84,18 +83,18 @@ public class JsonHelper {
 	}
 	
 	public JSONArray getAmongDate(DataType type, String name, Calendar start,
-			Calendar end) {
+			Calendar end) throws NetFailedException{
 		key = getKeyWithDate(type, name, start, end);
+		JSONArray jarr = new JSONArray();
 //		System.out.println("jhelper  key : "+key);
 		JSONObject jo = new JSONObject();
 		try {
 			jo = helper.getAnyAPI(keyheader+key).getJSONObject(0);
 		} catch (IOException e) {
-			e.printStackTrace();
-			return new JSONArray();
+			throw new NetFailedException("anyquant net connect failed");
 		}
-		JSONArray result = jo.getJSONArray("trading_info");
-		return result;
+		jarr = jo.getJSONArray("trading_info");
+		return jarr;
 	}
 	
 	public String getKeyWithDate(DataType type, String name, Calendar start, Calendar end) {
@@ -115,7 +114,7 @@ public class JsonHelper {
 		JsonHelper j = new JsonHelper();
 //		j.getAllWithChinese("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
 //		j.getAll("stock/sh600000/?start=2016-02-01&end=2016-02-03&fields=open+high+close");
-		j.getOperation(DataType.BENCHMARK, "hs300", Calendar.getInstance());
+//		j.getOperation(DataType.BENCHMARK, "hs300", Calendar.getInstance());
 	}
 
 }

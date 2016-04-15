@@ -3,6 +3,7 @@ package AnyQuantProject.data.util;
 import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataStructure.OperationResult;
 import AnyQuantProject.util.constant.R;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.IOHelper;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -42,15 +43,19 @@ public class IndustryName implements IndustryNameDATAService{
 
     public static void main(String[] args) {
         IndustryName i = new IndustryName();
-//        System.out.println(i.getStockByIndustry("综合"));
+        try {
+            System.out.println(i.getStockByIndustry("综合"));
+        } catch (NetFailedException e) {
+            System.out.println("i'll handle it");
+        }
 //        getMktIndustryFlow();
 //		i.iniIndustry();
 //        System.out.println(i.getIndustryName("sh601186"));
 //        List<String> list = i.getAllIndustries();
 //        i.getStockByIndustry("银行");
 
-        System.out.println(i.getAllIndustries());
-        System.out.println(i.getStockByIndustry("传媒"));
+//        System.out.println(i.getAllIndustries());
+//        System.out.println(i.getStockByIndustry("传媒"));
     }
 
     private IndustryName(){}
@@ -63,19 +68,19 @@ public class IndustryName implements IndustryNameDATAService{
     }
 
 
-    public OperationResult iniIndustry() {
+    public OperationResult iniIndustry() throws NetFailedException {
         OperationResult result = new OperationResult();
         try {
             Map<String, String> list = getIndustryNameArray();
             result = IOHelper.save(R.CachePath, R.IndustryNameFile, (Serializable) list);
         } catch (IOException e) {
-            return result = new OperationResult(false, "Industry IOEXCEPTION ");
+            throw new NetFailedException("TL net connect failed");
         }
 
         return result;
     }
 
-    private Map<String, String> readIndustryFile() {
+    private Map<String, String> readIndustryFile() throws NetFailedException{
         Map<String, String> list = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
         while (list == null) {
             iniIndustry();
@@ -89,7 +94,7 @@ public class IndustryName implements IndustryNameDATAService{
      * @param name
      * @return
      */
-    public String getIndustryName(String name){
+    public String getIndustryName(String name)throws NetFailedException{
         Map<String, String> list = readIndustryFile();
         return list.get(name);
     }
@@ -190,7 +195,7 @@ public class IndustryName implements IndustryNameDATAService{
      * 测试有多少个行业类别
      * @throws IOException
      */
-    private void getIndustryNum() throws IOException{
+    private void getIndustryNum() throws IOException,NetFailedException{
         List<String> stockNameList = (List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
         Set<String> count = new HashSet<String>();
         for (int i = 0; i < stockNameList.size(); i++) {
@@ -202,7 +207,7 @@ public class IndustryName implements IndustryNameDATAService{
     }
 
 	@Override
-	public List<String> getAllIndustries() {
+	public List<String> getAllIndustries() throws NetFailedException{
         Map<String, String> list = readIndustryFile();
         Set<String> resultSet = new HashSet<String>();
 
@@ -220,7 +225,7 @@ public class IndustryName implements IndustryNameDATAService{
 	}
 
 	@Override
-	public List<String> getStockByIndustry(String industry) {
+	public List<String> getStockByIndustry(String industry) throws NetFailedException{
         Map<String, String> stockNameList = readIndustryFile();
         Set set = stockNameList.entrySet();
         List<String> resultList = new ArrayList<>();

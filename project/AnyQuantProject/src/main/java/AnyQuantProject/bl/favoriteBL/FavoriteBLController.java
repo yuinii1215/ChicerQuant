@@ -55,10 +55,11 @@ public class FavoriteBLController implements FavoriteBLService {
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		//
+
 		List<Stock> ans=favor.stream()
-		.map(name->
-		singleStockDATAService.getOperation(name, CalendarHelper.getPreviousDay(Calendar.getInstance())))
-		.collect(Collectors.toList());
+			.map(name->
+			singleStockDATAService.getOperation(name, CalendarHelper.getPreviousDay(Calendar.getInstance())))
+			.collect(Collectors.toList());
 		return ans;
 	}
 

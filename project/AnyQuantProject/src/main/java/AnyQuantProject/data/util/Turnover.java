@@ -3,11 +3,9 @@ package AnyQuantProject.data.util;
 /**
  * Created by G on 16/4/4.
  */
-import AnyQuantProject.util.method.CalendarHelper;
+import AnyQuantProject.util.exception.NetFailedException;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import org.apache.commons.beanutils.converters.IntegerConverter;
-import org.apache.commons.codec.EncoderException;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -31,12 +29,17 @@ public class Turnover {
     private static CloseableHttpClient httpClient = createHttpsClient();
     private static final String ACCESS_TOKEN = "a426949d7db2b7a49da5d4a65d171eeb687ecdb8c07ab1dad6a38ffcd7818f2a";
 
-    public static void main(String[] args) throws IOException, EncoderException {
-       System.out.println("turnovervalue"+ getTurnOverValue("sh600216"));
-//       System.out.println(getShares("sh600216"));
+    public static void main(String[] args)  {
+
+        try {
+            System.out.println("turnovervalue"+ getTurnOverValue("sh600216"));
+            System.out.println(getShares("sh600216"));
+        } catch (NetFailedException e) {
+            System.out.println("i'll handle it");
+        }
     }
 
-    public static String getShares(String name) {
+    public static String getShares(String name) throws NetFailedException {
         double totalShares = 0;
         double nonrestFloatShares = 0;
         String result = new String();
@@ -53,7 +56,7 @@ public class Turnover {
             body = EntityUtils.toString(entity);
             System.out.println(body);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new NetFailedException("TL net connect failed");
         }
 
         //解析json格式的数据得到行业名字
@@ -78,13 +81,22 @@ public class Turnover {
         return result;
     }
 
+    public static Double getTurnOverValue(String name) throws NetFailedException {
+        double result = 0;
+        try {
+            result = getTurnOverValueP(name);
+        } catch (IOException e) {
+            throw new NetFailedException("TL net connect failed");
+        }
+        return result;
+    }
 
     /**
      * 由股票的代号得到股票成交金额
      * @param name
      * @return
      */
-    public static Double getTurnOverValue(String name) throws IOException {
+    private static Double getTurnOverValueP(String name) throws IOException {
         //根据api store页面上实际的api url来发送get请求，获取数据
         double value = 0;
         name = name.substring(2);
@@ -93,7 +105,6 @@ public class Turnover {
         SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
         String date = sdf.format(d.getTime());
         String url = "https://api.wmcloud.com:443/data/v1/api/market/getMktEqud.json?field=ticker,tradeDate,turnoverValue&beginDate=&endDate=&secID=&ticker="+name+"&tradeDate="+date;
-//        String url = "https://api.wmcloud.com:443/data/v1/api/market/getMktEqud.json?field=ticker,tradeDate,turnoverValue&beginDate=&endDate=&secID=&ticker="+name+"&tradeDate=20160414";
         HttpGet httpGet = new HttpGet(url);
         //在header里加入 Bearer {token}，添加认证的token，并执行get请求获取json数据
         httpGet.addHeader("Authorization", "Bearer " + ACCESS_TOKEN);

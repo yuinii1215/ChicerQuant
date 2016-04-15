@@ -5,6 +5,7 @@ package AnyQuantProject.dataService.jsonDATAService;
 
 import java.util.Calendar;
 
+import AnyQuantProject.util.exception.NetFailedException;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -22,7 +23,7 @@ public interface JSONSingleStockDATAService {
 	 * @param date
 	 * @return
 	 */
-	public JSONObject getOperation(String name, Calendar date);
+	public JSONObject getOperation(String name, Calendar date)throws NetFailedException;
 	
 	
 	/**
@@ -32,5 +33,5 @@ public interface JSONSingleStockDATAService {
 	 * @param end
 	 * @return
 	 */
-	public JSONArray getSingleStockAmongDate(String name, Calendar start, Calendar end);
+	public JSONArray getSingleStockAmongDate(String name, Calendar start, Calendar end)throws NetFailedException;
 }

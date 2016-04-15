@@ -1,5 +1,7 @@
 package AnyQuantProject.dataService.realDATAService;
 
+import AnyQuantProject.util.exception.NetFailedException;
+
 import java.util.List;
 
 /**
@@ -12,16 +14,16 @@ public interface IndustryNameDATAService {
      * @param name
      * @return
      */
-    public String getIndustryName(String name);
+    public String getIndustryName(String name) throws NetFailedException;
     /**
      * 获得所有股票分类行业的名称
      * @return
      */
-    public List<String> getAllIndustries();
+    public List<String> getAllIndustries() throws NetFailedException;
     /**
      * 获得该分类下所有的股票代号
      * @param industry 行业名称
      * @return
      */
-    public List<String> getStockByIndustry(String industry);
+    public List<String> getStockByIndustry(String industry) throws NetFailedException;
 }

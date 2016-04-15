@@ -15,6 +15,7 @@ import AnyQuantProject.dataService.realDATAService.stockListDATAService.StockLis
 import AnyQuantProject.dataStructure.Exchange;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.constant.R;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.IOHelper;
 
@@ -38,6 +39,8 @@ public class StockListBLController implements StockListBLService,Runnable {
 		avaliableCHN=new ArrayList<>(3000);
 		List<String> szCHN = stockListDATAService.getAllWithChinese(Calendar.getInstance(), Exchange.SZ);
 		List<String> shCHN = stockListDATAService.getAllWithChinese(Calendar.getInstance(), Exchange.SH);
+
+
 		avaliableCHN.addAll(shCHN);
 		avaliableCHN.addAll(szCHN);
 		avaliable = (List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
@@ -91,6 +94,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 		// get names
 		List<String> sz = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
 		List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
+
 		avaliable.addAll(sh);
 		avaliable.addAll(sz);
 		//save
@@ -109,6 +113,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 		.forEach(st->{
 			st.setYesterday(yesterday.getYesterday(st.getName()));
 			stockData.add(st);});
+
 		//save
 		IOHelper.save(R.CachePath, CalendarHelper.getDate(c), (Serializable) stockData);
 		//
