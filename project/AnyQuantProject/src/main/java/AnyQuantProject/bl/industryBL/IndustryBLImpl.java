@@ -215,7 +215,7 @@ public class IndustryBLImpl implements IndustryBLService {
 				int t=industryNameDATAService.getStockByIndustry(temp.get(i)).size();
 				ans.put(temp.get(i), t);
 			}
-			IOHelper.save(R.CachePath, R.IndustryNameFile, (Serializable)ans);
+			IOHelper.save(R.CachePath, R.IndustryStock, (Serializable)ans);
 			return ans;
 		} catch (Exception e) {
 			return getIndustryMap();
@@ -227,7 +227,7 @@ public class IndustryBLImpl implements IndustryBLService {
 	public List<String> getAllIndustries() {
 		Map<String, Integer> map=null;
 		try {
-			map=(Map<String, Integer>)IOHelper.read(R.CachePath, R.IndustryNameFile);
+			map=(Map<String, Integer>)IOHelper.read(R.CachePath, R.IndustryStock);
 			if (map==null) {
 				throw new NullPointerException();
 			}
