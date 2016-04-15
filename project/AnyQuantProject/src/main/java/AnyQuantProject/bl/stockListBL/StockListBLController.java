@@ -10,11 +10,13 @@ import AnyQuantProject.blService.industryBLService.IndustryBLService;
 import AnyQuantProject.blService.stockListBLService.StockListBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
+import AnyQuantProject.dataService.realDATAService.IndustryNameDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataService.realDATAService.stockListDATAService.StockListDATAService;
 import AnyQuantProject.dataStructure.Exchange;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.constant.R;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.IOHelper;
 
@@ -33,18 +35,30 @@ public class StockListBLController implements StockListBLService,Runnable {
 	
 	
 	public StockListBLController() {
-		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
-		StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
-		avaliableCHN=new ArrayList<>(3000);
-		List<String> szCHN = stockListDATAService.getAllWithChinese(Calendar.getInstance(), Exchange.SZ);
-		List<String> shCHN = stockListDATAService.getAllWithChinese(Calendar.getInstance(), Exchange.SH);
-		avaliableCHN.addAll(shCHN);
-		avaliableCHN.addAll(szCHN);
+		
+		avaliableCHN=getCHN();
+		
+		
 		avaliable = (List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
 		Calendar today = Calendar.getInstance();
 		stockData=(List<Stock>) IOHelper.read(R.CachePath, CalendarHelper.getDate(today));
 		
 		
+	}
+	private List<String> getCHN(){
+		List<String> ans=new ArrayList<>(3000);
+		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
+		StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
+		try {
+			List<String> szCHN = stockListDATAService.getAllWithChinese(Calendar.getInstance(), Exchange.SZ);
+			List<String> shCHN = stockListDATAService.getAllWithChinese(Calendar.getInstance(), Exchange.SH);
+			ans.addAll(shCHN);
+			ans.addAll(szCHN);
+			return ans;
+		} catch (NetFailedException e) {
+			// TODO: handle exception
+			return getCHN();
+		}
 	}
 	
 	public boolean shouldInit(){
@@ -74,9 +88,46 @@ public class StockListBLController implements StockListBLService,Runnable {
 	public boolean searchLegal(String target) {
 		return avaliable.contains(target);
 	}
+	
+	private List<String> getName(){
+		List<String> ans=new ArrayList<>(3000);
+		// get dataService
+		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
+		StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
+		try {
+			List<String> sz = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
+			List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
+			ans.addAll(sz);
+			ans.addAll(sh);
+			return ans;
+		} catch (NetFailedException e) {
+			// TODO: handle exception
+			return getName();
+		}
+	}
+	private List<Stock> getStocks(){
+		// get dataService
+		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
+		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
+		IndustryBLService industryBLService=IndustryBLFactory.getIndustryBLService();
+		Calendar date=Calendar.getInstance();
+		List<Stock> stocks=new ArrayList<>(avaliable.size());
+		try {
+			for (int i = 0; i < avaliable.size(); i++) {
+				String name=avaliable.get(i);
+				Stock today=singleStockDATAService.getOperation(name, date);
+				today.setYesterday(industryBLService.getYesterday(name));
+				stocks.add(today);
+			}
+			return stocks;
+		} catch (Exception e) {
+			return getStocks();
+		}
+		
+	}
 	@Override
 	public void run() {
-		
+		isAlive=true;
 		try {
 			Thread.sleep(50);
 		} catch (InterruptedException e) {
@@ -84,31 +135,14 @@ public class StockListBLController implements StockListBLService,Runnable {
 			e.printStackTrace();
 		}
 		//init avaliable
-		avaliable=new ArrayList<>();
-		// get dataService
-		FactoryDATAService factoryDATAService = FactoryDATA.getInstance();
-		StockListDATAService stockListDATAService = factoryDATAService.getStockListDATAService();
-		// get names
-		List<String> sz = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SZ);
-		List<String> sh = stockListDATAService.getAllStocks(Calendar.getInstance(), Exchange.SH);
-		avaliable.addAll(sh);
-		avaliable.addAll(sz);
+		avaliable=getName();
+		
 		//save
 		IOHelper.save(R.CachePath, R.StockNameFile, (Serializable) avaliable);
 		//
-		
-//		avaliableCHN.forEach(s->System.out.println(s));
 		//init data
-		stockData=new ArrayList<>();
-		isAlive=true;
-		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
-		IndustryBLService yesterday=IndustryBLFactory.getIndustryBLService();
-		Calendar c = Calendar.getInstance();
-		avaliable.stream()
-		.map(nam->singleStockDATAService.getOperation(nam, CalendarHelper.getPreviousDay(c)))
-		.forEach(st->{
-			st.setYesterday(yesterday.getYesterday(st.getName()));
-			stockData.add(st);});
+		stockData=getStocks();
+		Calendar c=Calendar.getInstance();
 		//save
 		IOHelper.save(R.CachePath, CalendarHelper.getDate(c), (Serializable) stockData);
 		//

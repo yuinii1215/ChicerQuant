@@ -6,6 +6,7 @@ package AnyQuantProject.data.realDATA.benchMarkDATA;
 import java.util.Calendar;
 import java.util.List;
 
+import AnyQuantProject.util.exception.NetFailedException;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
@@ -26,7 +27,7 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 
 	
 	JSONBenchMarkDATAService JSONBenchMark = new JSONBenchMarkDATA();
-	APIHelper aHelper = new APIHelper();
+
 	
 	private static BenchMarkDATA benchMarkDATA;
 	
@@ -41,7 +42,7 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	}
 	
 	@Override
-	public List<String> getAllBenchMark() {
+	public List<String> getAllBenchMark() throws NetFailedException {
 		JSONArray allBenchMarkList = JSONBenchMark.getAllBenchMark();
 		@SuppressWarnings("unchecked")
 		List<String> resultList = JSONArray.toList(allBenchMarkList, new String(), new JsonConfig());
@@ -49,7 +50,7 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	}
 
 	@Override
-	public BenchMark getOperation(String name, Calendar date) {
+	public BenchMark getOperation(String name, Calendar date) throws NetFailedException{
 		JSONObject result = JSONBenchMark.getOperation(name, date);
 //		//滤去date属性
 //		JsonConfig config = getJsonConfig();    
@@ -63,7 +64,7 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	
 	@Override
 	public List<BenchMark> getBenchMarkAmongDate(String name, Calendar start,
-			Calendar end) {
+			Calendar end) throws NetFailedException{
 		JSONArray result = JSONBenchMark.getBenchMarkAmongDate(name, start, end);
 		@SuppressWarnings("unchecked")
 		List<BenchMark> resultList = JSONArray.toList(result, new BenchMark(), getJsonConfig());
@@ -84,23 +85,28 @@ public class BenchMarkDATA implements BenchMarkDATAService{
 	    return config;
 	}
 
-	private String getChineseName(String name) {
+	private String getChineseName(String name) throws NetFailedException{
 
 		return ChineseName.getChineseName(name);
 
 	}
 	public static void main(String[] args) {
 		BenchMarkDATA b = BenchMarkDATA.getInstance();
-		System.out.println(b.getChineseName("hs300"));
-//		List<String> list = b.getAllBenchMark();
-//		System.out.println("list  : " + list.size());
-//		System.out.println("list 0 :" + list.get(0));
-//		b.getBenchMarkAmongDate("hs300", Calendar.getInstance(), Calendar.getInstance());
-//		System.out.println("ben : "+ben.getOpen()+" "+ben.getClose());
+		try {
+			System.out.println(b.getChineseName("hs300"));
+			List<String> list = b.getAllBenchMark();
+			System.out.println("list  : " + list.size());
+			System.out.println("list 0 :" + list.get(0));
+			b.getBenchMarkAmongDate("hs300", Calendar.getInstance(), Calendar.getInstance());
+//			System.out.println("ben : "+ben.getOpen()+" "+ben.getClose());
+		} catch (NetFailedException e) {
+			System.out.println("i'll handle it ");
+		}
+
 	}
 
 	@Override
-	public List<String> getAllBenchMarkWithChinese() {
+	public List<String> getAllBenchMarkWithChinese() throws NetFailedException{
 		// TODO Auto-generated method stub
 		JSONArray allBenchMarkList = JSONBenchMark.getAllBenchMarkWithChinese();
 		@SuppressWarnings("unchecked")

@@ -13,6 +13,7 @@ import AnyQuantProject.dataStructure.Cell;
 import AnyQuantProject.dataStructure.JFreeLineData;
 import AnyQuantProject.dataStructure.LineChartData;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
 import javafx.scene.chart.CategoryAxis;
@@ -24,33 +25,45 @@ import javafx.scene.chart.XYChart;
 * @author cxworks
 * 2016年3月29日 下午7:32:29
 */
-public class CalculateLineBLImpl implements CalculateLineBLService {
+public class CalculateLineBLImpl implements CalculateLineBLService  {
 	private List<Stock> getData(String name) {
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		Calendar now=Calendar.getInstance();
-		
-		List<Stock> dataT=singleStockDATAService.getStockAmongDate(name, CalendarHelper.getPreviousYear(now), now);
-		if (dataT==null||dataT.isEmpty()) {
-			return null;
+
+		try {
+			List<Stock> dataT = singleStockDATAService.getStockAmongDate(name, CalendarHelper.getPreviousYear(now), now);
+
+			if (dataT==null||dataT.isEmpty()) {
+				return null;
+			}
+			List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
+			//
+			return data;
+		} catch (NetFailedException e) {
+			return getData(name);
 		}
-		List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
-		//
-		return data;
+		
 	}
 	
 	private List<Stock> getData(String name,Calendar start,Calendar end){
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
-		
-		List<Stock> dataT=singleStockDATAService.getStockAmongDate(name, start, end);
-		if (dataT==null||dataT.isEmpty()) {
-			return null;
+		try {
+			List<Stock> dataT = singleStockDATAService.getStockAmongDate(name, start, end);
+
+			if (dataT==null||dataT.isEmpty()) {
+				return null;
+			}
+			
+			List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
+			//
+			return data;
+		} catch (NetFailedException e) {
+			// TODO: handle exception
+			return getData(name, start, end);
 		}
 		
-		List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
-		//
-		return data;
 	}
 
 	@Override
@@ -126,52 +139,39 @@ public class CalculateLineBLImpl implements CalculateLineBLService {
 		Calendar ins=Calendar.getInstance();
 		Calendar weekBefore=Calendar.getInstance();
 		weekBefore.add(Calendar.DAY_OF_WEEK, -14);
-		List<Stock> dataT=singleStockDATAService.getStockAmongDate(name, weekBefore, ins);
-		if (dataT==null||dataT.isEmpty()) {
-			return null;
-		}
-		
-		List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
-		String title="近期价格走势";
-		//
-		CategoryAxis xAxis=new CategoryAxis();
-		
-		//
-		XYChart.Series<String,Double> xSeries=new XYChart.Series();
-		data.stream()
-		.map(st->new XYChart.Data(st.getDate(),st.getClose()))
-		.forEach(d->xSeries.getData().add(d));
+		List<Stock> dataT;
 		try {
-			double max=data.stream().max((s1,s2)->(int)(s1.getClose()-s2.getClose())).get().getClose();
-			double min=data.stream().min((s1,s2)->(int)(s1.getClose()-s2.getClose())).get().getClose();
-			double low=min-(max-min)*0.2;
-			double high=max+(max-min)*0.2;
-			NumberAxis yAxis=new NumberAxis(low,high,0.01);
-			return new LineChartData(title, xAxis, yAxis, xSeries);
-		} catch (Exception e) {
-			NumberAxis yAxis=new NumberAxis();
-			return new LineChartData(title, xAxis, yAxis);
+			dataT = singleStockDATAService.getStockAmongDate(name, weekBefore, ins);
+
+			if (dataT==null||dataT.isEmpty()) {
+				return null;
+			}
+			
+			List<Stock> data=dataT.stream().filter(s->s.getClose()>0).collect(Collectors.toList());
+			String title="近期价格走势";
+			//
+			CategoryAxis xAxis=new CategoryAxis();
+			
+			//
+			XYChart.Series<String,Double> xSeries=new XYChart.Series();
+			data.stream()
+			.map(st->new XYChart.Data(st.getDate(),st.getClose()))
+			.forEach(d->xSeries.getData().add(d));
+			try {
+				double max=data.stream().max((s1,s2)->(int)(s1.getClose()-s2.getClose())).get().getClose();
+				double min=data.stream().min((s1,s2)->(int)(s1.getClose()-s2.getClose())).get().getClose();
+				double low=min-(max-min)*0.2;
+				double high=max+(max-min)*0.2;
+				NumberAxis yAxis=new NumberAxis(low,high,0.01);
+				return new LineChartData(title, xAxis, yAxis, xSeries);
+			} catch (Exception e) {
+				NumberAxis yAxis=new NumberAxis();
+				return new LineChartData(title, xAxis, yAxis);
+			}
+		} catch (NetFailedException e) {
+			// TODO: handle exception
+			return drawPreview(name);
 		}
-		
-//		XYChart.Series<String,Double> percentSeries=new XYChart.Series();
-//		List<DataCell> percent=new ArrayList<>(data.size());
-//		//calculate percent
-//		for (int i = 1; i < data.size(); i++) {
-//			double before=data.get(i-1).getClose();
-//			Stock stock=data.get(i);
-//			String date=stock.getDate();
-//			double now=stock.getClose();
-//			double per=(now-before)/before*100;
-//			DataCell dataCell=new DataCell(date, per);
-//			percent.add(dataCell);
-//		}
-//		percent.stream().map(cell->new XYChart.Data<>(cell.x, cell.y)).forEach(d->percentSeries.getData().add(d));
-//		
-//		XYChart.Series<String,Double> volume=new XYChart.Series();
-//		data.stream()
-//		.map(st->new XYChart.Data(st.getDate(),st.getVolume()))
-//		.forEach(d->volume.getData().add(d));
-		
 	}
 
 	@Override

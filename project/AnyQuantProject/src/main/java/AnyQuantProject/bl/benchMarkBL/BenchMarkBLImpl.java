@@ -10,6 +10,7 @@ import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.benchMarkDATAService.BenchMarkDATAService;
 import AnyQuantProject.dataStructure.BenchMark;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
 
@@ -28,18 +29,27 @@ public class BenchMarkBLImpl implements BenchMarkBLService {
 	public List<BenchMark> getAllBenchMark() {
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		BenchMarkDATAService benchMarkDATAService=factoryDATAService.getBenchMarkDATAService();
-		//get list
-		List<String> names=benchMarkDATAService.getAllBenchMark();
-		//get yesterday data
-		
-			List<BenchMark> ans=names.stream()
-					.map(bench -> 
-					benchMarkDATAService.getOperation(bench, CalendarHelper.getPreviousDay(Calendar.getInstance())))
-					.collect(Collectors.toList());
+		try {
+			//get list
+			List<String> names = benchMarkDATAService.getAllBenchMark();
+			//get yesterday data
+
+			List<BenchMark> ans=new ArrayList<>(names.size());
+			
+			for (int i = 0; i < names.size(); i++) {
+				String name=names.get(i);
+				BenchMark benchMark=benchMarkDATAService.getOperation(name, CalendarHelper.getPreviousDay(Calendar.getInstance()));
+				ans.add(benchMark);
+			}
+			
 			ans.get(0).setChinese("沪深300指数");
 			return ans;
+		} catch (NetFailedException e) {
+			// TODO: handle exception
+			return this.getAllBenchMark();
+		}
 		
-		
+
 		
 	}
 
@@ -55,15 +65,18 @@ public class BenchMarkBLImpl implements BenchMarkBLService {
 		}
 		//reset year
 		year=CalendarHelper.zeroYear(year);
+
+		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+		BenchMarkDATAService benchMarkDATAService=factoryDATAService.getBenchMarkDATAService();
 		try {
-			FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
-			BenchMarkDATAService benchMarkDATAService=factoryDATAService.getBenchMarkDATAService();
 			List<BenchMark> benchMarks=benchMarkDATAService.getBenchMarkAmongDate(name, CalendarHelper.getMonthStart(year), CalendarHelper.getMonthEnd(year));
 			return benchMarks;
-		} catch (Exception e) {
+		} catch (NetFailedException e) {
 			// TODO: handle exception
-			return new ArrayList<BenchMark>();
+			return this.getBenchMarkInfo(name, year);
 		}
+		
+
 	}
 
 }

@@ -4,6 +4,8 @@
 package AnyQuantProject.dataService.jsonDATAService;
 
 import java.util.Calendar;
+
+import AnyQuantProject.util.exception.NetFailedException;
 import net.sf.json.JSONArray;
 import AnyQuantProject.dataStructure.Exchange;
 
@@ -19,7 +21,7 @@ public interface JSONStockListDATAService {
 	 * @param exchange
 	 * @return
 	 */
-	public JSONArray getAllStocks(Calendar date, Exchange exchange);
+	public JSONArray getAllStocks(Calendar date, Exchange exchange) throws NetFailedException;
 
 
 	/**
@@ -28,7 +30,7 @@ public interface JSONStockListDATAService {
 	 * @param exchange
 	 * @return
 	 */
-	public JSONArray getAllStocksWithChinese(Calendar date, Exchange exchange);
+	public JSONArray getAllStocksWithChinese(Calendar date, Exchange exchange) throws NetFailedException;
 
 	
 }

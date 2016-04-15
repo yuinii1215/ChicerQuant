@@ -5,6 +5,7 @@ package AnyQuantProject.data.jsonDATA;
 
 import java.util.Calendar;
 
+import AnyQuantProject.util.exception.NetFailedException;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import AnyQuantProject.data.util.DataType;
@@ -19,14 +20,14 @@ public class JSONSingleStockDATA implements JSONSingleStockDATAService{
 	JsonHelper jHelper = new JsonHelper();
 	
 	@Override
-	public JSONObject getOperation(String name, Calendar date) {
+	public JSONObject getOperation(String name, Calendar date) throws NetFailedException {
 		return jHelper.getOperation(DataType.SINGLESTOCK, name, date);
 	}
 
 	
 	@Override
 	public JSONArray getSingleStockAmongDate(String name, Calendar start,
-			Calendar end) {
+			Calendar end) throws NetFailedException{
 		
 		return jHelper.getAmongDate(DataType.SINGLESTOCK, name, start, end);
 		

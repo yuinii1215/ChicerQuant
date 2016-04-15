@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 import javax.naming.InitialContext;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
 import org.omg.IOP.IORHelper;
 
 import AnyQuantProject.blService.favoriteBLService.FavoriteBLService;
@@ -55,11 +57,18 @@ public class FavoriteBLController implements FavoriteBLService {
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
 		//
-		List<Stock> ans=favor.stream()
-		.map(name->
-		singleStockDATAService.getOperation(name, CalendarHelper.getPreviousDay(Calendar.getInstance())))
-		.collect(Collectors.toList());
-		return ans;
+		try {
+			List<Stock> ans=new ArrayList<>();
+			for (int i = 0; i < favor.size(); i++) {
+				String name=favor.get(i);
+				ans.add(singleStockDATAService.getOperation(name, CalendarHelper.getPreviousDay(Calendar.getInstance())));
+			}
+			return ans;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return this.getMyFavor();
+		}
+		
 	}
 
 	@Override
