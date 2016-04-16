@@ -362,7 +362,15 @@ public class BenchMarkUIController implements Initializable{
 				double low=((XYPlot)plots.get(0)).getRangeAxis().getLowerBound();
 				double high=((XYPlot)plots.get(0)).getRangeAxis().getUpperBound();
 				double val=high-(high-crosshair.getValue())*1.5;
-				return decimalFormat.format(val);
+				if (val >= low) {
+					return decimalFormat.format(val);
+				} else {
+					XYPlot xyPlot=(XYPlot) plots.get(1);
+					double percent=(crosshair.getValue()-low)/(high-low);
+					double secLow=xyPlot.getRangeAxis().getLowerBound();
+					double secHigh=xyPlot.getRangeAxis().getUpperBound();
+					return decimalFormat.format(secLow+percent*(secHigh-secLow)*3);
+				}
 		        
 			}
 		});

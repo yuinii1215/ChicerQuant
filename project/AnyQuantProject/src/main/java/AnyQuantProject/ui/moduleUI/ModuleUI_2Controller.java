@@ -101,11 +101,8 @@ public class ModuleUI_2Controller implements Initializable{
 		allIndustryName = industryBLService.getAllIndustries();
 		
 		    for(int i=0;i< allIndustryName.size();i++){
-		    	System.out.println(allIndustryName.get(i));
 		    	industryInfo= industryBLService.getIndustryInfo(allIndustryName.get(i));
-		    	System.out.println("...stockName..."+allIndustryName.get(i)+"...");
 		    	industryInfoList.add(i, industryInfo);
-		    	System.out.println("            "+industryInfo.getIndustry());
 		    }
 		    
 			table.setItems(FXCollections.observableArrayList(industryInfoList));
@@ -267,7 +264,6 @@ public class ModuleUI_2Controller implements Initializable{
 	                	 if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
 	                         selectedIndex = TableRowControl.this.getIndex();
 	                         singleIndustryName =IndustryNameColumn.getCellData(selectedIndex);
-	                         System.out.println("......Enter :" + singleIndustryName + " panel......");
 	                         Main.enterSingleModuleScene(singleIndustryName);
 	                	 }
 	                }});

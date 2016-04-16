@@ -3,6 +3,7 @@ package AnyQuantProject.bl.industryBL;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -237,17 +238,9 @@ public class IndustryBLImpl implements IndustryBLService {
 			
 			map=getIndustryMap();
 		}
-		List<Entry<String, Integer>> entries=map.entrySet().stream().sorted((a,b)->{
-			int aa=a.getValue();
-			int bb=b.getValue();
-			if (aa>bb) {
-				return 1;
-			}
-			else if (aa<bb) {
-				return -1;
-			}
-			return 0;
-		}).collect(Collectors.toList());
+		List<Entry<String, Integer>> entries=map.entrySet().stream()
+				.sorted((e1,e2)->e1.getValue().compareTo(e2.getValue()))
+				.collect(Collectors.toList());
 		List<String> ans=entries.stream().map(e->e.getKey()).collect(Collectors.toList());
 		
 		return ans;

@@ -15,6 +15,7 @@ import AnyQuantProject.blService.stockListBLService.StockListBLService;
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
+import AnyQuantProject.dataStructure.AbstractStock;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.ui.net.TipPop;
 import AnyQuantProject.util.exception.NetFailedException;
@@ -47,9 +48,11 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 		//
 		try {
 			List<Stock> ans=singleStockDATAService
-					.getStockAmongDate(name, CalendarHelper.getMonthStart(year), CalendarHelper.getMonthEnd(year));
-			
-			return ans;
+					.getStockAmongDate(name, CalendarHelper.getPreviousDay(CalendarHelper.getMonthStart(year)), CalendarHelper.getMonthEnd(year));
+			for (int i = 1; i < ans.size(); i++) {
+				ans.get(i).setYesterday(ans.get(i-1));
+			}
+			return ans.subList(1, ans.size());
 		} catch (NetFailedException e) {
 			TipPop.showTip();
 
@@ -101,6 +104,7 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 				if (start.after(end)) {
 					return new ArrayList<>();
 				}
+				start=CalendarHelper.getPreviousDay(start);
 				//
 				FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 				SingleStockDATAService singleStockDATAService=factoryDATAService.getSingleStockDATAService();
@@ -108,9 +112,10 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 				try {
 					List<Stock> ans=singleStockDATAService
 							.getStockAmongDate(name, start, end);
-					IndustryBLService service=IndustryBLFactory.getIndustryBLService();
-					ans.stream().forEach(s->s.setYesterday(service.getYesterday(s.getName())));
-					return ans;
+					for (int i = 1; i < ans.size(); i++) {
+						ans.get(i).setYesterday(ans.get(i-1));
+					}
+					return ans.subList(1, ans.size());
 				} catch (NetFailedException e) {
 					TipPop.showTip();
 					return getSingleStockDeal(name, start, end);
