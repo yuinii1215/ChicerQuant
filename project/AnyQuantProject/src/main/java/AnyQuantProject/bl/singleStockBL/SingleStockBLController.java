@@ -117,6 +117,6 @@ public class SingleStockBLController implements SingleStockInfoBLService, Single
 				}
 	}
 
-
+	
 
 }

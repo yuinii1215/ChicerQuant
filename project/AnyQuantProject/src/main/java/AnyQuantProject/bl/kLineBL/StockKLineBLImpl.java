@@ -106,7 +106,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 					}
 					oldStocks.addAll(newStocks);
 				}
-			} catch (Exception e) {
+			} catch (NullPointerException e) {
 				oldStocks = getData(stockName,
 						CalendarHelper.convert2Calendar(R.startDate), Calendar.getInstance());
 			}

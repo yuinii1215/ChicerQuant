@@ -210,7 +210,6 @@ public class SingleStockInfoUIController implements Initializable {
     List<AnyQuantProject.dataStructure.Cell>[] macdLineData, kdjLineData,rsiLineData,biasLineData;
     CalculateLineBLService calculateLineBlImpl;
     CalcuLineType calcuLineType = CalcuLineType.TYPE_MACD;
-//    CalcuLineType calcuLineType = CalcuLineType.TYPE_KDJ;
 
     
     StockKLineBLService stockKLineImpl = KLineBLFactory.getStockKLineBLService();
@@ -785,7 +784,6 @@ public class SingleStockInfoUIController implements Initializable {
          */
         minTime = Calendar.getInstance();
         minTime.set(2016, 0, 1, 0, 0);
-        System.out.println("1111111111 the initial minTime is:"+minTime.getTime());
 
         swingNode1 = new SwingNode();
         scroller1 = new ScrollPane();
@@ -1021,7 +1019,6 @@ public class SingleStockInfoUIController implements Initializable {
 
         public TableRowController(TableView<T> tableView) {
             super();
-            System.out.println(this.indexProperty().intValue());
             this.setTextFill(Color.RED);
             this.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent event) {
