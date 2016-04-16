@@ -14,6 +14,7 @@ import AnyQuantProject.dataStructure.AbstractStock;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.net.TipPop;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
@@ -126,7 +127,7 @@ public class StockKLineBLImpl implements StockKLineBLService {
 			List<Stock> ans=singleStockDATAService.getStockAmongDate(stockName, start, end);
 			return ans;
 		} catch (NetFailedException e) {
-			// TODO: handle exception
+			TipPop.showTip();
 			return getData(stockName, start, end);
 		}
 	}

@@ -15,6 +15,7 @@ import AnyQuantProject.dataService.realDATAService.singleStockDATAService.Single
 import AnyQuantProject.dataService.realDATAService.stockListDATAService.StockListDATAService;
 import AnyQuantProject.dataStructure.Exchange;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.net.TipPop;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
@@ -56,7 +57,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 			ans.addAll(szCHN);
 			return ans;
 		} catch (NetFailedException e) {
-			// TODO: handle exception
+			TipPop.showTip();
 			return getCHN();
 		}
 	}
@@ -101,7 +102,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 			ans.addAll(sh);
 			return ans;
 		} catch (NetFailedException e) {
-			// TODO: handle exception
+			TipPop.showTip();
 			return getName();
 		}
 	}
@@ -120,7 +121,8 @@ public class StockListBLController implements StockListBLService,Runnable {
 				stocks.add(today);
 			}
 			return stocks;
-		} catch (Exception e) {
+		} catch (NetFailedException e) {
+			TipPop.showTip();
 			return getStocks();
 		}
 		
@@ -131,8 +133,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 		try {
 			Thread.sleep(50);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.exit(0);
 		}
 		//init avaliable
 		avaliable=getName();

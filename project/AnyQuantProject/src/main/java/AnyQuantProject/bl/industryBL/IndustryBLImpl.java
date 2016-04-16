@@ -20,6 +20,7 @@ import AnyQuantProject.dataService.realDATAService.stockListDATAService.Turnover
 import AnyQuantProject.dataStructure.IndustryInfo;
 import AnyQuantProject.dataStructure.IndustryPriceInfo;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.net.TipPop;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
@@ -147,7 +148,7 @@ public class IndustryBLImpl implements IndustryBLService {
 			}
 			return ans;
 		} catch (NetFailedException e) {
-			// TODO: handle exception
+			TipPop.showTip();
 			return getNonRest(name);
 		}
 	}
@@ -217,7 +218,8 @@ public class IndustryBLImpl implements IndustryBLService {
 			}
 			IOHelper.save(R.CachePath, R.IndustryStock, (Serializable)ans);
 			return ans;
-		} catch (Exception e) {
+		} catch (NetFailedException e) {
+			TipPop.showTip();
 			return getIndustryMap();
 		}
 		
@@ -231,8 +233,8 @@ public class IndustryBLImpl implements IndustryBLService {
 			if (map==null) {
 				throw new NullPointerException();
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (NullPointerException e) {
+			
 			map=getIndustryMap();
 		}
 		List<Entry<String, Integer>> entries=map.entrySet().stream().sorted((a,b)->{
@@ -271,6 +273,7 @@ public class IndustryBLImpl implements IndustryBLService {
 			ans.stream().forEach(st->st.setYesterday(getYesterday(st.getName())));
 			return ans;
 		} catch (NetFailedException e) {
+			TipPop.showTip();
 			return getStocksByIndustry(industry);
 		}
 		
@@ -287,7 +290,7 @@ public class IndustryBLImpl implements IndustryBLService {
 		try {
 			return industryNameDATAService.getIndustryName(stockName);
 		} catch (NetFailedException e) {
-			// TODO: handle exception
+			TipPop.showTip();
 			return getIndustryByName(stockName);
 		}
 		
@@ -432,7 +435,7 @@ public class IndustryBLImpl implements IndustryBLService {
 			try {
 				return service.getOperation(name, date);
 			} catch (NetFailedException e) {
-				// TODO: handle exception
+				TipPop.showTip();
 				return getYesterday(name);
 			}
 			
@@ -448,7 +451,7 @@ public class IndustryBLImpl implements IndustryBLService {
 			try {
 				return turnoverDATAService.getTurnoverValue(name);
 			} catch (NetFailedException e) {
-				// TODO: handle exception
+				TipPop.showTip();
 				return getTurnOver(name);
 			}
 		}
@@ -463,7 +466,7 @@ public class IndustryBLImpl implements IndustryBLService {
 			try {
 				return turnoverDATAService.getTotalShares(name);
 			} catch (NetFailedException e) {
-				// TODO: handle exception
+				TipPop.showTip();
 				return getShares(name);
 			}
 		}
@@ -478,7 +481,7 @@ public class IndustryBLImpl implements IndustryBLService {
 			try {
 				return turnoverDATAService.getNonrestFloatShares(name);
 			} catch (NetFailedException e) {
-				// TODO: handle exception
+				TipPop.showTip();
 				return getNonRest(name);
 			}
 		}

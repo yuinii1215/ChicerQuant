@@ -10,6 +10,7 @@ import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.benchMarkDATAService.BenchMarkDATAService;
 import AnyQuantProject.dataStructure.BenchMark;
+import AnyQuantProject.ui.net.TipPop;
 import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.Checker;
@@ -45,7 +46,7 @@ public class BenchMarkBLImpl implements BenchMarkBLService {
 			ans.get(0).setChinese("沪深300指数");
 			return ans;
 		} catch (NetFailedException e) {
-			// TODO: handle exception
+			TipPop.showTip();
 			return this.getAllBenchMark();
 		}
 		
@@ -72,7 +73,7 @@ public class BenchMarkBLImpl implements BenchMarkBLService {
 			List<BenchMark> benchMarks=benchMarkDATAService.getBenchMarkAmongDate(name, CalendarHelper.getMonthStart(year), CalendarHelper.getMonthEnd(year));
 			return benchMarks;
 		} catch (NetFailedException e) {
-			// TODO: handle exception
+			TipPop.showTip();
 			return this.getBenchMarkInfo(name, year);
 		}
 		

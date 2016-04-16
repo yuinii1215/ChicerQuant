@@ -16,6 +16,7 @@ import AnyQuantProject.dataStructure.BenchMark;
 import AnyQuantProject.dataStructure.KLineData;
 import AnyQuantProject.dataStructure.KLineDataDTO;
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.ui.net.TipPop;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
@@ -194,6 +195,7 @@ public class BenchmarkKLineBLImpl implements BenchmarkKLineBLService{
 					start, end);
 			return ans;
 		} catch (NetFailedException e) {
+			TipPop.showTip();
 			return getData(name, start, end);
 		}
 		

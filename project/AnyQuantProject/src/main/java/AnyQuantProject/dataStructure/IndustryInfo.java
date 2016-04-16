@@ -35,6 +35,9 @@ public class IndustryInfo {
         this.updown=updown;
     }
     public  void  setPure(double pure){
+    	pure/=1e8;
+    	DecimalFormat    df   = new DecimalFormat(".000");   
+		 pure =Double.parseDouble(df.format( pure));
         this.pure=pure;
     }
     public void setTotal(double total){
