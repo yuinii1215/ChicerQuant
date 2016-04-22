@@ -210,7 +210,6 @@ public class SingleStockInfoUIController implements Initializable {
     List<AnyQuantProject.dataStructure.Cell>[] macdLineData, kdjLineData,rsiLineData,biasLineData;
     CalculateLineBLService calculateLineBlImpl;
     CalcuLineType calcuLineType = CalcuLineType.TYPE_MACD;
-//    CalcuLineType calcuLineType = CalcuLineType.TYPE_KDJ;
 
     
     StockKLineBLService stockKLineImpl = KLineBLFactory.getStockKLineBLService();
@@ -785,7 +784,6 @@ public class SingleStockInfoUIController implements Initializable {
          */
         minTime = Calendar.getInstance();
         minTime.set(2016, 0, 1, 0, 0);
-        System.out.println("1111111111 the initial minTime is:"+minTime.getTime());
 
         swingNode1 = new SwingNode();
         scroller1 = new ScrollPane();
@@ -877,7 +875,12 @@ public class SingleStockInfoUIController implements Initializable {
                 double low = ((XYPlot) plots.get(0)).getRangeAxis().getLowerBound();
                 double high = ((XYPlot) plots.get(0)).getRangeAxis().getUpperBound();
                 double val = high - (high - crosshair.getValue()) * 2;
-                return decimalFormat.format(val);
+                if (val>=low) {
+					return decimalFormat.format(val);
+				}
+                else {
+					return " ";
+				}
 
             }
         });
@@ -959,23 +962,30 @@ public class SingleStockInfoUIController implements Initializable {
         xCrosshair.setLabelBackgroundPaint(java.awt.Color.yellow);
         Crosshair yCrosshair = new Crosshair(Double.NaN);
         yCrosshair.setStroke(new BasicStroke(0f));
-        yCrosshair.setLabelGenerator(new CrosshairLabelGenerator() {
+		yCrosshair.setLabelGenerator(new CrosshairLabelGenerator() {
 
-            @Override
-            public String generateLabel(Crosshair crosshair) {
-                DecimalFormat decimalFormat = new DecimalFormat("#.00");
-                JFreeChart chart = chartPanel.getChart();
-                CombinedDomainXYPlot combinedDomainXYPlot = (CombinedDomainXYPlot) chart.getPlot();
-                List<Plot> plots = combinedDomainXYPlot.getSubplots();
-                double low = ((XYPlot) plots.get(0)).getRangeAxis().getLowerBound();
-                double high = ((XYPlot) plots.get(0)).getRangeAxis().getUpperBound();
-                double val = high - (high - crosshair.getValue()) * 1.5;
-                return decimalFormat.format(val);
+			@Override
+			public String generateLabel(Crosshair crosshair) {
+				DecimalFormat decimalFormat = new DecimalFormat("#.00");
+				JFreeChart chart = chartPanel.getChart();
+				CombinedDomainXYPlot combinedDomainXYPlot = (CombinedDomainXYPlot) chart.getPlot();
+				List<Plot> plots = combinedDomainXYPlot.getSubplots();
+				double low = ((XYPlot) plots.get(0)).getRangeAxis().getLowerBound();
+				double high = ((XYPlot) plots.get(0)).getRangeAxis().getUpperBound();
+				double val = high - (high - crosshair.getValue()) * 1.5;
+				if (val >= low) {
+					return decimalFormat.format(val);
+				} else {
+					XYPlot xyPlot=(XYPlot) plots.get(1);
+					double percent=(crosshair.getValue()-low)/(high-low);
+					double secLow=xyPlot.getRangeAxis().getLowerBound();
+					double secHigh=xyPlot.getRangeAxis().getUpperBound();
+					return decimalFormat.format(secLow+percent*(secHigh-secLow)*3);
+				}
 
-            }
-        });
+			}
+		});
         yCrosshair.setLabelVisible(true);
-//    	yCrosshair.setLabelAnchor(RectangleAnchor.RIGHT);
         yCrosshair.setPaint(java.awt.Color.white);
         yCrosshair.setLabelPaint(java.awt.Color.white);
         yCrosshair.setLabelBackgroundPaint(java.awt.Color.yellow);
@@ -1021,7 +1031,6 @@ public class SingleStockInfoUIController implements Initializable {
 
         public TableRowController(TableView<T> tableView) {
             super();
-            System.out.println(this.indexProperty().intValue());
             this.setTextFill(Color.RED);
             this.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent event) {

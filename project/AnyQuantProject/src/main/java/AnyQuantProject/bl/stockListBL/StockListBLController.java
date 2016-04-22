@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import AnyQuantProject.bl.factoryBL.IndustryBLFactory;
 import AnyQuantProject.blService.industryBLService.IndustryBLService;
@@ -18,6 +20,7 @@ import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.ui.net.TipPop;
 import AnyQuantProject.util.constant.R;
 import AnyQuantProject.util.exception.NetFailedException;
+import AnyQuantProject.util.exception.NotReadyException;
 import AnyQuantProject.util.method.CalendarHelper;
 import AnyQuantProject.util.method.IOHelper;
 
@@ -33,6 +36,7 @@ public class StockListBLController implements StockListBLService,Runnable {
 
 	private volatile List<Stock> stockData;
 	private volatile boolean isAlive=false;
+	private Map<String, Stock> todayData;
 	
 	
 	public StockListBLController() {
@@ -43,8 +47,13 @@ public class StockListBLController implements StockListBLService,Runnable {
 		avaliable = (List<String>) IOHelper.read(R.CachePath, R.StockNameFile);
 		Calendar today = Calendar.getInstance();
 		stockData=(List<Stock>) IOHelper.read(R.CachePath, CalendarHelper.getDate(today));
+		if (stockData!=null) {
+			initMap();
+		}
 		
-		
+	}
+	private void initMap(){
+		todayData=stockData.stream().collect(Collectors.toMap(Stock::getName, s->s));
 	}
 	private List<String> getCHN(){
 		List<String> ans=new ArrayList<>(3000);
@@ -146,8 +155,18 @@ public class StockListBLController implements StockListBLService,Runnable {
 		Calendar c=Calendar.getInstance();
 		//save
 		IOHelper.save(R.CachePath, CalendarHelper.getDate(c), (Serializable) stockData);
+		initMap();
 		//
 		isAlive=false;
+	}
+	@Override
+	public Stock getTodayData(String name) throws NotReadyException{
+		if (!isAlive) {
+			return todayData.get(name);
+		}
+		else {
+			throw new NotReadyException();
+		}
 	}
 
 }

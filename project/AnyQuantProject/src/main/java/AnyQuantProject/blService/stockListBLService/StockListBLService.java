@@ -3,6 +3,7 @@ package AnyQuantProject.blService.stockListBLService;
 import java.util.List;
 
 import AnyQuantProject.dataStructure.Stock;
+import AnyQuantProject.util.exception.NotReadyException;
 
 /** 
 *AnyQuantProject//AnyQuantProject.blService.stockListBLService//StockListBLService.java
@@ -28,5 +29,7 @@ public interface StockListBLService {
 	 * @return
 	 */
 	boolean searchLegal(String target);
+	
+	Stock getTodayData (String name) throws NotReadyException;
 
 }
