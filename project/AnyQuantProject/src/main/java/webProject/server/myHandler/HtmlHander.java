@@ -27,13 +27,15 @@ public class HtmlHander implements Handler<RoutingContext>{
 	public void handle(RoutingContext event) {
 		
 		String index=event.request().getParam("type");
-		File file=new File(Resources.class.getResource(index+".html").getPath());
+		
 		try {
+			File file=new File(Resources.class.getResource(index+".html").getPath());
 			String html=FileUtils.getContentsAsString(file);
 			event.response().setChunked(true);
 			event.response().putHeader("content-type", "text/html").write(html).end();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (IOException|NullPointerException e) {
+			event.response().setChunked(true);
+			event.response().end("resources unavaliable");
 		}
 	}
 
