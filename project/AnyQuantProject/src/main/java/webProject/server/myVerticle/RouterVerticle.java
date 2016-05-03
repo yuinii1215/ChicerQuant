@@ -17,7 +17,7 @@ public class RouterVerticle extends AbstractVerticle {
 	public void start(){
 		HttpServer httpServer=vertx.createHttpServer();
 		Router homeRouter=Router.router(vertx);
-		homeRouter.route(HttpMethod.GET,"/:type").handler(new HtmlHander());
+		homeRouter.route(HttpMethod.GET,"/:loc/:type").handler(new HtmlHander());
 		
 //		homeRouter.route("*").handler()
 		

@@ -25,11 +25,10 @@ public class HtmlHander implements Handler<RoutingContext>{
 
 	@Override
 	public void handle(RoutingContext event) {
-		
+		String loc=event.request().getParam("loc");
 		String index=event.request().getParam("type");
-		
 		try {
-			File file=new File(Resources.class.getResource(index+".html").getPath());
+			File file=new File(Resources.class.getResource(loc+"/"+index).getPath());
 			String html=FileUtils.getContentsAsString(file);
 			event.response().setChunked(true);
 			event.response().putHeader("content-type", "text/html").write(html).end();
