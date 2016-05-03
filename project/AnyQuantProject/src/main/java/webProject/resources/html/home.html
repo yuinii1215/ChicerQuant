@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html ng-app="loginPanel">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AnyQuant - 股票策略分析平台</title>
+
+    <style id="basicSytle">
+       *{margin:0; padding:0;}
+       #wrap{ background-image:url("images/loginBg.png"); background-repeat: repeat; margin:0 auto; width:100%;overflow:auto;min-width:1349px;}
+       #header{ opacity:1; height:70px; width:100%;}
+       #mainbody{ opacity:1;  height:1000px; width:100%; }
+       #footer{ opacity:1; height:80px; width:100%}
+     </style>
+
+    <script type="text/javascript">
+        $(function(){
+            $('#formbackground').height($(window).height());
+            $('#formbackground').width($(window).width());
+        });
+    </script>
+
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" href="css/canvas.css">
+    <script src="js/canvas.js"></script>
+    <!-- WEBFONT -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+<body>
+<!-- =========================
+   PRE LOADER
+============================== --
+<div ng-show="isShow" class="spinner">
+    <link rel="stylesheet" type="text/css" href="css/loader.css">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+-->
+<!-- =========================
+   HOME SECTION
+============================== -->
+<header  id="home" class="header">
+
+    <!-- TOP BAR -->
+    <div id="main-nav" class="navbar navbar-inverse bs-docs-nav" role="banner">
+        <div class="container">
+            <div class="navbar-header responsive-logo">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <img src="images/logo.png" alt="Zerif">
+                </div>
+            </div>
+            <nav class="navbar-collapse collapse" role="navigation" id="bs-navbar-collapse">
+                <ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
+                    <li><a href="#home">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- / END TOP BAR -->
+
+
+    <div id="wrap">
+  <!--  <link rel="stylesheet" type="text/css" href="loaders.min.css">
+    <script type="text/javascript" src="loaders.css.js"></script>
+    <div class="loader-inner ball-pulse"></div>
+    -->
+
+    <!-- =========================
+    HEADER
+    ============================== -->
+        <div id="header">
+
+    <!-- =========================
+    MAINBODY
+    ============================== -->
+        <div id="mainbody">
+
+            <div id="canvas">
+                <div class="logo">
+                    <h1 class="f1" style="text-align: center; font-size: 90px; font-weight: bold; color: #FFF; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;"> AnyQuant</h1>
+                    <h2 class="f2" style="text-align: center; margin-top:20px; color: #FFF; font-family:Microsoft YaHei, SimSun; font-size: 40px; ">股票分析策略</h2>
+                </div>
+            </div>
+
+
+        <!-- CALL TO ACTION BUTTONS --
+                <div class="buttons inpage-scroll">
+                    <a href="#works" class="btn btn-primary custom-button red-btn">Our Works</a>
+                    <a href="#pricingtable" class="btn btn-primary custom-button green-btn">Our Packages</a>
+                </div>-->
+
+        <!--
+       <div class="tab" style="margin-top: 20px;" >
+            <ul class="tabs" style="text-align: center;margin: 0 auto; "  >
+                <link rel="stylesheet" type="text/css" href="tab.css">
+                <li>
+                    <input type="radio" name="tabs" id="tab1" checked />
+                    <label for="tab1" >登录</label>
+                    <div id="tab-content1" class="tab-content">
+                        <p>选项卡内容 1</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input type="radio" name="tabs" id="tab2" />
+                    <label for="tab2" >注册</label>
+                    <div id="tab-content2" class="tab-content">
+                        <p>选项卡内容 2</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+-->
+   <!--   <div class="m-region">
+            <div class="m-userlnks f-cb" >
+                <a id="registertab" href="#" class="w-regsong crt titag" style="color: #FFFFFF;text-decoration: none;">注册</a>
+                <a id="logintab" href="#" class="login titag" style="color: #FFFFFF;text-decoration: none;">登录</a>
+            </div>
+
+            <div class="m-forms">
+                <div id="newreg" class="m-reg" style="display:none;">
+                    <div class="cont f-cb ztag">
+                        <div class="contl">
+                            <div id="reg-URS-wrap"></div>
+                            <form class="ztag" style="display:none;">
+                                 <ul class="w-user w-user-1">
+                                    <li class="w0">
+                                        <div class="inpt j-tfocus">
+                                           <label class="ztag">常用邮箱</label>
+                                            <input style="visibility:hidden;" tabindex="101" type="text" class="txt" />
+                                        </div>
+                                        <div class="warn" style="display:none;">
+                                            <div class="warnc"><span class="icn">&nbsp;</span><span class="ztag">该邮箱不存在，请用常用邮箱注册</span></div>
+                                        </div>
+                                        <div class="warn" style="display:none;">
+                                            <div class="warnc"><span class="w-detect w-detect-6">&nbsp;</span><span class="ztag">您正在使用网易邮箱帐号，可直接输入密码开通</span></div>
+                                        </div>
+                                    </li>
+                                    <li class="w0">
+                                        <div class="inpt"><label class="ztag">设置密码</label><input tabindex="102" type="password" class="txt ztag" autocomplete="off" /></div>
+                                        <div class="warn" style="display:none;">
+                                            <div class="warnc"><span class="icn">&nbsp;</span><span class="ztag">请输入6-16个字符的密码</span></div>
+                                        </div>
+                                    </li>
+                                    <li class="w0 w4 ztag f-dn">
+                                        <div class="inpt">
+                                            <label class="ztag">验证码</label><input tabindex="103" type="text" class="txt ztag"/><a href="javascript:void(0)" hidefocus="true" class="validt"><img class="ztag" width="80" height="32" src="http://www.lofter.com/cap/regcaptcha.jpgx?h=32&w=80" /><span class="icn"></span></a>
+                                        </div>
+                                        <div class="warn" style="display:none;">
+                                            <div class="warnc"><span class="icn">&nbsp;</span><span class="ztag">验证码错误</span></div>
+                                        </div>
+                                    </li>
+                                    <li class="w0 w2">
+                                        <button tabindex="104" type='submit' class="w-btn w-btn-0 ztag"><span>注  册</span></button>
+                                    </li>
+                                 </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        </div>
+        </div>
+    <!-- =========================
+       FOOTER
+    ============================== -->
+    <div id="footer" style="font-size: 15px; color:#EBEBEB;">
+        <div class="g-ft" style="text-align: center">
+            <span class="m-ft2">
+                <a target="_blank"  rel="nofollow" href="javascript:void(0);" style="color: #EBEBEB">关于我们</a><span>|</span>
+                <a target="_blank" rel="nofollow" href="javascript:void(0);"  style="color: #EBEBEB">官方博客</a>
+            </span>
+            <span class="m-ft1" >chier团队版权所有　&copy;2015-2016　
+                <a rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn/" style="position:relative;color: #FFF;">
+                    <!--   <img src="http://l.bst.126.net/rsc/img/icon-police.png" style="width:14px;height:16px;position:absolute;left:0;top:0;" />
+                  <span style="margin-left:18px;">京ICP备11008151号</span> -->
+                </a>
+                <span style="margin-left:20px;"></span>
+            </span>
+        </div>
+
+        <!--
+        <div id="fixedBar" class="f-trans m-bar m-bar-1" style="visibility:hidden;opacity:0">
+            <span class="bg"></span>
+            <em class="w-song"></em><span class="txt">注册</span><a class="w-btn3 w-btn3-3 mailtag" href="#">邮箱注册</a><a class="w-btn3 sinatag" href="#">新浪微博注册</a><a class="w-btn3 w-btn3-1 qqtag" href="#">腾讯QQ注册</a><a class="w-btn3 w-btn3-4 weixintag" href="#">微信注册</a>
+        </div>
+        -->
+
+    </div>
+
+</div>
+
+</header> <!-- / END HOME SECTION  -->
+    <!-- =========================
+     JS
+     ============================== -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js'></script>
+    <script src="js/canvas.js"></script>
+
+</body>
+
+</html>
+
+<!-- <html lang="zh">
+<head>
+  <title>LOFTER（乐乎） - 记录生活，发现同好</title>
+  <meta name="keywords" content="图片社交、照片社交、摄影作品、手机摄影、同人文、平面设计、cosplay、达人、女神图片、时尚搭配、二次元"/>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<meta http-equiv="x-ua-compatible" content="ie=emulateie7"/>
+	<meta name="baidu-site-verification" content="MoJbU3Q9MoAvorDC" />
+	<meta name="author" content="netease"/>
+	<meta name="version" content="1.0"/>
+	<meta name="description" content="国内最优质的图片社交软件，你可以在LOFTER随意晒图，分享生活，也可以加入摄影、时尚、同人、cosplay、女神等上万个兴趣圈子，轻松找到同好，发现生活奇遇。"/>
+	<meta property="qc:admins" content="220222256764764526375" />
+	<link rel="canonical" href="http://www.lofter.com"/>
+  <script type="text/javascript">
+   (function(window,document){
+
+        document.uniqueID!=document.uniqueID&&!!location.hash&&(location.hash=location.hash);
+        window.focus();
+    })(this,document);
+  </script>
+<link href="http://l.bst.126.net/s/pt_lib_macro.css?a846b774e94f7faee3961ef34ccea2b5" type="text/css" rel="stylesheet"/>
+<link href="http://l.bst.126.net/s/pt_page_newlogin2016.css?e2a3025e0bb45a703fd258983eec9d2b" type="text/css" rel="stylesheet"/>
+<style>-->
