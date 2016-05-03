@@ -64,22 +64,22 @@ public class ListFilterBLServiceTest {
 
 	@Test
 	public void testFilterStocksByDateAmong() {
-//		assertEquals(5, listFilterBLService.filterStocksByDateAmong(stocks, Calendar.getInstance(), comp).size());
+		assertEquals(10, listFilterBLService.filterStocksByDateAmong(stocks, Calendar.getInstance(), comp).size());
 	}
 
 	@Test
 	public void testFilterStocksByDateGreater() {
-//		assertEquals(5, listFilterBLService.filterStocksByDateGreater(stocks, comp).size());
+		assertEquals(0, listFilterBLService.filterStocksByDateGreater(stocks, comp).size());
 	}
 
 	@Test
 	public void testFilterStocksByDateLess() {
-//		assertEquals(5, listFilterBLService.filterStocksByDateLess(stocks, comp).size());
+		assertEquals(10, listFilterBLService.filterStocksByDateLess(stocks, comp).size());
 	}
 
 	@Test
 	public void testFilterStocksByDateEqual() {
-//		assertEquals(1, listFilterBLService.filterStocksByDateEqual(stocks, comp).size());
+		assertEquals(0, listFilterBLService.filterStocksByDateEqual(stocks, comp).size());
 	}
 
 }

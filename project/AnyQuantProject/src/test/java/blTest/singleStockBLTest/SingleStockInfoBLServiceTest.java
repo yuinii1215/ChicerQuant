@@ -23,7 +23,7 @@ public class SingleStockInfoBLServiceTest {
 
 	@Test
 	public void testGetSingleStockInfo() {
-//		assertNotNull(info.getSingleStockInfo("sh600000"));
+		assertNotNull(info.getSingleStockInfo("sh600000"));
 	}
 
 }

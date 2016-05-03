@@ -367,9 +367,9 @@ public class IndustryBLImpl implements IndustryBLService {
 	}
 
 	@Override
+	@Deprecated
 	public List<IndustryInfo> getAllIndustryInfo() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<>();
 	}
 	
 	@Override

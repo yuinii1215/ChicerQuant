@@ -24,7 +24,22 @@ public class StockListBLServiceTest {
 
 	@Test
 	public void testGetAllStocks() {
-//		assertNotNull(list.getAllStocks());
+		assertNotNull(list.getAllStocks());
 	}
-
+	@Test
+	public void testGetSearch(){
+		assertNotNull(list.getSearchList());
+	}
+	@Test
+	public void testSearchLegal(){
+		assertTrue(list.searchLegal("sh600000"));
+	}
+	@Test
+	public void testGetData(){
+		try {
+			list.getTodayData("sh600000");
+		} catch (Exception e) {
+			
+		}
+	}
 }

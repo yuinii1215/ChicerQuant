@@ -29,16 +29,16 @@ public class BenchMarkBLServiceTest {
 
 	@Test
 	public void testGetAllBenchMark() {
-//		List<BenchMark> benchMarks=benchMarkBLService.getAllBenchMark();
-//		assertNotNull(benchMarks);
-//		assertTrue(!benchMarks.isEmpty());
+		List<BenchMark> benchMarks=benchMarkBLService.getAllBenchMark();
+		assertNotNull(benchMarks);
+		assertTrue(!benchMarks.isEmpty());
 	}
 
 	@Test
 	public void testGetBenchMarkInfo() {
-//		List<BenchMark> benchMarks=benchMarkBLService.getBenchMarkInfo("hs300", Calendar.getInstance());
-//		assertNotNull(benchMarks);
-//		assertTrue(!benchMarks.isEmpty());
+		List<BenchMark> benchMarks=benchMarkBLService.getBenchMarkInfo("hs300", Calendar.getInstance());
+		assertNotNull(benchMarks);
+		assertTrue(!benchMarks.isEmpty());
 	}
 
 }

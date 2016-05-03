@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import AnyQuantProject.bl.factoryBL.SingleStockBLFactory;
 import AnyQuantProject.blService.singleStockDealBLService.SingleStockDealBLService;
+import AnyQuantProject.util.method.CalendarHelper;
 
 /** 
 *AnyQuantProject//blTest.singleStockBLTest//SingleStockDealBLServiceTest.java
@@ -25,6 +26,7 @@ public class SingleStockDealBLServiceTest {
 	@Test
 	public void testGetSingleStockDeal() {
 		assertNotNull(deal.getSingleStockDeal("sh600000", Calendar.getInstance()));
+		assertNotNull(deal.getSingleStockDeal("sh600000", CalendarHelper.getPreviousDay(Calendar.getInstance()), Calendar.getInstance()));
 	}
 
 }
