@@ -7,6 +7,7 @@ import io.vertx.ext.web.Router;
 import webProject.server.myHandler.CSSHandler;
 import webProject.server.myHandler.HtmlHandler;
 import webProject.server.myHandler.ImageHandler;
+import webProject.server.myHandler.JSHandler;
 
 /**
 * AnyQuantProject/webProject.server/RouterVerticle.java
@@ -22,7 +23,7 @@ public class RouterVerticle extends AbstractVerticle {
 		homeRouter.route("/:html").handler(new HtmlHandler());
 		homeRouter.route(HttpMethod.GET,"/css/:file").handler(new CSSHandler());
 		homeRouter.route(HttpMethod.GET,"/img/:file").handler(new ImageHandler());
-//		homeRouter.route("*").handler()
+		homeRouter.route(HttpMethod.GET,"/js/:file").handler(new JSHandler());
 		
 		httpServer.requestHandler(homeRouter::accept).listen(8080);
 		

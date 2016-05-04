@@ -10,20 +10,21 @@ import io.vertx.ext.web.RoutingContext;
 import webProject.resources.Resources;
 
 /**
-* AnyQuantProject/webProject.server.myHandler/CSSHandler.java
+* AnyQuantProject/webProject.server.myHandler/JSHandler.java
 * @author cxworks
-* 2016年5月3日 下午11:44:26
+* 2016年5月4日 上午9:30:34
 */
-public class CSSHandler implements Handler<RoutingContext> {
+public class JSHandler implements Handler<RoutingContext> {
 
 	@Override
 	public void handle(RoutingContext event) {
 		String fileName=event.request().getParam("file");
+		
 		try {
-			File file=new File(Resources.class.getResource("css/"+fileName).getPath());
-			String css=FileUtils.getContentsAsString(file);
+			File file=new File(Resources.class.getResource("js/"+fileName).getPath());
+			String js=FileUtils.getContentsAsString(file);
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "text/css").write(css).end();
+			event.response().putHeader("content-type", "text/javascript").write(js).end();
 		} catch (IOException|NullPointerException e) {
 			event.response().setChunked(true);
 			event.response().end("resources unavaliable");
