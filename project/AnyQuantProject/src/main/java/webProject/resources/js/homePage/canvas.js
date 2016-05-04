@@ -1,10 +1,3 @@
-/**
- * @author Eberhard Graether / http://egraether.com/
- * @author Mark Lundin 	/ http://mark-lundin.com
- * @author Simone Manini / http://daron1337.github.io
- * @author Luca Antiga 	/ http://lantiga.github.io
- */
-
 THREE.TrackballControls = function ( object, domElement ) {
 
 	var _this = this;
@@ -27,7 +20,7 @@ THREE.TrackballControls = function ( object, domElement ) {
 	this.noZoom = false;
 	this.noPan = false;
 
-	this.staticMoving = false;
+//	this.staticMoving = false;
 	this.dynamicDampingFactor = 0.2;
 
 	this.minDistance = 0;
@@ -347,7 +340,7 @@ THREE.TrackballControls = function ( object, domElement ) {
 		lastPosition.copy( _this.object.position );
 
 	};
-
+/*
 	// listeners
 
 	function keydown( event ) {
@@ -598,7 +591,7 @@ THREE.TrackballControls = function ( object, domElement ) {
 
 	// force an update at start
 	this.update();
-
+*/
 };
 
 THREE.TrackballControls.prototype = Object.create( THREE.EventDispatcher.prototype );
@@ -639,7 +632,7 @@ var initThree = function() {
   renderer.setSize(bodyWidth, bodyHeight);
   canvas.appendChild(renderer.domElement);
   renderer.setClearColor(0xeeeeee, 1.0);
-  
+
   scene = new THREE.Scene();
 };
 
@@ -652,16 +645,16 @@ var init = function() {
   });
 
   initThree();
-  
+
   camera = new Camera();
   camera.init(get.radian(45), get.radian(0), bodyWidth, bodyHeight);
-  
+
   light = new HemiLight();
   light.init(scene, get.radian(0), get.radian(90), 1000, 0xff6699, 0x002244, 1);
-  
+
   ball = new Mesh();
   ball.init(scene, ballGeometry, ballMaterial);
-  
+
   renderloop();
   debounce(window, 'resize', function(event){
     resizeRenderer();
@@ -670,9 +663,9 @@ var init = function() {
 
 var render = function() {
   renderer.clear();
-  
+
   ball.updateVertices();
-  
+
   renderer.render(scene, camera.obj);
 };
 
@@ -713,7 +706,7 @@ var exports = function(){
     this.obj;
     this.trackball;
   };
-  
+
   Camera.prototype.init = function(rad1, rad2, width, height) {
     this.width = width;
     this.height = height;
@@ -724,7 +717,7 @@ var exports = function(){
     this.setPosition(this.rad1, this.rad2, this.r);
     this.initTrackBall();
   };
-  
+
   Camera.prototype.setPosition = function(rad1, rad2) {
     var points = get.pointSphere(rad1, rad2, this.r);
     this.obj.position.set(points[0], points[1], points[2]);
@@ -735,7 +728,7 @@ var exports = function(){
       z: 0
     });
   };
-  
+
   Camera.prototype.initTrackBall = function() {
     this.trackball = new THREE.TrackballControls(this.obj, this.canvas);
     this.trackball.screen.width = this.width;
@@ -748,7 +741,7 @@ var exports = function(){
     this.trackball.maxDistance = 3000;
     this.trackball.minDistance = 500;
   };
-  
+
   return Camera;
 };
 
@@ -769,26 +762,26 @@ module.exports = function(object, eventType, callback){
 },{}],4:[function(require,module,exports){
 var exports = function(){
   var Get = function() {};
-  
+
   Get.prototype.randomInt = function(min, max){
     return Math.floor(Math.random() * (max - min)) + min;
   };
-  
+
   Get.prototype.degree = function(radian) {
     return radian / Math.PI * 180;
   };
-  
+
   Get.prototype.radian = function(degrees) {
     return degrees * Math.PI / 180;
   };
-  
+
   Get.prototype.pointSphere = function(rad1, rad2, r) {
     var x = Math.cos(rad1) * Math.cos(rad2) * r;
     var z = Math.cos(rad1) * Math.sin(rad2) * r;
     var y = Math.sin(rad1) * r;
     return [x, y, z];
   };
-  
+
   return Get;
 };
 
@@ -808,19 +801,19 @@ var exports = function(){
     this.r = 0;
     this.obj;
   };
-  
+
   HemiLight.prototype.init = function(scene, rad1, rad2, r, hex1, hex2, intensity) {
     this.r = r;
     this.obj = new THREE.HemisphereLight(hex1, hex2, intensity);
     this.setPosition(rad1, rad2);
     scene.add(this.obj);
   };
-  
+
   HemiLight.prototype.setPosition = function(rad1, rad2) {
     var points = get.pointSphere(rad1, rad2, this.r);
     this.obj.position.set(points[0], points[1], points[2]);
   };
-  
+
   return HemiLight;
 };
 
@@ -855,14 +848,14 @@ var exports = function() {
     this.updateVerticesInt();
     this.setPosition();
     this.mesh.rotation.set(get.radian(45), 0,0);
-    
+
     scene.add(this.mesh);
   };
 
   Mesh.prototype.setPosition = function() {
     this.mesh.position.set(this.x, this.y, this.z);
   };
-  
+
   Mesh.prototype.updateVerticesInt = function() {
     var vertices = this.mesh.geometry.vertices;
     for (var i = 0; i < vertices.length; i++) {
@@ -877,7 +870,7 @@ var exports = function() {
     this.mesh.geometry.elementsNeedUpdate = true;
     this.mesh.geometry.normalsNeedUpdate = true;
   };
-  
+
   Mesh.prototype.updateVertices = function() {
     var vertices = this.mesh.geometry.vertices;
     for (var i = 0; i < this.vertexArr.length; i++) {
@@ -892,7 +885,7 @@ var exports = function() {
     this.mesh.geometry.elementsNeedUpdate = true;
     this.mesh.geometry.normalsNeedUpdate = true;
   };
-  
+
   return Mesh;
 };
 
@@ -912,19 +905,19 @@ var exports = function(){
     this.r = 0;
     this.obj;
   };
-  
+
   PointLight.prototype.init = function(scene, rad1, rad2, r, hex, intensity, distance) {
     this.r = r;
     this.obj = new THREE.PointLight(hex, intensity, distance);
     this.setPosition(rad1, rad2);
     scene.add(this.obj);
   };
-  
+
   PointLight.prototype.setPosition = function(rad1, rad2) {
     var points = get.pointSphere(rad1, rad2, this.r);
     this.obj.position.set(points[0], points[1], points[2]);
   };
-  
+
   return PointLight;
 };
 
