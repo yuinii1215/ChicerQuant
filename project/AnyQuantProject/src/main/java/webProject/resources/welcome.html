@@ -3,16 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>AnyQuant - 股票策略分析平台</title>
+    <title>CHIER - 股票策略分析平台</title>
 
     <style id="basicSytle">
         *{margin:0; padding:0;}
         body{ width:1349px;}
         #wrap{ background-repeat: repeat; margin:0 auto; width:100%;overflow:auto;min-width:1349px;}
-        #header{  position:fixed; z-index:999; background:#000;opacity:0.7; height:80px; width:100%;}
+        #header{  position:fixed; z-index:999; background:#000;opacity:0.7; height:60px; width:100%;}
         #mainbody{ opacity:0.8;  height:800px; width:100%;}
-        #title{ position:absolute; z-index:999; min-width:1000px; margin:150px 200px 100px 200px; }
-        #footer{  background:#000;opacity:1; height:60px; width:100%}
+        #title{   position:absolute; z-index:999; min-width:1000px; margin:150px 200px 100px 200px; }
+        #button{   position:absolute; z-index:999;;margin:400px 220px;padding:20px 400px 100px 400px; }
+        #footer{  background:#000;opacity:1; height:40px; width:100%}
 
     </style>
 
@@ -24,18 +25,20 @@
     </script>
 
     <!-- CUSTOM STYLES -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/canvas.css">
 
     <!-- WEBFONT -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+
     <!-- JQUERY -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
     <!-- =========================
     PRE LOADER
     ============================== -->
-  <!--  <div class="preloader">
+    <div class="preloader">
         <div class="status">&nbsp;</div>
     </div>
 
@@ -60,42 +63,50 @@
             <div id="mainbody">
                 <div id="canvas" style='position:absolute; z-index:-999; float:none; margin-left: auto; margin-right: auto;'>
                     <div id ="title">
-                        <h1 class="f1" style="text-align: center; font-size: 90px; font-weight: bold; color: #FFF; font-family: Lato, Book Antiqua, Palatino, serif;"> AnyQuant</h1>
-                        <h2 class="f2" style="text-align: center; margin-top:20px; color: #FFF; font-family:Lato, SimSun; font-size: 40px; ">股票分析策略</h2>
+                        <h1 class="f1" style="text-align: center; font-size: 90px; font-weight: bold; color: #FFF; font-family: Lato, Book Antiqua, Palatino, serif;">Chier Team</h1>
+                        <h2 class="f2" style="text-align: center; margin-top:20px; color: #FFF; font-family:Lato, SimSun; font-size: 40px; ">股 票 分 析 策 略</h2>
+                    </div>
+                    <div id ="button" ng-controller="enterHome" >
+                        <button id="enterBtn"; class="enterBtn";  ng-click="enter()"> 进入
+                            <a href=".../nav/home.html">
+                            </a>
+                        </button>
                     </div>
 
-                    <button id="login">
-
-                    </button>
                 </div>
             </div>
-
+    <!-- / END HOME SECTION  -->
             <!-- =========================
              FOOTER
             ============================== -->
-            <div id="footer" style="font-size: 15px; color:#fff;">
-                <div class="g-ft" style="text-align: center ; padding-top: 20px;">
-                    <span class="m-ft2" >
-                        <a target="_blank"  rel="nofollow" href="javascript:void(0);" style="color: #EBEBEB">关于我们</a> <span>&nbsp;|</span>
-                  <!--     <a target="_blank" rel="nofollow" href="javascript:void(0);"  style="color: #EBEBEB">官方博客</a>-->
-                    </span>
-                    <span class="m-ft1" >chier团队版权所有　&copy;2015-2016　
-                        <a rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn/" style="position:relative;color: #FFF;">
+            <footer>
+                <div id="footer" style="font-size: 15px; color:#fff;">
+                    <div class="g-ft" style="text-align: center ; padding-top: 10px;">
+                        <span class="m-ft2" >
+                            <a target="_blank"  rel="nofollow" href="javascript:void(0);" style="color: #EBEBEB">关于我们</a> <span>&nbsp;|</span>
+                    <!--     <a target="_blank" rel="nofollow" href="javascript:void(0);"  style="color: #EBEBEB">官方博客</a>-->
+                        </span>
+                        <span class="m-ft1" >chier团队版权所有　&copy;2015-2016　
+                            <a rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn/" style="position:relative;color: #FFF;">
                             <!--   <img src="http://l.bst.126.net/rsc/img/icon-police.png" style="width:14px;height:16px;position:absolute;left:0;top:0;" />
-                        <span style="margin-left:18px;">京ICP备11008151号</span> -->
-                        </a>
-                        <span style="margin-left:20px;"></span>
-                    </span>
+                            <span style="margin-left:18px;">京ICP备11008151号</span> -->
+                            </a>
+                            <span style="margin-left:20px;"></span>
+                        </span>
+                    </div>
                 </div>
-            </div>
-
+            </footer>
         </div>
-    </header> <!-- / END HOME SECTION  -->
+    </header>
+
     <!-- =========================
     JS
     ============================== -->
     <script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js'></script>
+    <script src="js/zerif.js"></script>
     <script src="js/smoothscroll.js"></script>
+    <script src="js/button.js"></script>
     <script src="js/canvas.js"></script>
 </body>
+
 </html>

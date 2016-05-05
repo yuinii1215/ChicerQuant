@@ -7,6 +7,20 @@ Zerif -One Page Respossive HTML5 Template
 GLOBAL STYLES
 =========================================
 -----------------------------------------*/
+*{
+    margin:0;
+    padding: 0;
+}
+.enterBtn {
+    width:120px;
+    height:50px;  "
+    vertical-align:middle;
+    align:center;
+    line-height:18px;
+    font-size:18px;
+    color:#9FAFD1;
+    padding-bottom:4px;
+}
 
 /* PRE LOADER */
 .preloader {
@@ -31,4 +45,9 @@ GLOBAL STYLES
     background-repeat: no-repeat;
     background-position: center;
     margin: -100px 0 0 -100px;
+}
+
+.header {
+    position: relative;
+    overflow: hidden;
 }
