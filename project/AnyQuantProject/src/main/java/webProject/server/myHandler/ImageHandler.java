@@ -1,19 +1,10 @@
 package webProject.server.myHandler;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
+
 import java.io.IOException;
+import java.io.InputStream;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.FileImageInputStream;
-import javax.swing.ImageIcon;
-
-import com.mchange.io.FileUtils;
 
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
@@ -30,11 +21,10 @@ public class ImageHandler implements Handler<RoutingContext> {
 	@Override
 	public void handle(RoutingContext event) {
 		String fileName=event.request().getParam("file");
-		FileImageInputStream inputStream = null;
+		InputStream inputStream = null;
 		ByteArrayOutputStream outputStream=null;
 		try {
-			File file=new File(Resources.class.getResource("img/"+fileName).getPath());
-			inputStream=new FileImageInputStream(file);
+			inputStream=Resources.class.getResourceAsStream("img/"+fileName);
 			outputStream=new ByteArrayOutputStream();
 			
 			byte[] buf = new byte[1024];

@@ -25,7 +25,7 @@ public class RouterVerticle extends AbstractVerticle {
 		homeRouter.route(HttpMethod.GET,"/img/:file").handler(new ImageHandler());
 		homeRouter.route(HttpMethod.GET,"/js/:file").handler(new JSHandler());
 		
-		httpServer.requestHandler(homeRouter::accept).listen(8080);
+		httpServer.requestHandler(homeRouter::accept).listen();
 		
 	}
 }

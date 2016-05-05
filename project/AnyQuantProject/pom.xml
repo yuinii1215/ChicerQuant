@@ -45,7 +45,7 @@
                     <manifest>  
                         <addClasspath>true</addClasspath>  
                         <classpathPrefix>lib/</classpathPrefix>  
-                        <mainClass>AnyQuantProject.starter.Main</mainClass>  
+                        <mainClass>webProject.starter.Main</mainClass>  
                     </manifest>  
                 </archive>  
             </configuration>  
@@ -72,7 +72,7 @@
                 <configuration>  
                     <archive>  
                         <manifest>  
-                            <mainClass>AnyQuantProject.ui.controllerUI.Main</mainClass>  
+                            <mainClass>webProject.starter.Main</mainClass>  
                         </manifest>  
                     </archive>  
                     <descriptorRefs>  
@@ -96,6 +96,7 @@
                 <include>**/**/*.html</include>
                 <include>**/**/*.css</include>
                 <include>**/**/*.js</include>
+                <include>**/**/*.png</include>
             </includes>  
             <filtering>false</filtering>  
         </resource>  
@@ -132,17 +133,17 @@
 		<version>2.4</version>
 		<classifier>jdk15</classifier>
 	</dependency>
+	<dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>2.5</version>
+	</dependency>
 
 	<dependency>
 		<groupId>commons-beanutils</groupId>
 		<artifactId>commons-beanutils</artifactId>
 		<version>1.9.2</version>
 	</dependency>
-<dependency>
-	<groupId>com.mchange</groupId>
-	<artifactId>mchange-commons-java</artifactId>
-	<version>0.2.11</version>
-</dependency>
 
 
 <dependency>

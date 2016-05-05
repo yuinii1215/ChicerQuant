@@ -1,9 +1,10 @@
 package webProject.server.myHandler;
 
-import java.io.File;
+import java.io.BufferedInputStream;
 import java.io.IOException;
 
-import com.mchange.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+
 
 import io.vertx.core.Handler;
 import io.vertx.ext.web.RoutingContext;
@@ -21,8 +22,7 @@ public class JSHandler implements Handler<RoutingContext> {
 		String fileName=event.request().getParam("file");
 		
 		try {
-			File file=new File(Resources.class.getResource("js/"+fileName).getPath());
-			String js=FileUtils.getContentsAsString(file);
+			String js=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream("js/"+fileName)));
 			event.response().setChunked(true);
 			event.response().putHeader("content-type", "text/javascript").write(js).end();
 		} catch (IOException|NullPointerException e) {
