@@ -21,5 +21,4 @@ public class Main {
 		DeploymentOptions deploymentOptions=new DeploymentOptions();
 		vertx.deployVerticle("webProject.server.myVerticle.RouterVerticle", deploymentOptions);
 	}
-
 }
