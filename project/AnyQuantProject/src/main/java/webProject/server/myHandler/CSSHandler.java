@@ -19,11 +19,13 @@ public class CSSHandler implements Handler<RoutingContext> {
 
 	@Override
 	public void handle(RoutingContext event) {
-		String fileName=event.request().getParam("file");
+		String fileName=event.request().path();
+		fileName=fileName.substring(1);
 		try {
-			String css=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream("css/"+fileName)));
+			String css=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream(fileName)));
 			event.response().setChunked(true);
 			event.response().putHeader("content-type", "text/css").write(css).end();
+//			System.out.println(fileName);
 		} catch (IOException|NullPointerException e) {
 			event.response().setChunked(true);
 			event.response().end("resources unavaliable");

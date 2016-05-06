@@ -18,7 +18,9 @@ public class HtmlHandler implements Handler<RoutingContext>{
 
 	@Override
 	public void handle(RoutingContext event) {
-		String loc=event.request().getParam("html");
+		String loc=event.request().path();
+		loc=loc.substring(1);
+		System.out.println(loc);
 		try {
 			String html=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream(loc)));
 			event.response().setChunked(true);

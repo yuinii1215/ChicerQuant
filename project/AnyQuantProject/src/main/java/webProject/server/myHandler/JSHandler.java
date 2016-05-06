@@ -19,8 +19,8 @@ public class JSHandler implements Handler<RoutingContext> {
 
 	@Override
 	public void handle(RoutingContext event) {
-		String fileName=event.request().getParam("file");
-		
+		String fileName=event.request().path();
+		fileName=fileName.substring(1);
 		try {
 			String js=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream("js/"+fileName)));
 			event.response().setChunked(true);

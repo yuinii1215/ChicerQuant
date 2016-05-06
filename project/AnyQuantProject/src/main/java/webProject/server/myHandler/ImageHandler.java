@@ -20,11 +20,13 @@ public class ImageHandler implements Handler<RoutingContext> {
 
 	@Override
 	public void handle(RoutingContext event) {
-		String fileName=event.request().getParam("file");
+		String fileName=event.request().path();
+		fileName=fileName.substring(1);
+		System.out.println(fileName);
 		InputStream inputStream = null;
 		ByteArrayOutputStream outputStream=null;
 		try {
-			inputStream=Resources.class.getResourceAsStream("img/"+fileName);
+			inputStream=Resources.class.getResourceAsStream(fileName);
 			outputStream=new ByteArrayOutputStream();
 			
 			byte[] buf = new byte[1024];
