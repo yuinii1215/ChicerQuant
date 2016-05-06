@@ -61,6 +61,15 @@ public class CalendarHelper {
 
 		return sdf.format(date.getTime());
 	}
+	public static String getDateForSQL(Calendar date){
+
+		if (date==null) {
+			return null;
+		}
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY_MM_dd");
+
+		return sdf.format(date.getTime());
+	}
 	public static Calendar getPreviousYear(Calendar date){
 		Calendar ans=Calendar.getInstance();
 		ans.setTimeInMillis(date.getTimeInMillis());

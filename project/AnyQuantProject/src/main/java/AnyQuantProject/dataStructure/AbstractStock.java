@@ -120,10 +120,8 @@ public class AbstractStock implements Serializable,KLineDataDTO{
 		this.flow = flow;
 	}
 	public Calendar getDateInCalendar(){
-		if (Checker.checkStringNotNull(date)) {
 			return CalendarHelper.convert2Calendar(date);
-		}
-		return Calendar.getInstance();
+		
 	}
 
 

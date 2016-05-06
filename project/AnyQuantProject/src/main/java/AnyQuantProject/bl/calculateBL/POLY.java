@@ -13,6 +13,11 @@ import AnyQuantProject.dataStructure.Stock;
 * 2016年4月13日 下午11:46:31
 */
 public class POLY {
+	
+	public static double calculateStockPOLY(List<Stock> src){
+		List<Double> tDoubles=src.stream().map(s->s.getClose()).collect(Collectors.toList());
+		return calculatePOLY(tDoubles);
+	}
 	public static double calculatePOLY(List<Double> src){
 		Double[] close=(Double[])src.stream().collect(Collectors.toList()).toArray(new Double[src.size()]);
 		int ansX=src.size()+1;
