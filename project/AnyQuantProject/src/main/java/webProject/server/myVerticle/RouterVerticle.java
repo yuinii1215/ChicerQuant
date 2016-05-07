@@ -32,7 +32,11 @@ public class RouterVerticle extends AbstractVerticle {
 		homeRouter.route().pathRegex(".*js").handler(new JSHandler());
 		
 		//
-		
+		homeRouter.route().pathRegex(".*svg").handler(new HtmlHandler());
+		homeRouter.route().pathRegex(".*otf").handler(new HtmlHandler());
+		homeRouter.route().pathRegex(".*ttf").handler(new HtmlHandler());
+		homeRouter.route().pathRegex(".*woff").handler(new HtmlHandler());
+		homeRouter.route().pathRegex(".*woff2").handler(new HtmlHandler());
 		
 		homeRouter.route().handler(rt->{
 			try {

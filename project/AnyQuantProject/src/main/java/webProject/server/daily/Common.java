@@ -1,5 +1,6 @@
 package webProject.server.daily;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
@@ -36,7 +37,7 @@ public abstract class Common {
 	double K,D,J;
 	double DIF,DEA,MACHBar;
 	double poly;
-	Timestamp timestamp;
+	Date date;
 	public String getStock_id() {
 		return stock_id;
 	}
@@ -217,9 +218,8 @@ public abstract class Common {
 	public void setPoly(double poly) {
 		this.poly = poly;
 	}
-	public void setTimestamp(Calendar calendar){
-		timestamp=new Timestamp(calendar.getTimeInMillis());
-		
+	public void setDate(Calendar calendar){
+		date=new Date(calendar.getTimeInMillis());
 	}
 	
 }
