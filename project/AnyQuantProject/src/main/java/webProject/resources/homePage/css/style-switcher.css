@@ -12,7 +12,7 @@
 .del-switcher-toggle {
     font-family: FontAwesome;
     content: '\f013';
-    background: url(../img/cog.png) 8px 8px no-repeat white;
+    background: 8px 8px no-repeat white;
     display: block;
     width: 40px;
     height: 40px;
@@ -165,7 +165,6 @@
 
 .switch-skin-full.transparent {
     /*background: rgba(0, 0, 0, 0.15);*/
-    background: url('../img/black-linen.png?');
     background-color: #455E66;
     color: #eaeaea;
     /*color: #000;*/
