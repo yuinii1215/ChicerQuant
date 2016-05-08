@@ -188,14 +188,14 @@ include_once ('getData.php');
     //输入: 股票或大盘名和日期
     //输出: 操作是否成功的信息以及该日该股票或大盘的6BIAS的值
     function get6BIASService($name, $date){
-        $jsonstring = get6RSI($name, $date);
+        $jsonstring = get6BIAS($name, $date);
         echo $jsonstring;
     }
 
     //输入: 股票或大盘名和日期
     //输出: 操作是否成功的信息以及该日该股票或大盘的12BIAS的值
     function get12BIASService($name, $date){
-        $jsonstring = get12RSI($name, $date);
+        $jsonstring = get12BIAS($name, $date);
         echo $jsonstring;
     }
 
