@@ -26,14 +26,21 @@ public class RouterVerticle extends AbstractVerticle {
 	public void start(){
 		HttpServer httpServer=vertx.createHttpServer();
 		Router homeRouter=Router.router(vertx);
-		homeRouter.route("/:html").handler(new HtmlHandler());
-		homeRouter.route(HttpMethod.GET,"/css/:file").handler(new CSSHandler());
-		homeRouter.route(HttpMethod.GET,"/img/:file").handler(new ImageHandler());
-		homeRouter.route(HttpMethod.GET,"/js/:file").handler(new JSHandler());
+		homeRouter.route().pathRegex(".*html").handler(new HtmlHandler());
+		homeRouter.route().pathRegex(".*css").handler(new CSSHandler());
+		homeRouter.route().pathRegex(".*png").handler(new ImageHandler());
+		homeRouter.route().pathRegex(".*js").handler(new JSHandler());
+		
+		//
+		homeRouter.route().pathRegex(".*svg").handler(new HtmlHandler());
+		homeRouter.route().pathRegex(".*otf").handler(new HtmlHandler());
+		homeRouter.route().pathRegex(".*ttf").handler(new HtmlHandler());
+		homeRouter.route().pathRegex(".*woff").handler(new HtmlHandler());
+		homeRouter.route().pathRegex(".*woff2").handler(new HtmlHandler());
 		
 		homeRouter.route().handler(rt->{
 			try {
-				String html=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream("home.html")));
+				String html=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream("welcome.html")));
 				rt.response().setChunked(true);
 				rt.response().putHeader("content-type", "text/html").write(html).end();
 			} catch (IOException|NullPointerException e) {

@@ -49,8 +49,10 @@ public class SingleStockDATA implements SingleStockDATAService, TurnoverDATAServ
 	public Stock getOperation(String name, Calendar date) throws NetFailedException {
 		JSONObject resultJsonObject = JSONSingleStock.getOperation(name, date);
 		Stock result = (Stock) JSONObject.toBean(resultJsonObject,Stock.class);
+		System.out.println(resultJsonObject.toString());
 		result.setName(name);
 		result.setChinese(getChineseName(name));
+		System.out.println(result.getDate());
 		return result;
 	}
 

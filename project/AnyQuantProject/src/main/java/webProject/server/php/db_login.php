@@ -6,9 +6,9 @@
  * Time: 下午7:25
  */
 
-$db_host = 'localhost';
-$db_database = 'AnyQuantDB';
-$db_username = 'CTGG';
-$db_password = 'dreamG';
+$db_host = '572dbf7f7aa1c.sh.cdb.myqcloud.com:4068';
+$db_database = 'chicer';
+$db_username = 'chicer';
+$db_password = 'chicer2016';
 
 ?>

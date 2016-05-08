@@ -75,7 +75,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService  {
 		}
 		Calendar temp=Calendar.getInstance();
 		temp.setTimeInMillis(min.getTimeInMillis());
-		temp.add(Calendar.DAY_OF_MONTH, -6);
+		temp.add(Calendar.DAY_OF_MONTH, -30);
 		List<Stock> data=this.getData(name,temp,max);
 		String title=data.get(0).getChinese()+"相对强弱指数折线图";
 		// 
@@ -96,7 +96,7 @@ public class CalculateLineBLImpl implements CalculateLineBLService  {
 		}
 		Calendar temp=Calendar.getInstance();
 		temp.setTimeInMillis(minTime.getTimeInMillis());
-		temp.add(Calendar.DAY_OF_MONTH, -24);
+		temp.add(Calendar.DAY_OF_MONTH, -30);
 		List<Stock> data=this.getData(name,temp,maxTime);
 		String title=data.get(0).getChinese()+"乖离率折线图";
 		// 
