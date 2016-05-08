@@ -95,7 +95,8 @@ public class Q {
 				+ "turnover , "
 				+ "pe_ttm , "
 				+ "pb "
-				+ "FROM ? where date >= ? ;";
+				+ "FROM ";
+		public static final String seleTail=" where date >= ? ;";
 		
 	}
 	

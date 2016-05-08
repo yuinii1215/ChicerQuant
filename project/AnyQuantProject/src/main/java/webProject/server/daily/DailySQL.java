@@ -39,11 +39,14 @@ public class DailySQL {
 		//cal
 		try {
 			for (String stock_id : id) {
-				PreparedStatement preparedStatement=connection.prepareStatement(Q.Stock.selectStock);
+				PreparedStatement preparedStatement=connection.prepareStatement(Q.Stock.selectStock+stock_id+Q.Stock.seleTail);
 				
-				preparedStatement.setDate(2, date);
+				preparedStatement.setDate(1, date);
 				ResultSet resultSet=preparedStatement.executeQuery();
 				int col=resultSet.getMetaData().getColumnCount();
+				while(resultSet.next()){
+					
+				}
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
