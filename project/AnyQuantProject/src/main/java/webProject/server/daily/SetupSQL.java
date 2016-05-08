@@ -30,9 +30,16 @@ public class SetupSQL {
 	static Map<String, String> indu;
 	public static void main(String[] args) throws SQLException {
 		Connection connection=getConn();
-		industry_stock(connection);
-		setup(connection);
+		DailySQL.dailyStock(connection);
+//		industry_stock(connection);
+//		setup(connection);
 	}
+	
+	public static void industry(Connection connection){
+		
+	}
+	
+	
 	
 	public static void industry_stock(Connection connection){
 		try {
@@ -83,9 +90,9 @@ public class SetupSQL {
 	
 	private static Connection getConn(){
 		String driver="com.mysql.cj.jdbc.Driver";
-		String url="jdbc:mysql://10.66.115.75:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+		String url="jdbc:mysql://localhost:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 		String username="chicer";
-		String password="chicer2016";
+		String password="chicer";
 		Connection conn = null;
 	    try {
 	        Class.forName(driver); //classLoader,加载对应驱动

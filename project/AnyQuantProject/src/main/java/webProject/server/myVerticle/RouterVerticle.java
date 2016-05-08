@@ -13,7 +13,9 @@ import webProject.resources.Resources;
 import webProject.server.myHandler.CSSHandler;
 import webProject.server.myHandler.HtmlHandler;
 import webProject.server.myHandler.ImageHandler;
+import webProject.server.myHandler.JPGHandler;
 import webProject.server.myHandler.JSHandler;
+import webProject.server.myHandler.WoffHandler;
 
 /**
 * AnyQuantProject/webProject.server/RouterVerticle.java
@@ -30,13 +32,14 @@ public class RouterVerticle extends AbstractVerticle {
 		homeRouter.route().pathRegex(".*css").handler(new CSSHandler());
 		homeRouter.route().pathRegex(".*png").handler(new ImageHandler());
 		homeRouter.route().pathRegex(".*js").handler(new JSHandler());
-		
+		homeRouter.route().path(".*jpg").handler(new JPGHandler());
+		homeRouter.route().path(".*jpeg").handler(new JPGHandler());
 		//
-		homeRouter.route().pathRegex(".*svg").handler(new HtmlHandler());
-		homeRouter.route().pathRegex(".*otf").handler(new HtmlHandler());
-		homeRouter.route().pathRegex(".*ttf").handler(new HtmlHandler());
-		homeRouter.route().pathRegex(".*woff").handler(new HtmlHandler());
-		homeRouter.route().pathRegex(".*woff2").handler(new HtmlHandler());
+		homeRouter.route().pathRegex(".*svg").handler(new CSSHandler());
+		homeRouter.route().pathRegex(".*otf").handler(new CSSHandler());
+		homeRouter.route().pathRegex(".*ttf").handler(new CSSHandler());
+		homeRouter.route().pathRegex(".*woff").handler(new WoffHandler());
+		homeRouter.route().pathRegex(".*woff2").handler(new WoffHandler());
 		
 		homeRouter.route().handler(rt->{
 			try {

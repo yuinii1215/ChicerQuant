@@ -97,6 +97,11 @@
                 <include>**/**/*.css</include>
                 <include>**/**/*.js</include>
                 <include>**/**/*.png</include>
+                <include>**/**/**/*.woff</include>
+                <include>**/**/**/*.eot</include>
+                <include>**/**/**/*.svg</include>
+                <include>**/**/**/*.ttf</include>
+                	<include>**/**/**/*.woff2</include>
             </includes>  
             <filtering>false</filtering>  
         </resource>  
