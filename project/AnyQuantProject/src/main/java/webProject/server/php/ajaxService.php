@@ -10,7 +10,7 @@ include_once ('getData.php');
      *
      * 数据说明:
      *
-     * 所有date为xxxx-xx-xx的string,或是你们提供一个固定的类型我自己转也可以~
+     * 所有date为xxxx-xx-xx的date格式~
      * 股票和大盘的name是英文和代号
      * industry_name是行业名(中文)
      *
@@ -41,6 +41,14 @@ include_once ('getData.php');
         $jsonstring = cancelMyFavor($name, $username);
         echo $jsonstring;
     }
+
+    //输入: 股票名
+    //输出: 操作是否成功的信息
+        function addMyFavorService($name,$username){
+            $jsonstring = addMyFavor($name, $username);
+            echo $jsonstring;
+        }
+
     /*
      *
      * 模块二:  得到股票基本属性
@@ -61,17 +69,10 @@ include_once ('getData.php');
         echo $jsonstring;
     }
 
-    //输入: 股票名和日期
-    //输出: 操作是否成功的信息以及该日所有股票名或者是返回所有股票的属性--各种表格项信息!!!------这里你们来选一个~
-    function getAllStocksService($date){
-        $jsonstring = getAllStocks($date);
-        echo $jsonstring;
-    }
-
-    //输入: 股票名和日期区间
-    //输出: 操作是否成功的信息以及该区间内每日所有股票的属性--各种表格项信息
-    function getAllStocksAmongDateService($startdate, $enddate){
-        $jsonstring = getStockAmongDate($startdate, $enddate);
+    //输入: 无
+    //输出: 当日所有股票属性--各种表格项信息
+    function getAllStocksService(){
+        $jsonstring = getAllStocks();
         echo $jsonstring;
     }
 
@@ -187,14 +188,14 @@ include_once ('getData.php');
     //输入: 股票或大盘名和日期
     //输出: 操作是否成功的信息以及该日该股票或大盘的6BIAS的值
     function get6BIASService($name, $date){
-        $jsonstring = get6RSI($name, $date);
+        $jsonstring = get6BIAS($name, $date);
         echo $jsonstring;
     }
 
     //输入: 股票或大盘名和日期
     //输出: 操作是否成功的信息以及该日该股票或大盘的12BIAS的值
     function get12BIASService($name, $date){
-        $jsonstring = get12RSI($name, $date);
+        $jsonstring = get12BIAS($name, $date);
         echo $jsonstring;
     }
 

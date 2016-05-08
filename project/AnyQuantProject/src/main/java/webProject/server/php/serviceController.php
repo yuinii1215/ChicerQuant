@@ -19,6 +19,9 @@ switch ($method)
     case "cancelMyFavorService":
         cancelMyFavorService($objData->username,$objData->name);
         break;
+    case "addMyFavorService":
+        addMyFavorService($objData->username,$objData->name);
+        break;
     case "getStockByNameService":
         getStockByNameService($objData->name,$objData->date);
         break;
@@ -26,10 +29,7 @@ switch ($method)
         getStockAmongDateService($objData->name,$objData->startdate,$objData->enddate);
         break;
     case "getAllStocksService":
-        getAllStocksService($objData->date);
-        break;
-    case "getAllStocksAmongDateService":
-        getAllStocksAmongDateService($objData->startdate, $objData->enddate);
+        getAllStocksService();
         break;
     case "getBenchMarkByNameService":
         getBenchMarkByNameService($objData->name, $objData->date);
