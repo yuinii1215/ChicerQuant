@@ -69,17 +69,10 @@ include_once ('getData.php');
         echo $jsonstring;
     }
 
-    //输入: 股票名和日期
-    //输出: 操作是否成功的信息以及该日所有股票名或者是返回所有股票的属性--各种表格项信息!!!------这里你们来选一个~
-    function getAllStocksService($date){
-        $jsonstring = getAllStocks($date);
-        echo $jsonstring;
-    }
-
-    //输入: 股票名和日期区间
-    //输出: 操作是否成功的信息以及该区间内每日所有股票的属性--各种表格项信息
-    function getAllStocksAmongDateService($startdate, $enddate){
-        $jsonstring = getStockAmongDate($startdate, $enddate);
+    //输入: 无
+    //输出: 当日所有股票属性--各种表格项信息
+    function getAllStocksService(){
+        $jsonstring = getAllStocks();
         echo $jsonstring;
     }
 

@@ -29,10 +29,7 @@ switch ($method)
         getStockAmongDateService($objData->name,$objData->startdate,$objData->enddate);
         break;
     case "getAllStocksService":
-        getAllStocksService($objData->date);
-        break;
-    case "getAllStocksAmongDateService":
-        getAllStocksAmongDateService($objData->startdate, $objData->enddate);
+        getAllStocksService();
         break;
     case "getBenchMarkByNameService":
         getBenchMarkByNameService($objData->name, $objData->date);
