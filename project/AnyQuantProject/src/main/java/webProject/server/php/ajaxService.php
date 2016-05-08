@@ -10,7 +10,7 @@ include_once ('getData.php');
      *
      * 数据说明:
      *
-     * 所有date为xxxx-xx-xx的string,或是你们提供一个固定的类型我自己转也可以~
+     * 所有date为xxxx-xx-xx的date格式~
      * 股票和大盘的name是英文和代号
      * industry_name是行业名(中文)
      *
@@ -41,6 +41,14 @@ include_once ('getData.php');
         $jsonstring = cancelMyFavor($name, $username);
         echo $jsonstring;
     }
+
+    //输入: 股票名
+    //输出: 操作是否成功的信息
+        function addMyFavorService($name,$username){
+            $jsonstring = addMyFavor($name, $username);
+            echo $jsonstring;
+        }
+
     /*
      *
      * 模块二:  得到股票基本属性

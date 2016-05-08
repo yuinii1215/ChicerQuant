@@ -19,6 +19,9 @@ switch ($method)
     case "cancelMyFavorService":
         cancelMyFavorService($objData->username,$objData->name);
         break;
+    case "addMyFavorService":
+        addMyFavorService($objData->username,$objData->name);
+        break;
     case "getStockByNameService":
         getStockByNameService($objData->name,$objData->date);
         break;
