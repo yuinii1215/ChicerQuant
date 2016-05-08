@@ -36,6 +36,7 @@
     <!-- JQUERY -->
     <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
     <script src="jquery.min.js"></script>
+     <script src="angular.min.js"></script>
 
 </head>
 <body>
@@ -70,14 +71,11 @@
                         <h1 class="f1" style="text-align: center; font-size: 90px; font-weight: bold; color: #FFF; font-family: Lato, Book Antiqua, Palatino, serif;">Chier Team</h1>
                         <h2 class="f2" style="text-align: center; margin-top:20px; color: #FFF; font-family:Lato, SimSun; font-size: 40px; ">股 票 分 析 策 略</h2>
                     </div>
-                    <a href="home.html">
-                    <div id ="button" ng-controller="enterHome" >
-                        <button id="enterBtn"; class="enterBtn";  ng-click="enter()"> 进入
-                                   <!--<a href="home.html">-->
-<!--                                       <input type="button"></input>-->
-                                       
-<!--                            <a href="E:\JetBrains\WebstormProjects\SE3\nav\home.html">-->
-                            <!--</a>-->
+                  
+                    <div id ="button" ng-app="myApp" ng-controller="enterHome" >
+                        <a href="../homePage/home.html">??????????????</a>
+                        <button id="enterBtn"; class="enterBtn"; ng-bind="hi" ng-click="enter()"> 进入
+                           
                         </button>
                     </div>
                     </a>
