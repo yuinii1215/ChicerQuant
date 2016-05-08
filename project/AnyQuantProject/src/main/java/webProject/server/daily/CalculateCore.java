@@ -47,7 +47,7 @@ public class CalculateCore {
 		List<AnyQuantProject.dataStructure.Stock> src=singleStockDATAService.getStockAmongDate(id, usemin, max);
 		src=src.stream().filter(s->s.getDate()!=null).collect(Collectors.toList());
 		List<AnyQuantProject.dataStructure.Stock> tList=src.stream().filter(s->s.getClose()!=0).collect(Collectors.toList());
-		if (tList.size()>1) {
+		if (tList.size()>=250) {
 			List<AnyQuantProject.dataStructure.Stock> fina=tList.stream().filter(s->s.getDateInCalendar().after(min)).collect(Collectors.toList());
 			//
 			
@@ -155,7 +155,7 @@ public class CalculateCore {
 		dst.pb=src.getPb();
 		dst.pe_ttm=src.getPe_ttm();
 		dst.volumn=src.getVolume();
-		dst.setTimestamp(src.getDateInCalendar());
+		dst.setDate(src.getDateInCalendar());
 	}
 	private static void aver(Stock dst,Calendar date,SingleStockDATAService dataService) throws NetFailedException{
 		Calendar use=Calendar.getInstance();

@@ -7,7 +7,7 @@ package webProject.server.daily;
 public class Q {
 	public static final String Create="CREATE TABLE ";
 	public static final String tailBase=" ("
-			+ "date timestamp not null, "
+			+ "date date not null, "
 			+ "stock_name varchar(20), "
 			+ "open double default 0, "
 			+ "high double default 0, "
@@ -43,6 +43,21 @@ public class Q {
 			+ "poly double default 0, "
 			+ "primary key(date)) "
 	 		+ "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+	public static final String CreateIndustry_Stock="CREATE TABLE industry_stock ("
+			+ "stock_id varchar(10) not null , "
+			+ "stock_name varchar(20) , "
+			+ "industry varchar(20) , "
+			+ "primary key(stock_id)"
+			+ ") "
+			+ "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+	public static final String insertIndustry_Stock="INSERT INTO industry_stock ( "
+			+ "stock_id , "
+			+ "stock_name , "
+			+ "industry "
+			+ ") "
+			+ "VALUES ( "
+			+ "? , ? , ? "
+			+ ");";
 	
 	public static final String Insert="INSERT INTO ";
 	public static final String insTailBase= " ( date , "
@@ -85,12 +100,43 @@ public class Q {
 			+ "? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? "
 			+ ");";
 	
-	public static final String insTailCal=" ( stock_id , "
-			
-			+ ") "
-			+ "VALUES ( "
-			+ "? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , "
-			+ "? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? "
-			+ ");";
+	public static final String CreaBench="create table benchmark "
+			+ "( date timestamp not null,"
+			+ "bench_id varchar(80) not null,"
+			+ " bench_name varchar(150), "
+			+ "open double default 0, "
+			+ "high double default 0, "
+			+ "low double default 0, "
+			+ "close double default 0, "
+			+ "volumn int default 0, "
+			+ "adj_price double default 0,  "
+			+ "transaction bigint default 0,  "
+			+ "marketvalue bigint  default 0, "
+			+ "flow bigint default 0, "
+			+ "PMA double default 0, "
+			+ "PMA5_day double default 0, "
+			+ "PMA5_week double default 0, "
+			+ "PMA5_month double default 0, "
+			+ "PMA10_day double default 0, "
+			+ "PMA10_week double default 0, "
+			+ "PMA10_month double default 0, "
+			+ "PMA30_day double default 0, "
+			+ "PMA30_week double default 0, "
+			+ "PMA30_month double default 0, "
+			+ "RSI6 double default 0, "
+			+ "RSI12 double default 0, "
+			+ "RSI24 double default 0, "
+			+ "BIAS6 double default 0, "
+			+ "BIAS12 double default 0, "
+			+ "BIAS24 double default 0, "
+			+ "K double default 0, "
+			+ "D double default 0, "
+			+ "J double default 0, "
+			+ "DIF double default 0, "
+			+ "DEA double  default 0, "
+			+ "MACDBar double default 0, "
+			+ "poly double default 0, "
+			+ "primary key(bench_id)) "
+			+ "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 	
 }

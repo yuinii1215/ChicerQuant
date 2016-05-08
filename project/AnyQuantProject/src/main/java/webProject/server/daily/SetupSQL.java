@@ -3,6 +3,7 @@ package webProject.server.daily;
 import java.sql.*;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import AnyQuantProject.data.factoryDATA.FactoryDATA;
 import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
@@ -19,13 +20,41 @@ import AnyQuantProject.util.method.IOHelper;
 
 
 public class SetupSQL {
+	static{
+		id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
+		chn = (Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+		indu = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+	}
+	static List<String> id;
+	static Map<String, String> chn;
+	static Map<String, String> indu;
 	public static void main(String[] args) throws SQLException {
-		setup();
+		Connection connection=getConn();
+		industry_stock(connection);
+		setup(connection);
 	}
 	
-	public static void setup(){
+	public static void industry_stock(Connection connection){
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(Q.CreateIndustry_Stock);
+			preparedStatement.executeUpdate();
+			//
+			for (String string : id) {
+				String ch=chn.get(string);
+				String ind=indu.get(string);
+				PreparedStatement preparedStatement2=connection.prepareCall(Q.insertIndustry_Stock);
+				preparedStatement2.setString(1, string);
+				preparedStatement2.setString(2, ch);
+				preparedStatement2.setString(3, ind);
+				preparedStatement2.executeUpdate();
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	public static void setup(Connection connection){
 		//run from 2006/01/01 to now
-		Connection connection=getConn();
 		Calendar calendar=Calendar.getInstance();
 		calendar.set(2005, 1, 1);
 		Calendar se=Calendar.getInstance();
@@ -43,14 +72,20 @@ public class SetupSQL {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+		}try {
+			connection.close();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
+		
 	}
 	
 	private static Connection getConn(){
 		String driver="com.mysql.cj.jdbc.Driver";
-		String url="jdbc:mysql://localhost:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+		String url="jdbc:mysql://10.66.115.75:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 		String username="chicer";
-		String password="chicer";
+		String password="chicer2016";
 		Connection conn = null;
 	    try {
 	        Class.forName(driver); //classLoader,加载对应驱动
@@ -95,7 +130,7 @@ public class SetupSQL {
 	
 	private static void addbatch(PreparedStatement preparedStatement,Stock stock) throws SQLException{
 		int i=1;
-		preparedStatement.setTimestamp(i++, stock.timestamp);
+		preparedStatement.setDate(i++, stock.date);
 		preparedStatement.setString(i++, stock.stock_name);
 		preparedStatement.setDouble(i++, stock.open);
 		preparedStatement.setDouble(i++, stock.high);
