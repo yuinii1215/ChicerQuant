@@ -3,6 +3,8 @@ package AnyQuantProject.util.method;
 import java.util.Calendar;
 import java.util.List;
 
+import AnyQuantProject.dataStructure.Stock;
+
 /** 
 *AnyQuantProject//AnyQuantProject.util.method//Checker.java
 * @author  cxworks 
@@ -10,6 +12,13 @@ import java.util.List;
 */
 
 public class Checker {
+	public static boolean checkStock(Stock stock){
+		if (stock.getClose()==0&&stock.getOpen()==0&&stock.getHigh()==0&&stock.getLow()==0) {
+			return false;
+		}
+		return true;
+	} 
+	
 	public static boolean checkStringNotNull(String tar){
 		if (tar==null||tar.equalsIgnoreCase("")) {
 			return false;

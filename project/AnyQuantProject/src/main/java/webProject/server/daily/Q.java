@@ -5,8 +5,14 @@ package webProject.server.daily;
 * 2016年5月5日 下午8:38:55
 */
 public class Q {
+	
+	
 	public static final String Create="CREATE TABLE ";
 	static class Stock{
+		public static final String del="DELETE FROM ";
+		public static final String deltail=" WHERE date >= ? ;";
+		
+		
 		public static final String createToday="CREATE TABLE IF NOT EXISTS today ( "
 				+ "stock_id varchar(10) not null , "
 				+ "stock_name varchar(20), "
@@ -94,7 +100,9 @@ public class Q {
 				+ "adj_price , "
 				+ "turnover , "
 				+ "pe_ttm , "
-				+ "pb "
+				+ "pb , "
+				+ "industry , "
+				+ "stock_name "
 				+ "FROM ";
 		public static final String seleTail=" where date >= ? ORDER BY date;";
 		

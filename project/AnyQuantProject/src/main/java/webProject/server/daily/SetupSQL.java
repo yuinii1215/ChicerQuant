@@ -20,21 +20,22 @@ import AnyQuantProject.util.method.IOHelper;
 
 
 public class SetupSQL {
-	static{
-		id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
-		chn = (Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
-		indu = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
-	}
-	static List<String> id;
+//	static{
+//		id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
+//		chn = (Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+//		indu = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+//	}
+	static List<String> id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);;
 	static Map<String, String> chn;
 	static Map<String, String> indu;
 	public static void main(String[] args) throws SQLException {
 		Connection connection=getConn();
-		Calendar calendar=Calendar.getInstance();
-		calendar.add(Calendar.DAY_OF_MONTH, -3);
-		DailySQL.dailyStock(connection,calendar);
+		Calendar calendar=CalendarHelper.convert2Calendar(args[0]);
+//		DailySQL.dailyStock(connection,calendar);
 //		industry_stock(connection);
 //		setup(connection);
+		Del.delStock(id, connection, calendar);
+		connection.close();
 	}
 	
 	public static void industry(Connection connection){
@@ -126,15 +127,13 @@ public class SetupSQL {
 		
 		try {
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
-			for	(int i=0;i<stocks.size();i++){
-				addbatch(preparedStatement, stocks.get(i));
+				addbatch(preparedStatement, stocks.get(0));
 				
 				
-			}
+			
 			
 		} catch (SQLException e) {
-			// TODO: handle exception
-			e.printStackTrace();
+			return ;
 		}
 	}
 	
