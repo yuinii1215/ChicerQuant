@@ -30,7 +30,9 @@ public class SetupSQL {
 	static Map<String, String> indu;
 	public static void main(String[] args) throws SQLException {
 		Connection connection=getConn();
-		DailySQL.dailyStock(connection);
+		Calendar calendar=Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_MONTH, -3);
+		DailySQL.dailyStock(connection,calendar);
 //		industry_stock(connection);
 //		setup(connection);
 	}
@@ -87,12 +89,12 @@ public class SetupSQL {
 		}
 		
 	}
-	
+	//
 	private static Connection getConn(){
 		String driver="com.mysql.cj.jdbc.Driver";
-		String url="jdbc:mysql://localhost:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+		String url="jdbc:mysql://10.66.115.75:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 		String username="chicer";
-		String password="chicer";
+		String password="chicer2016";
 		Connection conn = null;
 	    try {
 	        Class.forName(driver); //classLoader,加载对应驱动
@@ -121,11 +123,12 @@ public class SetupSQL {
 	}
 	public static void insertStock(Connection connection,String table,List<Stock> stocks){
 		String sql=Q.Insert+table+Q.insTailBase;
+		
 		try {
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
 			for	(int i=0;i<stocks.size();i++){
 				addbatch(preparedStatement, stocks.get(i));
-				preparedStatement.executeUpdate();
+				
 				
 			}
 			
@@ -171,6 +174,7 @@ public class SetupSQL {
 		preparedStatement.setDouble(i++, stock.DIF);
 		preparedStatement.setDouble(i++, stock.MACHBar);
 		preparedStatement.setDouble(i++, stock.poly);
+		preparedStatement.executeUpdate();
 	}
 }
 
