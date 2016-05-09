@@ -45,7 +45,7 @@ public class Q {
 				+ "primary key(stock_id) ) "
 				+ "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 		public static final String truncate="TRUNCATE TABLE today;";
-		public static final String insertToday=" ( stock_id , "
+		public static final String insertToday="INSERT INTO today ( stock_id , "
 				+ "stock_name , "
 				+ "open , "
 				+ "high , "
@@ -96,7 +96,7 @@ public class Q {
 				+ "pe_ttm , "
 				+ "pb "
 				+ "FROM ";
-		public static final String seleTail=" where date >= ? ;";
+		public static final String seleTail=" where date >= ? ORDER BY date;";
 		
 	}
 	
