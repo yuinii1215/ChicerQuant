@@ -16,7 +16,9 @@ import AnyQuantProject.dataService.factoryDATAService.FactoryDATAService;
 import AnyQuantProject.dataService.realDATAService.singleStockDATAService.SingleStockDATAService;
 import AnyQuantProject.dataStructure.Stock;
 import AnyQuantProject.util.constant.R;
+import AnyQuantProject.util.exception.NetFailedException;
 import AnyQuantProject.util.method.CalendarHelper;
+import AnyQuantProject.util.method.Checker;
 import AnyQuantProject.util.method.IOHelper;
 
 /**
@@ -25,14 +27,11 @@ import AnyQuantProject.util.method.IOHelper;
 * 2016年5月8日 上午9:10:29
 */
 public class DailySQL {
-	static{
-		id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
-		chn = (Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
-		indu = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
-	}
-	static List<String> id;
-	static Map<String, String> chn;
-	static Map<String, String> indu;
+	
+	static List<String> id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
+	static Map<String, String> chn=(Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+	static Map<String, String> indu=(Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+	
 	
 	public static void dailyStock(Connection connection,Calendar now){
 		//create and clear
@@ -43,25 +42,32 @@ public class DailySQL {
 		calendar.add(Calendar.MONTH, -2);
 		Calendar use=Calendar.getInstance();
 		use.setTimeInMillis(now.getTimeInMillis());
-		use.add(Calendar.DAY_OF_MONTH, 1);
+		
 		Date date=new Date(calendar.getTimeInMillis());
 		//
 		FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
 		SingleStockDATAService service=factoryDATAService.getSingleStockDATAService();
 		//cal
 		try {
-			int j=0;
-			for (String stock_id : id) {
-				j++;
+			String stock_id;
+			for (int j=0;j<id.size();j++) {
+				
+				stock_id=id.get(j);
+				//
+				Stock toStock=service.getOperation(stock_id, now);
+				if (!Checker.checkStock(toStock)) {
+					continue;
+				}
+				if (toStock.getDate()==null) {
+					toStock.setDate(CalendarHelper.getDate(now));
+				}
+				//
 				PreparedStatement preparedStatement=connection.prepareStatement(Q.Stock.selectStock+stock_id+Q.Stock.seleTail);
 				
 				preparedStatement.setDate(1, date);
 				ResultSet resultSet=preparedStatement.executeQuery();
 				List<Stock> src=getStock(resultSet);
-				Stock toStock=service.getOperation(stock_id, now);
-				if (toStock.getDate()==null) {
-					continue;
-				}
+				
 				src.add(toStock);
 				if (src.size()<251) {
 					while (src.size()<251) {
@@ -70,8 +76,8 @@ public class DailySQL {
 				}
 				webProject.server.daily.Stock stock=new webProject.server.daily.Stock();
 				//
-				stock.industry=indu.get(stock_id);
-				stock.stock_name=chn.get(stock_id);
+				stock.stock_name=src.get(0).getChinese();
+				stock.industry=src.get(0).getName();
 				CalculateCore.trans(stock, toStock);
 				//
 				List<webProject.server.daily.Stock> temp=new ArrayList<>(1);
@@ -82,7 +88,7 @@ public class DailySQL {
 				SetupSQL.insertStock(connection, stock_id, temp);
 				//today
 				insertToday(connection, temp);
-				System.out.println(stock_id+" "+(j)+" completed");
+				System.out.println(stock_id+" "+(j+1)+" completed");
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -145,6 +151,8 @@ public class DailySQL {
 			double turnover=Double.parseDouble(resultSet.getString("turnover"));
 			double pe_ttm=Double.parseDouble(resultSet.getString("pe_ttm"));
 			double pb=Double.parseDouble(resultSet.getString("pb"));
+			String chn=resultSet.getString("stock_name");
+			String indu=resultSet.getString("industry");
 			Stock stock=new Stock();
 			stock.setDate(date);
 			stock.setOpen(open);
@@ -156,6 +164,8 @@ public class DailySQL {
 			stock.setVolume(volumn);
 			stock.setPe_ttm(pe_ttm);
 			stock.setPb(pb);
+			stock.setChinese(chn);
+			stock.setName(indu);
 			stocks.add(stock);
 		}
 		return stocks;
