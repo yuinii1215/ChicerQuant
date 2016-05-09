@@ -146,7 +146,7 @@ public class CalculateCore {
 	}
 	
 	
-	private static void trans(Stock dst,AnyQuantProject.dataStructure.Stock src){
+	public static void trans(Stock dst,AnyQuantProject.dataStructure.Stock src){
 		dst.open=src.getOpen();
 		dst.close=src.getClose();
 		dst.high=src.getHigh();
@@ -156,6 +156,7 @@ public class CalculateCore {
 		dst.pe_ttm=src.getPe_ttm();
 		dst.volumn=src.getVolume();
 		dst.setDate(src.getDateInCalendar());
+		dst.stock_id=src.getName();
 	}
 	private static void aver(Stock dst,Calendar date,SingleStockDATAService dataService) throws NetFailedException{
 		Calendar use=Calendar.getInstance();

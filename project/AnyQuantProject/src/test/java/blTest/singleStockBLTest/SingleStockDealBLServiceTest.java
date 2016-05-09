@@ -26,7 +26,9 @@ public class SingleStockDealBLServiceTest {
 	@Test
 	public void testGetSingleStockDeal() {
 		assertNotNull(deal.getSingleStockDeal("sh600000", Calendar.getInstance()));
-		assertNotNull(deal.getSingleStockDeal("sh600000", CalendarHelper.getPreviousDay(Calendar.getInstance()), Calendar.getInstance()));
+		Calendar calendar=Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_MONTH, -2);
+		assertNotNull(deal.getSingleStockDeal("sh600000", calendar, Calendar.getInstance()));
 	}
 
 }
