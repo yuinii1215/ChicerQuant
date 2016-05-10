@@ -9,36 +9,75 @@ header("Content-Type: text/html;charset=utf8");
 
 include('db_login.php');
 
+function getDBConnection()
 
+{
+    global $db_host;
+    global $db_username;
+    global $db_password;
+    global $db_database;
+//    $db_host = 'localhost';
+//    $db_username = 'CTGG';
+//    $db_password= 'dreamG';
+//    $db_database = 'SnoiDB';
+    //    $connection = mysqli_connect($db_host, $db_username, $db_password,$db_database);
+    $connection = new PDO("mysql:host=$db_host;dbname=$db_database; charset=utf8", $db_username, $db_password);
+    // 设置 PDO 错误模式为异常
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    return $connection;
+
+}
 
 function getMyFavor($username)
 {
-    $query = "select * from favorstocks where username = ".$username;
-    return execQuery($query);
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select * from favorstocks where username = :username");
+    $stmt->bindParam(':username', $_username);
+    $_username = $username;
+    return execQuery($connection,$stmt);
 }
 
 function cancelMyFavor($name, $username)
 {
-    $query = "delete from favorstocks where username = ".$username."and stock_id = ".$name;
-    return execQuery($query);
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("delete from favorstocks where username = :username and stock_name = :stockname");
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':stockname', $name);
+    return execQuery($connection,$stmt);
 }
 
 function addMyFavor($name, $username)
 {
-    $query = "insert into favorstocks values (".$username.",".$name.")";
-    return execQuery($query);
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("insert into favorstocks values(:username, :stockname)");
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':stockname', $name);
+    return execQuery($connection,$stmt);
 }
 
 function getStockByName($name, $date)
 {
-    if ($date == date("Y-m-d")){
-        $query = "select * from today where stock_id = ".$name;
-    }else{
-        $query = "select * from ".$name."where date = ".$date;
-    }
-    return execQuery($query);
+    $connection = getDBConnection();
+//    if ($date == date("Y-m-d")){
+//        $stmt = $connection->prepare("select * from today where stock_name = :stock_name");
+//        $stmt->bindParam(':stock_name', $_stock_name);
+//        $_stock_name = $name;
+//    }else{
+//        $query = "select * from ".$name."where date = ".$date;
+//        $stmt = $connection->prepare("select * from :stock_name where date = :date");
+//        $stmt->bindParam(':stock_name', $_stock_name);
+//        $_stock_name = $name;
+//
+//    }
+    $stmt = $connection->prepare("select * from today where stock_id = :stock_name");
+    $stmt->bindParam(':stock_name', $_stock_name);
+    $_stock_name = $name;
+    return execQuery($connection,$stmt);
 }
 
+
+echo getStockByName("sh600216",'');
 function getStockAmongDate($name, $startdate, $enddate)
 {
 //    $datearr = getAmongDates($startdate, $enddate);
@@ -48,10 +87,20 @@ function getStockAmongDate($name, $startdate, $enddate)
 //        $string .= execQuery($query);
 //    }
 //    return $string;
+//
 
-    $query = "select * from ".$name."where (date between ".$startdate." and ".$enddate.")";
-    return execQuery($query);
+
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select * from :stockname where date between :startdate and :enddate");
+    $stmt->bindParam(':stockname', $_stockname);
+    $stmt->bindParam(':startdate', $_startdate);
+    $stmt->bindParam(':enddate', $_enddate);
+    $_stockname = $name;
+    $_startdate = $startdate;
+    $_enddate = $enddate;
+    return execQuery($connection,$stmt);
 }
+
 
 
 function getAllStocks()
@@ -187,18 +236,23 @@ function getAllIndustries()
 {
     //TODO
     $query = "select industry from industry_stock";
-    $json_string = execQuery($query);
-    return $arr = json_decode($json_string,true);
+//    $json_string = execQuery($query);
+//    return $arr = json_decode($json_string,true);
 }
 
-$arr = getAllIndustries();
-echo "--- ".$arr['industry'];
+//$arr = getAllIndustries();
+//echo "--- ".$arr['industry'];
 
 
 function getStocksByIndustry($industry_name)
 {
-    $query = "select stock_id, stock_name from industry_stock where industry = ".$industry_name;
-    return execQuery($query);
+//    $query = "select stock_id, stock_name from industry_stock where industry = ".$industry_name;
+//    return execQuery($query);
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select stock_id, stock_name from industry_stock where industry = :industry_name");
+    $stmt->bindParam(':industry_name', $_industry_name);
+    $_industry_name = $industry_name;
+    return execQuery($connection,$stmt);
 }
 
 function getIndustry($industry_name,$date)
@@ -222,80 +276,49 @@ function getAmongDates($startdate, $enddate)
 }
 
 
-function execQuery($query)
+function execQuery($connection, $stmt)
 {
-    global $db_host;
-    global $db_username;
-    global $db_password;
-    global $db_database;
-    $connection = mysqli_connect($db_host, $db_username, $db_password,$db_database);
-    if($connection->connect_error) {
-        die("Could not connect to the database: <br/>" . $connection->connect_error);
+    if(!$stmt) {
+        $arr = array('retmsg'=>$connection->errorInfo());
+        $json_string = json_encode($arr);
+        return $json_string;
     }
-    mysqli_query($connection, "SET NAMES utf8");
-    $result = mysqli_query($connection,$query);
+    $result = $stmt -> execute();
     if ($result === false){
-        $arr = array('retmsg'=>$connection->error);
+        $arr = array('retmsg'=>$connection->errorInfo());
         $json_string = json_encode($arr);
         return $json_string;
     }
     $arr = array('retmsg'=>'success');
     $json_string = json_encode($arr);
-    while ($result_row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+    while ($result_row = $stmt->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
         $json_string .= json_encode($result_row,JSON_UNESCAPED_UNICODE);
     }
-    mysqli_close($connection);
+    $connection = null;
+    $stmt = null;
     return $json_string;
 }
 
-//echo execQuery("select * from sh600216 where date = '2013-03-01'");
-echo execQuery("show tables");
 
-function getNameByID($name,$id){
-    global $db_host;
-    global $db_username;
-    global $db_password;
-    global $db_database;
-    $connection = mysqli_connect($db_host, $db_username, $db_password,$db_database);
-    if($connection->connect_error) {
-        die("Could not connect to the database: <br/>" . $connection->connect_error);
-    }
-    $query = "select * from ".$name;
-//    $query = "select * from  600216";
-    mysqli_query($connection, "SET NAMES utf8");
+ //prepare and bind
+//$connection = getDBConnection();
+//$stmt = $connection->prepare("select * from industry_stock ");
+//echo execQuery($connection,$stmt);
+
+
+function getNameByAge($age){
+    $connection = getDBConnection();
+    $query = "select name, age from snois where age = ".$age;
     $result = mysqli_query($connection,$query);
     if ($result === false){
-        $arr = array('retmsg'=>$connection->error);
-        $json_string = json_encode($arr);
-//        return "query error <br/>".$connection->error;
-        return $json_string;
+        echo "query error <br/>".$connection->error;
     }
-    $arr = array('retmsg'=>'success');
-    $json_string = json_encode($arr);
-    while ($result_row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-        $json_string .= json_encode($result_row);
+    $names = array();
+    while ($result_row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+        array_push($names, $result_row);
     }
-    return $json_string;
+    return $names;
 }
 
-//$result = getNameByID("sh600216","2006-02-01");
-//echo $result;
-
-//
-//$name = getNameByID(2);
-//echo $name;
-//function getNameByAge($age){
-//    global $connection;
-//    $query = "select name, age from snois where age = ".$age;
-//    $result = mysqli_query($connection,$query);
-//    if ($result === false){
-//        echo "query error <br/>".$connection->error;
-//    }
-//    $names = array();
-//    while ($result_row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-//        array_push($names, $result_row);
-//    }
-//    return $names;
-//}
 
 ?>
