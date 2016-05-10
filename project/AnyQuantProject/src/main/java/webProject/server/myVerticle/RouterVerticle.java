@@ -28,6 +28,10 @@ import webProject.server.myHandler.font.WoffHandler;
 * 2016年4月29日 上午8:16:56
 */
 public class RouterVerticle extends AbstractVerticle {
+	public RouterVerticle() {
+		super();
+		System.out.println("8888888888888");
+	}
 
 	@Override
 	public void start(){

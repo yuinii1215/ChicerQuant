@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.apache.commons.io.IOUtils;
 
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
@@ -25,18 +26,9 @@ public class JPGHandler implements Handler<RoutingContext> {
 		String fileName=event.request().path();
 		fileName=fileName.substring(1);
 		InputStream inputStream = null;
-		ByteArrayOutputStream outputStream=null;
 		try {
 			inputStream=Resources.class.getResourceAsStream(fileName);
-			outputStream=new ByteArrayOutputStream();
-			
-			byte[] buf = new byte[1024];
-		      int numBytesRead = 0;
-		      while ((numBytesRead = inputStream.read(buf)) != -1) {
-		      outputStream.write(buf, 0, numBytesRead);
-		      }
-		      byte[] data=outputStream.toByteArray();
-		      
+			byte[] data=IOUtils.toByteArray(inputStream);
 			event.response().setChunked(true);
 			
 			event.response().putHeader("content-type", "image/jpeg").write(Buffer.buffer(data)).end();
@@ -48,7 +40,7 @@ public class JPGHandler implements Handler<RoutingContext> {
 		finally {
 			try {
 				inputStream.close();
-				outputStream.close();
+				
 			} catch (IOException | NullPointerException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -1,8 +1,11 @@
 package webProject.server.myHandler.font;
 
+import java.io.InputStream;
+
 import org.apache.commons.io.IOUtils;
 
 import io.vertx.core.Handler;
+import io.vertx.core.buffer.Buffer;
 import io.vertx.ext.web.RoutingContext;
 import webProject.resources.Resources;
 
@@ -18,12 +21,12 @@ public class SVGHandler implements Handler<RoutingContext> {
 	public void handle(RoutingContext event) {
 		String path=event.request().path();
 		path=path.substring(1);
-		System.out.println(path);
 		try {
-			String svg=IOUtils.toString(Resources.class.getResourceAsStream(path));
+			InputStream inputStream=Resources.class.getResourceAsStream(path);
+			byte[] svg=IOUtils.toByteArray(inputStream);
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "image/svg+xml").write(svg).end();
-
+			event.response().putHeader("content-type", "image/svg+xml").write(Buffer.buffer(svg)).end();
+			inputStream.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
