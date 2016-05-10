@@ -59,25 +59,26 @@ function addMyFavor($name, $username)
 function getStockByName($name, $date)
 {
     $connection = getDBConnection();
-//    if ($date == date("Y-m-d")){
-//        $stmt = $connection->prepare("select * from today where stock_name = :stock_name");
-//        $stmt->bindParam(':stock_name', $_stock_name);
-//        $_stock_name = $name;
-//    }else{
-//        $query = "select * from ".$name."where date = ".$date;
-//        $stmt = $connection->prepare("select * from :stock_name where date = :date");
-//        $stmt->bindParam(':stock_name', $_stock_name);
-//        $_stock_name = $name;
-//
-//    }
-    $stmt = $connection->prepare("select * from today where stock_id = :stock_name");
-    $stmt->bindParam(':stock_name', $_stock_name);
-    $_stock_name = $name;
+    if ($date == date("Y-m-d")){
+        $stmt = $connection->prepare("select * from today where stock_name = :stock_name");
+        $stmt->bindParam(':stock_name', $_stock_name);
+        $_stock_name = $name;
+    }else{
+        $query = "select * from ".$name."where date = ".$date;
+        $stmt = $connection->prepare("select * from :stock_name where date = :datetime");
+        $stmt->bindParam(':stock_name', $_stock_name);
+        $stmt->bindParam(':datetime',$_date);
+        $_stock_name = $name;
+        $_date = $date;
+    }
+//    $stmt = $connection->prepare("select * from today where stock_id = :stock_name");
+//    $stmt->bindParam(':stock_name', $_stock_name);
+//    $_stock_name = $name;
     return execQuery($connection,$stmt);
 }
 
 
-echo getStockByName("sh600216",'');
+echo getStockByName("sh600000",date('Y-m-d',strtotime('2016-05-10')));
 function getStockAmongDate($name, $startdate, $enddate)
 {
 //    $datearr = getAmongDates($startdate, $enddate);
@@ -235,14 +236,18 @@ function getpoly($name, $date)
 function getAllIndustries()
 {
     //TODO
-    $query = "select industry from industry_stock";
+//    $query = "select industry from industry_stock";
 //    $json_string = execQuery($query);
 //    return $arr = json_decode($json_string,true);
+
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select * from industry_stock");
+    return execQuery($connection,$stmt);
 }
 
 //$arr = getAllIndustries();
 //echo "--- ".$arr['industry'];
-
+//echo $arr;
 
 function getStocksByIndustry($industry_name)
 {
@@ -278,6 +283,7 @@ function getAmongDates($startdate, $enddate)
 
 function execQuery($connection, $stmt)
 {
+    echo json_encode($stmt);
     if(!$stmt) {
         $arr = array('retmsg'=>$connection->errorInfo());
         $json_string = json_encode($arr);
