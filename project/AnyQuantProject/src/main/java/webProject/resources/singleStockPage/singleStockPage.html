@@ -13,16 +13,17 @@
     <meta name="description" content="KingAdmin - Bootstrap Admin Dashboard Theme">
     <meta name="author" content="The Develovers">
     <!-- CSS -->
-    <link rel="stylesheet" href="css/preloader.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    <link href="css/skin/transparent.css" rel="stylesheet" type="text/css">
-    <link href="css/style-switcher.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../homePage/css/preloader.css">
+    <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
+    <link href="../homePage/css/skin/transparent.css" rel="stylesheet" type="text/css">
+    <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
+
 
 </head>
 
-<body  >
+<body >
 
 <!-- =========================
  PRE LOADER
@@ -60,9 +61,9 @@
                                 <!-- responsive menu bar icon -->
                                 <a href="#" class="hidden-md hidden-lg main-nav-toggle"><i class="fa fa-bars"></i></a>
                                 <!-- end responsive menu bar icon -->
-                      <!--          <button type="button" id="start-tour" class="btn btn-link"><i class="fa fa-refresh"></i> Start Tour</button>
+                                <!--          <button type="button" id="start-tour" class="btn btn-link"><i class="fa fa-refresh"></i> Start Tour</button>
 
-                                <button type="button" id="global-volume" class="btn btn-link btn-global-volume"><i class="fa"></i></button>-->
+                                          <button type="button" id="global-volume" class="btn btn-link btn-global-volume"><i class="fa"></i></button>-->
                                 <!-- logged user and the menu -->
                                 <div class="logged-user">
                                     <div class="btn-group">
@@ -71,19 +72,19 @@
                                             <span class="name">hi!man</span> <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                         <!--   <li>
-                                                <a href="#">
-                                                    <i class="fa fa-user"></i>
-                                                    <span class="text">Profile</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-cog"></i>
-                                                    <span class="text">Settings</span>
-                                                </a>
-                                            </li>
-                                            -->
+                                            <!--   <li>
+                                                   <a href="#">
+                                                       <i class="fa fa-user"></i>
+                                                       <span class="text">Profile</span>
+                                                   </a>
+                                               </li>
+                                               <li>
+                                                   <a href="#">
+                                                       <i class="fa fa-cog"></i>
+                                                       <span class="text">Settings</span>
+                                                   </a>
+                                               </li>
+                                               -->
                                             <li>
                                                 <a href="#">
                                                     <i class="fa fa-power-off"></i>
@@ -118,23 +119,15 @@
                     <nav class="main-nav" >
                         <ul class="main-menu" >
                             <!--main active-->
-                            <li class="active"><a href="../homePage/home.html"><i class="fa fa-home fa-fw"></i><span class="text">首页</span></a></li>
+                            <li><a href="../homePage/home.html"><i class="fa fa-home fa-fw"></i><span class="text">首页</span></a></li>
                             <!--my favor-->
                             <li><a href="../favoritePage/favoritePage.html"><i class="fa fa-star fa-fw"></i><span class="text">我的关注</span></a></li>
-                            <!--    <i class="toggle-icon fa fa-angle-down"></i></a>
-                                <ul class="sub-menu open">
-                                    <li><a href="index.html"><span class="text">Dashboard v1</span></a></li>
-                                    <li><a href="index-transparent.html"><span class="text">Dashboard v1 Transparent <span class="badge element-bg-color-blue">New</span></span></a></li>
-                                    <li><a href="index-dashboard-v2.html"><span class="text">Dashboard v2</span></a></li>
-                                    <li><a href="index-dashboard-v2-transparent.html"><span class="text">Dashboard v2 Transparent <span class="badge element-bg-color-blue">New</span></span></a></li>
-                                    <li><a href="index-dashboard-v3.html"><span class="text">Dashboard v3 <span class="badge element-bg-color-blue">New</span></span></a></li>
-                                </ul>-->
                             <!--all stocks-->
-                            <li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-list-ul fa-fw"></i><span class="text">个股信息</span>
+                            <li class="active"><a href="#" class="js-sub-menu-toggle"><i class="fa fa-list-ul fa-fw"></i><span class="text">个股信息</span>
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
-                                <ul class="sub-menu ">
-                                    <li><a href="../allStockShowPage/allStockShowPage.html"><span class="text">个股资金一览</span></a></li>
-                                    <li><a href="../singleStockPage/singleStockPage.html"><span class="text">单股票详细信息 <span class="badge element-bg-color-blue">New</span></span></a></li>
+                                <ul class="sub-menu open">
+                                    <li ><a href="../allStockShowPage/allStockShowPage.html"><span class="text">个股资金一览</span></a></li>
+                                    <li class="active"><a href="../singleStockPage/singleStockPage.html"><span class="text">单股票详细信息 <span class="badge element-bg-color-blue">New</span></span></a></li>
                                 </ul>
                             </li>
                             <!--benchmark-->
@@ -154,7 +147,7 @@
                                 </ul>
                             </li>
                             <!--analysis&strategy-->
-                            <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-file-text-o fw"></i><span class="text">分析 &amp; 策略</span>
+                            <li ><a href="#" class="js-sub-menu-toggle"><i class="fa fa-file-text-o fw"></i><span class="text">分析 &amp; 策略</span>
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
                                 <ul class="sub-menu ">
                                     <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
@@ -175,9 +168,9 @@
                             </li>
                             <!--例2-->
                             <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-pie-chart fw"></i>
-                                    <span class="text">例3</span>
-                                    <i class="toggle-icon fa fa-angle-left"></i>
-                                </a>
+                                <span class="text">例3</span>
+                                <i class="toggle-icon fa fa-angle-left"></i>
+                            </a>
                                 <ul class="sub-menu">
                                     <li class="">
                                         <a href="#" class="js-sub-menu-toggle">
@@ -282,9 +275,9 @@
                         <div class="col-lg-4 ">
                             <!--head link-->
                             <ul class="breadcrumb">
-                                <li><i class="fa fa-home"></i><a href="../homePage/home.html">Home</a></li>
-                            <!--    <li><a href="#">Pages</a></li>
-                                <li class="active">Profile</li>  -->
+                                <li><i class="fa fa-list-ul"></i><a href="../singleStockPage/singleStockPage.html">个股信息</a></li>
+                                <li class="active"><a href="#">单股票详细信息</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -292,11 +285,11 @@
                     <!-- main -->
                     <div class="content">
                         <div class="main-header">
-                            <h2>首页</h2>
+                            <h2>单股票详细信息</h2>
                             <em>the least information</em>
                         </div>
                         <div class="main-content">
-                           <!--row example-->
+                            <!--row example-->
                             <div class="row">
                                 <!--row1-->
                                 <div class="col-md-9">
@@ -385,7 +378,7 @@
             <button type="button" class="switch-skin-full fullbright" data-skin="css/skin/fullbright.css">Full Bright</button>
         </section>
         <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
-        <p><a href="home.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
+        <p><a href="../singleStockPage/singleStockPage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
     </form>
     <script type="text/javascript">
         var currentFilename = window.location.pathname.split('/').pop();
@@ -416,14 +409,14 @@
 
 <!-- Javascript -->
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery/jquery-2.1.0.min.js"></script>
-<script src="js/bootstrap/bootstrap.js"></script>
-<script src="js/plugins/modernizr/modernizr.js"></script>
-<script src="js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
-<script src="js/king-common.js"></script>
-<script src="js/deliswitch.js"></script>
-<script src="js/zerif.js"></script>
-<script src="js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
+<script src="../homePage/js/bootstrap/bootstrap.js"></script>
+<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
+<script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+<script src="../homePage/js/king-common.js"></script>
+<script src="../homePage/js/deliswitch.js"></script>
+<script src="../homePage/js/zerif.js"></script>
+<script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 </body>
 
 </html>
