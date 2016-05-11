@@ -111,6 +111,7 @@ public class Q {
 	static class Industry{
 		public static final String tailIndustry=" ( "
 				+ "industry_name varchar(20) not null , "
+				+ "date date not null, "
 				+ "open double default 0 , "
 				+ "close double default 0 , "
 				+ "max double default 0 , "
@@ -123,11 +124,12 @@ public class Q {
 				+ "leader varchar(30), "
 				+ "leaderPrice double default 0 , "
 				+ "leaderUpdowm double default 0 , "
-				+ "primary key(industry_name) "
+				+ "primary key(date) "
 				+ ") "
 				+ "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 		public static final String  insert= " ( "
 				+ "industry_name , "
+				+ "date , "
 				+ "open , "
 				+ "close , "
 				+ "max , "
@@ -142,7 +144,7 @@ public class Q {
 				+ "leaderUpdown ) "
 				+ "VALUES ( "
 				+ "? , ? , ? , ? , ? , ? , ? , "
-				+ "? , ? , ? , ? , ? , ? "
+				+ "? , ? , ? , ? , ? , ? , ?"
 				+ ");";
 	}
 	

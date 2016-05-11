@@ -98,9 +98,11 @@ public class APIHelper {
 	public static void main(String[] args) {
 		APIHelper a = new APIHelper();
 		try {
-			a.getSingleStockChineseName("sh601009");
-			a.getAnyAPI("http://121.41.106.89:8010/api/stock/sh600000/?start=2016-03-10&end=2016-03-10&fields=open+high+close");
-		} catch (Exception e) {
+//			a.getSingleStockChineseName("sh601009");
+//			System.out.println(a.getAnyAPI("http://121.41.106.89:8010/api/stock/sh600000/?start=2016-05-07&end=2016-05-10&fields=turnover&open"));
+			System.out.println(a.getAnyAPI("http://121.41.106.89:8010/api/benchmark/hs300?start=2015-01-01&end=2015-01-30&fields="));
+
+        } catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
