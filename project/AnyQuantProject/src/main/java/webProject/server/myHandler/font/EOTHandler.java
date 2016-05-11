@@ -1,8 +1,11 @@
 package webProject.server.myHandler.font;
 
+import java.io.InputStream;
+
 import org.apache.commons.io.IOUtils;
 
 import io.vertx.core.Handler;
+import io.vertx.core.buffer.Buffer;
 import io.vertx.ext.web.RoutingContext;
 import webProject.resources.Resources;
 
@@ -18,12 +21,13 @@ public class EOTHandler implements Handler<RoutingContext> {
 	public void handle(RoutingContext event) {
 		String path=event.request().path();
 		path=path.substring(1);
-		System.out.println(path);
+		
 		try {
-			String eot=IOUtils.toString(Resources.class.getResourceAsStream(path));
+			InputStream inputStream=Resources.class.getResourceAsStream(path);
+			byte[] eot=IOUtils.toByteArray(inputStream);
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "application/vnd.ms-fontobject").write(eot).end();
-
+			event.response().putHeader("content-type", "application/vnd.ms-fontobject").write(Buffer.buffer(eot)).end();
+			inputStream.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

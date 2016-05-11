@@ -4,6 +4,7 @@ package AnyQuantProject.data.util;
  * Created by G on 16/4/4.
  */
 import AnyQuantProject.util.exception.NetFailedException;
+import AnyQuantProject.util.method.CalendarHelper;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;
@@ -33,7 +34,7 @@ public class Turnover {
 
         try {
             System.out.println("turnovervalue"+ getTurnOverValue("sh600216"));
-            System.out.println(getShares("sh600216"));
+//            System.out.println(getShares("sh600216"));
         } catch (NetFailedException e) {
             System.out.println("i'll handle it");
         }
@@ -101,6 +102,8 @@ public class Turnover {
         double value = 0;
         name = name.substring(2);
         Calendar c = Calendar.getInstance();
+        //得到前一天
+//        Calendar c = CalendarHelper.getPreviousDay(Calendar.getInstance());
         Date d = c.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
         String date = sdf.format(d.getTime());
