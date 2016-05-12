@@ -19,7 +19,11 @@
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/skin/transparent.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
-
+    <style type="text/css">
+        body{
+            background-image:url(../bg.png);
+        }
+    </style>
 
 </head>
 
@@ -156,40 +160,6 @@
                                     <li><a href="ui-elements-buttons.html"><span class="text">我的策略</span></a></li>
                                 </ul>
                             </li>
-                            <!--例1-->
-                            <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-area-chart fw"></i><span class="text">例2</span>
-                                <i class="toggle-icon fa fa-angle-left"></i></a>
-                                <ul class="sub-menu ">
-                                    <li><a href="components-maps-transparent.html"><span class="text">Maps Transparent <span class="badge element-bg-color-blue">New</span></span></a></li>
-                                    <li><a href="components-gallery.html"><span class="text">Gallery</span></a></li>
-                                    <li><a href="components-tree-view.html"><span class="text">Tree View </span></a></li>
-                                    <li><a href="components-tree-view-transparent.html"><span class="text">Tree View Transparent <span class="badge element-bg-color-blue">New</span></span></a></li>
-                                </ul>
-                            </li>
-                            <!--例2-->
-                            <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-pie-chart fw"></i>
-                                <span class="text">例3</span>
-                                <i class="toggle-icon fa fa-angle-left"></i>
-                            </a>
-                                <ul class="sub-menu">
-                                    <li class="">
-                                        <a href="#" class="js-sub-menu-toggle">
-                                            <span class="text">Menu Lvl 2</span>
-                                            <i class="toggle-icon fa fa-angle-left"></i>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li><a href="#">Menu Lvl 3</a></li>
-                                            <li><a href="#">Menu Lvl 3</a></li>
-                                            <li><a href="#">Menu Lvl 3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="text">Menu Lvl 2</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
                         </ul>
                     </nav>
                     <!-- /main-homePage -->
@@ -288,6 +258,7 @@
                             <h2>单股票详细信息</h2>
                             <em>the least information</em>
                         </div>
+
                         <div class="main-content">
                             <!--row example-->
                             <div class="row">
@@ -318,7 +289,257 @@
                                     </div>
                                 </div>
                                 <div class="widget-content">
-                                    <!-- content-->
+                                    <section style="position:absolute;top:700px;"> <!--for demo wrap-->
+                                        <h1>关注股票列表</h1>
+                                        <div  class="tbl-header">
+                                            <table cellpadding="0" cellspacing="0" border="0">
+                                                <thead>
+                                                <tr>
+                                                    <th>股票代码</th>
+                                                    <th>公司名称</th>
+                                                    <th>开盘价</th>
+                                                    <th>收盘价</th>
+                                                    <th>最高价</th>
+                                                    <th>最低价</th>
+                                                    <th>成交量</th>
+                                                    <th>后复权价</th>
+                                                    <th>市盈率</th>
+                                                    <th>市净率</th>
+                                                </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        <div  class="tbl-content">
+                                            <table cellpadding="0" cellspacing="0" border="0">
+                                                <tbody>
+                                                <tr>
+                                                    <td>AAC</td>
+                                                    <td>AUSTRALIAN COMPANY </td>
+                                                    <td>$1.38</td>
+                                                    <td>+2.01</td>
+                                                    <td>-0.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAD</td>
+                                                    <td>AUSENCO</td>
+                                                    <td>$2.38</td>
+                                                    <td>-0.01</td>
+                                                    <td>-1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAX</td>
+                                                    <td>ADELAIDE</td>
+                                                    <td>$3.22</td>
+                                                    <td>+0.01</td>
+                                                    <td>+1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>XXD</td>
+                                                    <td>ADITYA BIRLA</td>
+                                                    <td>$1.02</td>
+                                                    <td>-1.01</td>
+                                                    <td>+2.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAC</td>
+                                                    <td>AUSTRALIAN COMPANY </td>
+                                                    <td>$1.38</td>
+                                                    <td>+2.01</td>
+                                                    <td>-0.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAD</td>
+                                                    <td>AUSENCO</td>
+                                                    <td>$2.38</td>
+                                                    <td>-0.01</td>
+                                                    <td>-1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAX</td>
+                                                    <td>ADELAIDE</td>
+                                                    <td>$3.22</td>
+                                                    <td>+0.01</td>
+                                                    <td>+1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>XXD</td>
+                                                    <td>ADITYA BIRLA</td>
+                                                    <td>$1.02</td>
+                                                    <td>-1.01</td>
+                                                    <td>+2.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAC</td>
+                                                    <td>AUSTRALIAN COMPANY </td>
+                                                    <td>$1.38</td>
+                                                    <td>+2.01</td>
+                                                    <td>-0.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAD</td>
+                                                    <td>AUSENCO</td>
+                                                    <td>$2.38</td>
+                                                    <td>-0.01</td>
+                                                    <td>-1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAX</td>
+                                                    <td>ADELAIDE</td>
+                                                    <td>$3.22</td>
+                                                    <td>+0.01</td>
+                                                    <td>+1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>XXD</td>
+                                                    <td>ADITYA BIRLA</td>
+                                                    <td>$1.02</td>
+                                                    <td>-1.01</td>
+                                                    <td>+2.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAC</td>
+                                                    <td>AUSTRALIAN COMPANY </td>
+                                                    <td>$1.38</td>
+                                                    <td>+2.01</td>
+                                                    <td>-0.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAD</td>
+                                                    <td>AUSENCO</td>
+                                                    <td>$2.38</td>
+                                                    <td>-0.01</td>
+                                                    <td>-1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAX</td>
+                                                    <td>ADELAIDE</td>
+                                                    <td>$3.22</td>
+                                                    <td>+0.01</td>
+                                                    <td>+1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>XXD</td>
+                                                    <td>ADITYA BIRLA</td>
+                                                    <td>$1.02</td>
+                                                    <td>-1.01</td>
+                                                    <td>+2.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAC</td>
+                                                    <td>AUSTRALIAN COMPANY </td>
+                                                    <td>$1.38</td>
+                                                    <td>+2.01</td>
+                                                    <td>-0.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAD</td>
+                                                    <td>AUSENCO</td>
+                                                    <td>$2.38</td>
+                                                    <td>-0.01</td>
+                                                    <td>-1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAX</td>
+                                                    <td>ADELAIDE</td>
+                                                    <td>$3.22</td>
+                                                    <td>+0.01</td>
+                                                    <td>+1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>XXD</td>
+                                                    <td>ADITYA BIRLA</td>
+                                                    <td>$1.02</td>
+                                                    <td>-1.01</td>
+                                                    <td>+2.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAC</td>
+                                                    <td>AUSTRALIAN COMPANY </td>
+                                                    <td>$1.38</td>
+                                                    <td>+2.01</td>
+                                                    <td>-0.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAD</td>
+                                                    <td>AUSENCO</td>
+                                                    <td>$2.38</td>
+                                                    <td>-0.01</td>
+                                                    <td>-1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAX</td>
+                                                    <td>ADELAIDE</td>
+                                                    <td>$3.22</td>
+                                                    <td>+0.01</td>
+                                                    <td>+1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>XXD</td>
+                                                    <td>ADITYA BIRLA</td>
+                                                    <td>$1.02</td>
+                                                    <td>-1.01</td>
+                                                    <td>+2.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAC</td>
+                                                    <td>AUSTRALIAN COMPANY </td>
+                                                    <td>$1.38</td>
+                                                    <td>+2.01</td>
+                                                    <td>-0.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAD</td>
+                                                    <td>AUSENCO</td>
+                                                    <td>$2.38</td>
+                                                    <td>-0.01</td>
+                                                    <td>-1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAX</td>
+                                                    <td>ADELAIDE</td>
+                                                    <td>$3.22</td>
+                                                    <td>+0.01</td>
+                                                    <td>+1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>XXD</td>
+                                                    <td>ADITYA BIRLA</td>
+                                                    <td>$1.02</td>
+                                                    <td>-1.01</td>
+                                                    <td>+2.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAC</td>
+                                                    <td>AUSTRALIAN COMPANY </td>
+                                                    <td>$1.38</td>
+                                                    <td>+2.01</td>
+                                                    <td>-0.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAD</td>
+                                                    <td>AUSENCO</td>
+                                                    <td>$2.38</td>
+                                                    <td>-0.01</td>
+                                                    <td>-1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AAX</td>
+                                                    <td>ADELAIDE</td>
+                                                    <td>$3.22</td>
+                                                    <td>+0.01</td>
+                                                    <td>+1.36%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>XXD</td>
+                                                    <td>ADITYA BIRLA</td>
+                                                    <td>$1.02</td>
+                                                    <td>-1.01</td>
+                                                    <td>+2.36%</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
                                 </div>
                             </div>
 
@@ -408,7 +629,7 @@
 
 
 <!-- Javascript -->
-<script src="js/jquery.min.js"></script>
+<script src="../homePage/js/jquery/jquery.min.js"></script>
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>

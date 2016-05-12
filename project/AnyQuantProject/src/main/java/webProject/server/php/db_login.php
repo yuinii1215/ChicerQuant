@@ -6,9 +6,15 @@
  * Time: 下午7:25
  */
 
-$db_host = '572dbf7f7aa1c.sh.cdb.myqcloud.com:4068';
+$db_host = '10.66.115.75';
 $db_database = 'chicer';
 $db_username = 'chicer';
 $db_password = 'chicer2016';
+
+$mydb_host = '10.66.171.146';
+$mydb_database = 'chicer';
+$mydb_username = 'chicer';
+$mydb_password = 'chicer2016';
+
 
 ?>

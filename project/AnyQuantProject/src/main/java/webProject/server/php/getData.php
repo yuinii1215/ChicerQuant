@@ -9,19 +9,20 @@ header("Content-Type: text/html;charset=utf8");
 
 include('db_login.php');
 
-function getDBConnection()
 
+function getDBConnection()
 {
+
     global $db_host;
     global $db_username;
     global $db_password;
     global $db_database;
-//    $db_host = 'localhost';
-//    $db_username = 'CTGG';
-//    $db_password= 'dreamG';
-//    $db_database = 'SnoiDB';
-    //    $connection = mysqli_connect($db_host, $db_username, $db_password,$db_database);
-    $connection = new PDO("mysql:host=$db_host;dbname=$db_database; charset=utf8", $db_username, $db_password);
+    try{
+        $connection = new PDO("mysql:host=".$db_host.";port = 3306;dbname=".$db_database."; charset=utf8", $db_username, $db_password);
+        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+    }
     // 设置 PDO 错误模式为异常
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -29,9 +30,23 @@ function getDBConnection()
 
 }
 
+
+function getMyDBConnection()
+{
+    global $mydb_host;
+    global $mydb_username;
+    global $mydb_password;
+    global $mydb_database;
+    $connection = new PDO("mysql:host=$mydb_host;dbname=$mydb_database; charset=utf8; unix_socket=/path/to/socket", $mydb_username, $mydb_password);
+    // 设置 PDO 错误模式为异常
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    return $connection;
+}
+
 function getMyFavor($username)
 {
-    $connection = getDBConnection();
+    $connection = getMyDBConnection();
     $stmt = $connection->prepare("select * from favorstocks where username = :username");
     $stmt->bindParam(':username', $_username);
     $_username = $username;
@@ -40,7 +55,7 @@ function getMyFavor($username)
 
 function cancelMyFavor($name, $username)
 {
-    $connection = getDBConnection();
+    $connection = getMyDBConnection();
     $stmt = $connection->prepare("delete from favorstocks where username = :username and stock_name = :stockname");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':stockname', $name);
@@ -49,7 +64,7 @@ function cancelMyFavor($name, $username)
 
 function addMyFavor($name, $username)
 {
-    $connection = getDBConnection();
+    $connection = getMyDBConnection();
     $stmt = $connection->prepare("insert into favorstocks values(:username, :stockname)");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':stockname', $name);
@@ -60,25 +75,41 @@ function getStockByName($name, $date)
 {
     $connection = getDBConnection();
     if ($date == date("Y-m-d")){
-        $stmt = $connection->prepare("select * from today where stock_name = :stock_name");
+        $stmt = $connection->prepare("select * from today where stock_id = :stock_name");
         $stmt->bindParam(':stock_name', $_stock_name);
         $_stock_name = $name;
     }else{
-        $query = "select * from ".$name."where date = ".$date;
-        $stmt = $connection->prepare("select * from :stock_name where date = :datetime");
-        $stmt->bindParam(':stock_name', $_stock_name);
+        $stmt = $connection->prepare("select * from ".$name." where date  = :datetime");
         $stmt->bindParam(':datetime',$_date);
-        $_stock_name = $name;
         $_date = $date;
     }
-//    $stmt = $connection->prepare("select * from today where stock_id = :stock_name");
-//    $stmt->bindParam(':stock_name', $_stock_name);
-//    $_stock_name = $name;
+
     return execQuery($connection,$stmt);
 }
 
 
-echo getStockByName("sh600000",date('Y-m-d',strtotime('2016-05-10')));
+
+function checkTableNameValid($tablename)
+{
+    $valid = 0;
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("show tables");
+    $result = execQuery($connection,$stmt);
+
+    $result = str_replace("\t",'',$result);
+    $result = str_replace("'", '"', $result);
+    $result =  iconv("ASCII", "utf8", $result);
+    $result = json_decode($result, true);
+    print_r($result[22]);
+    $values = array_values($result);
+    print_r($values);
+    echo $valid;
+    return $valid;
+}
+
+//echo getStockByName("sh600000",date('Y-m-d',strtotime('2016-05-10')));
+//checkTableNameValid("sh600000");
+
 function getStockAmongDate($name, $startdate, $enddate)
 {
 //    $datearr = getAmongDates($startdate, $enddate);
@@ -92,40 +123,54 @@ function getStockAmongDate($name, $startdate, $enddate)
 
 
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select * from :stockname where date between :startdate and :enddate");
-    $stmt->bindParam(':stockname', $_stockname);
+    $stmt = $connection->prepare("select * from ".$name." where date between :startdate and :enddate");
     $stmt->bindParam(':startdate', $_startdate);
     $stmt->bindParam(':enddate', $_enddate);
-    $_stockname = $name;
     $_startdate = $startdate;
     $_enddate = $enddate;
     return execQuery($connection,$stmt);
 }
 
-
+//echo getStockAmongDate("sh600000",date('Y-m-d',strtotime('2016-05-04')), date('Y-m-d',strtotime('2016-05-10')));
 
 function getAllStocks()
 {
-    $query = "select * from today";
-    return execQuery($query);
+//    $query = "select * from today";
+//    return execQuery($query);
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select * from today");
+    return execQuery($connection,$stmt);
 }
+
+//echo  getAllStocks();
 
 function getBenchMarkByName($name, $date)
 {
-    $query = "select * from ".$name."where date = ".$date;
-    return execQuery($query);
+//    $query = "select * from ".$name."where date = ".$date;
+//    return execQuery($query);
+
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select * from  sh000300 where date =  :datetime");
+    $stmt->bindParam(':datetime', $_date);
+    $_date = $date;
+    return execQuery($connection,$stmt);
 }
 
+//echo getBenchMarkByName("---",date('Y-m-d',strtotime('2016-05-10')));
 function getBenchMarkAmongDate($name, $startdate, $enddate)
 {
-    return getStockAmongDate($name,$startdate,$enddate);
+    return getStockAmongDate("sh000300",$startdate,$enddate);
 }
+
+//echo getBenchMarkAmongDate("sh000300",date('Y-m-d',strtotime('2016-05-04')), date('Y-m-d',strtotime('2016-05-10')));
 
 function get5PMA_day($name, $date)
 {
     return getCalcuValue("PMA5_day",$name,$date);
 }
 
+//echo get30PMA_month("sh000300",date('Y-m-d',strtotime('2016-02-14')));
+//echo sizeof(get30PMA_month("sh000300",date('Y-m-d',strtotime('2016-02-14'))));
 function get5PMA_week($name, $date)
 {
     return getCalcuValue("PMA5_week",$name,$date);
@@ -239,13 +284,14 @@ function getAllIndustries()
 //    $query = "select industry from industry_stock";
 //    $json_string = execQuery($query);
 //    return $arr = json_decode($json_string,true);
-
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select * from industry_stock");
+//   $stmt = $connection->prepare("select distinct industry from industry_stock where stock_id <> 'sh000300'");
+   $stmt = $connection->prepare("show tables");
+
     return execQuery($connection,$stmt);
 }
 
-//$arr = getAllIndustries();
+echo getAllIndustries();
 //echo "--- ".$arr['industry'];
 //echo $arr;
 
@@ -260,14 +306,18 @@ function getStocksByIndustry($industry_name)
     return execQuery($connection,$stmt);
 }
 
+//echo getStocksByIndustry("综合");
 function getIndustry($industry_name,$date)
 {
     //TODO
 }
 function getCalcuValue($type, $name, $date)
 {
-    $query = "select ".$type." from ".$name."where date = ".$date;
-    return execQuery($query);
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select ".$type." from ".$name." where date  = :datetime");
+    $stmt->bindParam(':datetime',$_date);
+    $_date = $date;
+    return execQuery($connection,$stmt);
 }
 
 function getAmongDates($startdate, $enddate)
@@ -280,10 +330,8 @@ function getAmongDates($startdate, $enddate)
     return $arr;
 }
 
-
 function execQuery($connection, $stmt)
 {
-    echo json_encode($stmt);
     if(!$stmt) {
         $arr = array('retmsg'=>$connection->errorInfo());
         $json_string = json_encode($arr);
@@ -297,6 +345,7 @@ function execQuery($connection, $stmt)
     }
     $arr = array('retmsg'=>'success');
     $json_string = json_encode($arr);
+//    $json_string = json_encode(array());
     while ($result_row = $stmt->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
         $json_string .= json_encode($result_row,JSON_UNESCAPED_UNICODE);
     }
@@ -304,13 +353,6 @@ function execQuery($connection, $stmt)
     $stmt = null;
     return $json_string;
 }
-
-
- //prepare and bind
-//$connection = getDBConnection();
-//$stmt = $connection->prepare("select * from industry_stock ");
-//echo execQuery($connection,$stmt);
-
 
 function getNameByAge($age){
     $connection = getDBConnection();
@@ -325,6 +367,7 @@ function getNameByAge($age){
     }
     return $names;
 }
+
 
 
 ?>
