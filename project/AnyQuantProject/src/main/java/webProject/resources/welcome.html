@@ -12,7 +12,7 @@
         #header{  position:fixed; z-index:999; background:#000;opacity:0.65; height:50px; width:100%;}
         #mainbody{ opacity:0.8;  height:800px; width:100%;}
         #title{   position:absolute; z-index:999; min-width:1000px; margin:150px 200px 100px 200px; }
-        #button{   position:absolute; z-index:999;margin:400px 220px;padding:20px 400px 100px 400px; }
+        #button{   positin:absolute; z-index:999;margin:400px 220px;padding:20px 400px 100px 400px; }
         #footer{  background:#000;opacity:0.6; height:40px; width:100%}
 
     </style>
@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/preloader.css">
     <link rel="stylesheet" href="css/canvas.css">
     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/button.css">
 
 
     <!-- WEBFONT -->
@@ -72,8 +73,9 @@
                     </div>
                   
                     <div id ="button" ng-app="myApp" ng-controller="enterHome" >
-                      <!--   <a href="../homePage/home.html"> <button id="enterBtn"; class="enterBtn" ng-click="enter()"> 进入</button></a> -->
-                        <button id="enterBtn"; class="enterBtn"  onclick=javascript:enter()> 进入</button>
+                      <!--   <a href="../homePage/home.html"> <button id="enterBtn"; class="enterBtn" ng-click="enter()"> 进入</button></a> 
+                        <button id="enterBtn"; class="enterBtn"  onclick=javascript:enter()> 进入</button>-->
+                          <button   class="button  button-block button-rounded button-jumbo"  onclick=javascript:enter(); >enter</button>
                     </div>
 
                 </div>

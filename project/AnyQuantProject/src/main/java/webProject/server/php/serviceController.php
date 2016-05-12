@@ -23,6 +23,7 @@ switch ($method)
         addMyFavorService($objData->username,$objData->name);
         break;
     case "getStockByNameService":
+        echo json_encode("controller called");
         getStockByNameService($objData->name,$objData->date);
         break;
     case "getStockAmongDateService":
@@ -113,7 +114,7 @@ switch ($method)
         getIndustryService($objData->industry_name,$objData->date);
         break;
     default :
-        echo "no such method!";
+        echo json_encode("======");
 }
 
 ?>
