@@ -21,7 +21,9 @@ public class WoffHandler implements Handler<RoutingContext> {
 	public void handle(RoutingContext event) {
 		String path=event.request().path();
 		path=path.substring(1);
+		System.out.println(path);
 		try {
+			
 			InputStream inputStream=Resources.class.getResourceAsStream(path);
 			byte[] woff=IOUtils.toByteArray(inputStream);
 			event.response().setChunked(true);

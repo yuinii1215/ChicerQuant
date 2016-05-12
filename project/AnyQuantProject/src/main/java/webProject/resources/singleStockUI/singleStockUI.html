@@ -1,20 +1,22 @@
 
 <!DOCTYPE html>
 <head>
-    <title>Chicer - 股票策略与分析系统</title>
+     <title>Chicer - 股票策略与分析系统</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="KingAdmin - Bootstrap Admin Dashboard Theme">
     <meta name="author" content="The Develovers">
-
-    <link rel="stylesheet" href="css/preloader.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    <link href="css/skin/transparent.css" rel="stylesheet" type="text/css">
-    <link href="css/style-switcher.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/app.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../homePage/css/preloader.css">
+    <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
+    <link href="../homePage/css/skin/transparent.css" rel="stylesheet" type="text/css">
+    <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
+    
+    
+  	<link href="css/app.css" rel="stylesheet" type="text/css"> 
     <!--app.css是table的样式-->
     <style type="text/css">
         body{
@@ -202,7 +204,7 @@
                                         <div class="widget-header">
                                             <!--header-->
                                             <h3><i class="fa fa-bar-chart-o"></i>2016年腾讯科技</h3>
-                                            <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                         
                                             <div class="btn-group widget-header-toolbar">
                                                 <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                                 <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
@@ -1113,25 +1115,25 @@
             <h5 class="del-switcher-header">Choose Skins:</h5>
 
             <ul>
-                <li><a href="#" title="Slate Gray" class="switch-skin slategray" data-skin="css/skin/slategray.css">Slate Gray</a></li>
-                <li><a href="#" title="Dark Blue" class="switch-skin darkblue" data-skin="css/skin/darkblue.css">Dark Blue</a></li>
-                <li><a href="#" title="Dark Brown" class="switch-skin darkbrown" data-skin="css/skin/darkbrown.css">Dark Brown</a></li>
-                <li><a href="#" title="Light Green" class="switch-skin lightgreen" data-skin="css/skin/lightgreen.css">Light Green</a></li>
-                <li><a href="#" title="Orange" class="switch-skin orange" data-skin="css/skin/orange.css">Orange</a></li>
-                <li><a href="#" title="Red" class="switch-skin red" data-skin="css/skin/red.css">Red</a></li>
-                <li><a href="#" title="Teal" class="switch-skin teal" data-skin="css/skin/teal.css">Teal</a></li>
-                <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="css/skin/yellow.css">Yellow</a></li>
+                <li><a href="#" title="Slate Gray" class="switch-skin slategray" data-skin="../homePage/css/skin/slategray.css">Slate Gray</a></li>
+                <li><a href="#" title="Dark Blue" class="switch-skin darkblue" data-skin="../homePage/css/skin/darkblue.css">Dark Blue</a></li>
+                <li><a href="#" title="Dark Brown" class="switch-skin darkbrown" data-skin="../homePage/css/skin/darkbrown.css">Dark Brown</a></li>
+                <li><a href="#" title="Light Green" class="switch-skin lightgreen" data-skin="../homePage/css/skin/lightgreen.css">Light Green</a></li>
+                <li><a href="#" title="Orange" class="switch-skin orange" data-skin="../homePage/css/skin/orange.css">Orange</a></li>
+                <li><a href="#" title="Red" class="switch-skin red" data-skin="../homePage/css/skin/red.css">Red</a></li>
+                <li><a href="#" title="Teal" class="switch-skin teal" data-skin="../homePage/css/skin/teal.css">Teal</a></li>
+                <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="../homePage/css/skin/yellow.css">Yellow</a></li>
             </ul>
             <div id="transparent-control"></div>
-            <button type="button" class="switch-skin-full fulldark" data-skin="css/skin/fulldark.css">Full Dark</button>
-            <button type="button" class="switch-skin-full fullbright" data-skin="css/skin/fullbright.css">Full Bright</button>
+            <button type="button" class="switch-skin-full fulldark" data-skin="../homePage/css/skin/fulldark.css">Full Dark</button>
+            <button type="button" class="switch-skin-full fullbright" data-skin="../homePage/css/skin/fullbright.css">Full Bright</button>
         </section>
         <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
-        <p><a href="../singleStockPage/singleStockPage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
+        <p><a href="../singleIndustryPage/singleIndustryPage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
     </form>
     <script type="text/javascript">
         var currentFilename = window.location.pathname.split('/').pop();
-        if( currentFilename == '' ) currentFilename = 'home.html';
+        if( currentFilename == '' ) currentFilename = '../homePage/home.html';
 
         var arrHasTransparent = ['index.html', 'index-dashboard-v2.html', 'charts-statistics-interactive.html', 'charts-statistics-real-time.html',
             'charts-statistics.html', 'components-maps.html', 'components-tree-view.html', 'page-file-manager.html'
@@ -1149,7 +1151,7 @@
         if( hasTransparent ) {
             document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
         } else {
-            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="css/skin/transparent.css">Transparent</button>';
+            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../homePage/css/skin/transparent.css">Transparent</button>';
         }
     </script>
 </div>
