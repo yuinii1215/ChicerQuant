@@ -1,3 +1,4 @@
 function enter() {
-        window.location.href="../homePage/home.html";
+        window.location.href="homePage/home.html";
     }
+
