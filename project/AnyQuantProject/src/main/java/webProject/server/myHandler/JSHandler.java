@@ -24,7 +24,7 @@ public class JSHandler implements Handler<RoutingContext> {
 		try {
 			String js=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream(fileName)));
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "text/javascript").write(js).end();
+			event.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("content-type", "text/javascript").write(js).end();
 		} catch (IOException|NullPointerException e) {
 			event.response().setChunked(true);
 			event.response().end("resources unavaliable");

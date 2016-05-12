@@ -24,7 +24,7 @@ public class HtmlHandler implements Handler<RoutingContext>{
 		try {
 			String html=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream(loc)));
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "text/html").write(html).end();
+			event.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("content-type", "text/html").write(html).end();
 		} catch (IOException|NullPointerException e) {
 			event.response().setChunked(true);
 			event.response().end("resources unavaliable");
