@@ -5,12 +5,10 @@
  * Date: 16/5/4
  * Time: 上午12:58
  */
-header("Content-Type: text/json;charset=utf8");
-
-header("Access-Control-Allow-Origin: http://localhost:8020/singleStockUI.html");
 
 
-include('db_login.php');
+
+require_once('db_login.php');
 
 
 function getDBConnection()
