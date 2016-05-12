@@ -30,11 +30,18 @@ public class SetupSQL {
 	static Map<String, String> indu;
 	public static void main(String[] args) throws SQLException {
 		Connection connection=getConn();
-		Calendar calendar=CalendarHelper.convert2Calendar(args[0]);
+//		Calendar calendar=CalendarHelper.convert2Calendar(args[0]);
 //		DailySQL.dailyStock(connection,calendar);
 //		industry_stock(connection);
 //		setup(connection);
-		Del.delStock(id, connection, calendar);
+//		Del.delStock(id, connection, calendar);
+		try {
+			SetupBenchMark.SetupBenchMark(connection);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 		connection.close();
 	}
 	
@@ -93,7 +100,7 @@ public class SetupSQL {
 	//
 	private static Connection getConn(){
 		String driver="com.mysql.cj.jdbc.Driver";
-		String url="jdbc:mysql://10.66.115.75:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+		String url="jdbc:mysql://10.66.171.146:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 		String username="chicer";
 		String password="chicer2016";
 		Connection conn = null;

@@ -1,4 +1,5 @@
 package webProject.server.daily;
+
 /**
 * AnyQuantProject/webProject.server.daily/Stock.java
 * @author cxworks
