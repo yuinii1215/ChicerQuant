@@ -5,7 +5,10 @@
  * Date: 16/5/4
  * Time: 上午12:58
  */
-header("Content-Type: text/html;charset=utf8");
+header("Content-Type: text/json;charset=utf8");
+
+header("Access-Control-Allow-Origin: http://localhost:8020/singleStockUI.html");
+
 
 include('db_login.php');
 
@@ -21,7 +24,7 @@ function getDBConnection()
         $connection = new PDO("mysql:host=".$db_host.";port = 3306;dbname=".$db_database."; charset=utf8", $db_username, $db_password);
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }catch (PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
+        echo json_encode('Connection failed: ' . $e->getMessage());
     }
     // 设置 PDO 错误模式为异常
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -74,16 +77,19 @@ function addMyFavor($name, $username)
 function getStockByName($name, $date)
 {
     $connection = getDBConnection();
-    if ($date == date("Y-m-d")){
-        $stmt = $connection->prepare("select * from today where stock_id = :stock_name");
+//    if ($date == date("Y-m-d")){
+//        $stmt = $connection->prepare("select * from today where stock_id = :stock_name");
+//        $stmt->bindParam(':stock_name', $_stock_name);
+//        $_stock_name = $name;
+//    }else{
+//        $stmt = $connection->prepare("select * from ".$name." where date  = :datetime");
+//        $stmt->bindParam(':datetime',$_date);
+//        $_date = $date;
+//    }
+
+ $stmt = $connection->prepare("select * from today where stock_id = :stock_name");
         $stmt->bindParam(':stock_name', $_stock_name);
         $_stock_name = $name;
-    }else{
-        $stmt = $connection->prepare("select * from ".$name." where date  = :datetime");
-        $stmt->bindParam(':datetime',$_date);
-        $_date = $date;
-    }
-
     return execQuery($connection,$stmt);
 }
 
@@ -291,7 +297,7 @@ function getAllIndustries()
     return execQuery($connection,$stmt);
 }
 
-echo getAllIndustries();
+//echo getAllIndustries();
 //echo "--- ".$arr['industry'];
 //echo $arr;
 
@@ -347,11 +353,12 @@ function execQuery($connection, $stmt)
     $json_string = json_encode($arr);
 //    $json_string = json_encode(array());
     while ($result_row = $stmt->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
-        $json_string .= json_encode($result_row,JSON_UNESCAPED_UNICODE);
-    }
-    $connection = null;
-    $stmt = null;
-    return $json_string;
+         $arr[] = $result_row;
+     }
+     $connection = null;
+     $stmt = null;
+     $json_string = json_encode($arr,JSON_UNESCAPED_UNICODE);
+     return $json_string;
 }
 
 function getNameByAge($age){
