@@ -8,7 +8,7 @@ function SearchCtrl($scope, $http) {
         // Create the http post request
         // the data holds the keywords
         // The request is a JSON request.
-        $http.post($scope.url, {"date":"---", "name" : $scope.keywords, "method": "getStockByNameService","header":"http://115.159.106.212"}).
+        $http.jsonp($scope.url, {"date":"---", "name" : $scope.keywords, "method": "getStockByNameService","header":"http://115.159.106.212"}).
             success(function(data, status) {
                 $scope.status = status;
                 $scope.data = data;
