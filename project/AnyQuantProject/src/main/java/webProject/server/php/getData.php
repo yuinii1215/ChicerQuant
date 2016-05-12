@@ -48,7 +48,7 @@ function getMyDBConnection()
 function getMyFavor($username)
 {
     $connection = getMyDBConnection();
-    $stmt = $connection->prepare("select * from favorstocks where username = :username");
+    $stmt = $connection->prepare("select username,stock_id from favorstocks where username = :username");
     $stmt->bindParam(':username', $_username);
     $_username = $username;
     return execQuery($connection,$stmt);
@@ -85,7 +85,7 @@ function getStockByName($name, $date)
 //        $_date = $date;
 //    }
 
- $stmt = $connection->prepare("select * from today where stock_id = :stock_name");
+ $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volumn,adj_price,turnover,pe_ttm,pb,industry from today where stock_id = :stock_name");
         $stmt->bindParam(':stock_name', $_stock_name);
         $_stock_name = $name;
     return execQuery($connection,$stmt);
@@ -127,7 +127,7 @@ function getStockAmongDate($name, $startdate, $enddate)
 
 
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select * from ".$name." where date between :startdate and :enddate");
+    $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volumn,adj_price,turnover,pe_ttm,pb,industry from ".$name." where date between :startdate and :enddate");
     $stmt->bindParam(':startdate', $_startdate);
     $stmt->bindParam(':enddate', $_enddate);
     $_startdate = $startdate;
@@ -142,7 +142,7 @@ function getAllStocks()
 //    $query = "select * from today";
 //    return execQuery($query);
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select * from today");
+    $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volumn,adj_price,turnover,pe_ttm,pb,industry from today");
     return execQuery($connection,$stmt);
 }
 
@@ -154,16 +154,24 @@ function getBenchMarkByName($name, $date)
 //    return execQuery($query);
 
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select * from  sh000300 where date =  :datetime");
+    $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price from  sh000300 where date =  :datetime");
     $stmt->bindParam(':datetime', $_date);
     $_date = $date;
     return execQuery($connection,$stmt);
+
 }
 
 //echo getBenchMarkByName("---",date('Y-m-d',strtotime('2016-05-10')));
 function getBenchMarkAmongDate($name, $startdate, $enddate)
 {
-    return getStockAmongDate("sh000300",$startdate,$enddate);
+
+     $connection = getDBConnection();
+     $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price from benchmark where date between :startdate and :enddate");
+     $stmt->bindParam(':startdate', $_startdate);
+     $stmt->bindParam(':enddate', $_enddate);
+     $_startdate = $startdate;
+     $_enddate = $enddate;
+     return execQuery($connection,$stmt);
 }
 
 //echo getBenchMarkAmongDate("sh000300",date('Y-m-d',strtotime('2016-05-04')), date('Y-m-d',strtotime('2016-05-10')));
@@ -284,14 +292,8 @@ function getpoly($name, $date)
 
 function getAllIndustries()
 {
-    //TODO
-//    $query = "select industry from industry_stock";
-//    $json_string = execQuery($query);
-//    return $arr = json_decode($json_string,true);
     $connection = getDBConnection();
-//   $stmt = $connection->prepare("select distinct industry from industry_stock where stock_id <> 'sh000300'");
-   $stmt = $connection->prepare("show tables");
-
+   $stmt = $connection->prepare("select distinct industry from industry_stock where stock_id <> 'sh000300'");
     return execQuery($connection,$stmt);
 }
 
