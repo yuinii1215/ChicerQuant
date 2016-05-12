@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+<html ng-app>
 <head>
     <meta charset="utf-8">
     <title>ECharts</title>
     <link rel="stylesheet" href="css/app.css">
+    <script src="http://code.angularjs.org/angular-1.0.0.min.js"></script>
+    <script src="search.js"></script>
 
     <style type="text/css">
     body{ background-image:url(bg.png);}
@@ -51,9 +54,6 @@
 </div>
 <!-- <div style="text-align:center;clear:both;"> -->
 <script src="js/gg_bd_ad_720x90.js" type="text/javascript"></script>
-</div>
-
-
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="main1" style="height:200px;width:600px;position:absolute;left:300px;top:100px;"></div>
     <div id="main2" style="height:200px;width:600px;position:absolute;left:300px;top:310px;"></div>
@@ -779,4 +779,17 @@ setTimeout(function (){
 </table>
 </div>
 </section>
+
+ <div ng-controller="SearchCtrl">
+     <form class="well form-search">
+         <label><font color="white">Search:</font></label>
+         <input type="text" ng-model="keywords" class="input-medium search-query" placeholder="Keywords...">
+         <button type="submit" class="btn" ng-click="search()">Search</button>
+         <p class="help-block">Try for example: "php" or "angularjs" or "asdfg"</p>
+     </form>
+<pre ng-model="result">
+{{result}}
+</pre>
+ </div>
 </body>
+</html>
