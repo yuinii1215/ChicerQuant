@@ -30,7 +30,6 @@ import webProject.server.myHandler.font.WoffHandler;
 public class RouterVerticle extends AbstractVerticle {
 	public RouterVerticle() {
 		super();
-		System.out.println("8888888888888");
 	}
 
 	@Override
