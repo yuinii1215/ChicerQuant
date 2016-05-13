@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<html ng-app>
 <head>
      <title>Chicer - 股票策略与分析系统</title>
     <meta charset="utf-8">
@@ -8,6 +9,10 @@
     <meta name="description" content="KingAdmin - Bootstrap Admin Dashboard Theme">
     <meta name="author" content="The Develovers">
     <!-- CSS -->
+    <script src="js/search.js"></script>
+    <script src="http://code.angularjs.org/angular-1.0.0.min.js"></script>
+
+
     <link rel="stylesheet" href="../homePage/css/preloader.css">
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
@@ -25,7 +30,7 @@
 
 </head>
 
-<body>
+<body ng-controller="SearchCtrl">
 <div class="preloader">
     <div class="status">&nbsp;</div>
 </div>
@@ -46,10 +51,13 @@
                         <div class="col-lg-3">
                             <!-- search box -->
                             <div id="tour-searchbox" class="input-group searchbox">
-                                <input type="search" class="form-control" placeholder="enter keyword here...">
+
+
+                                <input type="search" ng-model="keywords" class="form-control" placeholder="enter keyword here...">
 									<span class="input-group-btn">
-										<button class="btn btn-default" type="button" ><i class="fa fa-search"></i></button>
+										<button class="btn btn-default" type="button" ng-click="search()"><i class="fa fa-search"></i></button>
 									</span>
+
                             </div>
                             <!-- end search box -->
                         </div>
@@ -694,16 +702,44 @@
                                                 <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                             </div>
                                         </div>
+
+                  <!--<div ng-controller="SearchCtrl">-->
+                     <!--<form class="well form-search" >-->
+                      <!--<label><font color="white">Search:</font></label>-->
+                      <!--<input type="text" ng-model="keywords" class="input-medium search-query" placeholder="Keywords...">-->
+                      <!--<button type="submit" class="btn" ng-click="search()">Search</button>-->
+                     <!--</form>-->
+                     <!--<pre ng-model="result">-->
+                      <!--{{result.date;}}-->
+                     <!--</pre>-->
+                  <!--</div>-->
+
+
                                         <div class="widget-content" style="height: 800px">
-                                            <h1 style="font-size: 40px">腾讯科技</h1>
-                                            <h1 style="font-size: 20px;">ID:00700.HK</h1>
-                                            <h1 style="font-size: 20px">2016年5月10日</h1>
-                                            <h1 style="font-size: 27px">收盘价:153.20</h1>
-                                            <h1 style="font-size: 27px"><font color="#ae0000">最高价:155.80</font></h1>
-                                            <h1 style="font-size: 27px">最低价:151.60</h1>
-                                            <h1 style="font-size: 27px"><font color="#ae0000">今开价:154.40</font></h1>
-                                            <h1 style="font-size: 27px">成交量:733万股</h1>
-                                            <h1 style="font-size: 27px">成交量额:112943万</h1>
+                                            <pre ng-model="result" style="background-color:transparent;text-align: center"><font size="5px">{{result.stock_name;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.date;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.open;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.high;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.low;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.close;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.volumn;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.adj_price;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.turn_over;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.pe_ttm;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.pb;}}</font></pre>
+                                                <!--<pre ng-model="result">-->
+                                                    <!--{{result.date}}-->
+<!---->
+                                            <!--<h1 style="font-size: 40px">腾讯科技</h1>-->
+                                            <!--<h1 style="font-size: 20px;">ID:00700.HK</h1>-->
+                                            <!--<h1 style="font-size: 20px">result.date</h1>-->
+                                            <!--<h1 style="font-size: 27px">收盘价:153.20</h1>-->
+                                            <!--<h1 style="font-size: 27px"><font color="#ae0000">最高价:155.80</font></h1>-->
+                                            <!--<h1 style="font-size: 27px">最低价:151.60</h1>-->
+                                            <!--<h1 style="font-size: 27px"><font color="#ae0000">今开价:154.40</font></h1>-->
+                                            <!--<h1 style="font-size: 27px">成交量:733万股</h1>-->
+                                            <!--<h1 style="font-size: 27px">成交量额:112943万</h1>-->
+                                                    <!--</pre>-->
 
                                         </div>
                                     </div>
@@ -746,14 +782,15 @@
                                             <table cellpadding="0" cellspacing="0" border="0">
                                                 <thead>
                                                 <tr>
-                                                    <th>股票代码</th>
-                                                    <th>公司名称</th>
+                                                    <th>日期</th>
+                                                    <th>股票名称</th>
                                                     <th>开盘价</th>
-                                                    <th>收盘价</th>
                                                     <th>最高价</th>
                                                     <th>最低价</th>
+                                                    <th>收盘价</th>
                                                     <th>成交量</th>
                                                     <th>后复权价</th>
+                                                    <th>换手率</th>
                                                     <th>市盈率</th>
                                                     <th>市净率</th>
                                                 </tr>
@@ -769,223 +806,6 @@
                                                     <td>$1.38</td>
                                                     <td>+2.01</td>
                                                     <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -1081,6 +901,10 @@
     </script>
 </div>
 <!-- END STYLE SWITCHER -->
+
+
+
+
 
 
 <!-- Javascript -->
