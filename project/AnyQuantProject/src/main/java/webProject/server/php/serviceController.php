@@ -5,11 +5,18 @@
  * Date: 16/5/7
  * Time: 下午8:08
  */
-include_once ('ajaxService.php');
+ header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Method: GET");
+// header("Access-Control-Max-Age: 60");
+
+header("Content-Type: text/plain");
+require_once('ajaxService.php');
 $data = file_get_contents("php://input");
 
 $objData = json_decode($data);
-$method=$objData->method;
+$method = $objData->method;
+//echo json_encode($method);
+
 
 switch ($method)
 {
@@ -23,10 +30,15 @@ switch ($method)
         addMyFavorService($objData->username,$objData->name);
         break;
     case "getStockByNameService":
-        echo json_encode("controller called");
-        getStockByNameService($objData->name,$objData->date);
+//      echo json_encode($objData->name." ".date('Y-m-d',strtotime('2016-05-04')));
+      try{
+        echo getStockByNameService($objData->name,date('Y-m-d',strtotime('2016-05-04')));
+        }catch(Exception $e){
+         echo json_encode('failed: ' . $e->getMessage());
+        }
         break;
     case "getStockAmongDateService":
+
         getStockAmongDateService($objData->name,$objData->startdate,$objData->enddate);
         break;
     case "getAllStocksService":
@@ -114,7 +126,7 @@ switch ($method)
         getIndustryService($objData->industry_name,$objData->date);
         break;
     default :
-        echo json_encode("======");
+        echo json_encode("no such method");
 }
 
 ?>

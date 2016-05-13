@@ -5,7 +5,10 @@
  * Date: 16/5/4
  * Time: 上午12:58
  */
-include_once ('getData.php');
+require_once ('getData.php');
+ header("Access-Control-Allow-Origin: *");
+ header('Access-Control-Allow-Headers: X-Requested-With');
+
     /**
      *
      * 数据说明:
@@ -59,7 +62,7 @@ include_once ('getData.php');
     //输出: 操作是否成功的信息以及该日该股票的属性--各种表格项信息
     function getStockByNameService($name,$date){
         $jsonstring = getStockByName($name, $date);
-        echo $jsonstring;
+        return $jsonstring;
     }
 
     //输入: 股票名和日期区间
