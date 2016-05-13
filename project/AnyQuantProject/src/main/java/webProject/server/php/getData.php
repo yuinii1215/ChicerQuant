@@ -9,6 +9,7 @@
 
 
 require_once('db_login.php');
+header("Content-Type: text/json;charset=utf8");
 
 
 function getDBConnection()
@@ -355,7 +356,7 @@ function execQuery($connection, $stmt)
     $arr = array('retmsg'=>'success');
     $json_string = json_encode($arr);
 //    $json_string = json_encode(array());
-    while ($result_row = $stmt->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+    while ($result_row = $stmt->fetch(PDO::FETCH_OBJ, PDO::FETCH_ORI_NEXT)) {
         $arr[] = $result_row;
     }
     $connection = null;
