@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<html ng-app>
 <head>
      <title>Chicer - 股票策略与分析系统</title>
     <meta charset="utf-8">
@@ -8,26 +9,28 @@
     <meta name="description" content="KingAdmin - Bootstrap Admin Dashboard Theme">
     <meta name="author" content="The Develovers">
     <!-- CSS -->
+    <script src="js/search.js"></script>
+    <script src="http://code.angularjs.org/angular-1.0.0.min.js"></script>
+
+
     <link rel="stylesheet" href="../homePage/css/preloader.css">
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/skin/transparent.css" rel="stylesheet" type="text/css">
-    
-    
   	<link href="../css/table.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
-
-    <!--app.css是table的样式-->
     <style type="text/css">
         body{
-            background-image:url(bg.png);
+            background-image:url(img/color.png);
         }
     </style>
 
+
+
 </head>
 
-<body>
+<body ng-controller="SearchCtrl">
 <div class="preloader">
     <div class="status">&nbsp;</div>
 </div>
@@ -48,25 +51,18 @@
                         <div class="col-lg-3">
                             <!-- search box -->
                             <div id="tour-searchbox" class="input-group searchbox">
-                                <input type="search" class="form-control" placeholder="enter keyword here...">
+
+
+                                <input type="search" ng-model="keywords" class="form-control" placeholder="enter keyword here...">
 									<span class="input-group-btn">
-										<button class="btn btn-default" type="button" ><i class="fa fa-search"></i></button>
+										<button class="btn btn-default" type="button" ng-click="search()"><i class="fa fa-search"></i></button>
 									</span>
+
                             </div>
                             <!-- end search box -->
                         </div>
 
                         <div class="col-lg-8">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                  <marquee  behavior=scroll direction=left align=middle scrollamount=3><FONT face=楷体_GB2312 color=#ff0000 size=3>你如何在一天之内成为百万富翁?  如何合理的规划自己的投资?  死亡交叉线究竟什么情况下有效性最高?</FONT></marquee>
-                                </div>
-                                <div CLASS="col-lg-5">
-                                    <marquee  behavior=scroll direction=left align=middle scrollamount=3 style="margin-left: 10px"><FONT face=楷体_GB2312 color=#ff0000 size=3>中国铁建:
-                                昨收价:7.22,   今开价:7.22    成交量: 174035,   成交额:12804,    最高价:7.42,   最低价:7.22,    当前价:7.39.</FONT></marquee>
-                               </div>
-                                </div>
-
                             <div class="top-bar-right">
                                 <!-- responsive menu bar icon -->
                                 <a href="#" class="hidden-md hidden-lg main-nav-toggle"><i class="fa fa-bars"></i></a>
@@ -108,7 +104,7 @@
 
     <!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
     <div class="bottom">
-        <div class="container" >
+        <div class="container">
             <div class="row" >
                 <!-- left sidebar -->
                 <div class="col-md-2 left-sidebar" >
@@ -181,6 +177,15 @@
 
                             </ul>
                         </div>
+                            <div class="col-lg-4">
+                                <marquee  behavior=scroll direction=left align=middle scrollamount=3><FONT face=楷体_GB2312 color=#ff0000 size=3>你如何在一天之内成为百万富翁?  如何合理的规划自己的投资?  死亡交叉线究竟什么情况下有效性最高?</FONT></marquee>
+                            </div>
+                            <div CLASS="col-lg-4">
+                                <marquee  behavior=scroll direction=left align=middle scrollamount=3 style="margin-left: 10px"><FONT face=楷体_GB2312 color=#ff0000 size=3>中国铁建:
+                                    昨收价:7.22,   今开价:7.22    成交量: 174035,   成交额:12804,    最高价:7.42,   最低价:7.22,    当前价:7.39.</FONT></marquee>
+                            </div>
+
+
                     </div>
 
                     <!-- main -->
@@ -192,8 +197,7 @@
                         <div class="main-content">
                             <div class="row">
                                 <div class="col-lg-6">
-
-                                    <div class="widget">
+                                    <div class="widget" style="margin-top: 100px;">
                                         <div class="widget-header">
                                             <!--header-->
                                             <h3><i class="fa fa-bar-chart-o"></i>2016年腾讯科技</h3>
@@ -687,7 +691,7 @@
                                 </div>
                                     <!--md-row-9-->
                                 <div class="col-lg-3">
-                                    <div class="widget"">
+                                    <div class="widget"  style="margin-top: 100px;">
                                         <div class="widget-header">
                                             <!--header-->
                                             <!--<h3><i class="fa fa-bar-chart-o"></i>腾讯科技</h3>-->
@@ -698,22 +702,50 @@
                                                 <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                             </div>
                                         </div>
+
+                  <!--<div ng-controller="SearchCtrl">-->
+                     <!--<form class="well form-search" >-->
+                      <!--<label><font color="white">Search:</font></label>-->
+                      <!--<input type="text" ng-model="keywords" class="input-medium search-query" placeholder="Keywords...">-->
+                      <!--<button type="submit" class="btn" ng-click="search()">Search</button>-->
+                     <!--</form>-->
+                     <!--<pre ng-model="result">-->
+                      <!--{{result.date;}}-->
+                     <!--</pre>-->
+                  <!--</div>-->
+
+
                                         <div class="widget-content" style="height: 800px">
-                                            <h1 style="font-size: 40px">腾讯科技</h1>
-                                            <h1 style="font-size: 20px;">ID:00700.HK</h1>
-                                            <h1 style="font-size: 20px">2016年5月10日</h1>
-                                            <h1 style="font-size: 27px">收盘价:153.20</h1>
-                                            <h1 style="font-size: 27px"><font color="#ae0000">最高价:155.80</font></h1>
-                                            <h1 style="font-size: 27px">最低价:151.60</h1>
-                                            <h1 style="font-size: 27px"><font color="#ae0000">今开价:154.40</font></h1>
-                                            <h1 style="font-size: 27px">成交量:733万股</h1>
-                                            <h1 style="font-size: 27px">成交量额:112943万</h1>
+                                            <pre ng-model="result" style="background-color:transparent;text-align: center"><font size="5px">{{result.stock_name;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.date;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.open;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.high;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.low;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.close;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.volumn;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.adj_price;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.turn_over;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.pe_ttm;}}</font></pre>
+                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.pb;}}</font></pre>
+                                                <!--<pre ng-model="result">-->
+                                                    <!--{{result.date}}-->
+<!---->
+                                            <!--<h1 style="font-size: 40px">腾讯科技</h1>-->
+                                            <!--<h1 style="font-size: 20px;">ID:00700.HK</h1>-->
+                                            <!--<h1 style="font-size: 20px">result.date</h1>-->
+                                            <!--<h1 style="font-size: 27px">收盘价:153.20</h1>-->
+                                            <!--<h1 style="font-size: 27px"><font color="#ae0000">最高价:155.80</font></h1>-->
+                                            <!--<h1 style="font-size: 27px">最低价:151.60</h1>-->
+                                            <!--<h1 style="font-size: 27px"><font color="#ae0000">今开价:154.40</font></h1>-->
+                                            <!--<h1 style="font-size: 27px">成交量:733万股</h1>-->
+                                            <!--<h1 style="font-size: 27px">成交量额:112943万</h1>-->
+                                                    <!--</pre>-->
 
                                         </div>
                                     </div>
                                     </div>
                                 <div class="col-lg-3">
-                                    <div class="widget">
+                                    <div class="widget"  style="margin-top: 100px;">
                                         <div class="widget-header">
                                             <!--header-->
                                             <!--<h3><i class="fa fa-bar-chart-o"></i>腾讯科技</h3>-->
@@ -727,18 +759,15 @@
                                             <h1 style="font-size: 40px">相关咨询</h1>
                                             <h1 style="font-size: 20px;">如何在一天之内成为百万富翁?</h1>
 
-
-
-
                                         </div>
                                     </div>
                                 </div>
                                </div>
 
-                               <div class="widget" style="width:1300px;">
+                               <div class="widget">
                                 <div class="widget-header">
                                     <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>股票详情列表</h3>
+                                    <h3><i class="fa fa-bar-chart-o"></i><FONT size="5px">股票详情列表</FONT></h3>
                                     <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                     <div class="btn-group widget-header-toolbar">
                                         <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
@@ -746,22 +775,22 @@
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                <div class="widget-content" style="padding-left: 50px;">
-                                        <section>
-
-                                        <h1>关注股票列表</h1>
+                                <div class="widget-content" >
+                                    <!--<section>-->
+                                        <!--<h1>关注股票列表</h1>-->
                                         <div  class="tbl-header">
                                             <table cellpadding="0" cellspacing="0" border="0">
                                                 <thead>
                                                 <tr>
-                                                    <th>股票代码</th>
-                                                    <th>公司名称</th>
+                                                    <th>日期</th>
+                                                    <th>股票名称</th>
                                                     <th>开盘价</th>
-                                                    <th>收盘价</th>
                                                     <th>最高价</th>
                                                     <th>最低价</th>
+                                                    <th>收盘价</th>
                                                     <th>成交量</th>
                                                     <th>后复权价</th>
+                                                    <th>换手率</th>
                                                     <th>市盈率</th>
                                                     <th>市净率</th>
                                                 </tr>
@@ -778,274 +807,15 @@
                                                     <td>+2.01</td>
                                                     <td>-0.36%</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAD</td>
-                                                    <td>AUSENCO</td>
-                                                    <td>$2.38</td>
-                                                    <td>-0.01</td>
-                                                    <td>-1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>AAX</td>
-                                                    <td>ADELAIDE</td>
-                                                    <td>$3.22</td>
-                                                    <td>+0.01</td>
-                                                    <td>+1.36%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>XXD</td>
-                                                    <td>ADITYA BIRLA</td>
-                                                    <td>$1.02</td>
-                                                    <td>-1.01</td>
-                                                    <td>+2.36%</td>
-                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </section>
+                                    <!--</section>-->
                                 </div>
                             </div>
                                 </div>
                             <!-- /main-content -->
                         </div>
-                        <!-- /main -->
-                        <!--<div class="widget" style="height:820px;width:300px;position:absolute;left:880px;top:80px;">-->
-                            <!--<div class="widget-header">-->
-                                <!--&lt;!&ndash;header&ndash;&gt;-->
-                                <!--&lt;!&ndash;<h3><i class="fa fa-bar-chart-o"></i>腾讯科技</h3>&ndash;&gt;-->
-                                <!--<button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>-->
-                                <!--<div class="btn-group widget-header-toolbar">-->
-                                    <!--<a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>-->
-                                    <!--<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>-->
-                                    <!--<a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="widget-content">-->
-                                <!--<h1 style="font-size: 40px">腾讯科技</h1>-->
-                                <!--<h1 style="font-size: 20px;">ID:00700.HK</h1>-->
-                                <!--<h1 style="font-size: 20px">2016年5月10日</h1>-->
-                                <!--<h1 style="font-size: 27px">收盘价:153.20</h1>-->
-                                <!--<h1 style="font-size: 27px"><font color="#ae0000">最高价:155.80</font></h1>-->
-                                <!--<h1 style="font-size: 27px">最低价:151.60</h1>-->
-                                <!--<h1 style="font-size: 27px"><font color="#ae0000">今开价:154.40</font></h1>-->
-                                <!--<h1 style="font-size: 27px">成交量:733万股</h1>-->
-                                <!--<h1 style="font-size: 27px">成交量额:112943万</h1>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                        <!--<div class="widget" style="height:820px;width:300px;position:absolute;left:1205px;top:80px;">-->
-                            <!--<div class="widget-header">-->
-                                <!--&lt;!&ndash;header&ndash;&gt;-->
-                                <!--&lt;!&ndash;<h3><i class="fa fa-bar-chart-o"></i>腾讯科技</h3>&ndash;&gt;-->
-                                <!--<button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>-->
-                                <!--<div class="btn-group widget-header-toolbar">-->
-                                    <!--<a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>-->
-                                    <!--<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>-->
-                                    <!--<a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="widget-content">-->
-                                <!--<h1 style="font-size: 40px">相关咨询</h1>-->
-                                <!--<h1 style="font-size: 20px;">如何在一天之内成为百万富翁?</h1>-->
-
-                            <!--</div>-->
-                        <!--</div>-->
                     </div>
 
                 </div>
@@ -1131,6 +901,10 @@
     </script>
 </div>
 <!-- END STYLE SWITCHER -->
+
+
+
+
 
 
 <!-- Javascript -->

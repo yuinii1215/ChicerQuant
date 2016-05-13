@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/object-refinery/orsoncharts/1.5/orsoncharts-1.5.jar!/" />
     </CLASSES>
+    <JAVADOC />
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/object-refinery/orsoncharts/1.5/orsoncharts-1.5-sources.jar!/" />
     </SOURCES>

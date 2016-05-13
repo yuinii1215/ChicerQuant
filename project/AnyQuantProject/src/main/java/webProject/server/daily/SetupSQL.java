@@ -20,11 +20,11 @@ import AnyQuantProject.util.method.IOHelper;
 
 
 public class SetupSQL {
-//	static{
-//		id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
-//		chn = (Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
-//		indu = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
-//	}
+	static{
+		id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
+		chn = (Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+		indu = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+	}
 	static List<String> id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);;
 	static Map<String, String> chn;
 	static Map<String, String> indu;
@@ -32,8 +32,8 @@ public class SetupSQL {
 		Connection connection=getConn();
 //		Calendar calendar=CalendarHelper.convert2Calendar(args[0]);
 //		DailySQL.dailyStock(connection,calendar);
-//		industry_stock(connection);
-//		setup(connection);
+		industry_stock(connection);
+		setup(connection);
 //		Del.delStock(id, connection, calendar);
 		try {
 			SetupBenchMark.SetupBenchMark(connection);
@@ -90,19 +90,15 @@ public class SetupSQL {
 				e.printStackTrace();
 			}
 			
-		}try {
-			connection.close();
-		} catch (Exception e) {
-			// TODO: handle exception
 		}
 		
 	}
 	//
 	private static Connection getConn(){
 		String driver="com.mysql.cj.jdbc.Driver";
-		String url="jdbc:mysql://10.66.171.146:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+		String url="jdbc:mysql://localhost:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 		String username="chicer";
-		String password="chicer2016";
+		String password="chicer";
 		Connection conn = null;
 	    try {
 	        Class.forName(driver); //classLoader,加载对应驱动
@@ -132,16 +128,22 @@ public class SetupSQL {
 	public static void insertStock(Connection connection,String table,List<Stock> stocks){
 		String sql=Q.Insert+table+Q.insTailBase;
 		
-		try {
-			PreparedStatement preparedStatement=connection.prepareStatement(sql);
-				addbatch(preparedStatement, stocks.get(0));
+		
+			for (int i = 0; i < stocks.size(); i++) {
+				try {
+					PreparedStatement preparedStatement=connection.prepareStatement(sql);
+					addbatch(preparedStatement, stocks.get(i));
+				} catch (Exception e) {
+					continue;
+				}
 				
+				
+			}
+			
 				
 			
 			
-		} catch (SQLException e) {
-			return ;
-		}
+		
 	}
 	
 	private static void addbatch(PreparedStatement preparedStatement,Stock stock) throws SQLException{
