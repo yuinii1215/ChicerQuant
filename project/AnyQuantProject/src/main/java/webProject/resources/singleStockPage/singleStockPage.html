@@ -55,8 +55,10 @@
 
                                 <input type="search" ng-model="keywords" class="form-control" placeholder="enter keyword here...">
 									<span class="input-group-btn">
+										<!--<button class="btn btn-default" type="button" ng-click="singleStockInfo()"><i class="fa fa-search"></i></button>-->
 										<button class="btn btn-default" type="button" ng-click="singleStockInfo()"><i class="fa fa-search"></i></button>
-									</span>
+
+                                    </span>
 
                             </div>
                             <!-- end search box -->
@@ -221,15 +223,26 @@
                      <!--</pre>-->
                                         <!--</div>-->
 
-                                        <div class="widget-content" >
+                                        <div class="widget-content">
                                             <!--<script src="js/gg_bd_ad_720x90.js" type="text/javascript"></script>-->
                                             <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
                                             <div id="main1" style="height:300px;"></div>
                                             <div id="main2" style="height:250px;"></div>
                                             <div id="main3" style="height:200px;"></div>
+
+                                            <pre name="testKData" ng-model="test" style="background-color:transparent;text-align: center"><font size="5px">{{test.abc[0].date}}</font></pre>
+
+                                            <!--<div ng-model="test">-->
+                                                <!--Full String: {{test}}-->
+                                            <!--</div>-->
+
                                     <!-- ECharts单文件引入 -->
+
                                     <script src="build/dist/echarts.js"></script>
                                     <script type="text/javascript">
+
+
+
                                         // 路径配置
                                         require.config({
                                             paths: {
@@ -246,13 +259,15 @@
                                                     'echarts/chart/line'
                                                 ],
                                                 function (ec) {
+
                                                     // 基于准备好的dom，初始化echarts图表
                                                     var myChart = ec.init(document.getElementById('main1'));
                                                     var myChart2 = ec.init(document.getElementById('main2'));
                                                     var myChart3 = ec.init(document.getElementById('main3'));
 
-                                                    var axisData = [
-//                                                        "2016/1/24", "2016/1/25", "2013/1/28", "2013/1/29", "2013/1/30",
+                                                    var axisData = [data[0].date,
+                                                        "2016/1/24", "2016/1/25"];
+//                                                                "2013/1/28", "2013/1/29", "2013/1/30",
 //                                                        "2016/1/31", "2016/2/1", "2013/2/4", "2013/2/5", "2013/2/6",
 //                                                        "2016/2/7", "2016/2/8", "2013/2/18", "2013/2/19", "2013/2/20",
 //                                                        "2016/2/21", "2016/2/22", "2013/2/25", "2013/2/26", "2013/2/27",
@@ -270,7 +285,8 @@
 //                                                        "2016/5/23", "2016/5/24", "2013/5/27", "2013/5/28", "2013/5/29",
 //                                                        "2016/5/30", "2016/5/31", "2013/6/3", "2013/6/4", "2013/6/5",
 //                                                        "2016/6/6", "2016/6/7", "2013/6/13"
-                                                    ];
+//                                                    ];
+
 
                                                     var option = {
                                                         title : {
@@ -731,7 +747,7 @@
                                             </div>
                                         </div>
 
-                  <!--<div ng-controller="SearchCtrl">-->
+
                      <!--<form class="well form-search" >-->
                       <!--<label><font color="white">Search:</font></label>-->
                          <!--<input type="text" ng-model="keywords" class="input-medium search-query" placeholder="Keywords...">-->
@@ -757,6 +773,7 @@
                                             <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.turn_over;}}</font></pre>
                                             <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.pe_ttm;}}</font></pre>
                                             <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.pb;}}</font></pre>
+
                                                 <!--<pre ng-model="result">-->
                                                     <!--{{result.date}}-->
 <!---->
