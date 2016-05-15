@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <script src="http://code.angularjs.org/angular.js"></script>
+    <script src="search.js"></script>
+    <!--<script src="kLineChart.js"></script>-->
+</head>
+<body ng-controller="SearchCtrl">
+
+<div>
+<form class="well form-search" >
+<label><font color="white">Search:</font></label>
+<input type="text" ng-model="keywords" class="input-medium search-query" placeholder="Keywords...">
+<input type="text" ng-model="startTime" class="input-medium search-query" placeholder="startTime...">
+<input type="text" ng-model="endTime" class="input-medium search-query" placeholder="endTime...">
+<!--<button type="submit" class="btn" ng-click="KlineDataList()">Search</button>-->
+</form>
+
+<div id="context" ng-model="kLineResult">
+<!--{{kLineResult}}-->
+</div>
+
+</div>
+
+<div id="main1" style="height:300px;width:800px;"></div>
+<div id="main2"  style="height:250px;width:800px;"></div>
+<div id="main3"  style="height:200px;width:800px;"></div>
+<!--<script src="search.js"></script>-->
+<script src="build/dist/echarts.js"></script>
+<script src="kLineChart.js"></script>
+<!-- ECharts单文件引入 -->
+<!--<script src="build/dist/echarts.js"></script>-->
+<!--<script src="kLineChart.js"></script>-->
+<script src="../homePage/js/jquery/jquery.min.js"></script>
+<script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
+<script src="../homePage/js/bootstrap/bootstrap.js"></script>
+<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
+<script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+<script src="../homePage/js/king-common.js"></script>
+<script src="../homePage/js/deliswitch.js"></script>
+<script src="../homePage/js/zerif.js"></script>
+<script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+</body>
+</html>
