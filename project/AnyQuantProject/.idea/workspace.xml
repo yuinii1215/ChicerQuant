@@ -2,10 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c595e85-bf2b-472a-96f8-22a7943ef27c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/News.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/daily/CalculateCore.java" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/daily/CalculateCore.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/daily/SetupSQL.java" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/daily/SetupSQL.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/homePage/css/skin/img/new_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/homePage/css/skin/origin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockUI/angular.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockUI/jquery-1.8.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockUI/kLine.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockUI/kLineChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockUI/search.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/.idea/workspace.xml" afterPath="$PROJECT_DIR$/src/main/java/webProject/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/favoritePage/favoritePage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/favoritePage/favoritePage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/homePage/css/main.css" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/homePage/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/homePage/home.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/homePage/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockUI/singleStockUI.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockUI/singleStockUI.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/stocksComparePage/stocksComparePage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/stocksComparePage/stocksComparePage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/myVerticle/RouterVerticle.java" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/myVerticle/RouterVerticle.java" />
     </list>
     <ignored path="AnyQuantProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -127,10 +146,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-49" />
+    <option name="x" value="121" />
     <option name="y" value="23" />
     <option name="width" value="1456" />
-    <option name="height" value="807" />
+    <option name="height" value="805" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -679,7 +698,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-49" y="23" width="1456" height="807" extended-state="0" />
+    <frame x="121" y="23" width="1456" height="805" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -690,7 +709,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29539296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29539296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16395664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
