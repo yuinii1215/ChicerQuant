@@ -13,30 +13,40 @@ require(
         'echarts/chart/line'
     ],
     function (ec) {
-        //var appElement=document.querySelector("[ng-controller=SearchCtrl]");
-        //var $scope = angular.element(appElement).scope();
-        //var kLineData=$scope.KlineDataList();
+
 
 /*使用外部的js调用angularjs控制器中的方法!!!!!!!!!!!*/
-
         var element=angular.element(document.getElementById("main1"));
         var controller = element.controller();
         var $scope = element.scope();
-        var kData=$scope.test;
-        console.log(kData);
-        //var test=angular.element(document.getElementById("context"));
-        //var KDatafunc = $scope.KlineDataList;/*返回了整个function()*/
+        var next=element.$$ChildScope;
 
-        //console.log(test[0]);
-        //var K=KDataList[0];
+
+        //var func=$scope.KlineDataList();
+        //var kData=$scope.test;
+
+
+        //var element2=document.getElementById("context");
+
+      //  var test =localStorage.result;
+     //   var test2=element2.innerHTML;
+        console.log(next);
+       // document.write(test);
 
         // 基于准备好的dom，初始化echarts图表
         var myChart = ec.init(document.getElementById('main1'));
         var myChart2 = ec.init(document.getElementById('main2'));
         var myChart3 = ec.init(document.getElementById('main3'));
 
-        var axisData = [
-            kData[0].date, kData[1].date,  kData[2].date, kData[3].date, kData[4].date, kData[5].date];
+        //var axisData = [
+        //    kData[0].date, kData[1].date,  kData[2].date, kData[3].date, kData[4].date, kData[5].date];
+
+        var axisData=[element2[0].date];
+
+        //for(var item in axisData){
+        //    axisData[item]=kData[item].date;
+        //}
+
 
         var option = {
             title: {

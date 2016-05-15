@@ -4,5 +4,5 @@
 function toSingleStockPage() {
     var parm1=document.getElementById("stockID").value;
     localStorage.singleStockID=parm1;
-    window.location.href="../singleStockPage/singleStockPage.html";
+    window.location.href="../singleStockUI/kLine.html";
 }
