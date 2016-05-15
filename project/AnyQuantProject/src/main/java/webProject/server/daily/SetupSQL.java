@@ -20,29 +20,30 @@ import AnyQuantProject.util.method.IOHelper;
 
 
 public class SetupSQL {
-	static{
-		id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
-		chn = (Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
-		indu = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
-	}
+
 	static List<String> id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);;
-	static Map<String, String> chn;
-	static Map<String, String> indu;
-	public static void main(String[] args) throws SQLException {
-		Connection connection=getConn();
+	static Map<String, String> chn=(Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+	static Map<String, String> indu=(Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+	public static void main(String[] args) {
+		try {
+			Connection connection=getConn();
 //		Calendar calendar=CalendarHelper.convert2Calendar(args[0]);
 //		DailySQL.dailyStock(connection,calendar);
-		industry_stock(connection);
-		setup(connection);
+			industry_stock(connection);
+			setup(connection);
 //		Del.delStock(id, connection, calendar);
-		try {
-			SetupBenchMark.SetupBenchMark(connection);
-		} catch (Exception e) {
-			// TODO: handle exception
+			try {
+				SetupBenchMark.SetupBenchMark(connection);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+
+			connection.close();
+		}
+		catch (Exception e){
 			e.printStackTrace();
 		}
-		
-		connection.close();
 	}
 	
 	public static void industry(Connection connection){
@@ -76,7 +77,6 @@ public class SetupSQL {
 		calendar.set(2005, 1, 1);
 		Calendar se=Calendar.getInstance();
 		//
-		List<String> id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
 		
 		for (int i = 0; i < id.size(); i++) {
 			String stockid=id.get(i);

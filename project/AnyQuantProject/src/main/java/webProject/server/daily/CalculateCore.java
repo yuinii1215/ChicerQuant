@@ -29,14 +29,10 @@ import AnyQuantProject.util.method.IOHelper;
 
 
 public class CalculateCore {
-	static{
-		id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
-		chn = (Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
-		indu = (Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
-	}
-	static List<String> id;
-	static Map<String, String> chn;
-	static Map<String, String> indu;
+
+	static List<String> id=SetupSQL.id;
+	static Map<String, String> chn=SetupSQL.chn;
+	static Map<String, String> indu=SetupSQL.indu;
 	
 	public static List<Stock> initBase(String id,Calendar min,Calendar max) throws NetFailedException{
 		Calendar usemin=Calendar.getInstance();
