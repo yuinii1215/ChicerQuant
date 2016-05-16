@@ -13,20 +13,16 @@ require(
         'echarts/chart/line'
     ],
     function (ec) {
-        var realstatus,realdata;
-        /*使用外部的js调用angularjs控制器中的方法!!!!!!!!!!!*/
+var realstatus,realdata;
+/*使用外部的js调用angularjs控制器中的方法!!!!!!!!!!!*/
         var element=angular.element(document.getElementById("main1"));
         //var $scope = element.scope().$$childTail;
         var $scope = element.scope();
         //var $scope = element.module
         var STR=JSON.stringify($scope.ktest);
         var kchartData;
-        var axisData;
-        //=kchartData;
-
         setTimeout(function(){
             kchartData=$scope.kLineResult;
-            axisData=kchartData[0].date;
             console.log(kchartData);
             //console.log($scope.kLineResult[0].date);
         },2000);
@@ -36,8 +32,7 @@ require(
         var myChart2 = ec.init(document.getElementById('main2'));
         var myChart3 = ec.init(document.getElementById('main3'));
 
-        //var axisData=kchartData;
-
+        var axisData=kchartData;
         //    kData[0].date, kData[1].date,  kData[2].date, kData[3].date, kData[4].date, kData[5].date];
         //
         //var axisData=[str[0].date];
@@ -45,7 +40,7 @@ require(
         //for(var item in kchartData){
         //    axisData[item]=kchartData[item].date;
         //}
-        //console.log(axisData);
+        console.log(axisData);
 
 
         var option = {
