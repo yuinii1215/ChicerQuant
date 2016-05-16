@@ -7,7 +7,7 @@ package webProject.server.daily;
 public class Q {
 	
 	
-	public static final String Create="CREATE TABLE ";
+	public static final String Create="CREATE TABLE IF NOT EXISTS ";
 	static class Bench{
 		public static final String truncate="TRUNCATE TABLE benchmark;";
 		public static final String create="CREATE TABLE IF NOT EXISTS benchmark ( "
@@ -211,9 +211,10 @@ public class Q {
 				+ "pure double default 0 , "
 				+ "total double default 0 , "
 				+ "companySum int default 0 , "
-				+ "leader varchar(30), "
+				+ "leader varchar(10), "
+				+ "leaderName varchar(20), "
 				+ "leaderPrice double default 0 , "
-				+ "leaderUpdowm double default 0 , "
+				+ "leaderUpdown double default 0 , "
 				+ "primary key(date) "
 				+ ") "
 				+ "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
@@ -230,12 +231,25 @@ public class Q {
 				+ "total , "
 				+ "companySum , "
 				+ "leader , "
+				+ "leaderName , "
 				+ "leaderPrice , "
 				+ "leaderUpdown ) "
 				+ "VALUES ( "
 				+ "? , ? , ? , ? , ? , ? , ? , "
-				+ "? , ? , ? , ? , ? , ? , ?"
+				+ "? , ? , ? , ? , ? , ? , ? , ? "
 				+ ");";
+		public static final String selectStock="SELECT "
+				+ "open , "
+				+ "high , "
+				+ "close , "
+				+ "low , "
+				+ "volumn , "
+				+ "adj_price , "
+				+ "pe_ttm , "
+				+ "pb , "
+				+ "stock_name "
+				+ "FROM ";
+		public static final String seleTail=" where date = ? ;";
 	}
 	
 	public static final String tailBase=" ("

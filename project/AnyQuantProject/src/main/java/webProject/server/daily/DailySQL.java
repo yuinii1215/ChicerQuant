@@ -28,9 +28,9 @@ import AnyQuantProject.util.method.IOHelper;
 */
 public class DailySQL {
 	
-	static List<String> id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
-	static Map<String, String> chn=(Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
-	static Map<String, String> indu=(Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+	static List<String> id;
+	static Map<String, String> chn;
+	static Map<String, String> indu;
 	
 	
 	public static void dailyStock(Connection connection,Calendar now){
