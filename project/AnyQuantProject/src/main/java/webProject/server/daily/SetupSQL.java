@@ -55,6 +55,7 @@ public class SetupSQL {
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -269,7 +270,6 @@ public class SetupSQL {
 		calendar.set(2005, 1, 1);
 		Calendar se=Calendar.getInstance();
 		//
-		List<String> id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);
 		
 		for (int i = 0; i < id.size(); i++) {
 			String stockid=id.get(i);
@@ -289,7 +289,9 @@ public class SetupSQL {
 	//
 	private static Connection getConn(){
 		String driver="com.mysql.cj.jdbc.Driver";
-		String url="jdbc:mysql://10.66.115.75:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+//		String url="jdbc:mysql://10.66.115.75:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+
+		String url="jdbc:mysql://10.66.171.146:3306/chicer?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 		String username="chicer";
 		String password="chicer2016";
 		Connection conn = null;
