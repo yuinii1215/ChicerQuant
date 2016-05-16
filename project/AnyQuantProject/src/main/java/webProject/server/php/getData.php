@@ -9,6 +9,7 @@
 
 
 require_once('db_login.php');
+header("Content-Type: text/json;charset=utf8");
 
 
 function getDBConnection()
@@ -85,9 +86,10 @@ function getStockByName($name, $date)
 //        $_date = $date;
 //    }
 
- $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volumn,adj_price,turnover,pe_ttm,pb,industry from today where stock_id = :stock_name");
-        $stmt->bindParam(':stock_name', $_stock_name);
-        $_stock_name = $name;
+
+    $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volumn,adj_price,turnover,pe_ttm,pb,industry from ".$name." where date = :date");
+    $stmt->bindParam(':date', $_date);
+    $_date = $date;
     return execQuery($connection,$stmt);
 }
 
@@ -113,7 +115,9 @@ function checkTableNameValid($tablename)
 
 //echo getStockByName("sh600000",date('Y-m-d',strtotime('2016-05-10')));
 //checkTableNameValid("sh600000");
-
+//$connection = getDBConnection();
+//$stmt = $connection ->prepare("select * from benchmark");
+//echo execQuery($connection, $stmt);
 function getStockAmongDate($name, $startdate, $enddate)
 {
 //    $datearr = getAmongDates($startdate, $enddate);
@@ -154,7 +158,7 @@ function getBenchMarkByName($name, $date)
 //    return execQuery($query);
 
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price from  sh000300 where date =  :datetime");
+    $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price from  benchmark where date =  :datetime");
     $stmt->bindParam(':datetime', $_date);
     $_date = $date;
     return execQuery($connection,$stmt);
@@ -165,13 +169,13 @@ function getBenchMarkByName($name, $date)
 function getBenchMarkAmongDate($name, $startdate, $enddate)
 {
 
-     $connection = getDBConnection();
-     $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price from benchmark where date between :startdate and :enddate");
-     $stmt->bindParam(':startdate', $_startdate);
-     $stmt->bindParam(':enddate', $_enddate);
-     $_startdate = $startdate;
-     $_enddate = $enddate;
-     return execQuery($connection,$stmt);
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price from benchmark where date between :startdate and :enddate");
+    $stmt->bindParam(':startdate', $_startdate);
+    $stmt->bindParam(':enddate', $_enddate);
+    $_startdate = $startdate;
+    $_enddate = $enddate;
+    return execQuery($connection,$stmt);
 }
 
 //echo getBenchMarkAmongDate("sh000300",date('Y-m-d',strtotime('2016-05-04')), date('Y-m-d',strtotime('2016-05-10')));
@@ -293,7 +297,7 @@ function getpoly($name, $date)
 function getAllIndustries()
 {
     $connection = getDBConnection();
-   $stmt = $connection->prepare("select distinct industry from industry_stock where stock_id <> 'sh000300'");
+    $stmt = $connection->prepare("select distinct industry from industry_stock where stock_id <> 'sh000300'");
     return execQuery($connection,$stmt);
 }
 
@@ -352,13 +356,13 @@ function execQuery($connection, $stmt)
     $arr = array('retmsg'=>'success');
     $json_string = json_encode($arr);
 //    $json_string = json_encode(array());
-    while ($result_row = $stmt->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
-         $arr[] = $result_row;
-     }
-     $connection = null;
-     $stmt = null;
-     $json_string = json_encode($arr,JSON_UNESCAPED_UNICODE);
-     return $json_string;
+    while ($result_row = $stmt->fetch(PDO::FETCH_OBJ, PDO::FETCH_ORI_NEXT)) {
+        $arr[] = $result_row;
+    }
+    $connection = null;
+    $stmt = null;
+    $json_string = json_encode($arr,JSON_UNESCAPED_UNICODE);
+    return $json_string;
 }
 
 function getNameByAge($age){
