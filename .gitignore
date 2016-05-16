@@ -5,7 +5,8 @@ target/*
 *.project
 .ideal/*
 .idea/*
-Debug/*
+*/Debug/*
+
 *.o
 *.cproject
 cserver
