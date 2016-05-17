@@ -30,23 +30,30 @@ public class SetupSQL {
 	
 	static List<String> id=(List<String>) IOHelper.read(R.CachePath	, R.StockNameFile);;
 	static Map<String, String> indu=(Map<String, String>) IOHelper.read(R.CachePath, R.IndustryNameFile);
+	static Map<String, String> chn=(Map<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
 	static Map<String, Double> share;
 	static Map<String, Double> guben;
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws Exception {
+		FactoryDATA factoryDATA=FactoryDATA.getInstance();
+		StockListDATAService service=factoryDATA.getStockListDATAService();
+		id=service.getAllStocks(Calendar.getInstance(), Exchange.SH);
+		id.addAll(service.getAllStocks(Calendar.getInstance(), Exchange.SZ));
 		Connection connection=getConn();
-		Calendar calendar=CalendarHelper.convert2Calendar(args[0]);
-		int i=Integer.parseInt(args[1]);
+//		Calendar calendar=CalendarHelper.convert2Calendar(args[0]);
+//		int i=Integer.parseInt(args[1]);
 //		DailySQL.dailyStock(connection,calendar);
-//		industry_stock(connection);
-//		setup(connection);
+		industry_stock(connection);
+		connection.close();
+		connection=getConn();
+		setup(connection);
 //		Del.delStock(id, connection, calendar);
-//		try {
-//			SetupBenchMark.SetupBenchMark(connection);
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-		industry(connection, calendar,i,args[2]);
+		try {
+			SetupBenchMark.SetupBenchMark(connection);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+//		industry(connection, calendar,i,args[2]);
 		connection.close();
 	}
 	private static void buildindustry(Connection connection,String name){
@@ -251,11 +258,11 @@ public class SetupSQL {
 			preparedStatement.executeUpdate();
 			//
 			for (String string : id) {
-//				String ch=chn.get(string);
+				String ch=chn.get(string);
 				String ind=indu.get(string);
 				PreparedStatement preparedStatement2=connection.prepareCall(Q.insertIndustry_Stock);
 				preparedStatement2.setString(1, string);
-//				preparedStatement2.setString(2, ch);
+				preparedStatement2.setString(2, ch);
 				preparedStatement2.setString(3, ind);
 				preparedStatement2.executeUpdate();
 			}
@@ -276,9 +283,11 @@ public class SetupSQL {
 			try {
 				List<Stock> data=CalculateCore.initBase(stockid, calendar, se);
 				createStockTable(connection, stockid);
+				connection.close();
+				connection=getConn();
 				insertStock(connection, stockid, data);
 				System.out.println(i+1+"/"+id.size()+" "+stockid+" completed");
-			} catch (NetFailedException e) {
+			} catch (SQLException |NetFailedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -312,6 +321,9 @@ public class SetupSQL {
 		String sql=Q.Create+tableName+Q.tailBase;
 //		System.out.println(sql);
 		try {
+			if (connection.isClosed()) {
+				connection=getConn();
+			}
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -328,6 +340,8 @@ public class SetupSQL {
 				try {
 					PreparedStatement preparedStatement=connection.prepareStatement(sql);
 					addbatch(preparedStatement, stocks.get(i));
+					connection.close();
+					connection=getConn();
 				} catch (Exception e) {
 					continue;
 				}
