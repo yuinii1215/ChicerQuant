@@ -30,7 +30,7 @@ require(
             kchartData=$scope.kLineResult;
             for(var item in kchartData){
                 axisData[item]=kchartData[item].date;
-                chart1Data[item]=[kchartData[item].open,kchartData[item].close,kchartData[item].high,kchartData[item].low];
+                chart1Data[item]=[kchartData[item].open,kchartData[item].close,kchartData[item].low,kchartData[item].high];
                 chart2Data[item]=kchartData[item].volumn;
             }
 
@@ -42,7 +42,7 @@ require(
 
             var option = {
                 title: {
-                text: '2016年腾讯科技',
+                //text: '2016年腾讯科技',
                     textStyle: {
                         color: '#000000',
                         fontSize: 20,
@@ -59,8 +59,9 @@ require(
                         return res;
                     }
                 },
+                color:['#00448a','#0580b9','#484891'],
                 legend: {
-                    data: ['上证指数', '成交金额(万)', '成交量'],
+                    data: ['K线', '成交量(万)', '统计指标'],
                     textStyle: {
                         color: '#000000',
                     },
@@ -68,6 +69,7 @@ require(
                     // 'center' ¦ 'left' ¦ 'right'
                     // ¦ {number}（x坐标，单位px）
                     y: 'top',
+
                 },
                 dataZoom: {
                     y: 250,
@@ -113,19 +115,21 @@ require(
                 ],
                 series: [
                     {
-                        name: '腾讯科技',
+                        name: 'K线',
                         type: 'k',
-                        data:  chart1Data// 开盘，收盘，最低，最高
+                        data:  chart1Data,// 开盘，收盘，最低，最高
+                        itemStyle: {normal: {color:'#ae0000', label:{show:true}}}
                     },
                     {
-                        name: '成交金额(万)',
+                        name: '成交量(万)',
                         type: 'line',
                         symbol: 'none',
                         data: []
                     },
                     {
-                        name: '成交量',
+                        name: '统计指标',
                         type: 'bar', data: []
+
                     }
 
                 ]
@@ -137,7 +141,7 @@ require(
                 },
                 legend: {
                     y: -30,
-                    data: ['上证指数', '成交金额(万)', '成交量']
+                    data: ['K线', '成交量(万)', '统计指标']
                 },
                 toolbox: {
                     y: -30,
@@ -202,7 +206,7 @@ require(
                 ],
                 series: [
                     {
-                        name: '成交金额(万)',
+                        name: '成交量(万)',
                         type: 'line',
                         symbol: 'none',
                         data: chart2Data,
@@ -234,10 +238,10 @@ require(
                     trigger: 'axis',
                     showDelay: 0             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
                 },
-                legend: {
-                    y: -30,
-                    data: ['上证指数', '成交金额(万)', '成交量']
-                },
+                //legend: {
+                //    y: -30,
+                //    data: ['上证指数', '成交金额(万)', '成交量']
+                //},
                 toolbox: {
                     y: -30,
                     show: true,
@@ -305,8 +309,7 @@ require(
                         type: 'bar',
                         symbol: 'none',
                         data: [
-                            kData[0].volumn, kData[1].volumn,  kData[2].volumn, kData[3].volumn, kData[4].volumn, kData[5].volumn
-                        ],
+                            kData[0].volumn, kData[1].volumn,  kData[2].volumn, kData[3].volumn, kData[4].volumn, kData[5].volumn],
                         markLine: {
                             symbol: 'none',
                             itemStyle: {
@@ -320,7 +323,8 @@ require(
                             data: [
                                 {type: 'average', name: '平均值'}
                             ]
-                        }
+                        },
+                        itemStyle: {normal: {color:'#484891', label:{show:true}}},
                     }
                 ]
             };
@@ -329,6 +333,7 @@ require(
             myChart.setOption(option);
 
             // 为echarts对象加载数据
+
             myChart.connect([myChart2, myChart3]);
             myChart2.connect([myChart, myChart3]);
             myChart3.connect([myChart, myChart2]);
