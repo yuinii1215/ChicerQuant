@@ -30,6 +30,8 @@ public class SetupSQL {
 //		Calendar calendar=CalendarHelper.convert2Calendar(args[0]);
 //		DailySQL.dailyStock(connection,calendar);
 			industry_stock(connection);
+			connection.close();
+			connection=getConn();
 			setup(connection);
 //		Del.delStock(id, connection, calendar);
 			try {
@@ -84,8 +86,10 @@ public class SetupSQL {
 				List<Stock> data=CalculateCore.initBase(stockid, calendar, se);
 				createStockTable(connection, stockid);
 				insertStock(connection, stockid, data);
+				connection.close();
+				connection=getConn();
 				System.out.println(i+1+"/"+id.size()+" "+stockid+" completed");
-			} catch (NetFailedException e) {
+			} catch (SQLException |NetFailedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -133,6 +137,10 @@ public class SetupSQL {
 				try {
 					PreparedStatement preparedStatement=connection.prepareStatement(sql);
 					addbatch(preparedStatement, stocks.get(i));
+					if (i%20==0){
+						connection.close();
+						connection=getConn();
+					}
 				} catch (Exception e) {
 					continue;
 				}

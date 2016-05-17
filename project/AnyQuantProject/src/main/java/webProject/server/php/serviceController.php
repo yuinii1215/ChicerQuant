@@ -125,6 +125,18 @@ switch ($method)
     case "getIndustryService":
         getIndustryService($objData->industry_name,$objData->date);
         break;
+    case "getDayLineService":
+        getDayLineService($objData->name,$objData->startdate,$objData->enddate);
+        break;
+    case "getWeekLineService":
+        getWeekLineService($objData->name,$objData->startdate,$objData->enddate);
+        break;
+    case "getMonthLineService":
+        getMonthLineService($objData->name,$objData->startdate,$objData->enddate);
+        break;
+    case "getPolyAmongDateService":
+        getPolyAmongDateService($objData->name,$objData->startdate,$objData->enddate);
+        break;
     default :
         echo json_encode("no such method");
 }

@@ -258,6 +258,33 @@ require_once ('getData.php');
         echo $jsonstring;
     }
 
+
+     //输入: 股票或大盘名和日期区间
+    function getDayLineService($name, $startdate, $enddate){
+        $jsonstring = getDayLine($name, $startdate, $enddate);
+        echo $jsonstring;
+    }
+
+
+     //输入: 股票或大盘名和日期区间
+     function getWeekLineService($name, $startdate, $enddate){
+         $jsonstring = getWeekLine($name, $startdate, $enddate);
+         echo $jsonstring;
+     }
+
+
+     //输入: 股票或大盘名和日期区间
+     function getMonthLineService($name, $startdate, $enddate){
+          $jsonstring = getMonthLine($name, $startdate, $enddate);
+          echo $jsonstring;
+     }
+
+
+     //输入: 股票或大盘名和日期区间
+     function getPolyAmongDateService($name, $startdate, $enddate){
+           $jsonstring = getPolyAmongDate($name, $startdate, $enddate);
+           echo $jsonstring;
+     }
     /**
      *
      * 模块五:   得到行业数据
@@ -286,6 +313,8 @@ require_once ('getData.php');
         $jsonstring = getIndustry($industry_name,$date);
         echo $jsonstring;
     }
-    
+
+
+
 
 ?>
