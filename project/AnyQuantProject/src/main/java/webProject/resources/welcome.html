@@ -10,13 +10,6 @@
         body{ width:100%;}
         #wrap{ background-repeat: repeat; margin:0 auto; width:100%;overflow:auto;min-width:1349px;}
         #header{position:fixed; z-index:999; background:#000;opacity:0.65; height:50px; width:100%;}
-        #mainbody{ opacity:0.8;  height:800px; width:100%;}
-
-        #title{  position: fixed; background:#fffccc; z-index:999; min-width:1000px; margin:150px 200px 100px 200px; text-align:center; }
-        #button{ position: fixed; background:#fffccc;  z-index:999;margin:400px 220px;padding:20px 400px 100px 400px; text-align:center; }
-        #footer{  background:#000;opacity:0.6; height:40px; width:100%}
-
-
     </style>
 
     <script type="text/javascript">
@@ -31,7 +24,7 @@
     <link rel="stylesheet" href="css/canvas.css">
     <link rel="stylesheet" href="css/style.css">
      <link rel="stylesheet" href="css/button.css">
-
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- WEBFONT -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
@@ -64,21 +57,16 @@
             <!-- =========================
                 MAINBODY
             ============================== -->
-            <div id="mainbody">
                 <div id="canvas">
-                    <div id ="title" style="align:center;">
-                        <h1 class="f1" style="text-align: center; font-size: 90px; font-weight: bold; color: #FFF; font-family: Lato, Book Antiqua, Palatino, serif;">Chicer Team</h1>
-                        <h2 class="f2" style="text-align: center; margin-top:20px; color: #FFF; font-family:Lato, SimSun; font-size: 40px; ">股 票 分 析 策 略</h2>
+                    <div id="main_header_content">
+                         <p id="main_header_text">
+                                                                              股 票 分 析 策 略<br>
+                             Your own stock manager<br>
+                         </p>
+                      <a id="main_header_btn" class="btn"  > <button   class="button  button-block button-inverse button-rounded button-jumbo"  onclick=javascript:enter(); >enter</button></a>
                     </div>
-                  
-                    <div id ="button">
-                      <!--   <a href="../homePage/home.html"> <button id="enterBtn"; class="enterBtn" ng-click="enter()"> 进入</button></a> 
-                        <button id="enterBtn"; class="enterBtn"  onclick=javascript:enter()> 进入</button>-->
-                          <button  class="button  button-block button-inverse button-rounded button-jumbo"  onclick=javascript:enter(); >enter</button>
-                    </div>
-
                 </div>
-            </div>
+
     <!-- / END HOME SECTION  -->
             <!-- =========================
              FOOTER
@@ -108,7 +96,7 @@
     ============================== -->
     <script src="js/jquery.min.js"></script>
     <script src="js/angular.js"></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js'></script>
+    <script src='js/three.min.js'></script>
     <script src="js/zerif.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/button.js"></script>

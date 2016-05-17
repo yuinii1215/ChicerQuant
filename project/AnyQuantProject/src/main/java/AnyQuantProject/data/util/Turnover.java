@@ -55,7 +55,7 @@ public class Turnover {
             response = httpClient.execute(httpGet);
             HttpEntity entity = response.getEntity();
             body = EntityUtils.toString(entity);
-            System.out.println(body);
+//            System.out.println(body);
         } catch (IOException e) {
             throw new NetFailedException("TL net connect failed");
         }
@@ -64,7 +64,7 @@ public class Turnover {
         JSONObject jo = JSONObject.fromObject(body);
         JSONArray arr = JSONArray.fromObject(jo.get("data"));
         if (! arr.get(0).getClass().equals(net.sf.json.JSONNull.class)) {
-            System.out.println(((JSONObject) arr.get(0)).get("totalShares").getClass());
+//            System.out.println(((JSONObject) arr.get(0)).get("totalShares").getClass());
             try {
                 totalShares = (long) ((JSONObject) arr.get(0)).get("totalShares");
             } catch (ClassCastException e) {

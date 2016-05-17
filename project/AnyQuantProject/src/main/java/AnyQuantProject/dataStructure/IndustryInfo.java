@@ -1,6 +1,7 @@
 package AnyQuantProject.dataStructure;
 
 import java.text.DecimalFormat;
+import java.util.Calendar;
 
 /**
  * Created by G on 16/4/1.
@@ -13,8 +14,11 @@ public class IndustryInfo {
     int companySum;
     double price;
     String leader;
+    public String leadername;
     double leaderPrice;
     double leaderUpdown;
+    public double open,close,max,min;
+    public Calendar date;
     public void setCompanySum(int companySum) {
 		this.companySum = companySum;
 	}

@@ -7,6 +7,7 @@ import java.io.IOException;
 import org.apache.commons.io.IOUtils;
 
 import io.vertx.core.Handler;
+import io.vertx.core.buffer.Buffer;
 import io.vertx.ext.web.RoutingContext;
 import webProject.resources.Resources;
 
@@ -22,9 +23,9 @@ public class CSSHandler implements Handler<RoutingContext> {
 		String fileName=event.request().path();
 		fileName=fileName.substring(1);
 		try {
-			String css=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream(fileName)));
+			byte[] css=IOUtils.toByteArray(Resources.class.getResourceAsStream(fileName));
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "text/css").write(css).end();
+			event.response().putHeader("content-type", "text/css").write(Buffer.buffer(css)).end();
 //			System.out.println(fileName);
 		} catch (IOException|NullPointerException e) {
 			event.response().setChunked(true);

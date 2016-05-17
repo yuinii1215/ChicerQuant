@@ -3,4 +3,13 @@ target/*
 *.classpath
 .settings/*
 *.project
+.ideal/*
+.idea/*
+*/Debug/*
+
+*.o
+*.cproject
+cserver
+*.d
+*.mk
 

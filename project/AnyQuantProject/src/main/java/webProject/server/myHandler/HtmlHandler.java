@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.apache.commons.io.IOUtils;
 
 import io.vertx.core.Handler;
+import io.vertx.core.buffer.Buffer;
 import io.vertx.ext.web.RoutingContext;
 import webProject.resources.Resources;
 
@@ -20,11 +21,10 @@ public class HtmlHandler implements Handler<RoutingContext>{
 	public void handle(RoutingContext event) {
 		String loc=event.request().path();
 		loc=loc.substring(1);
-		System.out.println(loc);
 		try {
-			String html=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream(loc)));
+			byte[] html=IOUtils.toByteArray(Resources.class.getResourceAsStream(loc));
 			event.response().setChunked(true);
-			event.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("content-type", "text/html").write(html).end();
+			event.response().putHeader("content-type", "text/html").write(Buffer.buffer(html)).end();
 		} catch (IOException|NullPointerException e) {
 			event.response().setChunked(true);
 			event.response().end("resources unavaliable");

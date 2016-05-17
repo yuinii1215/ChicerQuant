@@ -7,6 +7,7 @@ import org.apache.commons.io.IOUtils;
 
 
 import io.vertx.core.Handler;
+import io.vertx.core.buffer.Buffer;
 import io.vertx.ext.web.RoutingContext;
 import webProject.resources.Resources;
 
@@ -22,9 +23,9 @@ public class JSHandler implements Handler<RoutingContext> {
 		String fileName=event.request().path();
 		fileName=fileName.substring(1);
 		try {
-			String js=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream(fileName)));
+			byte[] js=IOUtils.toByteArray(Resources.class.getResourceAsStream(fileName));
 			event.response().setChunked(true);
-			event.response().putHeader("Access-Control-Allow-Origin", "*").putHeader("content-type", "text/javascript").write(js).end();
+			event.response().putHeader("content-type", "text/javascript").write(Buffer.buffer(js)).end();
 		} catch (IOException|NullPointerException e) {
 			event.response().setChunked(true);
 			event.response().end("resources unavaliable");
