@@ -37,15 +37,11 @@ public class SetupSQL {
 		Calendar calendar=CalendarHelper.convert2Calendar(args[0]);
 		int i=Integer.parseInt(args[1]);
 //		DailySQL.dailyStock(connection,calendar);
-<<<<<<< HEAD
 			industry_stock(connection);
 			connection.close();
 			connection=getConn();
 			setup(connection);
-=======
-//		industry_stock(connection);
-//		setup(connection);
->>>>>>> cf0c140b161442ad48973c4a6c9dc34f8ae8e5a3
+
 //		Del.delStock(id, connection, calendar);
 //		try {
 //			SetupBenchMark.SetupBenchMark(connection);
