@@ -254,39 +254,107 @@
                             <h2>关注</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content">
+                        <div class="main-content"  >
                             <!--row example-->
-                            <div class="row">
-                                <!--row1-->
-                                <div class="col-md-9">
-                                    <div class="widget widget-hide-header">
-                                        <div class="widget-header hide"> <h3>row example1</h3></div>
-                                        <div class="widget-content">
-                                            <!-- content-->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--row2-->
-                                <div class="col-md-3">
-
-                                </div>
-                            </div>
-
-                            <div class="widget">
+                            <div class="widget widget-table">
                                 <div class="widget-header">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <h3><i class="fa fa-group"></i>关注</h3> <em>- List of concerned stocks</em>
                                     <div class="btn-group widget-header-toolbar">
-                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
+                    <!--                <div class="widget-header-toolbar">
+                                        <div class="label label-danger"><i class="fa fa-warning"></i> 2 Critical Messages</div>
+                                    </div>-->
                                 </div>
                                 <div class="widget-content">
-                                    <!-- content-->
+                                    <table id="ticket-table" class="table table-sorting" >
+                                        <thead>
+                                        <tr>
+                                            <th>股票代码</th>
+                                            <th>股票简称</th>
+                                            <th>开盘价</th>
+                                            <th>最高价</th>
+                                            <th>最低价</th>
+                                            <th>收盘价</th>
+                                            <th>成交量</th>
+                                            <th>后复权价</th>
+                                            <th>换手率</th>
+                                            <th>市盈率</th>
+                                            <th>市净率</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><a href="#">[#18765]</a></td>
+                                            <td>Nov 21, 2013 15:45</td>
+                                            <td>Front-End Site</td>
+                                            <td>Smith</td>
+                                            <td><a href="#">Product Review Problem</a></td>
+                                            <td><span class="label label-high">#4 - High</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">[#18766]</a></td>
+                                            <td>Nov 21, 2013 16:12</td>
+                                            <td>Technical Support</td>
+                                            <td>Sean</td>
+                                            <td><a href="#">Can't Download the Guide Doc</a></td>
+                                            <td><span class="label label-medium">#5 - Medium</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">[#18767]</a></td>
+                                            <td>Nov 21, 2013 16:43</td>
+                                            <td>General Info</td>
+                                            <td>Jane Doe</td>
+                                            <td><a href="#">Regarding Customer Support</a></td>
+                                            <td><span class="label label-medium">#5 - Medium</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">[#18768]</a></td>
+                                            <td>Nov 22, 2013 08:24</td>
+                                            <td>General Info</td>
+                                            <td>Smith</td>
+                                            <td><a href="#">Can't Change My Address</a></td>
+                                            <td><span class="label label-urgent">#3 - Urgent</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">[#18769]</a></td>
+                                            <td>Nov 22, 2013 08:30</td>
+                                            <td>Sales</td>
+                                            <td>Smith</td>
+                                            <td><a href="#">Review Tab Malfunction</a></td>
+                                            <td><span class="label label-low">#6 - Low</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">[#18770]</a></td>
+                                            <td>Nov 22, 2013 08:47</td>
+                                            <td>Front-End Site</td>
+                                            <td>John Doe</td>
+                                            <td><a href="#">Broken Link</a></td>
+                                            <td><span class="label label-emergency">#2 - Emergency</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">[#18771]</a></td>
+                                            <td>Nov 23, 2013 14:08</td>
+                                            <td>Sales</td>
+                                            <td>Jack</td>
+                                            <td><a href="#">Need Info About My Order Status</a></td>
+                                            <td><span class="label label-critical">#1 - Critical</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">[#18772]</a></td>
+                                            <td>Nov 23, 2013 17:45</td>
+                                            <td>Techincal Support</td>
+                                            <td>Darren</td>
+                                            <td><a href="#">Bouncing Email</a></td>
+                                            <td><span class="label label-critical">#1 - Critical</span></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
+                            <!-- END WIDGET TICKET TABLE -->
 
                         </div>
                         <!-- /main-content -->
@@ -344,7 +412,7 @@
             <button type="button" class="switch-skin-full fullbright" data-skin="../homePage/css/skin/fullbright.css">Full Bright</button>
         </section>
         <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
-        <p><a href="../singleIndustryPage/singleIndustryPage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
+        <p><a href="../favoritePage/favoritePage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
     </form>
     <script type="text/javascript">
         var currentFilename = window.location.pathname.split('/').pop();

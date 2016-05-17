@@ -5,14 +5,7 @@
 body {
     border-color: transparent;
    background: #ececec;
-    color:#EEEEEE;
-}
 
-a {
-    color: #f1f1f1;
-}
-a:hover, a:focus {
-    color: #eeeeee;
 }
 
 /* top bar */
@@ -123,8 +116,10 @@ ul.main-menu .sub-menu li.active > a {
 
 /* widget */
 .widget {
+    background-color: #f9f9f9;
     border-color:lightgray;
 }
+
 .widget .widget-header {
     background-color: #474647;
     border-bottom-color:lightgray ;
@@ -160,7 +155,7 @@ ul.main-menu .sub-menu li.active > a {
 }
 .breadcrumb a{
     /*中间部分字体颜色*/
-    color: #eeeeee;
+    color: #ffffff;
 }
 
 /* main content */
