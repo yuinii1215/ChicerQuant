@@ -1,6 +1,6 @@
 var app=angular.module('myApp',[]);
 app.controller("SearchCtrl", function($scope, $http, MyCache) {
-    $scope.url = 'http://115.159.106.212/php/serviceController.php'; // The url of our search
+    $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
     //
     //// The function that will be executed on button click (ng-click="search()")
     //$scope.singleStockInfo = function() {
@@ -30,7 +30,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     $http.post($scope.url, {
         "name": localStorage.singleStockID,
         "startdate": "2015-01-01",
-        "enddate": "2015-01-10",
+        "enddate": "2015-03-10",
         "method": "getStockAmongDateService"
     }).success(function (data, status) {
             $scope.status = status;
