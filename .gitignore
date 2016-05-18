@@ -10,4 +10,4 @@ target/*
 cserver
 *.d
 *.mk
-
+!*.c
