@@ -13,22 +13,26 @@
     <meta name="description" content="KingAdmin - Bootstrap Admin Dashboard Theme">
     <meta name="author" content="The Develovers">
     <!-- CSS -->
+    <link href="../singleIndustryPage/css/up.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../homePage/css/preloader.css">
+   <link href="css/up.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
 
+    <!--headerjs-->
+    <script src="../homePage/js/angularjs/angular-1.0.7.js"></script>
 </head>
 
-<body >
+<body ng-app="myIndustryApp">
 
 <!-- =========================
  PRE LOADER
  ============================== -->
+<div class="status">&nbsp;</div>
 <div class="preloader">
-    <div class="status">&nbsp;</div>
 </div>
 
 <!-- WRAPPER -->
@@ -39,7 +43,7 @@
             <div class="row">
                 <!-- logo -->
                 <div class="col-md-2 logo"  >
-                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Chicer - your stock manager</a>
+                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Your stock manager</a>
                 </div>
                 <!-- end logo -->
 
@@ -152,7 +156,7 @@
                                     <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
                                     <li><a href="../stocksComparePage/stocksComparePage.html"><span class="text">多股票对比</span></a></li>
                                     <li><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
-                                    <li><a href="ui-elements-buttons.html"><span class="text">我的策略</span></a></li>
+                                    <li><a href="../strategyPage/strategyPage.html"><span class="text">我的策略</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -240,7 +244,7 @@
                         <div class="col-lg-4 ">
                             <!--head link-->
                             <ul class="breadcrumb">
-                                <li  class="active"><i class="fa fa-th-large"></i><a href="../singleIndustryPage/singleIndustryPage.html">行业信息</a></li>
+                                <li class="active"><i class="fa fa-th-large"></i><a href="../singleIndustryPage/singleIndustryPage.html">行业信息</a></li>
                                 <li ><a href="#">单行业详细信息</a></li>
 
                             </ul>
@@ -253,22 +257,72 @@
                             <h2>单行业详细信息</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content">
+                        <div class="main-content" >
                             <!--row example-->
                             <div class="row">
-                                <!--row1-->
-                                <div class="col-md-9">
-                                    <div class="widget widget-hide-header">
-                                        <div class="widget-header hide"> <h3>row example1</h3></div>
-                                        <div class="widget-content">
-                                            <!-- content-->
+                                <div class="category m_links">
+                                    <div class="cate_inner">
+                                        <div class="cate_group">
+                                            <span class="cate_letter">A~E</span>
+                                            <div class="cate_items">
+                                                <a href="#">传媒</a>
+                                                <a href="#">电子</a>
+                                                <a href="#">电气设备</a>
+                                                <a href="#">采掘</a>
+                                            </div>
+                                        </div>
+                                        <div class="cate_group">
+                                            <span class="cate_letter">F~I</span>
+                                            <div class="cate_items">
+                                                <a href="#">钢铁</a>
+                                                <a href="#">房地产</a>
+                                                <a href="#">公用事业</a>
+                                                <a href="#">化工</a>
+                                                <a href="#">非银金融</a>
+                                                <a href="#">国防军工</a>
+                                                <a href="#">纺织服务</a>
+                                            </div>
+                                        </div>
+                                        <div class="cate_group">
+                                            <span class="cate_letter">J~N</span>
+                                            <div class="cate_items">
+                                                <a href="#">交通运输</a>
+                                                <a href="#">机械设备</a>
+                                                <a href="#">家用电器</a>
+                                                <a href="#">计算机</a>
+                                                <a href="#">建筑材料</a>
+                                                <a href="#">农林牧鱼</a>
+                                            </div>
+                                        </div>
+                                        <div class="cate_group">
+                                            <span class="cate_letter">O~T</span>
+                                            <div class="cate_items">
+                                                <a href="#">汽车</a>
+                                                <a href="#">通信</a>
+                                                <a href="#">轻工制造</a>
+                                                <a href="#">商业贸易</a>
+                                                <a href="#">食品饮料</a>
+                                            </div>
+                                        </div>
+                                        <div class="cate_group">
+                                            <span class="cate_letter">U~Z</span>
+                                            <div class="cate_items">
+                                                <a href="#">医药生物</a>
+                                                <a href="#">休闲服务</a>
+                                                <a href="#">银行</a>
+                                                <a href="#">饮料制造</a>
+                                                <a href="#">有色金属</a>
+                                                <a href="#">综合</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!--row2-->
-                                <div class="col-md-3">
-
+                                <div class="cate_toggle_wrap">
+                                    <div class="cate_toggle">显示全部分类</div>
                                 </div>
+                       <!--         <div id="allModule" ng-controller="IndustryCtrl"><p>{{industry}}</p></div>-->
+                                <div><p></p></div>
+
                             </div>
 
                             <div class="widget">
@@ -373,8 +427,10 @@
 
 
 <!-- Javascript -->
-<script src="../homePage/js/jquery/jquery.min.js"></script>
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
+<script src="../singleIndustryPage/js/up.js" type="text/javascript"></script>
+<script src="../singleIndustryPage/js/thshy.js" type="text/javascript"></script>
+<script src="../singleIndustryPage/js/getIndustryName.js" type="text/javascript"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
@@ -382,6 +438,7 @@
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+
 </body>
 
 </html>
