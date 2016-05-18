@@ -4,6 +4,7 @@ function SearchCtrl($scope, $http) {
 
     // The function that will be executed on button click (ng-click="search()")
     $scope.search = function() {
+    	
 
         // Create the http post request
         // the data holds the keywords
