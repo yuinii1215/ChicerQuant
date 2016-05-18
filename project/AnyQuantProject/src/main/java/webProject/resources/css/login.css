@@ -1,0 +1,113 @@
+
+/*-- reset --*/
+*, *:after, *:before {
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+html {
+    font-size:62.75%;
+    font-family: Merriweather, Lato, sans-serif;
+}
+body {
+    font-size:1.6rem;
+    color: #333;
+}
+/*-- Login, Sign up display --*/
+div.tab {
+    display:inline-block;
+    width:45%;
+    transition: all ease .3s;
+    padding:2rem;
+    margin-bottom: 2rem;
+}
+div.tab h3{
+    margin:0;
+}
+
+/*-- content --*/
+.container img {
+    width:40%;
+    opacity: .9;
+}
+
+div.container {
+    width:50%;
+    margin:10% auto;
+    background-color: rgba(33, 33, 33, .5);
+    color: #efefef;
+    padding:1em;
+    text-align:center;
+}
+h1, h2, h3, h4, h5, p {
+    text-align:center;
+    margin-bottom:.5em;
+}
+
+/*-- form controls --*/
+input[class*="form"] {
+    width:50%;
+    margin: 0 auto;
+    border: 2px solid #eee;
+    border-radius: 3px;
+    padding:.3em;
+    margin-bottom: 5px;
+}
+fieldset {
+    border:none;
+}
+button {
+    border: none;
+    border-radius:3px;
+    padding:1rem 3rem;
+    background-color: #0066CC;
+    color: #fff;
+    font-size:1.2em;
+}
+button:hover {
+    transition: all ease .5s;
+    background-color: #454545;
+    color:#ffe4c5;
+    transition-origin:bottom;
+}
+input[type="radio"] {
+    display:none;
+}
+
+/*-- Login Section Animations --*/
+
+#login:checked ~ .container .log-in {
+    background:#333;
+    transition: all ease .3s;
+}
+#login:checked ~ .container .login-replace {
+    display:none;
+}
+#login:checked ~ .container .sign-up-replace {
+    display:block;
+}
+
+
+/*-- Sign up section Animations--*/
+#sign-up:checked ~ .container .sign-up {
+    background: #0066CC;
+    transition: all ease .3s;
+}
+#sign-up:checked ~ .container .sign-up-replace {
+    display:none;
+}
+#sign-up:checked ~ .container .login-replace {
+    display:block;
+}
+
+/*-- show sign-up hint Animations--*/
+#hint:checked ~ .container .sign-up {
+    background: #0066CC;
+    transition: all ease .3s;
+}
+#hint:checked ~ .container .sign-up-replace {
+    display:none;
+}
+#hint:checked ~ .container .login-replace {
+    display:block;
+}
