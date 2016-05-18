@@ -2,7 +2,7 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> [endif] -->
 <!--[if !(IE)]>
 <!-->
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" >
 <!--<![endif]-->
 
 <head>
@@ -20,10 +20,12 @@
     <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
 
-
+    <!--headerjs-->
+    <script src="../homePage/js/angularjs/angular-1.0.7.js"></script>
+    <script src="../favoritePage/js/initAllStockTable.js"></script>
 </head>
 
-<body >
+<body ng-app="myFavorApp">
 
 <!-- =========================
  PRE LOADER
@@ -40,7 +42,7 @@
             <div class="row">
                 <!-- logo -->
                 <div class="col-md-2 logo"  >
-                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Chicer - your stock manager</a>
+                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Your stock manager</a>
                 </div>
                 <!-- end logo -->
 
@@ -153,7 +155,7 @@
                                     <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
                                     <li><a href="../stocksComparePage/stocksComparePage.html"><span class="text">多股票对比</span></a></li>
                                     <li><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
-                                    <li><a href="ui-elements-buttons.html"><span class="text">我的策略</span></a></li>
+                                    <li><a href="../strategyPage/strategyPage.html"><span class="text">我的策略</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -250,6 +252,7 @@
 
                     <!-- main -->
                     <div class="content">
+
                         <div class="main-header">
                             <h2>关注</h2>
                             <em>the least information</em>
@@ -264,92 +267,25 @@
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
-                    <!--                <div class="widget-header-toolbar">
-                                        <div class="label label-danger"><i class="fa fa-warning"></i> 2 Critical Messages</div>
-                                    </div>-->
                                 </div>
-                                <div class="widget-content">
-                                    <table id="ticket-table" class="table table-sorting" >
+                                <div class="widget-content"  ng-controller="AllStockTableCtrl">
+                                    <table id="visit-stat-table" class="table table-sorting table-striped table-hover datatable">
                                         <thead>
-                                        <tr>
-                                            <th>股票代码</th>
-                                            <th>股票简称</th>
-                                            <th>开盘价</th>
-                                            <th>最高价</th>
-                                            <th>最低价</th>
-                                            <th>收盘价</th>
-                                            <th>成交量</th>
-                                            <th>后复权价</th>
-                                            <th>换手率</th>
-                                            <th>市盈率</th>
-                                            <th>市净率</th>
-                                        </tr>
+                                            <tr>
+                                                <th>股票代码</th> <!--id-->
+                                                <th>股票简称</th> <!--name-->
+                                                <th>开盘价</th>
+                                                <th>最高价</th>
+                                                <th>最低价</th>
+                                                <th>收盘价</th>
+                                                <th>成交量</th> <!--volum-->
+                                                <th>后复权价</th> <!--adj_price-->
+                                                <th>市盈率</th> <!--pe-->
+                                                <th>市净率</th> <!--pb-->
+                                            </tr>
                                         </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td><a href="#">[#18765]</a></td>
-                                            <td>Nov 21, 2013 15:45</td>
-                                            <td>Front-End Site</td>
-                                            <td>Smith</td>
-                                            <td><a href="#">Product Review Problem</a></td>
-                                            <td><span class="label label-high">#4 - High</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">[#18766]</a></td>
-                                            <td>Nov 21, 2013 16:12</td>
-                                            <td>Technical Support</td>
-                                            <td>Sean</td>
-                                            <td><a href="#">Can't Download the Guide Doc</a></td>
-                                            <td><span class="label label-medium">#5 - Medium</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">[#18767]</a></td>
-                                            <td>Nov 21, 2013 16:43</td>
-                                            <td>General Info</td>
-                                            <td>Jane Doe</td>
-                                            <td><a href="#">Regarding Customer Support</a></td>
-                                            <td><span class="label label-medium">#5 - Medium</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">[#18768]</a></td>
-                                            <td>Nov 22, 2013 08:24</td>
-                                            <td>General Info</td>
-                                            <td>Smith</td>
-                                            <td><a href="#">Can't Change My Address</a></td>
-                                            <td><span class="label label-urgent">#3 - Urgent</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">[#18769]</a></td>
-                                            <td>Nov 22, 2013 08:30</td>
-                                            <td>Sales</td>
-                                            <td>Smith</td>
-                                            <td><a href="#">Review Tab Malfunction</a></td>
-                                            <td><span class="label label-low">#6 - Low</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">[#18770]</a></td>
-                                            <td>Nov 22, 2013 08:47</td>
-                                            <td>Front-End Site</td>
-                                            <td>John Doe</td>
-                                            <td><a href="#">Broken Link</a></td>
-                                            <td><span class="label label-emergency">#2 - Emergency</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">[#18771]</a></td>
-                                            <td>Nov 23, 2013 14:08</td>
-                                            <td>Sales</td>
-                                            <td>Jack</td>
-                                            <td><a href="#">Need Info About My Order Status</a></td>
-                                            <td><span class="label label-critical">#1 - Critical</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">[#18772]</a></td>
-                                            <td>Nov 23, 2013 17:45</td>
-                                            <td>Techincal Support</td>
-                                            <td>Darren</td>
-                                            <td><a href="#">Bouncing Email</a></td>
-                                            <td><span class="label label-critical">#1 - Critical</span></td>
-                                        </tr>
+                                        <tbody id="tableBody">
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -358,6 +294,7 @@
 
                         </div>
                         <!-- /main-content -->
+
                     </div>
                     <!-- /main -->
 
@@ -412,7 +349,7 @@
             <button type="button" class="switch-skin-full fullbright" data-skin="../homePage/css/skin/fullbright.css">Full Bright</button>
         </section>
         <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
-        <p><a href="../favoritePage/favoritePage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
+        <p><a href="../singleIndustryPage/singleIndustryPage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
     </form>
     <script type="text/javascript">
         var currentFilename = window.location.pathname.split('/').pop();
@@ -440,17 +377,21 @@
 </div>
 <!-- END STYLE SWITCHER -->
 
-
 <!-- Javascript -->
-<script src="../homePage/js/jquery/jquery.min.js"></script>
-<script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
+
+<script src="../homePage/js/jquery/jquery-2.0.0.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
-<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
 <script src="../homePage/js/king-common.js"></script>
+<script src="../homePage/js/king-table.js"></script>
+<script src="../homePage/js/king-components.js"></script>
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
+<script src="../homePage/js/plugins/datatable/dataTables.bootstrap.js"></script>
+<script src="../homePage/js/plugins/datatable/dataTables.min.js"></script>
+
 </body>
 
 </html>
