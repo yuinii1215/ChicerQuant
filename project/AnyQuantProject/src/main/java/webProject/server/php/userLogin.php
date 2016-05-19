@@ -18,7 +18,7 @@ $tablename = "account";
 
 function createAccountTable()
 {
-    $connection = getMyDBConnection();
+    $connection = getDBConnection();
     global $tablename;
     $stmt = $connection->prepare("create table ".$tablename." (username varchar(150)not null,".
                                  "password varchar(255) DEFAULT = ".getDefaultPassword().",".
@@ -38,17 +38,17 @@ function createAccountTable()
  */
 function insertUser($username,$password)
 {
-    $connection = getMyDBConnection();
+    $connection = getDBConnection();
     global $tablename;
     $stmt = $connection->prepare("insert into ".$tablename." values(:username,:password)");
     $stmt->bindParam(':username', $_username);
     $stmt->bindParam(':password', $_password);
     $_username = $username;
-    $_password = $password;
+    $_password = getHashPassword($password);
     return execQuery($connection,$stmt);
 }
 
-insertUser("cx","little potato");
+//insertUser("cx","sss");
 
 
 
@@ -61,7 +61,7 @@ insertUser("cx","little potato");
  */
 function deleteUser($username)
 {
-    $connection = getMyDBConnection();
+    $connection = getDBConnection();
     global $tablename;
     $stmt = $connection->prepare("delete from  ".$tablename."  WHERE username = :username");
     $stmt->bindParam(':username', $_username);
@@ -69,7 +69,7 @@ function deleteUser($username)
     return execQuery($connection,$stmt);
 }
 
-//deleteUser("cx");
+//deleteUser("hero");
 /**
  * 修改用户密码
  * @param $username
@@ -78,22 +78,22 @@ function deleteUser($username)
  */
 function modifyPassword($username,$newPassword)
 {
-    $connection = getMyDBConnection();
+    $connection = getDBConnection();
     global $tablename;
     $stmt = $connection->prepare("update ".$tablename." set password = :newpw where username = :username");
     $stmt->bindParam(':username', $_username);
     $stmt->bindParam(':newpw', $_newpw);
     $_username = $username;
-    $_newpw = $newPassword;
+    $_newpw = getHashPassword($newPassword);
     return execQuery($connection,$stmt);
 }
 
 //modifyPassword("cx","i am potato!");
 
-echo "here";
-$connection = getMyDBConnection();
-$stmt = $connection ->prepare("select * from account");
-echo execQuery($connection, $stmt);
+//echo "here";
+//$connection = getDBConnection();
+//$stmt = $connection ->prepare("select * from account");
+//echo execQuery($connection, $stmt);
 /**
  * 密码验证
  * @param $username
@@ -102,15 +102,17 @@ echo execQuery($connection, $stmt);
  */
 function verifyPassword($username,$password)
 {
-    $connection = getMyDBConnection();
+    $connection = getDBConnection();
     global $tablename;
     $stmt = $connection->prepare("select password from ".$tablename."  where username = :username");
     $stmt->bindParam(':username', $_username);
     $_username = $username;
     $jsonstring = execQuery($connection,$stmt);
-//    if(password_verify ($password , $realpw)){
-//        echo "right";
-//    }else{echo "false";}
+    $arr = json_decode($jsonstring);
+
+    if(password_verify ($password , $realpw)){
+        echo "right";
+    }else{echo "false";}
     return $jsonstring;
 }
 
@@ -138,51 +140,9 @@ function getHashPassword($password)
 //    echo "right";
 //}else{echo "false";}
 
-function execQuery($connection, $stmt)
+function showUsers()
 {
-    echo json_encode($stmt);
-    if(!$stmt) {
-        $arr = array('retmsg'=>$connection->errorInfo());
-        $json_string = json_encode($arr);
-        return $json_string;
-    }
-    $result = $stmt -> execute();
 
-    if ($result === false){
-        $arr = array('retmsg'=>$connection->errorInfo());
-        $json_string = json_encode($arr);
-        return $json_string;
-    }
-    $arr = array('retmsg'=>'success');
-    $json_string = json_encode($arr);
-//    $json_string = json_encode(array());
-    while ($result_row = $stmt->fetch(PDO::FETCH_OBJ, PDO::FETCH_ORI_NEXT)) {
-        $arr[] = $result_row;
-    }
-    $connection = null;
-    $stmt = null;
-    $json_string = json_encode($arr,JSON_UNESCAPED_UNICODE);
-
-    return $json_string;
 }
 
-
-
-function getMyDBConnection()
-{
-     global $db_host;
-     global $db_username;
-     global $db_password;
-     global $db_database;
-     try{
-         $connection = new PDO("mysql:host=".$db_host.";port = 3306;dbname=".$db_database."; charset=utf8", $db_username, $db_password);
-         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-     }catch (PDOException $e) {
-         echo json_encode('Connection failed: ' . $e->getMessage());
-     }
-     // 设置 PDO 错误模式为异常
-     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-     $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-     return $connection;
-}
 ?>
