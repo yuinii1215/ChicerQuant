@@ -40,7 +40,7 @@
             <div class="row">
                 <!-- logo -->
                 <div class="col-md-2 logo"  >
-                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Chicer - your stock manager</a>
+                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Your stock manager</a>
                 </div>
                 <!-- end logo -->
 
@@ -49,9 +49,9 @@
                         <div class="col-md-3">
                             <!-- search box -->
                             <div id="tour-searchbox" class="input-group searchbox">
-                                <input type="search" class="form-control" placeholder="enter keyword here...">
+                                <input type="search" id="stockID" class="form-control" placeholder="enter keyword here...">
 									<span class="input-group-btn">
-										<button class="btn btn-default" type="button" ><i class="fa fa-search"></i></button>
+										<button class="btn btn-default" type="button" value="to SingleStockPage" onclick="toSingleStockPage()" ><i class="fa fa-search"></i></button>
 									</span>
                             </div>
                             <!-- end search box -->
@@ -383,6 +383,7 @@
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="../homePage/js/search.js"></script>
 </body>
 
 </html>
