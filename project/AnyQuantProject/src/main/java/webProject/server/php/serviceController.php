@@ -44,6 +44,9 @@ switch ($method)
     case "getAllStocksService":
         getAllStocksService();
         break;
+    case "getAllStockNamesService":
+        getAllStockNamesService();
+        break;
     case "getBenchMarkByNameService":
         getBenchMarkByNameService($objData->name, $objData->date);
         break;
