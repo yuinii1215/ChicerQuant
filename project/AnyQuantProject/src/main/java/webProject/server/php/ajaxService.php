@@ -6,6 +6,7 @@
  * Time: 上午12:58
  */
 require_once ('getData.php');
+require_once ('util.php');
  header("Access-Control-Allow-Origin: *");
  header('Access-Control-Allow-Headers: X-Requested-With');
 
@@ -47,10 +48,10 @@ require_once ('getData.php');
 
     //输入: 股票名
     //输出: 操作是否成功的信息
-        function addMyFavorService($name,$username){
-            $jsonstring = addMyFavor($name, $username);
-            echo $jsonstring;
-        }
+    function addMyFavorService($name,$username){
+        $jsonstring = addMyFavor($name, $username);
+        echo $jsonstring;
+    }
 
     /*
      *
@@ -79,6 +80,13 @@ require_once ('getData.php');
         echo $jsonstring;
     }
 
+
+    //输入:无
+    //输出:得到所有的股票名
+    function getAllStockNamesService(){
+        $jsonstring = getAllStockNames();
+        echo $jsonstring;
+    }
     /*
      *
      * 模块三:    得到大盘基本属性
@@ -316,5 +324,18 @@ require_once ('getData.php');
 
 
 
+    /**
+     * 得到给定日期前几天或后几天的日期
+     * @param $date  指定的日期
+     * @param $offset +2表示两天后; -3表示3天前
+     * @return bool|string
+     *
+     */
+    function getRelativeDateService($date,$offset){
+        $jsonstring = getRelativeDate($date,$offset);
+        echo $jsonstring;
+    }
+
+//    getRelativeDateService(date('Y-m-d',strtotime('2016-05-10')),+9);
 
 ?>

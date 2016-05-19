@@ -44,6 +44,9 @@ switch ($method)
     case "getAllStocksService":
         getAllStocksService();
         break;
+    case "getAllStockNamesService":
+        getAllStockNamesService();
+        break;
     case "getBenchMarkByNameService":
         getBenchMarkByNameService($objData->name, $objData->date);
         break;
@@ -136,6 +139,9 @@ switch ($method)
         break;
     case "getPolyAmongDateService":
         getPolyAmongDateService($objData->name,$objData->startdate,$objData->enddate);
+        break;
+    case "getRelativeDateService":
+        getRelativeDateService($objData->date,$objData->offset);
         break;
     default :
         echo json_encode("no such method");
