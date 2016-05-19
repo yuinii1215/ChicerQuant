@@ -271,7 +271,8 @@
 
                                 </div>
                             </div>
-
+                         <div class="row">
+                             <div class="col-lg-8">
                             <div class="widget">
                                 <div class="widget-header">
                                     <!--header-->
@@ -284,9 +285,81 @@
                                     </div>
                                 </div>
                                 <div class="widget-content">
+
+                                    <!--<script type="text/javascript">-->
+                                        <!--function GetHtml(row){-->
+                                            <!--alert(row);-->
+                                        <!--}-->
+                                    <!--</script>-->
+
+                                    <table id="visit-stat-table" class="table table-sorting table-striped table-hover datatable"  bgcolor="#ffffcc">
+                                        <!--<thead>-->
+                                        <tr>
+                                            <th>股票代码</th> <!--id-->
+                                            <th>股票简称</th> <!--name-->
+                                            <th>开盘价</th>
+                                            <th>最高价</th>
+                                            <th>最低价</th>
+                                            <th>收盘价</th>
+                                            <th>成交量</th> <!--volum-->
+                                            <th>后复权价</th> <!--adj_price-->
+                                            <th>市盈率</th> <!--pe-->
+                                            <th>市净率</th> <!--pb-->
+                                        </tr>
+                                        <!--<tr onclick="rowSelected(this[1])">-->
+                                        <tr ondblclick="DoubleClick(this.rowIndex)" onclick="SingleClick(this.rowIndex)">
+                                            <td>123</td> <!--id-->
+                                            <td>2</td> <!--name-->
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td> <!--volum-->
+                                            <td>8</td> <!--adj_price-->
+                                            <td>9</td> <!--pe-->
+                                            <td>10</td> <!--pb-->
+                                        </tr>
+                                        <tr ondblclick="DoubleClick(this.rowIndex)" onclick="SingleClick(this.rowIndex)">
+                                            <td>567</td> <!--id-->
+                                            <td>2</td> <!--name-->
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td> <!--volum-->
+                                            <td>8</td> <!--adj_price-->
+                                            <td>9</td> <!--pe-->
+                                            <td>10</td> <!--pb-->
+                                        </tr>
+
+                                        <!--</thead>-->
+                                        <tbody id="tableBody">
+                                        </tbody>
+                                    </table>
                                     <!-- content-->
                                 </div>
                             </div>
+                                 </div>
+                             <div class="col-lg-4">
+                            <div class="widget" style="margin-top: 100px;">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-bar-chart-o"></i>2016年腾讯科技</h3>
+
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content" >
+                                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                                    <div id="main1" style="height:300px;"></div>
+                                </div>
+                            </div>
+                            </div>
+                             </div>
+                        <!--row-->
 
                         </div>
                         <!-- /main-content -->
@@ -374,6 +447,14 @@
 
 
 <!-- Javascript -->
+<script src="../allStockShowPage/js/search.js"></script>
+<script src="../homePage/js/angularjs/angular-1.0.0.js"></script>
+<script src="../homePage/js/search.js"></script>
+
+<!--getdata-->
+<script src="build/dist/echarts.js"></script>
+<!--<script src="js/kLineChart.js"></script>-->
+<script src="js/lineChart.js"></script>
 <script src="../homePage/js/jquery/jquery.min.js"></script>
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
@@ -383,6 +464,15 @@
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="../homePage/js/king-common.js"></script>
+<script src="../homePage/js/king-table.js"></script>
+<script src="../homePage/js/king-components.js"></script>
+<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
+<script src="../homePage/js/plugins/datatable/dataTables.bootstrap.js"></script>
+<script src="../homePage/js/plugins/datatable/dataTables.min.js"></script>
+
+
+
 </body>
 
 </html>
