@@ -4,7 +4,12 @@
 /* general 66da90 */
 body {
     border-color: transparent;
-    background: #ececec;
+    /*background-color: #d3dbd9;*/
+    background-color: #ebf2ff;
+    background-image: url("http://www.transparenttextures.com/patterns/exclusive-paper.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
 }
 
@@ -51,7 +56,7 @@ body {
     border-bottom: 1px solid #273c44;
 }
 .bottom .container .content-wrapper {
-    background:url(img/bg_head1.png) no-repeat;
+    background:url(img/bg_header.png) no-repeat;
 }
 
 /* navigation */

@@ -6,11 +6,6 @@ require.config({
 
 var myChart;
 
-
-
-
-
-
 var indexData=[
     [{"date": "2015-01-01", "close": "30"},
     {"date": "2015-01-04","close": "16.07"},
