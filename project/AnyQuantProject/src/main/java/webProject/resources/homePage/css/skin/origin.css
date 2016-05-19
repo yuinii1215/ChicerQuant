@@ -4,15 +4,13 @@
 /* general 66da90 */
 body {
     border-color: transparent;
-   background: #ececec;
-    color:#EEEEEE;
-}
+    /*background-color: #d3dbd9;*/
+    background-color: #f1f4e5;
+    background-image: url("http://www.transparenttextures.com/patterns/exclusive-paper.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
-a {
-    color: #f1f1f1;
-}
-a:hover, a:focus {
-    color: #eeeeee;
 }
 
 /* top bar */
@@ -58,7 +56,7 @@ a:hover, a:focus {
     border-bottom: 1px solid #273c44;
 }
 .bottom .container .content-wrapper {
-    background:url(img/new_bg.png) no-repeat;
+    background:url(img/bg_header.png) no-repeat;
 }
 
 /* navigation */
@@ -123,8 +121,10 @@ ul.main-menu .sub-menu li.active > a {
 
 /* widget */
 .widget {
+    background-color: #f9f9f9;
     border-color:lightgray;
 }
+
 .widget .widget-header {
     background-color: #474647;
     border-bottom-color:lightgray ;
@@ -160,7 +160,7 @@ ul.main-menu .sub-menu li.active > a {
 }
 .breadcrumb a{
     /*中间部分字体颜色*/
-    color: #eeeeee;
+    color: #ffffff;
 }
 
 /* main content */

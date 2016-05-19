@@ -28,9 +28,9 @@ import AnyQuantProject.util.method.IOHelper;
 */
 public class DailySQL {
 	
-	static List<String> id;
-	static Map<String, String> chn;
-	static Map<String, String> indu;
+	static List<String> id=SetupSQL.id;
+	static Map<String, String> chn=SetupSQL.chn;
+	static Map<String, String> indu=SetupSQL.indu;
 	
 	
 	public static void dailyStock(Connection connection,Calendar now){
@@ -62,6 +62,9 @@ public class DailySQL {
 					toStock.setDate(CalendarHelper.getDate(now));
 				}
 				//
+				if (connection.isClosed()) {
+					connection=SetupSQL.getConn();
+				}
 				PreparedStatement preparedStatement=connection.prepareStatement(Q.Stock.selectStock+stock_id+Q.Stock.seleTail);
 				
 				preparedStatement.setDate(1, date);
@@ -97,6 +100,9 @@ public class DailySQL {
 	}
 	
 	private static void insertToday(Connection connection,List<webProject.server.daily.Stock> src) throws SQLException{
+		if (connection.isClosed()) {
+			connection=SetupSQL.getConn();
+		}
 		PreparedStatement preparedStatement=connection.prepareStatement(Q.Stock.insertToday);
 		webProject.server.daily.Stock stock=src.get(0);
 		int i=1;
@@ -135,6 +141,8 @@ public class DailySQL {
 		preparedStatement.setDouble(i++, stock.MACHBar);
 		preparedStatement.setDouble(i++, stock.poly);
 		preparedStatement.executeUpdate();
+		connection.close();
+		connection=SetupSQL.getConn();
 	}
 	
 	private static List<Stock> getStock(ResultSet resultSet) throws SQLException{

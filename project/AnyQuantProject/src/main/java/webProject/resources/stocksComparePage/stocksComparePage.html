@@ -49,9 +49,9 @@
                         <div class="col-md-3">
                             <!-- search box -->
                             <div id="tour-searchbox" class="input-group searchbox">
-                                <input type="search" class="form-control" placeholder="enter keyword here...">
+                                <input type="search" id="stockID" class="form-control" placeholder="enter keyword here...">
 									<span class="input-group-btn">
-										<button class="btn btn-default" type="button" ><i class="fa fa-search"></i></button>
+										<button class="btn btn-default" type="button" value="to SingleStockPage" onclick="toSingleStockPage()" ><i class="fa fa-search"></i></button>
 									</span>
                             </div>
                             <!-- end search box -->
@@ -153,7 +153,7 @@
                                     <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
                                     <li class="active"><a href="../stocksComparePage/stocksComparePage.html"><span class="text">多股票对比</span></a></li>
                                     <li><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
-                                    <li><a href="ui-elements-buttons.html"><span class="text">我的策略</span></a></li>
+                                    <li><a href="../strategyPage/strategyPage.html"><span class="text">我的策略</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -241,8 +241,8 @@
                         <div class="col-lg-4 ">
                             <!--head link-->
                             <ul class="breadcrumb">
-                                <li><i class="fa fa-file-text-o"></i><a href="../stocksComparePage/stocksComparePage.html">分析 &amp; 策略</a></li>
-                                <li class="active"><a href="#">多股票对比</a></li>
+                                <li class="active"><i class="fa fa-file-text-o"></i><a href="../stocksComparePage/stocksComparePage.html">分析 &amp; 策略</a></li>
+                                <li><a href="#">多股票对比</a></li>
 
                             </ul>
                         </div>
@@ -344,7 +344,7 @@
             <button type="button" class="switch-skin-full fullbright" data-skin="../homePage/css/skin/fullbright.css">Full Bright</button>
         </section>
         <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
-        <p><a href="../singleIndustryPage/singleIndustryPage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
+        <p><a href="../stocksComparePage/stocksComparePage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
     </form>
     <script type="text/javascript">
         var currentFilename = window.location.pathname.split('/').pop();
@@ -383,6 +383,7 @@
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="../homePage/js/search.js"></script>
 </body>
 
 </html>

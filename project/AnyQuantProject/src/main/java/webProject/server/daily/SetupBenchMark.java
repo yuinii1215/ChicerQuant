@@ -1,6 +1,7 @@
 package webProject.server.daily;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -19,6 +20,21 @@ import AnyQuantProject.util.method.CalendarHelper;
 */
 
 public class SetupBenchMark {
+	public static void dailyBench(Connection connection,Calendar now) throws NetFailedException, SQLException{
+		//dataservice
+		
+				FactoryDATAService factoryDATAService=FactoryDATA.getInstance();
+				BenchMarkDATAService service=factoryDATAService.getBenchMarkDATAService();
+				Calendar start=CalendarHelper.convert2Calendar("2001-01-01");
+				List<AnyQuantProject.dataStructure.BenchMark> src=service.getBenchMarkAmongDate("hs300", start, now);
+				List<BenchMark> dst=BenchCal.trans(src);
+				List<Stock> faker=BenchCal.buildFake1(dst);
+				Calculate.cal(BenchCal.buildFake2(src), faker);
+				BenchCal.transFake(faker, dst);
+				dst.get(dst.size()-1).date=new Date(now.getTimeInMillis());
+				
+				insertDaily(connection, dst);
+	}
 	
 	public static void SetupBenchMark(Connection connection) throws NetFailedException{
 		create(connection);
@@ -52,6 +68,16 @@ public class SetupBenchMark {
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
+		}
+	}
+	private static void insertDaily(Connection connection,List<BenchMark> src){
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(Q.Bench.insert);
+			set(preparedStatement, src.get(src.size()-1));
+			preparedStatement.executeUpdate();
+			System.out.println("benchmark completed");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	private static void insert(Connection connection,List<BenchMark> src){

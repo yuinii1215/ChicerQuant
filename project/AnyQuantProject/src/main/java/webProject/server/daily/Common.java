@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
+import AnyQuantProject.util.method.CalendarHelper;
+
 /**
 * AnyQuantProject/webProject.server.daily/Common.java
 * @author cxworks
@@ -219,7 +221,7 @@ public abstract class Common {
 		this.poly = poly;
 	}
 	public void setDate(Calendar calendar){
-		date=new Date(calendar.getTimeInMillis());
+		date=new Date(CalendarHelper.getAfterDay(calendar).getTimeInMillis());
 	}
 	
 }

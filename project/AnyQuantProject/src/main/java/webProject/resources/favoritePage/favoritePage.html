@@ -2,7 +2,7 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> [endif] -->
 <!--[if !(IE)]>
 <!-->
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" >
 <!--<![endif]-->
 
 <head>
@@ -20,10 +20,12 @@
     <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
 
-
+    <!--headerjs-->
+    <script src="../homePage/js/angularjs/angular-1.0.7.js"></script>
+    <script src="../favoritePage/js/initAllStockTable.js"></script>
 </head>
 
-<body >
+<body ng-app="myFavorApp">
 
 <!-- =========================
  PRE LOADER
@@ -40,7 +42,7 @@
             <div class="row">
                 <!-- logo -->
                 <div class="col-md-2 logo"  >
-                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Chicer - your stock manager</a>
+                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Your stock manager</a>
                 </div>
                 <!-- end logo -->
 
@@ -49,9 +51,9 @@
                         <div class="col-md-3">
                             <!-- search box -->
                             <div id="tour-searchbox" class="input-group searchbox">
-                                <input type="search" class="form-control" placeholder="enter keyword here...">
+                                <input type="search" id="stockID" class="form-control" placeholder="enter keyword here...">
 									<span class="input-group-btn">
-										<button class="btn btn-default" type="button" ><i class="fa fa-search"></i></button>
+										<button class="btn btn-default" type="button" value="to SingleStockPage" onclick="toSingleStockPage()" ><i class="fa fa-search"></i></button>
 									</span>
                             </div>
                             <!-- end search box -->
@@ -153,7 +155,7 @@
                                     <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
                                     <li><a href="../stocksComparePage/stocksComparePage.html"><span class="text">多股票对比</span></a></li>
                                     <li><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
-                                    <li><a href="ui-elements-buttons.html"><span class="text">我的策略</span></a></li>
+                                    <li><a href="../strategyPage/strategyPage.html"><span class="text">我的策略</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -250,46 +252,48 @@
 
                     <!-- main -->
                     <div class="content">
+
                         <div class="main-header">
                             <h2>关注</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content">
+                        <div class="main-content"  >
                             <!--row example-->
-                            <div class="row">
-                                <!--row1-->
-                                <div class="col-md-9">
-                                    <div class="widget widget-hide-header">
-                                        <div class="widget-header hide"> <h3>row example1</h3></div>
-                                        <div class="widget-content">
-                                            <!-- content-->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--row2-->
-                                <div class="col-md-3">
-
-                                </div>
-                            </div>
-
-                            <div class="widget">
+                            <div class="widget widget-table">
                                 <div class="widget-header">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <h3><i class="fa fa-group"></i>关注</h3> <em>- List of concerned stocks</em>
                                     <div class="btn-group widget-header-toolbar">
-                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                <div class="widget-content">
-                                    <!-- content-->
+                                <div class="widget-content"  ng-controller="AllStockTableCtrl">
+                                    <table id="visit-stat-table" class="table table-sorting table-striped table-hover datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>股票代码</th> <!--id-->
+                                                <th>股票简称</th> <!--name-->
+                                                <th>开盘价</th>
+                                                <th>最高价</th>
+                                                <th>最低价</th>
+                                                <th>收盘价</th>
+                                                <th>成交量</th> <!--volum-->
+                                                <th>后复权价</th> <!--adj_price-->
+                                                <th>市盈率</th> <!--pe-->
+                                                <th>市净率</th> <!--pb-->
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tableBody">
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
+                            <!-- END WIDGET TICKET TABLE -->
 
                         </div>
                         <!-- /main-content -->
+
                     </div>
                     <!-- /main -->
 
@@ -372,17 +376,22 @@
 </div>
 <!-- END STYLE SWITCHER -->
 
-
 <!-- Javascript -->
-<script src="../homePage/js/jquery/jquery.min.js"></script>
-<script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
+
+<script src="../homePage/js/jquery/jquery-2.0.0.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
-<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
 <script src="../homePage/js/king-common.js"></script>
+<script src="../homePage/js/king-table.js"></script>
+<script src="../homePage/js/king-components.js"></script>
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
+<script src="../homePage/js/plugins/datatable/dataTables.bootstrap.js"></script>
+<script src="../homePage/js/plugins/datatable/dataTables.min.js"></script>
+<script src="../homePage/js/search.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,7 @@
+/**
+ * 
+ * @author cxworks
+ * 
+ * 
+ */ 
+ function getStock(){}

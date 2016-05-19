@@ -650,7 +650,8 @@ var init = function() {
   camera.init(get.radian(45), get.radian(0), bodyWidth, bodyHeight);
 
   light = new HemiLight();
-  light.init(scene, get.radian(0), get.radian(90), 1000, 0xffffff, 0x002244, 0.9);
+  //light.init(scene, get.radian(0), get.radian(90), 1000, 0xffffff, 0x002244, 0.9);
+	light.init(scene, get.radian(0), get.radian(90), 1000, 0xffffff, 0x006030, 0.9);
 
   ball = new Mesh();
   ball.init(scene, ballGeometry, ballMaterial);

@@ -31,7 +31,7 @@ import AnyQuantProject.util.method.IOHelper;
 public class CalculateCore {
 
 	static List<String> id=SetupSQL.id;
-	static Map<String, String> chn;
+	static Map<String, String> chn=SetupSQL.chn;
 	static Map<String, String> indu=SetupSQL.indu;
 	
 	public static List<Stock> initBase(String id,Calendar min,Calendar max) throws NetFailedException{
@@ -151,7 +151,7 @@ public class CalculateCore {
 		dst.pb=src.getPb();
 		dst.pe_ttm=src.getPe_ttm();
 		dst.volumn=src.getVolume();
-		dst.setDate(src.getDateInCalendar());
+		dst.setDate(CalendarHelper.convert2Calendar(src.getDate()));
 		dst.stock_id=src.getName();
 	}
 	private static void aver(Stock dst,Calendar date,SingleStockDATAService dataService) throws NetFailedException{

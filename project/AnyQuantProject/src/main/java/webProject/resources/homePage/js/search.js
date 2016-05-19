@@ -4,5 +4,11 @@
 function toSingleStockPage() {
     var parm1=document.getElementById("stockID").value;
     localStorage.singleStockID=parm1;
-    window.location.href="../singleStockUI/kLine.html";
+    window.location.href="../singleStockPage/singleStockPage.html";
+}
+
+function allStock2SingleStockPage(stockID) {
+    alert(stockID);
+    localStorage.singleStockID=stockID;
+    window.location.href="../singleStockPage/singleStockPage.html";
 }
