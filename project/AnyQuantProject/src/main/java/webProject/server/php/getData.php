@@ -9,6 +9,7 @@
 
 
 require_once('db_login.php');
+require_once('util.php');
 header("Content-Type: text/json;charset=utf8");
 
 function getMyFavor($username)
@@ -471,4 +472,8 @@ function getMyDBConnection()
     $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     return $connection;
 }
+
+
+
+//echo getRelativeDate(date('Y-m-d',strtotime('2016-05-10')),+11);
 ?>
