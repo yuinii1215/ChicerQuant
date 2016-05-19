@@ -14718,18 +14718,18 @@ input {
 }
 @font-face {
     font-family: "latolight";
-    src: url(../fonts/lato-lig-webfont.eot?1383488388);
-    src: url('../fonts/lato-lig-webfont.eot?&1383488388#iefix') format('embedded-opentype'), url('../fonts/lato-lig-webfont.woff?1383488388') format('woff'), url('../fonts/lato-lig-webfont.ttf?1383488388') format('truetype'), url('../fonts/lato-lig-webfont.svg?1383488388') format('svg');
+    src: url(../fonts/lato-lig-webfont.eot);
+    src: url('../fonts/lato-lig-webfont.eot') format('embedded-opentype'), url('../fonts/lato-lig-webfont.woff') format('woff'), url('../fonts/lato-lig-webfont.ttf') format('truetype'), url('../fonts/lato-lig-webfont.svg') format('svg');
 }
 @font-face {
     font-family: "latoregular";
-    src: url('../fonts/lato-reg-webfont.eot?1386010378');
-    src: url('../fonts/lato-reg-webfont.eot?&1386010378#iefix') format('embedded-opentype'), url('../fonts/lato-reg-webfont.woff?1386010378') format('woff'), url('../fonts/lato-reg-webfont.ttf?1386010378') format('truetype'), url('../fonts/lato-reg-webfont.svg?1386010378') format('svg');
+    src: url('../fonts/lato-reg-webfont.eot');
+    src: url('../fonts/lato-reg-webfont.eot') format('embedded-opentype'), url('../fonts/lato-reg-webfont.woff') format('woff'), url('../fonts/lato-reg-webfont.ttf') format('truetype'), url('../fonts/lato-reg-webfont.svg') format('svg');
 }
 @font-face {
     font-family: "latobold";
-    src: url('../fonts/lato-bol-webfont.eot?1384273632');
-    src: url('../fonts/lato-bol-webfont.eot?&1384273632#iefix') format('embedded-opentype'), url('../fonts/lato-bol-webfont.woff?1384273632') format('woff'), url('../fonts/lato-bol-webfont.ttf?1384273632') format('truetype'), url('../fonts/lato-bol-webfont.svg?1384273632') format('svg');
+    src: url('../fonts/lato-bol-webfont.eot');
+    src: url('../fonts/lato-bol-webfont.eot') format('embedded-opentype'), url('../fonts/lato-bol-webfont.woff') format('woff'), url('../fonts/lato-bol-webfont.ttf') format('truetype'), url('../fonts/lato-bol-webfont.svg') format('svg');
 }
 .wrapper {
     width: 100%;

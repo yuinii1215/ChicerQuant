@@ -4,7 +4,7 @@
 /* general 66da90 */
 body {
     border-color: transparent;
-   background: #ececec;
+    background: #ececec;
 
 }
 
@@ -51,7 +51,7 @@ body {
     border-bottom: 1px solid #273c44;
 }
 .bottom .container .content-wrapper {
-    background:url(img/new_bg.png) no-repeat;
+    background:url(img/bg_head1.png) no-repeat;
 }
 
 /* navigation */

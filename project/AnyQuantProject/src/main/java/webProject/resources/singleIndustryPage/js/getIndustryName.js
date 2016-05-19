@@ -20,7 +20,7 @@ var app = angular.module('myIndustryApp', []);
         };*/
 
         var allIndustry=[];
-        $scope.url = 'http://115.159.106.212/php/serviceController.php'; // The url of our search
+        $scope.url = 'http://115.159.97.98/php/index.php'; // The url of our search
 
             $http.post($scope.url, {"method": "getAllIndustriesService"}).
              success(function (data) {
@@ -39,7 +39,7 @@ var app = angular.module('myIndustryApp', []);
                 .error(function (data) {
                 $scope.error = true;
                 $scope.data = data;
-                    $scope.industry ="hno";
+                 $scope.industry ="error";
                   return 'error name';
             });
 
