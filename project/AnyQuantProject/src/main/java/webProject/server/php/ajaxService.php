@@ -8,9 +8,9 @@
 require_once ('getData.php');
 require_once ('userLogin.php');
 require_once ('util.php');
+require_once ('favorStocks.php');
  header("Access-Control-Allow-Origin: *");
  header('Access-Control-Allow-Headers: X-Requested-With');
-
     /**
      *
      * 数据说明:
@@ -87,7 +87,6 @@ require_once ('util.php');
         $jsonstring = getMyFavor($username);
         echo $jsonstring;
     }
-
     //输入: 股票名
     //输出: 操作是否成功的信息
     function cancelMyFavorService($name,$username){
@@ -112,7 +111,7 @@ require_once ('util.php');
     //输出: 操作是否成功的信息以及该日该股票的属性--各种表格项信息
     function getStockByNameService($name,$date){
         $jsonstring = getStockByName($name, $date);
-        return $jsonstring;
+        echo $jsonstring;
     }
 
     //输入: 股票名和日期区间
@@ -370,7 +369,6 @@ require_once ('util.php');
         $jsonstring = getIndustry($industry_name,$date);
         echo $jsonstring;
     }
-
 
 
     /**

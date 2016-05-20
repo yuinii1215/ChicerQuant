@@ -49,7 +49,7 @@ function insertUser($username,$password)
     return execOperation($connection,$stmt);
 }
 
-//echo insertUser("hero","hero");
+//echo insertUser("aha","hh");
 
 /**
  *
