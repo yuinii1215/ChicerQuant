@@ -272,10 +272,7 @@
                                     </div>
                                     <div class="widget-content" ng-controller="allIndustryCtrl" >
                                         <!-- content 柱状图 净额-->
-
                                            <div id="pureBar" style="height:250px; width:100%;" ></div>
-
-
                                     </div>
                                 </div>
                                 <div class="widget">
@@ -289,12 +286,25 @@
                                             <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                         </div>
                                     </div>
-                                    <div class="widget-content">
-                                        <!-- content-->
+                                    <div class="widget-content" ng-controller="allIndustryCtrl">
 
-
-
-
+                                        <table id="visit-stat-table" class="table table-sorting table-striped table-hover datatable" >
+                                            <thead>
+                                            <tr>
+                                                <th>行业名称</th>
+                                                <th>总资产（亿）</th>
+                                                <th>涨跌幅</th>
+                                                <th>净额（亿）</th>
+                                                <th>公司家数</th>
+                                                <th>领涨股名称</th>
+                                                <th>领涨股代码</th>
+                                                <th>涨跌幅</th>
+                                                <th>当前价（元）</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="allIndustryTable">
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -384,18 +394,23 @@
 
 
 <!-- Javascript -->
-<script src="../homePage/js/echart/echarts.js"></script>
+
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
-<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+<script src="../homePage/js/plugins/datatable/dataTables.min.js"></script>
 <script src="../homePage/js/king-common.js"></script>
-<script src="../homePage/js/deliswitch.js"></script>
-<script src="../homePage/js/zerif.js"></script>
-<script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
-<script src="../homePage/js/search.js"></script>
+<script src="../homePage/js/king-table.js"></script>
+<script src="../homePage/js/king-components.js"></script>
+<script src="../homePage/js/echart/echarts.js"></script>
 <script src="../allIndustryShowPage/js/allIndustry.js"></script>
 <script src="../allIndustryShowPage/js/barChart.js"></script>
+<script src="../homePage/js/deliswitch.js"></script>
+<script src="../homePage/js/zerif.js"></script>
+<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
+<script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="../homePage/js/search.js"></script>
+
 </body>
 
 </html>

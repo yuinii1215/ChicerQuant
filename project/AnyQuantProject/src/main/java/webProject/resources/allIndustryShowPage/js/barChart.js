@@ -87,7 +87,6 @@ require(
                 series: [
                     {
                         type: 'bar',
-
                         itemStyle: {
                             normal: {
                                 color: function (params) {
