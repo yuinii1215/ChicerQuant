@@ -84,9 +84,9 @@ function checkTableNameValid($tablename)
 //$connection = getDBConnection();
 //$stmt = $connection ->prepare("show tables");
 //echo execQuery($connection, $stmt);
-$connection = getDBConnection();
-$stmt = $connection ->prepare("select * from account");
-echo execQuery($connection, $stmt);
+//$connection = getDBConnection();
+//$stmt = $connection ->prepare("select * from account");
+//echo execQuery($connection, $stmt);
 function getStockAmongDate($name, $startdate, $enddate)
 {
 //    $datearr = getAmongDates($startdate, $enddate);
@@ -110,7 +110,7 @@ function getStockAmongDate($name, $startdate, $enddate)
     return execQuery($connection,$stmt);
 }
 
-//echo getStockAmongDate("sh600000",date('Y-m-d',strtotime('2016-05-04')), date('Y-m-d',strtotime('2016-05-10')));
+//echo getStockAmongDate("sh600000",date('Y-m-d',strtotime('2015-01-01')), date('Y-m-d',strtotime('2015-01-10')));
 
 function getAllStocks()
 {
