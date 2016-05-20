@@ -204,7 +204,7 @@
                                                 <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                             </div>
                                         </div>
-                                        <div class="widget-content" >
+                                        <div class="widget-content">
                                             <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
                                             <div id="main1" style="height:300px;"></div>
                                             <div id="main2" style="height:250px;"></div>
@@ -228,30 +228,40 @@
                                                 <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                             </div>
                                         </div>
-                                        <div class="widget-content" style="height: 400px">
-                                            <pre ng-model="result" style="background-color:transparent;text-align: center"><font size="5px">{{result.stock_name;}}</font></pre>
-                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.date;}}</font></pre>
-                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.open;}}</font></pre>
-                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.high;}}</font></pre>
-                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.low;}}</font></pre>
-                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.close;}}</font></pre>
-                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.volumn;}}</font></pre>
-                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.adj_price;}}</font></pre>
-                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.turn_over;}}</font></pre>
-                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.pe_ttm;}}</font></pre>
-                                            <pre ng-model="result" style="background-color:transparent"><font size="5px">{{result.pb;}}</font></pre>
-<!---->
-                                            <!--<h1 style="font-size: 40px">腾讯科技</h1>-->
-                                            <!--<h1 style="font-size: 20px;">ID:00700.HK</h1>-->
-                                            <!--<h1 style="font-size: 20px">result.date</h1>-->
-                                            <!--<h1 style="font-size: 27px">收盘价:153.20</h1>-->
-                                            <!--<h1 style="font-size: 27px"><font color="#ae0000">最高价:155.80</font></h1>-->
-                                            <!--<h1 style="font-size: 27px">最低价:151.60</h1>-->
-                                            <!--<h1 style="font-size: 27px"><font color="#ae0000">今开价:154.40</font></h1>-->
-                                            <!--<h1 style="font-size: 27px">成交量:733万股</h1>-->
-                                            <!--<h1 style="font-size: 27px">成交量额:112943万</h1>-->
-                                                    <!--</pre>-->
-
+                                        <div class="widget-content" style="height: 400px;background-color:#555;">
+                                            <pre ng-model="result" style="background-color:transparent;text-align: center;border-color: transparent;"><font color="white" size="5px">{{result.stock_name+" "+result.date}}</font></pre>
+                                          <div class="row">
+                                              <div class="col-lg-6">
+                                               <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font color="white" size="3px">{{"开盘价:  "+result.open;}}</font></pre>
+                                              </div>
+                                              <div class="col-lg-6">
+                                               <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font color="white" size="3px">{{"最高价:  "+result.high;}}</font></pre>
+                                              </div>
+                                          </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                            <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font color="#00aa11" size="3px">{{"最低价:  "+result.low;}}</font></pre>
+                                                </div>
+                                                <div class="col-lg-6">
+                                            <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font color="white" size="3px">{{"收盘价:  "+result.close;}}</font></pre>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-lg-6">
+                                            <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;overflow-x:hidden;"><font color="white" size="3px">{{"成交量:  "+result.volumn;}}</font></pre>
+                                                    </div>
+                                                   <div class="col-lg-6">
+                                                       <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font color="white" size="3px">{{"市净率  "+result.pb;}}</font></pre>
+                                                     </div>
+                                            </div>
+                                           <div class="row">
+                                              <div class="col-lg-6">
+                                                  <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font color="white" size="3px">{{"后附权价:  "+result.adj_price;}}</font></pre>
+                                              </div>
+                                               <div class="col-lg-6">
+                                            <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font color="white" size="3px">{{"市盈率:  "+result.pe_ttm;}}</font></pre>
+                                           </div>
+                                               </div>
                                         </div>
                                     </div>
                                 <!--</div>-->
@@ -290,40 +300,57 @@
                                     </div>
                                 </div>
                                 <div class="widget-content" >
-                                    <!--<section>-->
-                                        <!--<h1>关注股票列表</h1>-->
-                                        <div  class="tbl-header">
-                                            <table cellpadding="0" cellspacing="0" border="0">
-                                                <thead>
-                                                <tr>
-                                                    <th>日期</th>
-                                                    <th>股票名称</th>
-                                                    <th>开盘价</th>
-                                                    <th>最高价</th>
-                                                    <th>最低价</th>
-                                                    <th>收盘价</th>
-                                                    <th>成交量</th>
-                                                    <th>后复权价</th>
-                                                    <th>换手率</th>
-                                                    <th>市盈率</th>
-                                                    <th>市净率</th>
-                                                </tr>
-                                                </thead>
-                                            </table>
-                                        </div>
-                                        <div  class="tbl-content">
-                                            <table cellpadding="0" cellspacing="0" border="0">
-                                                <tbody>
-                                                <tr>
-                                                    <td>AAC</td>
-                                                    <td>AUSTRALIAN COMPANY </td>
-                                                    <td>$1.38</td>
-                                                    <td>+2.01</td>
-                                                    <td>-0.36%</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                         </div>
+
+                                    <table id="visit-stat-table" class="table table-sorting table-striped table-hover datatable"  bgcolor="#ffffcc" style="-webkit-text-fill-color: black;">
+                                        <thead>
+                                        <tr>
+                                            <th>股票简称</th> <!--name-->
+                                            <th>日期</th>
+                                            <th>开盘价</th>
+                                            <th>最高价</th>
+                                            <th>最低价</th>
+                                            <th>收盘价</th>
+                                            <th>成交量</th> <!--volum-->
+                                            <th>后复权价</th> <!--adj_price-->
+                                            <!--<th>换手率</th>-->
+                                            <th>市盈率</th> <!--pe-->
+                                            <th>市净率</th> <!--pb-->
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tbody">
+                                        <!--<tr onclick="rowSelected(this[1])">-->
+                                        <!--<tr  ng-repeat="x in tableData">-->
+                                            <!--<td>{{x.stock_name}}</td>-->
+                                            <!--<td>{{x.date}}</td>-->
+                                            <!--<td>{{x.open}}</td>-->
+                                            <!--<td>{{x.high}}</td>-->
+                                            <!--<td>{{x.low}}</td>-->
+                                            <!--<td>{{x.close}}</td>-->
+                                            <!--<td>{{x.volumn}}</td>-->
+                                            <!--<td>{{x.adj_price}}</td>-->
+                                            <!--&lt;!&ndash;<td>{{x.turnover}}</td>&ndash;&gt;-->
+                                            <!--<td>{{x.pe_ttm}}</td>-->
+                                            <!--<td>{{x.pb}}</td>-->
+                                        <!--</tr>-->
+                                        </tbody>
+                                        <!--<tr ondblclick="DoubleClick(this.rowIndex)" onclick="SingleClick(this.rowIndex)">-->
+                                            <!--<td>567</td> &lt;!&ndash;id&ndash;&gt;-->
+                                            <!--<td>2</td> &lt;!&ndash;name&ndash;&gt;-->
+                                            <!--<td>3</td>-->
+                                            <!--<td>4</td>-->
+                                            <!--<td>5</td>-->
+                                            <!--<td>6</td>-->
+                                            <!--<td>7</td> &lt;!&ndash;volum&ndash;&gt;-->
+                                            <!--<td>8</td> &lt;!&ndash;adj_price&ndash;&gt;-->
+                                            <!--<td>9</td> &lt;!&ndash;pe&ndash;&gt;-->
+                                            <!--<td>10</td> &lt;!&ndash;pb&ndash;&gt;-->
+                                        <!--</tr>-->
+                                        <!--</thead>-->
+                                        <tbody id="tableBody">
+                                        </tbody>
+                                    </table>
+
+
                                          <!--</section>-->
                                      </div>
                                    </div>

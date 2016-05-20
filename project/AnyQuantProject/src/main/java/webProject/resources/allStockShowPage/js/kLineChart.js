@@ -34,8 +34,6 @@ require(
                 chart2Data[item]=kchartData[item].volumn;
             }
 
-            console.log(chart2Data);
-
             var myChart = ec.init(document.getElementById('main1'));
             var myChart2 = ec.init(document.getElementById('main2'));
             var myChart3 = ec.init(document.getElementById('main3'));

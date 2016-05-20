@@ -20,10 +20,11 @@
     <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
 
-
+    <!--headerjs-->
+    <script src="../homePage/js/angularjs/angular-1.0.7.js"></script>
 </head>
 
-<body >
+<body  ng-app="allIndustryApp">
 
 <!-- =========================
  PRE LOADER
@@ -256,38 +257,57 @@
                         </div>
                         <div class="main-content">
                             <!--row example-->
-                            <div class="row">
-                                <!--row1-->
-                                <div class="col-md-9">
-                                    <div class="widget widget-hide-header">
-                                        <div class="widget-header hide"> <h3>row example1</h3></div>
-                                        <div class="widget-content">
-                                            <!-- content-->
+                            <div><p><br/><br/></p></div>
+                            <div class ="row">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <!--header-->
+                                        <h3><i class="fa fa-bar-chart-o"></i>chart</h3> <em>- e1</em>
+                                        <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                        <div class="btn-group widget-header-toolbar">
+                                            <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                            <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                            <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                         </div>
                                     </div>
-                                </div>
-                                <!--row2-->
-                                <div class="col-md-3">
-
-                                </div>
-                            </div>
-
-                            <div class="widget">
-                                <div class="widget-header">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
-                                    <div class="btn-group widget-header-toolbar">
-                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    <div class="widget-content" ng-controller="allIndustryCtrl" >
+                                        <!-- content 柱状图 净额-->
+                                           <div id="pureBar" style="height:250px; width:100%;" ></div>
                                     </div>
                                 </div>
-                                <div class="widget-content">
-                                    <!-- content-->
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <!--header-->
+                                        <h3><i class="fa fa-table"></i>table</h3> <em>- e1</em>
+                                        <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                        <div class="btn-group widget-header-toolbar">
+                                            <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                            <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                            <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="widget-content" ng-controller="allIndustryCtrl">
+
+                                        <table id="visit-stat-table" class="table table-sorting table-striped table-hover datatable" >
+                                            <thead>
+                                            <tr>
+                                                <th>行业名称</th>
+                                                <th>总资产（亿）</th>
+                                                <th>涨跌幅</th>
+                                                <th>净额（亿）</th>
+                                                <th>公司家数</th>
+                                                <th>领涨股名称</th>
+                                                <th>领涨股代码</th>
+                                                <th>涨跌幅</th>
+                                                <th>当前价（元）</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="allIndustryTable">
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                         <!-- /main-content -->
                     </div>
@@ -374,16 +394,23 @@
 
 
 <!-- Javascript -->
-<script src="../homePage/js/jquery/jquery.min.js"></script>
+
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
-<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+<script src="../homePage/js/plugins/datatable/dataTables.min.js"></script>
 <script src="../homePage/js/king-common.js"></script>
+<script src="../homePage/js/king-table.js"></script>
+<script src="../homePage/js/king-components.js"></script>
+<script src="../homePage/js/echart/echarts.js"></script>
+<script src="../allIndustryShowPage/js/allIndustry.js"></script>
+<script src="../allIndustryShowPage/js/barChart.js"></script>
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
+<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/search.js"></script>
+
 </body>
 
 </html>

@@ -79,11 +79,14 @@ function checkTableNameValid($tablename)
     return $valid;
 }
 //echo getStockByName("sh600000",date('Y-m-d',strtotime('2016-04-01')));
+//echo getStockByName("sh600000",'2016-04-05');
 //checkTableNameValid("sh600000");
 //$connection = getDBConnection();
-//$stmt = $connection ->prepare("describe 综合");
+//$stmt = $connection ->prepare("show tables");
 //echo execQuery($connection, $stmt);
-
+//$connection = getDBConnection();
+//$stmt = $connection ->prepare("select * from account");
+//echo execQuery($connection, $stmt);
 function getStockAmongDate($name, $startdate, $enddate)
 {
 //    $datearr = getAmongDates($startdate, $enddate);
@@ -107,7 +110,7 @@ function getStockAmongDate($name, $startdate, $enddate)
     return execQuery($connection,$stmt);
 }
 
-//echo getStockAmongDate("sh600000",date('Y-m-d',strtotime('2016-05-04')), date('Y-m-d',strtotime('2016-05-10')));
+//echo getStockAmongDate("sh600000",date('Y-m-d',strtotime('2015-01-01')), date('Y-m-d',strtotime('2015-01-10')));
 
 function getAllStocks()
 {
@@ -367,7 +370,7 @@ function getIndustry($industry_name,$date)
      return execQuery($connection,$stmt);
 }
 
-//echo getIndustry("综合",date('Y-m-d',strtotime('2016-04-01')));
+//echo getIndustry("公用事业",date('Y-m-d',strtotime('2016-04-01')));
 function getCalcuValue($type, $name, $date)
 {
     $connection = getDBConnection();
@@ -404,74 +407,75 @@ function getNameByAge($age){
 }
 
 
-
-function execQuery($connection, $stmt)
-{
-    if(!$stmt) {
-        $arr = array('retmsg'=>$connection->errorInfo());
-        $json_string = json_encode($arr);
-        return $json_string;
-    }
-    $result = $stmt -> execute();
-    if ($result === false){
-        $arr = array('retmsg'=>$connection->errorInfo());
-        $json_string = json_encode($arr);
-        return $json_string;
-    }
-    $arr = array('retmsg'=>'success');
-    $json_string = json_encode($arr);
-//    $json_string = json_encode(array());
-    while ($result_row = $stmt->fetch(PDO::FETCH_OBJ, PDO::FETCH_ORI_NEXT)) {
-        $arr[] = $result_row;
-    }
-    $connection = null;
-    $stmt = null;
-    $json_string = json_encode($arr,JSON_UNESCAPED_UNICODE);
-    return $json_string;
-}
-
-
-
-
-function getDBConnection()
-{
-    global $db_host;
-    global $db_username;
-    global $db_password;
-    global $db_database;
-    try{
-        $connection = new PDO("mysql:host=".$db_host.";port = 3306;dbname=".$db_database."; charset=utf8", $db_username, $db_password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
-        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }catch (PDOException $e) {
-        echo json_encode('Connection failed: ' . $e->getMessage());
-    }
-    // 设置 PDO 错误模式为异常
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    return $connection;
-}
-
-
-
-
-function getMyDBConnection()
-{
-    global $mydb_host;
-    global $mydb_username;
-    global $mydb_password;
-    global $mydb_database;
-
-    try{
-        $connection = new PDO("mysql:host=$mydb_host;dbname=$mydb_database; charset=utf8; unix_socket=/path/to/socket", $mydb_username, $mydb_password);
-        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }catch (PDOException $e) {
-        echo json_encode('Connection failed: ' . $e->getMessage());
-    }
-    // 设置 PDO 错误模式为异常
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    return $connection;
-}
+//
+//function getMyDBConnection()
+//{
+//    global $mydb_host;
+//    global $mydb_username;
+//    global $mydb_password;
+//    global $mydb_database;
+//
+//    try{
+//        $connection = new PDO("mysql:host=$mydb_host;dbname=$mydb_database; charset=utf8; unix_socket=/path/to/socket", $mydb_username, $mydb_password);
+//        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//    }catch (PDOException $e) {
+//        echo json_encode('Connection failed: ' . $e->getMessage());
+//    }
+//    // 设置 PDO 错误模式为异常
+//    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//    $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+//    return $connection;
+//}
+//
+//
+//
+//
+//function execQuery($connection, $stmt)
+//{
+//    if(!$stmt) {
+//        $arr = array('retmsg'=>$connection->errorInfo());
+//        $json_string = json_encode($arr);
+//        return $json_string;
+//    }
+//    $result = $stmt -> execute();
+//    if ($result === false){
+//        $arr = array('retmsg'=>$connection->errorInfo());
+//        $json_string = json_encode($arr);
+//        return $json_string;
+//    }
+//    $arr = array('retmsg'=>'success');
+//    $json_string = json_encode($arr);
+////    $json_string = json_encode(array());
+//    while ($result_row = $stmt->fetch(PDO::FETCH_OBJ, PDO::FETCH_ORI_NEXT)) {
+//        $arr[] = $result_row;
+//    }
+//    $connection = null;
+//    $stmt = null;
+//    $json_string = json_encode($arr,JSON_UNESCAPED_UNICODE);
+//    return $json_string;
+//}
+//
+//
+//
+//
+//function getDBConnection()
+//{
+//    global $db_host;
+//    global $db_username;
+//    global $db_password;
+//    global $db_database;
+//    try{
+//        $connection = new PDO("mysql:host=".$db_host.";port = 3306;dbname=".$db_database."; charset=utf8", $db_username, $db_password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+//        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//
+//    }catch (PDOException $e) {
+//        echo json_encode('Connection failed: ' . $e->getMessage());
+//    }
+//    // 设置 PDO 错误模式为异常
+//    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//    $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+//    return $connection;
+//}
 
 
 

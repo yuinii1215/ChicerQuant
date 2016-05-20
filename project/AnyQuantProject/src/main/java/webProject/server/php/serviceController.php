@@ -20,6 +20,18 @@ $method = $objData->method;
 
 switch ($method)
 {
+    case "signUpService":
+        signUpService($objData->username,$objData->password);
+        break;
+    case "removeUserService":
+        removeUserService($objData->username);
+        break;
+    case "modifyPasswordService":
+        modifyPasswordService($objData->username,$objData->newPassword);
+        break;
+    case "verifyPasswordService":
+        verifyPasswordService($objData->username,$objData->password);
+        break;
     case "getMyFavorService":
         getMyFavorService($objData->username);
         break;

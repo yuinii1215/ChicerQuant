@@ -18,6 +18,7 @@ var indexData=[
 var tableIndex=0;
 
 function SingleClick(row){
+    //function getStockAmongDateService($name, $startdate, $enddate)用来返回一段时间里面的
     tableIndex=row-1;
     var newOption = myChart.getOption(); // 深拷贝
     newOption.series[0].data = [indexData[tableIndex][0].close,indexData[tableIndex][1].close,indexData[tableIndex][2].close];

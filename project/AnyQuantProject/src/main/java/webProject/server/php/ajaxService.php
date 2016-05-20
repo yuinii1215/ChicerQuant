@@ -6,6 +6,7 @@
  * Time: 上午12:58
  */
 require_once ('getData.php');
+require_once ('userLogin.php');
 require_once ('util.php');
  header("Access-Control-Allow-Origin: *");
  header('Access-Control-Allow-Headers: X-Requested-With');
@@ -27,6 +28,54 @@ require_once ('util.php');
      * 有欠缺的可以加,多余的也可以删╰(￣▽￣)╮
      *
     */
+    /**
+     *
+     * 模块0:  登录
+     *
+     */
+     /**
+      *
+      * 注册一名用户
+      * @param $username
+      * @param $password
+      * @return string 注册结果
+      */
+     function signUpService($username,$password){
+        $jsonstring = insertUser($username,$password);
+        echo $jsonstring;
+     }
+    /**
+     *
+     * 删除一名用户
+     * @param $username
+     * @return string 删除结果
+     */
+     function removeUserService($username){
+        $jsonstring = deleteUser($username);
+        echo $jsonstring;
+     }
+     /**
+      * 修改用户密码
+      * @param $username
+      * @param $newPassword
+      * @return string
+      */
+     function modifyPasswordService($username,$newPassword){
+        $jsonstring = modifyPassword($username,$newPassword);
+        echo $jsonstring;
+
+     }
+     /**
+      * 密码验证
+      * @param $username
+      * @param $password
+      * @return string
+      */
+     function verifyPasswordService($username,$password){
+        $jsonstring = verifyPassword($username,$password);
+        echo $jsonstring;
+     }
+
     /**
      *
      * 模块一:  股票关注

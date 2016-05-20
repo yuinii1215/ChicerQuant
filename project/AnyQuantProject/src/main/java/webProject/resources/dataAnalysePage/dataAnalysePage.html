@@ -254,28 +254,34 @@
                             <em>the better analyze</em>
                         </div>
                         <div class="main-content">
-                            <!--row example-->
                             <div class="row">
-                                <!--row1-->
-                                <div class="col-md-9">
-                                    <div class="widget widget-hide-header">
-                                        <div class="widget-header hide"> <h3>row example1</h3></div>
+                                <div class="col-lg-6">
+                                    <!--分析策略-->
+                                    <div class="widget" STYLE="margin-top:150px;">
+                                        <div class="widget-header">
+                                            <!--header-->
+                                            <h3><i class="fa fa-bar-chart-o"></i>详情分析</h3>
+
+                                            <div class="btn-group widget-header-toolbar">
+                                                <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                                <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </div>
                                         <div class="widget-content">
-                                            <!-- content-->
+
                                         </div>
                                     </div>
-                                </div>
-                                <!--row2-->
-                                <div class="col-md-3">
 
                                 </div>
-                            </div>
 
-                            <div class="widget">
+                                <div class="col-lg-6">
+                                    <!--K线图-->
+                                   <div class="widget" STYLE="margin-top:150px;">
                                 <div class="widget-header">
                                     <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <h3><i class="fa fa-bar-chart-o"></i>K线图</h3>
+
                                     <div class="btn-group widget-header-toolbar">
                                         <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
@@ -284,9 +290,36 @@
                                 </div>
                                 <div class="widget-content" ng-app="searchSingle" ng-controller="name">
                                     <input ng-model="searchHelper"></input>
+
+                                <div class="widget-content">
+                                        <!-- 为ECharts准备一个具备大小（宽高）的Dom,绘制K线图 -->
+                                        <div id="main1" style="height:200px;"></div>
+                                        <div id="main2" style="height:150px;"></div>
+                                        <div id="main3" style="height:150px;"></div>
+                                        <!-- ECharts单文件引入 -->
+
                                 </div>
                             </div>
+                               <!--预测图-->
+                                   <div class="widget" STYLE="margin-top:20px;">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-bar-chart-o"></i>预测走势图</h3>
 
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content">
+                                    <!-- 为ECharts准备一个具备大小（宽高）的Dom,绘制K线图 -->
+                                    <div id="main4" style="height:300px;"></div>
+                                    <!-- ECharts单文件引入 -->
+                                </div>
+                            </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /main-content -->
                     </div>
@@ -373,6 +406,12 @@
 
 
 <!-- Javascript -->
+
+<script src="../homePage/js/angularjs/angular-1.0.0.js"></script>
+<script src="js/search.js"></script>
+<!--getdata-->
+<script src="build/dist/echarts.js"></script>
+<script src="js/kLineChart.js"></script>
 <script src="../homePage/js/jquery/jquery.min.js"></script>
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>

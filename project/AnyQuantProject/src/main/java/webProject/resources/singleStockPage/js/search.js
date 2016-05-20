@@ -2,9 +2,15 @@ var app=angular.module('myApp',[]);
 app.controller("SearchCtrl", function($scope, $http, MyCache) {
     //$scope.url = 'http://115.159.106.212/php/serviceController.php';
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
-    //
-    //// The function that will be executed on button click (ng-click="search()")
-    //$scope.singleStockInfo = function() {
+
+    //当前日期
+    var myDate = new Date();
+    myDate.getFullYear();    //获取完整的年份(4位,1970-????)
+    myDate.getMonth();       //获取当前月份(0-11,0代表1月)
+    myDate.getDate();        //获取当前日(1-31)
+    var currentDate=""+myDate.getFullYear()+"-"+myDate.getMonth()+"-"+myDate.getDate();
+
+
 
     $http.post($scope.url, {
         "date": "---",
@@ -28,10 +34,11 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     $scope.getterK = [];
 
 
+
     $http.post($scope.url, {
         "name": localStorage.singleStockID,
         "startdate": "2015-01-01",
-        "enddate": "2015-03-10",
+        "enddate": "2015-03-01",
         "method": "getStockAmongDateService"
     }).success(function (data, status) {
             $scope.status = status;
@@ -140,6 +147,58 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         },
         "retmsg": "success"
     }
+
+    $http.post($scope.url, {//暂时还有问题
+        "date": currentDate,
+        "offset": 30,
+        "method": "getRelativeDateService"
+    }).success(function (data, status) {
+            $scope.status = status;
+            $scope.startDate = data;
+            //data=eval("("+data+")");
+            var stockInfo = data;
+
+            $scope.startDate = stockInfo;
+            console.log($scope.startDate);
+
+        })
+        .error(function (data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
+
+    //var stock;
+    //$http.post($scope.url, {//$objData->name,$objData->startdate,$objData->enddate
+    //    "name": localStorage.singleStockID,
+    //    "startdate":$scope.startDate ,
+    //    "enddate": currentDate,
+    //    "method": "getStockAmongDateService"
+    //}).success(function (data, status) {
+    //        $scope.status = status;
+    //        //data=eval("("+data+")");
+    //        var tableData=data;
+    //        console.log(tableData[0]);
+    //        //console.log($scope.startDate );
+    //        console.log(currentDate );
+    //        for(var item in tableData){
+    //            console.log(tableData[item].date);
+    //            stock="<tr><td>"+tableData[item].stock_name+"</td><td>"+tableData[item].date+"</td><td>"+tableData[item].open+"</td>" +
+    //                "<td>"+tableData[item].high+"</td><td>"+tableData[item].low+"</td><td>"+tableData[item].close+"</td>" +
+    //                "<td>"+tableData[item].volumn+"</td><td>"+tableData[item].adj_price+"</td>" +
+    //                "<td>"+tableData[item].pe_ttm+"</td><td>"+tableData[item].pb+"</td></tr>";
+    //            $('#tbody').append($(stock));
+    //            //        document.getElementById('tableBody').innerHTML=stock;
+    //        }
+    //
+    //    })
+    //    .error(function (data, status) {
+    //        $scope.data = data || "Request failed";
+    //        $scope.status = status;
+    //    });
+
+
+
+
 });
 
 app.factory('MyCache', function ($cacheFactory) {
