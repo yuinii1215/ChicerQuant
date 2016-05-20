@@ -1,3 +1,5 @@
+/* top babackground-colorr */
+
 /*------------------------------------------------*/
 /*	Skin: origin  e74d41 orange   94e8b1 green
 /*------------------------------------------------*/
@@ -6,14 +8,12 @@ body {
     border-color: transparent;
     /*background-color: #d3dbd9;*/
     background-color: #f1f4e5;
-    background-image: url("http://www.transparenttextures.com/patterns/exclusive-paper.png");
+/*  background-image: url("http://www.transparenttextures.com/patterns/exclusive-paper.png");*/
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
 }
-
-/* top bar */
 .top-bar {
     border-color: transparent;
     background-color: #282828;

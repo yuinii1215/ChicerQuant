@@ -20,10 +20,12 @@
     <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
 
+    <!--headerjs-->
+    <script src="../homePage/js/angularjs/angular-1.0.7.js"></script>
 
 </head>
 
-<body >
+<body ng-app="benchMarkApp">
 
 <!-- =========================
  PRE LOADER
@@ -253,21 +255,72 @@
                             <h2>大盘</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content">
+                        <div class="main-content" ng-controller="benchMarkCtrl">
                             <!--row example-->
+                            <div><p><br/><br/></p></div>
                             <div class="row">
                                 <!--row1-->
-                                <div class="col-md-9">
-                                    <div class="widget widget-hide-header">
-                                        <div class="widget-header hide"> <h3>row example1</h3></div>
+                                <div class="col-md-8">
+                                    <div class="widget">
+                                        <div class="widget-header">
+                                        <!--header-->
+                                        <h3><i class="fa fa-bar-chart-o"></i>chart</h3> <em>- e1</em>
+                                        <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                        <div class="btn-group widget-header-toolbar">
+                                            <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                            <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                            <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                        </div>
+                                    </div>
                                         <div class="widget-content">
-                                            <!-- content-->
+                                        <!-- content-->
                                         </div>
                                     </div>
                                 </div>
                                 <!--row2-->
-                                <div class="col-md-3">
+                                <div class="col-md-4">
+                                    <div class="widget">
+                                        <div class="widget-header hide">
+                                            <h3>example1</h3> <em>- e1</em>
+                                        </div>
+                                        <div class="widget-content">
+                                            <!-- content-->
+                                            <div class="today-reminder">
+                                                <h4 class="reminder-title">Project Meeting</h4>
+                                                <p class="reminder-time"><i class="fa fa-clock-o"></i> 9:00 AM</p>
+                                                <p class="reminder-place">War Room</p>
+                                                <em class="reminder-notes">Bring weekly report summary</em>
+                                                <i class="fa fa-bell"></i>
+                                                <div class="btn-group btn-group-xs">
+                                                    <button type="button" class="btn btn-warning"><i class="fa fa-cloud-upload"></i> Sync</button>
+                                                    <div class="btn-group  btn-group-xs">
+                                                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Remind Me <span class="caret"></span></button>
+                                                        <ul class="dropdown-menu pull-right">
+                                                            <li><a href="#">15 minutes later</a></li>
+                                                            <li><a href="#">30 minutes later</a></li>
+                                                            <li><a href="#">1 hour later</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="widget">
+                                        <div class="widget-header">
+                                            <!--header-->
+                                            <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
+                                            <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                            <div class="btn-group widget-header-toolbar">
+                                                <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                                <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="widget-content">
+                                            <!-- content-->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -383,6 +436,7 @@
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/search.js"></script>
+<script src="../benchMarkPage/js/getBenchMarkData.js"></script>
 </body>
 
 </html>

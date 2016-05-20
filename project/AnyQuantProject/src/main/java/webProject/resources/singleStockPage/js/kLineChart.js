@@ -2,6 +2,7 @@ require.config({
     paths: {
         echarts: 'build/dist'
     }
+
 });
 
 // 使用
@@ -42,7 +43,7 @@ require(
 
             var option = {
                 title: {
-                //text: '2016年腾讯科技',
+                    //text: '2016年腾讯科技',
                     textStyle: {
                         color: '#000000',
                         fontSize: 20,
@@ -328,13 +329,13 @@ require(
                     }
                 ]
             };
-            myChart3.setOption(option3);
 
-            myChart.setOption(option);
 
-            // 为echarts对象加载数据
 
             myChart.connect([myChart2, myChart3]);
+            myChart3.setOption(option3);
+            myChart.setOption(option);
+            // 为echarts对象加载数据
             myChart2.connect([myChart, myChart3]);
             myChart3.connect([myChart, myChart2]);
 
@@ -345,6 +346,7 @@ require(
                     myChart3.resize();
                 }
             }, 200);
+
 
         },1000);
 
