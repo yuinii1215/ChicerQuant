@@ -10,7 +10,6 @@ require_once ('userLogin.php');
 require_once ('util.php');
  header("Access-Control-Allow-Origin: *");
  header('Access-Control-Allow-Headers: X-Requested-With');
-
     /**
      *
      * 数据说明:
@@ -30,7 +29,7 @@ require_once ('util.php');
     */
     /**
      *
-     * 模块0:  登录
+     * 模块一:  登录
      *
      */
      /**
@@ -44,6 +43,8 @@ require_once ('util.php');
         $jsonstring = insertUser($username,$password);
         echo $jsonstring;
      }
+
+
     /**
      *
      * 删除一名用户
@@ -65,6 +66,8 @@ require_once ('util.php');
         echo $jsonstring;
 
      }
+
+
      /**
       * 密码验证
       * @param $username
@@ -76,31 +79,6 @@ require_once ('util.php');
         echo $jsonstring;
      }
 
-    /**
-     *
-     * 模块一:  股票关注
-     *
-     */
-    //输入: 用户名
-    //输出: 操作是否成功的信息以及所有喜爱的股票名
-    function getMyFavorService($username){
-        $jsonstring = getMyFavor($username);
-        echo $jsonstring;
-    }
-
-    //输入: 股票名
-    //输出: 操作是否成功的信息
-    function cancelMyFavorService($name,$username){
-        $jsonstring = cancelMyFavor($name, $username);
-        echo $jsonstring;
-    }
-
-    //输入: 股票名
-    //输出: 操作是否成功的信息
-    function addMyFavorService($name,$username){
-        $jsonstring = addMyFavor($name, $username);
-        echo $jsonstring;
-    }
 
     /*
      *
@@ -112,7 +90,7 @@ require_once ('util.php');
     //输出: 操作是否成功的信息以及该日该股票的属性--各种表格项信息
     function getStockByNameService($name,$date){
         $jsonstring = getStockByName($name, $date);
-        return $jsonstring;
+        echo $jsonstring;
     }
 
     //输入: 股票名和日期区间
@@ -370,7 +348,6 @@ require_once ('util.php');
         $jsonstring = getIndustry($industry_name,$date);
         echo $jsonstring;
     }
-
 
 
     /**

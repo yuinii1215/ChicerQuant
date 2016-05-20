@@ -12,32 +12,6 @@ require_once('db_login.php');
 require_once('util.php');
 header("Content-Type: text/json;charset=utf8");
 
-function getMyFavor($username)
-{
-    $connection = getMyDBConnection();
-    $stmt = $connection->prepare("select username,stock_id from favorstocks where username = :username");
-    $stmt->bindParam(':username', $_username);
-    $_username = $username;
-    return execQuery($connection,$stmt);
-}
-
-function cancelMyFavor($name, $username)
-{
-    $connection = getMyDBConnection();
-    $stmt = $connection->prepare("delete from favorstocks where username = :username and stock_name = :stockname");
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':stockname', $name);
-    return execQuery($connection,$stmt);
-}
-
-function addMyFavor($name, $username)
-{
-    $connection = getMyDBConnection();
-    $stmt = $connection->prepare("insert into favorstocks values(:username, :stockname)");
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':stockname', $name);
-    return execQuery($connection,$stmt);
-}
 
 function getStockByName($name, $date)
 {
@@ -344,6 +318,7 @@ function getAllIndustries()
     return execQuery($connection,$stmt);
 }
 
+//echo getAllIndustries();
 
 //print_r(json_decode(getAllIndustries()));
 //echo "--- ".$arr['industry'];
