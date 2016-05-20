@@ -8,7 +8,6 @@
 require_once ('getData.php');
 require_once ('userLogin.php');
 require_once ('util.php');
-require_once ('favorStocks.php');
  header("Access-Control-Allow-Origin: *");
  header('Access-Control-Allow-Headers: X-Requested-With');
     /**
@@ -30,7 +29,7 @@ require_once ('favorStocks.php');
     */
     /**
      *
-     * 模块0:  登录
+     * 模块一:  登录
      *
      */
      /**
@@ -44,6 +43,8 @@ require_once ('favorStocks.php');
         $jsonstring = insertUser($username,$password);
         echo $jsonstring;
      }
+
+
     /**
      *
      * 删除一名用户
@@ -65,6 +66,8 @@ require_once ('favorStocks.php');
         echo $jsonstring;
 
      }
+
+
      /**
       * 密码验证
       * @param $username
@@ -76,30 +79,6 @@ require_once ('favorStocks.php');
         echo $jsonstring;
      }
 
-    /**
-     *
-     * 模块一:  股票关注
-     *
-     */
-    //输入: 用户名
-    //输出: 操作是否成功的信息以及所有喜爱的股票名
-    function getMyFavorService($username){
-        $jsonstring = getMyFavor($username);
-        echo $jsonstring;
-    }
-    //输入: 股票名
-    //输出: 操作是否成功的信息
-    function cancelMyFavorService($name,$username){
-        $jsonstring = cancelMyFavor($name, $username);
-        echo $jsonstring;
-    }
-
-    //输入: 股票名
-    //输出: 操作是否成功的信息
-    function addMyFavorService($name,$username){
-        $jsonstring = addMyFavor($name, $username);
-        echo $jsonstring;
-    }
 
     /*
      *

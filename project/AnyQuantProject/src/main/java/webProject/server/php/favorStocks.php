@@ -33,7 +33,7 @@ function cancelMyFavor($stock_id, $username){
     $_stock_id = $stock_id;
     return execOperation($connection,$stmt);
 }
-//echo cancelMyFavor("sh600000","aha");
+//echo cancelMyFavor("39d633dc9c","cx");
 function addMyFavor($stock_id,$username){
     $connection = getDBConnection();
     global $tablename;

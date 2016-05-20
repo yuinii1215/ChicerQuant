@@ -120,7 +120,7 @@ function verifyPassword($username,$password)
 }
 
 
-//echo verifyPassword("cx","haha");
+//echo verifyPassword("cx","傻宝宝");
 /**
  * @return bool|string 得到默认的hash密码
  */
