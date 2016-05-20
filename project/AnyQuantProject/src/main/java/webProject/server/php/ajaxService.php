@@ -6,10 +6,11 @@
  * Time: 上午12:58
  */
 require_once ('getData.php');
+require_once ('userLogin.php');
 require_once ('util.php');
+require_once ('favorStocks.php');
  header("Access-Control-Allow-Origin: *");
  header('Access-Control-Allow-Headers: X-Requested-With');
-
     /**
      *
      * 数据说明:
@@ -29,6 +30,54 @@ require_once ('util.php');
     */
     /**
      *
+     * 模块0:  登录
+     *
+     */
+     /**
+      *
+      * 注册一名用户
+      * @param $username
+      * @param $password
+      * @return string 注册结果
+      */
+     function signUpService($username,$password){
+        $jsonstring = insertUser($username,$password);
+        echo $jsonstring;
+     }
+    /**
+     *
+     * 删除一名用户
+     * @param $username
+     * @return string 删除结果
+     */
+     function removeUserService($username){
+        $jsonstring = deleteUser($username);
+        echo $jsonstring;
+     }
+     /**
+      * 修改用户密码
+      * @param $username
+      * @param $newPassword
+      * @return string
+      */
+     function modifyPasswordService($username,$newPassword){
+        $jsonstring = modifyPassword($username,$newPassword);
+        echo $jsonstring;
+
+     }
+     /**
+      * 密码验证
+      * @param $username
+      * @param $password
+      * @return string
+      */
+     function verifyPasswordService($username,$password){
+        $jsonstring = verifyPassword($username,$password);
+        echo $jsonstring;
+     }
+
+    /**
+     *
      * 模块一:  股票关注
      *
      */
@@ -38,7 +87,6 @@ require_once ('util.php');
         $jsonstring = getMyFavor($username);
         echo $jsonstring;
     }
-
     //输入: 股票名
     //输出: 操作是否成功的信息
     function cancelMyFavorService($name,$username){
@@ -63,7 +111,7 @@ require_once ('util.php');
     //输出: 操作是否成功的信息以及该日该股票的属性--各种表格项信息
     function getStockByNameService($name,$date){
         $jsonstring = getStockByName($name, $date);
-        return $jsonstring;
+        echo $jsonstring;
     }
 
     //输入: 股票名和日期区间
@@ -321,7 +369,6 @@ require_once ('util.php');
         $jsonstring = getIndustry($industry_name,$date);
         echo $jsonstring;
     }
-
 
 
     /**

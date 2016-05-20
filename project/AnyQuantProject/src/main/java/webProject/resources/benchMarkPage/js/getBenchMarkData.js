@@ -10,6 +10,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
             $scope.data = data;
             $scope.benchMark =data;
             console.log(  $scope.benchMark);
+            document.getElementById('').innerHTML=stock;
      /*       adj_price:"3068.04"
             benchmark_id : "hs300"
             benchmark_name:"沪深300"

@@ -38,6 +38,7 @@ function getMyDBConnection()
     // 设置 PDO 错误模式为异常
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
     return $connection;
 }
 
@@ -51,7 +52,12 @@ function execQuery($connection, $stmt)
         $json_string = json_encode($arr);
         return $json_string;
     }
+//    echo json_encode($stmt);
+    try{
     $result = $stmt -> execute();
+    }catch(PDOException $e){
+     return "A database problem has occurred:".$e->getMessage();
+    }
     if ($result === false){
         $arr = array('retmsg'=>$connection->errorInfo());
         $json_string = json_encode($arr);
@@ -60,6 +66,7 @@ function execQuery($connection, $stmt)
     $arr = array('retmsg'=>'success');
     $json_string = json_encode($arr);
 //    $json_string = json_encode(array());
+
     while ($result_row = $stmt->fetch(PDO::FETCH_OBJ, PDO::FETCH_ORI_NEXT)) {
         $arr[] = $result_row;
     }
@@ -69,6 +76,22 @@ function execQuery($connection, $stmt)
     return $json_string;
 }
 
+
+function execOperation($connection, $stmt)
+{
+    if(!$stmt) {
+        $arr = array('retmsg'=>$connection->errorInfo());
+        $json_string = json_encode($arr);
+        return $json_string;
+    }
+    try{
+    $result = $stmt -> execute();
+    }catch(PDOException $e){
+        return json_encode(array("operation:  "=>"failed for: ".$e->getMessage()));
+    }
+
+    return json_encode(array("operation:  "=>"success:)"));
+}
 
 
 

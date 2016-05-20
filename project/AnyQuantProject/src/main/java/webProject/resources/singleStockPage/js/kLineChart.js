@@ -331,6 +331,11 @@ require(
                 ]
             };
 
+<<<<<<< HEAD
+=======
+            // 为echarts对象加载数据
+
+>>>>>>> 5c97f13d8d3aed0ec95ba421d5ed3ca20f34173c
             myChart.connect([myChart2, myChart3]);
             myChart3.setOption(option3);
             myChart.setOption(option);
