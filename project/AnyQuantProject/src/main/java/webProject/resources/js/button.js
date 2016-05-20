@@ -6,13 +6,6 @@ function enterLog_Reg() {
 }
 
 function signUpHint() {
-    //A NEW VIEW IS SHOWED
-    var userName=document.getElementById("username").value;
-    var password=document.getElementById("password").value;
-
-
-
-
     alert("您已成功注册,请返回登录");
 }
 
@@ -24,6 +17,21 @@ function test(){
        //login recognize
        console.log("login");
        //function(userName,password){ return legal/illegal;}
+
+       $http.post($scope.url, {//$objData->username,$objData->password
+           "userName": currentDate,
+           "password": password,
+           "method": "verifyPasswordService"
+       }).success(function (data, status) {
+               $scope.status = status;
+               $scope.legalUser = data;
+               console.log($scope.legalUser);
+           })
+           .error(function (data, status) {
+               $scope.data = data || "Request failed";
+               $scope.status = status;
+           });
+
        if(1){
            enter();
 
