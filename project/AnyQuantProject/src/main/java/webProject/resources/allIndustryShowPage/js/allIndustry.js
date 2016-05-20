@@ -4,16 +4,17 @@
 
 var app = angular.module('allIndustryApp', []);
 app.controller('allIndustryCtrl', function ($scope, $http) {
-    var allIndustryName=[];
-    var industrys=[];
+    $scope.industryPure=[];
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
-
+    var index=0;
     $http.post($scope.url, {"method": "getAllIndustriesService"}).
         success(function (data) {
             $scope.error = false;
             $scope.data = data;
             $scope.industrys =data;
-            console.log($scope.industrys);
+            $scope.allIndustryName=[];
+
+       //     console.log($scope.industrys);
             var length=0;
 
             for(var item in $scope.industrys) {
@@ -21,11 +22,14 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
             }
             for(var item in $scope.industrys) {
                 if (item < length-1) {
-                    allIndustryName[item] = $scope.industrys[item].industry;
-                    document.write( $scope.industrys[item].industry);
-                    getIndustryPure($scope.industrys[item].industry);
+                    $scope.allIndustryName[item] = $scope.industrys[item].industry;
+            //        document.write( $scope.industrys[item].industry);
+                    getIndustryPure($scope.industrys[item].industry,item)
+                  //  document.write(getIndustryPure($scope.industrys[item].industry,item));
+              //      console.log( $scope.industryPure[item]);
                 }
             }
+            console.log(alert( $scope.industryPure));
         })
         .error(function (data) {
             $scope.error = true;
@@ -36,7 +40,6 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
 
 //将行业名称一一传出得到所有属性
 
-
     function GetDateStr(AddDayCount) {
         var dd = new Date();
         dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期
@@ -45,16 +48,24 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
         var d = dd.getDate();
         return y+"-"+m+"-"+d;
     }
+ //   $scope.industryPure=[]; /*存所有行业净额*/
 
-    function  getIndustryPure(industryName) {
+    function  getIndustryPure(industryName,item) {
         $http.post($scope.url, {
-            "industry_name": "银行",
-            "date": GetDateStr(-1),
+            "industry_name":industryName,
+            "date":"2016-05-18",
             "method": "getIndustryService"
         }).success(function (data) {
                 $scope.error = false;
                 $scope.data = data;
-                console.log($scope.data);
+                $scope.eachIndustry=data;
+            //      document.write(industryName);//亿 小数点后4位
+                var pure=$scope.eachIndustry[0].pure/100000000;
+                $scope.industryPure[item]= pure.toFixed(4);
+
+             //   console.log( $scope.industryPure[item]);
+
+        //    console.log($scope.eachIndustry[0].industry_name+"\n"+pure.toFixed(4));
             })
             .error(function (data) {
                 $scope.error = true;
@@ -62,6 +73,10 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
                 return 'error name';
             });
     }
+   // document.write( localStorage.industryPure[0]);
+  /*  for(var i in  industryPure ){
+        console.log(industryPure[i]);
+    }*/
 
 });
 
