@@ -7,6 +7,12 @@ function enterLog_Reg() {
 
 function signUpHint() {
     //A NEW VIEW IS SHOWED
+    var userName=document.getElementById("username").value;
+    var password=document.getElementById("password").value;
+
+
+
+
     alert("您已成功注册,请返回登录");
 }
 
