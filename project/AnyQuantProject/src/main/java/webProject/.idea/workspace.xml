@@ -25,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="348" column="45" selection-start-line="348" selection-start-column="45" selection-end-line="348" selection-end-column="45" />
+              <caret line="329" column="77" selection-start-line="329" selection-start-column="77" selection-end-line="329" selection-end-column="77" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -45,59 +45,94 @@
                 <element signature="n#style#0;n#pre#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#pre#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.59183675">
-              <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/search.js">
+      <file leaf-file-name="kLineChart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="150" column="2" selection-start-line="150" selection-start-column="2" selection-end-line="167" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/welcome.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="initAllStockTable.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/favoritePage/js/initAllStockTable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="favoritePage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/favoritePage/favoritePage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="278" column="60" selection-start-line="278" selection-start-column="60" selection-end-line="278" selection-end-column="60" />
-              <folding />
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding>
+                <marker date="1463758201000" expanded="true" signature="287:327" placeholder="/*...*/" />
+                <marker date="1463758201000" expanded="true" signature="765:12304" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="849:1101" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="1338:4604" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="1363:1558" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="1437:1540" placeholder="{&quot;color&quot;: '#000000'...}" />
+                <marker date="1463758201000" expanded="true" signature="1585:2139" placeholder="{&quot;trigger&quot;: 'axis'...}" />
+                <marker date="1463758201000" expanded="true" signature="1747:2121" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="2220:2584" placeholder="{&quot;x&quot;: 'right'...}" />
+                <marker date="1463758201000" expanded="true" signature="2305:2370" placeholder="{&quot;color&quot;: '#000000'...}" />
+                <marker date="1463758201000" expanded="true" signature="2418:2535" placeholder="//..." />
+                <marker date="1463758201000" expanded="true" signature="2612:2787" placeholder="{&quot;y&quot;: 250...}" />
+                <marker date="1463758201000" expanded="true" signature="2811:2939" placeholder="{&quot;x&quot;: 80...}" />
+                <marker date="1463758201000" expanded="true" signature="2964:3476" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="2986:3458" placeholder="{&quot;type&quot;: 'category'...}" />
+                <marker date="1463758201000" expanded="true" signature="3248:3436" placeholder="{&quot;show&quot;: true...}" />
+                <marker date="1463758201000" expanded="true" signature="3329:3410" placeholder="{&quot;color&quot;: '#000000'...}" />
+                <marker date="1463758201000" expanded="true" signature="3501:3964" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="3523:3946" placeholder="{&quot;type&quot;: 'value'...}" />
+                <marker date="1463758201000" expanded="true" signature="3736:3924" placeholder="{&quot;show&quot;: true...}" />
+                <marker date="1463758201000" expanded="true" signature="3817:3898" placeholder="{&quot;color&quot;: '#000000'...}" />
+                <marker date="1463758201000" expanded="true" signature="3990:4590" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="4012:4245" placeholder="{&quot;name&quot;: 'K线'...}" />
+                <marker date="1463758201000" expanded="true" signature="4267:4441" placeholder="{&quot;name&quot;: '成交量(万)'...}" />
+                <marker date="1463758201000" expanded="true" signature="4463:4571" placeholder="{&quot;name&quot;: '统计指标'...}" />
+                <marker date="1463758201000" expanded="true" signature="4632:8124" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="4659:4788" placeholder="{&quot;trigger&quot;: 'axis'...}" />
+                <marker date="1463758201000" expanded="true" signature="4814:4912" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="4939:5397" placeholder="{&quot;show&quot;: true...}" />
+                <marker date="1463758201000" expanded="true" signature="5030:5379" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="5425:5572" placeholder="{&quot;show&quot;: true...}" />
+                <marker date="1463758201000" expanded="true" signature="5596:5723" placeholder="{&quot;x&quot;: 80...}" />
+                <marker date="1463758201000" expanded="true" signature="5748:6351" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="5770:6333" placeholder="{&quot;type&quot;: 'category'...}" />
+                <marker date="1463758201000" expanded="true" signature="6123:6311" placeholder="{&quot;show&quot;: true...}" />
+                <marker date="1463758201000" expanded="true" signature="6204:6285" placeholder="{&quot;color&quot;: '#000000'...}" />
+                <marker date="1463758201000" expanded="true" signature="6376:7095" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="6398:7077" placeholder="{&quot;type&quot;: 'value'...}" />
+                <marker date="1463758201000" expanded="true" signature="6602:6781" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="6656:6755" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="6867:7055" placeholder="{&quot;show&quot;: true...}" />
+                <marker date="1463758201000" expanded="true" signature="6948:7029" placeholder="{&quot;color&quot;: '#000000'...}" />
+                <marker date="1463758201000" expanded="true" signature="7121:8110" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="7143:8092" placeholder="{&quot;name&quot;: '成交量(万)'...}" />
+                <marker date="1463758201000" expanded="true" signature="7330:7498" placeholder="//..." />
+                <marker date="1463758201000" expanded="true" signature="7533:8070" placeholder="{&quot;symbol&quot;: 'none'...}" />
+                <marker date="1463758201000" expanded="true" signature="7618:7914" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="7660:7884" placeholder="{&quot;color&quot;: '#484891'...}" />
+                <marker date="1463758201000" expanded="true" signature="7759:7850" placeholder="{&quot;show&quot;: false...}" />
+                <marker date="1463758201000" expanded="true" signature="7950:8044" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="8194:11685" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="8221:8350" placeholder="{&quot;trigger&quot;: 'axis'...}" />
+                <marker date="1463758201000" expanded="true" signature="8368:8485" placeholder="//..." />
+                <marker date="1463758201000" expanded="true" signature="8511:8969" placeholder="{&quot;show&quot;: true...}" />
+                <marker date="1463758201000" expanded="true" signature="8602:8951" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="8997:9172" placeholder="{&quot;y&quot;: 200...}" />
+                <marker date="1463758201000" expanded="true" signature="9196:9323" placeholder="{&quot;x&quot;: 80...}" />
+                <marker date="1463758201000" expanded="true" signature="9348:9904" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="9370:9886" placeholder="{&quot;type&quot;: 'category'...}" />
+                <marker date="1463758201000" expanded="true" signature="9676:9864" placeholder="{&quot;show&quot;: true...}" />
+                <marker date="1463758201000" expanded="true" signature="9757:9838" placeholder="{&quot;color&quot;: '#000000'...}" />
+                <marker date="1463758201000" expanded="true" signature="9929:10648" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="9951:10630" placeholder="{&quot;type&quot;: 'value'...}" />
+                <marker date="1463758201000" expanded="true" signature="10155:10334" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="10209:10308" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="10420:10608" placeholder="{&quot;show&quot;: true...}" />
+                <marker date="1463758201000" expanded="true" signature="10501:10582" placeholder="{&quot;color&quot;: '#000000'...}" />
+                <marker date="1463758201000" expanded="true" signature="10674:11671" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="10696:11653" placeholder="{&quot;name&quot;: '成交量'...}" />
+                <marker date="1463758201000" expanded="true" signature="10842:10974" placeholder="[...]" />
+                <marker date="1463758201000" expanded="true" signature="11010:11547" placeholder="{&quot;symbol&quot;: 'none'...}" />
+                <marker date="1463758201000" expanded="true" signature="11095:11391" placeholder="{...}" />
+                <marker date="1463758201000" expanded="true" signature="11137:11361" placeholder="{&quot;color&quot;: '#000000'...}" />
+                <marker date="1463758201000" expanded="true" signature="11236:11327" placeholder="{&quot;show&quot;: false...}" />
+                <marker date="1463758201000" expanded="true" signature="11427:11521" placeholder="[...]" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,7 +141,47 @@
         <entry file="file://$PROJECT_DIR$/server/php/serviceController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="28" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="28" />
+              <caret line="143" column="2" selection-start-line="142" selection-start-column="2" selection-end-line="143" selection-end-column="80" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/search.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.44731182">
+              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajaxService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/php/ajaxService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="293" column="5" selection-start-line="293" selection-start-column="5" selection-end-line="293" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="button.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/button.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -161,13 +236,13 @@
         <option value="$PROJECT_DIR$/resources/dataAnalysePage/dataAnalysePage.html" />
         <option value="$PROJECT_DIR$/resources/singleStockPage/build/dist/echarts.js" />
         <option value="$PROJECT_DIR$/resources/singleStockPage/build/source/chart/k.js" />
-        <option value="$PROJECT_DIR$/server/php/serviceController.php" />
         <option value="$PROJECT_DIR$/resources/allStockShowPage/js/kLineChart.js" />
         <option value="$PROJECT_DIR$/resources/js/button.js" />
+        <option value="$PROJECT_DIR$/resources/index.html" />
+        <option value="$PROJECT_DIR$/server/php/serviceController.php" />
+        <option value="$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html" />
         <option value="$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js" />
         <option value="$PROJECT_DIR$/resources/singleStockPage/js/search.js" />
-        <option value="$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html" />
-        <option value="$PROJECT_DIR$/resources/index.html" />
       </list>
     </option>
   </component>
@@ -177,8 +252,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="105" />
-    <option name="y" value="148" />
+    <option name="x" value="70" />
+    <option name="y" value="27" />
     <option name="width" value="1146" />
     <option name="height" value="562" />
   </component>
@@ -230,6 +305,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -258,13 +334,84 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="singleStockPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="singleStockPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -352,12 +499,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="105" y="148" width="1146" height="562" extended-state="0" />
+    <frame x="70" y="27" width="1146" height="562" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20506108" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20506108" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29239765" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29208925" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -409,6 +556,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/js/button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/singleStockUI/jquery-1.8.2.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -566,13 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/php/ajaxService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2592592">
-          <caret line="255" column="42" selection-start-line="255" selection-start-column="42" selection-end-line="255" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/dataAnalysePage/dataAnalysePage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -636,13 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/php/getData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16129032">
-          <caret line="354" column="50" selection-start-line="354" selection-start-column="50" selection-end-line="354" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/allStockShowPage/js/kLineChart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -654,35 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/php/serviceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/php/userLogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30821916">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/button.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3548387">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9387755">
-          <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -707,25 +819,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22580644">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2648402">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/favoritePage/js/initAllStockTable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -733,15 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="278" column="60" selection-start-line="278" selection-start-column="60" selection-end-line="278" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="150" column="2" selection-start-line="150" selection-start-column="2" selection-end-line="167" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -749,6 +837,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/php/getData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05102041">
+          <caret line="460" column="28" selection-start-line="460" selection-start-column="28" selection-end-line="460" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5">
+          <caret line="43" column="55" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59183675">
+          <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/php/ajaxService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="293" column="5" selection-start-line="293" selection-start-column="5" selection-end-line="293" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -756,7 +888,7 @@
     <entry file="file://$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="348" column="45" selection-start-line="348" selection-start-column="45" selection-end-line="348" selection-end-column="45" />
+          <caret line="329" column="77" selection-start-line="329" selection-start-column="77" selection-end-line="329" selection-end-column="77" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -776,16 +908,107 @@
             <element signature="n#style#0;n#pre#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#pre#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/index.html">
+    <entry file="file://$PROJECT_DIR$/server/php/serviceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59183675">
-          <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="143" column="2" selection-start-line="142" selection-start-column="2" selection-end-line="143" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <marker date="1463758201000" expanded="true" signature="287:327" placeholder="/*...*/" />
+            <marker date="1463758201000" expanded="true" signature="765:12304" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="849:1101" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="1338:4604" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="1363:1558" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="1437:1540" placeholder="{&quot;color&quot;: '#000000'...}" />
+            <marker date="1463758201000" expanded="true" signature="1585:2139" placeholder="{&quot;trigger&quot;: 'axis'...}" />
+            <marker date="1463758201000" expanded="true" signature="1747:2121" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="2220:2584" placeholder="{&quot;x&quot;: 'right'...}" />
+            <marker date="1463758201000" expanded="true" signature="2305:2370" placeholder="{&quot;color&quot;: '#000000'...}" />
+            <marker date="1463758201000" expanded="true" signature="2418:2535" placeholder="//..." />
+            <marker date="1463758201000" expanded="true" signature="2612:2787" placeholder="{&quot;y&quot;: 250...}" />
+            <marker date="1463758201000" expanded="true" signature="2811:2939" placeholder="{&quot;x&quot;: 80...}" />
+            <marker date="1463758201000" expanded="true" signature="2964:3476" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="2986:3458" placeholder="{&quot;type&quot;: 'category'...}" />
+            <marker date="1463758201000" expanded="true" signature="3248:3436" placeholder="{&quot;show&quot;: true...}" />
+            <marker date="1463758201000" expanded="true" signature="3329:3410" placeholder="{&quot;color&quot;: '#000000'...}" />
+            <marker date="1463758201000" expanded="true" signature="3501:3964" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="3523:3946" placeholder="{&quot;type&quot;: 'value'...}" />
+            <marker date="1463758201000" expanded="true" signature="3736:3924" placeholder="{&quot;show&quot;: true...}" />
+            <marker date="1463758201000" expanded="true" signature="3817:3898" placeholder="{&quot;color&quot;: '#000000'...}" />
+            <marker date="1463758201000" expanded="true" signature="3990:4590" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="4012:4245" placeholder="{&quot;name&quot;: 'K线'...}" />
+            <marker date="1463758201000" expanded="true" signature="4267:4441" placeholder="{&quot;name&quot;: '成交量(万)'...}" />
+            <marker date="1463758201000" expanded="true" signature="4463:4571" placeholder="{&quot;name&quot;: '统计指标'...}" />
+            <marker date="1463758201000" expanded="true" signature="4632:8124" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="4659:4788" placeholder="{&quot;trigger&quot;: 'axis'...}" />
+            <marker date="1463758201000" expanded="true" signature="4814:4912" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="4939:5397" placeholder="{&quot;show&quot;: true...}" />
+            <marker date="1463758201000" expanded="true" signature="5030:5379" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="5425:5572" placeholder="{&quot;show&quot;: true...}" />
+            <marker date="1463758201000" expanded="true" signature="5596:5723" placeholder="{&quot;x&quot;: 80...}" />
+            <marker date="1463758201000" expanded="true" signature="5748:6351" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="5770:6333" placeholder="{&quot;type&quot;: 'category'...}" />
+            <marker date="1463758201000" expanded="true" signature="6123:6311" placeholder="{&quot;show&quot;: true...}" />
+            <marker date="1463758201000" expanded="true" signature="6204:6285" placeholder="{&quot;color&quot;: '#000000'...}" />
+            <marker date="1463758201000" expanded="true" signature="6376:7095" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="6398:7077" placeholder="{&quot;type&quot;: 'value'...}" />
+            <marker date="1463758201000" expanded="true" signature="6602:6781" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="6656:6755" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="6867:7055" placeholder="{&quot;show&quot;: true...}" />
+            <marker date="1463758201000" expanded="true" signature="6948:7029" placeholder="{&quot;color&quot;: '#000000'...}" />
+            <marker date="1463758201000" expanded="true" signature="7121:8110" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="7143:8092" placeholder="{&quot;name&quot;: '成交量(万)'...}" />
+            <marker date="1463758201000" expanded="true" signature="7330:7498" placeholder="//..." />
+            <marker date="1463758201000" expanded="true" signature="7533:8070" placeholder="{&quot;symbol&quot;: 'none'...}" />
+            <marker date="1463758201000" expanded="true" signature="7618:7914" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="7660:7884" placeholder="{&quot;color&quot;: '#484891'...}" />
+            <marker date="1463758201000" expanded="true" signature="7759:7850" placeholder="{&quot;show&quot;: false...}" />
+            <marker date="1463758201000" expanded="true" signature="7950:8044" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="8194:11685" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="8221:8350" placeholder="{&quot;trigger&quot;: 'axis'...}" />
+            <marker date="1463758201000" expanded="true" signature="8368:8485" placeholder="//..." />
+            <marker date="1463758201000" expanded="true" signature="8511:8969" placeholder="{&quot;show&quot;: true...}" />
+            <marker date="1463758201000" expanded="true" signature="8602:8951" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="8997:9172" placeholder="{&quot;y&quot;: 200...}" />
+            <marker date="1463758201000" expanded="true" signature="9196:9323" placeholder="{&quot;x&quot;: 80...}" />
+            <marker date="1463758201000" expanded="true" signature="9348:9904" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="9370:9886" placeholder="{&quot;type&quot;: 'category'...}" />
+            <marker date="1463758201000" expanded="true" signature="9676:9864" placeholder="{&quot;show&quot;: true...}" />
+            <marker date="1463758201000" expanded="true" signature="9757:9838" placeholder="{&quot;color&quot;: '#000000'...}" />
+            <marker date="1463758201000" expanded="true" signature="9929:10648" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="9951:10630" placeholder="{&quot;type&quot;: 'value'...}" />
+            <marker date="1463758201000" expanded="true" signature="10155:10334" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="10209:10308" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="10420:10608" placeholder="{&quot;show&quot;: true...}" />
+            <marker date="1463758201000" expanded="true" signature="10501:10582" placeholder="{&quot;color&quot;: '#000000'...}" />
+            <marker date="1463758201000" expanded="true" signature="10674:11671" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="10696:11653" placeholder="{&quot;name&quot;: '成交量'...}" />
+            <marker date="1463758201000" expanded="true" signature="10842:10974" placeholder="[...]" />
+            <marker date="1463758201000" expanded="true" signature="11010:11547" placeholder="{&quot;symbol&quot;: 'none'...}" />
+            <marker date="1463758201000" expanded="true" signature="11095:11391" placeholder="{...}" />
+            <marker date="1463758201000" expanded="true" signature="11137:11361" placeholder="{&quot;color&quot;: '#000000'...}" />
+            <marker date="1463758201000" expanded="true" signature="11236:11327" placeholder="{&quot;show&quot;: false...}" />
+            <marker date="1463758201000" expanded="true" signature="11427:11521" placeholder="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44731182">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
           <folding />
         </state>
       </provider>
