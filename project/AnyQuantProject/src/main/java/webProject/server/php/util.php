@@ -20,6 +20,6 @@ function getRelativeDate($date,$offset)
     return date('Y-m-d',$stringtime+3600*24*$offset);
 }
 
-
+//echo getRelativeDate(date('Y-m-d'),30);
 
 ?>
