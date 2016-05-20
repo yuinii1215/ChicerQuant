@@ -25,6 +25,8 @@ require(
         var axisData=[];
         var chart1Data=[];
         var chart2Data=[];
+        var chart3Data=[];
+
         var kData=$scope.test;
 
         setTimeout(function(){
@@ -33,6 +35,7 @@ require(
                 axisData[item]=kchartData[item].date;
                 chart1Data[item]=[kchartData[item].open,kchartData[item].close,kchartData[item].low,kchartData[item].high];
                 chart2Data[item]=kchartData[item].volumn;
+
             }
 
             var myChart = ec.init(document.getElementById('main1'));
@@ -327,13 +330,6 @@ require(
                     }
                 ]
             };
-
-
-<<<<<<< HEAD
-=======
-
-            // 为echarts对象加载数据
->>>>>>> bab645ddb4626a43eebfff88d3650a5a0b9cc4a3
 
             myChart.connect([myChart2, myChart3]);
             myChart3.setOption(option3);
