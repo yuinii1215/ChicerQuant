@@ -19,11 +19,14 @@
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
+    <link href="../homePage/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
+    <!--headerjs-->
+    <script src="../homePage/js/angularjs/angular-1.0.7.js"></script>
 
 </head>
 
-<body >
+<body ng-app="myAllStockApp" >
 
 <!-- =========================
  PRE LOADER
@@ -273,7 +276,7 @@
                             </div>
                          <div class="row">
                              <div class="col-lg-8">
-                            <div class="widget">
+                            <div class="widget"  ng-controller="AllStockTableCtrl">
                                 <div class="widget-header">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
@@ -285,57 +288,12 @@
                                     </div>
                                 </div>
                                 <div class="widget-content">
-
+                                    <table id="table" class="display" width="100%"></table>
                                     <!--<script type="text/javascript">-->
                                         <!--function GetHtml(row){-->
                                             <!--alert(row);-->
                                         <!--}-->
                                     <!--</script>-->
-
-                                    <table id="visit-stat-table" class="table table-sorting table-striped table-hover datatable"  bgcolor="#ffffcc">
-                                        <!--<thead>-->
-                                        <tr>
-                                            <th>股票代码</th> <!--id-->
-                                            <th>股票简称</th> <!--name-->
-                                            <th>开盘价</th>
-                                            <th>最高价</th>
-                                            <th>最低价</th>
-                                            <th>收盘价</th>
-                                            <th>成交量</th> <!--volum-->
-                                            <th>后复权价</th> <!--adj_price-->
-                                            <th>市盈率</th> <!--pe-->
-                                            <th>市净率</th> <!--pb-->
-                                        </tr>
-                                        <!--<tr onclick="rowSelected(this[1])">-->
-                                        <tr ondblclick="DoubleClick(this.rowIndex)" onclick="SingleClick(this.rowIndex)">
-                                            <td>123</td> <!--id-->
-                                            <td>2</td> <!--name-->
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td> <!--volum-->
-                                            <td>8</td> <!--adj_price-->
-                                            <td>9</td> <!--pe-->
-                                            <td>10</td> <!--pb-->
-                                        </tr>
-                                        <tr ondblclick="DoubleClick(this.rowIndex)" onclick="SingleClick(this.rowIndex)">
-                                            <td>567</td> <!--id-->
-                                            <td>2</td> <!--name-->
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td> <!--volum-->
-                                            <td>8</td> <!--adj_price-->
-                                            <td>9</td> <!--pe-->
-                                            <td>10</td> <!--pb-->
-                                        </tr>
-
-                                        <!--</thead>-->
-                                        <tbody id="tableBody">
-                                        </tbody>
-                                    </table>
                                     <!-- content-->
                                 </div>
                             </div>
@@ -448,29 +406,26 @@
 
 <!-- Javascript -->
 <script src="../allStockShowPage/js/search.js"></script>
-<script src="../homePage/js/angularjs/angular-1.0.0.js"></script>
 <script src="../homePage/js/search.js"></script>
 
+
 <!--getdata-->
-<script src="build/dist/echarts.js"></script>
 <!--<script src="js/kLineChart.js"></script>-->
-<script src="js/lineChart.js"></script>
-<script src="../homePage/js/jquery/jquery.min.js"></script>
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
-<script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
-<script src="../homePage/js/king-common.js"></script>
-<script src="../homePage/js/deliswitch.js"></script>
-<script src="../homePage/js/zerif.js"></script>
-<script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="../homePage/js/jquery/jquery.dataTables.min.js"></script>
 <script src="../homePage/js/king-common.js"></script>
 <script src="../homePage/js/king-table.js"></script>
 <script src="../homePage/js/king-components.js"></script>
+<script src="build/dist/echarts.js"></script>
+<script src="js/lineChart.js"></script>
+<script src="../homePage/js/deliswitch.js"></script>
+<script src="../homePage/js/zerif.js"></script>
+<script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
-<script src="../homePage/js/plugins/datatable/dataTables.bootstrap.js"></script>
-<script src="../homePage/js/plugins/datatable/dataTables.min.js"></script>
-<script src="../homePage/js/search.js"></script>
+<script src="../allStockShowPage/js/initAllStockTable.js"></script>
+
 </body>
 
 </html>

@@ -7,7 +7,7 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
 
     var array=new Array();
-    var count=-1;
+    var count=0;
     var allStocks=[];
     
     $http.post($scope.url, {"method": "getAllStocksService"}).
@@ -15,8 +15,9 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
             $scope.error = false;
             $scope.data = data;
             $scope.allStocks =data;
-        
-            for(var item in $scope.industrys) {
+
+         //   console.log($scope.allStocks);
+            for(var item in $scope.allStocks) {
                count++;
             }
     /*    var pures = $scope.industryDetail[0].pure / 100000000;

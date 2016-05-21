@@ -9,8 +9,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     var index=0;
     var count=-1;
     var industryDetail=[];
-    $scope.table="[";
-    $scope.t="";
+
     var array=new Array();
 
     $http.post($scope.url, {"method": "getAllIndustriesService"}).
@@ -64,7 +63,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     function  getIndustryPure(industryName,item) {
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date": "2015-03-04",
+            "date": "2014-02-02",
             "method": "getIndustryService"
         }).success(function (data) {
                 $scope.error = false;
@@ -88,7 +87,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     function  industryToTable(industryName){
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date": "2015-03-04",
+            "date":  GetDateStr(-1),
             "method": "getIndustryService"
         }).success(function (data) {
             $scope.error = false;
