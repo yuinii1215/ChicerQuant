@@ -44,7 +44,6 @@ var app = angular.module('myFavorApp', []);
             return y + "-" + m + "-" + d;
         }
 
-
         function getSingleDetail(stockName) {
             $http.post($scope.url, {
                 "name": stockName,
@@ -113,6 +112,7 @@ var app = angular.module('myFavorApp', []);
 
                                     var rowIndex=$(this).index();
                                     console.log( rowIndex);
+
                                     localStorage.singleStockID=$(this).eq(0)[0].firstChild.textContent;
                                     console.log( localStorage.singleStockID);
                                     window.location.href="../singleStockPage/singleStockPage.html";

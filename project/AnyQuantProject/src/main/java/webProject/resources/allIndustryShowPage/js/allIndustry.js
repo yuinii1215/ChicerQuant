@@ -158,7 +158,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
                             console.log( rowIndex);
                             localStorage.singleIndustryID=$(this).eq(0)[0].firstChild.textContent;
                             console.log( localStorage.singleIndustryID);
-                    //        window.location.href="../singleIndustryPage/singleIndustryPage.html";
+                            window.location.href="../singleIndustryPage/singleIndustryPage.html";
                         } else {
                             selected.splice( index, 1 );
                         }
