@@ -62,22 +62,53 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
                         {title: "市净率"},
                     ]
                 });
-                $('#table tbody').on('click', 'tr', function () {
+                $('#table tbody').on('dblclick', 'tr', function () {
+                    console.log("doubleClick");
                     var id = this.id;
                     var index = $.inArray(id, selected);
+                    var rowIndex=$(this).index();
 
-                    if ( index === -1 ) {
+                    if ( index == 0 ) {
                         selected.push( id );
-
-                        var rowIndex=$(this).index();
-                        console.log( rowIndex);
+                        //var rowIndex=$(this).index();
+                        console.log("double");
+                        console.log(index);
                         localStorage.singleStockID=$(this).eq(0)[0].firstChild.textContent;
                         console.log( localStorage.singleStockID);
+                        selected.splice( index, 1 );
                         window.location.href="../singleStockPage/singleStockPage.html";
+                    } else {
+                        tableIndex=$(this).index();
+                        var newOption = myChart.getOption(); // 深拷贝
+                        newOption.series[0].data = [indexData[tableIndex][0].close,indexData[tableIndex][1].close,indexData[tableIndex][2].close];
+                        myChart.setOption(newOption,true);
+                        console.log("single");
+                        console.log(index);
+
+                        selected.splice( index, 1 );
+
+                    }
+
+                    $(this).toggleClass('selected');
+                } );
+                $('#table tbody').on('click', 'tr', function () {
+                    console.log("singleClick");
+                    var id = this.id;
+                    var index = $.inArray(id, selected);
+                    var rowIndex=$(this).index();
+
+                    if ( index === -1) {
+                        //selected.push( id );
+                        //
+                        //var rowIndex=$(this).index();
+                        //
+                        //localStorage.singleStockID=$(this).eq(0)[0].firstChild.textContent;
+                        //console.log( localStorage.singleStockID);
+                        //
+                        //window.location.href="../singleStockPage/singleStockPage.html";
                     } else {
                         selected.splice( index, 1 );
                     }
-
                     $(this).toggleClass('selected');
                 } );
             });
