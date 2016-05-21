@@ -41,7 +41,13 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
             var dataSet = array;
 
             $(document).ready(function () {
+                var selected = [];
                 $('#table').DataTable({
+                    "rowCallback": function( row, data ) {
+                        if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
+                            $(row).addClass('selected');
+                        }
+                    },
                     data: dataSet,
                     columns: [
                         {title: "股票代码"},
@@ -56,6 +62,18 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
                         {title: "市净率"},
                     ]
                 });
+                $('#table tbody').on('click', 'tr', function () {
+                    var id = this.id;
+                    var index = $.inArray(id, selected);
+
+                    if ( index === -1 ) {
+                        selected.push( id );
+                    } else {
+                        selected.splice( index, 1 );
+                    }
+
+                    $(this).toggleClass('selected');
+                } );
             });
             //   console.log($scope.table);
         

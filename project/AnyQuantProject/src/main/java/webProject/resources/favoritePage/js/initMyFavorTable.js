@@ -74,7 +74,13 @@ var app = angular.module('myFavorApp', []);
                         var dataSet =array;
 
                         $(document).ready(function() {
+                            var selected = [];
                             $('#table').DataTable( {
+                                "rowCallback": function( row, data ) {
+                                    if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
+                                        $(row).addClass('selected');
+                                    }
+                                },
                                 data:dataSet,
                                 columns: [
                                     {title: "股票代码"},
@@ -90,15 +96,19 @@ var app = angular.module('myFavorApp', []);
                                     {title: "所属行业"},
                                 ]
                             } );
+                            $('#table tbody').on('click', 'tr', function () {
+                                var id = this.id;
+                                var index = $.inArray(id, selected);
+
+                                if ( index === -1 ) {
+                                    selected.push( id );
+                                } else {
+                                    selected.splice( index, 1 );
+                                }
+
+                                $(this).toggleClass('selected');
+                            } );
                         } );
-
-
-
-
-
-
-
-
                     }
                 })
                 .error(function (data, status) {

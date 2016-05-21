@@ -127,7 +127,13 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
                 var dataSet =array;
 
                 $(document).ready(function() {
+                    var selected = [];
                     $('#table').DataTable( {
+                        "rowCallback": function( row, data ) {
+                            if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
+                                $(row).addClass('selected');
+                            }
+                        },
                         data:dataSet,
                         columns: [
                             { title: "行业名称"},
@@ -140,6 +146,18 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
                             { title: "涨跌幅"},
                             { title: "当前价（元）"},
                         ]
+                    } );
+                    $('#table tbody').on('click', 'tr', function () {
+                        var id = this.id;
+                        var index = $.inArray(id, selected);
+
+                        if ( index === -1 ) {
+                            selected.push( id );
+                        } else {
+                            selected.splice( index, 1 );
+                        }
+
+                        $(this).toggleClass('selected');
                     } );
                 } );
              //   console.log($scope.table);
