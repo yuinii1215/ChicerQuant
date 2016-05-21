@@ -31,6 +31,8 @@ require(
                 }
             });
 
+            var industryPure=[];
+            var allIndustryName=[];
 
             $.ajaxSettings.async = false;
 

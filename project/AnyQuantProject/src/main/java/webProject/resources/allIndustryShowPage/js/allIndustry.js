@@ -63,7 +63,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     function  getIndustryPure(industryName,item) {
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date": "2014-02-02",
+            "date": "2016-05-20",
             "method": "getIndustryService"
         }).success(function (data) {
                 $scope.error = false;

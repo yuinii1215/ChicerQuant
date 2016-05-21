@@ -23,7 +23,7 @@
 
     <!--headerjs-->
     <script src="../homePage/js/angularjs/angular-1.0.7.js"></script>
-    <script src="../favoritePage/js/initAllStockTable.js"></script>
+    <script src="../favoritePage/js/initMyFavorTable.js"></script>
 </head>
 
 <body ng-app="myFavorApp">
@@ -260,8 +260,9 @@
                         </div>
                         <div class="main-content"  >
                             <!--row example-->
+                            <div><p><br/><br/></p></div>
                             <div class="widget widget-table">
-                                <div class="widget-header">
+                                <div class="widget-header" ng-controller="myFavorCtrl">
                                     <h3><i class="fa fa-group"></i>关注</h3> <em>- List of concerned stocks</em>
                                     <div class="btn-group widget-header-toolbar">
                                         <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
@@ -269,7 +270,7 @@
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                <div class="widget-content"  ng-controller="AllStockTableCtrl">
+                                <div class="widget-content" >
                                     <table id="table" class="display" width="100%"></table>
                                 </div>
                             </div>
@@ -374,6 +375,7 @@
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/search.js"></script>
+<script src="../favoritePage/js/initMyFavorTable.js"></script>
 
 </body>
 

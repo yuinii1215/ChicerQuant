@@ -18,14 +18,9 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
 
          //   console.log($scope.allStocks);
             for(var item in $scope.allStocks) {
-               count++;
+                count++;
             }
-    /*    var pures = $scope.industryDetail[0].pure / 100000000;
 
-        var totals = $scope.industryDetail[0].total / 100000000;
-        var updowns = $scope.industryDetail[0].updown * 100;
-        var leaderUpdowns = $scope.industryDetail[0].leaderUpdown * 100;
-*/
         for(var item in  $scope.allStocks) {
             if (item < count-1) {
                 array[item] = new Array;
