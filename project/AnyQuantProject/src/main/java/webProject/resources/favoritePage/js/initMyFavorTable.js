@@ -76,6 +76,13 @@ var app = angular.module('myFavorApp', []);
                         $(document).ready(function() {
                             var selected = [];
                             $('#table').DataTable( {
+                            // 设置红绿
+                  /*              "createdRow": function ( row, data, index ) {
+                                    if ( data[5].replace(/[\$,]/g, '') * 1 < 150000 ) {
+                                        $('td', row).eq(5).css( "color", "red");
+                                    }
+                                },
+                    */
                                 "rowCallback": function( row, data ) {
                                     if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
                                         $(row).addClass('selected');
@@ -96,12 +103,19 @@ var app = angular.module('myFavorApp', []);
                                     {title: "所属行业"},
                                 ]
                             } );
-                            $('#table tbody').on('click', 'tr', function () {
+                            $('#table tbody').on('click', 'tr', function (row) {
                                 var id = this.id;
                                 var index = $.inArray(id, selected);
+                                console.log(index);
 
                                 if ( index === -1 ) {
                                     selected.push( id );
+
+                                    var rowIndex=$(this).index();
+                                    console.log( rowIndex);
+                                    localStorage.singleStockID=$(this).eq(0)[0].firstChild.textContent;
+                                    console.log( localStorage.singleStockID);
+                                    window.location.href="../singleStockPage/singleStockPage.html";
                                 } else {
                                     selected.splice( index, 1 );
                                 }

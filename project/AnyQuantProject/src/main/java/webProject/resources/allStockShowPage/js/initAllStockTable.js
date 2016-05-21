@@ -68,6 +68,12 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
 
                     if ( index === -1 ) {
                         selected.push( id );
+
+                        var rowIndex=$(this).index();
+                        console.log( rowIndex);
+                        localStorage.singleStockID=$(this).eq(0)[0].firstChild.textContent;
+                        console.log( localStorage.singleStockID);
+                        window.location.href="../singleStockPage/singleStockPage.html";
                     } else {
                         selected.splice( index, 1 );
                     }
