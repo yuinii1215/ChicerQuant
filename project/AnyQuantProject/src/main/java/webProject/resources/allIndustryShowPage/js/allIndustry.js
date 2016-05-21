@@ -7,8 +7,11 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     $scope.industryPure=[]; /*存所有行业净额*/
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
     var index=0;
+    var count=-1;
     var industryDetail=[];
-    var table="";
+    $scope.table="[";
+    $scope.t="";
+    var array=new Array();
 
     $http.post($scope.url, {"method": "getAllIndustriesService"}).
         success(function (data) {
@@ -22,6 +25,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
             for(var item in $scope.industrys) {
                 length++;
             }
+
             for(var item in $scope.industrys) {
                 if (item < length-1) {
                     $scope.allIndustryName[item] = $scope.industrys[item].industry;
@@ -32,8 +36,10 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
                     industryToTable($scope.industrys[item].industry);
                 }
             }
+
        //     console.log(alert( $scope.industryPure));
-            $('#allIndustryTable').append($(table));
+       //     console.log( $scope.table);
+         //   $('#allIndustryTable').html(($('#allIndustryTable').html()+ $scope.table));
 
         })
         .error(function (data) {
@@ -85,21 +91,61 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
             "date": "2015-03-04",
             "method": "getIndustryService"
         }).success(function (data) {
-                $scope.error = false;
-                $scope.data = data;
-                $scope.industryDetail=data;
-                var pures=$scope.industryDetail[0].pure/100000000;
+            $scope.error = false;
+            $scope.data = data;
+            $scope.industryDetail = data;
+            var pures = $scope.industryDetail[0].pure / 100000000;
 
-                var totals=$scope.industryDetail[0].total/100000000;
-                var updowns=$scope.industryDetail[0].updown*100;
-                var leaderUpdowns=$scope.industryDetail[0].leaderUpdown*100;
+            var totals = $scope.industryDetail[0].total / 100000000;
+            var updowns = $scope.industryDetail[0].updown * 100;
+            var leaderUpdowns = $scope.industryDetail[0].leaderUpdown * 100;
 
-                   table="<tr><td>"+$scope.industryDetail[0].industry_name+"</td><td>"+totals.toFixed(4)+"</td><td>"+updowns.toFixed(4)+"%"+"</td>" +
-                        "<td>"+pures.toFixed(4)+"</td><td>"+$scope.industryDetail[0].companySum+"</td><td>"+$scope.industryDetail[0].leaderName+"</td>" +
-                        "<td>"+$scope.industryDetail[0].leader+"</td><td>"+leaderUpdown.toFixed(4)+"%"+"</td>" +
-                        "<td>"+$scope.industryDetail[0].leaderPrice+"</td>/tr>";
-                   table+=table;
-            // document.getElementById('tableBody').innerHTML=stock;
+
+                array[count+1]=new Array;
+                array[count+1][0]=$scope.industryDetail[0].industry_name;
+                array[count+1][1]=totals.toFixed(4);
+                array[count+1][2]=updowns.toFixed(4);
+                array[count+1][3]=pures.toFixed(4);
+                array[count+1][4]=$scope.industryDetail[0].companySum;
+                array[count+1][5]=$scope.industryDetail[0].leaderName;
+                array[count+1][6]=$scope.industryDetail[0].leader;
+                array[count+1][7]=leaderUpdowns.toFixed(4);
+                array[count+1][8]=$scope.industryDetail[0].leaderPrice;
+
+            /*    $scope.t="<tr><td>"+$scope.industryDetail[0].industry_name+"</td><td>"+totals.toFixed(4)+"</td><td>"+updowns.toFixed(4)+"%"+"</td>" +
+             "<td>"+pures.toFixed(4)+"</td><td>"+$scope.industryDetail[0].companySum+"</td><td>"+$scope.industryDetail[0].leaderName+"</td>" +
+             "<td>"+$scope.industryDetail[0].leader+"</td><td>"+leaderUpdowns.toFixed(4)+"%"+"</td>" +
+             "<td>"+$scope.industryDetail[0].leaderPrice+"</td></tr>";
+
+              $scope.t = "[\"" + $scope.industryDetail[0].industry_name + "\",\"" + totals.toFixed(4) + "\",\"" + updowns.toFixed(4) + "%" + "\",\""
+             + pures.toFixed(4) + "\",\"" + $scope.industryDetail[0].companySum + "\",\"" + $scope.industryDetail[0].leaderName + "\",\""
+             + $scope.industryDetail[0].leader + "\",\"" + leaderUpdowns.toFixed(4) + "%" + "\",\"" + $scope.industryDetail[0].leaderPrice + "\"]" + "]";
+             */
+            count++;
+
+            if (count == 27) {
+                 count = 0;
+                var dataSet =array;
+
+                $(document).ready(function() {
+                    $('#table').DataTable( {
+                        data:dataSet,
+                        columns: [
+                            { title: "行业名称"},
+                            { title: "总资产（亿）"},
+                            { title: "涨跌幅"},
+                            { title: "净额（亿）"},
+                            { title: "公司家数"},
+                            { title: "领涨股名称"},
+                            { title: "领涨股代码"},
+                            { title: "涨跌幅"},
+                            { title: "当前价（元）"},
+                        ]
+                    } );
+                } );
+             //   console.log($scope.table);
+            }
+
             })
             .error(function (data) {
                 $scope.error = true;
