@@ -19,7 +19,6 @@
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
-    <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
@@ -259,7 +258,7 @@
                             <h2>单行业详细信息</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content" >
+                        <div class="main-content" ng-controller="eachIndustryTableCtrl">
                             <!--row example-->
                             <div class="row">
                                 <div class="category m_links">
@@ -322,47 +321,51 @@
                                 <div class="cate_toggle_wrap">
                                     <div class="cate_toggle">显示全部分类</div>
                                 </div>
-                                <div><p>&nbsp</p></div>
                             </div>
 
-                            <div class="row">
+                            <div class="row" >
                                 <div class ="col-md-8">
-                                    <div class="widget">
-                                        <div class="widget-header">
+                                    <div class="widget widget-hide-header">
+                                        <div class="widget-header hide">
                                             <!--header-->
                                             <h3><i class="fa fa-bar-chart-o"></i>chart</h3> <em>- e1</em>
-                                            <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
-                                            <div class="btn-group widget-header-toolbar">
-                                                <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                                <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                            </div>
                                         </div>
                                         <div class="widget-content">
                                             <!-- content-->
+                                            <div class="row">
+                                                <div class="col-md-6" >
+                                                    <div id="pieChart1" style="height:180px; width:100% " ></div>
+                                                    <p class="text-center">该行业占总行业比重</p>
+                                                </div>
+                                                <div class="col-md-1" >
+
+                                                </div>
+                                                <div class="col-md-6" >
+
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class ="col-md-4">
                                     <div class="widget">
-                                        <div class="widget-header">
+                                        <div class="widget-header hide">
                                             <!--header-->
                                             <h3><i class="fa fa-bar-chart-o"></i>element</h3> <em>- e1</em>
-                                            <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
-                                            <div class="btn-group widget-header-toolbar">
-                                                <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                                <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                            </div>
                                         </div>
                                         <div class="widget-content">
                                             <!-- content-->
+                                            <div class="today-reminder">
+                                                <h3 class="reminder-title" id="elementTitle"></h3>
+                                                <p class="reminder-place" id="elements" style="font-size: medium"></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="widget" ng-controller="eachIndustryTableCtrl">
+                            <div class="widget" >
                                 <div class="widget-header">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>table</h3> <em>- e1</em>
@@ -472,12 +475,15 @@
 <script src="../homePage/js/king-common.js"></script>
 <script src="../homePage/js/king-components.js"></script>
 <script src="../homePage/js/king-table.js"></script>
+<script src="../homePage/js/echart/echarts.js"></script>
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/search.js"></script>
 <script src="../singleIndustryPage/js/eachIndustryTable.js"></script>
+<script src="../singleIndustryPage/js/pieChart.js"></script>
+
 </body>
 
 </html>

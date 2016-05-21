@@ -6,23 +6,36 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
     var array=new Array();
     var count=-1;
     var length=0;
+    var countOther=0;
     var allStocks=[];
+    var sum=0;
+    var industryLength=0;
+    var index=0;
+    $scope.allIndustry=[];
+    $scope.singleNum=0;
+    $scope.singleClose=0;
+    $scope.singleOpen=0;
+    $scope.singleMin=0;
+    $scope.singleMax=0;
+    $scope.singleTotal=0;
+    $scope.singleUpDown=0;
 //     localStorage.singleIndustryID
-    console.log(  localStorage.singleIndustryID);
+    console.log(localStorage.singleIndustryID);
     $http.post($scope.url, {"industry_name":localStorage.singleIndustryID,"method": "getStocksByIndustryService"}).
         success(function(data) {
             $scope.error = false;
             $scope.data = data;
             $scope.allStocks =data;
-            console.log($scope.allStocks);
+     //       console.log($scope.allStocks);
 
             for(var item in $scope.allStocks) {
                 length++;
             }
-      //      console.log(length);
+
+            getEachIndustryNum(localStorage.singleIndustryID);
+
             for(var item in  $scope.allStocks) {
                 if (item < length-1) {
-           //         console.log($scope.allStocks[item].stock_id);
                     getSingleDetail($scope.allStocks[item].stock_id);
                 }
             }
@@ -48,28 +61,36 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
     function getSingleDetail(stockName) {
         $http.post($scope.url, {
             "name": stockName,
-            "date": GetDateStr(-1),
+            "date": GetDateStr(-2),
             "method": "getStockByNameService"
         }).success(function (data, status) {
                 $scope.status = status;
                 $scope.data = data;
                 $scope.singleStock=data;
-console.log(  $scope.singleStock);
-                array[count+1]=new Array;
-                array[count+1][0]=stockName;
-                array[count+1][1]=$scope.singleStock[0].stock_name;
-                array[count+1][2]=$scope.singleStock[0].open;
-                array[count+1][3]=$scope.singleStock[0].high;
-                array[count+1][4]=$scope.singleStock[0].low;
-                array[count+1][5]=$scope.singleStock[0].close;
-                array[count+1][6]=$scope.singleStock[0].volumn;
-                array[count+1][7]=$scope.singleStock[0].adj_price;
-                array[count+1][8]=$scope.singleStock[0].pe_ttm;
-                array[count+1][9]=$scope.singleStock[0].pb;
-                array[count+1][10]=$scope.singleStock[0].industry;
+                var temp  =Object.keys($scope.singleStock);
+        //        console.log( $scope.singleStock);
+         //       console.log(temp.length);
 
-                count++;
-                if(count==length-2){
+                if(temp.length==2) {
+                    array[count + 1] = new Array;
+                    array[count + 1][0] = stockName;
+                    array[count + 1][1] = $scope.singleStock[0].stock_name;
+                    array[count + 1][2] = $scope.singleStock[0].open;
+                    array[count + 1][3] = $scope.singleStock[0].high;
+                    array[count + 1][4] = $scope.singleStock[0].low;
+                    array[count + 1][5] = $scope.singleStock[0].close;
+                    array[count + 1][6] = $scope.singleStock[0].volumn;
+                    array[count + 1][7] = $scope.singleStock[0].adj_price;
+                    array[count + 1][8] = $scope.singleStock[0].pe_ttm;
+                    array[count + 1][9] = $scope.singleStock[0].pb;
+                    array[count + 1][10] = $scope.singleStock[0].industry;
+
+                    count++;
+                }else{
+                    countOther++;
+                }
+
+                if((count+countOther)==length-2){
                     count = 0;
                     var dataSet =array;
 
@@ -131,4 +152,124 @@ console.log(  $scope.singleStock);
                 $scope.status = status;
             });
     }
+
+    function getAllIndustryNum(){
+        $http.post($scope.url, {
+            "method": "getAllIndustriesService"
+        }).success(function (data, status) {
+            $scope.status = status;
+            $scope.data = data;
+            $scope.allIndustry=data;
+            for(var item in  $scope.allIndustry) {
+                industryLength++;
+            }
+            for(var item in $scope.allIndustry) {
+                if(item<industryLength-1){
+                   getEachIndustryNum($scope.allIndustry[item].industry);
+                }
+            }
+            })
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+    }
+
+    function getEachIndustryNum(industryName){
+        $http.post($scope.url, {
+            "industry_name":industryName,
+            "date":  GetDateStr(-2),
+            "method": "getIndustryService"
+        }).success(function (data, status) {
+            $scope.status = status;
+            $scope.data = data;
+            $scope.eachIndustry = data;
+            $scope.singleNum=$scope.eachIndustry[0].companySum;
+
+            var totals = $scope.eachIndustry[0].total / 100000000;
+            var updowns = $scope.eachIndustry[0].updown * 100;
+            var closes = $scope.eachIndustry[0].close*1;
+            var opens = $scope.eachIndustry[0].open*1;
+            var mins =$scope.eachIndustry[0].min*1;
+            var maxs =$scope.eachIndustry[0].max*1;
+            $scope.singleClose=closes.toFixed(4);
+            $scope.singleOpen=opens.toFixed(4);
+            $scope.singleMin=mins.toFixed(4);
+            $scope.singleMax=maxs.toFixed(4);
+            $scope.singleTotal=totals.toFixed(4);
+            $scope.singleUpDown=updowns.toFixed(4);
+
+            document.getElementById("elementTitle").innerHTML=industryName;
+            document.getElementById("elements").innerHTML="开盘价:"+$scope.singleOpen+"&nbsp&nbsp&nbsp&nbsp"+"收盘价:"+$scope.singleClose+"<br/>"+
+                "最高价:"+ $scope.singleMax+"&nbsp&nbsp&nbsp&nbsp"+"最低价:"+ $scope.singleMin+"<br/>"+"涨跌幅:"+$scope.singleUpDown+"%"+"<br/>"+"总资产（亿）:"+$scope.singleTotal;
+
+            console.log( $scope.eachIndustry[0].companySum);
+            })
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+    }
+
+    function getEachUpDowm(industryName){
+        $http.post($scope.url, {
+            "name": stockName,
+            "date": GetDateStr(-1),
+            "method": "getStockByNameService"
+        }).success(function (data, status) {
+                $scope.status = status;
+                $scope.data = data;
+            })
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+
+    }
+
+    function initElements(industryName){
+        $http.post($scope.url, {
+            "name": stockName,
+            "date": GetDateStr(-1),
+            "method": "getStockByNameService"
+        }).success(function (data, status) {
+                $scope.status = status;
+                $scope.data = data;
+            })
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+
+    }
+
+
+    //此方法获得了所有行业内股票数之和
+    /*    function getEachIndustryNum(industryName){
+     $http.post($scope.url, {
+     "industry_name":industryName,
+     "date":  GetDateStr(-1),
+     "method": "getIndustryService"
+     }).success(function (data, status) {
+     $scope.status = status;
+     $scope.data = data;
+     $scope.eachIndustry=data;
+     console.log( industryName+$scope.eachIndustry[0].companySum);
+     sum=parseInt(sum)+parseInt($scope.eachIndustry[0].companySum);
+     index++;
+     if(index==industryLength-1) {
+     console.log(sum);
+     }
+     //饼图
+
+
+
+     })
+     .error(function (data, status) {
+     $scope.data = data || "Request failed";
+     $scope.status = status;
+     });
+     }
+     */
+
 });

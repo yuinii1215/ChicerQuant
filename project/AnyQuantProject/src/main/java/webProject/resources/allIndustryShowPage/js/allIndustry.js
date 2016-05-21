@@ -9,7 +9,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     var index=0;
     var count=-1;
     var industryDetail=[];
-
+    var length=0;
     var array=new Array();
 
     $http.post($scope.url, {"method": "getAllIndustriesService"}).
@@ -18,8 +18,6 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
             $scope.data = data;
             $scope.industrys =data;
             $scope.allIndustryName=[];
-
-            var length=0;
 
             for(var item in $scope.industrys) {
                 length++;
@@ -87,7 +85,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     function  industryToTable(industryName){
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date":  GetDateStr(-1),
+            "date":  GetDateStr(-2),
             "method": "getIndustryService"
         }).success(function (data) {
             $scope.error = false;
@@ -121,8 +119,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
              + $scope.industryDetail[0].leader + "\",\"" + leaderUpdowns.toFixed(4) + "%" + "\",\"" + $scope.industryDetail[0].leaderPrice + "\"]" + "]";
              */
             count++;
-
-            if (count == 27) {
+            if (count == length-2) {
                  count = 0;
                 var dataSet =array;
 

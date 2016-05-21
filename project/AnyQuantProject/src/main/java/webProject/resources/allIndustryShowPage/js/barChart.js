@@ -17,7 +17,7 @@ require(
         /*使用外部的js调用angularjs控制器中的方法!!!!!!!!!!!*/
         var element=angular.element(document.getElementById("pureBar"));
         var $scope = element.scope();
-   //     var STR=JSON.stringify($scope.ktest);
+
 
 
         setTimeout(function() {
@@ -32,8 +32,7 @@ require(
             });
 
             var industryPure=[];
-            var allIndustryName=[];
-
+            varallIndustryName=[];
             $.ajaxSettings.async = false;
 
             var barYData= $scope.industryPure
