@@ -5,9 +5,12 @@
  * Date: 16/5/19
  * Time: 下午11:26
  */
-
+  header("Access-Control-Allow-Origin: *");
+  header('Access-Control-Allow-Headers: X-Requested-With');
+   header("Access-Control-Allow-Method: GET");
 require_once('db_login.php');
 header("Content-Type: text/json;charset=utf8");
+
     function allStocksForPotato()
     {
         $connection = getDBConnection();

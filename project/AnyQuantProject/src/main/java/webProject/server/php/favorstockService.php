@@ -21,6 +21,7 @@
           $jsonstring = getMyFavor($username);
           echo $jsonstring;
       }
+
       //输入: 股票名
       //输出: 操作是否成功的信息
       function cancelMyFavorService($name,$username){
