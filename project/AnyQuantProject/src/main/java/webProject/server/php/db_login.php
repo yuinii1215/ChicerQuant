@@ -87,10 +87,10 @@ function execOperation($connection, $stmt)
     try{
     $result = $stmt -> execute();
     }catch(PDOException $e){
-        return json_encode(array("operation:  "=>"failed for: ".$e->getMessage()));
+        return json_encode(array("operation"=>"failed for: ".$e->getMessage()));
     }
 
-    return json_encode(array("operation:  "=>"success:)"));
+    return json_encode(array("operation"=>"success:)"));
 }
 
 

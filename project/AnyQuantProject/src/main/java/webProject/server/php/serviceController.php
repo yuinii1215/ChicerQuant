@@ -12,6 +12,7 @@
 header("Content-Type: text/plain");
 require_once('ajaxService.php');
 require_once('favorstockService.php');
+require_once('loginService.php');
 $data = file_get_contents("php://input");
 
 $objData = json_decode($data);

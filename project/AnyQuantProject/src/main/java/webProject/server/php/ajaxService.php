@@ -6,7 +6,6 @@
  * Time: 上午12:58
  */
 require_once ('getData.php');
-require_once ('userLogin.php');
 require_once ('util.php');
  header("Access-Control-Allow-Origin: *");
  header('Access-Control-Allow-Headers: X-Requested-With');
@@ -27,58 +26,6 @@ require_once ('util.php');
      * 有欠缺的可以加,多余的也可以删╰(￣▽￣)╮
      *
     */
-    /**
-     *
-     * 模块一:  登录
-     *
-     */
-     /**
-      *
-      * 注册一名用户
-      * @param $username
-      * @param $password
-      * @return string 注册结果
-      */
-     function signUpService($username,$password){
-        $jsonstring = insertUser($username,$password);
-        echo $jsonstring;
-     }
-
-
-    /**
-     *
-     * 删除一名用户
-     * @param $username
-     * @return string 删除结果
-     */
-     function removeUserService($username){
-        $jsonstring = deleteUser($username);
-        echo $jsonstring;
-     }
-     /**
-      * 修改用户密码
-      * @param $username
-      * @param $newPassword
-      * @return string
-      */
-     function modifyPasswordService($username,$newPassword){
-        $jsonstring = modifyPassword($username,$newPassword);
-        echo $jsonstring;
-
-     }
-
-
-     /**
-      * 密码验证
-      * @param $username
-      * @param $password
-      * @return string
-      */
-     function verifyPasswordService($username,$password){
-        $jsonstring = verifyPassword($username,$password);
-        echo $jsonstring;
-     }
-
 
     /*
      *
@@ -119,6 +66,7 @@ require_once ('util.php');
      * 模块三:    得到大盘基本属性
      *
      */
+
 
     //输入: 大盘名和日期
     //输出: 操作是否成功的信息以及该日该大盘的属性--各种表格项信息
@@ -194,7 +142,6 @@ require_once ('util.php');
         $jsonstring = get30PMA_week($name, $date);
         echo $jsonstring;
     }
-
     //输入: 股票或大盘名和日期
     //输出: 操作是否成功的信息以及该日该股票或大盘的30日均线--月线的值
     function get30PMA_monthService($name, $date){
@@ -299,7 +246,6 @@ require_once ('util.php');
         $jsonstring = getDayLine($name, $startdate, $enddate);
         echo $jsonstring;
     }
-
 
      //输入: 股票或大盘名和日期区间
      function getWeekLineService($name, $startdate, $enddate){
