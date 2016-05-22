@@ -66,55 +66,35 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
                     console.log("doubleClick");
                     var id = this.id;
                     var index = $.inArray(id, selected);
-                    var rowIndex=$(this).index();
-
-                    if ( index == 0 ) {
-                        selected.push( id );
-                        //var rowIndex=$(this).index();
-                        console.log("double");
-                        console.log(index);
-                        localStorage.singleStockID=$(this).eq(0)[0].firstChild.textContent;
-                        console.log( localStorage.singleStockID);
-                        selected.splice( index, 1 );
-                        window.location.href="../singleStockPage/singleStockPage.html";
-                    } else {
-                        tableIndex=$(this).index();
-                        var newOption = myChart.getOption(); // 深拷贝
-                        newOption.series[0].data = [indexData[tableIndex][0].close,indexData[tableIndex][1].close,indexData[tableIndex][2].close];
-                        myChart.setOption(newOption,true);
-                        console.log("single");
-                        console.log(index);
-
-                        selected.splice( index, 1 );
-
-                    }
-
+                    var rowIndex=$(this).index();//0,1,2,3....
+                    var stockID=$(this).eq(0)[0].firstChild.textContent;
+                    allStock2SingleStockPage(stockID);//
                     $(this).toggleClass('selected');
                 } );
                 $('#table tbody').on('click', 'tr', function () {
                     console.log("singleClick");
                     var id = this.id;
                     var index = $.inArray(id, selected);
-                    var rowIndex=$(this).index();
-
-                    if ( index === -1) {
-                        //selected.push( id );
-                        //
-                        //var rowIndex=$(this).index();
-                        //
-                        //localStorage.singleStockID=$(this).eq(0)[0].firstChild.textContent;
-                        //console.log( localStorage.singleStockID);
-                        //
-                        //window.location.href="../singleStockPage/singleStockPage.html";
-                    } else {
-                        selected.splice( index, 1 );
-                    }
+                    var row=$(this).index();
+                    SingleClick(row);
+                    //if ( index === -1) {
+                    //    //selected.push( id );
+                    //    //
+                    //    //var rowIndex=$(this).index();
+                    //    //
+                    //    //localStorage.singleStockID=$(this).eq(0)[0].firstChild.textContent;
+                    //    //console.log( localStorage.singleStockID);
+                    //    //
+                    //    //window.location.href="../singleStockPage/singleStockPage.html";
+                    //} else {
+                    //    selected.splice( index, 1 );
+                    //}
                     $(this).toggleClass('selected');
                 } );
             });
             //   console.log($scope.table);
-        
 
+            //initStockPreviewData();//调用linechart的初始化方法
         })
         .
         error(function(data) {
