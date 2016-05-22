@@ -258,11 +258,27 @@
                             <h2>单行业详细信息</h2>
                             <em>the least information</em>
                         </div>
+                        <script>
+                            window.onload=function(){
+                                var count=0;
+                                btn.onclick=function(){
+                                    category.style.display =
+                                            !category.style.display||category.style.display=='block' ? 'none':'block';
+                                    if (count==0){
+                                        document.getElementById("btnText").innerHTML="显示全部分类";
+                                        count=-1;
+                                    }else{
+                                        document.getElementById("btnText").innerHTML="收起";
+                                        count=0;
+                                    }
+                                }
+                            }
+                        </script>
                         <div class="main-content" ng-controller="eachIndustryTableCtrl">
                             <!--row example-->
                             <div class="row">
-                                <div class="category m_links">
-                                    <div class="cate_inner">
+                                <div class="category m_links" >
+                                    <div class="cate_inners">
                                         <div class="cate_group">
                                             <span class="cate_letter">A~E</span>
                                             <div class="cate_items">
@@ -272,7 +288,8 @@
                                                 <a href="#">采掘</a>
                                             </div>
                                         </div>
-                                        <div class="cate_group">
+                                        <div id="category">
+                                            <div class="cate_group">
                                             <span class="cate_letter">F~I</span>
                                             <div class="cate_items">
                                                 <a href="#">钢铁</a>
@@ -284,7 +301,7 @@
                                                 <a href="#">纺织服务</a>
                                             </div>
                                         </div>
-                                        <div class="cate_group">
+                                            <div class="cate_group">
                                             <span class="cate_letter">J~N</span>
                                             <div class="cate_items">
                                                 <a href="#">交通运输</a>
@@ -295,7 +312,7 @@
                                                 <a href="#">农林牧鱼</a>
                                             </div>
                                         </div>
-                                        <div class="cate_group">
+                                            <div class="cate_group">
                                             <span class="cate_letter">O~T</span>
                                             <div class="cate_items">
                                                 <a href="#">汽车</a>
@@ -305,7 +322,7 @@
                                                 <a href="#">食品饮料</a>
                                             </div>
                                         </div>
-                                        <div class="cate_group">
+                                            <div class="cate_group">
                                             <span class="cate_letter">U~Z</span>
                                             <div class="cate_items">
                                                 <a href="#">医药生物</a>
@@ -316,10 +333,11 @@
                                                 <a href="#">综合</a>
                                             </div>
                                         </div>
-                                    </div>
+                                       </div>
+                                       </div>
                                 </div>
-                                <div class="cate_toggle_wrap">
-                                    <div class="cate_toggle">显示全部分类</div>
+                                <div class="cate_toggle_wrap" id="btn" style="text-align:center;">
+                                    <div class="cate_toggle" id="btnText" >收起</div>
                                 </div>
                             </div>
 
@@ -334,14 +352,15 @@
                                             <!-- content-->
                                             <div class="row">
                                                 <div class="col-md-6" >
-                                                    <div id="pieChart1" style="height:180px; width:100% " ></div>
+                                                    <div id="pieChart1" style="height:200px; width:100% " ></div>
                                                     <p class="text-center">该行业占总行业比重</p>
                                                 </div>
                                                 <div class="col-md-1" >
 
                                                 </div>
                                                 <div class="col-md-6" >
-
+                                                    <div id="pieChart2" style="height:200px; width:100% " ></div>
+                                                    <p class="text-center">该行业内所有股票涨跌情况</p>
                                                 </div>
 
                                             </div>
@@ -460,7 +479,7 @@
         if( hasTransparent ) {
             document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
         } else {
-            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="css/skin/transparent.css">Transparent</button>';
+            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../homePage/css/skin/transparent.css">Transparent</button>';
         }
     </script>
 </div>
@@ -475,12 +494,12 @@
 <script src="../homePage/js/king-common.js"></script>
 <script src="../homePage/js/king-components.js"></script>
 <script src="../homePage/js/king-table.js"></script>
-<script src="../homePage/js/echart/echarts.js"></script>
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/search.js"></script>
+<script src="../homePage/js/echart/echarts.js"></script>
 <script src="../singleIndustryPage/js/eachIndustryTable.js"></script>
 <script src="../singleIndustryPage/js/pieChart.js"></script>
 

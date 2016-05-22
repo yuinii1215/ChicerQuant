@@ -1,12 +1,3 @@
-//$(function(){
-//    $('#btn').on('click', function(){
-//        $('#dialog').show();
-//    });
-//
-//    $('#dialog').on('click', '.weui_btn_dialog', function(){
-//        $('#dialog').hide();
-//    });
-//});
 
 //建立与"myApp"标识的 ng-app 的联系
 var app = angular.module('myApp', []);

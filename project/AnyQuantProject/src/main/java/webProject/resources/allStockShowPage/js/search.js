@@ -1,143 +1,175 @@
 var app=angular.module('myApp',[]);
 app.controller("SearchCtrl", function($scope, $http, MyCache) {
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
-    //
-    //// The function that will be executed on button click (ng-click="search()")
-    //$scope.singleStockInfo = function() {
 
-    $http.post($scope.url, {
-        "date": "---",
-        "name": localStorage.singleStockID,
-        "method": "getStockByNameService"
-    }).success(function (data, status) {
-            $scope.status = status;
+//START
+    var array=new Array();
+    var count=0;
+    var allStocks=[];
+    var firstStockID;
+    var myDate = new Date();
+    myDate.getFullYear();    //获取完整的年份(4位,1970-????)
+    myDate.getMonth();       //获取当前月份(0-11,0代表1月)
+    myDate.setDate(myDate.getDate()-1);        //获取当前日(1-31)
+    var currentDate=""+myDate.getFullYear()+"-0"+(myDate.getMonth()+1)+"-"+myDate.getDate();
+    //起始日期
+    var d=new Date();
+    d.setDate(d.getDate()-10);
+    var month=d.getMonth()+1;
+    var day = d.getDate();
+    if(month<10){
+        month = "0"+month;
+    }
+    if(day<10){
+        day = "0"+day;
+    }
+    var startDate = d.getFullYear()+"-"+month+"-"+day;
+
+    $http.post($scope.url, {"method": "getAllStocksService"}).
+        success(function(data) {
+            $scope.error = false;
             $scope.data = data;
-            //data=eval("("+data+")");
-            var stockInfo = data;
-            //stockInfo= $.parseJSON(stockInfo);
-            $scope.result = stockInfo[0];
+            $scope.allStocks =data;
+
+            //   console.log($scope.allStocks);
+            for(var item in $scope.allStocks) {
+                count++;
+            }
+
+            for(var item in  $scope.allStocks) {
+                if (item < count-1) {
+                    array[item] = new Array;
+                    array[item][0] = $scope.allStocks[item].stock_id;
+                    array[item][1] = $scope.allStocks[item].stock_name;
+                    array[item][2] = $scope.allStocks[item].open;
+                    array[item][3] = $scope.allStocks[item].high;
+                    array[item][4] = $scope.allStocks[item].low;
+                    array[item][5] = $scope.allStocks[item].close;
+                    array[item][6] = $scope.allStocks[item].volumn;
+                    array[item][7] = $scope.allStocks[item].adj_price;
+                    array[item][8] = $scope.allStocks[item].pe_ttm;
+                    array[item][9] = $scope.allStocks[item].pb;
+                }
+            }
+
+
+            var dataSet = array;
+
+            $(document).ready(function () {
+                var selected = [];
+                $('#table').DataTable({
+                    "rowCallback": function( row, data ) {
+                        if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
+                            $(row).addClass('selected');
+                        }
+                    },
+                    data: dataSet,
+                    columns: [
+                        {title: "股票代码"},
+                        {title: "股票简称"},
+                        {title: "开盘价"},
+                        {title: "最高价"},
+                        {title: "最低价"},
+                        {title: "收盘价"},
+                        {title: "成交量"},
+                        {title: "后复权价"},
+                        {title: "市盈率"},
+                        {title: "市净率"},
+                    ]
+                });
+                $('#table tbody').on('dblclick', 'tr', function () {
+                    console.log("doubleClick");
+                    var id = this.id;
+                    var index = $.inArray(id, selected);
+                    var rowIndex=$(this).index();//0,1,2,3....
+                    var stockID=$(this).eq(0)[0].firstChild.textContent;
+                    allStock2SingleStockPage(stockID);//
+                    $(this).toggleClass('selected');
+                } );
+                $('#table tbody').on('click', 'tr', function () {
+                    console.log("singleClick");
+                    var id = this.id;
+                    var index = $.inArray(id, selected);
+                    var row=$(this).index();
+                    firstStockID=array[row][0];
+                    $http.post($scope.url, {
+                            "name": firstStockID,
+                            "startdate":startDate ,
+                            "enddate": currentDate,
+                            "method": "getStockAmongDateService"
+                        }).success(function (data, status) {
+                                $scope.status = status;
+                                $scope.data = data;
+                                $scope.chartData=data;
+                                //var stockInfo = data[0];
+                                initStockPreviewData();//调用linechart的初始化方法
+
+                            })
+                            .error(function (data, status) {
+                                $scope.data = data || "Request failed";
+                                $scope.status = status;
+                            });
+                    SingleClick();
+
+                    $(this).toggleClass('selected');
+                } );
+            });
+            //   console.log($scope.table);
+            firstStockID=array[0][0];
+            console.log("here!!");
+            console.log(firstStockID);
+
+            //
+            //var myDate = new Date();
+            //myDate.getFullYear();    //获取完整的年份(4位,1970-????)
+            //myDate.getMonth();       //获取当前月份(0-11,0代表1月)
+            //myDate.setDate(myDate.getDate()-1);        //获取当前日(1-31)
+            //var currentDate=""+myDate.getFullYear()+"-0"+(myDate.getMonth()+1)+"-"+myDate.getDate();
+            ////起始日期
+            //var d=new Date();
+            //d.setDate(d.getDate()-10);
+            //var month=d.getMonth()+1;
+            //var day = d.getDate();
+            //if(month<10){
+            //    month = "0"+month;
+            //}
+            //if(day<10){
+            //    day = "0"+day;
+            //}
+            //var startDate = d.getFullYear()+"-"+month+"-"+day;
+            //console.log(startDate);
+            //console.log(currentDate);
+
+            $http.post($scope.url, {
+                "name": firstStockID,
+                "startdate":startDate ,
+                "enddate": currentDate,
+                "method": "getStockAmongDateService"
+            }).success(function (data, status) {
+                    $scope.status = status;
+                    $scope.data = data;
+                    $scope.chartData=data;
+                    console.log($scope.chartData);
+                    //var stockInfo = data[0];
+                    initStockPreviewData();//调用linechart的初始化方法
+
+                })
+                .error(function (data, status) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+
+
         })
-        .error(function (data, status) {
+        .
+        error(function(data) {
+            $scope.error = true;
             $scope.data = data || "Request failed";
-            $scope.status = status;
-        });
-    //};
 
-    //$scope.getterK = MyCache.get('GRACE');
-    $scope.getterK = [];
+        });//END
 
-
-    $http.post($scope.url, {
-        "name": localStorage.singleStockID,
-        "startdate": "2015-01-01",
-        "enddate": "2015-03-10",
-        "method": "getStockAmongDateService"
-    }).success(function (data, status) {
-            $scope.status = status;
-            $scope.data = data;
-            $scope.kLineResult=data;
-
-           // console.log($scope.data);
-            var stockInfo=data;
-           // $scope.kLineResult = stockInfo[0];
-
-            var STR=JSON.stringify(stockInfo[0]);
-            $scope.ktest=STR;
-            //console.log($scope.ktest);
-            //$scope.getterK=data;
-
-        })
-        .error(function (data, status) {
-            $scope.data = data || "Request failed";
-            $scope.status = status;
-        });
-
-    $scope.test = {
-        "0": {
-            "date": "2015-01-01",
-            "stock_name": "浦发银行",
-            "open": "15.69",
-            "high": "15.69",
-            "low": "15.69",
-            "close": "15.69",
-            "volumn": "0",
-            "adj_price": "14.9942",
-            "turnover": "0",
-            "pe_ttm": "0",
-            "pb": "0",
-            "industry": "银行"
-        },
-        "1": {
-            "date": "2015-01-04",
-            "stock_name": "浦发银行",
-            "open": "15.94",
-            "high": "16.25",
-            "low": "15.56",
-            "close": "16.07",
-            "volumn": "513568700",
-            "adj_price": "15.35735",
-            "turnover": "0",
-            "pe_ttm": "6.530156",
-            "pb": "1.295751",
-            "industry": "银行"
-        },
-        "2": {
-            "date": "2015-01-05",
-            "stock_name": "浦发银行",
-            "open": "16",
-            "high": "16.68",
-            "low": "15.82",
-            "close": "16.13",
-            "volumn": "511684500",
-            "adj_price": "15.41469",
-            "turnover": "0",
-            "pe_ttm": "6.55454",
-            "pb": "1.300589",
-            "industry": "银行"
-        },
-        "3": {
-            "date": "2015-01-06",
-            "stock_name": "浦发银行",
-            "open": "15.9",
-            "high": "16.17",
-            "low": "15.53",
-            "close": "15.81",
-            "volumn": "385716800",
-            "adj_price": "15.10888",
-            "turnover": "0",
-            "pe_ttm": "6.424504",
-            "pb": "1.274787",
-            "industry": "银行"
-        },
-        "4": {
-            "date": "2015-01-07",
-            "stock_name": "浦发银行",
-            "open": "15.87",
-            "high": "15.88",
-            "low": "15.2",
-            "close": "15.25",
-            "volumn": "330627100",
-            "adj_price": "14.57371",
-            "turnover": "0",
-            "pe_ttm": "6.196942",
-            "pb": "1.229632",
-            "industry": "银行"
-        },
-        "5": {
-            "date": "2015-01-08",
-            "stock_name": "浦发银行",
-            "open": "15.2",
-            "high": "16.25",
-            "low": "15.11",
-            "close": "15.43",
-            "volumn": "491999900",
-            "adj_price": "14.74573",
-            "turnover": "0",
-            "pe_ttm": "6.270084",
-            "pb": "1.244146",
-            "industry": "银行"
-        },
-        "retmsg": "success"
+    $scope.preview=function() {
+        console.log("i AM PREVIEW,TAHNKS for call");
     }
 });
 

@@ -19,6 +19,9 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
     $scope.singleMax=0;
     $scope.singleTotal=0;
     $scope.singleUpDown=0;
+    $scope.Up=0;
+    $scope.Down=0;
+    $scope.Keep=0;
 //     localStorage.singleIndustryID
     console.log(localStorage.singleIndustryID);
     $http.post($scope.url, {"industry_name":localStorage.singleIndustryID,"method": "getStocksByIndustryService"}).
@@ -31,7 +34,6 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
             for(var item in $scope.allStocks) {
                 length++;
             }
-
             getEachIndustryNum(localStorage.singleIndustryID);
 
             for(var item in  $scope.allStocks) {
@@ -85,6 +87,18 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
                     array[count + 1][9] = $scope.singleStock[0].pb;
                     array[count + 1][10] = $scope.singleStock[0].industry;
 
+                    //获得涨跌数
+               var index =    $scope.singleStock[0].close-$scope.singleStock[0].open;
+            //        console.log(stockName);
+            //        console.log(index);
+                    if(index>0){
+                        $scope.Up++;
+                    } else if(index<0){
+                        $scope.Down++;
+                    }else{
+                        $scope.Keep++;
+                    }
+       //             console.log(  "UP:"+$scope.Up+ " "+"Down:"+ $scope.Down+ " "+ "Keep:"+$scope.Keep);
                     count++;
                 }else{
                     countOther++;
@@ -153,28 +167,6 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
             });
     }
 
-    function getAllIndustryNum(){
-        $http.post($scope.url, {
-            "method": "getAllIndustriesService"
-        }).success(function (data, status) {
-            $scope.status = status;
-            $scope.data = data;
-            $scope.allIndustry=data;
-            for(var item in  $scope.allIndustry) {
-                industryLength++;
-            }
-            for(var item in $scope.allIndustry) {
-                if(item<industryLength-1){
-                   getEachIndustryNum($scope.allIndustry[item].industry);
-                }
-            }
-            })
-            .error(function (data, status) {
-                $scope.data = data || "Request failed";
-                $scope.status = status;
-            });
-    }
-
     function getEachIndustryNum(industryName){
         $http.post($scope.url, {
             "industry_name":industryName,
@@ -203,44 +195,13 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
             document.getElementById("elements").innerHTML="开盘价:"+$scope.singleOpen+"&nbsp&nbsp&nbsp&nbsp"+"收盘价:"+$scope.singleClose+"<br/>"+
                 "最高价:"+ $scope.singleMax+"&nbsp&nbsp&nbsp&nbsp"+"最低价:"+ $scope.singleMin+"<br/>"+"涨跌幅:"+$scope.singleUpDown+"%"+"<br/>"+"总资产（亿）:"+$scope.singleTotal;
 
-            console.log( $scope.eachIndustry[0].companySum);
+
+   //         console.log( $scope.eachIndustry[0].companySum);
             })
             .error(function (data, status) {
                 $scope.data = data || "Request failed";
                 $scope.status = status;
             });
-    }
-
-    function getEachUpDowm(industryName){
-        $http.post($scope.url, {
-            "name": stockName,
-            "date": GetDateStr(-1),
-            "method": "getStockByNameService"
-        }).success(function (data, status) {
-                $scope.status = status;
-                $scope.data = data;
-            })
-            .error(function (data, status) {
-                $scope.data = data || "Request failed";
-                $scope.status = status;
-            });
-
-    }
-
-    function initElements(industryName){
-        $http.post($scope.url, {
-            "name": stockName,
-            "date": GetDateStr(-1),
-            "method": "getStockByNameService"
-        }).success(function (data, status) {
-                $scope.status = status;
-                $scope.data = data;
-            })
-            .error(function (data, status) {
-                $scope.data = data || "Request failed";
-                $scope.status = status;
-            });
-
     }
 
 
@@ -264,6 +225,31 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
 
 
 
+     })
+     .error(function (data, status) {
+     $scope.data = data || "Request failed";
+     $scope.status = status;
+     });
+     }
+
+
+
+
+     function getAllIndustryNum(){
+     $http.post($scope.url, {
+     "method": "getAllIndustriesService"
+     }).success(function (data, status) {
+     $scope.status = status;
+     $scope.data = data;
+     $scope.allIndustry=data;
+     for(var item in  $scope.allIndustry) {
+     industryLength++;
+     }
+     for(var item in $scope.allIndustry) {
+     if(item<industryLength-1){
+     getEachIndustryNum($scope.allIndustry[item].industry);
+     }
+     }
      })
      .error(function (data, status) {
      $scope.data = data || "Request failed";
