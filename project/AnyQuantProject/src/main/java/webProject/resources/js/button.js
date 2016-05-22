@@ -1,8 +1,12 @@
+function enterSuccess() {
+    location.href="homePage/home.html";
+}
 function enter() {
-    window.location.href="homePage/home.html";
+    localStorage.userName="";
+    location.href="homePage/home.html";
 }
 function enterLog_Reg() {
-    window.location.href="login.html";
+   location.href="login.html";
 }
 
 function signUpHint() {

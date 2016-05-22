@@ -17,7 +17,6 @@
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
-    <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
 
 
@@ -67,28 +66,15 @@
                                 <!-- logged user and the menu -->
                                 <div class="logged-user">
                                     <div class="btn-group">
-                                        <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                        <a href="#" id="tar" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
                                             <i class="fa fa-user"></i>
-                                            <span class="name">hi!man</span> <span class="caret"></span>
+                                            <span class="name" id="name" onclick=javascript:welcome(); >返回首页</span> <span class="caret"></span>
                                         </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <!--   <li>
-                                                   <a href="#">
-                                                       <i class="fa fa-user"></i>
-                                                       <span class="text">Profile</span>
-                                                   </a>
-                                               </li>
-                                               <li>
-                                                   <a href="#">
-                                                       <i class="fa fa-cog"></i>
-                                                       <span class="text">Settings</span>
-                                                   </a>
-                                               </li>
-                                               -->
+                                        <ul class="dropdown-menu" role="menu" id="down">
                                             <li>
                                                 <a href="#">
                                                     <i class="fa fa-power-off"></i>
-                                                    <span class="text">Logout</span>
+                                                    <span class="text" id="logout"  onclick=javascript:Logout();>Logout</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -135,8 +121,7 @@
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
                                 <ul class="sub-menu ">
                                     <li><a href="../benchMarkPage/benchMarkPage.html"><span class="text">大盘信息</span></a></li>
-                                    <li><a href="charts-statistics-transparent.html"><span class="text">Charts Transparent <span class="badge element-bg-color-blue">New</span></span></a></li>
-                                </ul>
+                               </ul>
                             </li>
                             <!--industry-->
                             <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-th-large fw"></i><span class="text">行业信息</span>

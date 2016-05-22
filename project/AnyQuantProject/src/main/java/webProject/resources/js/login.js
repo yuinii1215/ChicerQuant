@@ -26,8 +26,8 @@ app.controller("loginCtrl", function ($scope, $http) {
                     console.log(login_flag);
                if (successRequest=="success") {
                     if (login_flag == "true") {
-                        localStorage.singleStockID=userName;
-                        enter();
+                        localStorage.userName=userName;
+                        enterSuccess();
                     } else {
                         alert("帐号不存在/密码错误,请重试");
                     }
