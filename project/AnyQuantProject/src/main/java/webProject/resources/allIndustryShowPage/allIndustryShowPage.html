@@ -17,7 +17,6 @@
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
-    <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
@@ -260,7 +259,6 @@
                         </div>
                         <div class="main-content">
                             <!--row example-->
-                            <div><p><br/><br/></p></div>
                             <div class="col-md-12">
                                 <div class ="row" ng-controller="allIndustryCtrl">
                                     <div class="widget">
@@ -376,7 +374,7 @@
         if( hasTransparent ) {
             document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
         } else {
-            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="css/skin/transparent.css">Transparent</button>';
+            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../homePage/css/skin/transparent.css">Transparent</button>';
         }
     </script>
 </div>

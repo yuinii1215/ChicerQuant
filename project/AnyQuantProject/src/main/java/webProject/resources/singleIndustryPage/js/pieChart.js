@@ -8,7 +8,8 @@ require.config({
 require(
     [
         'echarts',
-        'echarts/chart/pie'
+        'echarts/chart/pie',
+        'echarts/theme/macarons',
     ],
 
     function (ec) {
@@ -19,9 +20,10 @@ require(
         //     var STR=JSON.stringify($scope.ktest);
 
 
+
         setTimeout(function() {
-            var pieChart1 = ec.init(document.getElementById('pieChart1'));
-            var pieChart2 = ec.init(document.getElementById('pieChart2'));
+            var pieChart1 = ec.init(document.getElementById('pieChart1'),'macarons');
+            var pieChart2 = ec.init(document.getElementById('pieChart2'),'macarons');
 
             pieChart1.showLoading({
                 itemStyle: {normal: {color:'#ffffff', label:{show:true}}},

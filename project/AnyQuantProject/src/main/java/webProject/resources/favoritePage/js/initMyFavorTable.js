@@ -47,7 +47,7 @@ var app = angular.module('myFavorApp', []);
         function getSingleDetail(stockName) {
             $http.post($scope.url, {
                 "name": stockName,
-                "date": GetDateStr(-1),
+                "date": GetDateStr(-2),
                 "method": "getStockByNameService"
             }).success(function (data, status) {
                     $scope.status = status;
