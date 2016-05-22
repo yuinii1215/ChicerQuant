@@ -2,16 +2,9 @@
 /*	Skin: Transparent
 /*------------------------------------------------*/
 body {
-    border-color: transparent;
-    background: linear-gradient(to right, #1a1a1a,#1f5381,#1a1a1a);
-/*  -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);B0BED9
-    -ms-filter: blur(5px);
-    -o-filter: blur(5px);
-    filter: blur(5px);
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=4, MakeShadow=false);*/
-    /*home img*/
-    color: #ececec;
+    background: url(http://demo.thedevelovers.com/dashboard/kingadmin-v1.5/assets/img/black-linen.png);
+    background-color: #455E66;
+    color: #eaeaea;
 }
 
 a {
@@ -24,31 +17,26 @@ a:hover, a:focus {
 
 .top-bar {
     background-color: rgba(0, 0, 0, 0.3);
-    border-color: transparent;
 }
 .top-bar .searchbox input[type="search"] {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #161E21;
     border-color: transparent;
 }
-.top-bar .searchbox .btn {/* #161E21*/
-    background-color: rgba(0, 0, 0, 0.5);
+.top-bar .searchbox .btn {
+    background-color: #161E21;
     border-color: transparent;
 }
 .top-bar .searchbox .btn i {
-    /*searchbtn*/
     color: #fff;
 }
 .top-bar .top-bar-right .btn-link {
-    /*username*/
     color: #fff;
 }
 .top-bar .notifications .notification-item .btn-group > a {
     color: #fff;
 }
 .top-bar .dropdown-menu > li > a:hover {
-    /*user下拉框的选种颜色*/
-    background: #2e6da4;
-
+    background-color: rgba(22, 30, 33, 0.95);
 }
 .top-bar .notifications .inbox .name {
     color: #fff;
@@ -69,7 +57,6 @@ a:hover, a:focus {
     border-top-color: #3F4D52;
 }
 .top-bar .logged-user .dropdown-menu > li > a {
-    /*user下拉框字体颜色*/
     color: #fff;
 }
 .top-bar .logged-user .btn img {
@@ -78,8 +65,7 @@ a:hover, a:focus {
 
 .notification-item .dropdown-menu,
 .logged-user .dropdown-menu {
-    /*user下拉框默认颜色*/
-    background-color: rgba(20, 30, 33, 0.95);
+    background-color: rgba(22, 30, 33, 0.95);
 }
 
 .bottom .left-sidebar {
@@ -91,18 +77,15 @@ a:hover, a:focus {
 }
 
 ul.main-menu > li a {
-    /*导航栏背景颜色*/
     background-color: rgba(0, 0, 0, 0.15);
     border-top: transparent;
-    color: #fff;
+    color: #8EA2AC;
 }
 ul.main-menu > li.active > a {
-    /*打开导航的颜色*/
-    background-color: rgba(80, 77, 82, 0.8);
+    background-color: rgba(60, 77, 82, 0.5);
 }
 ul.main-menu > li a:hover {
-    /*移动导航的颜色*/
-    background-color: rgba(80, 77, 82, 0.7);
+    background-color: rgba(60, 77, 82, 0.5);
 }
 ul.main-menu .sub-menu li.active > a {
     text-decoration: underline;
@@ -126,17 +109,14 @@ ul.main-menu .sub-menu li.active > a {
 
 .sidebar-minified i {
     color: #fff;
-    /*缩小边框和中心*/
-    border-color: #fff;
-    background-color: #a5a5a5;
+    border-color: #3F555D;
+    background-color: #465F67;
 }
 .sidebar-minified i:hover {
-    /*鼠标移上*/
     background-color: #3c5158;
 }
 .sidebar-minified:before {
-    /*线*/
-    border-top-color: #a5a5a5;
+    border-top-color: #3F555D;
 }
 
 .data-row .data-name {
@@ -145,7 +125,6 @@ ul.main-menu .sub-menu li.active > a {
 }
 
 .breadcrumb a, .breadcrumb .active {
-    /*中间部分字体颜色*/
     color: #fff;
 }
 
@@ -178,8 +157,7 @@ ul.main-menu .sub-menu li.active > a {
 
 .footer {
     background-color: rgba(36, 57, 66, 0.7);
-    border-color: transparent;
-    color: #FFFEED;
+    color: #8EA2AC;
 }
 
 /* form elements */
@@ -894,7 +872,6 @@ ul.nav-categories > li > a:hover {
 }
 
 .faq-footer {
-    border-color: transparent;
     background-color: rgba(21, 29, 31, 0.5);
 }
 

@@ -4,14 +4,14 @@
 
 var app = angular.module('allIndustryApp', []);
 app.controller('allIndustryCtrl', function ($scope, $http) {
-    $scope.industryPure=[]; /*存所有行业净额*/
+
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
     var index=0;
     var count=-1;
     var industryDetail=[];
     var length=0;
     var array=new Array();
-
+    $scope.industryPure=[]; /*存所有行业净额*/
     $http.post($scope.url, {"method": "getAllIndustriesService"}).
         success(function (data) {
             $scope.error = false;

@@ -2,14 +2,14 @@ require.config({
     paths: {
         echarts: '../homePage/js/echart'
     }
-
 });
 
 require(
     [
         'echarts',
         'echarts/chart/bar',
-        'echarts/chart/line'
+        'echarts/chart/line',
+        'echarts/theme/macarons',
     ],
 
     function (ec) {
@@ -19,9 +19,8 @@ require(
         var $scope = element.scope();
 
 
-
         setTimeout(function() {
-            var pureBarChart = ec.init(document.getElementById('pureBar'));
+            var pureBarChart = ec.init(document.getElementById('pureBar'),'macarons');
 
             pureBarChart.showLoading({
                 itemStyle: {normal: {color:'#ffffff', label:{show:true}}},
@@ -31,11 +30,9 @@ require(
                 }
             });
 
-            var industryPure=[];
-            varallIndustryName=[];
             $.ajaxSettings.async = false;
 
-            var barYData= $scope.industryPure
+            var barYData= $scope.industryPure;
             var barXData= $scope.allIndustryName;
 
             var option = {

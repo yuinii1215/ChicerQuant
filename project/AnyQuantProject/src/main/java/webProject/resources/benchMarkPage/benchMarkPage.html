@@ -17,7 +17,6 @@
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
-    <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
 
     <!--headerjs-->
@@ -42,7 +41,7 @@
             <div class="row">
                 <!-- logo -->
                 <div class="col-md-2 logo"  >
-                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Chicer - your stock manager</a>
+                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Your stock manager</a>
                 </div>
                 <!-- end logo -->
 
@@ -257,28 +256,29 @@
                         </div>
                         <div class="main-content" ng-controller="benchMarkCtrl">
                             <!--row example-->
-                            <div><p><br/><br/></p></div>
                             <div class="row">
                                 <!--row1-->
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <div class="widget">
                                         <div class="widget-header">
                                         <!--header-->
-                                        <h3><i class="fa fa-bar-chart-o"></i>chart</h3> <em>- e1</em>
-                                        <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                        <h3 ><i class="fa fa-bar-chart-o" id="kName"></i></h3> <em>- benchmark details</em>
                                         <div class="btn-group widget-header-toolbar">
-                                            <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                            <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                             <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                             <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                         </div>
                                     </div>
                                         <div class="widget-content">
                                         <!-- content-->
+                                            <div id="main1" style="height:300px; width:100%"></div>
+                                            <div id="main2" style="height:250px; width:100%"></div>
+                                            <div id="main3" style="height:10px; width:100%"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <!--row2-->
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="widget">
                                         <div class="widget-header hide">
                                             <h3>最新数据</h3> <em>- e1</em>
@@ -286,11 +286,8 @@
                                         <div class="widget-content">
                                             <!-- content-->
                                             <div class="today-reminder">
-                                                <h4 class="reminder-title">Project Meeting</h4>
-                                                <p class="reminder-time"><i class="fa fa-clock-o"></i> 9:00 AM</p>
-                                                <p class="reminder-place">War Room</p>
-                                                <em class="reminder-notes">Bring weekly report summary</em>
-
+                                                <div class="reminder-title"><h3 id="elementTitle"></h3> <em id="smallTitle">- e1</em></div>
+                                                <p class="reminder-place"  id="elements" style="font-size: medium"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -299,9 +296,8 @@
                                         <div class="widget-header">
                                             <!--header-->
                                             <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
-                                            <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                             <div class="btn-group widget-header-toolbar">
-                                                <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                                <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                                 <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                                 <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                             </div>
@@ -317,9 +313,8 @@
                                 <div class="widget-header">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                     <div class="btn-group widget-header-toolbar">
-                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
@@ -381,7 +376,7 @@
                 <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="../homePage/css/skin/yellow.css">Yellow</a></li>
             </ul>
             <div id="transparent-control"></div>
-            <button type="button" class="switch-skin-full fulldark" data-skin="../homePage/css/skin/fulldark.css">Full Dark</button>
+             <button type="button" class="switch-skin-full fulldark" data-skin="../homePage/css/skin/fulldark.css">Full Dark</button>
             <button type="button" class="switch-skin-full fullbright" data-skin="../homePage/css/skin/fullbright.css">Full Bright</button>
         </section>
         <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
@@ -407,7 +402,7 @@
         if( hasTransparent ) {
             document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
         } else {
-            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="css/skin/transparent.css">Transparent</button>';
+            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../homePage/css/skin/transparent.css">Transparent</button>';
         }
     </script>
 </div>
@@ -415,17 +410,19 @@
 
 
 <!-- Javascript -->
-<script src="../homePage/js/jquery/jquery.min.js"></script>
+
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
 <script src="../homePage/js/king-common.js"></script>
+<script src="../homePage/js/echart/echarts.js"></script>
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/search.js"></script>
 <script src="../benchMarkPage/js/getBenchMarkData.js"></script>
+<script src="../benchMarkPage/js/kLineChart.js"></script>
 </body>
 
 </html>
