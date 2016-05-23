@@ -11,12 +11,11 @@
 require_once('db_login.php');
 header("Content-Type: text/json;charset=utf8");
 
-$tablename = "favorstocks";
 
 function getMyFavor($username){
     $connection = getDBConnection();
     global $tablename;
-    $stmt = $connection->prepare("select * from ".$tablename." where username = :username");
+    $stmt = $connection->prepare("select * from favorstocks where username = :username");
     $stmt->bindParam(":username",$_username);
     $_username = $username;
     return execQuery($connection,$stmt);
@@ -26,7 +25,7 @@ function getMyFavor($username){
 function cancelMyFavor($stock_id, $username){
     $connection = getDBConnection();
     global $tablename;
-    $stmt = $connection->prepare("delete from ".$tablename." where username = :username and stock_id = :stock_id");
+    $stmt = $connection->prepare("delete from favorstocks where username = :username and stock_id = :stock_id");
     $stmt->bindParam(":username",$_username);
     $stmt->bindParam(":stock_id",$_stock_id);
     $_username = $username;
@@ -37,7 +36,7 @@ function cancelMyFavor($stock_id, $username){
 function addMyFavor($stock_id,$username){
     $connection = getDBConnection();
     global $tablename;
-    $stmt = $connection->prepare("insert into ".$tablename." values( :username , :stock_id)");
+    $stmt = $connection->prepare("insert into favorstocks values( :username , :stock_id)");
     $stmt->bindParam(":username",$_username);
     $stmt->bindParam(":stock_id",$_stock_id);
     $_username = $username;

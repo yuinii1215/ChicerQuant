@@ -32,7 +32,11 @@ public class ChineseName {
 	public static void main(String[] args) {
 		ChineseName i = new ChineseName();
 //		i.iniChinese();
-//		System.out.println(i.getChineseName("sh601186"));
+		try {
+			System.out.println(i.getChineseName("sz000810"));
+		} catch (NetFailedException e) {
+			e.printStackTrace();
+		}
 //        List<String> list = getAllChineseName();
 //        System.out.println(list.size());
 //        System.out.println(list.get(0));
