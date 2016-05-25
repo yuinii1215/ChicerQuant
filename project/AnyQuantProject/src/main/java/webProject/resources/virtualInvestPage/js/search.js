@@ -21,16 +21,16 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     }
    var startDate = d.getFullYear()+"-"+month+"-"+day;
 
-    $http.post($scope.url, {
-        "name": "sh600000",
-        "startdate": "2016-01-01",
-        "enddate":currentDate,
-        "method": "getStockAmongDateService"
-    }).success(function(data) {
-        $scope.error = false;
-        $scope.data = data;
-        $scope.investData =data;
-    });
+    // $http.post($scope.url, {
+    //     "name": "sh600000",
+    //     "startdate": "2016-01-01",
+    //     "enddate":currentDate,
+    //     "method": "getStockAmongDateService"
+    // }).success(function(data) {
+    //     $scope.error = false;
+    //     $scope.data = data;
+    //     $scope.investData =data;
+    // });
 
 
     $scope.stockName;
@@ -51,11 +51,12 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     //        $scope.status = status;
     //    });
 
+    $scope.stockID="sh600000";
 
     $http.post($scope.url, {// function getDayLineService($name, $startdate, $enddate){
         "startdate": "2016-01-01",
         "enddate":currentDate,
-        "name": "sh600000",
+        "name": $scope.stockID,
         "method": "getDayLineService"
     }).success(function (data, status) {
             $scope.status = status;
@@ -69,6 +70,26 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.data = data || "Request failed";
             $scope.status = status;
         });
+
+
+   $scope.changeStock=function(){
+       $scope.stockID=document.getElementById('stockValue').value;
+        $http.post($scope.url, {// function getDayLineService($name, $startdate, $enddate){
+            "startdate": "2016-01-01",
+            "enddate": currentDate,
+            "name":  $scope.stockID,
+            "method": "getDayLineService"
+        }).success(function (data, status) {
+            $scope.status = status;
+            $scope.data = data;
+            $scope.dayKLineResult = data;
+            newStock();
+        })
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+    }
 
 
 

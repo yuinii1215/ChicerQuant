@@ -174,11 +174,12 @@
                             <em>the better analyze</em>
                         </div>
                         <div class="main-content">
-
+                           <div class="row">
+                               <div class="col-lg-6">
                             <div class="widget">
                                 <div class="widget-header">
                                     <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>sh600000</h3> <em>- e1</em>
+                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
                                     <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                     <div class="btn-group widget-header-toolbar">
                                         <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
@@ -187,7 +188,7 @@
                                     </div>
                                 </div>
                                 <div class="widget-content">
-                                    <div id="predict" class="btn" onclick="predictTriggered('kdj')">KDJ Pre</div>
+                                    <!--<div id="predict" class="btn" onclick="predictTriggered('kdj')">KDJ Pre</div>-->
                                     <div id="main1" style="height:300px;"></div>
                                     <div id="main3" style="height:300px;"></div>
                                     <form type="radio" onclick="checkBoxChanged()">
@@ -198,6 +199,68 @@
                                     </form>
                                 </div>
                             </div>
+                         </div>
+                           <div class="col-lg-6">
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
+                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="btn" onclick="predictTriggered('BIAS')">BIAS Pre</div>
+                                    <div class="btn" onclick="predictTriggered('MACD')">MACD Pre</div>
+                                    <div  class="btn" onclick="predictTriggered('RSI')">RSI Pre</div>
+                                    <div class="btn" onclick="predictTriggered('KDJ')">KDJ Pre</div>
+                                    <p>stockID<input type="text" id="stockValue"/></p>
+                                    <div class="btn" ng-click="changeStock()">CONFIRM</div>
+                                </div>
+                            </div>
+                            </div>
+                           </div>
+                          <div class="row">
+                              <div class="col-lg-6">
+                                <div class="widget">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
+                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content" >
+                                    <div id="main2" style="height: 300px;"></div>
+                                </div>
+                                </div>
+                            </div>
+                              <div class="col-lg-6">
+                                  <div class="widget">
+                                      <div class="widget-header">
+                                          <!--header-->
+                                          <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>-e1</em>
+                                          <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                          <div class="btn-group widget-header-toolbar">
+                                              <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                              <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                              <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                          </div>
+                                      </div>
+                                      <div class="widget-content">
+                                          <div id="main4" style="height: 300px;">
+                                          </div>
+                                          <div id="main5" style="height: 300px;"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
 
                         </div>
                         <!-- /main-content -->

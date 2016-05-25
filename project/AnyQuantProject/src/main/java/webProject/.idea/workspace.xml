@@ -24,8 +24,8 @@
       <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+            <state relative-caret-position="405">
+              <caret line="75" column="66" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -34,70 +34,30 @@
       <file leaf-file-name="kLineChart.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/kLineChart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="178" column="6" selection-start-line="178" selection-start-column="6" selection-end-line="178" selection-end-column="6" />
+            <state relative-caret-position="408">
+              <caret line="372" column="19" selection-start-line="372" selection-start-column="19" selection-end-line="372" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="singleStockPage.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="308" column="68" selection-start-line="308" selection-start-column="68" selection-end-line="308" selection-end-column="68" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#marquee#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#label#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#pre#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#pre#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#pre#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#pre#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#pre#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#pre#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#pre#0;n#div#1;n#div#4;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#pre#0;n#div#0;n#div#5;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#pre#0;n#div#1;n#div#5;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#span#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#span#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#span#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="kLineChart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7904">
-              <caret line="118" column="37" selection-start-line="118" selection-start-column="37" selection-end-line="118" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="virtualInvestPage.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="virtualInvestPage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="919">
-              <caret line="133" column="64" selection-start-line="133" selection-start-column="64" selection-end-line="133" selection-end-column="64" />
+            <state relative-caret-position="72">
+              <caret line="182" column="99" selection-start-line="182" selection-start-column="99" selection-end-line="182" selection-end-column="99" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#label#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1464176878000" expanded="false" signature="1268:1279" ph="..." />
+                <marker date="1464176878000" expanded="false" signature="16908:16974" ph="..." />
+                <marker date="1464176878000" expanded="false" signature="17006:17026" ph="..." />
+                <marker date="1464176878000" expanded="false" signature="17164:17178" ph="..." />
+                <marker date="1464176878000" expanded="false" signature="17539:17569" ph="..." />
+                <marker date="1464176878000" expanded="false" signature="17877:17894" ph="..." />
               </folding>
             </state>
           </provider>
@@ -154,11 +114,11 @@
         <option value="$PROJECT_DIR$/resources/login.html" />
         <option value="$PROJECT_DIR$/resources/singleStockPage/js/search.js" />
         <option value="$PROJECT_DIR$/resources/singleStockPage/js/weekKLineChart.js" />
+        <option value="$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js" />
+        <option value="$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html" />
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/js/search.js" />
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html" />
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/js/kLineChart.js" />
-        <option value="$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js" />
-        <option value="$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html" />
       </list>
     </option>
   </component>
@@ -169,9 +129,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-194" />
+    <option name="x" value="60" />
     <option name="y" value="23" />
-    <option name="width" value="1244" />
+    <option name="width" value="1074" />
     <option name="height" value="758" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -221,6 +181,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -267,7 +229,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="singleStockPage" />
+              <option name="myItemId" value="virtualInvestPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="virtualInvestPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -288,15 +272,9 @@
               <option name="myItemId" value="singleStockPage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -407,18 +385,19 @@
       <updated>1462964868581</updated>
       <workItem from="1464081119162" duration="186000" />
       <workItem from="1464088710772" duration="10065000" />
-      <workItem from="1464149852082" duration="1308000" />
+      <workItem from="1464149852082" duration="1355000" />
+      <workItem from="1464165216990" duration="8640000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11559000" />
+    <option name="totallyTimeSpent" value="20246000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-194" y="23" width="1244" height="758" extended-state="0" />
+    <frame x="60" y="23" width="1074" height="758" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20418006" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23649907" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29208925" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -796,74 +775,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="120" column="37" selection-start-line="120" selection-start-column="37" selection-end-line="120" selection-end-column="37" />
+          <folding>
+            <marker date="1464165187000" expanded="true" signature="23988:24006" ph="{&quot;x&quot;: 80...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4">
+          <caret line="308" column="63" selection-start-line="308" selection-start-column="63" selection-end-line="308" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+        <state relative-caret-position="405">
+          <caret line="75" column="66" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/kLineChart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="178" column="6" selection-start-line="178" selection-start-column="6" selection-end-line="178" selection-end-column="6" />
+        <state relative-caret-position="408">
+          <caret line="372" column="19" selection-start-line="372" selection-start-column="19" selection-end-line="372" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="919">
-          <caret line="133" column="64" selection-start-line="133" selection-start-column="64" selection-end-line="133" selection-end-column="64" />
+        <state relative-caret-position="72">
+          <caret line="182" column="99" selection-start-line="182" selection-start-column="99" selection-end-line="182" selection-end-column="99" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7904">
-          <caret line="118" column="37" selection-start-line="118" selection-start-column="37" selection-end-line="118" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="308" column="68" selection-start-line="308" selection-start-column="68" selection-end-line="308" selection-end-column="68" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#marquee#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#pre#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#pre#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#pre#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#pre#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#pre#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#pre#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#pre#0;n#div#1;n#div#4;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#pre#0;n#div#0;n#div#5;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#pre#0;n#div#1;n#div#5;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1464176878000" expanded="false" signature="1268:1279" ph="..." />
+            <marker date="1464176878000" expanded="false" signature="16908:16974" ph="..." />
+            <marker date="1464176878000" expanded="false" signature="17006:17026" ph="..." />
+            <marker date="1464176878000" expanded="false" signature="17164:17178" ph="..." />
+            <marker date="1464176878000" expanded="false" signature="17539:17569" ph="..." />
+            <marker date="1464176878000" expanded="false" signature="17877:17894" ph="..." />
           </folding>
         </state>
       </provider>
