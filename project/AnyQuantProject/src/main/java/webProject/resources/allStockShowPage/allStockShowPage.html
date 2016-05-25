@@ -26,7 +26,7 @@
 
 </head>
 
-<body ng-app="myAllStockApp" >
+<body  ng-app="myApp" >
 
 <!-- =========================
  PRE LOADER
@@ -259,60 +259,46 @@
                         </div>
                         <div class="main-content">
                             <!--row example-->
+                            <div><p><br/><br/></p></div>
                             <div class="row">
-                                <!--row1-->
                                 <div class="col-md-9">
-                                    <div class="widget widget-hide-header">
-                                        <div class="widget-header hide"> <h3>row example1</h3></div>
-                                        <div class="widget-content">
-                                            <!-- content-->
+                                    <div class="widget" id="tablefiller" ng-controller="SearchCtrl">
+                                        <div class="widget-header">
+                                        <!--header-->
+                                            <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
+                                            <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                            <div class="btn-group widget-header-toolbar">
+                                                <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                                <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <!--row2-->
-                                <div class="col-md-3">
-
-                                </div>
-                            </div>
-                         <div class="row">
-                             <div class="col-lg-8">
-                            <div class="widget"  ng-controller="AllStockTableCtrl">
-                                <div class="widget-header">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
-                                    <div class="btn-group widget-header-toolbar">
-                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
-                                <div class="widget-content">
-                                    <table id="table" class="display" width="100%"></table>
+                                        <div class="widget-content">
+                                            <table id="table" class="display" width="100%"></table>
                                     <!--<script type="text/javascript">-->
                                         <!--function GetHtml(row){-->
                                             <!--alert(row);-->
                                         <!--}-->
                                     <!--</script>-->
                                     <!-- content-->
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                                 </div>
-                             <div class="col-lg-4">
-                            <div class="widget" style="margin-top: 100px;">
-                                <div class="widget-header">
+                             <div class="col-md-4" >
+                                <div class="widget"  style="top: 40%;right: 2.5%; width:300px; position:fixed;opacity: 0.9; border:transparent">
+                                <div class="widget-header hide">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>2016年腾讯科技</h3>
 
                                     <div class="btn-group widget-header-toolbar">
-                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                <div class="widget-content" >
+                                <div class="widget-content" style="background: transparent" >
                                     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                                    <div id="main1" style="height:300px;"></div>
+                                    <div id="main1" style="height:250px; width:100%"></div>
                                 </div>
                             </div>
                             </div>
@@ -397,7 +383,7 @@
         if( hasTransparent ) {
             document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
         } else {
-            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="css/skin/transparent.css">Transparent</button>';
+            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../homePage/css/skin/transparent.css">Transparent</button>';
         }
     </script>
 </div>
@@ -405,10 +391,11 @@
 
 
 <!-- Javascript -->
+<!--<script src="build/dist/echarts.js"></script>-->
+<!--<script src="js/lineChart.js"></script>-->
+<!--<script src="../allStockShowPage/js/initAllStockTable.js"></script>-->
 <script src="../allStockShowPage/js/search.js"></script>
 <script src="../homePage/js/search.js"></script>
-
-
 <!--getdata-->
 <!--<script src="js/kLineChart.js"></script>-->
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
@@ -418,14 +405,16 @@
 <script src="../homePage/js/king-common.js"></script>
 <script src="../homePage/js/king-table.js"></script>
 <script src="../homePage/js/king-components.js"></script>
+<!--<script src="js/search.js"></script>-->
 <script src="build/dist/echarts.js"></script>
 <script src="js/lineChart.js"></script>
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
-<script src="../allStockShowPage/js/initAllStockTable.js"></script>
-
+<!--<script src="../allStockShowPage/js/initAllStockTable.js"></script>-->
+<!--<script src="../allStockShowPage/js/initAllStockTable.js"></script>-->
+<!--<script src="../allStockShowPage/js/search.js"></script>-->
 </body>
 
 </html>

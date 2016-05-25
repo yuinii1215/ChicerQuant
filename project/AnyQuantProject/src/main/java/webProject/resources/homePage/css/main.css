@@ -17660,7 +17660,7 @@ input.ui-editRangeSlider-inputValue {
     font-size: 0.9em;
 }
 .today-reminder > i {
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+
     opacity: 0.1;
     position: absolute;
     top: 5px;

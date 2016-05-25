@@ -356,24 +356,24 @@ $(document).ready(function(){
     if( $('.today-reminder').length > 0 ) {
         var count = 0;
         var timer;
-        var ringSound = new Audio();
+  //      var ringSound = new Audio();
 
-        if ( navigator.userAgent.match("Firefox/") ) {
+   /*     if ( navigator.userAgent.match("Firefox/") ) {
             ringSound.src = "assets/audio/bell-ringing.ogg";
         }else {
-            ringSound.src = "assets/audio/bell-ringing.mp3";
+            ringSound.src = "http://demo.thedevelovers.com/dashboard/kingadmin-v1.5/assets/audio/bell-ringing.mp3";
         }
-
+*/
         function ringIt() {
             if( count < 3)	{ // adjust it with the css ring animation at .today-reminder
 
                 // sound setting saved on localStorage as 0 or 1, by default sound on (null value on localStorage)
                 $globalVolume = localStorage.getItem('global-volume');
 
-                if( ($globalVolume == null || $globalVolume == '1' ) ) {
+                /*if( ($globalVolume == null || $globalVolume == '1' ) ) {
                     ringSound.play();
                 }
-
+*/
                 timer = setTimeout( ringIt, 8000); // adjust it with the css ring animation at .today-reminder
                 count++;
             }

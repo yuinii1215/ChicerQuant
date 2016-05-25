@@ -60,7 +60,7 @@ button {
     border: none;
     border-radius:3px;
     padding:1rem 3rem;
-    background-color: #0066CC;
+    background-color: #333;
     color: #fff;
     font-size:1.2em;
 }
@@ -90,7 +90,7 @@ input[type="radio"] {
 
 /*-- Sign up section Animations--*/
 #sign-up:checked ~ .container .sign-up {
-    background: #0066CC;
+    background: #333;
     transition: all ease .3s;
 }
 #sign-up:checked ~ .container .sign-up-replace {
@@ -100,14 +100,14 @@ input[type="radio"] {
     display:block;
 }
 
-/*-- show sign-up hint Animations--*/
-#hint:checked ~ .container .sign-up {
-    background: #0066CC;
-    transition: all ease .3s;
-}
-#hint:checked ~ .container .sign-up-replace {
-    display:none;
-}
-#hint:checked ~ .container .login-replace {
-    display:block;
-}
+/*!*-- show sign-up hint Animations--*!*/
+/*#hint:checked ~ .container .sign-up {*/
+    /*background: #0066CC;*/
+    /*transition: all ease .3s;*/
+/*}*/
+/*#hint:checked ~ .container .sign-up-replace {*/
+    /*display:none;*/
+/*}*/
+/*#hint:checked ~ .container .login-replace {*/
+    /*display:block;*/
+/*}*/

@@ -2,14 +2,14 @@ require.config({
     paths: {
         echarts: '../homePage/js/echart'
     }
-
 });
 
 require(
     [
         'echarts',
         'echarts/chart/bar',
-        'echarts/chart/line'
+        'echarts/chart/line',
+        'echarts/theme/macarons',
     ],
 
     function (ec) {
@@ -17,11 +17,10 @@ require(
         /*使用外部的js调用angularjs控制器中的方法!!!!!!!!!!!*/
         var element=angular.element(document.getElementById("pureBar"));
         var $scope = element.scope();
-   //     var STR=JSON.stringify($scope.ktest);
 
 
         setTimeout(function() {
-            var pureBarChart = ec.init(document.getElementById('pureBar'));
+            var pureBarChart = ec.init(document.getElementById('pureBar'),'macarons');
 
             pureBarChart.showLoading({
                 itemStyle: {normal: {color:'#ffffff', label:{show:true}}},
@@ -31,10 +30,9 @@ require(
                 }
             });
 
-
             $.ajaxSettings.async = false;
 
-            var barYData= $scope.industryPure
+            var barYData= $scope.industryPure;
             var barXData= $scope.allIndustryName;
 
             var option = {

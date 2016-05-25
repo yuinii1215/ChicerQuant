@@ -18,14 +18,9 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
 
          //   console.log($scope.allStocks);
             for(var item in $scope.allStocks) {
-               count++;
+                count++;
             }
-    /*    var pures = $scope.industryDetail[0].pure / 100000000;
 
-        var totals = $scope.industryDetail[0].total / 100000000;
-        var updowns = $scope.industryDetail[0].updown * 100;
-        var leaderUpdowns = $scope.industryDetail[0].leaderUpdown * 100;
-*/
         for(var item in  $scope.allStocks) {
             if (item < count-1) {
                 array[item] = new Array;
@@ -46,7 +41,13 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
             var dataSet = array;
 
             $(document).ready(function () {
+                var selected = [];
                 $('#table').DataTable({
+                    "rowCallback": function( row, data ) {
+                        if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
+                            $(row).addClass('selected');
+                        }
+                    },
                     data: dataSet,
                     columns: [
                         {title: "股票代码"},
@@ -61,10 +62,39 @@ app.controller('AllStockTableCtrl', function ($scope, $http) {
                         {title: "市净率"},
                     ]
                 });
+                $('#table tbody').on('dblclick', 'tr', function () {
+                    console.log("doubleClick");
+                    var id = this.id;
+                    var index = $.inArray(id, selected);
+                    var rowIndex=$(this).index();//0,1,2,3....
+                    var stockID=$(this).eq(0)[0].firstChild.textContent;
+                    allStock2SingleStockPage(stockID);//
+                    $(this).toggleClass('selected');
+                } );
+                $('#table tbody').on('click', 'tr', function () {
+                    console.log("singleClick");
+                    var id = this.id;
+                    var index = $.inArray(id, selected);
+                    var row=$(this).index();
+                    SingleClick(row);
+                    //if ( index === -1) {
+                    //    //selected.push( id );
+                    //    //
+                    //    //var rowIndex=$(this).index();
+                    //    //
+                    //    //localStorage.singleStockID=$(this).eq(0)[0].firstChild.textContent;
+                    //    //console.log( localStorage.singleStockID);
+                    //    //
+                    //    //window.location.href="../singleStockPage/singleStockPage.html";
+                    //} else {
+                    //    selected.splice( index, 1 );
+                    //}
+                    $(this).toggleClass('selected');
+                } );
             });
             //   console.log($scope.table);
-        
 
+            //initStockPreviewData();//调用linechart的初始化方法
         })
         .
         error(function(data) {

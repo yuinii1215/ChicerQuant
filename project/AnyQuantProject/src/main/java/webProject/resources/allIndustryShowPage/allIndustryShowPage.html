@@ -17,7 +17,6 @@
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
-    <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
@@ -260,7 +259,6 @@
                         </div>
                         <div class="main-content">
                             <!--row example-->
-                            <div><p><br/><br/></p></div>
                             <div class="col-md-12">
                                 <div class ="row" ng-controller="allIndustryCtrl">
                                     <div class="widget">
@@ -269,7 +267,7 @@
                                         <h3><i class="fa fa-bar-chart-o"></i>chart</h3> <em>- e1</em>
                                         <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                         <div class="btn-group widget-header-toolbar">
-                                            <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                            <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                             <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                             <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                         </div>
@@ -286,14 +284,15 @@
                                         <h3><i class="fa fa-table"></i>table</h3> <em>- e1</em>
                                         <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                         <div class="btn-group widget-header-toolbar">
-                                            <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                            <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                             <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                             <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                         </div>
-                                        </div>
+                                    </div>
                                         <div class="widget-content">
-                                            <table id="table" class="display" width="100%"></table>
-                                        </div>
+                                            <table id="table" class="display" width="100%">
+                                        </table>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -375,7 +374,7 @@
         if( hasTransparent ) {
             document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
         } else {
-            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="css/skin/transparent.css">Transparent</button>';
+            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../homePage/css/skin/transparent.css">Transparent</button>';
         }
     </script>
 </div>

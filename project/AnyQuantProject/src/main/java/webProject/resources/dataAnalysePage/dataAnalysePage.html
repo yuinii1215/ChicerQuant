@@ -2,7 +2,7 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> [endif] -->
 <!--[if !(IE)]>
 <!-->
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" ng-app="singleStrategy">
 <!--<![endif]-->
 
 <head>
@@ -19,6 +19,7 @@
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
+    <script src="js/echarts.min.js"></script>
 
 </head>
 
@@ -268,9 +269,7 @@
                                                 <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                             </div>
                                         </div>
-                                        <div class="widget-content">
-
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
@@ -288,14 +287,16 @@
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                <div class="widget-content" ng-app="searchSingle" ng-controller="name">
-                                    <input ng-model="searchHelper"></input>
-
-                                <div class="widget-content">
+                                
+                                <div class="widget-content" ng-controller="kLine" style="height: 400px;width: 600px;">
                                         <!-- 为ECharts准备一个具备大小（宽高）的Dom,绘制K线图 -->
-                                        <div id="main1" style="height:200px;"></div>
-                                        <div id="main2" style="height:150px;"></div>
-                                        <div id="main3" style="height:150px;"></div>
+                                    <input ng-model="stockid"></input>
+                                     <button ng-click="change()">change</button>
+     			                    <kline id="main" option="option"></kline>
+							</div>
+                                        	
+                                 
+                                        
                                         <!-- ECharts单文件引入 -->
 
                                 </div>
@@ -398,7 +399,7 @@
         if( hasTransparent ) {
             document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
         } else {
-            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="css/skin/transparent.css">Transparent</button>';
+            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../homePage/css/skin/transparent.css">Transparent</button>';
         }
     </script>
 </div>
@@ -407,13 +408,13 @@
 
 <!-- Javascript -->
 
-<script src="../homePage/js/angularjs/angular-1.0.0.js"></script>
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript" src="../js/ng-echarts.min.js"></script>
 <script src="js/search.js"></script>
 <!--getdata-->
-<script src="build/dist/echarts.js"></script>
-<script src="js/kLineChart.js"></script>
 <script src="../homePage/js/jquery/jquery.min.js"></script>
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
@@ -422,6 +423,8 @@
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/search.js"></script>
+<script type="text/javascript" src="stock_strategy.js"></script>
+
 </body>
 
 </html>

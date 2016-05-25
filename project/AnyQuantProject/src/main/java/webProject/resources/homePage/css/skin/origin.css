@@ -148,7 +148,17 @@ ul.main-menu .sub-menu li.active > a {
 .widget .widget-header .btn-group > a:hover, .widget .widget-header .btn-group > a:focus {
     color: #cef1ff;
 }
-
+.widget.widget-table {
+    overflow: hidden;
+}
+.widget.widget-hide-header {
+    border: none;
+    background: none;
+}
+.widget.widget-focus-enabled {
+    z-index: 999;
+    position: relative;
+}
 .widget .widget-content {
     background-color:#f9f9f9;
     border-color: lightgray;

@@ -8,7 +8,6 @@ function toSingleStockPage() {
 }
 
 function allStock2SingleStockPage(stockID) {
-    alert(stockID);
     localStorage.singleStockID=stockID;
     window.location.href="../singleStockPage/singleStockPage.html";
 }

@@ -1,12 +1,3 @@
-//$(function(){
-//    $('#btn').on('click', function(){
-//        $('#dialog').show();
-//    });
-//
-//    $('#dialog').on('click', '.weui_btn_dialog', function(){
-//        $('#dialog').hide();
-//    });
-//});
 
 //建立与"myApp"标识的 ng-app 的联系
 var app = angular.module('myApp', []);
@@ -22,25 +13,27 @@ app.controller("loginCtrl", function ($scope, $http) {
         if(document.getElementById("login").checked){
             //login recognize
             console.log("login");
-            //function(userName,password){ return legal/illegal;}
 
             $http.post($scope.url, {
                     "username": userName,
                     "password": password,
                     "method": "verifyPasswordService"
                 })
-                //返回函数
                 .success(function (response) {
-                    var login_state=response[0];
-                    var str=JSON.stringify(login_state);
-                    $scope.testlogin=str;
-                    var login_flag=$scope.testlogin.;//这里还没测好,因为还没看到返回的数据是什么格式
-
-                    if(login_flag=="success"){
+                    var login_state = response;
+                    var successRequest = login_state.retmsg;
+                    var login_flag = login_state[0].qualified;
+                    console.log(login_flag);
+               if (successRequest=="success") {
+                    if (login_flag == "true") {
+                        localStorage.singleStockID=userName;
                         enter();
-                    }else{
+                    } else {
                         alert("帐号不存在/密码错误,请重试");
                     }
+                }else {
+                   alert("登录请求失败,请重试");
+               }
                 });
 
         }else{// signUpService($username,$password)
@@ -56,18 +49,27 @@ app.controller("loginCtrl", function ($scope, $http) {
                 //返回函数
                 .success(function (response) {
                     var sign_up_state=response;
-                    var str=JSON.stringify(sign_up_state);
-                    $scope.test=str;
-                    var sign_flag=$scope.test.operation;
-                    console.log($scope.test);
-                    console.log($scope.test.operation);
+                    var sign_flag=sign_up_state.operation;
+
                     if(sign_flag=="success:)"){
                      alert("您已经注册成功,请返回登录");
+
+                        //删除用户的方法
+                        //$http.post($scope.url, {
+                        //        "username": userName,
+                        //        "method": "removeUserService"
+                        //    })
+                        //    //返回函数
+                        //    .success(function (response) {
+                        //        console.log("remove user");
+                        //    });
                     }else{
                      alert("注册失败,请重试");
                     }
-
                 });
+
+
+
         }
     };
 

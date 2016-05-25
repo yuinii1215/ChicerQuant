@@ -4,22 +4,20 @@
 
 var app = angular.module('allIndustryApp', []);
 app.controller('allIndustryCtrl', function ($scope, $http) {
-    $scope.industryPure=[]; /*存所有行业净额*/
+
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
     var index=0;
     var count=-1;
     var industryDetail=[];
-
+    var length=0;
     var array=new Array();
-
+    $scope.industryPure=[]; /*存所有行业净额*/
     $http.post($scope.url, {"method": "getAllIndustriesService"}).
         success(function (data) {
             $scope.error = false;
             $scope.data = data;
             $scope.industrys =data;
             $scope.allIndustryName=[];
-
-            var length=0;
 
             for(var item in $scope.industrys) {
                 length++;
@@ -63,7 +61,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     function  getIndustryPure(industryName,item) {
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date": "2014-02-02",
+            "date": "2016-05-20",
             "method": "getIndustryService"
         }).success(function (data) {
                 $scope.error = false;
@@ -87,7 +85,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     function  industryToTable(industryName){
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date":  GetDateStr(-1),
+            "date":  GetDateStr(-2),
             "method": "getIndustryService"
         }).success(function (data) {
             $scope.error = false;
@@ -121,13 +119,18 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
              + $scope.industryDetail[0].leader + "\",\"" + leaderUpdowns.toFixed(4) + "%" + "\",\"" + $scope.industryDetail[0].leaderPrice + "\"]" + "]";
              */
             count++;
-
-            if (count == 27) {
+            if (count == length-2) {
                  count = 0;
                 var dataSet =array;
 
                 $(document).ready(function() {
+                    var selected = [];
                     $('#table').DataTable( {
+                        "rowCallback": function( row, data ) {
+                            if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
+                                $(row).addClass('selected');
+                            }
+                        },
                         data:dataSet,
                         columns: [
                             { title: "行业名称"},
@@ -140,6 +143,24 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
                             { title: "涨跌幅"},
                             { title: "当前价（元）"},
                         ]
+                    } );
+                    $('#table tbody').on('click', 'tr', function () {
+                        var id = this.id;
+                        var index = $.inArray(id, selected);
+
+                        if ( index === -1 ) {
+                            selected.push( id );
+
+                            var rowIndex=$(this).index();
+                            console.log( rowIndex);
+                            localStorage.singleIndustryID=$(this).eq(0)[0].firstChild.textContent;
+                            console.log( localStorage.singleIndustryID);
+                            window.location.href="../singleIndustryPage/singleIndustryPage.html";
+                        } else {
+                            selected.splice( index, 1 );
+                        }
+
+                        $(this).toggleClass('selected');
                     } );
                 } );
              //   console.log($scope.table);

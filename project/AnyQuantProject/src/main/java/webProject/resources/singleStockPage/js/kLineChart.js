@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        echarts: 'build/dist'
+        echarts: '../homePage/js/echart'
     }
 
 });
@@ -11,7 +11,8 @@ require(
         'echarts',
         'echarts/chart/k', // 使用柱状图就加载bar模块，按需加载
         'echarts/chart/bar',
-        'echarts/chart/line'
+        'echarts/chart/line',
+        'echarts/theme/macarons',
     ],
     function (ec) {
         var realstatus,realdata;
@@ -38,9 +39,9 @@ require(
 
             }
 
-            var myChart = ec.init(document.getElementById('main1'));
-            var myChart2 = ec.init(document.getElementById('main2'));
-            var myChart3 = ec.init(document.getElementById('main3'));
+            var myChart = ec.init(document.getElementById('main1'),'macarons');
+            var myChart2 = ec.init(document.getElementById('main2'),'macarons');
+            var myChart3 = ec.init(document.getElementById('main3'),'macarons');
 
             var option = {
                 title: {
