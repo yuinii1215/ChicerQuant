@@ -378,22 +378,19 @@ function getAmongDates($startdate, $enddate)
 }
 
 
-
-function getNameByAge($age){
+function getMyStrategyData($stockname,$startdate,$enddate) {
     $connection = getDBConnection();
-    $query = "select name, age from snois where age = ".$age;
-    $result = mysqli_query($connection,$query);
-    if ($result === false){
-        echo "query error <br/>".$connection->error;
+    if($name != 'hs300'){
+        $stmt = $connection->prepare("select date, close, RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J from ".$stockname." where date between :startdate and :enddate");
+    }else{
+        $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,poly from benchmark where date between :startdate and :enddate");
     }
-    $names = array();
-    while ($result_row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-        array_push($names, $result_row);
-    }
-    return $names;
+    $stmt->bindParam(':startdate', $_startdate);
+    $stmt->bindParam(':enddate', $_enddate);
+    $_startdate = $startdate;
+    $_enddate = $enddate;
+    return execQuery($connection,$stmt);
 }
-
-
 //
 //function getMyDBConnection()
 //{

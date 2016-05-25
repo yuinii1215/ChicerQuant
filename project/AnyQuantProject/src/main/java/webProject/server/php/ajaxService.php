@@ -308,6 +308,18 @@ require_once ('util.php');
         echo $jsonstring;
     }
 
+
+    /**
+     * @param $stocknamep
+     * @param $startdate
+     * @param $enddate
+     */
+    function getMyStrategyDataService($stockname,$startdate,$enddate){
+        $jsonstring = getMyStrategyData($stockname,$startdate,$enddate);
+        echo $jsonstring;
+    }
+
+    getMyStrategyDataService('sh600000','2016-05-10','2016-05-20');
 //    getRelativeDateService(date('Y-m-d',strtotime('2016-05-10')),+9);
 
 ?>
