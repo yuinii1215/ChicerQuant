@@ -120,17 +120,39 @@ function tabChanged(KType){
     console.log(KType);
     document.forms[0].chart3Type="BIAS";
 
+    var tabName;
     switch (KType){
         case 'day':
+            tabName="日K";
             kchartData=$scope.dayKLineResult;
             break;
         case 'week':
+            tabName="周K";
             kchartData=$scope.weekKLineResult;
+            console.log(kchartData);
             break;
         case 'month':
+            tabName="月K";
             kchartData=$scope.monthKLineResult;
             break;
     }
+
+    axisData=[];
+    chart1Data=[];
+    chart2Data=[];
+    chart3Data_RSI6=[];
+    chart3Data_RSI12=[];
+    chart3Data_RSI24=[];
+    chart3Data_BIAS6=[];
+    chart3Data_BIAS12=[];
+    chart3Data_BIAS24=[];
+    chart3Data_K=[];
+    chart3Data_D=[];
+    chart3Data_J=[];
+    chart3Data_DEA=[];
+    chart3Data_DIF=[];
+    chart3Data_MACD=[];
+
 
     for(var item in kchartData){
         //console.log(kchartData[item]);
@@ -341,7 +363,7 @@ function tabChanged(KType){
             }
         ]
     };
-    myChart2.setOption(option2);
+    myChart2.setOption(option2,true);
 
     var option3 = {
         tooltip: {
@@ -456,8 +478,8 @@ function tabChanged(KType){
     };
 
     myChart.connect([myChart2,myChart3]);
-    myChart3.setOption(option3);
-    myChart.setOption(option);
+    myChart3.setOption(option3,true);
+    myChart.setOption(option,true);
     // 为echarts对象加载数据
     myChart2.connect([myChart, myChart3]);
     myChart3.connect([myChart, myChart2]);
