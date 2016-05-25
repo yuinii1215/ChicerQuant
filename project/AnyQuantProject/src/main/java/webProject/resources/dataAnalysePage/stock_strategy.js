@@ -1,34 +1,32 @@
 /**
- * 
+ *
  * @author cxworks
- * 
- * 
- */ 
+ *
+ *
+ */
 var app=angular.module('singleStrategy', []);
-app.directive('kline', function() {  
-    return {  
-        scope: {  
-            id: "@",  
-            option: "="
 
-        },  
-        restrict: 'E',  
-        template: '<div style="height:400px;width:400px;"></div>',  
-        replace: true,  
-        link: function($scope, element, attrs, controller) {  
-        	var myChart = echarts.init(document.getElementById($scope.id));  
-            myChart.setOption($scope.option); 
-            $scope.$watch('option', function(newValue, oldValue, scope) {
+
+app.directive('kline', function() {
+    return {
+
+        restrict: 'E',
+        template: '<div id="kline" style="height:400px;width:600px;"></div>',
+        replace: true,
+        link: function(scope, element, attrs, controller) {
+        	var myChart = echarts.init(element[0]);
+            myChart.setOption(scope.klineoption);
+            scope.$watch('klineoption', function(newValue, oldValue, scope) {
             	if (newValue) {
-            		var myChart = echarts.init(document.getElementById($scope.id));  
+            		var myChart = echarts.init(document.getElementById("kline"));
             		myChart.setOption(newValue);
             	}
             }, true);
-        	
-             
-             
-        }  
-    };  
+
+
+
+        }
+    };
 });
 
 
@@ -37,7 +35,7 @@ app.directive('kline', function() {
 
 
 app.controller('kLine',function($scope,$http){
-           
+
            // 数据意义：开盘(open)，收盘(close)，最低(lowest)，最高(highest)
 var data0 = splitData([
     ['2013/1/24', 2320.26,2320.26,2287.3,2362.94],
@@ -162,7 +160,7 @@ function calculateMA(dayCount) {
 
 
 
-$scope.option = {
+$scope.klineoption = {
     title: {
         text: '上证指数',
         left: 0
@@ -305,7 +303,7 @@ function calculateMA(dayCount) {
 
 
 
-$scope.option = {
+$scope.klineoption = {
     title: {
         text: chinese,
         left: 0
@@ -359,77 +357,7 @@ $scope.option = {
         {
             name: '日K',
             type: 'candlestick',
-            data: data00.values
-            // markPoint: {
-            //     label: {
-            //         normal: {
-            //             formatter: function (param) {
-            //                 return param != null ? Math.round(param.value) : '';
-            //             }
-            //         }
-            //     },
-            //     data: [
-                   
-            //         {
-            //             name: 'highest value',
-            //             type: 'max',
-            //             valueDim: 'highest'
-            //         },
-            //         {
-            //             name: 'lowest value',
-            //             type: 'min',
-            //             valueDim: 'lowest'
-            //         },
-            //         {
-            //             name: 'average value on close',
-            //             type: 'average',
-            //             valueDim: 'close'
-            //         }
-            //     ],
-            //     tooltip: {
-            //         formatter: function (param) {
-            //             return param.name + '<br>' + (param.data.coord || '');
-            //         }
-            //     }
-            // },
-            // markLine: {
-            //     symbol: ['none', 'none'],
-            //     data: [
-            //         [
-            //             {
-            //                 name: 'from lowest to highest',
-            //                 type: 'min',
-            //                 valueDim: 'lowest',
-            //                 symbol: 'circle',
-            //                 symbolSize: 10,
-            //                 label: {
-            //                     normal: {show: false},
-            //                     emphasis: {show: false}
-            //                 }
-            //             },
-            //             {
-            //                 type: 'max',
-            //                 valueDim: 'highest',
-            //                 symbol: 'circle',
-            //                 symbolSize: 10,
-            //                 label: {
-            //                     normal: {show: false},
-            //                     emphasis: {show: false}
-            //                 }
-            //             }
-            //         ],
-            //         {
-            //             name: 'min line on close',
-            //             type: 'min',
-            //             valueDim: 'close'
-            //         },
-            //         {
-            //             name: 'max line on close',
-            //             type: 'max',
-            //             valueDim: 'close'
-            //         }
-            //     ]
-            // }
+            data: data00.values,
         },
         {
             name: 'MA5',
@@ -471,10 +399,123 @@ $scope.option = {
     ]
 };
 
- 
+
            }).error();
 };
 });
 
+app.directive('polyline',function(){
+  return {
+    restrict : 'E',
+    template: '<div id="poly" style="height:400px;width:600px;"></div>',
+    replace: true,
+    link: function(scope,element,attrs,controller){
+
+      scope.$watch('polyoption',function(newValue,oldValue,scope){
+        if (newValue) {
+          var polychart=echarts.init(document.getElementById('poly'));
+          polychart.setOption(newValue);
+        }
+
+      },true);
+    }
+  };
+});
+
+app.controller('polyline',function($scope,$http){
 
 
+
+
+
+
+$scope.test=function(){
+  var stockid=localStorage.stockid;
+  var nowDate=new Date();
+  var year=nowDate.getFullYear();
+  var month=nowDate.getMonth()+1;
+  var day=nowDate.getDate();
+  var startdate=year+"-"+(month-1)+"-"+day;
+  if (month-1==0) {
+    startdate=(year-1)+"-12-"+day;
+  }
+  if (stockid==undefined) {
+    stockid='sh600315';
+  }
+  $scope.url='http://115.159.97.98/php/serviceController.php';
+  $http.post($scope.url,{
+    'method': 'getPolyAmongDateService',
+    'startdate': startdate,
+    'enddate': year+"-"+month+"-"+day,
+    'name': stockid
+  }).success(
+    function(response,status){
+      var value=[];
+      var date=[];
+      for (obj in response) {
+        if (obj!="retmsg") {
+          date.push(response[obj]["date"]);
+          value.push(response[obj]["poly"]);
+        }
+      }
+      $scope.polyoption = {
+
+          title: {
+              left: 'center',
+              text: 'Poly Line Chart',
+          },
+          legend: {
+              top: 'bottom',
+              data:['poly','real close']
+          },
+          toolbox: {
+              show: true,
+              feature: {
+                  dataView: {show: true, readOnly: false},
+                  magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                  restore: {show: true},
+                  saveAsImage: {show: true}
+              }
+          },
+          xAxis: {
+              type: 'category',
+              boundaryGap: false,
+              data: date
+          },
+          yAxis: {
+              type: 'value',
+              boundaryGap: false
+          },
+
+          series: [
+              {
+                  name:'close',
+                  type:'line',
+                  smooth:true,
+                  data: value
+              }
+          ]
+      };
+
+
+      var polychart=echarts.init(document.getElementById('poly'));
+      polychart.setOption($scope.polyoption);
+  }
+
+
+
+  ).error(
+    function(){
+      alert("net error");
+    }
+  );
+
+
+
+
+}
+
+
+$scope.test();
+
+});
