@@ -10,8 +10,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="KingAdmin - Bootstrap Admin Dashboard Theme">
-    <meta name="author" content="The Develovers">
     <!-- CSS -->
     <link rel="stylesheet" href="../homePage/css/preloader.css">
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -70,27 +68,14 @@
                                 <div class="logged-user">
                                     <div class="btn-group">
                                         <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                                            <i class="fa fa-user"></i>
-                                            <span class="name">hi!man</span> <span class="caret"></span>
+                                            <i id="icon" class="fa fa-user"></i>
+                                            <span class="name" id="name" onclick=javascript:welcome(); >返回首页</span> <span id="tar"  class="caret"></span>
                                         </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <!--   <li>
-                                                   <a href="#">
-                                                       <i class="fa fa-user"></i>
-                                                       <span class="text">Profile</span>
-                                                   </a>
-                                               </li>
-                                               <li>
-                                                   <a href="#">
-                                                       <i class="fa fa-cog"></i>
-                                                       <span class="text">Settings</span>
-                                                   </a>
-                                               </li>
-                                               -->
+                                        <ul class="dropdown-menu" role="menu" id="down">
                                             <li>
                                                 <a href="#">
                                                     <i class="fa fa-power-off"></i>
-                                                    <span class="text">Logout</span>
+                                                    <span class="text" id="logout"  onclick=javascript:Logout();>Logout</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -137,7 +122,6 @@
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
                                 <ul class="sub-menu ">
                                     <li><a href="../benchMarkPage/benchMarkPage.html"><span class="text">大盘信息</span></a></li>
-                                    <li><a href="charts-statistics-transparent.html"><span class="text">Charts Transparent <span class="badge element-bg-color-blue">New</span></span></a></li>
                                 </ul>
                             </li>
                             <!--industry-->
@@ -153,7 +137,6 @@
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
                                 <ul class="sub-menu ">
                                     <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
-                                    <li><a href="../stocksComparePage/stocksComparePage.html"><span class="text">多股票对比</span></a></li>
                                     <li><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
                                     <li><a href="../strategyPage/strategyPage.html"><span class="text">我的策略</span></a></li>
                                 </ul>

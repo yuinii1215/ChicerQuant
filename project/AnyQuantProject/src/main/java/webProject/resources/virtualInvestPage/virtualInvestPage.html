@@ -10,14 +10,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="KingAdmin - Bootstrap Admin Dashboard Theme">
-    <meta name="author" content="The Develovers">
     <!-- CSS -->
     <link rel="stylesheet" href="../homePage/css/preloader.css">
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
-    <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
 
 
@@ -40,7 +37,7 @@
             <div class="row">
                 <!-- logo -->
                 <div class="col-md-2 logo"  >
-                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Chicer - your stock manager</a>
+                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Your stock manager</a>
                 </div>
                 <!-- end logo -->
 
@@ -68,27 +65,14 @@
                                 <div class="logged-user">
                                     <div class="btn-group">
                                         <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                                            <i class="fa fa-user"></i>
-                                            <span class="name">hi!man</span> <span class="caret"></span>
+                                            <i id="icon" class="fa fa-user"></i>
+                                            <span class="name" id="name" onclick=javascript:welcome(); >返回首页</span> <span id="tar"  class="caret"></span>
                                         </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <!--   <li>
-                                                   <a href="#">
-                                                       <i class="fa fa-user"></i>
-                                                       <span class="text">Profile</span>
-                                                   </a>
-                                               </li>
-                                               <li>
-                                                   <a href="#">
-                                                       <i class="fa fa-cog"></i>
-                                                       <span class="text">Settings</span>
-                                                   </a>
-                                               </li>
-                                               -->
+                                        <ul class="dropdown-menu" role="menu" id="down">
                                             <li>
                                                 <a href="#">
                                                     <i class="fa fa-power-off"></i>
-                                                    <span class="text">Logout</span>
+                                                    <span class="text" id="logout"  onclick=javascript:Logout();>Logout</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -135,7 +119,6 @@
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
                                 <ul class="sub-menu ">
                                     <li><a href="../benchMarkPage/benchMarkPage.html"><span class="text">大盘信息</span></a></li>
-                                    <li><a href="charts-statistics-transparent.html"><span class="text">Charts Transparent <span class="badge element-bg-color-blue">New</span></span></a></li>
                                 </ul>
                             </li>
                             <!--industry-->
@@ -151,7 +134,6 @@
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
                                 <ul class="sub-menu open">
                                     <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
-                                    <li><a href="../stocksComparePage/stocksComparePage.html"><span class="text">多股票对比</span></a></li>
                                     <li class="active"><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
                                     <li><a href="../strategyPage/strategyPage.html"><span class="text">我的策略</span></a></li>
                                 </ul>
@@ -162,69 +144,6 @@
                     <div class="sidebar-minified js-toggle-minified">
                         <i class="fa fa-angle-left"></i>
                     </div>
-
-                    <!-- sidebar content -->
-                    <!--
-                    <div class="sidebar-content">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h5><i class="fa fa-lightbulb-o"></i> Tips</h5></div>
-                            <div class="panel-body">
-                                <p>You can do live search to the widget at search box located at top bar. It's very useful if your dashboard is full of widget.</p>
-                            </div>
-                        </div>
-                        <h5 class="label label-default"><i class="fa fa-info-circle"></i> Server Info</h5>
-                        <ul class="list-unstyled list-info-sidebar bottom-30px">
-                            <li class="data-row">
-                                <div class="data-name">Disk Space Usage</div>
-                                <div class="data-value">
-                                    274.43 / 2 GB
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-                                            <span class="sr-only">10%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="data-row">
-                                <div class="data-name">Monthly Bandwidth Transfer</div>
-                                <div class="data-value">
-                                    230 / 500 GB
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="46" aria-valuemin="0" aria-valuemax="100" style="width: 46%">
-                                            <span class="sr-only">46%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Database Disk Space</span>
-                                <span class="data-value">219.45 MB</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Operating System</span>
-                                <span class="data-value">Linux</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Apache Version</span>
-                                <span class="data-value">2.4.6</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">PHP Version</span>
-                                <span class="data-value">5.3.27</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">MySQL Version</span>
-                                <span class="data-value">5.5.34-cll</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Architecture</span>
-                                <span class="data-value">x86_64</span>
-                            </li>
-                        </ul>
-                    </div>
-                    -->
-                    <!-- end sidebar content -->
                 </div>
                 <!-- end left sidebar -->
 
@@ -249,33 +168,18 @@
                     </div>
 
                     <!-- main -->
-                    <div class="content">
+                    <div class="content" ng-app="myApp" ng-controller="SearchCtrl">
                         <div class="main-header">
                             <h2>虚拟投资</h2>
                             <em>the better analyze</em>
                         </div>
                         <div class="main-content">
-                            <!--row example-->
-                            <div class="row">
-                                <!--row1-->
-                                <div class="col-md-9">
-                                    <div class="widget widget-hide-header">
-                                        <div class="widget-header hide"> <h3>row example1</h3></div>
-                                        <div class="widget-content">
-                                            <!-- content-->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--row2-->
-                                <div class="col-md-3">
-
-                                </div>
-                            </div>
-
+                           <div class="row">
+                               <div class="col-lg-6">
                             <div class="widget">
                                 <div class="widget-header">
                                     <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
+                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
                                     <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                     <div class="btn-group widget-header-toolbar">
                                         <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
@@ -284,9 +188,79 @@
                                     </div>
                                 </div>
                                 <div class="widget-content">
-                                    <!-- content-->
+                                    <!--<div id="predict" class="btn" onclick="predictTriggered('kdj')">KDJ Pre</div>-->
+                                    <div id="main1" style="height:300px;"></div>
+                                    <div id="main3" style="height:300px;"></div>
+                                    <form type="radio" onclick="checkBoxChanged()">
+                                        <label><input name="chart3Type"  value="BIAS" type="radio" style="margin-left: 80px;" checked/>BIAS</label>
+                                        <label><input name="chart3Type"  value="RSI"  type="radio"/>RSI</label>
+                                        <label><input name="chart3Type"  value="MACD" type="radio"/>MACD</label>
+                                        <label><input name="chart3Type"  value="KDJ"  type="radio"/>KDJ</label>
+                                    </form>
                                 </div>
                             </div>
+                         </div>
+                           <div class="col-lg-6">
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
+                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="btn" onclick="predictTriggered('BIAS')">BIAS Pre</div>
+                                    <div class="btn" onclick="predictTriggered('MACD')">MACD Pre</div>
+                                    <div  class="btn" onclick="predictTriggered('RSI')">RSI Pre</div>
+                                    <div class="btn" onclick="predictTriggered('KDJ')">KDJ Pre</div>
+                                    <p>stockID<input type="text" id="stockValue"/></p>
+                                    <div class="btn" ng-click="changeStock()">CONFIRM</div>
+                                </div>
+                            </div>
+                            </div>
+                           </div>
+                          <div class="row">
+                              <div class="col-lg-6">
+                                <div class="widget">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
+                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content" >
+                                    <div id="main2" style="height: 300px;"></div>
+                                </div>
+                                </div>
+                            </div>
+                              <div class="col-lg-6">
+                                  <div class="widget">
+                                      <div class="widget-header">
+                                          <!--header-->
+                                          <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>-e1</em>
+                                          <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                          <div class="btn-group widget-header-toolbar">
+                                              <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                              <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                              <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                          </div>
+                                      </div>
+                                      <div class="widget-content">
+                                          <div id="main4" style="height: 300px;">
+                                          </div>
+                                          <div id="main5" style="height: 300px;"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
 
                         </div>
                         <!-- /main-content -->
@@ -374,6 +348,10 @@
 
 
 <!-- Javascript -->
+<script src="../homePage/js/angularjs/angular-1.0.0.js"></script>
+<script src="../virtualInvestPage/js/search.js"></script>
+<script src="../singleStockPage/build/dist/echarts.js"></script>
+<script src="../virtualInvestPage/js/kLineChart.js"></script>
 <script src="../homePage/js/jquery/jquery.min.js"></script>
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
@@ -383,7 +361,7 @@
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
-<script src="../homePage/js/search.js"></script>
+
 </body>
 
 </html>

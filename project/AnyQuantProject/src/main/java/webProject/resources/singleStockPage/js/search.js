@@ -8,10 +8,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     myDate.getFullYear();    //获取完整的年份(4位,1970-????)
     myDate.getMonth();       //获取当前月份(0-11,0代表1月)
     myDate.getDate();        //获取当前日(1-31)
-
     var currentDate=""+myDate.getFullYear()+"-0"+(myDate.getMonth()+1)+"-"+myDate.getDate();
-
-
     var d=new Date();
     d.setDate(d.getDate()-30);
     var month=d.getMonth()+1;
@@ -25,65 +22,195 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
    var startDate = d.getFullYear()+"-"+month+"-"+day;
 
     $http.post($scope.url, {
-        "date": currentDate,
-        "offset": -30,
-        "method": "getRelativeDateService"
-    }).success(function (data, status) {
-            $scope.status = status;
-            $scope.startDate = data;
-        })
-        .error(function (data, status) {
-            $scope.data = data || "Request failed";
-            $scope.status = status;
-        });
-
-
-    $http.post($scope.url, {
-        "date": "---",
         "name": localStorage.singleStockID,
-        "method": "getStockByNameService"
-    }).success(function (data, status) {
-            $scope.status = status;
-            $scope.data = data;
-            //data=eval("("+data+")");
-            var stockInfo = data;
-            //stockInfo= $.parseJSON(stockInfo);
-            $scope.result = stockInfo[0];
-        })
-        .error(function (data, status) {
-            $scope.data = data || "Request failed";
-            $scope.status = status;
-        });
-    //};
-
-    //$scope.getterK = MyCache.get('GRACE');
-    $scope.getterK = [];
-
-    console.log($scope.startDate);
-    console.log(currentDate);
-    $http.post($scope.url, {
-        "name": localStorage.singleStockID,
-        "startdate": "2015-01-01",
-        "enddate": "2015-01-10",
+        "startdate": startDate,
+        "enddate":currentDate,
         "method": "getStockAmongDateService"
+    }).success(function(data) {
+        $scope.error = false;
+        $scope.data = data;
+        $scope.tableData =data;
+
+        //console.log($scope.tableData);
+        var array=new Array();
+        var count=0;
+        var tableData=[];
+
+        for(var item in $scope.tableData) {
+            count++;
+        }
+        for(var item in  $scope.tableData) {
+            if (item < count-1) {
+                array[item] = new Array;
+                //array[item][0] = $scope.tableData[item].stock_id;
+                //array[item][1] = $scope.tableData[item].stock_name;
+                array[item][0] = $scope.tableData[item].date;
+                array[item][1] = $scope.tableData[item].open;
+                array[item][2] = $scope.tableData[item].high;
+                array[item][3] = $scope.tableData[item].low;
+                array[item][4] = $scope.tableData[item].close;
+                array[item][5] = $scope.tableData[item].volumn;
+                array[item][6] = $scope.tableData[item].adj_price;
+                //array[item][7] = $scope.tableData[item].pe_ttm;
+                array[item][7] = $scope.tableData[item].pb;
+            }
+        }
+
+        var dataSet = array;
+        $(document).ready(function () {
+            var selected = [];
+            $('#mytable').DataTable({
+                data: dataSet,
+                columns: [
+                    //{title: "股票代码"},
+                    //{title: "股票简称"},
+                    {title: "日期"},
+                    {title: "开盘价"},
+                    {title: "最高价"},
+                    {title: "最低价"},
+                    {title: "收盘价"},
+                    {title: "成交量"},
+                    {title: "后复权价"},
+                    //{title: "市盈率"},
+                    {title: "市净率"},
+                ]
+        });});});
+
+
+    $scope.stockName;
+
+    //$http.post($scope.url, {
+    //    "date": "---",
+    //    "name": localStorage.singleStockID,
+    //    "method": "getStockByNameService"
+    //}).success(function (data, status) {
+    //        $scope.status = status;
+    //        $scope.data = data;
+    //        var stockInfo = data;
+    //        $scope.result = stockInfo[0];
+    //        console.log(stockInfo);
+    //    })
+    //    .error(function (data, status) {
+    //        $scope.data = data || "Request failed";
+    //        $scope.status = status;
+    //    });
+
+
+    $http.post($scope.url, {// function getDayLineService($name, $startdate, $enddate){
+        "startdate": startDate,
+        "enddate":currentDate,
+        "name": localStorage.singleStockID,
+        "method": "getDayLineService"
     }).success(function (data, status) {
             $scope.status = status;
             $scope.data = data;
-            $scope.kLineResult=data;
-            var stockInfo=data;
-           // $scope.kLineResult = stockInfo[0];
-
-            var STR=JSON.stringify(stockInfo[0]);
-            $scope.ktest=STR;
-            console.log($scope.ktest);
-              //$scope.getterK=data;
-
+            $scope.dayKLineResult=data;
+            var content=data;
+            $scope.result=content[19];
+            $scope.stockName=$scope.result.stock_name;
         })
         .error(function (data, status) {
             $scope.data = data || "Request failed";
             $scope.status = status;
         });
 
+    $http.post($scope.url, {// function getDayLineService($name, $startdate, $enddate){
+        "startdate": startDate,
+        "enddate":currentDate,
+        "name": localStorage.singleStockID,
+        "method": "getWeekLineService"
+    }).success(function (data, status) {
+            $scope.weekKLineResult=data;
+            //console.log($scope.weekKLineResult);
+        })
+        .error(function (data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
+
+
+    d=new Date();
+    d.setDate(d.getDate()-200);
+    month=d.getMonth()+1;
+    day = d.getDate();
+    if(month<10){
+        month = "0"+month;
+    }
+    if(day<10){
+        day = "0"+day;
+    }
+    startDate = d.getFullYear()+"-"+month+"-"+day;
+
+    $http.post($scope.url, {// function getDayLineService($name, $startdate, $enddate){
+        "startdate": startDate,
+        "enddate":currentDate,
+        "name": localStorage.singleStockID,
+        "method": "getMonthLineService"
+    }).success(function (data, status) {
+            $scope.monthKLineResult=data;
+            //console.log($scope.monthKLineResult);
+        })
+        .error(function (data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
+
+
+
+    //$http.post($scope.url, {
+    //    "name": localStorage.singleStockID,
+    //    "startdate": startDate,
+    //    "enddate":currentDate,
+    //    "method": "getStockAmongDateService"
+    //}).success(function (data, status) {
+    //        $scope.status = status;
+    //        $scope.data = data;
+    //        $scope.kLineResult=data;
+    //    })
+    //    .error(function (data, status) {
+    //        $scope.data = data || "Request failed";
+    //        $scope.status = status;
+    //    });
+
+    $scope.favorStateContent="关注";
+
+    $scope.favorButtonHandle=function(){
+        if($scope.favorStateContent=="关注"){
+           document.getElementById("favorState").innerText="取消关注";
+            $scope.favorStateContent="取消关注";
+
+            $http.post($scope.url, {
+                "username": "hmy14",
+                //"username": localStorage.userName,
+                "name": localStorage.singleStockID,
+                "method": "addMyFavorService"
+            }).success(function (data, status) {
+                    $scope.status = status;
+                    $scope.data = data;
+
+                })
+                .error(function (data, status) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+        }else{
+            document.getElementById("favorState").innerText="关注";
+            $scope.favorStateContent="关注";
+            $http.post($scope.url, {
+                "username": localStorage.userName,
+                "name": localStorage.singleStockID,
+                "method": "cancelMyFavorService"
+            }).success(function (data, status) {
+                    $scope.status = status;
+                    $scope.data = data;
+
+                })
+                .error(function (data, status) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+        }
+    };
     $scope.test = {
         "0": {
             "date": "2015-01-01",
@@ -170,77 +297,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "industry": "银行"
         },
         "retmsg": "success"
-    }
-
-
-
-    //var stock;
-    //$http.post($scope.url, {//$objData->name,$objData->startdate,$objData->enddate
-    //    "name": localStorage.singleStockID,
-    //    "startdate":$scope.startDate ,
-    //    "enddate": currentDate,
-    //    "method": "getStockAmongDateService"
-    //}).success(function (data, status) {
-    //        $scope.status = status;
-    //        //data=eval("("+data+")");
-    //        var tableData=data;
-    //        console.log(tableData);
-    //
-    //        console.log(currentDate );
-    //        for(var item in tableData){
-    //            console.log(tableData[item].date);
-    //            stock="<tr><td>"+tableData[item].stock_name+"</td><td>"+tableData[item].date+"</td><td>"+tableData[item].open+"</td>" +
-    //                "<td>"+tableData[item].high+"</td><td>"+tableData[item].low+"</td><td>"+tableData[item].close+"</td>" +
-    //                "<td>"+tableData[item].volumn+"</td><td>"+tableData[item].adj_price+"</td>" +
-    //                "<td>"+tableData[item].pe_ttm+"</td><td>"+tableData[item].pb+"</td></tr>";
-    //            $('#tbody').append($(stock));
-    //            //        document.getElementById('tableBody').innerHTML=stock;
-    //        }
-    //
-    //    })
-    //    .error(function (data, status) {
-    //        $scope.data = data || "Request failed";
-    //        $scope.status = status;
-    //    });
-
-
-    /**
-     *   case "getDayLineService":
-     getDayLineService($objData->name,$objData->startdate,$objData->enddate);
-     */
-    //$http.post($scope.url, {//$objData->name,$objData->startdate,$objData->enddate
-    //    "name": localStorage.singleStockID,
-    //    "startdate":$scope.startDate ,
-    //    "enddate": currentDate,
-    //    "method": "getStockAmongDateService"
-    //}).success(function (data, status) {
-    //        $scope.status = status;
-    //        //data=eval("("+data+")");
-    //        var tableData=data;
-    //        console.log(tableData);
-    //
-    //        console.log(currentDate );
-    //        for(var item in tableData){
-    //            console.log(tableData[item].date);
-    //            stock="<tr><td>"+tableData[item].stock_name+"</td><td>"+tableData[item].date+"</td><td>"+tableData[item].open+"</td>" +
-    //                "<td>"+tableData[item].high+"</td><td>"+tableData[item].low+"</td><td>"+tableData[item].close+"</td>" +
-    //                "<td>"+tableData[item].volumn+"</td><td>"+tableData[item].adj_price+"</td>" +
-    //                "<td>"+tableData[item].pe_ttm+"</td><td>"+tableData[item].pb+"</td></tr>";
-    //            $('#tbody').append($(stock));
-    //            //        document.getElementById('tableBody').innerHTML=stock;
-    //        }
-    //
-    //    })
-    //    .error(function (data, status) {
-    //        $scope.data = data || "Request failed";
-    //        $scope.status = status;
-    //    });
-
-
-
-
-
-
+    };
 });
 
 app.factory('MyCache', function ($cacheFactory) {

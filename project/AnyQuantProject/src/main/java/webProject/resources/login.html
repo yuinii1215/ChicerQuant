@@ -7,6 +7,8 @@
 
 
     <link rel="stylesheet" href="css/login.css">
+    <link href="homePage/css/main.css" rel="stylesheet" type="text/css">
+
 
     <style type="text/css">
     body{ background-image:url(img/login_cut.png);}
@@ -41,7 +43,16 @@
     <fieldset>
             <p><input id="username" type="text" name="username" placeholder="用户名:" class="form-login" style="margin-top: 20px;color:#000000;"></p>
             <p><input id="password" type="password" name="password" placeholder="密码: " class="form-login" style="margin-top: 10px;color:#000000;"></p>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-3">
             <button id="login_button" type="button" style="margin-top: 20px;" ng-click="verify()">继续</button>
+            </div>
+            <div class="col-lg-3">
+            <button id="back_button" type="button" style="margin-top: 20px;" ng-click="back()">返回</button>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
     </fieldset>
 </div>
 
@@ -53,6 +64,8 @@
 <script src="js/smoothscroll.js"></script>
 <script src="js/button.js"></script>
 <script src="js/login.js"></script>
+<script src="homePage/js/jquery/jquery.gritter.min.js"></script>
+
 <!--<script src="js/canvas.js"></script>-->
 </body>
 </html>
