@@ -1941,7 +1941,7 @@ a.g-menu-item, a.soptclass, a.clearsearchclass {
 .gritter-light .gritter-bottom,
 .gritter-light .gritter-top,
 .gritter-light .gritter-close {
-    background-image: url(../images/gritter-light.png);
+    background-image: url(http://demo.thedevelovers.com/dashboard/kingadmin-v1.5/assets/images/gritter-light.png);
     color: #222;
 }
 
@@ -15587,6 +15587,7 @@ ul.main-menu > li > a,
 .bottom .container .content-wrapper {
     background-color: #f1f1f1;
     border-left: 1px solid #e4e4e4;
+    background:url(../img/new_bg.png) no-repeat;
 }
 
 .main-content {
@@ -17602,7 +17603,6 @@ input.ui-editRangeSlider-inputValue {
 
 /* alert message, gritter */
 .gritter-item-wrapper {
-    background: url('../img/ie-spacer.gif?1379032210');
 }
 
 .gritter-item-wrapper > div {
@@ -17622,7 +17622,7 @@ input.ui-editRangeSlider-inputValue {
     text-shadow: none;
 }
 .gritter-item .gritter-close {
-    background: url('../img/gritter.png?1379032210');
+    background: url('http://demo.thedevelovers.com/dashboard/kingadmin-v1.5/assets/img/gritter.png?1379032210');
     outline: none;
     left: auto;
     right: 3px;

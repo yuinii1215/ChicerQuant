@@ -17,7 +17,6 @@
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
-    <link href="../homePage/css/skin/origin.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
     <script src="js/echarts.min.js"></script>
 
@@ -40,7 +39,7 @@
             <div class="row">
                 <!-- logo -->
                 <div class="col-md-2 logo"  >
-                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Chicer - your stock manager</a>
+                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Your stock manager</a>
                 </div>
                 <!-- end logo -->
 
@@ -68,27 +67,14 @@
                                 <div class="logged-user">
                                     <div class="btn-group">
                                         <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                                            <i class="fa fa-user"></i>
-                                            <span class="name">hi!man</span> <span class="caret"></span>
+                                            <i id="icon" class="fa fa-user"></i>
+                                            <span class="name" id="name" onclick=javascript:welcome(); >返回首页</span> <span id="tar"  class="caret"></span>
                                         </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <!--   <li>
-                                                   <a href="#">
-                                                       <i class="fa fa-user"></i>
-                                                       <span class="text">Profile</span>
-                                                   </a>
-                                               </li>
-                                               <li>
-                                                   <a href="#">
-                                                       <i class="fa fa-cog"></i>
-                                                       <span class="text">Settings</span>
-                                                   </a>
-                                               </li>
-                                               -->
+                                        <ul class="dropdown-menu" role="menu" id="down">
                                             <li>
                                                 <a href="#">
                                                     <i class="fa fa-power-off"></i>
-                                                    <span class="text">Logout</span>
+                                                    <span class="text" id="logout"  onclick=javascript:Logout();>Logout</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -135,7 +121,6 @@
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
                                 <ul class="sub-menu ">
                                     <li><a href="../benchMarkPage/benchMarkPage.html"><span class="text">大盘信息</span></a></li>
-                                    <li><a href="charts-statistics-transparent.html"><span class="text">Charts Transparent <span class="badge element-bg-color-blue">New</span></span></a></li>
                                 </ul>
                             </li>
                             <!--industry-->
@@ -151,7 +136,6 @@
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
                                 <ul class="sub-menu open">
                                     <li class="active"><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
-                                    <li><a href="../stocksComparePage/stocksComparePage.html"><span class="text">多股票对比</span></a></li>
                                     <li><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
                                     <li><a href="../strategyPage/strategyPage.html"><span class="text">我的策略</span></a></li>
                                 </ul>
@@ -269,7 +253,7 @@
                                                 <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
 
                                 </div>
@@ -287,22 +271,18 @@
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                
-                                <div class="widget-content" ng-controller="kLine" style="height: 400px;width: 600px;">
+
+                                <div class="widget-content" ng-controller="kLine" style="height: 600px;width: 600px;">
                                         <!-- 为ECharts准备一个具备大小（宽高）的Dom,绘制K线图 -->
                                     <input ng-model="stockid"></input>
                                      <button ng-click="change()">change</button>
-     			                    <kline id="main" option="option"></kline>
+     			                    <kline klineoption="klineoption"> </kline>
 							</div>
-                                        	
-                                 
-                                        
-                                        <!-- ECharts单文件引入 -->
 
                                 </div>
                             </div>
                                <!--预测图-->
-                                   <div class="widget" STYLE="margin-top:20px;">
+                                   <div  class="widget" STYLE="margin-top:20px;">
                                 <div class="widget-header">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>预测走势图</h3>
@@ -314,9 +294,10 @@
                                     </div>
                                 </div>
                                 <div class="widget-content">
-                                    <!-- 为ECharts准备一个具备大小（宽高）的Dom,绘制K线图 -->
-                                    <div id="main4" style="height:300px;"></div>
-                                    <!-- ECharts单文件引入 -->
+                                    <div id="main4" style="height:300px;width=400px" ng-controller="polyline">
+                                      <button ng-click="test()">here</button>
+                                    <polyline polyoption="polyoption"></polyline>
+                                  </div>
                                 </div>
                             </div>
                                 </div>
@@ -363,20 +344,20 @@
             <h5 class="del-switcher-header">Choose Skins:</h5>
 
             <ul>
-                <li><a href="#" title="Slate Gray" class="switch-skin slategray" data-skin="../homePage/css/skin/slategray.css">Slate Gray</a></li>
+                <li><a href="#" title="Slate Gray" class=" switch-skin slategray" data-skin="../homePage/css/skin/slategray.css">Slate Gray</a></li>
                 <li><a href="#" title="Dark Blue" class="switch-skin darkblue" data-skin="../homePage/css/skin/darkblue.css">Dark Blue</a></li>
                 <li><a href="#" title="Dark Brown" class="switch-skin darkbrown" data-skin="../homePage/css/skin/darkbrown.css">Dark Brown</a></li>
                 <li><a href="#" title="Light Green" class="switch-skin lightgreen" data-skin="../homePage/css/skin/lightgreen.css">Light Green</a></li>
                 <li><a href="#" title="Orange" class="switch-skin orange" data-skin="../homePage/css/skin/orange.css">Orange</a></li>
                 <li><a href="#" title="Red" class="switch-skin red" data-skin="../homePage/css/skin/red.css">Red</a></li>
-                <li><a href="#" title="Teal" class="switch-skin teal" data-skin="../homePage/css/skin/teal.css">Teal</a></li>
+                <li><a href="#" title="Teal"  class="switch-skin teal" data-skin="../homePage/css/skin/teal.css">Teal</a></li>
                 <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="../homePage/css/skin/yellow.css">Yellow</a></li>
             </ul>
             <div id="transparent-control"></div>
             <button type="button" class="switch-skin-full fulldark" data-skin="../homePage/css/skin/fulldark.css">Full Dark</button>
             <button type="button" class="switch-skin-full fullbright" data-skin="../homePage/css/skin/fullbright.css">Full Bright</button>
         </section>
-        <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
+        <label class="fancy-checkbox"><input  type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
         <p><a href="../dataAnalysePage/dataAnalysePage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
     </form>
     <script type="text/javascript">

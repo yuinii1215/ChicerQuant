@@ -50,10 +50,39 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
 
     function GetDateStr(AddDayCount) {
         var dd = new Date();
-        dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期
+        dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期
         var y = dd.getFullYear();
-        var m = dd.getMonth()+1;//获取当前月份的日期
+        var m = dd.getMonth() + 1;//获取当前月份的日期
         var d = dd.getDate();
+        var day = dd.getDay();
+        var show_day = new Array('星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日');
+        var week = "";
+        if (day == 0) {
+            week = "星期日";
+        } else {
+            week = show_day[day - 1];
+        }
+      //  console.log(week);
+        if(week=='星期日'){
+            d=d-2;
+            if(d<=0){
+                m--;
+                d=30+d;
+            }
+        }else if(week=='星期一'){
+            d=d-3;
+            if(d<=0){
+                m--;
+                d=30+d;
+            }
+        }else if(week=='星期六'){
+            d=d-1;
+            if(d<=0){
+                m--;
+                d=30+d;
+            }
+        }
+     //   console.log(y+"-"+m+"-"+d);
         return y+"-"+m+"-"+d;
     }
 
@@ -61,7 +90,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     function  getIndustryPure(industryName,item) {
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date": "2016-05-20",
+            "date":  GetDateStr(-1),
             "method": "getIndustryService"
         }).success(function (data) {
                 $scope.error = false;
@@ -85,12 +114,13 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     function  industryToTable(industryName){
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date":  GetDateStr(-2),
+            "date":  GetDateStr(-1),
             "method": "getIndustryService"
         }).success(function (data) {
             $scope.error = false;
             $scope.data = data;
             $scope.industryDetail = data;
+     //       console.log($scope.industryDetail[0]);
             var pures = $scope.industryDetail[0].pure / 100000000;
 
             var totals = $scope.industryDetail[0].total / 100000000;

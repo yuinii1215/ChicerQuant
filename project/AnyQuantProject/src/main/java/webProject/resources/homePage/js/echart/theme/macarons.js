@@ -3,10 +3,10 @@ define(function() {
     var theme = {
         // 默认色板
         color: [
-            '#2ec7c9','#b6a2de','#5ab1ef','#ffb980','#d87a80',
+            '#2ec7c9','#b6a2de','#7eb00a','#ffb980','#d87a80',
             '#8d98b3','#e5cf0d','#97b552','#95706d','#dc69aa',
             '#07a2a4','#9a7fd1','#588dd5','#f5994e','#c05050',
-            '#59678c','#c9ab00','#7eb00a','#6f5553','#c14089'
+            '#59678c','#c9ab00','#5ab1ef','#6f5553','#c14089'
         ],
 
         // 图表标题
@@ -20,7 +20,7 @@ define(function() {
         // 值域
         dataRange: {
             itemWidth: 15,
-            color: ['#5ab1ef','#e0ffff']
+            color: ['#7eb00a','#e0ffff']
         },
 
         // 工具箱
@@ -226,7 +226,7 @@ define(function() {
         gauge : {
             axisLine: {            // 坐标轴线
                 lineStyle: {       // 属性lineStyle控制线条样式
-                    color: [[0.2, '#2ec7c9'],[0.8, '#5ab1ef'],[1, '#d87a80']],
+                    color: [[0.2, '#2ec7c9'],[0.8, '#7eb00a'],[1, '#d87a80']],
                     width: 10
                 }
             },
