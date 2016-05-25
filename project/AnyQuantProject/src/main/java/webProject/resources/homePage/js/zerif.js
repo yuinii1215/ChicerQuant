@@ -10,17 +10,27 @@ jQuery(window).load(function() {
 
 
     if(localStorage.userName==""){
+
         document.getElementById("name").innerHTML="返回主页";
         $("#down").removeClass("dropdown-menu");
         $("#down").addClass("dropdown-menu hide");
 
-        //data-toggle="dropdown"
-        var el=document.querySelector('#tar');
-        el.dataset.toggle=null;
+        $("#tar").removeClass("caret");
+        $("#tar").addClass("caret hide");
+
+        $("#icon").removeClass("fa fa-user");
+        $("#icon").addClass("fa fa-user hide");
 
         console.log(localStorage.userName);
     }else{
+
         document.getElementById("name").innerHTML=localStorage.userName;
+        $("#icon").removeClass("fa fa-user hide");
+        $("#icon").addClass("fa fa-user");
+
+        $("#tar").removeClass("caret hide");
+        $("#tar").addClass("caret");
+
         $("#down").removeClass("dropdown-menu hide");
         $("#down").addClass("dropdown-menu");
         console.log(localStorage.userName);
