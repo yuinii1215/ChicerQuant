@@ -330,10 +330,7 @@ function tabChanged(KType){
                 height:30,
                 start: 50,
                 end: 100,
-                top:'5%',
-            },
-            grid: {
-                y: 2,
+                top:'2%',
             },
             xAxis: [
                 {
@@ -930,9 +927,8 @@ require(
                 ]
             };
 
-            myChart.connect([myChart2, myChart3]);
             myChart3.setOption(option3);
-
+            myChart.connect([myChart2, myChart3]);
             // 为echarts对象加载数据
             myChart2.connect([myChart, myChart3]);
             myChart3.connect([myChart, myChart2]);

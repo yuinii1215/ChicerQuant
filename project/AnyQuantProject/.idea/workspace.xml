@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc92020-31b8-4c12-a21d-71c0f9f2fbc2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/.idea/workspace.xml" afterPath="$PROJECT_DIR$/src/main/java/webProject/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/kLineChart.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/kLineChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/monthKLineChart.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/monthKLineChart.js" />
     </list>
     <ignored path="AnyQuantProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,6 +29,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="monthKLineChart.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.39107144">
+              <caret line="45" column="12" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="12" />
+              <folding>
+                <element signature="e#963#3095#0" expanded="false" />
+                <element signature="e#3815#5444#0" expanded="false" />
+                <element signature="e#5908#6309#0" expanded="false" />
+                <element signature="e#6353#6879#0" expanded="false" />
+                <element signature="e#7149#10451#0" expanded="false" />
+                <element signature="e#10518#13567#0" expanded="false" />
+                <element signature="e#13637#17960#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="weekKLineChart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+              <folding>
+                <element signature="e#997#3130#0" expanded="false" />
+                <element signature="e#5764#6165#0" expanded="false" />
+                <element signature="e#6209#6735#0" expanded="false" />
+                <element signature="e#6996#10298#0" expanded="false" />
+                <element signature="e#10365#13414#0" expanded="false" />
+                <element signature="e#13484#17807#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="echarts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/echarts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="105.5">
+              <caret line="0" column="19249" selection-start-line="0" selection-start-column="19249" selection-end-line="0" selection-end-column="19249" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kLineChart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="223" column="40" selection-start-line="223" selection-start-column="40" selection-end-line="223" selection-end-column="40" />
+              <folding>
+                <element signature="e#953#3085#0" expanded="false" />
+                <element signature="e#3744#5261#0" expanded="false" />
+                <element signature="e#5677#6034#0" expanded="false" />
+                <element signature="e#6074#6544#0" expanded="false" />
+                <element signature="e#9536#12188#0" expanded="false" />
+                <element signature="e#12250#16133#0" expanded="false" />
+                <element signature="e#17167#17208#0" expanded="false" />
+                <element signature="e#17249#18878#0" expanded="false" />
+                <element signature="e#19342#19743#0" expanded="false" />
+                <element signature="e#19787#20313#0" expanded="false" />
+                <element signature="e#20583#23885#0" expanded="false" />
+                <element signature="e#23951#27000#0" expanded="false" />
+                <element signature="e#23978#24107#0" expanded="false" />
+                <element signature="e#27070#31393#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="monthKLineChart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/monthKLineChart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="119" column="19" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
+              <folding>
+                <element signature="n#!!block;n#checkBoxChanged_MONTH#0" expanded="false" />
+                <element signature="e#3214#3382#0" expanded="false" />
+                <element signature="e#5565#9067#0" expanded="false" />
+                <element signature="e#7959#8422#0" expanded="false" />
+                <element signature="e#9095#12242#0" expanded="false" />
+                <element signature="e#12312#16866#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="getBenchMarkData.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -39,70 +129,18 @@
         </entry>
       </file>
       <file leaf-file-name="kLineChart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="51.57143">
-              <caret line="304" column="30" selection-start-line="304" selection-start-column="30" selection-end-line="304" selection-end-column="30" />
-              <folding>
-                <element signature="n#!!block;n#checkBoxChanged#0" expanded="false" />
-                <element signature="e#953#3085#0" expanded="false" />
-                <element signature="e#5677#6034#0" expanded="false" />
-                <element signature="e#6074#6544#0" expanded="false" />
-                <element signature="e#6567#9477#0" expanded="false" />
-                <element signature="e#9536#12245#0" expanded="false" />
-                <element signature="e#17224#17265#0" expanded="false" />
-                <element signature="e#19399#19800#0" expanded="false" />
-                <element signature="e#19844#20370#0" expanded="false" />
-                <element signature="e#24008#27057#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="monthKLineChart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.4693875">
-              <caret line="524" column="12" selection-start-line="524" selection-start-column="12" selection-end-line="524" selection-end-column="12" />
-              <folding>
-                <element signature="n#!!block;n#checkBoxChanged#0" expanded="false" />
-                <element signature="e#966#3098#0" expanded="false" />
-                <element signature="e#3342#3624#0" expanded="false" />
-                <element signature="e#3651#16610#0" expanded="false" />
-                <element signature="e#3690#3723#0" expanded="false" />
-                <element signature="e#5693#6050#0" expanded="false" />
-                <element signature="e#6090#6560#0" expanded="false" />
-                <element signature="e#6583#9493#0" expanded="false" />
-                <element signature="e#9552#12261#0" expanded="false" />
-                <element signature="e#12323#16183#0" expanded="false" />
-                <element signature="e#16423#16596#0" expanded="false" />
-                <element signature="e#17123#31921#0" expanded="false" />
-                <element signature="e#17296#18925#0" expanded="false" />
-                <element signature="e#19389#19790#0" expanded="false" />
-                <element signature="e#19834#20360#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="weekKLineChart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/kLineChart.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="296" column="42" selection-start-line="296" selection-start-column="42" selection-end-line="296" selection-end-column="42" />
+              <caret line="824" column="21" selection-start-line="824" selection-start-column="21" selection-end-line="824" selection-end-column="21" />
               <folding>
-                <element signature="e#821#911#0" expanded="false" />
-                <element signature="e#966#3098#0" expanded="false" />
-                <element signature="e#3341#3623#0" expanded="false" />
-                <element signature="e#3759#5276#0" expanded="false" />
-                <element signature="e#5692#6049#0" expanded="false" />
-                <element signature="e#6089#6559#0" expanded="false" />
-                <element signature="e#9551#12260#0" expanded="false" />
-                <element signature="e#12322#16182#0" expanded="false" />
-                <element signature="e#17298#18927#0" expanded="false" />
-                <element signature="e#19391#19792#0" expanded="false" />
-                <element signature="e#19836#20362#0" expanded="false" />
-                <element signature="e#23992#27041#0" expanded="false" />
+                <element signature="e#1058#3190#0" expanded="false" />
+                <element signature="e#3428#3825#0" expanded="false" />
+                <element signature="e#8181#10639#0" expanded="false" />
+                <element signature="e#10698#14141#0" expanded="false" />
+                <element signature="e#15120#16329#0" expanded="false" />
+                <element signature="e#16966#20467#0" expanded="false" />
+                <element signature="e#20495#23641#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -111,28 +149,12 @@
       <file leaf-file-name="benchMarkPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.241379">
-              <caret line="405" column="69" selection-start-line="405" selection-start-column="69" selection-end-line="405" selection-end-column="69" />
+            <state vertical-scroll-proportion="-201.3793">
+              <caret line="292" column="0" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="singleStockPage.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.8135595">
-              <caret line="303" column="104" selection-start-line="303" selection-start-column="104" selection-end-line="303" selection-end-column="104" />
-              <folding>
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,14 +206,14 @@
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/weekKLineChart.js" />
-        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/monthKLineChart.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/kLineChart.js" />
-        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js" />
-        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js" />
-        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js" />
-        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/monthKLineChart.js" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
       </list>
     </option>
   </component>
@@ -413,74 +435,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="strategyPage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuantProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuantProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stocksComparePage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuantProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuantProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="singleStockPage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -520,6 +474,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="homePage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -706,7 +694,7 @@
     <frame x="-8" y="0" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24757643" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2520507" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.008517887" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -737,25 +725,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/js/zerif.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4642857">
-          <caret line="36" column="60" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/js/tag.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -811,13 +785,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/img/new_bg.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/echarts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="61.025974">
-          <caret line="0" column="29141" selection-start-line="0" selection-start-column="29141" selection-end-line="0" selection-end-column="29141" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/chart/pie.js">
@@ -1012,22 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.448276">
-          <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.586207">
-          <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="30.344828">
@@ -1044,12 +995,117 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="136" column="26" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/example/kLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.035714287">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/weekKLineChart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <caret line="123" column="39" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
           <folding>
             <element signature="e#1049#3182#0" expanded="false" />
+            <element signature="e#3798#5007#0" expanded="false" />
+            <element signature="e#5644#9146#0" expanded="false" />
+            <element signature="e#9174#12321#0" expanded="false" />
+            <element signature="e#12391#16945#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6817326">
+          <caret line="192" column="83" selection-start-line="192" selection-start-column="83" selection-end-line="192" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/chart/echarts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="105.82143">
+          <caret line="0" column="19249" selection-start-line="0" selection-start-column="19249" selection-end-line="0" selection-end-column="19249" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/echarts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="105.5">
+          <caret line="0" column="19249" selection-start-line="0" selection-start-column="19249" selection-end-line="0" selection-end-column="19249" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.965517">
+          <caret line="323" column="40" selection-start-line="323" selection-start-column="21" selection-end-line="323" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.527307">
+          <caret line="512" column="66" selection-start-line="512" selection-start-column="66" selection-end-line="512" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#span#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/kLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="824" column="21" selection-start-line="824" selection-start-column="21" selection-end-line="824" selection-end-column="21" />
+          <folding>
+            <element signature="e#1058#3190#0" expanded="false" />
+            <element signature="e#3428#3825#0" expanded="false" />
+            <element signature="e#8181#10639#0" expanded="false" />
+            <element signature="e#10698#14141#0" expanded="false" />
+            <element signature="e#15120#16329#0" expanded="false" />
+            <element signature="e#16966#20467#0" expanded="false" />
+            <element signature="e#20495#23641#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-201.3793">
+          <caret line="292" column="0" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/monthKLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="119" column="19" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!block;n#checkBoxChanged_MONTH#0" expanded="false" />
+            <element signature="e#3214#3382#0" expanded="false" />
+            <element signature="e#5565#9067#0" expanded="false" />
+            <element signature="e#7959#8422#0" expanded="false" />
+            <element signature="e#9095#12242#0" expanded="false" />
+            <element signature="e#12312#16866#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1064,78 +1120,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="26" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/monthKLineChart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.0">
-          <caret line="263" column="26" selection-start-line="263" selection-start-column="26" selection-end-line="263" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!block;n#checkBoxChanged_MONTH#0" expanded="false" />
-            <element signature="e#3214#3382#0" expanded="false" />
-            <element signature="e#7959#8422#0" expanded="false" />
-            <element signature="e#9095#12242#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="51.57143">
-          <caret line="304" column="30" selection-start-line="304" selection-start-column="30" selection-end-line="304" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="223" column="40" selection-start-line="223" selection-start-column="40" selection-end-line="223" selection-end-column="40" />
           <folding>
-            <element signature="n#!!block;n#checkBoxChanged#0" expanded="false" />
             <element signature="e#953#3085#0" expanded="false" />
+            <element signature="e#3744#5261#0" expanded="false" />
             <element signature="e#5677#6034#0" expanded="false" />
             <element signature="e#6074#6544#0" expanded="false" />
-            <element signature="e#6567#9477#0" expanded="false" />
-            <element signature="e#9536#12245#0" expanded="false" />
-            <element signature="e#17224#17265#0" expanded="false" />
-            <element signature="e#19399#19800#0" expanded="false" />
-            <element signature="e#19844#20370#0" expanded="false" />
-            <element signature="e#24008#27057#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.4693875">
-          <caret line="524" column="12" selection-start-line="524" selection-start-column="12" selection-end-line="524" selection-end-column="12" />
-          <folding>
-            <element signature="n#!!block;n#checkBoxChanged#0" expanded="false" />
-            <element signature="e#966#3098#0" expanded="false" />
-            <element signature="e#3342#3624#0" expanded="false" />
-            <element signature="e#3651#16610#0" expanded="false" />
-            <element signature="e#3690#3723#0" expanded="false" />
-            <element signature="e#5693#6050#0" expanded="false" />
-            <element signature="e#6090#6560#0" expanded="false" />
-            <element signature="e#6583#9493#0" expanded="false" />
-            <element signature="e#9552#12261#0" expanded="false" />
-            <element signature="e#12323#16183#0" expanded="false" />
-            <element signature="e#16423#16596#0" expanded="false" />
-            <element signature="e#17123#31921#0" expanded="false" />
-            <element signature="e#17296#18925#0" expanded="false" />
-            <element signature="e#19389#19790#0" expanded="false" />
-            <element signature="e#19834#20360#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.241379">
-          <caret line="405" column="69" selection-start-line="405" selection-start-column="69" selection-end-line="405" selection-end-column="69" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#9536#12188#0" expanded="false" />
+            <element signature="e#12250#16133#0" expanded="false" />
+            <element signature="e#17167#17208#0" expanded="false" />
+            <element signature="e#17249#18878#0" expanded="false" />
+            <element signature="e#19342#19743#0" expanded="false" />
+            <element signature="e#19787#20313#0" expanded="false" />
+            <element signature="e#20583#23885#0" expanded="false" />
+            <element signature="e#23951#27000#0" expanded="false" />
+            <element signature="e#23978#24107#0" expanded="false" />
+            <element signature="e#27070#31393#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1143,49 +1146,30 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="296" column="42" selection-start-line="296" selection-start-column="42" selection-end-line="296" selection-end-column="42" />
+          <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
           <folding>
-            <element signature="e#821#911#0" expanded="false" />
-            <element signature="e#966#3098#0" expanded="false" />
-            <element signature="e#3341#3623#0" expanded="false" />
-            <element signature="e#3759#5276#0" expanded="false" />
-            <element signature="e#5692#6049#0" expanded="false" />
-            <element signature="e#6089#6559#0" expanded="false" />
-            <element signature="e#9551#12260#0" expanded="false" />
-            <element signature="e#12322#16182#0" expanded="false" />
-            <element signature="e#17298#18927#0" expanded="false" />
-            <element signature="e#19391#19792#0" expanded="false" />
-            <element signature="e#19836#20362#0" expanded="false" />
-            <element signature="e#23992#27041#0" expanded="false" />
+            <element signature="e#997#3130#0" expanded="false" />
+            <element signature="e#5764#6165#0" expanded="false" />
+            <element signature="e#6209#6735#0" expanded="false" />
+            <element signature="e#6996#10298#0" expanded="false" />
+            <element signature="e#10365#13414#0" expanded="false" />
+            <element signature="e#13484#17807#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/kLineChart.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.357143">
-          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.39107144">
+          <caret line="45" column="12" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="12" />
           <folding>
-            <element signature="n#!!block;n#checkBoxChanged#0" expanded="false" />
-            <element signature="e#1058#3190#0" expanded="false" />
-            <element signature="e#5565#8161#0" expanded="false" />
-            <element signature="e#8181#10639#0" expanded="false" />
-            <element signature="e#10698#14141#0" expanded="false" />
-            <element signature="e#15120#16329#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8135595">
-          <caret line="303" column="104" selection-start-line="303" selection-start-column="104" selection-end-line="303" selection-end-column="104" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#963#3095#0" expanded="false" />
+            <element signature="e#3815#5444#0" expanded="false" />
+            <element signature="e#5908#6309#0" expanded="false" />
+            <element signature="e#6353#6879#0" expanded="false" />
+            <element signature="e#7149#10451#0" expanded="false" />
+            <element signature="e#10518#13567#0" expanded="false" />
+            <element signature="e#13637#17960#0" expanded="false" />
           </folding>
         </state>
       </provider>

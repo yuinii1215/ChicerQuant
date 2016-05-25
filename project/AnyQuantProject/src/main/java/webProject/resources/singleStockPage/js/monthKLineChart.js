@@ -119,7 +119,7 @@ require(
     ],
     function (ec) {
         var realstatus,realdata;
-        var element=angular.element(document.getElementById("main4"));
+        var element=angular.element(document.getElementById("main1"));
         //var $scope = element.scope().$$childTail;
         var $scope = element.scope();
 
@@ -159,9 +159,9 @@ require(
             chartLine2_Data=chart3Data_BIAS12;
             chartLine3_Data=chart3Data_BIAS24;
 
-            myChart = ec.init(document.getElementById('main7'),'macarons');
-            myChart2 = ec.init(document.getElementById('main8'),'macarons');
-            myChart3 = ec.init(document.getElementById('main9'),'macarons');
+            myChart = ec.init(document.getElementById('main1'),'macarons');
+            myChart2 = ec.init(document.getElementById('main2'),'macarons');
+            myChart3 = ec.init(document.getElementById('main3'),'macarons');
 
             var option = {
                 title: {
