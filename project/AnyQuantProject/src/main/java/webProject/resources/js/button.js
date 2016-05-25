@@ -1,6 +1,9 @@
 function enter() {
     window.location.href="homePage/home.html";
 }
+function backStep() {
+    window.location.href="welcome.html";
+}
 function enterLog_Reg() {
     window.location.href="login.html";
 }

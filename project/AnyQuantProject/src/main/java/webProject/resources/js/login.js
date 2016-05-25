@@ -5,6 +5,10 @@ var app = angular.module('myApp', []);
 app.controller("loginCtrl", function ($scope, $http) {
     $scope.url = 'http://115.159.97.98/php/serviceController.php';
 
+    $scope.back=function(){
+        backStep();
+    }
+
     //http请求发送（异步），这里用读取本地的一个json文件进行了模拟，真实情况下改成网址即可（post或get）
     $scope.verify=function() {
       var userName=document.getElementById("username").value;
