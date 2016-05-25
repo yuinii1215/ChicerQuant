@@ -33,7 +33,8 @@ public class ChineseName {
 		ChineseName i = new ChineseName();
 //		i.iniChinese();
 		try {
-			System.out.println(i.getChineseName("sz000810"));
+//			System.out.println(i.getChineseName("sz000810"));
+			System.out.println(getAllStockNames());
 		} catch (NetFailedException e) {
 			e.printStackTrace();
 		}
@@ -130,6 +131,28 @@ public class ChineseName {
 			}
 		}
 		return resultList;
+	}
+
+	public static String getAllStockNames() throws NetFailedException{
+		String result = new String();
+		Map<String, String> list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+		while (list == null) {
+			iniChinese();
+			list = (HashMap<String, String>) IOHelper.read(R.CachePath, R.ChineseNameFile);
+		}
+		Set entries = list.entrySet();
+		if (entries != null) {
+			Iterator iterator = entries.iterator();
+			while (iterator.hasNext()) {
+				Map.Entry entry = (Map.Entry) iterator.next();
+				String str = (String) entry.getKey();
+				str = str.substring(2);
+				str+=',';
+				result += str;
+			}
+		}
+		result = result.substring(0,result.length()-1);
+		return result;
 	}
 
 

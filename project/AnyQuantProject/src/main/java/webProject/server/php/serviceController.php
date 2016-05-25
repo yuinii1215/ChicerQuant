@@ -151,6 +151,8 @@ switch ($method)
     case "getRelativeDateService":
         getRelativeDateService($objData->date,$objData->offset);
         break;
+    case "getMyStrategyDataService":
+        getMyStrategyDataService($objData->stockname,$objData->startdate,$objData->enddate);
     default :
         echo json_encode("no such method");
 }

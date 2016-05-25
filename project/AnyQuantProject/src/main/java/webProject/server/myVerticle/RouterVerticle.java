@@ -10,11 +10,7 @@ import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServer;
 import io.vertx.ext.web.Router;
 import webProject.resources.Resources;
-import webProject.server.myHandler.CSSHandler;
-import webProject.server.myHandler.HtmlHandler;
-import webProject.server.myHandler.ImageHandler;
-import webProject.server.myHandler.JPGHandler;
-import webProject.server.myHandler.JSHandler;
+import webProject.server.myHandler.*;
 import webProject.server.myHandler.font.OTFHandler;
 import webProject.server.myHandler.font.SFNTHandler;
 import webProject.server.myHandler.font.SVGHandler;
@@ -49,7 +45,7 @@ public class RouterVerticle extends AbstractVerticle {
 		homeRouter.route().pathRegex(".*woff").handler(new WoffHandler());
 		homeRouter.route().pathRegex(".*woff2").handler(new Woff2Handler());
 		homeRouter.route().pathRegex(".*sfnt").handler(new SFNTHandler());
-		
+		homeRouter.route().pathRegex("/news").blockingHandler(new NewsHandler());
 		homeRouter.route().handler(rt->{
 			try {
 				String html=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream("welcome.html")));

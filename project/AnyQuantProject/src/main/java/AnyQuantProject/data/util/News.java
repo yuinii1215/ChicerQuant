@@ -1,6 +1,9 @@
 package AnyQuantProject.data.util;
 
+import AnyQuantProject.dataStructure.Cell;
 import AnyQuantProject.util.exception.NetFailedException;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -16,6 +19,8 @@ import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by G on 16/5/15.
@@ -25,17 +30,64 @@ public class News {
     private static CloseableHttpClient httpClient = createHttpsClient();
     private static final String ACCESS_TOKEN = "a426949d7db2b7a49da5d4a65d171eeb687ecdb8c07ab1dad6a38ffcd7818f2a";
 
-    public static void main(String[] args)  {
-
+    public static int getDegree(String stockname) {
+        int degree = 4;
+        int rank = -1;
         try {
-            System.out.println(getNewsJsonString());
+            Map<String,Double> map=getAllNewsHeatIndex();
+            List<Cell> list=map.entrySet().stream().sorted((a,b)->{
+                double aa=a.getValue();
+                double bb=b.getValue();
+                if (aa>bb)
+                    return -1;
+                else if(aa<bb)
+                    return 1;
+                else
+                 return 0;
+            }).map(e->new Cell(e.getKey(),e.getValue())).collect(Collectors.toList());
+            for (int i = 0;i < list.size(); ++i){
+                if (list.get(i).x.equals(stockname)){
+                    rank = i;
+                    break;
+                }
+            }
+
         } catch (NetFailedException e) {
-            System.out.println("i'll handle it");
+            System.out.println("TL failed");
+        }
+
+        if (rank==-1){
+            return degree;
+        }else if (rank < 260){
+            return 1;
+        }else if (rank <520){
+            return 2;
+        }else {
+            return 3;
         }
     }
 
-    public static String getNewsJsonString() throws NetFailedException {
-        String url = "https://api.wmcloud.com:443/data/v1/api/subject/getNewsInfoByTime.json?field=&beginTime=&endTime=&newsPublishDate=20150101";
+    public static Map<String, Double> getAllNewsHeatIndex() throws NetFailedException{
+        String stocknames = ChineseName.getAllStockNames();
+        Map<String, Double> resultList = new HashMap<String, Double>();
+        int start = 0;
+        int partlen = 300;
+        int len = stocknames.length();
+        int end = start+7*partlen-1;
+        while (end < len){
+            String partnames = stocknames.substring(start,end);
+            Map<String, Double> tempList = getNewsJsonString(partnames);
+            resultList.putAll(tempList);
+            start = end+1;
+            end = start+7*partlen-1;
+        }
+        resultList.putAll(getNewsJsonString(stocknames.substring(start)));
+        return resultList;
+
+    }
+    public static Map<String, Double> getNewsJsonString(String stocknames) throws NetFailedException {
+        Map<String, Double> resultList = new HashMap<String, Double>();
+        String url = "https://api.wmcloud.com:443/data/v1/api/subject/getNewsHeatIndex.json?field=&exchangeCD=&ticker="+stocknames+"&secShortName=&beginDate=20160525&endDate=20160525";
         HttpGet httpGet = new HttpGet(url);
         //在header里加入 Bearer {token}，添加认证的token，并执行get请求获取json数据
         httpGet.addHeader("Authorization", "Bearer " + ACCESS_TOKEN);
@@ -45,11 +97,27 @@ public class News {
             response = httpClient.execute(httpGet);
             HttpEntity entity = response.getEntity();
             body = EntityUtils.toString(entity);
-            System.out.println(body);
+//            System.out.println(body);
+
+            //解析json得到各个股票heatIndex的值
+            JSONObject jo = JSONObject.fromObject(body);
+            JSONArray arr = JSONArray.fromObject(jo.get("data"));
+            for(int i =0; i<arr.size();++i) {
+                String ticker = (String) ((JSONObject) arr.get(i)).get("ticker");
+                String exchangeName = (String) ((JSONObject) arr.get(i)).get("exchangeName");
+                if (exchangeName.equals("深圳证券交易所")){
+                    ticker = "sz"+ticker;
+                }else {
+                    ticker = "sh"+ticker;
+                }
+                Double heatIndex = (Double) ((JSONObject) arr.get(i)).get("heatIndex");
+                resultList.put(ticker, heatIndex);
+            }
         } catch (IOException e) {
             throw new NetFailedException("TL net connect failed");
         }
-        return body;
+
+        return resultList;
     }
 
 
