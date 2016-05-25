@@ -10,8 +10,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="KingAdmin - Bootstrap Admin Dashboard Theme">
-    <meta name="author" content="The Develovers">
     <!-- CSS -->
     <link rel="stylesheet" href="../homePage/css/preloader.css">
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -256,9 +254,23 @@
                                     </div>
                                         <div class="widget-content">
                                         <!-- content-->
-                                            <div id="main1" style="height:300px; width:100%"></div>
-                                            <div id="main2" style="height:250px; width:100%"></div>
-                                            <div id="main3" style="height:10px; width:100%"></div>
+                                            <ul class="nav nav-pills" role="tablist" id="myTab">
+                                                <li class="active"><a href="#chart1" role="tab" data-toggle="tab" id="dayK" onclick="tabChanged('day')"></i>日K</a></li>
+                                                <li ><a href="#chart2" role="tab" data-toggle="tab" id="weekK" onclick="tabChanged('week')">周K</a></li>
+                                                <li><a href="#chart3" role="tab" data-toggle="tab" id="monthKLine" onclick="tabChanged('month')">月K</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <!--<div class="tab-pane fade in active" id="chart1">-->
+                                                <div id="main1" style="height:300px; width:100%"></div>
+                                                <div id="main2" style="height:200px; width:100%"></div>
+                                                <div id="main3" style="height:250px; width:100%"></div>
+                                                <form type="radio" onclick="checkBoxChanged()">
+                                                    <label><input name="chart3Type"  value="BIAS" type="radio" style="margin-left: 80px;" checked/>BIAS</label>
+                                                    <label><input name="chart3Type"  value="RSI"  type="radio"/>RSI</label>
+                                                    <label><input name="chart3Type"  value="MACD" type="radio"/>MACD</label>
+                                                    <label><input name="chart3Type"  value="KDJ"  type="radio"/>KDJ</label>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -293,22 +305,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="widget">
-                                <div class="widget-header">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
-                                    <div class="btn-group widget-header-toolbar">
-                                        <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
-                                <div class="widget-content">
-                                    <!-- content-->
-                                </div>
-                            </div>
-
                         </div>
                         <!-- /main-content -->
                     </div>
@@ -404,10 +400,10 @@
 <script src="../homePage/js/echart/echarts.js"></script>
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
-<script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/search.js"></script>
 <script src="../benchMarkPage/js/getBenchMarkData.js"></script>
 <script src="../benchMarkPage/js/kLineChart.js"></script>
+<script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 </body>
 
 </html>

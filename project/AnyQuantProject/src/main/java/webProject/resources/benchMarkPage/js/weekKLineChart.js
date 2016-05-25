@@ -6,6 +6,7 @@ require.config({
 });
 var element;
 var $scope;
+var array;
 
 var chart3Type="BIAS";
 var kchartData;
@@ -42,7 +43,7 @@ var chartLine2_Data;
 var chartLine3_Data;
 
 function checkBoxChanged(){
-  var  lineName=document.forms[0].chart3Type;
+    var  lineName=document.forms[0].chart3Type;
     for(var i=0;i<=3;i++){
         if(lineName[i].checked) {
             chart3Type=lineName.value;
@@ -106,12 +107,12 @@ function checkBoxChanged(){
 }
 
 function tabChanged(KType){
-   var lineName=document.forms[0].chart3Type;
+    var lineName=document.forms[0].chart3Type;
     lineName[0].checked=true;
-
+    array=new Array();
     console.log(KType);
     document.forms[0].chart3Type="BIAS";
-    array=new Array();
+
     switch (KType){
         case 'day':
             kchartData=$scope.dayKLineResult;
@@ -125,7 +126,7 @@ function tabChanged(KType){
     }
 
     setTimeout(function(){
-        for(var item in kchartData) {
+        for(var item in  kchartData) {
             length++;
         }
 
@@ -221,7 +222,7 @@ function tabChanged(KType){
             },
             legend: {
                 left: 0 ,
-                data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30'],
+                data: ['周K', 'MA5', 'MA10', 'MA20', 'MA30'],
             },
             grid: {
                 bottom: '5%'
@@ -259,7 +260,7 @@ function tabChanged(KType){
             ],
             series: [
                 {
-                    name: '日K',
+                    name: '周K',
                     type: 'k',
                     data: data0.values,
                 },
@@ -400,7 +401,6 @@ function tabChanged(KType){
                 showDelay: 0             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
             },
             legend: {
-                y:-30,
                 data: [ chartLine1,  chartLine2,  chartLine3],
             },
             xAxis: [
@@ -544,7 +544,7 @@ require(
         var length=0;
 
         setTimeout(function(){
-            kchartData=  $scope.dayKLineResult;
+            kchartData= $scope.weekKLineResult;
             for(var item in  kchartData) {
                 length++;
             }
@@ -622,9 +622,9 @@ require(
                 return result;
             }
 
-            var myChart = ec.init(document.getElementById('main1'),'macarons');
-            var myChart2 = ec.init(document.getElementById('main2'),'macarons');
-            var myChart3 = ec.init(document.getElementById('main3'),'macarons');
+             myChart = ec.init(document.getElementById('main1'),'macarons');
+             myChart2 = ec.init(document.getElementById('main2'),'macarons');
+             myChart3 = ec.init(document.getElementById('main3'),'macarons');
 
             var option = {
                 toolbox: {
@@ -645,7 +645,7 @@ require(
                 },
                 legend: {
                     left: 0 ,
-                    data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30'],
+                    data: ['周K', 'MA5', 'MA10', 'MA20', 'MA30'],
                 },
                 grid: {
                     bottom: '5%'
@@ -683,7 +683,7 @@ require(
                 ],
                 series: [
                     {
-                        name: '日K',
+                        name: '周K',
                         type: 'k',
                         data: data0.values,
                     },
@@ -727,7 +727,7 @@ require(
                 ]
             };
             myChart.setOption(option);
-           var option2 = {
+            var option2 = {
                 tooltip: {
                     trigger: 'axis',
                     showDelay: 0             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
@@ -824,7 +824,6 @@ require(
                     showDelay: 0             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
                 },
                 legend: {
-                    y:-30,
                     data: [ chartLine1,  chartLine2,  chartLine3],
                 },
                 xAxis: [
@@ -941,7 +940,7 @@ require(
                 window.onresize = function () {
                     myChart.resize();
                     myChart2.resize();
-       //             myChart3.resize();
+                 myChart3.resize();
                 }
             }, 200);
 

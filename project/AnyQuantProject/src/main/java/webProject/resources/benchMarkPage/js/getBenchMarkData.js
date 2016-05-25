@@ -3,7 +3,10 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
 
     var benchMark=[];
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
-
+    var startdate="2015-10-01";
+    $scope.dayKLineResult=[];
+    $scope.monthKLineResult=[];
+    $scope.weekKLineResult=[];
     $http.post($scope.url, {"name":"hs300","date": GetDateStr(-1),"method": "getBenchMarkByNameService"}).
         success(function (data) {
             $scope.error = false;
@@ -34,7 +37,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
             return 'error name';
         });
 
-    $http.post($scope.url, {"name":"hs300","startdate":"2015-08-01","enddate": GetDateStr(-1),"method":"getBenchMarkAmongDateService"}).
+    $http.post($scope.url, {"name":"hs300","startdate": startdate,"enddate": GetDateStr(-1),"method":"getBenchMarkAmongDateService"}).
         success(function (data) {
             $scope.error = false;
             $scope.data = data;
@@ -85,5 +88,49 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
         console.log(y+"-"+m+"-"+d);
         return y+"-"+m+"-"+d;
     }
+
+
+    $http.post($scope.url, {
+        "startdate":  startdate,
+        "enddate":GetDateStr(-1),
+        "name": "hs300",
+        "method": "getDayLineService"
+    }).success(function (data, status) {
+            $scope.status = status;
+            $scope.data = data;
+            $scope.dayKLineResult=data;
+        })
+        .error(function (data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
+
+    $http.post($scope.url, {
+        "startdate":  startdate,
+        "enddate":GetDateStr(-1),
+        "name": "hs300",
+        "method": "getWeekLineService"
+    }).success(function (data, status) {
+            $scope.weekKLineResult=data;
+        })
+        .error(function (data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
+
+    $http.post($scope.url, {
+        "startdate":  startdate,
+        "enddate":GetDateStr(-1),
+        "name": "hs300",
+        "method": "getMonthLineService"
+    }).success(function (data, status) {
+            $scope.monthKLineResult=data;
+        })
+        .error(function (data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
+
+
 
 });

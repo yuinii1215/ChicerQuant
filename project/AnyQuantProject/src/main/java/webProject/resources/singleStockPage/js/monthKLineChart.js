@@ -210,12 +210,7 @@ require(
                 //    start: 50,
                 //    end: 100
                 //},
-                grid: {
-                    x: 80,
-                    y: 40,
-                    x2: 20,
-                    y2: 25
-                },
+
                 xAxis: [
                     {
                         type: 'category',
@@ -293,12 +288,7 @@ require(
                     start: 50,
                     end: 100
                 },
-                grid: {
-                    x: 80,
-                    y: 5,
-                    x2: 20,
-                    y2: 40
-                },
+
                 xAxis: [
                     {
                         type: 'category',
@@ -378,12 +368,7 @@ require(
                     start: 50,
                     end: 100
                 },
-                grid: {
-                    x: 80,
-                    y: 5,
-                    x2: 20,
-                    y2: 30
-                },
+
                 xAxis: [
                     {
                         type: 'category',

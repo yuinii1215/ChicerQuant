@@ -7,6 +7,7 @@ require.config({
 
 var element;
 var $scope;
+var array;
 
 var chart3Type="BIAS";
 var kchartData;
@@ -48,8 +49,9 @@ var chartLine3_Data;
 
 
 function checkBoxChanged(){
-    lineName=document.forms[0].chart3Type;
-    for(i=0;i<=3;i++){
+    var lineName=document.forms[0].chart3Type;
+
+    for(var i=0;i<=3;i++){
        if(lineName[i].checked) {
            chart3Type=lineName.value;
        }
@@ -112,7 +114,7 @@ function checkBoxChanged(){
 }
 
 function tabChanged(KType){
-    lineName=document.forms[0].chart3Type;
+   var  lineName=document.forms[0].chart3Type;
     lineName[0].checked=true;
 
     console.log(KType);
@@ -202,12 +204,6 @@ function tabChanged(KType){
             y: 'top',
 
         },
-        grid: {
-            x: 80,
-            y: 40,
-            x2: 20,
-            y2: 25
-        },
         xAxis: [
             {
                 type: 'category',
@@ -285,12 +281,6 @@ function tabChanged(KType){
             start: 50,
             end: 100
         },
-        grid: {
-            x: 80,
-            y: 5,
-            x2: 20,
-            y2: 40
-        },
         xAxis: [
             {
                 type: 'category',
@@ -359,22 +349,8 @@ function tabChanged(KType){
             showDelay: 0             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
         },
         legend: {
+            y:-30,
             data: [ chartLine1,  chartLine2,  chartLine3],
-            x: 100,
-            y: 20
-        },
-        dataZoom: {
-            y: 200,
-            show: true,
-            realtime: true,
-            start: 50,
-            end: 100
-        },
-        grid: {
-            x: 80,
-            y: 5,
-            x2: 20,
-            y2: 30
         },
         xAxis: [
             {
@@ -507,7 +483,7 @@ require(
     function (ec) {
         var realstatus,realdata;
         /*使用外部的js调用angularjs控制器中的方法!!!!!!!!!!!*/
-        element=angular.element(document.getElementById("main1"));
+        element = angular.element(document.getElementById("main1"));
         //var $scope = element.scope().$$childTail;
         $scope = element.scope();
 
@@ -597,12 +573,6 @@ require(
                 //    start: 50,
                 //    end: 100
                 //},
-                grid: {
-                    x: 80,
-                    y: 40,
-                    x2: 20,
-                    y2: 25
-                },
                 xAxis: [
                     {
                         type: 'category',
@@ -680,12 +650,6 @@ require(
                     start: 50,
                     end: 100
                 },
-                grid: {
-                    x: 80,
-                    y: 5,
-                    x2: 20,
-                    y2: 40
-                },
                 xAxis: [
                     {
                         type: 'category',
@@ -754,22 +718,8 @@ require(
                     showDelay: 0             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
                 },
                 legend: {
+                    y:-30,
                     data: [ chartLine1,  chartLine2,  chartLine3],
-                    x: 100,
-                    y: 20
-                },
-                dataZoom: {
-                    y: 200,
-                    show: true,
-                    realtime: true,
-                    start: 50,
-                    end: 100
-                },
-                grid: {
-                    x: 80,
-                    y: 5,
-                    x2: 20,
-                    y2: 30
                 },
                 xAxis: [
                     {

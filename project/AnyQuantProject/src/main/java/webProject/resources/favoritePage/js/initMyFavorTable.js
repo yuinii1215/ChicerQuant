@@ -11,7 +11,22 @@ var app = angular.module('myFavorApp', []);
         var length=0;
         var count =-1;
         if( localStorage.userName==""){
-            alert("请先登录");
+            $.extend($.gritter.options, {
+                time: 1500,
+            });
+            // clean the wrapper position class
+            $('#gritter-notice-wrapper').attr('class', '');
+            // global setting override
+            $.extend($.gritter.options, {
+                position: '' + $(this).attr('id') + '' // possibilities: bottom-left, bottom-right, top-left, top-right
+            });
+            $.gritter.options.position = "bottom-right";
+            $.gritter.add({
+                title: $(this).find('span.title').text(), // could be simpler, just for demo purposes
+                text: "您好！" + "</br>" + "请先返回主页登录",
+            });
+
+      //      alert("请先登录");
         }else {
             $http.post($scope.url, {
                 "username": localStorage.userName,
