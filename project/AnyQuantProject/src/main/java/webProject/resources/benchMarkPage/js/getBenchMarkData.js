@@ -9,7 +9,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
             $scope.error = false;
             $scope.data = data;
             $scope.benchMark =data;
-            console.log(  $scope.benchMark);
+            console.log( $scope.benchMark);
 
      /*       adj_price:"3068.04"
             benchmark_id : "hs300"

@@ -14,13 +14,12 @@
 require_once('db_login.php');
 header("Content-Type: text/json;charset=utf8");
 
-$tablename = "account";
 
 function createAccountTable()
 {
     $connection = getDBConnection();
     global $tablename;
-    $stmt = $connection->prepare("create table ".$tablename." (username varchar(150)not null,".
+    $stmt = $connection->prepare("create table account (username varchar(150)not null,".
                                  "password varchar(255) DEFAULT = ".getDefaultPassword().",".
                                  "primary key(username)".
                                  ")ENGINE=InnoDB DEFAULT CHARSET=utf8");
@@ -41,7 +40,7 @@ function insertUser($username,$password)
 {
     $connection = getDBConnection();
     global $tablename;
-    $stmt = $connection->prepare("insert into ".$tablename." values(:username,:password)");
+    $stmt = $connection->prepare("insert into account values(:username,:password)");
     $stmt->bindParam(':username', $_username);
     $stmt->bindParam(':password', $_password);
     $_username = $username;
@@ -61,7 +60,7 @@ function deleteUser($username)
 {
     $connection = getDBConnection();
     global $tablename;
-    $stmt = $connection->prepare("delete from  ".$tablename."  WHERE username = :username");
+    $stmt = $connection->prepare("delete from  account  WHERE username = :username");
     $stmt->bindParam(':username', $_username);
     $_username = $username;
     return execOperation($connection,$stmt);
@@ -78,7 +77,7 @@ function modifyPassword($username,$newPassword)
 {
     $connection = getDBConnection();
     global $tablename;
-    $stmt = $connection->prepare("update ".$tablename." set password = :newpw where username = :username");
+    $stmt = $connection->prepare("update account set password = :newpw where username = :username");
     $stmt->bindParam(':username', $_username);
     $stmt->bindParam(':newpw', $_newpw);
     $_username = $username;
@@ -102,7 +101,7 @@ function verifyPassword($username,$password)
 {
     $connection = getDBConnection();
     global $tablename;
-    $stmt = $connection->prepare("select password from ".$tablename."  where username = :username");
+    $stmt = $connection->prepare("select password from account  where username = :username");
     $stmt->bindParam(':username', $_username);
     $_username = $username;
     $jsonstring = execQuery($connection,$stmt);

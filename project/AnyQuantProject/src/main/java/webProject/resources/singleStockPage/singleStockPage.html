@@ -14,10 +14,114 @@
     <link href="../homePage/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
+<<<<<<< HEAD
   	<link href="../css/table.css" rel="stylesheet" type="text/css">
+=======
+>>>>>>> 1af60142f8dc250572744e5d359af45b36c1b41d
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
+    <link href="../homePage/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .button {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            overflow: hidden;
+            margin: 10px;
+            padding: 12px 12px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-transition: all 60ms ease-in-out;
+            transition: all 60ms ease-in-out;
+            text-align: center;
+            white-space: nowrap;
+            text-decoration: none !important;
+            text-transform: none;
+            text-transform: capitalize;
+            color: #fff;
+            border: 0 none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.3;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 160px;
+            -ms-flex: 0 0 160px;
+            flex: 0 0 160px;
+        }
+        .button:hover {
+            -webkit-transition: all 60ms ease;
+            transition: all 60ms ease;
+            opacity: .85;
+        }
+        .button:active {
+            -webkit-transition: all 60ms ease;
+            transition: all 60ms ease;
+            -webkit-transform: scale(0.97);
+            transform: scale(0.97);
+            opacity: .75;
+        }
 
+        .button.-dark {
+            color: #FFFFFF;
+            background: #333030;
+        }
 
+        .button.-green {
+            color: #FFFFFF;
+            background: #3ac569;
+        }
+
+        .button.-blue {
+            color: #FFFFFF;
+            background: #2b90d9;
+        }
+
+        .button.-salmon {
+            color: #FFFFFF;
+            background: #ff7473;
+        }
+
+        .button.-sun {
+            color: #f15c5c;
+            background: #feee7d;
+        }
+
+        .button.-alge {
+            color: #f4f7f7;
+            background: #79a8a9;
+        }
+
+        .button.-flower {
+            color: #FE8CDF;
+            background: #353866;
+        }
+
+        .button.-border {
+            color: #2b90d9;
+            border: 2px solid #2b90d9;
+            background: transparent;
+        }
+        .button.-border:hover, .button.-border.-active {
+            color: #FFFFFF;
+            border-color: #2b90d9;
+            background: #2b90d9;
+        }
+    </style>
 </head>
 
 <body>
@@ -162,13 +266,6 @@
 
                             </ul>
                         </div>
-                            <!--<div class="col-lg-4">-->
-                                <!--<marquee  behavior=scroll direction=left align=middle scrollamount=3><FONT face=楷体_GB2312 color=#ff0000 size=3>你如何在一天之内成为百万富翁?  如何合理的规划自己的投资?  死亡交叉线究竟什么情况下有效性最高?</FONT></marquee>-->
-                            <!--</div>-->
-                            <!--<div CLASS="col-lg-4">-->
-                                <!--<marquee  behavior=scroll direction=left align=middle scrollamount=3 style="margin-left: 10px"><FONT face=楷体_GB2312 color=#ff0000 size=3>中国铁建:-->
-                                    <!--昨收价:7.22,   今开价:7.22    成交量: 174035,   成交额:12804,    最高价:7.42,   最低价:7.22,    当前价:7.39.</FONT></marquee>-->
-                            <!--</div>-->
                     </div>
                     <div class="row">
                         <div class="col-lg-4">
@@ -192,8 +289,7 @@
                                     <div class="widget" style="margin-top: 100px;">
                                         <div class="widget-header">
                                             <!--header-->
-                                            <h3><i class="fa fa-bar-chart-o"></i>2016年腾讯科技</h3>
-
+                                            <h3><i class="fa fa-bar-chart-o"></i>{{stockName}}</h3>
                                             <div class="btn-group widget-header-toolbar">
                                                 <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                                 <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
@@ -202,21 +298,33 @@
                                         </div>
                                         <div class="widget-content">
                                             <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                                            <div id="main1" style="height:300px;"></div>
-                                            <div id="main2" style="height:250px;"></div>
-                                            <div id="main3" style="height:200px;"></div>
-                                    <!-- ECharts单文件引入 -->
-
+                                            <h4></h4>
+                                            <ul class="nav nav-pills" role="tablist" id="myTab">
+                                                <li class="active"><a href="#chart1" role="tab" data-toggle="tab" id="dayK" onclick="tabChanged('day')"></i>日K</a></li>
+                                                <li ><a href="#chart2" role="tab" data-toggle="tab" id="weekK" onclick="tabChanged('week')">周K</a></li>
+                                                <li><a href="#chart3" role="tab" data-toggle="tab" id="monthKLine" onclick="tabChanged('month')">月K</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <!--<div class="tab-pane fade in active" id="chart1">-->
+                                                    <h5>日K</h5>
+                                                    <div id="main1" style="height:300px;"></div>
+                                                    <div id="main2" style="height:250px;"></div>
+                                                    <div id="main3" style="height:200px;"></div>
+                                                    <form type="radio" onclick="checkBoxChanged()">
+                                                        <label><input name="chart3Type"  value="BIAS" type="radio" style="margin-left: 80px;" checked/>BIAS</label>
+                                                        <label><input name="chart3Type"  value="RSI"  type="radio"/>RSI</label>
+                                                        <label><input name="chart3Type"  value="MACD" type="radio"/>MACD</label>
+                                                        <label><input name="chart3Type"  value="KDJ"  type="radio"/>KDJ</label>
+                                                    </form>
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                                     <!--md-row-9-->
 
                                 <div class="col-lg-4">
                                     <div class="widget"  style="margin-top: 100px;">
                                         <div class="widget-header hide">
-                                            <!--header-->
-                                            <!--<h3><i class="fa fa-bar-chart-o"></i>腾讯科技</h3>-->
 
                                             <div class="btn-group widget-header-toolbar">
                                                 <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
@@ -225,7 +333,16 @@
                                             </div>
                                         </div>
                                         <div class="widget-content">
-                                            <pre ng-model="result" style="background-color:transparent;text-align: center;border-color: transparent;"><font size="5px">{{result.stock_name+" "+result.date}}</font></pre>
+                                            <div class="row">
+                                            <pre ng-model="result" style="background-color:transparent;margin-left: 5%;border-color: transparent;"><font size="5px">{{result.stock_name+" "+result.date}}</font></pre>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6"></div>
+                                                <div class="col-lg-5">
+                                                 <div id="favorState" class='button -alge  center' ng-model="favorStateContent" ng-click="favorButtonHandle()">{{favorStateContent}}</div>
+                                                </div>
+                                            </div>
+
                                             <div class="row">
                                               <div class="col-lg-6">
                                                <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font size="3px">{{"开盘价:  "+result.open;}}</font></pre>
@@ -295,45 +412,8 @@
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                <div class="widget-content" >
-                                    <!--<table id="visit-stat-table" class="table table-sorting table-striped table-hover datatable"  bgcolor="#ffffcc" style="-webkit-text-fill-color: black;">-->
-                                        <!--<thead>-->
-                                        <!--<tr>-->
-                                            <!--<th>股票简称</th> &lt;!&ndash;name&ndash;&gt;-->
-                                            <!--<th>日期</th>-->
-                                            <!--<th>开盘价</th>-->
-                                            <!--<th>最高价</th>-->
-                                            <!--<th>最低价</th>-->
-                                            <!--<th>收盘价</th>-->
-                                            <!--<th>成交量</th> &lt;!&ndash;volum&ndash;&gt;-->
-                                            <!--<th>后复权价</th> &lt;!&ndash;adj_price&ndash;&gt;-->
-                                            <!--&lt;!&ndash;<th>换手率</th>&ndash;&gt;-->
-                                            <!--<th>市盈率</th> &lt;!&ndash;pe&ndash;&gt;-->
-                                            <!--<th>市净率</th> &lt;!&ndash;pb&ndash;&gt;-->
-                                        <!--</tr>-->
-                                        <!--</thead>-->
-                                        <!--<tbody id="tbody">-->
-                                        <!--&lt;!&ndash;<tr onclick="rowSelected(this[1])">&ndash;&gt;-->
-                                        <!--<tr  ng-repeat="x in tableData">-->
-                                            <!--<td>{{x.stock_name}}</td>-->
-                                            <!--<td>{{x.date}}</td>-->
-                                            <!--<td>{{x.open}}</td>-->
-                                            <!--<td>{{x.high}}</td>-->
-                                            <!--<td>{{x.low}}</td>-->
-                                            <!--<td>{{x.close}}</td>-->
-                                            <!--<td>{{x.volumn}}</td>-->
-                                            <!--<td>{{x.adj_price}}</td>-->
-                                            <!--&lt;!&ndash;<td>{{x.turnover}}</td>&ndash;&gt;-->
-                                            <!--<td>{{x.pe_ttm}}</td>-->
-                                            <!--<td>{{x.pb}}</td>-->
-                                        <!--</tr>-->
-                                        <!--</tbody>-->
-                                        <!--<tbody id="tableBody">-->
-                                        <!--</tbody>-->
-                                    <!--</table>-->
-
-
-                                         <!--</section>-->
+                                    <div class="widget-content" >
+                                        <table id="mytable" class="display" width="100%"></table>
                                      </div>
                                    </div>
                                 </div>
@@ -423,17 +503,25 @@
 
 <!-- Javascript -->
 
+
+
+
 <script src="../homePage/js/angularjs/angular-1.0.0.js"></script>
 <script src="js/search.js"></script>
 <!--getdata-->
-<script src="build/dist/echarts.js"></script>
-<script src="js/kLineChart.js"></script>
+<!--<script src="build/dist/echarts.js"></script>-->
+<!--<script src="js/kLineChart.js"></script>-->
 <script src="../homePage/js/jquery/jquery.min.js"></script>
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+<script src="../homePage/js/jquery/jquery.dataTables.min.js"></script>
 <script src="../homePage/js/king-common.js"></script>
+<script src="../homePage/js/king-table.js"></script>
+<script src="../homePage/js/king-components.js"></script>
+<script src="build/dist/echarts.js"></script>
+<script src="js/kLineChart.js"></script>
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <!--<script src="../homePage/js/search.js"></script>-->
@@ -441,4 +529,5 @@
 <script src="../homePage/js/search.js"></script>
 
 </body>
+
 </html>

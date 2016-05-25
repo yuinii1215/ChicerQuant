@@ -21,7 +21,7 @@
           $jsonstring = getMyFavor($username);
           echo $jsonstring;
       }
-
+//      getMyFavorService("cx");
       //输入: 股票名
       //输出: 操作是否成功的信息
       function cancelMyFavorService($name,$username){
@@ -35,5 +35,5 @@
           $jsonstring = addMyFavor($name, $username);
           echo $jsonstring;
       }
-
+//        addMyFavorService("cx","sh600000");
  ?>

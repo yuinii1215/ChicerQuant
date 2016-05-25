@@ -9,7 +9,6 @@
 
 
 require_once('db_login.php');
-require_once('util.php');
 header("Content-Type: text/json;charset=utf8");
 
 
@@ -33,8 +32,6 @@ function getStockByName($name, $date)
     return execQuery($connection,$stmt);
 }
 
-
-
 function checkTableNameValid($tablename)
 {
     $valid = 0;
@@ -52,15 +49,18 @@ function checkTableNameValid($tablename)
     echo $valid;
     return $valid;
 }
-//echo getStockByName("sh600000",date('Y-m-d',strtotime('2016-04-01')));
+
+
+//echo getStockByName("sz002190",date('Y-m-d',strtotime('2007-12-03')));
 //echo getStockByName("sh600000",'2016-04-05');
 //checkTableNameValid("sh600000");
 //$connection = getDBConnection();
 //$stmt = $connection ->prepare("show tables");
 //echo execQuery($connection, $stmt);
 //$connection = getDBConnection();
-//$stmt = $connection ->prepare("select * from account");
+//$stmt = $connection ->prepare("select * from sz002608");
 //echo execQuery($connection, $stmt);
+
 function getStockAmongDate($name, $startdate, $enddate)
 {
 //    $datearr = getAmongDates($startdate, $enddate);
@@ -71,20 +71,32 @@ function getStockAmongDate($name, $startdate, $enddate)
 //    }
 //    return $string;
 //
-
-
     $connection = getDBConnection();
     $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,industry from ".$name." where date between :startdate and :enddate");
-//    $stmt = $connection->prepare("select date from ".$name." where date between :startdate and :enddate and weekday(date) = 0");
-//    $stmt = $connection->prepare("select date from ".$name." where date between :startdate and :enddate and dayofmonth(date) = 1");
     $stmt->bindParam(':startdate', $_startdate);
     $stmt->bindParam(':enddate', $_enddate);
     $_startdate = $startdate;
     $_enddate = $enddate;
-    return execQuery($connection,$stmt);
+    $jsonstring = execQuery($connection,$stmt);
+    $arr = json_decode($jsonstring,true);
+    $len = count($arr,0)-1;
+    $arr[0]['color'] = 'default';
+    for($i = 1;$i < $len;$i++){
+        $fclose = $arr[$i-1][close];
+        $topen = $arr[$i][open];
+        if($fclose>$topen){
+            //green
+            $arr[$i]['color'] = 'green';
+        }else if($fclose<$topen){
+            //red
+            $arr[$i]['color'] = 'red';
+        }else{
+            $arr[$i]['color'] = 'black';
+        }
+    }
+    return json_encode($arr,JSON_UNESCAPED_UNICODE);
 }
-
-//echo getStockAmongDate("sh600000",date('Y-m-d',strtotime('2015-01-01')), date('Y-m-d',strtotime('2015-01-10')));
+//echo getStockAmongDate("sh600000",date('Y-m-d',strtotime('2015-01-01')), date('Y-m-d',strtotime('2015-01-07')));
 
 function getAllStocks()
 {
@@ -335,7 +347,7 @@ function getStocksByIndustry($industry_name)
     return execQuery($connection,$stmt);
 }
 
-//echo getStocksByIndustry("综合");
+//echo getStocksByIndustry("国防军工");
 function getIndustry($industry_name,$date)
 {
      $connection = getDBConnection();

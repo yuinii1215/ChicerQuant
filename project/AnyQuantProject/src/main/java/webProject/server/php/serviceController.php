@@ -38,21 +38,15 @@ switch ($method)
         getMyFavorService($objData->username);
         break;
     case "cancelMyFavorService":
-        cancelMyFavorService($objData->username,$objData->name);
+        cancelMyFavorService($objData->name,$objData->username);
         break;
     case "addMyFavorService":
-        addMyFavorService($objData->username,$objData->name);
+        addMyFavorService($objData->name,$objData->username);
         break;
     case "getStockByNameService":
-//      echo json_encode($objData->name." ".date('Y-m-d',strtotime('2016-05-04')));
-      try{
-        echo getStockByNameService($objData->name,date('Y-m-d',strtotime('2016-05-04')));
-        }catch(Exception $e){
-         echo json_encode('failed: ' . $e->getMessage());
-        }
+        getStockByNameService($objData->name,$objData->date);
         break;
     case "getStockAmongDateService":
-
         getStockAmongDateService($objData->name,$objData->startdate,$objData->enddate);
         break;
     case "getAllStocksService":

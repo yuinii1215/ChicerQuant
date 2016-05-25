@@ -5,6 +5,9 @@ function enter() {
     localStorage.userName="";
     location.href="homePage/home.html";
 }
+function backStep() {
+    window.location.href="welcome.html";
+}
 function enterLog_Reg() {
    location.href="login.html";
 }

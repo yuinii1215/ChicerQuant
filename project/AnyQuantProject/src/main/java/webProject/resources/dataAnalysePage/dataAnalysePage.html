@@ -2,7 +2,7 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> [endif] -->
 <!--[if !(IE)]>
 <!-->
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" ng-app="singleStrategy">
 <!--<![endif]-->
 
 <head>
@@ -18,6 +18,7 @@
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
+    <script src="js/echarts.min.js"></script>
 
 </head>
 
@@ -252,9 +253,7 @@
                                                 <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                             </div>
                                         </div>
-                                        <div class="widget-content">
 
-                                        </div>
                                     </div>
 
                                 </div>
@@ -272,20 +271,18 @@
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                <div class="widget-content" ng-app="searchSingle" ng-controller="name">
-                                    <input ng-model="searchHelper"></input>
 
-                                <div class="widget-content">
+                                <div class="widget-content" ng-controller="kLine" style="height: 600px;width: 600px;">
                                         <!-- 为ECharts准备一个具备大小（宽高）的Dom,绘制K线图 -->
-                                        <div id="main1" style="height:200px;"></div>
-                                        <div id="main2" style="height:150px;"></div>
-                                        <div id="main3" style="height:150px;"></div>
-                                        <!-- ECharts单文件引入 -->
+                                    <input ng-model="stockid"></input>
+                                     <button ng-click="change()">change</button>
+     			                    <kline klineoption="klineoption"> </kline>
+							</div>
 
                                 </div>
                             </div>
                                <!--预测图-->
-                                   <div class="widget" STYLE="margin-top:20px;">
+                                   <div  class="widget" STYLE="margin-top:20px;">
                                 <div class="widget-header">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>预测走势图</h3>
@@ -297,9 +294,10 @@
                                     </div>
                                 </div>
                                 <div class="widget-content">
-                                    <!-- 为ECharts准备一个具备大小（宽高）的Dom,绘制K线图 -->
-                                    <div id="main4" style="height:300px;"></div>
-                                    <!-- ECharts单文件引入 -->
+                                    <div id="main4" style="height:300px;width=400px" ng-controller="polyline">
+                                      <button ng-click="test()">here</button>
+                                    <polyline polyoption="polyoption"></polyline>
+                                  </div>
                                 </div>
                             </div>
                                 </div>
@@ -346,20 +344,20 @@
             <h5 class="del-switcher-header">Choose Skins:</h5>
 
             <ul>
-                <li><a href="#" title="Slate Gray" class="switch-skin slategray" data-skin="../homePage/css/skin/slategray.css">Slate Gray</a></li>
+                <li><a href="#" title="Slate Gray" class=" switch-skin slategray" data-skin="../homePage/css/skin/slategray.css">Slate Gray</a></li>
                 <li><a href="#" title="Dark Blue" class="switch-skin darkblue" data-skin="../homePage/css/skin/darkblue.css">Dark Blue</a></li>
                 <li><a href="#" title="Dark Brown" class="switch-skin darkbrown" data-skin="../homePage/css/skin/darkbrown.css">Dark Brown</a></li>
                 <li><a href="#" title="Light Green" class="switch-skin lightgreen" data-skin="../homePage/css/skin/lightgreen.css">Light Green</a></li>
                 <li><a href="#" title="Orange" class="switch-skin orange" data-skin="../homePage/css/skin/orange.css">Orange</a></li>
                 <li><a href="#" title="Red" class="switch-skin red" data-skin="../homePage/css/skin/red.css">Red</a></li>
-                <li><a href="#" title="Teal" class="switch-skin teal" data-skin="../homePage/css/skin/teal.css">Teal</a></li>
+                <li><a href="#" title="Teal"  class="switch-skin teal" data-skin="../homePage/css/skin/teal.css">Teal</a></li>
                 <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="../homePage/css/skin/yellow.css">Yellow</a></li>
             </ul>
             <div id="transparent-control"></div>
             <button type="button" class="switch-skin-full fulldark" data-skin="../homePage/css/skin/fulldark.css">Full Dark</button>
             <button type="button" class="switch-skin-full fullbright" data-skin="../homePage/css/skin/fullbright.css">Full Bright</button>
         </section>
-        <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
+        <label class="fancy-checkbox"><input  type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
         <p><a href="../dataAnalysePage/dataAnalysePage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
     </form>
     <script type="text/javascript">
@@ -391,13 +389,13 @@
 
 <!-- Javascript -->
 
-<script src="../homePage/js/angularjs/angular-1.0.0.js"></script>
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript" src="../js/ng-echarts.min.js"></script>
 <script src="js/search.js"></script>
 <!--getdata-->
-<script src="build/dist/echarts.js"></script>
-<script src="js/kLineChart.js"></script>
 <script src="../homePage/js/jquery/jquery.min.js"></script>
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.js"></script>
 <script src="../homePage/js/bootstrap/bootstrap.js"></script>
 <script src="../homePage/js/plugins/modernizr/modernizr.js"></script>
 <script src="../homePage/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
@@ -406,6 +404,8 @@
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/search.js"></script>
+<script type="text/javascript" src="stock_strategy.js"></script>
+
 </body>
 
 </html>
