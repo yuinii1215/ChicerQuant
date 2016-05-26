@@ -160,7 +160,6 @@ function multiPredictTriggered(){//假定是kdj和rsi
     var item=0;
     console.log(axisData.length);
     for(;item<axisData.length;item++){
-        console.log("!!!!!!");
         accountRange[item]=account;
         dealBehave[item]=[false,0,0,false,0,0,account];//买入,买入价格,买入指标,卖出,卖出价格,卖出指标序号(对应于KType数组),帐户剩余
         buyPoint[item]=[axisData[item],'无交易','无指标'];
@@ -211,7 +210,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
                 cnt2++;
             }
         }
-        if(item==shortLine.length-1&&stockNum>0){
+        if(item==axisData.length-1&&stockNum>0){
             account = account + price[item] * stockNum;
             sellPoint[item]=[axisData[item],price[item],''];
             stockNum-=stockNum;
@@ -255,8 +254,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
         }
 
     }
-
-
+    
     var newOption = myChart.getOption(); // 深拷贝
     myChart = echarts.init(document.getElementById('main1'),'macarons');
     var itemStyle = {
@@ -267,6 +265,16 @@ function multiPredictTriggered(){//假定是kdj和rsi
             shadowOffsetY: 0,
             shadowColor: 'rgba(0, 0, 0, 0.5)'
         }
+    };
+  // console.log(newOption.legend.data);
+    var newLegend= {
+        data: [newOption.legend.data[0], newOption.legend.data[1],'买入点','卖出点'],
+        textStyle: {
+            color: '#000000',
+        },
+        x: 'center',
+            y: 'top',
+
     };
     var newSeries1={
         name: '买入点',
@@ -291,7 +299,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
         data: sellPoint
 
     };
-    // newOption.series[0]=newSeries;
+    newOption.legend=newLegend;
     newOption.series=[newOption.series[0],newSeries1,newSeries2];
     myChart.setOption(newOption);
 
@@ -557,6 +565,16 @@ function predictTriggered(KType){
             shadowColor: 'rgba(0, 0, 0, 0.5)'
         }
     };
+    // var newLegend={
+    //     //    data: ['收盘价','统计指标'],
+    //     // textStyle: {
+    //     //     color: '#000000',
+    //     // },
+    //     // x: 'center',               // 水平安放位置，默认为全图居中，可选为：
+    //     // // ¦ {number}（x坐标，单位px）
+    //     // y: 'top',
+    //         data: ['买入次数','卖出次数']
+    // };
     var newSeries1={
         name: '买入点',
         type: 'scatter',
@@ -581,7 +599,10 @@ function predictTriggered(KType){
 
     };
     // newOption.series[0]=newSeries;
+    newOption.legend.data=[newOptio.legend.data,'买入点','卖出点'];
     newOption.series=[newOption.series[0],newSeries1,newSeries2];
+
+
     myChart.setOption(newOption);
 
     myChart2 = echarts.init(document.getElementById('main2'),'macarons');
@@ -996,6 +1017,8 @@ function newStock() {
         // 为echarts对象加载数据
         // myChart2.connect([myChart, myChart3]);
         myChart3.connect(myChart);
+
+
 
         setTimeout(function () {
             window.onresize = function () {
