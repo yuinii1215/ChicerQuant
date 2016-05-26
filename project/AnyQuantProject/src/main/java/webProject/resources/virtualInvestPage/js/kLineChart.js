@@ -50,6 +50,29 @@ var chartLine2_Data;
 var chartLine3_Data;
 var echarts;
 
+
+window.onload=function(){
+
+    //Initialise Graph
+    // var g = new canvasGraph('graph');
+    //
+    // //define some data
+    // gData=new Array();
+    //
+    // gData[0]={x:500,y:500,z:500};
+    // gData[1]={x:500,y:400,z:600};
+    // gData[2]={x:500,y:300,z:700};
+    // gData[3]={x:500,y:200,z:800};
+    // gData[4]={x:500,y:100,z:900};
+    //
+    // // sort data - draw farest elements first
+    // gData.sort(sortNumByZ);
+    //
+    // //draw graph
+    // g.drawGraph(gData);
+}
+
+
 function checkBoxChanged(){
     lineName=document.forms[0].chart3Type;
     for(i=0;i<=3;i++){
@@ -113,6 +136,8 @@ function checkBoxChanged(){
     myChart3.setOption(newOption,true);
 
 }
+
+
 
 
 function multiPredictTriggered(){//假定是kdj和rsi
@@ -272,8 +297,8 @@ function multiPredictTriggered(){//假定是kdj和rsi
         textStyle: {
             color: '#000000',
         },
-        x: 'center',
-            y: 'top',
+        x: 'left',
+        y: 'top',
 
     };
     var newSeries1={
@@ -314,12 +339,12 @@ function multiPredictTriggered(){//假定是kdj和rsi
             x: 100,
             y: 20
         },
-        grid: {
-            x: 80,
-            y: 40,
-            x2: 20,
-            y2: 50
-        },
+        // grid: {
+        //     x: 80,
+        //     y: 40,
+        //     x2: 20,
+        //     y2: 50
+        // },
         xAxis: [
             {
                 type: 'category',
@@ -478,6 +503,229 @@ function multiPredictTriggered(){//假定是kdj和rsi
     }, 200);
 }
 
+function multiFactorAnova(){
+    var  dataSet=[ [chart3Data_RSI6,chart3Data_RSI12],
+        [chart3Data_BIAS6,chart3Data_BIAS12],
+        [chart3Data_DIF,chart3Data_MACD],
+        [chart3Data_K,chart3Data_D]];
+    var  typeDef=['RSI','BIAS','MACD','KDJ'];
+    var profit=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+
+    var buy_shortLine=[];
+    var buy_longLine=[];
+
+    var sell_shortLine=[];
+    var sell_longLine=[];
+
+    var account;
+    var accountRange;
+    var price=chart1Data;
+    for(var i=0;i<4;i++){
+        buy_shortLine=dataSet[i][0];
+        buy_longLine=dataSet[i][1];
+        var stockNum=0;
+        for(var j=0;j<4;j++){
+            sell_shortLine=dataSet[j][0];
+            sell_longLine=dataSet[j][1];
+
+            account=10000;
+            accountRange=[];
+
+            for(var item=0;item<buy_shortLine.length;item++){
+                accountRange[item]=account;
+
+                //买入100股
+                if ((buy_shortLine[item] < buy_longLine[item])&&(buy_shortLine[item + 1] > buy_longLine[item + 1])) {//K线突破D
+                    account = account - price[item] * 100;
+                    stockNum+=100;
+
+                }
+                if((sell_shortLine[item] > sell_longLine[item])&&(sell_shortLine[item + 1] < sell_longLine[item + 1])){
+                    if(stockNum>0) {
+                        account = account + price[item] * stockNum;
+                        stockNum-=stockNum;
+                    }
+                }
+                if(item==buy_shortLine.length-1&&stockNum>0){
+                    account = account + price[item] * stockNum;
+                    stockNum-=stockNum;
+                    accountRange[item]=account;
+                    break;
+                }
+            }
+          profit[i][j]=account-10000;
+        }
+    }
+
+  // console.log(profit);
+    var g = new canvasGraph('graph');
+
+    //define some data
+    gData=new Array();
+    var item=0;
+    for(var i=0;i<4;i++) {
+        for(var j=0;j<4;j++) {
+            gData[item++] = {x: 900-200*i, y: profit[i][j], z: 900-j*200};
+        }
+    }
+
+    // sort data - draw farest elements first
+    gData.sort(sortNumByZ);
+    g.drawGraph(gData);
+   
+
+    //two way anova calcu,have been tested to be correct
+    var A1B=profit[0];
+    var A2B=profit[1];
+    var A3B=profit[2];
+    var A4B=profit[3];
+
+
+    var Xi=[0,0,0,0];
+    var Xi2=[0,0,0,0];
+    var Yj=[0,0,0,0];
+    var Yj2=[0,0,0,0];
+
+    var A=[A1B, A2B, A3B, A4B];
+    var n=16;
+
+    var QT=0;
+
+    for(var i=0;i<4;i++){
+        for(var j=0;j<4;j++){
+            QT=QT+A[i][j]*A[i][j];
+            Xi[i]=Xi[i]+A[i][j];
+        }
+    }
+    for(var i=0;i<4;i++){
+        Xi2[i]=Xi[i]*Xi[i];
+
+    }
+    for(var j=0;j<4;j++){
+     for(var i=0;i<4;i++){
+        Yj[j]=Yj[j]+A[i][j];
+    }}
+
+    for(var j=0;j<4;j++){
+        Yj2[j]=Yj[j]*Yj[j];
+    }
+
+    var QA=0;
+    for(var i=0;i<4;i++){
+        QA=QA+Xi2[i];
+    }
+    QA=QA/4;
+    var QB=0;
+    for(var j=0;j<4;j++){
+        QB=QB+Yj2[j];
+    }
+    QB=QB/4;
+
+   var sumA=0;
+       for(var i=0;i<4;i++){
+           for(var j=0;j<4;j++){
+               sumA+=A[i][j];
+
+           }
+       }
+    var C=sumA*sumA/n;
+    var ST=QT-C;
+    var SA=QA-C;
+    var SB=QB-C;
+    var Se=ST-SA-SB;
+
+    var VA=QA/3;
+    var VB=QB/3;
+    var VE=Se/9;
+
+    var FA=VA/VE;
+    var FB=VB/VE;
+
+    console.log('QA is ' + QA);
+    console.log('QB is ' + QB);
+    console.log('QT is ' + QT);
+    console.log('C is ' + C);
+    console.log('ST is ' + ST);
+    console.log('SA is ' + SA);
+    console.log('Se is ' + Se);
+    console.log('FA is '+ FA);
+    console.log('FB is '+ FB);
+
+    var limit1=3.863;//0.05
+    var limit2=6.992;//0.01
+    if(FA>=limit1){//拒绝原假设,说明因素A显著相关
+        alert('黄金交叉对于本支股票投资影响显著,建议用于买入参考指标');
+    }else{
+        alert('黄金交叉对于本支股票投资影响不显著,不建议用于买入参考指标');
+    }
+    if(FB>=limit2){//拒绝原假设,说明因素B显著相关
+        alert('死亡交叉对于本支股票投资影响显著,建议用于卖出参考指标');
+    }else{
+        alert('死亡交叉对于本支股票投资影响不显著,不建议用于卖出参考指标');
+    }
+
+
+    // myChart6 = echarts.init(document.getElementById('main6'),'macarons');
+    // //获取表格内数据,开始进行统计分析
+    // var scatterOption = {
+    //     tooltip : {
+    //         trigger: 'item'
+    //     },
+    //     toolbox: {
+    //         show : true,
+    //         feature : {
+    //             mark : {show: true},
+    //             dataZoom : {show: true},
+    //             dataView : {show: true, readOnly: false},
+    //             restore : {show: true},
+    //             saveAsImage : {show: true}
+    //         }
+    //     },
+    //     dataRange: {
+    //         min: 0,
+    //         max: 100,
+    //         y: 'center',
+    //         text:['高','低'],           // 文本，默认为数值文本
+    //         color:['brown','gold'],
+    //         calculable : true
+    //     },
+    //     xAxis : [
+    //         {
+    //             type : 'category',
+    //             scale : true,
+    //             data:['RSI','BIAS','MACD','KDJ']
+    //         }
+    //     ],
+    //     yAxis : [
+    //         {
+    //             type : 'category' ,
+    //             position:'left',
+    //             scale : true,
+    //             data:['RSI','BIAS','MACD','KDJ']
+    //         }
+    //     ],
+    //     animation: false,
+    //     series : [
+    //         {
+    //             name:'scatter1',
+    //             type:'scatter',
+    //             symbolSize:5,
+    //             data: (function () {
+    //                 var d = [];
+    //                 for(var i=0;i<4;i++) {
+    //                     for (var j=0;j<4;j++) {
+    //                     d.push([typeDef[i],typeDef[j],profit[i][j]]);
+    //                 }
+    //                 }
+    //                 return d;
+    //             })()
+    //         }
+    //     ]
+    // };
+    // myChart6.setOption(scatterOption);
+
+}
+
 function predictTriggered(KType){
     var shortLine;
     var longLine;
@@ -550,8 +798,8 @@ function predictTriggered(KType){
         }
     }
 
-    console.log(accountRange);
-    console.log(axisData);
+    // console.log(accountRange);
+    // console.log(axisData);
     //新建数组,为[日期,收盘价]
 
     var newOption = myChart.getOption(); // 深拷贝
@@ -616,12 +864,12 @@ function predictTriggered(KType){
             x: 100,
             y: 20
         },
-        grid: {
-            x: 80,
-            y: 40,
-            x2: 20,
-            y2: 50
-        },
+        // grid: {
+        //     x: 80,
+        //     y: 40,
+        //     x2: 20,
+        //     y2: 50
+        // },
         xAxis: [
             {
                 type: 'category',
@@ -757,26 +1005,37 @@ function newStock() {
 
     setTimeout(function (){
         kchartData=$scope.dayKLineResult;
+        var item1=0;
+        var totalLength=0;
         for(var item in kchartData){
-            axisData[item] = kchartData[item].date;
-            chart1Data[item] = kchartData[item].close;
-            chart2Data[item] = kchartData[item].volumn;
-            chart3Data_RSI6[item] = kchartData[item].RSI6;
-            chart3Data_RSI12[item] = kchartData[item].RSI12;
-            chart3Data_RSI24[item] = kchartData[item].RSI24;
+            totalLength++;
+        }
 
-            chart3Data_BIAS6[item] = kchartData[item].BIAS6;
-            chart3Data_BIAS12[item] = kchartData[item].BIAS12;
-            chart3Data_BIAS24[item] = kchartData[item].BIAS24;
-            chart3Data_K[item] = kchartData[item].K;
-            chart3Data_D[item] = kchartData[item].D;
-            chart3Data_J[item] = kchartData[item].J;
-            chart3Data_DEA[item] = kchartData[item].DEA;
-            chart3Data_DIF[item] = kchartData[item].DIF;
-            chart3Data_MACD[item] = kchartData[item].MACDBar;
-            chart3Data_PMA5 = kchartData[item].PMA5_day;
-            chart3Data_PMA10 = kchartData[item].PMA10_day;
-            chart3Data_PMA30 = kchartData[item].PMA30_day;
+        for(var item in kchartData){
+            // console.log(item);
+            var flag=kchartData[item].open;
+            if(item<totalLength-1&&flag){
+                axisData[item1] = kchartData[item].date;
+                chart1Data[item1] = kchartData[item].close;
+                chart2Data[item1] = kchartData[item].volumn;
+                chart3Data_RSI6[item1] = kchartData[item].RSI6;
+                chart3Data_RSI12[item1] = kchartData[item].RSI12;
+                chart3Data_RSI24[item1] = kchartData[item].RSI24;
+
+                chart3Data_BIAS6[item1] = kchartData[item].BIAS6;
+                chart3Data_BIAS12[item1] = kchartData[item].BIAS12;
+                chart3Data_BIAS24[item1] = kchartData[item].BIAS24;
+                chart3Data_K[item1] = kchartData[item].K;
+                chart3Data_D[item1] = kchartData[item].D;
+                chart3Data_J[item1] = kchartData[item].J;
+                chart3Data_DEA[item1] = kchartData[item].DEA;
+                chart3Data_DIF[item1] = kchartData[item].DIF;
+                chart3Data_MACD[item1] = kchartData[item].MACDBar;
+                item1++;
+            }
+            // chart3Data_PMA5 = kchartData[item].PMA5_day;
+            // chart3Data_PMA10 = kchartData[item].PMA10_day;
+            // chart3Data_PMA30 = kchartData[item].PMA30_day;
         }
         //chart3Type="BIAS";
         chartLine1="BIAS6";
@@ -801,16 +1060,16 @@ function newStock() {
                     fontSize: 20,
                 }
             },
-            toolbox: {
-                show : true,
-                feature : {
-                    dataZoom : {show: true},
-                    dataView : {show: true, readOnly: false},
-                    magicType: {show: true, type: ['line', 'bar']},
-                    restore : {show: true},
-                    saveAsImage : {show: true}
-                }
-            },
+            // toolbox: {
+            //     show : true,
+            //     feature : {
+            //         dataZoom : {show: true},
+            //         dataView : {show: true, readOnly: false},
+            //         magicType: {show: true, type: ['line', 'bar']},
+            //         restore : {show: true},
+            //         saveAsImage : {show: true}
+            //     }
+            // },
             tooltip: {
                 trigger: 'axis',
                 showDelay: 0,             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
@@ -821,23 +1080,23 @@ function newStock() {
                 textStyle: {
                     color: '#000000',
                 },
-                x: 'center',               // 水平安放位置，默认为全图居中，可选为：
+                x: 'left',               // 水平安放位置，默认为全图居中，可选为：
                 // ¦ {number}（x坐标，单位px）
                 y: 'top',
 
             },
-            //dataZoom: {
-            //    y: 250,
-            //    show: true,
-            //    realtime: true,
-            //    start: 50,
-            //    end: 100
-            //},
+            dataZoom: {
+               top: "10%",
+               show: true,
+               // start: 50,
+               // end: 100
+            },
             grid: {
-                x: 80,
-                y: 40,
-                x2: 20,
-                y2: 25
+                // x: "10%",
+                // y: "10%",
+                width:"80%",
+                // x2:"10%",
+                // y2: "20%"
             },
             xAxis: [
                 {
@@ -895,19 +1154,19 @@ function newStock() {
                 x: 100,
                 y: 20
             },
-            dataZoom: {
-                y: 200,
-                show: true,
-                realtime: true,
-                start: 50,
-                end: 100
-            },
-            grid: {
-                x: 80,
-                y: 5,
-                x2: 20,
-                y2: 30
-            },
+            // dataZoom: {
+            //     y: 200,
+            //     show: true,
+            //     realtime: true,
+            //     start: 50,
+            //     end: 100
+            // },
+            // grid: {
+            //     x: 80,
+            //     y: 5,
+            //     x2: 20,
+            //     y2: 30
+            // },
             xAxis: [
                 {
                     type: 'category',
@@ -1018,7 +1277,7 @@ function newStock() {
         // myChart2.connect([myChart, myChart3]);
         myChart3.connect(myChart);
 
-
+        multiFactorAnova();
 
         setTimeout(function () {
             window.onresize = function () {
