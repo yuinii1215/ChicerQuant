@@ -70,7 +70,7 @@ public class DailySQL {
 				preparedStatement.setDate(1, date);
 				ResultSet resultSet=preparedStatement.executeQuery();
 				List<Stock> src=getStock(resultSet);
-				
+				double closelast=src.get(src.size()-1).getClose();
 				src.add(toStock);
 				if (src.size()<251) {
 					while (src.size()<251) {
@@ -82,6 +82,13 @@ public class DailySQL {
 				stock.stock_name=src.get(0).getChinese();
 				stock.industry=src.get(0).getName();
 				CalculateCore.trans(stock, toStock);
+				if (stock.open>closelast) {
+					stock.color="red";
+				}else if (stock.open<closelast) {
+					stock.color="green";
+				}else {
+					stock.color="black";
+				}
 				//
 				List<webProject.server.daily.Stock> temp=new ArrayList<>(1);
 				temp.add(stock);
@@ -140,6 +147,7 @@ public class DailySQL {
 		preparedStatement.setDouble(i++, stock.DIF);
 		preparedStatement.setDouble(i++, stock.MACHBar);
 		preparedStatement.setDouble(i++, stock.poly);
+		preparedStatement.setString(i++, stock.color);
 		preparedStatement.executeUpdate();
 		connection.close();
 		connection=SetupSQL.getConn();

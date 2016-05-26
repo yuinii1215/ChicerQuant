@@ -2,7 +2,7 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> [endif] -->
 <!--[if !(IE)]>
 <!-->
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" ng-app="app">
 <!--<![endif]-->
 
 <head>
@@ -265,7 +265,10 @@
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                <div class="widget-content">
+                                <div class="widget-content" ng-controller="strategycontroller">
+                                  <input ng-model="stockid"></input>
+                                  <button ng-click="change()">change</button>
+                                  <RSI rsioption="rsioption"></RSI>
                                     <!-- content-->
                                 </div>
                             </div>

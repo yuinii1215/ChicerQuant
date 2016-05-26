@@ -138,7 +138,9 @@ public class Q {
 				+ "DEA double  default 0, "
 				+ "MACDBar double default 0, "
 				+ "poly double default 0, "
-				+ "primary key(stock_id) ) "
+				+ "color varchar(10), "
+				+ "primary key(stock_id)"
+				+ " ) "
 				+ "ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 		public static final String truncate="TRUNCATE TABLE today;";
 		public static final String insertToday="INSERT INTO today ( stock_id , "
@@ -174,11 +176,12 @@ public class Q {
 				+ "DIF , "
 				+ "DEA , "
 				+ "MACDBar , "
-				+ "poly "
+				+ "poly,"
+				+ "color "
 				+ ") "
 				+ "VALUES ( "
 				+ "? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , "
-				+ "? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? "
+				+ "? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?"
 				+ ");";
 		public static final String selectStock="SELECT "
 				+ "date , "
