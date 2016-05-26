@@ -4,15 +4,12 @@ require.config({
     }
 
 });
-var element;
-var $scope;
-var array;
-
 var chart3Type="BIAS";
 var kchartData;
 var axisData=[];
 var chart1Data=[];
 var chart2Data=[];
+var chart3Data=[];
 var chart3Data_BIAS6=[];
 var chart3Data_BIAS12=[];
 var chart3Data_BIAS24=[];
@@ -27,6 +24,9 @@ var chart3Data_J=[];
 var chart3Data_DEA=[];
 var chart3Data_DIF=[];
 var chart3Data_MACD=[];
+var chart3Data_PMA5=[];
+var chart3Data_PMA10=[];
+var chart3Data_PMA30=[];
 
 var myChart;
 var myChart2;
@@ -42,13 +42,12 @@ var chartLine1_Data;
 var chartLine2_Data;
 var chartLine3_Data;
 
-
 function checkBoxChanged_WEEK(){
     lineName=document.forms[1].chart3Type_Week;
     for(i=0;i<=3;i++){
-        if(lineName[i].checked) {
-            chart3Type=lineName.value;
-        }
+       if(lineName[i].checked) {
+           chart3Type=lineName.value;
+       }
     }
     console.log(chart3Type);
     var newOption = myChart3.getOption(); // 深拷贝
@@ -109,38 +108,33 @@ function checkBoxChanged_WEEK(){
 
 }
 
+// 使用
 require(
     [
         'echarts',
+        'echarts/chart/k', // 使用柱状图就加载bar模块，按需加载
         'echarts/chart/bar',
         'echarts/chart/line',
-        'echarts/chart/k',
         'echarts/theme/macarons',
-
     ],
     function (ec) {
+        var realstatus,realdata;
         /*使用外部的js调用angularjs控制器中的方法!!!!!!!!!!!*/
-         element=angular.element(document.getElementById("main1"));
+        var element=angular.element(document.getElementById("main1"));
         //var $scope = element.scope().$$childTail;
-         $scope = element.scope();
-        //var $scope = element.module
-         array=new Array();
-        var length=0;
+        var $scope = element.scope();
 
-        setTimeout(function(){
-            kchartData= $scope.weekKLineResult;
-            for(var item in  kchartData) {
-                length++;
-            }
-
+        setTimeout(function (){
+            kchartData=$scope.weekKLineResult;
             for(var item in kchartData){
+                //console.log(kchartData[item]);
                 axisData[item]=kchartData[item].date;
                 chart1Data[item]=[kchartData[item].open,kchartData[item].close,kchartData[item].low,kchartData[item].high];
-                var v=kchartData[item].volumn/ 100000000;
-                chart2Data[item]= v.toFixed(4);
+                chart2Data[item]=kchartData[item].volumn;
                 chart3Data_RSI6[item]=kchartData[item].RSI6;
                 chart3Data_RSI12[item]=kchartData[item].RSI12;
                 chart3Data_RSI24[item]=kchartData[item].RSI24;
+
                 chart3Data_BIAS6[item]=kchartData[item].BIAS6;
                 chart3Data_BIAS12[item]=kchartData[item].BIAS12;
                 chart3Data_BIAS24[item]=kchartData[item].BIAS24;
@@ -150,18 +144,11 @@ require(
                 chart3Data_DEA[item]=kchartData[item].DEA;
                 chart3Data_DIF[item]=kchartData[item].DIF;
                 chart3Data_MACD[item]=kchartData[item].MACDBar;
-
-                if (item < length-1) {
-                    array[item] = new Array();
-
-                    array[item][0] = kchartData[item].date;
-                    array[item][1] = kchartData[item].open*1.0;
-                    array[item][2] = kchartData[item].close*1.0;
-                    array[item][3] = kchartData[item].low*1.0;
-                    array[item][4] = kchartData[item].high*1.0;
-                }
+                chart3Data_PMA5=kchartData[item].PMA5_day;
+                chart3Data_PMA10=kchartData[item].PMA10_day;
+                chart3Data_PMA30=kchartData[item].PMA30_day;
             }
-
+            //chart3Type="BIAS";
             chartLine1="BIAS6";
             chartLine2="BIAS12";
             chartLine3="BIAS24";
@@ -172,42 +159,18 @@ require(
             chartLine2_Data=chart3Data_BIAS12;
             chartLine3_Data=chart3Data_BIAS24;
 
-            var data0 = splitData(array);
-            console.log(data0);
-
-            function splitData(rawData) {
-                var categoryData = [];
-                var values = []
-                for (var i = 0; i < rawData.length; i++) {
-                    categoryData.push(rawData[i].splice(0, 1)[0]);
-                    values.push(rawData[i])
-                }
-                return {
-                    categoryData: categoryData,
-                    values: values
-                };
-            }
-            function calculateMA(dayCount) {
-                var result = [];
-                for (var i = 0, len = data0.values.length; i < len; i++) {
-                    if (i < dayCount) {
-                        result.push('-');
-                        continue;
-                    }
-                    var sum = 0;
-                    for (var j = 0; j < dayCount; j++) {
-                        sum += data0.values[i - j][1];
-                    }
-                    result.push(sum / dayCount);
-                }
-                return result;
-            }
-
-             myChart = ec.init(document.getElementById('main1'),'macarons');
-             myChart2 = ec.init(document.getElementById('main2'),'macarons');
-             myChart3 = ec.init(document.getElementById('main3'),'macarons');
+            myChart = ec.init(document.getElementById('main1'),'macarons');
+            myChart2 = ec.init(document.getElementById('main2'),'macarons');
+            myChart3 = ec.init(document.getElementById('main3'),'macarons');
 
             var option = {
+                title: {
+                    //text: '2016年腾讯科技',
+                    textStyle: {
+                        color: '#000000',
+                        fontSize: 20,
+                    }
+                },
                 toolbox: {
                     show : true,
                     feature : {
@@ -220,94 +183,84 @@ require(
                 },
                 tooltip: {
                     trigger: 'axis',
-                    axisPointer: {
-                        type: 'line'
+                    showDelay: 0,             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
+                    formatter: function (params) {
+                        var res = params[0].name;
+                        res += '<br/>' + params[0].seriesName;
+                        res += '<br/>  开盘 : ' + params[0].value[0] + '  最高 : ' + params[0].value[3];
+                        res += '<br/>  收盘 : ' + params[0].value[1] + '  最低 : ' + params[0].value[2];
+                        return res;
                     }
                 },
+                color:['#00448a','#0580b9','#484891'],
                 legend: {
-                    left: 0 ,
-                    data: ['周K', 'MA5', 'MA10', 'MA20', 'MA30'],
-                },
-                grid: {
-                    bottom: '5%'
-                },
-                xAxis: {
-                    type: 'category',
-                    data: data0.categoryData,
-                    scale: true,
-                    boundaryGap : false,
-                    axisLine: {onZero: false},
-                    splitLine: {show: false},
-                    splitNumber: 20,
-                    min: 'dataMin',
-                    max: 'dataMax'
-                },
-                yAxis: {
-                    scale: true,
-                    splitArea: {
-                        show: true
-                    }
-                },
-                dataZoom: [
-                    {
-                        type: 'inside',
-                        start: 50,
-                        end: 100
+                    data: ['K线', '成交量(万)','统计指标'],
+                    textStyle: {
+                        color: '#000000',
                     },
+                    x: 'center',               // 水平安放位置，默认为全图居中，可选为：
+                    // ¦ {number}（x坐标，单位px）
+                    y: 'top',
+
+                },
+                //dataZoom: {
+                //    y: 250,
+                //    show: true,
+                //    realtime: true,
+                //    start: 50,
+                //    end: 100
+                //},
+
+                xAxis: [
                     {
-                        show: true,
-                        type: 'slider',
-                        y: '90%',
-                        start: 50,
-                        end: 100
+                        type: 'category',
+                        boundaryGap: true,
+                        axisTick: {onGap: false},
+                        splitLine: {show: false},
+                        data: axisData,
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#000000',
+                            }
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        scale: true,
+                        boundaryGap: [0.05, 0.05],
+                        splitArea: {show: true},
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#000000',
+                            }
+                        }
                     }
                 ],
                 series: [
                     {
-                        name: '周K',
+                        name: 'K线',
                         type: 'k',
-                        data: data0.values,
+                        data:  chart1Data,// 开盘，收盘，最低，最高
+                        itemStyle: {normal: {color:'#ae0000', label:{show:true}}}
                     },
                     {
-                        name: 'MA5',
+                        name: '成交量(万)',
                         type: 'line',
-                        data: calculateMA(5),
-                        smooth: true,
-                        lineStyle: {
-                            normal: {opacity: 0.5}
-                        }
+                        symbol: 'none',
+                        data: []
                     },
                     {
-                        name: 'MA10',
-                        type: 'line',
-                        data: calculateMA(10),
-                        smooth: true,
-                        lineStyle: {
-                            normal: {opacity: 0.5}
-                        }
-                    },
-                    {
-                        name: 'MA20',
-                        type: 'line',
-                        data: calculateMA(20),
-                        smooth: true,
-                        lineStyle: {
-                            normal: {opacity: 0.5}
-                        }
-                    },
-                    {
-                        name: 'MA30',
-                        type: 'line',
-                        data: calculateMA(30),
-                        smooth: true,
-                        lineStyle: {
-                            normal: {opacity: 0.5}
-                        }
-                    },
+                        name: chart3Type,
+                        type: 'line', data: []
+
+                    }
 
                 ]
             };
-            myChart.setOption(option);
             var option2 = {
                 tooltip: {
                     trigger: 'axis',
@@ -315,7 +268,7 @@ require(
                 },
                 legend: {
                     y: -30,
-                    data: ['K线', '成交量(亿)', '统计指标']
+                    data: ['K线', '成交量(万)', '统计指标']
                 },
                 toolbox: {
                     y: -30,
@@ -332,14 +285,10 @@ require(
                 dataZoom: {
                     show: true,
                     realtime: true,
-                    height:30,
                     start: 50,
-                    end: 100,
-                    top:'5%',
+                    end: 100
                 },
-                grid: {
-                    y: 2,
-                },
+
                 xAxis: [
                     {
                         type: 'category',
@@ -349,7 +298,12 @@ require(
                         axisTick: {onGap: false},
                         splitLine: {show: false},
                         data: axisData,
-
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#000000',
+                            }
+                        }
                     }
                 ],
                 yAxis: [
@@ -360,7 +314,7 @@ require(
                         boundaryGap: [0.05, 0.05],
                         axisLabel: {
                             formatter: function (v) {
-                                return Math.round(v) + ' 亿'
+                                return Math.round(v / 10000) + ' 万'
                             }
                         },
                         splitArea: {show: true},
@@ -374,12 +328,10 @@ require(
                 ],
                 series: [
                     {
-                        name: '成交量(亿)',
-                        type: 'line',
+                        name: '成交量(万)',
+                        type: 'bar',
                         symbol: 'none',
                         data: chart2Data,
-
-
                         markLine: {
                             symbol: 'none',
                             itemStyle: {
@@ -405,9 +357,18 @@ require(
                     showDelay: 0             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
                 },
                 legend: {
-                    y:-30,
                     data: [ chartLine1,  chartLine2,  chartLine3],
+                    x: 100,
+                    y: 20
                 },
+                dataZoom: {
+                    y: 200,
+                    show: true,
+                    realtime: true,
+                    start: 50,
+                    end: 100
+                },
+
                 xAxis: [
                     {
                         type: 'category',
@@ -511,9 +472,9 @@ require(
                 ]
             };
 
-
+            myChart.connect([myChart2,myChart3]);
             myChart3.setOption(option3);
-            myChart.connect([myChart2, myChart3]);
+            myChart.setOption(option);
             // 为echarts对象加载数据
             myChart2.connect([myChart, myChart3]);
             myChart3.connect([myChart, myChart2]);
@@ -525,10 +486,5 @@ require(
                     myChart3.resize();
                 }
             }, 200);
-
-
         },1000);
-
-
-
     });

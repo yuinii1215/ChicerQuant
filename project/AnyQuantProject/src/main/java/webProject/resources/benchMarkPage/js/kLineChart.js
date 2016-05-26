@@ -112,6 +112,8 @@ function tabChanged(KType){
     console.log(KType);
     document.forms[0].chart3Type="BIAS";
     array=new Array();
+    var tabName;
+    var length=0;
     switch (KType){
         case 'day':
             kchartData=$scope.dayKLineResult;
@@ -123,8 +125,22 @@ function tabChanged(KType){
             kchartData=$scope.monthKLineResult;
             break;
     }
+    axisData=[];
+    chart1Data=[];
+    chart2Data=[];
+    chart3Data_RSI6=[];
+    chart3Data_RSI12=[];
+    chart3Data_RSI24=[];
+    chart3Data_BIAS6=[];
+    chart3Data_BIAS12=[];
+    chart3Data_BIAS24=[];
+    chart3Data_K=[];
+    chart3Data_D=[];
+    chart3Data_J=[];
+    chart3Data_DEA=[];
+    chart3Data_DIF=[];
+    chart3Data_MACD=[];
 
-    setTimeout(function(){
         for(var item in kchartData) {
             length++;
         }
@@ -302,7 +318,7 @@ function tabChanged(KType){
 
             ]
         };
-        myChart.setOption(option);
+
         var option2 = {
             tooltip: {
                 trigger: 'axis',
@@ -389,7 +405,7 @@ function tabChanged(KType){
                 }
             ]
         };
-        myChart2.setOption(option2);
+        myChart2.setOption(option2,true);
 
         var option3 = {
             tooltip: {
@@ -504,8 +520,8 @@ function tabChanged(KType){
         };
 
         myChart.connect([myChart2, myChart3]);
-        myChart3.setOption(option3);
-
+        myChart3.setOption(option3,true);
+       myChart.setOption(option,true);
         // 为echarts对象加载数据
         myChart2.connect([myChart, myChart3]);
         myChart3.connect([myChart, myChart2]);
@@ -517,9 +533,6 @@ function tabChanged(KType){
                 myChart3.resize();
             }
         }, 200);
-
-
-    },1000);
 }
 
 require(
@@ -723,7 +736,7 @@ require(
 
                 ]
             };
-            myChart.setOption(option);
+
            var option2 = {
                 tooltip: {
                     trigger: 'axis',
@@ -927,8 +940,9 @@ require(
                 ]
             };
 
+            myChart.connect([myChart2,myChart3]);
             myChart3.setOption(option3);
-            myChart.connect([myChart2, myChart3]);
+            myChart.setOption(option);
             // 为echarts对象加载数据
             myChart2.connect([myChart, myChart3]);
             myChart3.connect([myChart, myChart2]);
@@ -937,7 +951,7 @@ require(
                 window.onresize = function () {
                     myChart.resize();
                     myChart2.resize();
-       //             myChart3.resize();
+                   myChart3.resize();
                 }
             }, 200);
 
