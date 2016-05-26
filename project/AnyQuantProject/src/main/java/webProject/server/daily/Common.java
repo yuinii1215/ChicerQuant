@@ -40,6 +40,13 @@ public abstract class Common {
 	double DIF,DEA,MACHBar;
 	double poly;
 	Date date;
+	String color;
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
 	public String getStock_id() {
 		return stock_id;
 	}

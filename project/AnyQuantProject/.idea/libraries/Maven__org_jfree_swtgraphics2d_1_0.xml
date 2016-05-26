@@ -3,6 +3,12 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/jfree/swtgraphics2d/1.0/swtgraphics2d-1.0.jar!/" />
     </CLASSES>
+<<<<<<< HEAD
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jfree/swtgraphics2d/1.0/swtgraphics2d-1.0-javadoc.jar!/" />
+    </JAVADOC>
+=======
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/jfree/swtgraphics2d/1.0/swtgraphics2d-1.0-sources.jar!/" />
     </SOURCES>
