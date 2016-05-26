@@ -3,6 +3,12 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/6.0.2/mysql-connector-java-6.0.2.jar!/" />
     </CLASSES>
+<<<<<<< HEAD
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/6.0.2/mysql-connector-java-6.0.2-javadoc.jar!/" />
+    </JAVADOC>
+=======
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/6.0.2/mysql-connector-java-6.0.2-sources.jar!/" />
     </SOURCES>
