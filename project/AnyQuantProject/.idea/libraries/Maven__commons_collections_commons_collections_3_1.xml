@@ -3,9 +3,12 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/commons-collections/commons-collections/3.1/commons-collections-3.1.jar!/" />
     </CLASSES>
+<<<<<<< HEAD
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/commons-collections/commons-collections/3.1/commons-collections-3.1-javadoc.jar!/" />
     </JAVADOC>
+=======
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/commons-collections/commons-collections/3.1/commons-collections-3.1-sources.jar!/" />
     </SOURCES>

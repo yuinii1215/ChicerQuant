@@ -817,7 +817,7 @@ function newStock() {
             },
             color:['#00448a','#484891'],
             legend: {
-                data: ['收盘价','统计指标'],
+                data: ['收盘价'],
                 textStyle: {
                     color: '#000000',
                 },
@@ -875,11 +875,6 @@ function newStock() {
                     symbol: 'none',
                     data:  chart1Data,
                     itemStyle: {normal: {color:'#ae0000', label:{show:false}}}
-                },
-                {
-                    name: '统计指标',
-                    type: 'line', data: []
-
                 }
 
             ]

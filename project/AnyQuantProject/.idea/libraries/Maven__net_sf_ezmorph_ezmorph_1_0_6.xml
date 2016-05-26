@@ -3,9 +3,12 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar!/" />
     </CLASSES>
+<<<<<<< HEAD
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6-javadoc.jar!/" />
     </JAVADOC>
+=======
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6-sources.jar!/" />
     </SOURCES>

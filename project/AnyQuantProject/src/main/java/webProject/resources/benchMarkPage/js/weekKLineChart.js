@@ -80,15 +80,15 @@ function checkBoxChanged_WEEK(){
             newOption.legend.data=["BIAS6","BIAS12","BIAS24"];
             break;
         case 'MACD':
-            newOption.series[0].data=chart3Data_DIF;
-            newOption.series[1].data=chart3Data_DEA;
-            newOption.series[2].data=chart3Data_MACD;
-            newOption.series[0].name="DIF";
-            newOption.series[1].name="DEA";
-            newOption.series[2].name="MACD";
-            newOption.series[0].type="line";
+            newOption.series[0].data=chart3Data_MACD;
+            newOption.series[1].data=chart3Data_DIF;
+            newOption.series[2].data=chart3Data_DEA;
+            newOption.series[0].name="MACD";
+            newOption.series[1].name="DIF";
+            newOption.series[2].name="DEA";
+            newOption.series[0].type="bar";
             newOption.series[1].type="line";
-            newOption.series[2].type="bar";
+            newOption.series[2].type="line";
             newOption.legend.data=["DIF","DEA","MACD"];
             break;
         case 'KDJ':
@@ -307,7 +307,7 @@ require(
 
                 ]
             };
-            myChart.setOption(option);
+            myChart.setOption(option,true);
             var option2 = {
                 tooltip: {
                     trigger: 'axis',
@@ -397,7 +397,7 @@ require(
                     }
                 ]
             };
-            myChart2.setOption(option2);
+            myChart2.setOption(option2,true);
 
             var option3 = {
                 tooltip: {
@@ -464,7 +464,7 @@ require(
                                 {type: 'average', name: '平均值'}
                             ]
                         },
-                        itemStyle: {normal: {color:'#0072E3', label:{show:true}}},//'#0072E3'
+                        itemStyle: {normal: {color:'#0072E3', label:{show:false}}},//'#0072E3'
                     },
                     {
                         name: chartLine2,
@@ -485,7 +485,7 @@ require(
                                 {type: 'average', name: '平均值'}
                             ]
                         },
-                        itemStyle: {normal: {color:'#FF60AF', label:{show:true}}},
+                        itemStyle: {normal: {color:'#FF60AF', label:{show:false}}},
                     },
                     {
                         name: chartLine3,
@@ -512,7 +512,7 @@ require(
             };
 
 
-            myChart3.setOption(option3);
+            myChart3.setOption(option3,true);
             myChart.connect([myChart2, myChart3]);
             // 为echarts对象加载数据
             myChart2.connect([myChart, myChart3]);
@@ -522,7 +522,7 @@ require(
                 window.onresize = function () {
                     myChart.resize();
                     myChart2.resize();
-                 myChart3.resize();
+                    myChart3.resize();
                 }
             }, 200);
 

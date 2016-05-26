@@ -41,9 +41,24 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_swtgraphics2d_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_swtgraphics2d_1_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20160212.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20160212.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnyQuantProject.iml" afterPath="$PROJECT_DIR$/AnyQuantProject.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategycontroller.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategycontroller.js" />
+=======
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/js/button.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/js/button.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/kLineChart.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/kLineChart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/php/ajaxService.php" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/php/ajaxService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/php/getData.php" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/php/getData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/php/serviceController.php" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/php/serviceController.php" />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     </list>
     <ignored path="AnyQuantProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,23 +79,197 @@
     <favorites_list name="AnyQuantProject" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="strategycontroller.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategycontroller.js">
+<<<<<<< HEAD
+    <leaf>
+      <file leaf-file-name="virtualInvestPage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state vertical-scroll-proportion="-7.9310346">
+              <caret line="212" column="42" selection-start-line="0" selection-start-column="0" selection-end-line="405" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.965517">
+              <caret line="320" column="0" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#11447#12394#0" expanded="false" />
+                <element signature="e#12428#13410#0" expanded="false" />
+                <element signature="e#13444#14448#0" expanded="false" />
+                <element signature="e#14482#15451#0" expanded="false" />
+                <element signature="e#15485#16461#0" expanded="false" />
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#span#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#span#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#span#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getBenchMarkData.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/img/getBenchMarkData.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="monthKLineChart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/img/monthKLineChart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="monthKLineChart.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.1691177">
+              <caret line="48" column="38" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
+              <folding>
+                <element signature="e#963#3095#0" expanded="false" />
+                <element signature="e#3815#5444#0" expanded="false" />
+                <element signature="e#5908#6309#0" expanded="false" />
+                <element signature="e#6353#6879#0" expanded="false" />
+                <element signature="e#7149#10451#0" expanded="false" />
+                <element signature="e#10518#13567#0" expanded="false" />
+                <element signature="e#13637#17960#0" expanded="false" />
+              </folding>
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="strategycontroller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategycontroller.js">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="148">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+=======
+            <state relative-caret-position="315">
+              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+              <folding />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file leaf-file-name="weekKLineChart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="524" column="19" selection-start-line="524" selection-start-column="19" selection-end-line="524" selection-end-column="19" />
+              <folding>
+                <element signature="e#997#3130#0" expanded="false" />
+                <element signature="e#5764#6165#0" expanded="false" />
+                <element signature="e#6209#6735#0" expanded="false" />
+                <element signature="e#6996#10298#0" expanded="false" />
+                <element signature="e#10365#13414#0" expanded="false" />
+                <element signature="e#13484#17807#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kLineChart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/img/kLineChart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="878" column="0" selection-start-line="878" selection-start-column="0" selection-end-line="878" selection-end-column="0" />
+              <folding>
+                <element signature="e#4200#4225#0" expanded="false" />
+                <element signature="e#4258#5663#0" expanded="false" />
+                <element signature="e#5981#8577#0" expanded="false" />
+                <element signature="e#8597#11055#0" expanded="false" />
+                <element signature="e#11114#14557#0" expanded="false" />
+                <element signature="e#15536#16745#0" expanded="false" />
+                <element signature="e#17382#20883#0" expanded="false" />
+                <element signature="e#20911#24057#0" expanded="false" />
+                <element signature="e#24127#28450#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kLineChart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.387755">
+              <caret line="951" column="23" selection-start-line="951" selection-start-column="23" selection-end-line="951" selection-end-column="23" />
+              <folding>
+                <element signature="n#!!block;n#checkBoxChanged#0" expanded="false" />
+                <element signature="n#!!block;n#tabChanged#0" expanded="false" />
+                <element signature="e#4091#5608#0" expanded="false" />
+                <element signature="n#!!block;n#splitData#0;n#!!block;n#tabChanged#0" expanded="false" />
+                <element signature="n#!!block;n#calculateMA#0;n#!!block;n#tabChanged#0" expanded="false" />
+                <element signature="e#6914#9824#0" expanded="false" />
+                <element signature="e#9849#12501#0" expanded="false" />
+                <element signature="e#12568#16451#0" expanded="false" />
+                <element signature="e#17513#17554#0" expanded="false" />
+                <element signature="e#17595#19224#0" expanded="false" />
+                <element signature="e#19688#20089#0" expanded="false" />
+                <element signature="e#20133#20659#0" expanded="false" />
+                <element signature="e#20929#24231#0" expanded="false" />
+                <element signature="e#24259#27308#0" expanded="false" />
+                <element signature="e#24286#24415#0" expanded="false" />
+                <element signature="e#27378#31701#0" expanded="false" />
+              </folding>
+=======
+      <file leaf-file-name="ajaxService.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/php/ajaxService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="317" column="41" selection-start-line="317" selection-start-column="41" selection-end-line="317" selection-end-column="41" />
+              <folding />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serviceController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/php/serviceController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file leaf-file-name="benchMarkPage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.793103">
+              <caret line="401" column="41" selection-start-line="401" selection-start-column="41" selection-end-line="401" selection-end-column="41" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+=======
       <file leaf-file-name="strategyPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="167" column="42" selection-start-line="167" selection-start-column="42" selection-end-line="167" selection-end-column="42" />
               <folding />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
             </state>
           </provider>
         </entry>
@@ -104,7 +293,6 @@
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/search.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/build/dist/echarts.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/theme/roma.js" />
-        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/js/button.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/js/tag.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/css/up.css" />
@@ -120,7 +308,6 @@
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/login.html" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/zerif.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/text.html" />
-        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/js/login.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/allIndustryShowPage/js/allIndustry.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/favoritePage/js/initMyFavorTable.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" />
@@ -130,25 +317,41 @@
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/homePage/home.html" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/stocksComparePage/stocksComparePage.html" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html" />
+=======
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/weekKLineChart.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/kLineChart.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/monthKLineChart.js" />
-        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js" />
-        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/js/login.js" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/js/button.js" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/kLineChart.js" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/test.html" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/img/kLineChart.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js" />
+=======
         <option value="$PROJECT_DIR$/src/main/java/webProject/server/php/ajaxService.php" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/server/php/serviceController.php" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/startegycontroller.js" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/server/php/getData.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/server/daily/SetupBenchMark.java" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/server/daily/SetupSQL.java" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategycontroller.js" />
+=======
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
       </list>
     </option>
   </component>
@@ -165,10 +368,21 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="314" />
     <option name="y" value="70" />
+=======
+<<<<<<< HEAD
+    <option name="x" value="1" />
+    <option name="width" value="1364" />
+    <option name="height" value="728" />
+=======
+    <option name="x" value="210" />
+    <option name="y" value="95" />
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <option name="width" value="1048" />
     <option name="height" value="695" />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -195,6 +409,15 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,9 +475,43 @@
               <option name="myItemId" value="webProject" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yeoman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+<<<<<<< HEAD
           </PATH>
           <PATH>
             <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+<<<<<<< HEAD
+              <option name="myItemId" value="resources" />
+=======
               <option name="myItemId" value="AnyQuantProject" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
@@ -310,12 +567,136 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="singleStockPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="singleStockPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+=======
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+<<<<<<< HEAD
+              <option name="myItemId" value="resources" />
+=======
+<<<<<<< HEAD
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="benchMarkPage" />
+=======
+              <option name="myItemId" value="server" />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="strategyPage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
+            <PATH_ELEMENT>
+              <option name="myItemId" value="benchMarkPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+=======
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -347,7 +728,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="dataAnalysePage" />
+=======
+<<<<<<< HEAD
+              <option name="myItemId" value="benchMarkPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+=======
+              <option name="myItemId" value="strategyPage" />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -375,9 +768,17 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+=======
+<<<<<<< HEAD
+      <pane id="Scope" />
+      <pane id="Scratches" />
+=======
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -386,15 +787,15 @@
     <property name="js-jscs-nodeInterpreter" value="E:\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\course\Class\SE3\assignment\AnyQuant_Project\project\AnyQuantProject\src\main\java\webProject\resources\homePage\js" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\course\Class\SE3\assignment\AnyQuant_Project\project\AnyQuantProject\src\main\java\webProject\resources\benchMarkPage\img" />
       <recent name="F:\course\Class\SE3\assignment\AnyQuant_Project\project\AnyQuantProject\src\main\java\webProject\resources\benchMarkPage\js" />
       <recent name="F:\course\Class\SE3\assignment\AnyQuant_Project\project\AnyQuantProject\src\main\java\webProject\resources\homePage\img" />
       <recent name="F:\course\Class\SE3\assignment\AnyQuant_Project\project\AnyQuantProject\src\main\java\webProject\resources\homePage\css\skin\img" />
       <recent name="F:\course\Class\SE3\assignment\AnyQuant_Project\project\AnyQuantProject\src\main\java\webProject\resources\homePage\js\build\dist" />
-      <recent name="F:\course\Class\SE3\assignment\AnyQuant_Project\project\AnyQuantProject\src\main\java\webProject\resources\homePage\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\course\Class\SE3\assignment\AnyQuant_Project\project\AnyQuantProject\src\main\java\webProject\resources\homePage\js" />
     </key>
   </component>
   <component name="RunManager">
@@ -650,10 +1051,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="314" y="70" width="1048" height="695" extended-state="0" />
+=======
+<<<<<<< HEAD
+    <frame x="1" y="0" width="1364" height="728" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25470987" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <frame x="210" y="95" width="1048" height="695" extended-state="0" />
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -691,7 +1103,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -700,6 +1112,43 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/css/skin/origin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/css/skin/img/new_bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/theme/macarons.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/allIndustryShowPage/js/barChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="88" column="37" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/img/new_bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/chart/pie.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -798,6 +1247,12 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/allIndustryShowPage/js/allIndustry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="121" column="41" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
+=======
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/zerif.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -809,6 +1264,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="101" column="27" selection-start-line="88" selection-start-column="22" selection-end-line="101" selection-end-column="27" />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
         </state>
       </provider>
     </entry>
@@ -872,6 +1328,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
+<<<<<<< HEAD
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/php/ajaxService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39107144">
+          <caret line="244" column="19" selection-start-line="244" selection-start-column="16" selection-end-line="244" selection-end-column="19" />
+=======
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
         </state>
       </provider>
     </entry>
@@ -896,6 +1363,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -903,6 +1372,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/chart/echarts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -910,10 +1380,17 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.965517">
+          <caret line="323" column="40" selection-start-line="323" selection-start-column="21" selection-end-line="323" selection-end-column="40" />
+=======
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/echarts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="19249" selection-start-line="0" selection-start-column="19249" selection-end-line="0" selection-end-column="19249" />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
         </state>
       </provider>
     </entry>
@@ -921,6 +1398,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="512" column="66" selection-start-line="512" selection-start-column="66" selection-end-line="512" selection-end-column="66" />
+<<<<<<< HEAD
+          <folding>
+            <element signature="n#style#0;n#span#0;n#span#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/kLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321033">
+          <caret line="824" column="21" selection-start-line="824" selection-start-column="21" selection-end-line="824" selection-end-column="21" />
+          <folding>
+            <element signature="e#1058#3190#0" expanded="false" />
+            <element signature="e#3428#3825#0" expanded="false" />
+            <element signature="e#8181#10639#0" expanded="false" />
+            <element signature="e#10698#14141#0" expanded="false" />
+            <element signature="e#15120#16329#0" expanded="false" />
+            <element signature="e#16966#20467#0" expanded="false" />
+            <element signature="e#20495#23641#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/monthKLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73985237">
+=======
         </state>
       </provider>
     </entry>
@@ -934,33 +1438,236 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/js/monthKLineChart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1785">
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
           <caret line="119" column="19" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/zerif.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4797048">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8154982">
+          <caret line="101" column="27" selection-start-line="88" selection-start-column="24" selection-end-line="101" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/js/echart/echarts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3618677">
+          <caret line="0" column="19249" selection-start-line="0" selection-start-column="19249" selection-end-line="0" selection-end-column="19249" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/js/button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.036900368">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/kLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65656567">
+          <caret line="806" column="14" selection-start-line="806" selection-start-column="14" selection-end-line="806" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!block;n#checkBoxChanged#0" expanded="false" />
+            <element signature="n#!!block;n#multiPredictTriggered#0" expanded="false" />
+            <element signature="n#!!block;n#predictTriggered#0" expanded="false" />
+          </folding>
+=======
         <state relative-caret-position="90">
           <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9310346">
+          <caret line="212" column="42" selection-start-line="0" selection-start-column="0" selection-end-line="405" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/homePage/css/font-awesome.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1961165">
+          <caret line="548" column="1" selection-start-line="548" selection-start-column="1" selection-end-line="548" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.965517">
+          <caret line="320" column="0" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#11447#12394#0" expanded="false" />
+            <element signature="e#12428#13410#0" expanded="false" />
+            <element signature="e#13444#14448#0" expanded="false" />
+            <element signature="e#14482#15451#0" expanded="false" />
+            <element signature="e#15485#16461#0" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/img/getBenchMarkData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/img/monthKLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+=======
         <state relative-caret-position="3345">
           <caret line="223" column="40" selection-start-line="223" selection-start-column="40" selection-end-line="223" selection-end-column="40" />
+<<<<<<< HEAD
+=======
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
+          <folding />
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/img/kLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="878" column="0" selection-start-line="878" selection-start-column="0" selection-end-line="878" selection-end-column="0" />
+          <folding>
+            <element signature="e#4200#4225#0" expanded="false" />
+            <element signature="e#4258#5663#0" expanded="false" />
+            <element signature="e#5981#8577#0" expanded="false" />
+            <element signature="e#8597#11055#0" expanded="false" />
+            <element signature="e#11114#14557#0" expanded="false" />
+            <element signature="e#15536#16745#0" expanded="false" />
+            <element signature="e#17382#20883#0" expanded="false" />
+            <element signature="e#20911#24057#0" expanded="false" />
+            <element signature="e#24127#28450#0" expanded="false" />
+          </folding>
+=======
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2602">
           <caret line="45" column="12" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="12" />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/weekKLineChart.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="524" column="19" selection-start-line="524" selection-start-column="19" selection-end-line="524" selection-end-column="19" />
+          <folding>
+            <element signature="e#997#3130#0" expanded="false" />
+            <element signature="e#5764#6165#0" expanded="false" />
+            <element signature="e#6209#6735#0" expanded="false" />
+            <element signature="e#6996#10298#0" expanded="false" />
+            <element signature="e#10365#13414#0" expanded="false" />
+            <element signature="e#13484#17807#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <folding>
+            <element signature="e#2261#3221#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.793103">
+          <caret line="401" column="41" selection-start-line="401" selection-start-column="41" selection-end-line="401" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/kLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.387755">
+          <caret line="951" column="23" selection-start-line="951" selection-start-column="23" selection-end-line="951" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!block;n#checkBoxChanged#0" expanded="false" />
+            <element signature="n#!!block;n#tabChanged#0" expanded="false" />
+            <element signature="e#4091#5608#0" expanded="false" />
+            <element signature="n#!!block;n#splitData#0;n#!!block;n#tabChanged#0" expanded="false" />
+            <element signature="n#!!block;n#calculateMA#0;n#!!block;n#tabChanged#0" expanded="false" />
+            <element signature="e#6914#9824#0" expanded="false" />
+            <element signature="e#9849#12501#0" expanded="false" />
+            <element signature="e#12568#16451#0" expanded="false" />
+            <element signature="e#17513#17554#0" expanded="false" />
+            <element signature="e#17595#19224#0" expanded="false" />
+            <element signature="e#19688#20089#0" expanded="false" />
+            <element signature="e#20133#20659#0" expanded="false" />
+            <element signature="e#20929#24231#0" expanded="false" />
+            <element signature="e#24259#27308#0" expanded="false" />
+            <element signature="e#24286#24415#0" expanded="false" />
+            <element signature="e#27378#31701#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/monthKLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1691177">
+          <caret line="48" column="38" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
+          <folding>
+            <element signature="e#963#3095#0" expanded="false" />
+            <element signature="e#3815#5444#0" expanded="false" />
+            <element signature="e#5908#6309#0" expanded="false" />
+            <element signature="e#6353#6879#0" expanded="false" />
+            <element signature="e#7149#10451#0" expanded="false" />
+            <element signature="e#10518#13567#0" expanded="false" />
+            <element signature="e#13637#17960#0" expanded="false" />
+          </folding>
+=======
         <state relative-caret-position="675">
           <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
         </state>
@@ -1064,6 +1771,7 @@
         <state relative-caret-position="148">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
+>>>>>>> f9c0a3d75698e28f42c78cbaa959bc648d17ad13
         </state>
       </provider>
     </entry>

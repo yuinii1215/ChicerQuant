@@ -3,9 +3,12 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/net/sf/json-lib/json-lib/2.4/json-lib-2.4-jdk15.jar!/" />
     </CLASSES>
+<<<<<<< HEAD
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/net/sf/json-lib/json-lib/2.4/json-lib-2.4-javadoc.jar!/" />
     </JAVADOC>
+=======
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/net/sf/json-lib/json-lib/2.4/json-lib-2.4-sources.jar!/" />
     </SOURCES>
