@@ -15,13 +15,17 @@ app.controller("strategycontroller",function($scope,$http){
     }
     $scope.url='http://115.159.97.98/php/serviceController.php';
     $http.post($scope.url,{
-      'method': 'getMyStrategyDataService'
-      'startdate': (year-1)+"-"+month+"-"day,
+      'method': 'getMyStrategyDataService',
+      'startdate': (year-1)+"-"+month+"-"+day,
       'enddate': year+"-"+month+"-"+day,
       'name': stockid
     }).success(function(response,status){
       //give ctgg
+        for(obj in response){
+            if(obj!="retmsg"){
 
+            }
+        }
     }).error(function(){
       alert("error");
     });
