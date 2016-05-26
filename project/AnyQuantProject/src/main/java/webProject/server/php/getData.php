@@ -103,9 +103,10 @@ function getAllStocks()
 //    $query = "select * from today";
 //    return execQuery($query);
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select stock_id,stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,industry from today");
+    $stmt = $connection->prepare("select stock_id,stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,industry,color from today");
     return execQuery($connection,$stmt);
 }
+//echo getAllStocks();
 
 //echo getAllStockNames();
 
@@ -378,10 +379,10 @@ function getAmongDates($startdate, $enddate)
 }
 
 
-function getMyStrategyData($stockname,$startdate,$enddate) {
+function getMyStrategyData($name,$startdate,$enddate) {
     $connection = getDBConnection();
-    if($name != 'hs300'){
-        $stmt = $connection->prepare("select date, close, RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J from ".$stockname." where date between :startdate and :enddate");
+    if($stockname != 'hs300'){
+        $stmt = $connection->prepare("select date, close, RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J from ".$name." where date between :startdate and :enddate");
     }else{
         $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,poly from benchmark where date between :startdate and :enddate");
     }

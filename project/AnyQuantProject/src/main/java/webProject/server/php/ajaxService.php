@@ -314,12 +314,12 @@ require_once ('util.php');
      * @param $startdate
      * @param $enddate
      */
-    function getMyStrategyDataService($stockname,$startdate,$enddate){
-        $jsonstring = getMyStrategyData($stockname,$startdate,$enddate);
+    function getMyStrategyDataService($name,$startdate,$enddate){
+        $jsonstring = getMyStrategyData($name,$startdate,$enddate);
         echo $jsonstring;
     }
 
-    getMyStrategyDataService('sh600000','2016-05-10','2016-05-20');
+//    getMyStrategyDataService('sh600000','2016-5-10','2016-5-20');
 //    getRelativeDateService(date('Y-m-d',strtotime('2016-05-10')),+9);
 
 ?>
