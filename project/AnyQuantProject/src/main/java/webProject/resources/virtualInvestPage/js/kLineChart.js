@@ -183,7 +183,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
     var stockNum=0;
     // for(item in axisData){//每一天生成一套数组
     var item=0;
-    console.log(axisData.length);
+    // console.log(axisData.length);
     for(;item<axisData.length;item++){
         accountRange[item]=account;
         dealBehave[item]=[false,0,0,false,0,0,account];//买入,买入价格,买入指标,卖出,卖出价格,卖出指标序号(对应于KType数组),帐户剩余
@@ -293,7 +293,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
     };
   // console.log(newOption.legend.data);
     var newLegend= {
-        data: [newOption.legend.data[0], newOption.legend.data[1],'买入点','卖出点'],
+        data: [newOption.legend.data[0],'买入点','卖出点'],
         textStyle: {
             color: '#000000',
         },
@@ -322,10 +322,10 @@ function multiPredictTriggered(){//假定是kdj和rsi
             }
         },
         data: sellPoint
-
     };
     newOption.legend=newLegend;
     newOption.series=[newOption.series[0],newSeries1,newSeries2];
+    console.log(axisData.length);
     myChart.setOption(newOption);
 
     myChart2 = echarts.init(document.getElementById('main2'),'macarons');
@@ -572,6 +572,8 @@ function multiFactorAnova(){
     // sort data - draw farest elements first
     gData.sort(sortNumByZ);
     g.drawGraph(gData);
+    // g.drawPoint(gData);
+
    
 
     //two way anova calcu,have been tested to be correct
@@ -654,14 +656,20 @@ function multiFactorAnova(){
     var limit1=3.863;//0.05
     var limit2=6.992;//0.01
     if(FA>=limit1){//拒绝原假设,说明因素A显著相关
-        alert('黄金交叉对于本支股票投资影响显著,建议用于买入参考指标');
+        // alert('黄金交叉对于本支股票投资影响显著,建议用于买入参考指标');
+        document.getElementById('buySignificance').innerHTML="黄金交叉对于本支股票投资影响显著,建议用于买入参考指标";
     }else{
-        alert('黄金交叉对于本支股票投资影响不显著,不建议用于买入参考指标');
+        // alert('黄金交叉对于本支股票投资影响不显著,不建议用于买入参考指标');
+        document.getElementById('buySignificance').innerHTML="黄金交叉对于本支股票投资影响不显著,不建议用于买入参考指标";
     }
     if(FB>=limit2){//拒绝原假设,说明因素B显著相关
-        alert('死亡交叉对于本支股票投资影响显著,建议用于卖出参考指标');
+        // alert('死亡交叉对于本支股票投资影响显著,建议用于卖出参考指标');
+        document.getElementById('sellSignificance').innerHTML="死亡交叉对于本支股票投资影响显著,建议用于卖出参考指标";
+
     }else{
-        alert('死亡交叉对于本支股票投资影响不显著,不建议用于卖出参考指标');
+        // alert('死亡交叉对于本支股票投资影响不显著,不建议用于卖出参考指标');
+        document.getElementById('sellSignificance').innerHTML="死亡交叉对于本支股票投资影响不显著,不建议用于卖出参考指标";
+
     }
 
 

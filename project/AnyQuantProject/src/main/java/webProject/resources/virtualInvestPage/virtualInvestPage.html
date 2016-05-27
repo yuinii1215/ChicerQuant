@@ -207,8 +207,7 @@
                             <div class="widget">
                                 <div class="widget-header">
                                     <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- form</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}方差分析指标</h3>
                                     <div class="btn-group widget-header-toolbar">
                                         <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
@@ -216,16 +215,50 @@
                                     </div>
                                 </div>
                                 <div class="widget-content">
-                                    <!--/multiPredictTriggered-->
-                                    <div class="btn" onclick="multiPredictTriggered()">BIAS Pre</div>
-                                    <!--<div class="btn" onclick="predictTriggered('BIAS')">BIAS Pre</div>-->
-                                    <div class="btn" onclick="multiPredictTriggered()">MACD Pre</div>
-                                    <div  class="btn" onclick="multiPredictTriggered()">RSI Pre</div>
-                                    <div class="btn" onclick="multiPredictTriggered()">KDJ Pre</div>
-                                    <p>stockID<input type="text" id="stockValue"/></p>
-                                    <div class="btn" ng-click="changeStock()">CONFIRM</div>
+                                    <div id="g-holder">
+                                        <div id="canvasDiv">
+                                            <canvas id="graph" width="400" height="400"></canvas>
+                                            <div id="gInfo"></div>
+                                        </div>
+                                        <!--<div id="controls">-->
+                                        <!--</div>-->
+                                    </div>
+                                    <h3><font size="4x">多因素方差分析样本及指标说明</font></h3>
+                                    <h3><font size="3x" color="#807DBF">样本</font></h3>
+                                    <h3><font size="2x">今年本股票在不同策略下的盈利(虚拟资本为10000元)</font></h3>
+                                    <h3><font size="3x" color="#807DBF">因素一</font></h3>
+                                    <h3><font size="2x">买入点(kdj,macd,rsi,bias的黄金交叉点)</font></h3>
+                                    <h3><font size="3x" color="#807DBF">因素二</font></h3>
+                                    <h3><font size="2x">卖出点(kdj,macd,rsi,bias的死亡交叉点)</font></h3>
+                                    <h3><font size="4x">多因素方差分析结果</font></h3>
+                                    <h3><font size="3x" color="#807DBF">买入点显著性</font></h3>
+                                    <h3 id="buySignificance"><font size="2x"></font></h3>
+                                    <h3><font size="3x" color="#807DBF">卖出点显著性</font></h3>
+                                    <h3 id="sellSignificance" style=""><font size="2x"></font></h3>
+
                                 </div>
                             </div>
+                               <div class="widget">
+                                   <div class="widget-header">
+                                       <!--header-->
+                                       <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- form</em>
+                                       <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                       <div class="btn-group widget-header-toolbar">
+                                           <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                           <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                           <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                       </div>
+                                   </div>
+                                   <div class="widget-content">
+                                       <div class="btn" onclick="multiPredictTriggered()">BIAS Pre</div>
+                                       <!--<div class="btn" onclick="predictTriggered('BIAS')">BIAS Pre</div>-->
+                                       <div class="btn" onclick="multiPredictTriggered()">MACD Pre</div>
+                                       <div  class="btn" onclick="multiPredictTriggered()">RSI Pre</div>
+                                       <div class="btn" onclick="multiPredictTriggered()">KDJ Pre</div>
+                                       <p>stockID<input type="text" id="stockValue"/></p>
+                                       <div class="btn" ng-click="changeStock()">CONFIRM</div>
+                                   </div>
+                               </div>
                             </div>
                                <div class="col-lg-1"></div>
                            </div>
@@ -302,14 +335,14 @@
                                 </div>
                                 <div class="widget-content">
                                     <!--<div id="main6" style="height:400px;"></div>-->
-                                    <div id="g-holder">
-                                        <div id="canvasDiv">
-                                            <canvas id="graph" width="600" height="600"></canvas>
-                                            <div id="gInfo"></div>
-                                        </div>
-                                        <div id="controls">
-                                        </div>
-                                    </div>
+                                    <!--<div id="g-holder">-->
+                                        <!--<div id="canvasDiv">-->
+                                            <!--<canvas id="graph" width="600" height="600"></canvas>-->
+                                            <!--<div id="gInfo"></div>-->
+                                        <!--</div>-->
+                                        <!--<div id="controls">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
                                 </div>
                             </div>
                         </div>

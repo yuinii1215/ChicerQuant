@@ -34,10 +34,10 @@ canvasGraph=function(elm){
     var canvas= document.getElementById(elm);
     this.ctx = canvas.getContext('2d');
 
-    this.ctx.clearRect(0,0,600,600);
+    this.ctx.clearRect(0,0,400,400);
     //define some constants
-    this.containerWidth=600; 	//default
-    this.containerHeight=600;	//default
+    this.containerWidth=400; 	//default
+    this.containerHeight=400;	//default
     this.padding=10;
     this.xMid=this.containerWidth/2;
     this.yMid=this.containerHeight/2;
@@ -53,8 +53,8 @@ canvasGraph=function(elm){
 
     this.xMin=0;
     this.xMax=1000;
-    this.yMin=0;
-    this.yMax=1000;
+    this.yMin=-500;
+    this.yMax=4000;
     this.zMin=0;
     this.zMax=1000;
 
@@ -138,9 +138,31 @@ canvasGraph.prototype.drawAxis=function(){
         this.ctx.stroke();
 
     }
+}
 
 
+function drawMarkers() {
+    this.ctx.textAlign = "right";
+    this.ctx.fillStyle = "#000";;
 
+    this.ctx.textAlign = 'center';
+    for (var i = 0; i < 3; i++) {
+        // arrval = arrVisitors[i].split(",");
+        // name = arrval[0];
+        // markerXPos = cMarginSpace + bMargin
+        //     + (i * (bWidth + bMargin)) + (bWidth/2);
+        // markerYPos = cMarginHeight + 10;
+        this.ctx.fillText('a', x_3d, 0, 10);
+    }
+    this.ctx.save();
+    // Add Y Axis title
+    // context.translate(cMargin + 10, cHeight / 2);
+    // context.rotate(Math.PI * -90 / 180);
+    // context.fillText('Visitors in Thousands', 0, 0);
+    // context.restore();
+    // // Add X Axis Title
+    // context.fillText('Year Wise', cMarginSpace +
+    //     (cWidth / 2), cMarginHeight + 30 );
 }
 
 canvasGraph.prototype.drawBar=function(x,y,z){
@@ -189,6 +211,8 @@ canvasGraph.prototype.drawBar=function(x,y,z){
     this.ctx.fillStyle = "rgba(189,189,243,0.7)";
     this.ctx.fillRect(x_3d-3,y_3d,7,y_height_scaled);
 
+
+
     //shadow
     this.ctx.fillStyle = "rgba(77,77,180,0.7)";
     this.ctx.fillRect(x_3d+4,y_3d-0,1,y_height_scaled);
@@ -225,30 +249,44 @@ canvasGraph.prototype.drawInfo=function(){
 
     this.infoElm=document.getElementById('gInfo');
 
-    this.infoElm.innerHTML='<div id="y-label">Y</div>';
-    this.infoElm.innerHTML+='<div id="x-label">X</div>';
-    this.infoElm.innerHTML+='<div id="z-label">Z</div>';
+    this.infoElm.innerHTML='<div id="y-label">盈利情况:4000元分割线</div>';
+    this.infoElm.innerHTML+='<div id="x-label">黄金交叉</div>';
+    this.infoElm.innerHTML+='<div id="z-label">死亡交叉</div>';
 
-    this.infoElm.innerHTML+='<div id="t-001" class="gText">0</div>';
 
-    this.infoElm.innerHTML+='<div id="t-002" class="gText">1000</div>';
-    this.infoElm.innerHTML+='<div id="t-003" class="gText">1000</div>';
-    this.infoElm.innerHTML+='<div id="t-004" class="gText">1000</div>';
 
-    this.infoElm=document.getElementById('t-001').style.top='350px';
-    this.infoElm=document.getElementById('t-001').style.left='220px';
+    this.infoElm.innerHTML+='<div id="t-001" class="gText">kdj</div>';
+    this.infoElm.innerHTML+='<div id="t-002" class="gText">macd</div>';
+    this.infoElm.innerHTML+='<div id="t-003" class="gText">rsi</div>';
+    this.infoElm.innerHTML+='<div id="t-004" class="gText">bias</div>';
+    this.infoElm.innerHTML+='<div id="t-005" class="gText">kdj</div>';
+    this.infoElm.innerHTML+='<div id="t-006" class="gText">macd</div>';
+    this.infoElm.innerHTML+='<div id="t-007" class="gText">rsi</div>';
+    this.infoElm.innerHTML+='<div id="t-008" class="gText">bias</div>';
 
-    this.infoElm=document.getElementById('t-002').style.top='54px';
-    this.infoElm=document.getElementById('t-002').style.left='210px';
+    this.infoElm=document.getElementById('t-001').style.top='270px';
+    this.infoElm=document.getElementById('t-001').style.left='100px';
 
-    this.infoElm=document.getElementById('t-003').style.top='365px';
-    this.infoElm=document.getElementById('t-003').style.left='530px';
+    this.infoElm=document.getElementById('t-002').style.top='300px';
+    this.infoElm=document.getElementById('t-002').style.left='65px';
 
-    this.infoElm=document.getElementById('t-004').style.top='580px';
+    this.infoElm=document.getElementById('t-003').style.top='320px';
+    this.infoElm=document.getElementById('t-003').style.left='40px';
+
+    this.infoElm=document.getElementById('t-004').style.top='340px';
     this.infoElm=document.getElementById('t-004').style.left='20px';
 
+    this.infoElm=document.getElementById('t-005').style.top='240px';
+    this.infoElm=document.getElementById('t-005').style.left='170px';
 
+    this.infoElm=document.getElementById('t-006').style.top='240px';
+    this.infoElm=document.getElementById('t-006').style.left='210px';
 
+    this.infoElm=document.getElementById('t-007').style.top='240px';
+    this.infoElm=document.getElementById('t-007').style.left='270px';
+
+    this.infoElm=document.getElementById('t-008').style.top='240px';
+    this.infoElm=document.getElementById('t-008').style.left='310px';
 }
 
 
