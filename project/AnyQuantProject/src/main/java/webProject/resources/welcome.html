@@ -8,17 +8,16 @@
     <style id="basicSytle">
         *{margin:0; padding:0;}
         body{ width:100%;}
-        #wrap{ background-repeat: repeat; margin:0 auto; width:100%;overflow:auto;min-width:1349px;}
+        #wrap{ background-repeat: repeat; margin:0 auto; width:100%;overflow:auto;heigth:100%;}
         #header{position:fixed; z-index:999;height:40px;width:100%;  background-color: #555;opacity: 0.8}
     </style>
 
     <!-- CUSTOM STYLES -->
-    <link rel="stylesheet" href="css/preloader.css">
-    <link rel="stylesheet" href="css/canvas.css">
-    <link rel="stylesheet" href="css/style.css">
-     <link rel="stylesheet" href="css/button.css">
+    <link href="homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- WEBFONT -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
   
@@ -45,7 +44,7 @@
                     <!-- TOP BAR -->
                 <!--<a id="log_reg_btn" class="btn"> <button   style="marginRight:10px" class="button  button-block button-inverse button-rounded button-jumbo"  onclick=javascript:enterLog_Reg()   >登录/注册</button></a>-->
                 <div align="right">
-                    <button   class="button  button-block button-inverse button-rounded button-medium"  style="background-color:transparent"  onclick=javascript:enterLog_Reg()  >登录/注册</button>
+                    <button  class="button  button-block button-inverse button-rounded button-medium"  style="background-color:transparent ;  margin-top: -5px;"  onclick=javascript:enterLog_Reg()  >登录/注册</button>
                  </div>
                     <!-- / END TOP BAR -->
             </div>
@@ -53,17 +52,278 @@
             <!-- =========================
                 MAINBODY
             ============================== -->
+            <div id="mainBody">
                 <div id="basic">
                     <div id="main_header_content">
                          <p id="main_header_text">
-                                                                              股 票 分 析 策 略<br>
+                             股 票 分 析 策 略<br>
                              Your own stock manager<br>
                          </p>
+                         <a class="btn" id="main_header_btn"  > <button class="button  button-block button-inverse button-rounded button-large"  onclick=javascript:enter(); >进入应用</button></a>
 
-                          <a class="btn" id="main_header_btn"  > <button class="button  button-block button-inverse button-rounded button-large"  onclick=javascript:enter(); >进入应用</button></a>
-
+                        <div class="row bottom-message-section">
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="short-text">
+                                    <i class="fa fa-bookmark-o"></i><a href="allStockShowPage/allStockShowPage.html" style="color:rgba(255,255,255,0.7);">所有股票数据</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="short-text">
+                                    <i class="fa fa-bookmark-o"></i><a href="allStockShowPage/allStockShowPage.html" style="color:rgba(255,255,255,0.7);"> 所有行业数据</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="short-text">
+                                    <i class="fa fa-bookmark-o"></i><a href="dataAnalysePage/dataAnalysePage.html" style="color:rgba(255,255,255,0.7);"> 策略分析</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- =========================
+                 FOCUS
+              ============================== -->
+                  <section class="focus" id="focus">
+                    <div class="container">
+                        <!-- SECTION HEADER -->
+                        <div class="section-header">
+                            <!-- SECTION TITLE -->
+                            <h2 class="dark-text">OUR FORCE</h2>
+                            <!-- SHORT DESCRIPTION ABOUT THE SECTION-->
+                            <h6>
+                                We design &amp; provide massive outcome to help newcomers &amp; medium or high level business.
+                            </h6>
+                        </div>
+                        <!-- / END SECTION HEADER -->
+
+                        <!-- 4 FOCUS BOXES -->
+                        <div class="row">
+                            <!-- FIRST FOCUS BOXES -->
+                            <div class="col-lg-4 col-sm-4 focus-box red wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                <a href="allStockShowPage/allStockShowPage.html" style="color:#555">
+                                    <div class="service-icon">
+                                     <i class="fa fa-5x fa-bar-chart-o " style="margin-top:28px; color:#e96656"></i> <!-- FOCUS ICON-->
+                                    </div>
+                                    <h5 class="red-border-bottom">所有股票数据</h5> <!-- FOCUS HEADING -->
+                                </a>
+                                <p> <!-- FOCUS DESCRIPTION -->
+                                    Created cattle form fruit. Saying from given together face without waters, whose. Second first. Face it saw give creature was thing. Over upon is brought. Him you'll above kind set
+                                </p>
+                            </div>
+                            <!-- / END FIRST FOCUS BOX. Other boxes has same format -->
+                            <div class="col-lg-4 col-sm-4 focus-box green wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                <a href="allIndustryShowPage/allIndustryShowPage.html" style="color:#555">
+                                    <div class="service-icon">
+                                        <span class="fa fa-5x fa-th-large"  style="margin-top:28px; color:#34d293"></span>
+                                    </div>
+                                    <h5 class="green-border-bottom">所有行业数据</h5>
+                                </a>
+                                <p>
+                                    Created cattle form fruit. Saying from given together face without waters, whose. Second first. Face it saw give creature was thing. Over upon is brought. Him you'll above kind set
+                                </p>
+                            </div>
+
+                           <div class="col-lg-4 col-sm-4 focus-box blue wow fadeInRight animated" href="dataAnalysePage/dataAnalysePage.html"; data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                               <a href="dataAnalysePage/dataAnalysePage.html" style="color:#555">
+                                   <div class="service-icon">
+                                        <i class="fa fa-5x fa-file-text-o"  style="margin-top:28px; color:#3ab0e2"></i>
+                                    </div>
+                                    <h5 class="blue-border-bottom" >策略分析</h5>
+                               </a>
+                               <p>
+                                    Created cattle form fruit. Saying from given together face without waters, whose. Second first. Face it saw give creature was thing. Over upon is brought. Him you'll above kind set
+                                </p>
+                            </div>
+<!--
+                            <div class="col-lg-3 col-sm-3 focus-box yellow wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                <div class="service-icon">
+                                    <i class="pixeden pd-icon-check"></i>
+                                </div>
+                                <h5 class="yellow-border-bottom">SEO &amp; SMM</h5>
+                                <p>
+                                    Created cattle form fruit. Saying from given together face without waters, whose. Second first. Face it saw give creature was thing. Over upon is brought. Him you'll above kind set
+                                </p>
+                            </div>
+                -->
+                        </div>
+                        <!-- / END 4 FOCUS BOXES -->
+
+                        <!-- OTHER FOCUSES -->
+                        <div class="other-focuses">
+                            <h5><span class="section-footer-title">ALSO WE FOCUS ON</span></h5>
+                        </div>
+
+                        <!-- OTHER FOCUS LIST -->
+                        <div class="other-focus-list wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                            <ul>
+                                <li><i class="fa  fa-bar-chart-o"></i>单支股票分析</li>
+                                <li><i class="fa  fa-industry"></i>单行业分析</li>
+                                <li><i class="fa  fa-bar-chart-o"></i>大盘分析</li>
+                                <li><i class="fa  fa-wpforms"></i>虚拟运营</li>
+                            </ul>
+                        </div> <!-- / END OTHER FOCUS LIST -->
+                    </div> <!-- / END CONTAINER -->
+                  </section>  <!-- / END FOCUS SECTION -->
+
+                <!-- =========================
+                   STATS
+                ============================== -->
+                <section class="stats">
+                    <div class="container">
+                        <!-- STATS -->
+                        <div class="row">
+                            <!-- START COLUMN -->
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                    <div class="icon-top red-text">
+                                        <i class="fa fa-bar-chart-o"></i>
+                                    </div>
+                                    <div class="stat-text">
+                                        <h3 class="white-text red-border-bottom" >2,377</h3>
+                                        <h6>Stocks Showing</h6>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+
+                            <!-- START COLUMN -->
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
+                                    <div class="icon-top green-text">
+                                        <i class="fa fa-th-large"></i>
+                                    </div>
+                                    <div class="stat-text">
+                                        <h3 class="white-text green-border-bottom">28</h3>
+                                        <h6>Industries Showing</h6>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+
+                            <!-- START COLUMN -->
+               <!--             <div class="col-lg-3 col-sm-3">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="2s" data-wow-delay="0.45s">
+                                    <div class="icon-top blue-text">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="stat-text">
+                                        <h3 class="white-text blue-border-bottom">1</h3>
+                                        <h6>Our strategy</h6>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                            <!-- START COLUMN -->
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="2s" data-wow-delay="0.45s">
+                                    <div class="icon-top yellow-text">
+                                        <i class="fa fa-file-text-o"></i>
+                                    </div>
+                                    <div class="stat-text">
+                                        <h3 class="white-text yellow-border-bottom" >infinite</h3>
+                                        <h6>Optional strategies</h6>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                        </div>
+                    </div>
+                </section>  <!-- / END STATS -->
+
+                <!-- =========================
+                      DataShow
+                 ============================== -->
+                <section class="DataShow_1">
+                    <div class="container">
+                        <!-- STATS -->
+                        <div class="row">
+                            <!-- START COLUMN -->
+                            <div class="col-lg-5 col-sm-5">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                    <div class="illustrate_icon_1">
+                                      <img src="bg.png" width="500px" height="320px" />
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+
+                            <div class="col-lg-2 col-sm-2"></div>
+
+                            <div class="col-lg-5 col-sm-5">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
+                                    <div class ="illustrate_text_1">
+                                        <h3>Data Show</h3>
+                                        <p>
+                                            Created cattle form fruit. Saying from given together face without waters, whose.
+                                            Second first. Face it saw give creature was thing.
+                                            Over upon is brought. Him you'll above kind set
+                                        </p>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                        </div>
+                    </div>
+                </section>  <!-- / END STATS -->
+
+                <section class="DataShow_2">
+                    <div class="container">
+                        <!-- STATS -->
+                        <div class="row">
+                            <!-- START COLUMN -->
+                            <div class="col-lg-5 col-sm-5">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                    <div class ="illustrate_text_2">
+                                        <h3>Data Show</h3>
+                                        <p>
+                                            Created cattle form fruit. Saying from given together face without waters, whose.
+                                            Second first. Face it saw give creature was thing.
+                                            Over upon is brought. Him you'll above kind set
+                                        </p>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+
+                            <div class="col-lg-1 col-sm-1"></div>
+
+                            <div class="col-lg-5 col-sm-5">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
+                                    <div class="illustrate_icon_2">
+                                        <img src="bg.png" width="550px" height="500px" />
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                        </div>
+                    </div>
+                </section>  <!-- / END STATS -->
+
+                <section class="DataShow_3">
+                    <div class="container">
+                        <!-- STATS -->
+                        <div class="row">
+                            <!-- START COLUMN -->
+                            <div class="col-lg-5 col-sm-5">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                    <div class="illustrate_icon_3">
+                                        <img src="bg.png" width="500px" height="400px" />
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+
+                            <div class="col-lg-2 col-sm-2"></div>
+
+                            <div class="col-lg-5 col-sm-5">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
+                                    <div class ="illustrate_text_3">
+                                        <h3>Data Show</h3>
+                                        <p>
+                                            Created cattle form fruit. Saying from given together face without waters, whose.
+                                            Second first. Face it saw give creature was thing.
+                                            Over upon is brought. Him you'll above kind set
+                                        </p>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                        </div>
+                    </div>
+                </section>  <!-- / END STATS -->
+
+            </div>
 
     <!-- / END HOME SECTION  -->
             <!-- =========================

@@ -29,7 +29,7 @@ GLOBAL STYLES
 
 }
 #mainBody #basic #main_header_content {
-    top: 12%;
+    top: 25%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -551,7 +551,7 @@ input:focus {
 .focus {
     padding-bottom: 88px;
     overflow: hidden;
-    background: #ececec;
+    background: #FFFFFF;
 }
 /* FOCUS BOX */
 .focus-box {
@@ -563,7 +563,7 @@ input:focus {
     height: 145px;
     margin: auto;
     border-radius: 50%;
-    border: 10px solid #CACACA;
+    border: 10px solid #ececec;
     margin-bottom: 20px;
     position: relative;
     -webkit-transition: all 0.2s ease-in-out;
@@ -608,7 +608,7 @@ input:focus {
     margin-bottom: 25px;
 }
 .other-focuses .section-footer-title {
-    background: #ECECEC;
+    background: #FFF;
     padding: 0 15px;
     color: #404040;
     font-weight: bold;
@@ -920,7 +920,7 @@ input:focus {
 -----------------------------------------*/
 
 .stats {
-    background: #555;
+    background: rgba(0, 0, 0, 0.5);
     padding: 88px 0 60px 0 !important;
     clear: both;
 }
@@ -948,30 +948,520 @@ input:focus {
 }
 
 /*---------------------------------------
- **   SECTION: DataShow_1             -----
+ **   SECTION:  OUR TEAM              -----
 -----------------------------------------*/
-.DataShow_1 {
-    padding-bottom: 120px;
+
+.our-team {
+    padding-bottom: 66px;
     padding-top: 100px;
-    background: #ececec;
+    background: #FFFFFF;
+}
+.team-member {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 35px;
+}
+.team-member .details {
+    text-align: left;
+    font-size: 13px;
+    line-height: 20px;
+    position: absolute;
+    padding: 15px;
+    top: -200px;
+    left: 0;
+    width: 100%;
+    height: 190px;
+    -webkit-transition: all 1500ms;
+    transition: all 1500ms;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+.team-member .member-details {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+.team-member:hover .details {
+    top: 0;
+    background: #333;
+    color: white;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+.team-member .profile-pic {
+    border-radius: 50%;
+    width: 174px;
+    height: 174px;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+.team-member .profile-pic img {
+    width: 100%;
+    height: 100%;
+}
+.team-member h5 {
+    text-transform: uppercase;
+    color: #404040;
+    font-weight: 700;
+    position: relative;
+}
+.team-member .position {
+    font-size: 13px;
+    margin-top: 15px;
+}
+.team-member .social-icons {
+    margin-bottom: 25px;
+}
+.team-member .social-icons ul li {
+    display: inline-block;
+    line-height: 32px;
+    margin: 6px;
+}
+.team-member .social-icons ul li a {
+    background: #FFF;
+    font-size: 18px;
+    border-radius: 50%;
+    color: #808080;
+}
+.team-member .social-icons ul li a:hover {
+    color: #e96656;
 }
 
 /*---------------------------------------
- **   SECTION:  DataShow_2           -----
+ **   SECTION:  FEATURES              -----
 -----------------------------------------*/
-.DataShow_2 {
-    padding-bottom: 120px;
-    padding-top: 100px;
-    background: #555;
+
+.features {
+    background: #FFFFFF;
+    text-align: left;
+    padding-bottom: 51px;
+}
+.features .feature {
+    margin-bottom: 55px;
+}
+.features .feature-icon {
+    font-size: 55px;
+    float: left;
+    margin-top: 10px;
+    margin-right: 25px;
+}
+.features .feature h5 {
+    font-weight: bold;
+    line-height: 28px;
+    color: #404040;
+}
+.features .feature p {
+    font-size: 14px;
 }
 
 /*---------------------------------------
- **   SECTION:  DataShow_2                -----
+ **   SECTION:  Pacages               -----
 -----------------------------------------*/
-.DataShow_3 {
-    padding-bottom: 120px;
+
+.packages {
+    padding-bottom: 50px;
+    background: rgba(0, 0, 0, 0.5);
+}
+.package {
+    border-radius: 4px;
+    background: #FFFFFF;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+}
+.package-header {
+    height: 57px;
+    color: #FFF;
+    line-height: 57px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.package-header h5 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.price {
+    line-height: 120px;
+    height: 100px;
+    color: #FFF;
+    font-weight: 400;
+}
+.price h4 {
+    display: inline;
+    font-size: 40px;
+    line-height: normal;
+    margin-bottom: 0;
+}
+.price h4 .dollar-sign {
+    font-size: 17px;
+    vertical-align: super;
+}
+.price .price-meta {
+    line-height: normal;
+    text-transform: uppercase;
+    color: #9f9f9f;
+}
+.package ul li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 80%;
+    margin: auto;
+    border-bottom: 1px dotted #dadada;
+}
+.package ul li:last-child {
+    border-bottom: 0;
+}
+.best-value .package {
+    margin-top: 0;
+}
+.best-value .package-header {
+    padding-top: 17px;
+    height: 82px !important;
+}
+.best-value .package-header h4 {
+    font-weight: bold;
+    line-height: 29px;
+    text-transform: uppercase;
+}
+.best-value .package-header .meta-text {
+    font-size: 13px;
+    line-height: normal;
+}
+.best-value .package-header {
+    height: 72px;
+}
+.package ul li i {
+    font-size: 13px;
+    margin-right: 5px;
+}
+.order {
+    background: #d8ccba;
+    color: #404040;
+}
+.package .order-now {
+    line-height: 45px;
+    max-width: 100%;
+    display: block;
+    background: #404040;
+    color: #FFF;
+    -webkit-transition: all 700ms;
+    transition: all 700ms;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.package .order-now:hover {
+    background: #e96656;
+}
+
+/*---------------------------------------
+**   SECTION:  PRODUCTS             -----
+-----------------------------------------*/
+
+.products {
+    background: url(http://templateocean.com/wrapbootstrap/zerif-html/v1.3.1/images/product-bg.png) 50% 0 repeat;
+}
+.products .color-overlay {
+    background: rgba(39,144,176, 0.96);
+    margin-top: -100px;
     padding-top: 100px;
-    background: #ececec;
+    padding-bottom: 70px;
+}
+
+/*--ITEMS IMAGES--*/
+.item-1 {
+    background-image: url(bg.png);
+}
+.item-2 {
+    background-image: url(bg.png);
+}
+.item-3 {
+    background-image: url(bg.png);
+}
+.item-4 {
+    background-image: url(bg.png);
+}
+.item-5 {
+    background-image: url(bg.png);
+}
+.item-6 {
+    background-image: url(bg.png);
+}
+.item-7 {
+    background-image: url(bg.png);
+}
+.item-8 {
+    background-image: url(bg.png);
+}
+
+/*---ITEM STYLE ---*/
+.item {
+    width: 100%;
+    height: 260px;
+    display: block;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    position: relative;
+    margin: auto;
+    margin-bottom: 30px;
+    z-index: 5;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 4px;
+}
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+.item-content {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    -webkit-transform: translate(0,100%);
+    -ms-transform: translate(0,100%);
+    transform: translate(0,100%);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.item:hover .item-content {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.item-top-content {
+    position: relative;
+}
+.item-top-content-inner {
+    position: absolute;
+    bottom: 0;
+    padding: 10px 15px 10px 15px;
+    background: rgba(255,255,255,.95);
+    width: 100%;
+}
+.item-add-content {
+    padding: 0 15px 15px 15px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.item:hover .item-add-content {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+.item-add-content-inner {
+    border: 0px solid #dadada;
+    border-top-width: 1px;
+    padding-top: 10px;
+}
+.item-top-title {
+    text-align: left;
+}
+.item-top-title h5 {
+    color: #404040;
+    font-weight: 700;
+}
+/* ITEM DETAILS */
+.item-product {
+    width: 70%;
+    float: left;
+}
+.item-product-price {
+    width: 30%;
+    float: right;
+    text-align: right;
+}
+.subdescription {
+    font-size: 14px;
+    font-weight: 400;
+    color: #7d7d7d;
+}
+
+/*---PRODUCT PRICE---*/
+.item-product-price {
+    font-size: 1em;
+    font-weight: 700;
+    position: relative;
+}
+.item-product-price .subdescription {
+    color: #808080;
+}
+.old-price {
+    border: 0 solid #808080;
+    border-bottom-width: 1px;
+    margin-top: -11px;
+    width: 30px;
+    position: absolute;
+    right: -2px;
+    bottom: 10px;
+    -webkit-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+}
+
+/*---ITEM DESCRIPTION ---*/
+.item-content {
+    background: rgba(255,255,255,.85);
+}
+.item-add-content {
+    font-weight: 400;
+    color: #808080;
+}
+.item-add-content .section {
+    margin-bottom: 10px;
+}
+.item-add-content .section:last-of-type {
+    margin-bottom: 0;
+}
+.item-add-content p {
+    font-size: 14PX;
+}
+
+/*---------------------------------------
+ **   SECTION:  NEWSLETTER            -----
+-----------------------------------------*/
+.newsletter {
+    padding-top: 62px;
+    padding-bottom: 62px;
+    background: rgba(0, 0, 0, 0.5);
+}
+.newsletter h3 {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.newsletter .subscription {
+    margin-top: 15px;
+}
+.newsletter .custom-button {
+    margin-top: 7px;
+}
+
+/*----------------------------------------
+ **   SECTION:  TESTIMONIAL            -----
+-----------------------------------------*/
+.testimonial {
+    background: #dbbf56;
+    padding-bottom: 90px;
+}
+#client-feedbacks .feedback-box {
+    background: #FFFFFF;
+    padding: 25px;
+    margin: 13px;
+    text-align: left;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display: block;
+    z-index: 5;
+}
+.feedback-box .message {
+    font-size: 15px;
+    color: #909090;
+}
+.feedback-box .client {
+    margin-top: 30px;
+    height: 73px;
+    position: relative;
+}
+.feedback-box .quote {
+    float: left;
+    font-size: 45px;
+    line-height: 80px;
+}
+.feedback-box .client-info {
+    float: left;
+    margin-left: 18px;
+    padding-top: 15px;
+}
+.feedback-box .client-info .client-name {
+    font-family: 'Homemade Apple', serif;
+    color: #404040;
+}
+.feedback-box .client-info .client-company {
+    font-size: 13px;
+    margin-top: -3px;
+}
+.feedback-box .client-image {
+    float: right;
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #f6f6f6;
+}
+.customNavigation {
+    text-align: center;
+}
+.owl-theme .owl-controls .owl-page span {
+    background: #886e0e;
+    border-radius: 50%;
+}
+.customNavigation a {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*----------------------------------------
+ **   SECTION:  PURCHASE NOW           -----
+-----------------------------------------*/
+
+.purchase-now {
+    background: #e96656;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.purchase-now h3 {
+    text-align: left;
+    line-height: 40px;
+    margin-top: 14px;
+}
+.purchase-now .red-btn {
+    float: right;
+    background: #db5a4a;
+}
+.purchase-now .red-btn:hover {
+    background: #bf3928;
+}
+
+/*----------------------------------------
+ **   SECTION:  CONTACT US             -----
+-----------------------------------------*/
+
+.contact-us {
+    background: rgba(0, 0, 0, 0.5);
+    padding-bottom: 95px;
+}
+.contact-us .input-box,textarea {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.contact-us .custom-button {
+    float: right;
+}
+
+.success,
+.error {
+    display: none;
 }
 
 
