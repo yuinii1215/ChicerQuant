@@ -16,6 +16,7 @@
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
+    <link href="3dAxis.css" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -175,18 +176,20 @@
                         </div>
                         <div class="main-content">
                            <div class="row">
-                               <div class="col-lg-6">
-                            <div class="widget">
-                                <div class="widget-header">
+                               <div class="col-lg-1">
+                               </div>
+                               <div class="col-lg-5">
+                                <div class="widget">
+                                 <div class="widget-header">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
                                     <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                     <div class="btn-group widget-header-toolbar">
-                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
-                                </div>
+                                 </div>
                                 <div class="widget-content">
                                     <!--<div id="predict" class="btn" onclick="predictTriggered('kdj')">KDJ Pre</div>-->
                                     <div id="main1" style="height:300px;"></div>
@@ -200,14 +203,14 @@
                                 </div>
                             </div>
                          </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-5">
                             <div class="widget">
                                 <div class="widget-header">
                                     <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
+                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- form</em>
                                     <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                     <div class="btn-group widget-header-toolbar">
-                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
@@ -223,35 +226,19 @@
                                     <div class="btn" ng-click="changeStock()">CONFIRM</div>
                                 </div>
                             </div>
-
-                               <!--<div class="widget">-->
-                                   <!--<div class="widget-header">-->
-                                       <!--&lt;!&ndash;header&ndash;&gt;-->
-                                       <!--<h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>-->
-                                       <!--<button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>-->
-                                       <!--<div class="btn-group widget-header-toolbar">-->
-                                           <!--<a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>-->
-                                           <!--<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>-->
-                                           <!--<a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>-->
-                                       <!--</div>-->
-                                   <!--</div>-->
-                                   <!--<div class="widget-content" >-->
-                                       <!--<div id="main2" style="height: 300px;"></div>-->
-                                   <!--</div>-->
-                               <!--</div>-->
-
-
                             </div>
+                               <div class="col-lg-1"></div>
                            </div>
                           <div class="row">
-                              <div class="col-lg-6">
+                              <div class="col-lg-1"></div>
+                              <div class="col-lg-4">
                               <div class="widget widget-hide-header">
                                   <div class="widget-header hide">
                                       <!--header-->
                                       <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
                                       <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                       <div class="btn-group widget-header-toolbar">
-                                          <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                          <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                           <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                           <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                       </div>
@@ -268,7 +255,7 @@
                                           <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>-e1</em>
                                           <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                           <div class="btn-group widget-header-toolbar">
-                                              <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                              <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                               <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                               <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                           </div>
@@ -287,7 +274,7 @@
                                           <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>-e1</em>
                                           <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                           <div class="btn-group widget-header-toolbar">
-                                              <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                              <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                               <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                               <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                           </div>
@@ -299,8 +286,32 @@
                                       </div>
                                   </div>
                               </div>
+                              <div class="col-lg-1">
+                              </div>
                         </div>
-
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
+                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content">
+                                    <!--<div id="main6" style="height:400px;"></div>-->
+                                    <div id="g-holder">
+                                        <div id="canvasDiv">
+                                            <canvas id="graph" width="600" height="600"></canvas>
+                                            <div id="gInfo"></div>
+                                        </div>
+                                        <div id="controls">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /main-content -->
                     </div>
@@ -400,6 +411,7 @@
 <script src="../homePage/js/deliswitch.js"></script>
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>
 
 </body>
 

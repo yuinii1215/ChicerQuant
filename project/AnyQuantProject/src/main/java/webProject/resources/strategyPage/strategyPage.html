@@ -266,7 +266,7 @@
                                     </div>
                                 </div>
                                 <div class="widget-content" ng-controller="strategycontroller">
-                                  <input ng-model="stockid"></input>
+                                  <input ng-model="stockid">
                                   <button ng-click="change()">change</button>
                                   <RSI rsioption="rsioption"></RSI>
                                     <!-- content-->
@@ -357,7 +357,7 @@
 </div>
 <!-- END STYLE SWITCHER -->
 
-
+<script src="../js/angular.min.js"></script>
 <!-- Javascript -->
 <script src="../homePage/js/jquery/jquery.min.js"></script>
 <script src="../homePage/js/jquery/jquery-2.1.0.min.js"></script>
@@ -369,6 +369,8 @@
 <script src="../homePage/js/zerif.js"></script>
 <script src="../homePage/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../homePage/js/search.js"></script>
+
+<script src="strategycontroller.js"></script>
 </body>
 
 </html>

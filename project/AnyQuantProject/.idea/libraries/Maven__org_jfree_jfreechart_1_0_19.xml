@@ -3,6 +3,12 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar!/" />
     </CLASSES>
+<<<<<<< HEAD
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19-javadoc.jar!/" />
+    </JAVADOC>
+=======
+>>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19-sources.jar!/" />
     </SOURCES>

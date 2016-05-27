@@ -62,7 +62,9 @@
                     <manifest>  
                         <addClasspath>true</addClasspath>  
                         <classpathPrefix>lib/</classpathPrefix>  
+
                         <mainClass>webProject.server.daily.SetupSQL</mainClass>  
+
                     </manifest>  
                 </archive>  
             </configuration>  

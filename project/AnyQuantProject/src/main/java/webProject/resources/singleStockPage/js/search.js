@@ -114,6 +114,18 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.status = status;
         });
 
+    d=new Date();
+    d.setDate(d.getDate()-100);
+    month=d.getMonth()+1;
+    day = d.getDate();
+    if(month<10){
+        month = "0"+month;
+    }
+    if(day<10){
+        day = "0"+day;
+    }
+    startDate = d.getFullYear()+"-"+month+"-"+day;
+
     $http.post($scope.url, {// function getDayLineService($name, $startdate, $enddate){
         "startdate": startDate,
         "enddate":currentDate,
