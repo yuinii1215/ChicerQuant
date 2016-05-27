@@ -11,7 +11,7 @@ app.directive('kline', function() {
     return {
 
         restrict: 'E',
-        template: '<div id="kline" style="height:400px;width:600px;"></div>',
+        template: '<div id="kline"></div>',
         replace: true,
         link: function(scope, element, attrs, controller) {
         	var myChart = echarts.init(element[0]);
