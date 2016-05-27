@@ -34,55 +34,60 @@ public class SetupSQL {
 	static Map<String, Double> share;
 	static Map<String, Double> guben;
 	public static void main(String[] args) throws Exception {
-		Calendar calendar;
-		if (args.length==0) {
-			calendar=CalendarHelper.convert2Calendar(CalendarHelper.getDate(Calendar.getInstance()));
-		}else {
-			calendar=CalendarHelper.convert2Calendar(args[0]);
-		}
-//		System.out.println(id.size());
-//		FactoryDATA factoryDATA=FactoryDATA.getInstance();
-//		StockListDATAService service=factoryDATA.getStockListDATAService();
-//		try {
-//			id=service.getAllStocks(calendar, Exchange.SH);
-//			id.addAll(service.getAllStocks(calendar, Exchange.SZ));
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-		
-//		IOHelper.save(R.CachePath, R.StockNameFile, (Serializable)id);
-		Connection connection=getConn();
-//		System.out.println(id.size());
-		
-//		temp(connection, calendar);
-//		int i=Integer.parseInt(args[1]);
-		System.out.println("start daily stock");
-		DailySQL.dailyStock(connection,calendar);
-//		if (!connection.isClosed()) {
-//			connection.close();
-//		}
-//		connection=getConn();
-		if (connection.isClosed()) {
-			connection=getConn();
-		}
-		System.out.println("start daily benchmark");
-		SetupBenchMark.dailyBench(connection, calendar);
-//			industry_stock(connection);
-//			connection.close();
+		try {
+			Calendar calendar;
+			if (args.length==0) {
+				calendar=CalendarHelper.convert2Calendar(CalendarHelper.getDate(Calendar.getInstance()));
+			}else {
+				calendar=CalendarHelper.convert2Calendar(args[0]);
+			}
+//			System.out.println(id.size());
+//			FactoryDATA factoryDATA=FactoryDATA.getInstance();
+//			StockListDATAService service=factoryDATA.getStockListDATAService();
+//			try {
+//				id=service.getAllStocks(calendar, Exchange.SH);
+//				id.addAll(service.getAllStocks(calendar, Exchange.SZ));
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				e.printStackTrace();
+//			}
+			
+//			IOHelper.save(R.CachePath, R.StockNameFile, (Serializable)id);
+			Connection connection=getConn();
+			System.out.println("get con");
+			
+//			temp(connection, calendar);
+//			int i=Integer.parseInt(args[1]);
+			System.out.println("start daily stock");
+			DailySQL.dailyStock(connection,calendar);
+//			if (!connection.isClosed()) {
+//				connection.close();
+//			}
 //			connection=getConn();
-//			setup(connection);
+			if (connection.isClosed()) {
+				connection=getConn();
+			}
+			System.out.println("start daily benchmark");
+			SetupBenchMark.dailyBench(connection, calendar);
+//				industry_stock(connection);
+//				connection.close();
+//				connection=getConn();
+//				setup(connection);
 
-//		Del.delStock(id, connection, calendar);
-//		try {
-//			SetupBenchMark.SetupBenchMark(connection);
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//		industry(connection, calendar);
-//		industryDaily(connection, calendar);
-		connection.close();
+//			Del.delStock(id, connection, calendar);
+//			try {
+//				SetupBenchMark.SetupBenchMark(connection);
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				e.printStackTrace();
+//			}
+//			industry(connection, calendar);
+//			industryDaily(connection, calendar);
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	public static void industryDaily(Connection connection,Calendar now){
 		//
