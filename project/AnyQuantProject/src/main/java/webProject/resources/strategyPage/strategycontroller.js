@@ -1,6 +1,8 @@
 var app=angular.module("app",[]);
 
 
+
+
 app.controller("strategycontroller",function($scope,$http){
 
   $scope.change=function(){
@@ -35,7 +37,10 @@ app.controller("strategycontroller",function($scope,$http){
                 var c11 = response[objvalue]["close"];
                 var targetvalue = (c11/c0-0.005-1)*100;
                 var RSI12value = response[obj]["RSI12"];
-                array.push({target:targetvalue,RSI12:RSI12value});
+                if (RSI12value!=0) {
+                  array.push({target:targetvalue,RSI12:RSI12value});
+                }
+
         }
         }
       }
@@ -46,19 +51,76 @@ app.controller("strategycontroller",function($scope,$http){
       var input = 5;
       var average = 0;
       var counter = 0;
+      var chartdata=[];
       for(var cursor = 0; cursor<len; ++cursor){
+        var cell=[];
+        cell.push(cleanarr[cursor]["RSI12"]);
+        cell.push(cleanarr[cursor]['target']);
+        chartdata.push(cell);
         if(cleanarr[cursor]["target"] < input){
 //            cleanarr.splice(cursor,1);
             delete cleanarr[cursor];
         }else {
             average+=cleanarr[cursor]["target"];
             counter++;
+
         }
       }
       if (counter > 0){
         average = average/counter;
       }
 
+
+    option={
+        title : {
+        text: 'RSI'
+    },
+
+    legend: {
+            data: ['RSI12'],
+            left: 'right'
+        },
+        xAxis : [
+            {
+                type : 'value',
+                scale:true,
+                axisLabel : {
+                    formatter: '{value}'
+                },
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                scale:true,
+                axisLabel : {
+                    formatter: '{value} %'
+                },
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                }
+            }
+        ],
+
+        series : [{
+          name: 'RSI12',
+          type:'scatter',
+          data: chartdata
+
+        }]
+
+    };
+
+    var chart=echarts.init(document.getElementById('RSI12'));
+    chart.setOption(option);
+    $scope.ans=average;
     }).error(function(){
       alert("error");
     });

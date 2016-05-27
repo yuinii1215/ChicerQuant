@@ -16,6 +16,7 @@
     <link href="../homePage/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/main.css" rel="stylesheet" type="text/css">
     <link href="../homePage/css/style-switcher.css" rel="stylesheet" type="text/css">
+    <script src="../homePage/js/echart/echarts.min.js"></script>
 
 
 </head>
@@ -268,7 +269,9 @@
                                 <div class="widget-content" ng-controller="strategycontroller">
                                   <input ng-model="stockid">
                                   <button ng-click="change()">change</button>
-                                  <RSI rsioption="rsioption"></RSI>
+                                  <input ng-model="percent">
+                                  <div id="RSI12" style="height:400px;width:600px;"></div>
+                                  <h1 ng-model="ans"></h1>
                                     <!-- content-->
                                 </div>
                             </div>
