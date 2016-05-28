@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- WEBFONT -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
-  
+    <script src="js/jquery.min.js"></script>
 
 </head>
 <body>
@@ -54,13 +54,14 @@
             ============================== -->
             <div id="mainBody">
                 <div id="basic">
-                    <div id="main_header_content">
-                         <p id="main_header_text">
+                    <div class="container">
+                        <h1 class="intro">
                              股 票 分 析 策 略<br>
                              Your own stock manager<br>
-                         </p>
-                         <a class="btn" id="main_header_btn"  > <button class="button  button-block button-inverse button-rounded button-large"  onclick=javascript:enter(); >进入应用</button></a>
-
+                         </h1>
+                        <div class="buttons inpage-scroll">
+                            <a class="btn" id="main_header_btn"  > <button class="button  button-block button-inverse button-rounded button-large"  onclick=javascript:enter(); >进入应用</button></a>
+                            </div>
                         <div class="row bottom-message-section">
                             <div class="col-lg-4 col-sm-4">
                                 <div class="short-text">
@@ -352,13 +353,11 @@
     <!-- =========================
     JS
     ============================== -->
-    <script src="js/jquery.min.js"></script>
     <script src="js/angular.js"></script>
-    <script src='js/three.min.js'></script>
     <script src="js/zerif.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/button.js"></script>
-    <script src="js/canvas.js"></script>
+    <script src="js/wow.min.js"></script>
 </body>
 
 </html>
