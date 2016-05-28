@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        echarts: 'build/dist'
+        echarts:  '../js/echart'
     }
 });
 

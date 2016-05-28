@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        echarts: '../homePage/js/echart'
+        echarts:  '../js/echart'
     }
 
 });

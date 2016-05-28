@@ -1,8 +1,7 @@
 require.config({
     paths: {
-        echarts: '../homePage/js/echart'
+        echarts: '../js/echart'
     }
-
 });
 var chart3Type="BIAS";
 var kchartData;

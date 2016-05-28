@@ -1,9 +1,9 @@
 function enterSuccess() {
-    location.href="homePage/home.html";
+    location.href="favoritePage/favoritePage.html";
 }
 function enter() {
     localStorage.userName="";
-    location.href="homePage/home.html";
+    location.href="favoritePage/favoritePage.html";
 }
 function backStep() {
     window.location.href="welcome.html";

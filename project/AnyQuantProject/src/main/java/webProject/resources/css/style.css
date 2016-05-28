@@ -551,7 +551,7 @@ input:focus {
 .focus {
     padding-bottom: 88px;
     overflow: hidden;
-    background: #ececec;
+    background: #fff;
 }
 /* FOCUS BOX */
 .focus-box {
@@ -563,7 +563,7 @@ input:focus {
     height: 145px;
     margin: auto;
     border-radius: 50%;
-    border: 10px solid #CACACA;
+    border: 10px solid #cecece;
     margin-bottom: 20px;
     position: relative;
     -webkit-transition: all 0.2s ease-in-out;
@@ -608,7 +608,7 @@ input:focus {
     margin-bottom: 25px;
 }
 .other-focuses .section-footer-title {
-    background: #ECECEC;
+    background: #fff;
     padding: 0 15px;
     color: #404040;
     font-weight: bold;

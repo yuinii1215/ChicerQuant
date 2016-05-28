@@ -28,7 +28,7 @@
     margin: -100px 0 0 -100px;
 }
 
-.header {
+.wrapper{
     position: relative;
     overflow: hidden;
 }

@@ -86,7 +86,6 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
         return y+"-"+m+"-"+d;
     }
 
-
     function  getIndustryPure(industryName,item) {
         $http.post($scope.url, {
             "industry_name":industryName,

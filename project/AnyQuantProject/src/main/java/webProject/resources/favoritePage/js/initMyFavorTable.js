@@ -12,7 +12,7 @@ var app = angular.module('myFavorApp', []);
         var count =-1;
         if( localStorage.userName==""){
             $.extend($.gritter.options, {
-                time: 1500,
+                time: 4000,
             });
             // clean the wrapper position class
             $('#gritter-notice-wrapper').attr('class', '');
