@@ -10,7 +10,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     myDate.getDate();        //获取当前日(1-31)
     var currentDate=""+myDate.getFullYear()+"-0"+(myDate.getMonth()+1)+"-"+myDate.getDate();
     var d=new Date();
-    d.setDate(d.getDate()-30);
+    d.setDate(d.getDate()-60);
     var month=d.getMonth()+1;
     var day = d.getDate();
     if(month<10){
@@ -108,6 +108,14 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             var content=data;
             $scope.result=content[19];
             $scope.stockName=$scope.result.stock_name;
+             $scope.showResult="日期: "+$scope.result.date+"   股票名: "+$scope.result.stock_name+"   开盘价: "+$scope.result.open+"   收盘价: "
+                 +$scope.result.close+"   最高价: "+$scope.result.high+"   最低价: "+$scope.result.low
+                 +"   成交量: "+$scope.result.volumn+"   市盈率: "+$scope.result.adj_price+"   市净率: "+$scope.result.pb
+                 +"   行业名: "+$scope.result.industry;
+                //date stock_ID,stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,industry
+
+
+
         })
         .error(function (data, status) {
             $scope.data = data || "Request failed";
@@ -167,23 +175,6 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.status = status;
         });
 
-
-
-    //$http.post($scope.url, {
-    //    "name": localStorage.singleStockID,
-    //    "startdate": startDate,
-    //    "enddate":currentDate,
-    //    "method": "getStockAmongDateService"
-    //}).success(function (data, status) {
-    //        $scope.status = status;
-    //        $scope.data = data;
-    //        $scope.kLineResult=data;
-    //    })
-    //    .error(function (data, status) {
-    //        $scope.data = data || "Request failed";
-    //        $scope.status = status;
-    //    });
-
     $scope.favorStateContent="关注";
 
     $scope.favorButtonHandle=function(){
@@ -223,6 +214,66 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 });
         }
     };
+    $scope.filterDateHandle=function(){
+        startDate=document.getElementById("startfilter").value;
+        var endDate=document.getElementById("endfilter").value;
+
+        //起止日期比较
+        var date1=new Date(startDate);
+        var date2=new Date(endDate);
+        if(Date.parse(date1)<=Date.parse(date2)){
+
+            $http.post($scope.url, {
+                "startdate": startDate,
+                "enddate":endDate,
+                "name": localStorage.singleStockID,
+                "method": "getDayLineService"
+            }).success(function (data, status) {
+                $scope.status = status;
+                $scope.data = data;
+                $scope.dayKLineResult=data;
+                tabChanged('day');
+            })
+                .error(function (data, status) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+
+            $http.post($scope.url, {
+                "startdate": startDate,
+                "enddate":endDate,
+                "name": localStorage.singleStockID,
+                "method": "getWeekLineService"
+            }).success(function (data, status) {
+                $scope.weekKLineResult=data;
+                //console.log($scope.weekKLineResult);
+            })
+                .error(function (data, status) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+
+            $http.post($scope.url, {
+                "startdate": startDate,
+                "enddate":endDate,
+                "name": localStorage.singleStockID,
+                "method": "getMonthLineService"
+            }).success(function (data, status) {
+                $scope.monthKLineResult=data;
+                //console.log($scope.monthKLineResult);
+            })
+                .error(function (data, status) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+
+
+        }else{
+            alert("日期区间错误:筛选的起始日期应该早于或等于结束日期");
+        }
+    }
+
+
     $scope.test = {
         "0": {
             "date": "2015-01-01",

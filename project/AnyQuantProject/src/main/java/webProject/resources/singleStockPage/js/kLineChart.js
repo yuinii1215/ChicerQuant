@@ -249,12 +249,15 @@ function paint(){
         toolbox: {
             show : true,
             feature : {
-                dataZoom : {show: true},
-                dataView : {show: true, readOnly: false},
+                // dataZoom : {show: true},
+                // dataView : {show: true, readOnly: false},
                 magicType: {show: true, type: ['line', 'bar']},
                 restore : {show: true},
-                saveAsImage : {show: true}
-            }
+                // saveAsImage : {show: true}
+            },
+            x: '40',               // 水平安放位置，默认为全图居中，可选为：
+            // ¦ {number}（x坐标，单位px）
+            y: 'top',
         },
         tooltip: {
             trigger: 'axis',

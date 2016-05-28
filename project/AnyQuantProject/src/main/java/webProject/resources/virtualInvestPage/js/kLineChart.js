@@ -1157,6 +1157,13 @@ function newStock() {
                 x: 100,
                 y: 20
             },
+            grid: {
+                // x: "10%",
+                // y: "10%",
+                width:"80%",
+                // x2:"10%",
+                // y2: "20%"
+            },
             // dataZoom: {
             //     y: 200,
             //     show: true,
