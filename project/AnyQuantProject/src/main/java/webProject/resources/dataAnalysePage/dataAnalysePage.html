@@ -213,10 +213,7 @@
                 <!-- content-wrapper -->
                 <div class="col-md-10 content-wrapper">
                     <!-- top general alert -->
-                    <div class="alert alert-danger top-general-alert">
-                        <span>If you <strong>can't see the logo</strong> on the top left, please reset the style on right style switcher (for upgraded theme only).</span>
-                        <button type="button" class="close">&times;</button>
-                    </div>
+                    
                     <!-- end top general alert -->
 
                     <div class="row">
@@ -238,27 +235,10 @@
                         </div>
                         <div class="main-content">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <!--分析策略-->
-                                    <div class="widget" STYLE="margin-top:150px;">
-                                        <div class="widget-header">
-                                            <!--header-->
-                                            <h3><i class="fa fa-bar-chart-o"></i>详情分析</h3>
 
-                                            <div class="btn-group widget-header-toolbar">
-                                                <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                                <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="col-lg-6">
+                            <div class="col-lg-10">
                                     <!--K线图-->
-                                   <div class="widget" STYLE="margin-top:150px;">
+                              <div class="widget" STYLE="margin-top:150px;">
                                 <div class="widget-header">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>K线图</h3>
@@ -270,17 +250,15 @@
                                     </div>
                                 </div>
 
-                                <div class="widget-content" ng-controller="kLine" style="height: 600px;width: 600px;">
+                                <div class="widget-content" ng-controller="kLine" >
                                         <!-- 为ECharts准备一个具备大小（宽高）的Dom,绘制K线图 -->
                                     <input ng-model="stockid"></input>
                                      <button ng-click="change()">change</button>
-     			                    <kline klineoption="klineoption"> </kline>
-							</div>
-
-                                </div>
+     			                             <div id="kline" style="height:400px;width:1200px"></div>
+							                  </div>
                             </div>
                                <!--预测图-->
-                                   <div  class="widget" STYLE="margin-top:20px;">
+                           <div  class="widget" STYLE="margin-top:20px;">
                                 <div class="widget-header">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>预测走势图</h3>
@@ -292,9 +270,9 @@
                                     </div>
                                 </div>
                                 <div class="widget-content">
-                                    <div id="main4" style="height:300px;width=400px" ng-controller="polyline">
-                                      <button ng-click="test()">here</button>
-                                    <polyline polyoption="polyoption"></polyline>
+                                    <div id="main4"  ng-controller="kLine">
+
+                                    <div id="poly" style="height:300px;width:1200px;"></div>
                                   </div>
                                 </div>
                             </div>
@@ -387,7 +365,7 @@
 
 <!-- Javascript -->
 
-<script src="../js/angular.min.js"></script>
+<script src="../js/angularjs/angular-1.0.0.js"></script>
 <script type="text/javascript" src="../js/ng-echarts.min.js"></script>
 <script src="js/search.js"></script>
 <!--getdata-->

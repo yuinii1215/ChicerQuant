@@ -124,5 +124,7 @@ app.controller("strategycontroller",function($scope,$http){
     }).error(function(){
       alert("error");
     });
-  }
+  };
+
+  $scope.change();
 });
