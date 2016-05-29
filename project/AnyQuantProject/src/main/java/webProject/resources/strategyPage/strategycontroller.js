@@ -11,9 +11,13 @@ app.controller("strategycontroller",function($scope,$http){
     var year=nowDate.getFullYear();
     var month=nowDate.getMonth()+1;
     var day=nowDate.getDate();
+    if ($scope.percent==undefined) {
+      $scope.percent=4;
+    }
 
     if (stockid==undefined) {
       stockid='sh600315';
+      $scope.stockid='sh600315'
     }
     $scope.url='http://115.159.97.98/php/serviceController.php';
     $http.post($scope.url,{
@@ -48,7 +52,7 @@ app.controller("strategycontroller",function($scope,$http){
       //filter targetvalues------最终的结果数组是cleanarr,均值是average
       var cleanarr = array;
       var len = array.length;
-      var input = 5;
+      var input = Number($scope.percent);
       var average = 0;
       var counter = 0;
       var chartdata=[];
@@ -61,7 +65,7 @@ app.controller("strategycontroller",function($scope,$http){
 //            cleanarr.splice(cursor,1);
             delete cleanarr[cursor];
         }else {
-            average+=cleanarr[cursor]["target"];
+            average+=Number(cleanarr[cursor]["RSI12"]);
             counter++;
 
         }
@@ -73,7 +77,7 @@ app.controller("strategycontroller",function($scope,$http){
 
     option={
         title : {
-        text: 'RSI'
+        text: $scope.stockid+' RSI'
     },
 
     legend: {
@@ -124,5 +128,7 @@ app.controller("strategycontroller",function($scope,$http){
     }).error(function(){
       alert("error");
     });
-  }
+  };
+
+  $scope.change();
 });

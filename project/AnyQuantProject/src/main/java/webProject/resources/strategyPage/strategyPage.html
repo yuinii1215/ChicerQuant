@@ -213,12 +213,13 @@
 
                 <!-- content-wrapper -->
                 <div class="col-md-10 content-wrapper">
+<<<<<<< HEAD
                     <!-- top general alert -->
-                    <div class="alert alert-danger top-general-alert">
-                        <span>If you <strong>can't see the logo</strong> on the top left, please reset the style on right style switcher (for upgraded theme only).</span>
-                        <button type="button" class="close">&times;</button>
-                    </div>
+                   
                     <!-- end top general alert -->
+=======
+
+>>>>>>> d7882be7fabdecbadddeed1f4d8ba217c7e24b07
 
                     <div class="row">
                         <div class="col-lg-4 ">
@@ -238,27 +239,11 @@
                             <em>the better analyze</em>
                         </div>
                         <div class="main-content">
-                            <!--row example-->
-                            <div class="row">
-                                <!--row1-->
-                                <div class="col-md-9">
-                                    <div class="widget widget-hide-header">
-                                        <div class="widget-header hide"> <h3>row example1</h3></div>
-                                        <div class="widget-content">
-                                            <!-- content-->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--row2-->
-                                <div class="col-md-3">
-
-                                </div>
-                            </div>
-
+                          
                             <div class="widget">
                                 <div class="widget-header">
                                     <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>example1</h3> <em>- e1</em>
+                                    <h3><i class="fa fa-bar-chart-o"></i>RSI</h3> <em>-predict</em>
                                     <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                     <div class="btn-group widget-header-toolbar">
                                         <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
@@ -270,8 +255,8 @@
                                   <input ng-model="stockid">
                                   <button ng-click="change()">change</button>
                                   <input ng-model="percent">
-                                  <div id="RSI12" style="height:400px;width:600px;"></div>
-                                  <h1 ng-model="ans"></h1>
+                                  <div id="RSI12" style="height:400px;width:1200px;"></div>
+                                  <h1 ng-model="ans">recommended RSI value: {{ans}}</h1>
                                     <!-- content-->
                                 </div>
                             </div>
@@ -360,7 +345,7 @@
 </div>
 <!-- END STYLE SWITCHER -->
 
-<script src="../js/angular.min.js"></script>
+<script src="../js/angularjs/angular-1.0.7.js"></script>
 <!-- Javascript -->
 <script src="../js/jquery/jquery.min.js"></script>
 <script src="../js/jquery/jquery-2.1.0.min.js"></script>
