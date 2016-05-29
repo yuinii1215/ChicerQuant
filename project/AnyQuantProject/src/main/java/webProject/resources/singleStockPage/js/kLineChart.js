@@ -114,11 +114,13 @@ function checkBoxChanged(){
 
 }
 
+var tabFlag;
 function tabChanged(KType){
-   var  lineName=document.forms[0].chart3Type;
+    var lineName=document.forms[0].chart3Type;
     lineName[0].checked=true;
+    
+    tabFlag=KType;
 
-    console.log(KType);
     document.forms[0].chart3Type="BIAS";
 
     var tabName;

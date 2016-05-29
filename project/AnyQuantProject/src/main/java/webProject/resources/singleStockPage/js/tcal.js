@@ -14,7 +14,7 @@ var A_TCALCONF = {
 	'nextyear'   : 'Next Year',
 	'prevmonth'  : 'Previous Month',
 	'nextmonth'  : 'Next Month',
-	'format'     : 'm/d/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+	'format'     : 'Y-m-d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
 };
 
 var A_TCALTOKENS = [
@@ -32,7 +32,7 @@ var A_TCALTOKENS = [
 	{'t': 'l', 'r': A_TCALCONF.longwdays.join('|'), 'p': function (d_date, s_value) { return d_date }, 'g': function (d_date) { return A_TCALCONF.longwdays[d_date.getDay()]; }},
 	// English ordinal suffix for the day of the month, 2 characters
 	{'t': 'S', 'r': 'st|nd|rd|th', 'p': function (d_date, s_value) { return d_date }, 'g': function (d_date) { n_date = d_date.getDate(); if (n_date % 10 == 1 && n_date != 11) return 'st'; if (n_date % 10 == 2 && n_date != 12) return 'nd'; if (n_date % 10 == 3 && n_date != 13) return 'rd'; return 'th'; }}
-	
+
 ];
 
 function f_tcalGetHTML (d_date) {
@@ -48,13 +48,13 @@ function f_tcalGetHTML (d_date) {
 	if (!d_today)
 		d_today = f_tcalResetTime(new Date());
 
-	// selected date from input or config or today 
+	// selected date from input or config or today
 	var d_selected = f_tcalParseDate(e_input.value, s_format);
 	if (!d_selected)
 		d_selected = f_tcalParseDate(A_TCALCONF.selected, A_TCALCONF.format);
 	if (!d_selected)
 		d_selected = new Date(d_today);
-	
+
 	// show calendar for passed or selected date
 	d_date = d_date ? f_tcalResetTime(d_date) : new Date(d_selected);
 
@@ -128,7 +128,7 @@ function f_tcalResetTime (d_date) {
 
 // closes calendar and returns all inputs to default state
 function f_tcalCancel () {
-	
+
 	var s_pfx = A_TCALCONF.cssprefix;
 	var e_cal = document.getElementById(s_pfx);
 	if (e_cal)
@@ -142,7 +142,7 @@ function f_tcalUpdate (n_date, b_keepOpen) {
 
 	var e_input = f_tcalGetInputs(true);
 	if (!e_input) return;
-	
+
 	d_date = new Date(n_date);
 	var s_pfx = A_TCALCONF.cssprefix;
 
@@ -170,7 +170,7 @@ function f_tcalOnClick () {
 
 	// get position of input
 	f_tcalAddClass(this, s_activeClass);
-	
+
 	var n_left = f_getPosition (this, 'Left'),
 		n_top  = f_getPosition (this, 'Top') + this.offsetHeight;
 
@@ -205,7 +205,7 @@ function f_tcalParseDate (s_date, s_format) {
 	}
 	var r_date = new RegExp(s_regexp + '$');
 	if (!s_date.match(r_date)) return;
-	
+
 	var s_val, d_date = f_tcalResetTime(new Date());
 	d_date.setDate(1);
 
@@ -216,12 +216,12 @@ function f_tcalParseDate (s_date, s_format) {
 		s_val = RegExp['$' + a_tokens[s_char]];
 		d_date = A_TCALTOKENS[n]['p'](d_date, s_val);
 	}
-	
+
 	return d_date;
 }
 
 function f_tcalGenerateDate (d_date, s_format) {
-	
+
 	var s_char, s_date = '';
 	for (var n = 0; n < s_format.length; n++) {
 		s_char = s_format.charAt(n);
@@ -309,7 +309,7 @@ function f_getPosition (e_elemRef, s_coord) {
 }
 
 function f_tcalInit () {
-	
+
 	if (!document.getElementsByTagName)
 		return;
 
@@ -319,7 +319,7 @@ function f_tcalInit () {
 		e_input.onclick = f_tcalOnClick;
 		f_tcalAddClass(e_input, A_TCALCONF.cssprefix + 'Input');
 	}
-	
+
 	window.A_TCALTOKENS_IDX = {};
 	for (n = 0; n < A_TCALTOKENS.length; n++)
 		A_TCALTOKENS_IDX[A_TCALTOKENS[n]['t']] = A_TCALTOKENS[n];

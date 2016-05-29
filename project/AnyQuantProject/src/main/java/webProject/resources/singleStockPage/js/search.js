@@ -234,7 +234,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 $scope.status = status;
                 $scope.data = data;
                 $scope.dayKLineResult=data;
-                tabChanged('day');
+                tabChanged(tabFlag);
             })
                 .error(function (data, status) {
                     $scope.data = data || "Request failed";
