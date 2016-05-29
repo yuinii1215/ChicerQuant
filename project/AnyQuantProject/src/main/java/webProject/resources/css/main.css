@@ -15586,7 +15586,7 @@ ul.main-menu > li > a,
 }
 
 .bottom .container .content-wrapper {
-    background-color: #f1f1f1;
+    background-color: #ffffff;
     border-left: 1px solid #e4e4e4;
     background:url(../img/new_bg.png) no-repeat;
 }
@@ -15603,7 +15603,7 @@ ul.main-menu > li > a,
     border-width: 1px;
     border-style: solid;
     margin-bottom: 20px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border-color: lightgray;
 }
 .widget.widget-table {
@@ -19908,6 +19908,7 @@ div[class*="col-"] > .form-group {
 
     .bottom .container .content-wrapper {
         border-left: none !important;
+        background-color: #ffffff;
     }
 
     .invoice-header img {

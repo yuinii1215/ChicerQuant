@@ -141,6 +141,14 @@ function checkBoxChanged(){
 
 
 function multiPredictTriggered(){//假定是kdj和rsi
+    if($(".plus-vert").hasClass("quit")){
+        $(".plus-vert").removeClass("quit");
+        $(".plus-vert-curtain").removeClass("full-deployed").addClass("semi-deployed");
+    } else {
+        $(".plus-vert").addClass("quit");
+        $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
+    }
+
     var KType=['RSI','KDJ','',''];
     var shortLine=[];
     var longLine=[];
@@ -337,7 +345,11 @@ function multiPredictTriggered(){//假定是kdj和rsi
         legend: {
             data: ['虚拟资本变动情况'],
             x: 100,
-            y: 20
+            y: 20,
+            textStyle: {
+                color: '#807DBF',
+            },
+
         },
         // grid: {
         //     x: 80,
@@ -356,7 +368,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#000000',
+                        color: '#807DBF',
                     }
                 }
             }
@@ -376,7 +388,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#000000',
+                        color: '#807DBF',
                     }
                 }
             }
@@ -391,7 +403,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
                     symbol: 'none',
                     itemStyle: {
                         normal: {
-                            color: '#000000',
+                            color: '#807DBF',
                             label: {
                                 show: false
                             }
@@ -889,7 +901,7 @@ function predictTriggered(KType){
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#000000',
+                        color: 'white',
                     }
                 }
             }
@@ -909,7 +921,7 @@ function predictTriggered(KType){
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#000000',
+                        color: '#ffffff',
                     }
                 }
             }
@@ -924,7 +936,7 @@ function predictTriggered(KType){
                     symbol: 'none',
                     itemStyle: {
                         normal: {
-                            color: '#000000',
+                            color: '#ffffff',
                             label: {
                                 show: false
                             }
