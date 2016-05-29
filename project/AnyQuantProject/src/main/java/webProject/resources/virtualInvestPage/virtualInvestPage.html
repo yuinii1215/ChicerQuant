@@ -17,6 +17,7 @@
     <link href="../css/main.css" rel="stylesheet" type="text/css">
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
     <link href="3dAxis.css" rel="stylesheet" type="text/css">
+    <link href="board.css" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -191,11 +192,15 @@
                                            </div>
                                        </div>
                                        <div class="widget-content">
-                                           <div class="btn" onclick="multiPredictTriggered()">BIAS Pre</div>
-                                           <!--<div class="btn" onclick="predictTriggered('BIAS')">BIAS Pre</div>-->
-                                           <div class="btn" onclick="multiPredictTriggered()">MACD Pre</div>
-                                           <div  class="btn" onclick="multiPredictTriggered()">RSI Pre</div>
-                                           <div class="btn" onclick="multiPredictTriggered()">KDJ Pre</div>
+                                           <div class="row">
+                                           <label style="margin-left: 20px;">运营策略选择</label>
+                                           </div>
+                                           <div class="row">
+                                           <div class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">BIAS交叉线</a></div>
+                                           <div class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">MACD交叉线</a></div>
+                                           <div  class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">RSI交叉线</a></div>
+                                           <div class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">KDJ交叉线</a></div>
+                                            </div>
                                            <p>stockID<input type="text" id="stockValue"/></p>
                                            <div class="btn" ng-click="changeStock()">CONFIRM</div>
                                        </div>
@@ -261,27 +266,6 @@
                                   </div>
                                 </div>
                             </div>
-                               <!--<div class="widget">-->
-                                   <!--<div class="widget-header">-->
-                                       <!--&lt;!&ndash;header&ndash;&gt;-->
-                                       <!--<h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- form</em>-->
-                                       <!--<button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>-->
-                                       <!--<div class="btn-group widget-header-toolbar">-->
-                                           <!--<a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>-->
-                                           <!--<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>-->
-                                           <!--<a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>-->
-                                       <!--</div>-->
-                                   <!--</div>-->
-                                   <!--<div class="widget-content">-->
-                                       <!--<div class="btn" onclick="multiPredictTriggered()">BIAS Pre</div>-->
-                                       <!--&lt;!&ndash;<div class="btn" onclick="predictTriggered('BIAS')">BIAS Pre</div>&ndash;&gt;-->
-                                       <!--<div class="btn" onclick="multiPredictTriggered()">MACD Pre</div>-->
-                                       <!--<div  class="btn" onclick="multiPredictTriggered()">RSI Pre</div>-->
-                                       <!--<div class="btn" onclick="multiPredictTriggered()">KDJ Pre</div>-->
-                                       <!--<p>stockID<input type="text" id="stockValue"/></p>-->
-                                       <!--<div class="btn" ng-click="changeStock()">CONFIRM</div>-->
-                                   <!--</div>-->
-                               <!--</div>-->
                             </div>
                                <div class="col-lg-1"></div>
                            </div>
@@ -305,7 +289,7 @@
                               </div>
                               </div>
                               <div class="col-lg-3">
-                                  <div class="widget  widget-hide-header">
+                                  <div class="widget  widget-hide-header" id="downBoard">
                                       <div class="widget-header hide">
                                           <!--header-->
                                           <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>-e1</em>
@@ -345,29 +329,6 @@
                               <div class="col-lg-1">
                               </div>
                         </div>
-                            <div class="widget">
-                                <div class="widget-header">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
-                                    <div class="btn-group widget-header-toolbar">
-                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
-                                <div class="widget-content">
-                                    <!--<div id="main6" style="height:400px;"></div>-->
-                                    <!--<div id="g-holder">-->
-                                        <!--<div id="canvasDiv">-->
-                                            <!--<canvas id="graph" width="600" height="600"></canvas>-->
-                                            <!--<div id="gInfo"></div>-->
-                                        <!--</div>-->
-                                        <!--<div id="controls">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                </div>
-                            </div>
                         </div>
                         <!-- /main-content -->
                     </div>
@@ -468,6 +429,8 @@
 <script src="../js/zerif.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>
+<script type="text/javascript" src="../virtualInvestPage/js/init.js"></script>
+
 
 </body>
 

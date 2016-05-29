@@ -299,26 +299,22 @@
                                             </ul>
                                              </div>
                                                 <div class="col-lg-2"></div>
-                                                <!--<div class="col-lg-1">-->
-                                                <!--<div id="filterDate" class='button -border' ng-click="filterDateHandle()" style="width:60px;margin-left: 0px;">检索</div>-->
-                                                <!--</div>-->
                                                 <div class="col-lg-5">
-                                                    <div class="row">
-                                                        <div class="col-lg-8">
-                                                    <div class="row">
-                                                        <label for="startfilter"  style="margin-left: 30px;" >起始日期：</label><input id="startfilter" type="date" value="2016-01-01"/>
-                                                       </div>
-                                                    <div class="row">
-                                                 <label for="endfilter" style="margin-left: 30px;">截止日期：</label><input id="endfilter" type="date" value="2014-01-30"/>
-                                                        </div>
-                                                            </div>
-                                                        <div class="col-lg-1">
-                                                        <div id="filterDate" class='button -border' ng-click="filterDateHandle()" style="width:60px;margin-left: 10px;">检索</div>
-                                                        <!--</div>-->
-                                                        </div>
-                                                <!--</div>-->
-                                               </div>
-
+                                                    <table width="400px" border="0" style="margin-left: 15px;" >
+                                                        <tr>
+                                                            <td width="300px">
+                                                                <label for="startfilter">起始日期：</label><input id="startfilter" type="date" value="2016-01-01"/>
+                                                            </td>
+                                                            <td rowspan="2">
+                                                                <div id="filterDate" class='button -border' ng-click="filterDateHandle()" style="width:60px;margin-left: -50px;">检索</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td width="300px">
+                                                            <label for="endfilter">截止日期：</label><input id="endfilter" type="date" value="2014-01-30"/>
+                                                        </td>
+                                                        </tr>
+                                                    </table>
                                             </div>
                                             <!--</div>-->
                                             <div class="tab-content">

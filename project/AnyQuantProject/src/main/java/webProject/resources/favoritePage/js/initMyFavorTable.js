@@ -104,9 +104,12 @@ var app = angular.module('myFavorApp', []);
                         $scope.data = data;
                         $scope.singleStock = data;
 
-                        array[count + 1] = new Array;
+                    console.log( $scope.singleStock);
+
+                    array[count + 1] = new Array;
                         array[count + 1][0] = stockName;
                         array[count + 1][1] = $scope.singleStock[0].stock_name;
+
                         array[count + 1][2] = $scope.singleStock[0].open;
                         array[count + 1][3] = $scope.singleStock[0].high;
                         array[count + 1][4] = $scope.singleStock[0].low;

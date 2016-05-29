@@ -183,8 +183,8 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.favorStateContent="取消关注";
 
             $http.post($scope.url, {
-                "username": "hmy14",
-                //"username": localStorage.userName,
+                // "username": "hmy14",
+                "username": localStorage.userName,
                 "name": localStorage.singleStockID,
                 "method": "addMyFavorService"
             }).success(function (data, status) {
