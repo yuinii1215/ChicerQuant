@@ -49,6 +49,21 @@ var chartLine2_Data;
 var chartLine3_Data;
 
 
+
+function newAPI(){
+//https://api.wmcloud.com/data/v1/
+// /api/subject/getThemesByNewsTimeLF.json
+// ?field=&publishBeginTime=20150609100000&publishEndTime=20150609180000
+
+
+
+
+}
+
+
+
+
+
 function checkBoxChanged(){
     var lineName=document.forms[0].chart3Type;
 

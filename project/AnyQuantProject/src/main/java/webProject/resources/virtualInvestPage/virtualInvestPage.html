@@ -18,12 +18,12 @@
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
     <link href="3dAxis.css" rel="stylesheet" type="text/css">
     <link href="board.css" rel="stylesheet" type="text/css">
+    <link href="curtain.css" rel="stylesheet" type="text/css">
 
 
 </head>
 
-<body >
-
+<body>
 <!-- =========================
  PRE LOADER
  ============================== -->
@@ -196,8 +196,8 @@
                                            <label style="margin-left: 20px;">运营策略选择</label>
                                            </div>
                                            <div class="row">
-                                           <div class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">BIAS交叉线</a></div>
-                                           <div class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">MACD交叉线</a></div>
+                                            <div class="btn" onclick="multiPredictTriggered()" ><a href="#downBoard">BIAS交叉线</a></div>
+                                            <div class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">MACD交叉线</a></div>
                                            <div  class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">RSI交叉线</a></div>
                                            <div class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">KDJ交叉线</a></div>
                                             </div>
@@ -205,6 +205,7 @@
                                            <div class="btn" ng-click="changeStock()">CONFIRM</div>
                                        </div>
                                    </div>
+
                                 <div class="widget">
                                  <div class="widget-header">
                                     <!--header-->
@@ -269,6 +270,20 @@
                             </div>
                                <div class="col-lg-1"></div>
                            </div>
+
+                            <!--test-->
+                            <div class="plus-vert-curtain not-deployed">
+                            </div>
+                            <div class="plus-vert">
+                                <div class="inside-blanc">
+                                </div>
+                                <div class="inside-green"></div>
+                                <div class="cross">
+                                    <div class="bar bar1"></div>
+                                    <div class="bar bar2"></div>
+                                </div>
+                            </div>
+                            <!--test-->
                           <div class="row">
                               <div class="col-lg-1"></div>
                               <div class="col-lg-4">
@@ -301,12 +316,11 @@
                                           </div>
                                       </div>
                                       <div class="widget-content">
-                                          <div id="main4" style="height: 300px;"></div>
-                                          <!--<div id="main5" style="height: 300px;"></div>-->
-                                      <!--</div>-->
+                                          <div id="main4" style="height: 300px"></div>
                                   </div>
                               </div>
                             </div>
+
                               <div class="col-lg-3">
                                   <div class="widget  widget-hide-header">
                                       <div class="widget-header hide">
@@ -430,7 +444,23 @@
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>
 <script type="text/javascript" src="../virtualInvestPage/js/init.js"></script>
+<script>
+    $(".plus-vert").click(function(){
+        if($(this).hasClass("quit")){
+            $(this).removeClass("quit");
+            $(".plus-vert-curtain").removeClass("full-deployed").addClass("semi-deployed");
+        } else {
+            $(this).addClass("quit");
+            $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
+        }
+    });
+    $('.plus-vert').mouseenter(function () {
+        $('.plus-vert-curtain').removeClass('not-deployed').addClass('semi-deployed');
+    }).mouseleave(function () {
+        $('.plus-vert-curtain').removeClass('semi-deployed').addClass('not-deployed');
 
+    });
+</script>
 
 </body>
 

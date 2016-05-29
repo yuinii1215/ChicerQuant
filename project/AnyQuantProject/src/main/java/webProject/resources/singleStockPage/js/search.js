@@ -148,6 +148,31 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.status = status;
         });
 
+    var config = {
+        headers: {
+            'Authorization': 'Bearer e3943f512c19291ea5b9f45971a5f9861b2d0e33874f420d639a39da1f35bcea',
+            "Access-Control-Allow-Origin": "*"
+        },
+        data: {
+            "field": "",
+            "publishBeginTime": "20160509100000",
+            "publishEndTime": "20160520000000"
+        }
+    };
+
+    //https://api.wmcloud.com/data/v1/api/subject/getThemesByNewsTimeLF.json?field=&publishBeginTime=20150609100000&publishEndTime=20150609180000
+    $http.get('https://api.wmcloud.com/data/v1/api/subject/getThemesByNewsTimeLF.json', config).success(function (data, status) {
+        $scope.news=data;
+        console.log( $scope.news);
+    })
+        .error(function (data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
+
+
+
+
 
     d=new Date();
     d.setDate(d.getDate()-200);

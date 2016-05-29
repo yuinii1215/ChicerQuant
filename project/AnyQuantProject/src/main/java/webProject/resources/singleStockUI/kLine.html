@@ -3,42 +3,39 @@
 <head>
     <meta charset="utf-8">
     <title>ECharts</title>
-    <link href="css/3dAxis.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>
-
+    <link href="css/curtain.css" rel="stylesheet" type="text/css">
+    <!--<script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>-->
 </head>
 <body>
-<div id="g-holder">
-    <div id="canvasDiv">
-        <canvas id="graph" width="600" height="600"></canvas>
-        <div id="gInfo"></div>
+<div class="plus-vert-curtain not-deployed">
+    <label>GRACE</label>
+</div>
+<div class="plus-vert">
+    <div class="inside-blanc">
+        <label>ALLEN</label>
     </div>
-    <div id="controls">
+    <div class="inside-green"></div>
+    <div class="cross">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
     </div>
 </div>
-<script type="text/javascript">
-
-    window.onload=function(){
-
-        //Initialise Graph
-        var g = new canvasGraph('graph');
-
-        //define some data
-        gData=new Array();
-
-        gData[0]={x:500,y:500,z:500};
-        gData[1]={x:500,y:400,z:600};
-        gData[2]={x:500,y:300,z:700};
-        gData[3]={x:500,y:200,z:800};
-        gData[4]={x:500,y:100,z:900};
-
-        // sort data - draw farest elements first
-        gData.sort(sortNumByZ);
-
-        //draw graph
-        g.drawGraph(gData);
-    }
-</script>
-
 </body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script>
+    $(".plus-vert").click(function(){
+        if($(this).hasClass("quit")){
+            $(this).removeClass("quit");
+            $(".plus-vert-curtain").removeClass("full-deployed").addClass("semi-deployed");
+        } else {
+            $(this).addClass("quit");
+            $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
+        }
+    });
+    $('.plus-vert').mouseenter(function () {
+        $('.plus-vert-curtain').removeClass('not-deployed').addClass('semi-deployed');
+    }).mouseleave(function () {
+        $('.plus-vert-curtain').removeClass('semi-deployed').addClass('not-deployed');
+    });
+</script>
 </html>
