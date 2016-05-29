@@ -15590,6 +15590,9 @@ ul.main-menu > li > a,
     border-left: 1px solid #e4e4e4;
     background:url(../img/new_bg.png) no-repeat;
 }
+.bottom .container .content-wrapper {
+    background-color: #fff;
+}
 
 .main-content {
     padding-bottom: 30px;

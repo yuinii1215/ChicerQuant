@@ -21,12 +21,16 @@ GLOBAL STYLES
 #mainBody #basic {
     width: 100%;
     height:660px;
-    background-size: 100% auto;
-    background-image:url(https://static.pexels.com/photos/2324/skyline-buildings-new-york-skyscrapers.jpg);
-    background-repeat: no-repeat;
     opacity: 0.8;
     /* Fallback for browsers that don't support the calc() function*/
 
+}
+#mainBody #basic .container{
+    width:100%;
+    height:100%;
+    background-image:url(https://static.pexels.com/photos/2324/skyline-buildings-new-york-skyscrapers.jpg);
+    background-size: 100% 99%;
+    background-repeat: no-repeat;
 }
 #mainBody #basic #main_header_content {
     top: 12%;
