@@ -25,7 +25,7 @@ public class CSSHandler implements Handler<RoutingContext> {
 		try {
 			byte[] css=IOUtils.toByteArray(Resources.class.getResourceAsStream(fileName));
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "text/css").write(Buffer.buffer(css)).end();
+			event.response().putHeader("Cache-Control", "max-age=86400").putHeader("content-type", "text/css").write(Buffer.buffer(css)).end();
 //			System.out.println(fileName);
 		} catch (IOException|NullPointerException e) {
 			event.response().setChunked(true);

@@ -24,7 +24,7 @@ public class HtmlHandler implements Handler<RoutingContext>{
 		try {
 			byte[] html=IOUtils.toByteArray(Resources.class.getResourceAsStream(loc));
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "text/html").write(Buffer.buffer(html)).end();
+			event.response().putHeader("Cache-Control", "max-age=86400").putHeader("content-type", "text/html").write(Buffer.buffer(html)).end();
 		} catch (IOException|NullPointerException e) {
 			event.response().setChunked(true);
 			event.response().end("resources unavaliable");
