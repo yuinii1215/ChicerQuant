@@ -25,7 +25,7 @@ public class Woff2Handler implements Handler<RoutingContext> {
 			InputStream inputStream=Resources.class.getResourceAsStream(path);
 			byte[] woff2=IOUtils.toByteArray(inputStream);
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "application/x-font-woff2").write(Buffer.buffer(woff2)).end();
+			event.response().putHeader("Cache-Control", "max-age=86400").putHeader("content-type", "application/x-font-woff2").write(Buffer.buffer(woff2)).end();
 			inputStream.close();
 			
 		} catch (Exception e) {

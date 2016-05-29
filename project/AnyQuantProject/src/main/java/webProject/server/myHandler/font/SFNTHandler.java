@@ -25,7 +25,7 @@ public class SFNTHandler implements Handler<RoutingContext> {
 			InputStream inputStream=Resources.class.getResourceAsStream(path);
 			byte[] sfnt=IOUtils.toByteArray(inputStream);
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "application/font-sfnt").write(Buffer.buffer(sfnt)).end();
+			event.response().putHeader("Cache-Control", "max-age=86400").putHeader("content-type", "application/font-sfnt").write(Buffer.buffer(sfnt)).end();
 			inputStream.close();
 			
 		} catch (Exception e) {

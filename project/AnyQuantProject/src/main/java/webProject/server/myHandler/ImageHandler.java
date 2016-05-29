@@ -30,7 +30,7 @@ public class ImageHandler implements Handler<RoutingContext> {
 		      
 			event.response().setChunked(true);
 			
-			event.response().putHeader("content-type", "image/png").write(Buffer.buffer(data)).end();
+			event.response().putHeader("Cache-Control", "max-age=86400").putHeader("content-type", "image/png").write(Buffer.buffer(data)).end();
 		} catch (IOException|NullPointerException e) {
 			
 			event.response().setChunked(true);

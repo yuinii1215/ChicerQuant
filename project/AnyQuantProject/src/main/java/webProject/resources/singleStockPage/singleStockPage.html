@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- CSS -->
-
-
     <link rel="stylesheet" href="../css/preloader.css">
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../css/main.css" rel="stylesheet" type="text/css">
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
     <link href="../css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/tcal.css" />
+
 
     <style type="text/css">
         .button {
@@ -72,8 +72,9 @@
         }
 
         .button.-dark {
-            color: #FFFFFF;
-            background: #333030;
+            color: #353866;
+            border: 2px solid #353866;
+            background: transparent;
         }
 
         .button.-green {
@@ -298,27 +299,23 @@
                                                 <li><a href="#chart3" role="tab" data-toggle="tab" id="monthKLine" onclick="tabChanged('month')">月K</a></li>
                                             </ul>
                                              </div>
-                                                <div class="col-lg-2"></div>
-                                                <!--<div class="col-lg-1">-->
-                                                <!--<div id="filterDate" class='button -border' ng-click="filterDateHandle()" style="width:60px;margin-left: 0px;">检索</div>-->
-                                                <!--</div>-->
-                                                <div class="col-lg-5">
-                                                    <div class="row">
-                                                        <div class="col-lg-8">
-                                                    <div class="row">
-                                                        <label for="startfilter"  style="margin-left: 30px;" >起始日期：</label><input id="startfilter" type="date" value="2016-01-01"/>
-                                                       </div>
-                                                    <div class="row">
-                                                 <label for="endfilter" style="margin-left: 30px;">截止日期：</label><input id="endfilter" type="date" value="2014-01-30"/>
-                                                        </div>
-                                                            </div>
-                                                        <div class="col-lg-1">
-                                                        <div id="filterDate" class='button -border' ng-click="filterDateHandle()" style="width:60px;margin-left: 10px;">检索</div>
-                                                        <!--</div>-->
-                                                        </div>
-                                                <!--</div>-->
-                                               </div>
-
+                                                <div class="col-lg-1"></div>
+                                                <div class="col-lg-6">
+                                                    <table border="0" >
+                                                        <tr>
+                                                            <td width="70%">
+                                                                    <div><label for="startfilter">起始日期：</label><input type="text" name="date" class="tcal" value="" id="startfilter"/></div>
+                                                            </td>
+                                                            <td rowspan="2" width="30%">
+                                                                <div id="filterDate" class='button -border' ng-click="filterDateHandle()">检索</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td width="70%">
+                                                                <div><label for="endfilter">截止日期：</label><input type="text" name="date" class="tcal" value="" id="endfilter"/></div>
+                                                        </td>
+                                                        </tr>
+                                                    </table>
                                             </div>
                                             <!--</div>-->
                                             <div class="tab-content">
@@ -343,7 +340,7 @@
                                 </div>
                               </div>
                                 <div class="col-lg-4">
-                                    <div class="widget"  style="margin-top: 100px;">
+                                    <div class="widget widget-hide-header">
                                         <div class="widget-header hide">
 
                                             <div class="btn-group widget-header-toolbar">
@@ -354,47 +351,43 @@
                                         </div>
                                         <div class="widget-content">
                                             <div class="row">
-                                            <pre ng-model="result" style="background-color:transparent;margin-left: 15px;border-color: transparent;width:100%"><font size="5px">{{result.stock_name+" "+result.date}}</font></pre>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-6"></div>
-                                                <div class="col-lg-5">
-                                                 <div id="favorState" class='button -alge  center' style="width:60px" ng-model="favorStateContent" ng-click="favorButtonHandle()">{{favorStateContent}}</div>
+                                                <div class="col-lg-8">
+                                                <pre ng-model="result" style="background-color:transparent;border-color: transparent;width:100%; margin-left: -14px;"><font size="7px">{{result.stock_name}}</font></pre>
+                                                </div>
+                                                    <div class="col-lg-4">
+                                                    <div id="favorState" class='button -dark  center' style="width:80px;height:40px;" ng-model="favorStateContent" ng-click="favorButtonHandle()">{{favorStateContent}}</div>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                    <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font size="4px">{{result.date;}}</font></pre>
+                                            </div>
+                                            <div class="row">
+                                         <div class="col-lg-12">
+                                            <table border="0" WIDTH="100%" >
+                                                <tr>
+                                                    <td width="47%">
+                                                        <pre ng-model="result" style="background-color:transparent;border-color: #353866;overflow-x:hidden;"><center><label><font size="5px">开盘价</font></label></center><center><font size="3px">{{"\n"+result.open}}</font></center></pre>
+                                                    </td>
+                                                    <td width="6%">
+                                                    </td>
+                                                    <td width="47%">
+                                                        <pre ng-model="result" style="background-color:transparent;border-color: #353866;overflow-x:hidden;"><center><label><font size="5px">最高价</font></label></center><center><font size="3px" color="red">{{"\n"+result.high}}</font></center></pre>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <pre ng-model="result" style="background-color:transparent;border-color: #353866;overflow-x:hidden;"><center><label><font size="5px">最低价</font></label></center><center><font size="3px" color="green">{{"\n"+result.low}}</font></center></pre>
+                                                    </td>
+                                                    <td width="6%">
+                                                    </td>
+                                                    <td>
+                                                        <pre ng-model="result" style="background-color:transparent;border-color: #353866;overflow-x:hidden;"><center><label><font size="5px">收盘价</font></label></center><center><font size="3px">{{"\n"+result.close}}</font></center></pre>
 
-                                            <div class="row">
-                                              <div class="col-lg-6">
-                                               <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font size="3px">{{"开盘价:  "+result.open;}}</font></pre>
-                                              </div>
-                                              <div class="col-lg-6">
-                                               <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font size="3px">{{"最高价:  "+result.high;}}</font></pre>
-                                              </div>
-                                          </div>
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                            <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font color="#00aa11" size="3px">{{"最低价:  "+result.low;}}</font></pre>
-                                                </div>
-                                                <div class="col-lg-6">
-                                            <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font size="3px">{{"收盘价:  "+result.close;}}</font></pre>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                    <div class="col-lg-6">
-                                            <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;overflow-x:hidden;"><font size="3px">{{"成交量:  "+result.volumn;}}</font></pre>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                                     </div>
-                                                   <div class="col-lg-6">
-                                                       <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font size="3px">{{"市净率  "+result.pb;}}</font></pre>
-                                                     </div>
-                                            </div>
-                                           <div class="row">
-                                              <div class="col-lg-6">
-                                                  <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font size="3px">{{"后附权价:  "+result.adj_price;}}</font></pre>
-                                              </div>
-                                               <div class="col-lg-6">
-                                            <pre ng-model="result" style="background-color:transparent;border-color: transparent;overflow-x:hidden;"><font size="3px">{{"市盈率:  "+result.pe_ttm;}}</font></pre>
-                                           </div>
-                                               </div>
+                                                </div>
                                         </div>
                                     </div>
                                 <!--</div>-->
@@ -538,6 +531,7 @@
 
 
 
+<script type="text/javascript" src="js/tcal.js"></script>
 
 <script src="../js/angularjs/angular-1.0.0.js"></script>
 <script src="js/search.js"></script>

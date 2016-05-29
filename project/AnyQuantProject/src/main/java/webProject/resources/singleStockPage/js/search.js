@@ -183,8 +183,8 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.favorStateContent="取消关注";
 
             $http.post($scope.url, {
-                "username": "hmy14",
-                //"username": localStorage.userName,
+                // "username": "hmy14",
+                "username": localStorage.userName,
                 "name": localStorage.singleStockID,
                 "method": "addMyFavorService"
             }).success(function (data, status) {
@@ -214,10 +214,12 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 });
         }
     };
+
     $scope.filterDateHandle=function(){
         startDate=document.getElementById("startfilter").value;
         var endDate=document.getElementById("endfilter").value;
 
+        console.log(startDate);
         //起止日期比较
         var date1=new Date(startDate);
         var date2=new Date(endDate);
@@ -232,7 +234,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 $scope.status = status;
                 $scope.data = data;
                 $scope.dayKLineResult=data;
-                tabChanged('day');
+                tabChanged(tabFlag);
             })
                 .error(function (data, status) {
                     $scope.data = data || "Request failed";
@@ -366,7 +368,3 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
 app.factory('MyCache', function ($cacheFactory) {
     return $cacheFactory('myCache');
 })
-
-
-
-

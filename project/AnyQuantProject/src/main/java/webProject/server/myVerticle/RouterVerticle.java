@@ -57,7 +57,7 @@ public class RouterVerticle extends AbstractVerticle {
 			}
 			
 		});
-		httpServer.requestHandler(homeRouter::accept).listen(8020);
+		httpServer.requestHandler(homeRouter::accept).listen();
 
 		
 	}

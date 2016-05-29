@@ -25,7 +25,7 @@ public class JSHandler implements Handler<RoutingContext> {
 		try {
 			byte[] js=IOUtils.toByteArray(Resources.class.getResourceAsStream(fileName));
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "text/javascript").write(Buffer.buffer(js)).end();
+			event.response().putHeader("Cache-Control", "max-age=86400").putHeader("content-type", "text/javascript").write(Buffer.buffer(js)).end();
 		} catch (IOException|NullPointerException e) {
 			event.response().setChunked(true);
 			event.response().end("resources unavaliable");
