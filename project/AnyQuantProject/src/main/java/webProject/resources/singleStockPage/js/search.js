@@ -214,10 +214,12 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 });
         }
     };
+
     $scope.filterDateHandle=function(){
         startDate=document.getElementById("startfilter").value;
         var endDate=document.getElementById("endfilter").value;
 
+        console.log(startDate);
         //起止日期比较
         var date1=new Date(startDate);
         var date2=new Date(endDate);
@@ -366,7 +368,3 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
 app.factory('MyCache', function ($cacheFactory) {
     return $cacheFactory('myCache');
 })
-
-
-
-
