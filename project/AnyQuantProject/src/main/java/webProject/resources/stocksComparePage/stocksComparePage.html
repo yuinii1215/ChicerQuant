@@ -37,7 +37,7 @@
             <div class="row">
                 <!-- logo -->
                 <div class="col-md-2 logo"  >
-                    <a class="logo"; href="../homePage/home.html" style="color:#fff;">Your stock manager</a>
+                    <a class="logo"; href="../favoritePage/favoritePage.html" style="color:#fff;">Your stock manager</a>
                 </div>
                 <!-- end logo -->
 
@@ -103,7 +103,7 @@
                     <nav class="main-nav" >
                         <ul class="main-menu" >
                             <!--main active-->
-                            <!--                       <li><a href="../homePage/home.html"><i class="fa fa-home fa-fw"></i><span class="text">首页</span></a></li>
+                            <!--                       <li><a href="../favoritePage/favoritePage.html"><i class="fa fa-home fa-fw"></i><span class="text">首页</span></a></li>
                                                   <!--my favor-->
                             <li><a href="../favoritePage/favoritePage.html"><i class="fa fa-star fa-fw"></i><span class="text">我的关注</span></a></li>
                             <!--all stocks-->
@@ -310,25 +310,25 @@
             <h5 class="del-switcher-header">Choose Skins:</h5>
 
             <ul>
-                <li><a href="#" title="Slate Gray" class="switch-skin slategray" data-skin="../homePage/css/skin/slategray.css">Slate Gray</a></li>
-                <li><a href="#" title="Dark Blue" class="switch-skin darkblue" data-skin="../homePage/css/skin/darkblue.css">Dark Blue</a></li>
-                <li><a href="#" title="Dark Brown" class="switch-skin darkbrown" data-skin="../homePage/css/skin/darkbrown.css">Dark Brown</a></li>
-                <li><a href="#" title="Light Green" class="switch-skin lightgreen" data-skin="../homePage/css/skin/lightgreen.css">Light Green</a></li>
-                <li><a href="#" title="Orange" class="switch-skin orange" data-skin="../homePage/css/skin/orange.css">Orange</a></li>
-                <li><a href="#" title="Red" class="switch-skin red" data-skin="../homePage/css/skin/red.css">Red</a></li>
-                <li><a href="#" title="Teal" class="switch-skin teal" data-skin="../homePage/css/skin/teal.css">Teal</a></li>
-                <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="../homePage/css/skin/yellow.css">Yellow</a></li>
+                <li><a href="#" title="Slate Gray" class="switch-skin slategray" data-skin="../css/skin/slategray.css">Slate Gray</a></li>
+                <li><a href="#" title="Dark Blue" class="switch-skin darkblue" data-skin="../css/skin/darkblue.css">Dark Blue</a></li>
+                <li><a href="#" title="Dark Brown" class="switch-skin darkbrown" data-skin="../css/skin/darkbrown.css">Dark Brown</a></li>
+                <li><a href="#" title="Light Green" class="switch-skin lightgreen" data-skin="../css/skin/lightgreen.css">Light Green</a></li>
+                <li><a href="#" title="Orange" class="switch-skin orange" data-skin="../css/skin/orange.css">Orange</a></li>
+                <li><a href="#" title="Red" class="switch-skin red" data-skin="../css/skin/red.css">Red</a></li>
+                <li><a href="#" title="Teal" class="switch-skin teal" data-skin="../css/skin/teal.css">Teal</a></li>
+                <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="../css/skin/yellow.css">Yellow</a></li>
             </ul>
             <div id="transparent-control"></div>
-             <button type="button" class="switch-skin-full fulldark" data-skin="../homePage/css/skin/fulldark.css">Full Dark</button>
-            <button type="button" class="switch-skin-full fullbright" data-skin="../homePage/css/skin/fullbright.css">Full Bright</button>
+             <button type="button" class="switch-skin-full fulldark" data-skin="../css/skin/fulldark.css">Full Dark</button>
+            <button type="button" class="switch-skin-full fullbright" data-skin="../css/skin/fullbright.css">Full Bright</button>
         </section>
         <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
         <p><a href="../stocksComparePage/stocksComparePage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
     </form>
     <script type="text/javascript">
         var currentFilename = window.location.pathname.split('/').pop();
-        if( currentFilename == '' ) currentFilename = '../homePage/home.html';
+        if( currentFilename == '' ) currentFilename = '../favoritePage/favoritePage.html';
 
         var arrHasTransparent = ['index.html', 'index-dashboard-v2.html', 'charts-statistics-interactive.html', 'charts-statistics-real-time.html',
             'charts-statistics.html', 'components-maps.html', 'components-tree-view.html', 'page-file-manager.html'
@@ -346,7 +346,7 @@
         if( hasTransparent ) {
             document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
         } else {
-            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../homePage/css/skin/transparent.css">Transparent</button>';
+            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';
         }
     </script>
 </div>
