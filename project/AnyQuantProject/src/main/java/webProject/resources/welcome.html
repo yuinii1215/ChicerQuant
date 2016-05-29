@@ -18,12 +18,14 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+
     <!-- WEBFONT -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
     <script src="js/jquery/jquery.min.js"></script>
 
 </head>
-<body>
+<body ng-app="myApp" >
     <!-- =========================
     PRE LOADER
     ============================== -->
@@ -34,6 +36,7 @@
     <!-- =========================
     HOME SECTION
     ============================== -->
+    <div class="pop" id="pop"></div>
     <header  id="home" class="header">
 
         <div id="wrap">
@@ -45,12 +48,47 @@
                 <!--<a id="log_reg_btn" class="btn"> <button   style="marginRight:10px" class="button  button-block button-inverse button-rounded button-jumbo"  onclick=javascript:enterLog_Reg()   >登录/注册</button></a>-->
 
 
-
-                <div align="right">
-                    <button  class="button  button-block button-inverse button-rounded button-medium"  style="background-color:transparent ;  margin-top: -5px;"  onclick=javascript:enterLog_Reg()  >登录/注册</button>
+                <div align="right" id="log">
+                    <button id="sign_button"  class="button  button-block button-inverse button-rounded button-medium"  style="background-color:transparent ;  margin-top: -5px;"  >登录/注册</button>
                 </div>
 
 
+                <div id="signInUp">
+                    <input id="login" type="radio" name="tab" checked>
+                    <input id="sign-up" type="radio" name="tab">
+
+                    <div class="loginContainer" id="loginContainer" ng-controller="loginCtrl">
+                        <div  class="tab log-in">
+                            <label  for="login" ng-click="cleanText()">
+                                <h3>登录</h3>
+                            </label>
+                        </div>
+                        <div class="tab sign-up">
+                            <label for="sign-up" ng-click="cleanText()">
+                                <h3>注册</h3>
+                            </label>
+                        </div>
+                        <p class="login-replace"><font SIZE="5px">欢迎加入我们!</font></p>
+                        <p class="login-replace"><font SIZE="5px">选择最好的股票投资策略</font></p>
+                        <p class="sign-up-replace"><font SIZE="5px">欢迎回来!</font></p>
+                        <p class="sign-up-replace"><font SIZE="5px">在我们的平台里找到新发现</font></p>
+
+                        <fieldset>
+                            <p><input id="username" type="text" name="username" placeholder="用户名:" class="form-login" style="margin-top: 20px;color:#000000;"></p>
+                            <p><input id="password" type="password" name="password" placeholder="密码: " class="form-login" style="margin-top: 10px;color:#000000;"></p>
+                            <div class="row">
+                                <div class="col-lg-3"></div>
+                                <div class="col-lg-3">
+                                    <button id="login_button" type="button" style="margin-top: 20px;" ng-click="verify()">继续</button>
+                                </div>
+                                <div class="col-lg-3">
+                                    <button id="back_button" type="button" style="margin-top: 20px;" ng-click="back()">取消</button>
+                                </div>
+                                <div class="col-lg-3"></div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
                     <!-- / END TOP BAR -->
             </div>
 
@@ -360,10 +398,12 @@
     JS
     ============================== -->
     <script src="js/angularjs/angular.js"></script>
+    <script src="js/login.js"></script>
     <script src="js/zerif.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/button.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/jquery/jquery.gritter.min.js"></script>
 </body>
 
 </html>

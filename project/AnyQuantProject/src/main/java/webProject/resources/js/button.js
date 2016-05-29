@@ -8,9 +8,6 @@ function enter() {
 function backStep() {
     window.location.href="welcome.html";
 }
-function enterLog_Reg() {
-   location.href="login.html";
-}
 
 function signUpHint() {
     $.extend($.gritter.options, {
@@ -35,9 +32,9 @@ function test(){
     var userName=document.getElementById("username").value;
     var password=document.getElementById("password").value;
 
-   if(document.getElementById("login").checked){
+   if(document.getElementById("sign_button").checked){
        //login recognize
-       console.log("login");
+       console.log("sign_button");
        //function(userName,password){ return legal/illegal;}
 
        $http.post($scope.url, {//$objData->username,$objData->password

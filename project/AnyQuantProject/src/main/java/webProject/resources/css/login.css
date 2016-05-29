@@ -5,16 +5,6 @@
     padding:0;
     margin:0;
 }
-html {
-    font-size:62.75%;
-    font-family: Merriweather, Lato, sans-serif;
-}
-body {
-    font-size:1.6rem;
-    color: #333;
-    background-image:url(../img/login_cut.png);
-}
-
 /*-- Login, Sign up display --*/
 div.tab {
     display:inline-block;
@@ -26,20 +16,24 @@ div.tab {
 div.tab h3{
     margin:0;
 }
-
-/*-- content --*/
-.container img {
-    width:40%;
-    opacity: .9;
+.signInUp{
+    display:none;
+    background-color: cornflowerblue;
+    z-index:2000;
 }
 
-div.container {
-    width:45%;
-    margin:10% auto;
+div.loginContainer {
+    position:absolute;
+    top:300%;
+    left:50%;
+    margin-left: -22%;
+    width:44%;
     background-color: rgba(33, 33, 33, .5);
     color: #efefef;
     padding:1em;
     text-align:center;
+    display:none;
+    z-index:1500;
 }
 h1, h2, h3, h4, h5, p {
     text-align:center;
@@ -78,38 +72,38 @@ input[type="radio"] {
 
 /*-- Login Section Animations --*/
 
-#login:checked ~ .container .log-in {
+#login:checked ~ .loginContainer .log-in {
     background:#333;
     transition: all ease .3s;
 }
-#login:checked ~ .container .login-replace {
+#login:checked ~ .loginContainer .login-replace {
     display:none;
 }
-#login:checked ~ .container .sign-up-replace {
+#login:checked ~ .loginContainer .sign-up-replace {
     display:block;
 }
 
 
 /*-- Sign up section Animations--*/
-#sign-up:checked ~ .container .sign-up {
+#sign-up:checked ~ .loginContainer .sign-up {
     background: #333;
     transition: all ease .3s;
 }
-#sign-up:checked ~ .container .sign-up-replace {
+#sign-up:checked ~ .loginContainer .sign-up-replace {
     display:none;
 }
-#sign-up:checked ~ .container .login-replace {
+#sign-up:checked ~ .loginContainer .login-replace {
     display:block;
 }
 
 /*!*-- show sign-up hint Animations--*!*/
-/*#hint:checked ~ .container .sign-up {*/
+/*#hint:checked ~ .loginContainer .sign-up {*/
     /*background: #0066CC;*/
     /*transition: all ease .3s;*/
 /*}*/
-/*#hint:checked ~ .container .sign-up-replace {*/
+/*#hint:checked ~ .loginContainer .sign-up-replace {*/
     /*display:none;*/
 /*}*/
-/*#hint:checked ~ .container .login-replace {*/
+/*#hint:checked ~ .loginContainer .login-replace {*/
     /*display:block;*/
 /*}*/

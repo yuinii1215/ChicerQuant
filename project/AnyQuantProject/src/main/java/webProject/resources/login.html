@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <div id="sign">
-        <input id="login" type="radio" name="tab" checked>
-        <input id="sign-up" type="radio" name="tab">
+    <div>
+    <input id="login" type="radio" name="tab"  checked>
+    <input id="sign-up" type="radio" name="tab">
 
         <div class="container" ng-app="myApp" ng-controller="loginCtrl">
             <div  class="tab log-in">
-                <label  for="login" ng-click="cleanText()">
-                    <h3>登录</h3>
-                </label>
-            </div>
-            <div class="tab sign-up">
+            <label  for="login" ng-click="cleanText()">
+                <h3>登录</h3>
+            </label>
+        </div>
+        <div class="tab sign-up">
                 <label for="sign-up" ng-click="cleanText()">
                     <h3>注册</h3>
                 </label>

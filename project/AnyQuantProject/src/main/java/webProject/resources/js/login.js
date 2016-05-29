@@ -1,4 +1,25 @@
 
+window.onload=function() {
+    var pop=document.getElementById("pop");
+    $("#pop").css({ "width": $(document).width(), "height": $(document).height() });
+    var loginContainer=document.getElementById("loginContainer");
+    var sign_button=document.getElementById("sign_button");
+    var back_button=document.getElementById("back_button");
+    var  signInUp=document.getElementById("signInUp");
+
+    sign_button.onclick=function() {
+        pop.style.display="block";
+        loginContainer.style.display="block";
+        signInUp.style.display="block";
+    }
+    back_button.onclick=function() {
+        pop.style.display="none";
+        loginContainer.style.display="none";
+        signInUp.style.display="none";
+    }
+}
+
+
 //建立与"myApp"标识的 ng-app 的联系
 var app = angular.module('myApp', []);
 //建立与 "myApp"标识的Html中 的 "SearchCtrl"标识的 ng-controller的联系
@@ -14,9 +35,9 @@ app.controller("loginCtrl", function ($scope, $http) {
       var userName=document.getElementById("username").value;
       var password=document.getElementById("password").value;
         console.log("verifying");
-        if(document.getElementById("login").checked){
+        if(document.getElementById("login_button").checked){
             //login recognize
-            console.log("login");
+            console.log("login_button");
 
             $http.post($scope.url, {
                     "username": userName,
