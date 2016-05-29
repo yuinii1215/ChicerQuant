@@ -31,7 +31,7 @@ public class JPGHandler implements Handler<RoutingContext> {
 			byte[] data=IOUtils.toByteArray(inputStream);
 			event.response().setChunked(true);
 			
-			event.response().putHeader("content-type", "image/jpeg").write(Buffer.buffer(data)).end();
+			event.response().putHeader("Cache-Control", "max-age=86400").putHeader("content-type", "image/jpeg").write(Buffer.buffer(data)).end();
 		} catch (IOException|NullPointerException e) {
 			
 			event.response().setChunked(true);

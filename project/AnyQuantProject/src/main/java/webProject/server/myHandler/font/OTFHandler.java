@@ -25,7 +25,7 @@ public class OTFHandler implements Handler<RoutingContext> {
 			InputStream inputStream=Resources.class.getResourceAsStream(path);
 			byte[] otf=IOUtils.toByteArray(inputStream);
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "application/x-font-opentype").write(Buffer.buffer(otf)).end();
+			event.response().putHeader("Cache-Control", "max-age=86400").putHeader("content-type", "application/x-font-opentype").write(Buffer.buffer(otf)).end();
 			inputStream.close();
 			
 		} catch (Exception e) {

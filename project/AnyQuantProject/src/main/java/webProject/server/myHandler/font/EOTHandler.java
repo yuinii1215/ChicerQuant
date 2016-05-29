@@ -26,7 +26,7 @@ public class EOTHandler implements Handler<RoutingContext> {
 			InputStream inputStream=Resources.class.getResourceAsStream(path);
 			byte[] eot=IOUtils.toByteArray(inputStream);
 			event.response().setChunked(true);
-			event.response().putHeader("content-type", "application/vnd.ms-fontobject").write(Buffer.buffer(eot)).end();
+			event.response().putHeader("Cache-Control", "max-age=86400").putHeader("content-type", "application/vnd.ms-fontobject").write(Buffer.buffer(eot)).end();
 			inputStream.close();
 			
 		} catch (Exception e) {
