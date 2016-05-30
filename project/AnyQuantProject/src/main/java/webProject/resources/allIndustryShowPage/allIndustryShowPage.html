@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- CSS -->
     <link rel="stylesheet" href="../css/preloader.css">
+    <link href="../css/search.css" rel="stylesheet" type="text/css">
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../css/main.css" rel="stylesheet" type="text/css">
@@ -24,7 +25,7 @@
 
 </head>
 
-<body  ng-app="allIndustryApp">
+<body>
 
 <!-- =========================
  PRE LOADER
@@ -49,9 +50,10 @@
                     <div class="row">
                         <div class="col-md-3">
                             <!-- search box -->
-                            <div id="tour-searchbox" class="input-group searchbox">
-                                <input type="search" id="stockID" class="form-control" placeholder="enter keyword here...">
-									<span class="input-group-btn">
+                            <div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">
+                                <input type="search" id="search" class="form-control" placeholder="enter stockName/stockIDhere..." class="search-input" value=""/>
+                                <ul id="results" class="search-results"></ul>
+                                <span class="input-group-btn">
 										<button class="btn btn-default" type="button" value="to SingleStockPage" onclick="toSingleStockPage()" ><i class="fa fa-search"></i></button>
 									</span>
                             </div>
@@ -236,7 +238,7 @@
                             <h2>行业信息一览</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content">
+                        <div class="main-content"  ng-app="allIndustryApp">
                             <!--row example-->
                             <div class="col-md-12">
                                 <div class ="row" ng-controller="allIndustryCtrl">

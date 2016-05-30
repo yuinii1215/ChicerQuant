@@ -33,7 +33,7 @@ GLOBAL STYLES
     background-repeat: no-repeat;
 }
 #mainBody #basic #main_header_content {
-    top: 12%;
+    top: 10%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -531,7 +531,7 @@ input:focus {
 .intro {
     text-align: center;
     color: #FFF;
-    margin-top: 20%;
+    margin-top: 17%;
     line-height: 65px;
     z-index: 0;
 }
