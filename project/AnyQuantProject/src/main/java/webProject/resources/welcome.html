@@ -1,16 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html ng-app="loginPanel">
+<html >
 
 <head>
     <meta charset="UTF-8">
     <title>CHICER - 股票策略分析平台</title>
-
-    <style id="basicSytle">
-        *{margin:0; padding:0;}
-        body{ width:100%;}
-        #wrap{ background-repeat: repeat; margin:0 auto; width:100%;overflow:auto;heigth:100%;}
-        #header{position:fixed; z-index:999;height:40px;width:100%;  background-color: #555;opacity: 0.8}
-    </style>
 
     <!-- CUSTOM STYLES -->
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
@@ -22,7 +15,6 @@
 
     <!-- WEBFONT -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
-    <script src="js/jquery/jquery.min.js"></script>
 
 </head>
 <body ng-app="myApp" >
@@ -53,7 +45,7 @@
                 </div>
 
 
-                <div id="signInUp">
+                <div class="signInUp" id="signInUp" >
                     <input id="login" type="radio" name="tab" checked>
                     <input id="sign-up" type="radio" name="tab">
 
@@ -79,10 +71,10 @@
                             <div class="row">
                                 <div class="col-lg-3"></div>
                                 <div class="col-lg-3">
-                                    <button id="login_button" type="button" style="margin-top: 20px;" ng-click="verify()">继续</button>
+                                    <button id="login_button" type="button" style="margin-top: 20px; " ng-click="verify()">继续</button>
                                 </div>
                                 <div class="col-lg-3">
-                                    <button id="back_button" type="button" style="margin-top: 20px;" ng-click="back()">取消</button>
+                                    <button id="back_button" type="button" style="margin-top: 20px;" >取消</button>
                                 </div>
                                 <div class="col-lg-3"></div>
                             </div>
@@ -397,6 +389,7 @@
     <!-- =========================
     JS
     ============================== -->
+    <script src="js/jquery/jquery.min.js"></script>
     <script src="js/angularjs/angular.js"></script>
     <script src="js/login.js"></script>
     <script src="js/zerif.js"></script>
@@ -404,6 +397,7 @@
     <script src="js/button.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/jquery/jquery.gritter.min.js"></script>
+
 </body>
 
 </html>

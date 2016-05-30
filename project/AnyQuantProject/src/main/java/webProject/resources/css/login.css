@@ -1,4 +1,8 @@
-
+*
+{
+    margin:0px;
+    padding:0px;
+}
 /*-- reset --*/
 *, *:after, *:before {
     box-sizing: border-box;
@@ -16,15 +20,9 @@ div.tab {
 div.tab h3{
     margin:0;
 }
-.signInUp{
-    display:none;
-    background-color: cornflowerblue;
-    z-index:2000;
-}
-
-div.loginContainer {
-    position:absolute;
-    top:300%;
+.signInUp {
+    position:fixed;
+    top:17%;
     left:50%;
     margin-left: -22%;
     width:44%;
@@ -35,6 +33,8 @@ div.loginContainer {
     display:none;
     z-index:1500;
 }
+
+
 h1, h2, h3, h4, h5, p {
     text-align:center;
     margin-bottom:.5em;
@@ -107,3 +107,17 @@ input[type="radio"] {
 /*#hint:checked ~ .loginContainer .login-replace {*/
     /*display:block;*/
 /*}*/
+
+.pop {
+    width:100%;
+    height:100%;
+    background-color:#000;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    opacity:0.5;
+    position:absolute;
+    left:0px;
+    top:0px;
+    display:none;
+    z-index:1000;
+}
