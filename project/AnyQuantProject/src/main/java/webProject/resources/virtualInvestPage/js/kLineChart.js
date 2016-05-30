@@ -74,7 +74,7 @@ window.onload=function(){
 
 
 function checkBoxChanged(){
-    lineName=document.forms[0].chart3Type;
+    lineName=document.forms[1].chart3Type;
     for(i=0;i<=3;i++){
        if(lineName[i].checked) {
            chart3Type=lineName.value;
@@ -138,7 +138,7 @@ function checkBoxChanged(){
 }
 
 
-
+var newFormContent;
 
 function multiPredictTriggered(){//假定是kdj和rsi
     if($(".plus-vert").hasClass("quit")){
@@ -149,7 +149,20 @@ function multiPredictTriggered(){//假定是kdj和rsi
         $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
     }
 
-    var KType=['RSI','KDJ','',''];
+
+    var KType=['','','',''];
+    newFormContent=document.forms[0].checkbox_1;
+    console.log(newFormContent);
+
+    for(i=0;i<=3;i++){
+        KType[i]="";
+        if(newFormContent[i].checked) {
+            KType[i]=newFormContent[i].value;
+            console.log(newFormContent[i].value);
+        }
+    }
+
+    // var KType=['RSI','KDJ','',''];
     var shortLine=[];
     var longLine=[];
     var stasticsNum=0;

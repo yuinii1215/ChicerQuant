@@ -18,9 +18,9 @@
     <link href="../css/main.css" rel="stylesheet" type="text/css">
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
     <link href="3dAxis.css" rel="stylesheet" type="text/css">
-    <link href="board.css" rel="stylesheet" type="text/css">
     <link href="curtain.css" rel="stylesheet" type="text/css">
-
+    <link href="board.css" rel="stylesheet" type="text/css">
+    <link href="../singleStockPage/css/button.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -183,7 +183,7 @@
                                </div>
                                <div class="col-lg-5">
                                    <div class="widget">
-                                       <div class="widget-header">
+                                       <div class="widget-header hide">
                                            <!--header-->
                                            <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- form</em>
                                            <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
@@ -193,23 +193,89 @@
                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                            </div>
                                        </div>
-                                       <div class="widget-content">
-                                           <div class="row">
-                                           <label style="margin-left: 20px;">运营策略选择</label>
+                                       <div class="widget-content" >
+                              <div class="row">
+                                  <div class="col-lg-4">
+                                      </div>
+                                  <div class="col-lg-4">
+                                           <h3>策略选择</h3>
+                                   </div>
+                                  <div class="col-lg-4">
+                                  </div>
+
+                              </div>
+                                  <div class="row">
+                                      <div class="col-lg-1">
+                                      </div>
+                                      <div class="col-lg-4">
+                                     <form>
+                                               <div>
+                                                   <input id="checkbox-1" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="BIAS" type="checkbox" checked>
+                                                   <label for="checkbox-1" class="checkbox-custom-label">BIAS</label>
+                                               </div>
+                                               <div>
+                                                   <input id="checkbox-2" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="MACD" type="checkbox">
+                                                   <label for="checkbox-2" class="checkbox-custom-label">MACD</label>
+                                               </div>
+                                               <div>
+                                                   <input id="checkbox-3"  style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="KDJ" type="checkbox">
+                                                   <label for="checkbox-3"class="checkbox-custom-label">KDJ</label>
+                                               </div>
+                                              <div>
+                                             <input id="checkbox-4" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="RSI" type="checkbox">
+                                             <label for="checkbox-4"class="checkbox-custom-label">RSI</label>
+                                             </div>
+                                     </form>
+                                      </div>
+                                      <div class="col-lg-4">
+                                          <table>
+                                              <tr>
+                                                  <td>
+                                                      <label>BIAS</label><input id="strInput1" style="width: 20px;">
+                                                  </td>
+                                              </tr>
+                                          </table>
+                                      </div>
+                              </div>
+                                           <div class="row" style="margin-top: 30px;">
+                                               <table border="0" WIDTH="100%" >
+                                                   <tr>
+                                                       <td width="25%">
+                                                       </td>
+                                                       <td>
+                                                           <div class='button -dark  center' onclick="multiPredictTriggered()"><a href="#main4" style="color: black">确定</a></div>
+                                                       <td>
+                                                       <td>
+                                                       </td>
+                                                       <td>
+                                                       <div class='button -dark  center' onclick="clean()">清除</a></div>
+                                                       <td>
+                                                       <td>
+                                                       </td>
+                                                       <td>
+                                                       <div class='button -dark  center'  onclick="clean()">保存</a></div>
+                                                      </td>
+                                                       <td width="25%">
+                                                       </td>
+                                                       </tr>
+                                               </table>
+                                               <!--<div class="col-lg-1"></div>-->
+                                               <!--<div class="col-lg-3">-->
+                                                <!--<div class='button -dark  center' onclick="multiPredictTriggered()"><a href="#main4" style="color: black">确定</a></div>-->
+                                               <!--</div>-->
+                                               <!--<div class="col-lg-3">-->
+                                                   <!--<div class='button -dark  center' onclick="clean()">清除</a></div>-->
+                                               <!--</div>-->
+                                               <!--<div class="col-lg-3">-->
+                                                   <!--<div class='button -dark  center'  onclick="clean()">保存</a></div>-->
+                                               <!--</div>-->
+                                               <!--<div class="col-lg-1"></div>-->
+                                               </div>
                                            </div>
-                                           <div class="row">
-                                            <div class="btn" onclick="multiPredictTriggered()" ><a href="#downBoard">BIAS交叉线</a></div>
-                                            <div class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">MACD交叉线</a></div>
-                                           <div  class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">RSI交叉线</a></div>
-                                           <div class="btn" onclick="multiPredictTriggered()"><a href="#downBoard">KDJ交叉线</a></div>
-                                            </div>
-                                           <p>stockID<input type="text" id="stockValue"/></p>
-                                           <div class="btn" ng-click="changeStock()">CONFIRM</div>
-                                       </div>
                                    </div>
 
                                 <div class="widget">
-                                 <div class="widget-header">
+                                 <div class="widget-header hide">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
                                     <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
@@ -224,6 +290,8 @@
                                     <!--<div id="predict" class="btn" onclick="predictTriggered('kdj')">KDJ Pre</div>-->
                                     <div id="main1" style="height:300px;"></div>
                                     <div id="main3" style="height:300px;"></div>
+
+
                                     <form type="radio" onclick="checkBoxChanged()">
                                         <label><input name="chart3Type"  value="BIAS" type="radio" style="margin-left: 80px;" checked/>BIAS</label>
                                         <label><input name="chart3Type"  value="RSI"  type="radio"/>RSI</label>
@@ -235,7 +303,7 @@
                          </div>
                            <div class="col-lg-5">
                             <div class="widget">
-                                <div class="widget-header">
+                                <div class="widget-header hide">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}方差分析指标</h3>
                                     <div class="btn-group widget-header-toolbar">
