@@ -12,7 +12,7 @@ require_once('db_login.php');
 header("Content-Type: text/json;charset=utf8");
 
 
-function getStockByName($name, $date)
+function getStockByName($username, $name, $date)
 {
     $connection = getDBConnection();
 //    if ($date == date("Y-m-d")){
@@ -29,7 +29,22 @@ function getStockByName($name, $date)
     $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,industry from ".$name." where date = :date");
     $stmt->bindParam(':date', $_date);
     $_date = $date;
-    return execQuery($connection,$stmt);
+    $jsonstring = execQuery($connection,$stmt);
+    $arr = json_decode($jsonstring,true);
+
+    $stmt2 = $connection->prepare("select count(*) from favorstocks where username = :username and stock_id = :stock_id");
+    $stmt2->bindParam(':username',$_username);
+    $stmt2->bindParam(':stock_id',$_name);
+    $_username = $username;
+    $_name = $name;
+    $jsonstring2 = execQuery($connection,$stmt2);
+    $arr2 = json_decode($jsonstring2,true);
+    if ($arr2[0]['count(*)'] == 1){
+            $arr[0]['favor'] = true;
+    }else{
+            $arr[0]['favor'] = false;
+    }
+    return json_encode($arr,JSON_UNESCAPED_UNICODE);
 }
 
 function checkTableNameValid($tablename)
@@ -51,7 +66,7 @@ function checkTableNameValid($tablename)
 }
 
 
-//echo getStockByName("sz002190",date('Y-m-d',strtotime('2007-12-03')));
+//echo getStockByName('hmy14',"sh600216",date('Y-m-d',strtotime('2007-12-03')));
 //echo getStockByName("sh600000",'2016-04-05');
 //checkTableNameValid("sh600000");
 //$connection = getDBConnection();

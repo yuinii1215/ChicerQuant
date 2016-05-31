@@ -3,12 +3,9 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/swt/org.eclipse.swt.cocoa.macosx.x86_64/4.3/org.eclipse.swt.cocoa.macosx.x86_64-4.3.jar!/" />
     </CLASSES>
-<<<<<<< HEAD
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/swt/org.eclipse.swt.cocoa.macosx.x86_64/4.3/org.eclipse.swt.cocoa.macosx.x86_64-4.3-javadoc.jar!/" />
     </JAVADOC>
-=======
->>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/swt/org.eclipse.swt.cocoa.macosx.x86_64/4.3/org.eclipse.swt.cocoa.macosx.x86_64-4.3-sources.jar!/" />
     </SOURCES>
