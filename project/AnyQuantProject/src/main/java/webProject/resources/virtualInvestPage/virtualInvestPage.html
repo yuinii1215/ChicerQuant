@@ -17,11 +17,14 @@
     <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../css/main.css" rel="stylesheet" type="text/css">
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
-    <link href="3dAxis.css" rel="stylesheet" type="text/css">
-    <link href="curtain.css" rel="stylesheet" type="text/css">
-    <link href="board.css" rel="stylesheet" type="text/css">
+    <link href="css/3dAxis.css" rel="stylesheet" type="text/css">
+    <link href="css/curtain.css" rel="stylesheet" type="text/css">
+    <link href="css/board.css" rel="stylesheet" type="text/css">
     <link href="../singleStockPage/css/button.css" rel="stylesheet" type="text/css">
 
+
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
+    <script src="../js/angularjs/angular-1.0.7.js"></script>
 </head>
 
 <body>
@@ -173,7 +176,7 @@
                     </div>
 
                     <!-- main -->
-                    <div class="content" ng-app="myApp" ng-controller="SearchCtrl">
+                    <div class="content" id="app2" ng-app="myApp" ng-controller="SearchCtrl">
                         <div class="main-header">
                             <h2>虚拟投资</h2>
                             <em>the better analyze</em>
@@ -751,18 +754,20 @@
             document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';
         }
     </script>
+
+    <script src="../virtualInvestPage/js/search.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#app2"),["myApp"]);
+    </script>
+
 </div>
 <!-- END STYLE SWITCHER -->
 
 
 <!-- Javascript -->
 
-<script src="../js/angularjs/angular-1.0.0.js"></script>
-<script src="../virtualInvestPage/js/search.js"></script>
-<script src="../singleStockPage/build/dist/echarts.js"></script>
+<script src="../js/echart/echarts.js"></script>
 <script src="../virtualInvestPage/js/kLineChart.js"></script>
-<script src="../js/jquery/jquery.min.js"></script>
-<script src="../js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/modernizr/modernizr.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
@@ -772,7 +777,6 @@
 <script src="../js/search.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>
-<script type="text/javascript" src="../virtualInvestPage/js/init.js"></script>
 <script>
     $(".plus-vert").click(function(){
         if($(this).hasClass("quit")){

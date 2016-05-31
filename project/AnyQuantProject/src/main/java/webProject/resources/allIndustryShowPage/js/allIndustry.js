@@ -2,7 +2,7 @@
  * Created by QiHan on 2016/5/18.
  */
 
-var app = angular.module('allIndustryApp', []);
+var app = angular.module('allIndustryApp',[]);
 app.controller('allIndustryCtrl', function ($scope, $http) {
 
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
@@ -109,6 +109,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
 
 
     }
+
 
     function  industryToTable(industryName){
         $http.post($scope.url, {

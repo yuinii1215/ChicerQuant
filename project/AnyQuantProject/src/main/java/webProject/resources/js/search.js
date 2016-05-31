@@ -16,8 +16,8 @@ function allStock2SingleStockPage(stockID) {
 }
 
 
-var app = angular.module('mySearchApp', []);
-app.controller('searchCtrl', function ($scope, $http) {
+var searchApp = angular.module('mySearchApp',[]);
+searchApp.controller('searchCtrl', function ($scope, $http) {
 
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
 
@@ -38,7 +38,7 @@ app.controller('searchCtrl', function ($scope, $http) {
             for(var item in  $scope.allStocks) {
                 if (item < count-1) {
                     array[item] = $scope.allStocks[item].stock_name+"("+$scope.allStocks[item].stock_id+")";
-                    console.log(array[item] );
+               //     console.log(array[item] );
                 }
             }
 
