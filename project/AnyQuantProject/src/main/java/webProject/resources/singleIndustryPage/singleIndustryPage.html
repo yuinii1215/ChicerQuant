@@ -23,6 +23,7 @@
 
 
     <!--headerjs-->
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
     <script src="../js/angularjs/angular-1.0.7.js"></script>
 
 </head>
@@ -256,7 +257,7 @@
                                 }
                             }
                         </script>
-                        <div class="main-content" ng-app="eachIndustryApp" ng-controller="eachIndustryTableCtrl">
+                        <div class="main-content" id="app2" ng-app="eachIndustryApp" ng-controller="eachIndustryTableCtrl">
                             <!--row example-->
                             <div class="row">
                                 <div class="category m_links" >
@@ -464,12 +465,16 @@
             document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';
         }
     </script>
+
+    <script src="../singleIndustryPage/js/eachIndustryTable.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#app2"),["eachIndustryApp"]);
+    </script>
 </div>
 <!-- END STYLE SWITCHER -->
 
 
 <!-- Javascript -->
-<script src="../js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
 <script src="../js/jquery/jquery.dataTables.min.js"></script>
@@ -482,7 +487,6 @@
 <script src="../js/plugins/modernizr/modernizr.js"></script>
 <script src="../js/search.js"></script>
 <script src="../js/echart/echarts.js"></script>
-<script src="../singleIndustryPage/js/eachIndustryTable.js"></script>
 <script src="../singleIndustryPage/js/pieChart.js"></script>
 <script src="../singleIndustryPage/js/tag.js"></script>
 </body>

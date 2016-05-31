@@ -20,8 +20,9 @@
     <link href="../css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
     <!--headerjs-->
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
     <script src="../js/angularjs/angular-1.0.7.js"></script>
-    <script src="../favoritePage/js/initMyFavorTable.js"></script>
+
 </head>
 
 <body>
@@ -239,7 +240,7 @@
                             <h2>关注</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content" ng-app="myFavorApp"  >
+                        <div class="main-content" id="app2" ng-app="myFavorApp"  >
                             <!--row example-->
                             <div><p><br/><br/></p></div>
                             <div class="widget widget-table">
@@ -339,12 +340,17 @@
             document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';
         }
     </script>
+    <script src="../js/jquery/jquery.gritter.min.js"></script>
+    <script src="../favoritePage/js/initMyFavorTable.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#app2"),["myFavorApp"]);
+    </script>
+
 </div>
 <!-- END STYLE SWITCHER -->
 
 <!-- Javascript -->
 
-<script src="../js/jquery/jquery-2.0.0.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
 <script src="../js/jquery/jquery.dataTables.min.js"></script>
@@ -356,8 +362,7 @@
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../js/plugins/modernizr/modernizr.js"></script>
 <script src="../js/search.js"></script>
-<script src="../favoritePage/js/initMyFavorTable.js"></script>
-<script src="../js/jquery/jquery.gritter.min.js"></script>
+
 
 </body>
 

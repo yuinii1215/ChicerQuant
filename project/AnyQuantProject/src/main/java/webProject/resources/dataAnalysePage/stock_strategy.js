@@ -5,11 +5,6 @@
  *
  */
 var app=angular.module('singleStrategy', []);
-
-
-
-
-
 app.controller('kLine',function($scope,$http){
 
   $scope.test=function(){

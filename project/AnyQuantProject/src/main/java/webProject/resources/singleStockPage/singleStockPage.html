@@ -15,6 +15,10 @@
     <link href="../css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/tcal.css" />
     <link rel="stylesheet" type="text/css" href="css/button.css" />
+
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
+    <script src="../js/angularjs/angular-1.0.7.js"></script>
+
 </head>
 
 <body>
@@ -144,7 +148,7 @@
                 <!-- end left sidebar -->
 
                 <!-- content-wrapper -->
-                <div class="col-md-10 content-wrapper" ng-app="myApp" ng-controller="SearchCtrl" style="background-color: #ffffff">
+                <div class="col-md-10 content-wrapper" id="app2" ng-app="myApp" ng-controller="SearchCtrl" style="background-color: #ffffff">
                     <!-- top general alert -->
 
                     <!-- end top general alert -->
@@ -410,21 +414,20 @@
             document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';
         }
     </script>
+
+    <script type="text/javascript" src="js/tcal.js"></script>
+    <script src="js/search.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#app2"),["myApp"]);
+    </script>
 </div>
 <!--&lt;!&ndash; END STYLE SWITCHER &ndash;&gt;-->
 
 <!-- Javascript -->
 
-
-
-<script type="text/javascript" src="js/tcal.js"></script>
-
-<script src="../js/angularjs/angular-1.0.0.js"></script>
-<script src="js/search.js"></script>
 <!--getdata-->
 <!--<script src="build/dist/echarts.js"></script>-->
 <!--<script src="js/kLineChart.js"></script>-->
-<script src="../js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/modernizr/modernizr.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>

@@ -2,7 +2,7 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> [endif] -->
 <!--[if !(IE)]>
 <!-->
-<html lang="en" class="no-js" ng-app="singleStrategy">
+<html lang="en" class="no-js" >
 <!--<![endif]-->
 
 <head>
@@ -19,6 +19,8 @@
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
     <script src="js/echarts.min.js"></script>
 
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
+    <script src="../js/angularjs/angular-1.0.7.js"></script>
 </head>
 
 <body >
@@ -213,12 +215,8 @@
                 <!-- end left sidebar -->
 
                 <!-- content-wrapper -->
-                <div class="col-md-10 content-wrapper">
+                <div class="col-md-10 content-wrapper" id="app2" ng-app="singleStrategy">
                     <!-- top general alert -->
-<<<<<<< HEAD
-=======
-
->>>>>>> 71a655fc09601302fba09f24fe90cba476b88cd2
                     <!-- end top general alert -->
                     <div class="row">
                         <div class="col-lg-4 ">
@@ -256,7 +254,7 @@
 
                                 <div class="widget-content" ng-controller="kLine" >
                                         <!-- 为ECharts准备一个具备大小（宽高）的Dom,绘制K线图 -->
-                                    <input ng-model="stockid"></input>
+                                    <input ng-model="stockid"/>
                                      <button ng-click="change()">change</button>
      			                             <div id="kline" style="height:400px;width:1200px"></div>
 							                  </div>
@@ -363,18 +361,23 @@
             document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';
         }
     </script>
+
+
+    <script src="js/search.js"></script>
+    <script type="text/javascript" src="stock_strategy.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#app2"),["singleStrategy"]);
+    </script>
+
 </div>
 <!-- END STYLE SWITCHER -->
 
 
 <!-- Javascript -->
 
-<script src="../js/angularjs/angular-1.0.0.js"></script>
 <script type="text/javascript" src="../js/ng-echarts.min.js"></script>
-<script src="js/search.js"></script>
+
 <!--getdata-->
-<script src="../js/jquery/jquery.min.js"></script>
-<script src="../js/jquery/jquery-2.1.0.min.js"></script>
 <script type="text/javascript" src="../js/jquery/jquery-ui.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/modernizr/modernizr.js"></script>
@@ -384,7 +387,6 @@
 <script src="../js/zerif.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../js/search.js"></script>
-<script type="text/javascript" src="stock_strategy.js"></script>
 
 </body>
 

@@ -19,6 +19,7 @@
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
 
     <!--headerjs-->
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
     <script src="../js/angularjs/angular-1.0.7.js"></script>
 
 </head>
@@ -236,7 +237,7 @@
                             <h2>大盘</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content" ng-app="benchMarkApp" ng-controller="benchMarkCtrl">
+                        <div class="main-content" id="app2" ng-app="benchMarkApp" ng-controller="benchMarkCtrl">
                             <!--row example-->
                             <div class="row">
                                 <!--row1-->
@@ -385,14 +386,17 @@
             document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';
         }
     </script>
+
+    <script src="../benchMarkPage/js/getBenchMarkData.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#app2"),["benchMarkApp"]);
+    </script>
+
 </div>
 <!-- END STYLE SWITCHER -->
 
 
 <!-- Javascript -->
-
-<script src="../js/jquery/jquery-2.1.0.min.js"></script>
-<script src="../benchMarkPage/js/getBenchMarkData.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/modernizr/modernizr.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>

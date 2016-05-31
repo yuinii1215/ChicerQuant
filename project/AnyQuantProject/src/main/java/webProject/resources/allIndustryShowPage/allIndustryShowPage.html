@@ -21,7 +21,11 @@
 
 
     <!--headerjs-->
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
     <script src="../js/angularjs/angular-1.0.7.js"></script>
+
+
+
 
 </head>
 
@@ -52,8 +56,8 @@
                             <!-- search box -->
                             <div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">
                                 <input type="search" id="search" class="form-control" placeholder="enter stockName/stockIDhere..." class="search-input" value=""/>
-                                <ul id="results" class="search-results"></ul>
-                                <span class="input-group-btn">
+                                    <ul id="results" class="search-results"></ul>
+                                    <span class="input-group-btn">
 										<button class="btn btn-default" type="button" value="to SingleStockPage" onclick="toSingleStockPage()" ><i class="fa fa-search"></i></button>
 									</span>
                             </div>
@@ -238,10 +242,10 @@
                             <h2>行业信息一览</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content"  ng-app="allIndustryApp">
+                        <div class="main-content" >
                             <!--row example-->
                             <div class="col-md-12">
-                                <div class ="row" ng-controller="allIndustryCtrl">
+                                <div class ="row"  id="app2" ng-app="allIndustryApp" ng-controller="allIndustryCtrl">
                                     <div class="widget">
                                         <div class="widget-header">
                                         <!--header-->
@@ -358,13 +362,18 @@
             document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';
         }
     </script>
+    <script src="../js/search.js"></script>
+    <script src="../allIndustryShowPage/js/allIndustry.js"></script>
+
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#app2"),["allIndustryApp"]);
+    </script>
 </div>
 <!-- END STYLE SWITCHER -->
 
 
 <!-- Javascript -->
 
-<script src="../js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
 <script src="../js/jquery/jquery.dataTables.min.js"></script>
@@ -377,8 +386,6 @@
 <script src="../js/zerif.js"></script>
 <script src="../js/plugins/modernizr/modernizr.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
-<script src="../js/search.js"></script>
-<script src="../allIndustryShowPage/js/allIndustry.js"></script>
 
 </body>
 

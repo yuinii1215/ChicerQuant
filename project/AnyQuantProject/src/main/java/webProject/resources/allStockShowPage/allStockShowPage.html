@@ -20,6 +20,7 @@
     <link href="../css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
     <!--headerjs-->
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
     <script src="../js/angularjs/angular-1.0.7.js"></script>
 
 </head>
@@ -238,7 +239,7 @@
                             <h2>个股资金一览</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content"  ng-app="myApp" >
+                        <div class="main-content" id="app2" ng-app="myApp" >
                             <!--row example-->
                             <div class="row">
                                 <div class="col-md-9">
@@ -366,6 +367,11 @@
             document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';
         }
     </script>
+    <script src="js/search.js"></script>
+    <script src="../js/search.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#app2"),["myApp"]);
+    </script>
 </div>
 <!-- END STYLE SWITCHER -->
 
@@ -374,11 +380,10 @@
 <!--<script src="build/dist/echarts.js"></script>-->
 <!--<script src="js/lineChart.js"></script>-->
 <!--<script src="../allStockShowPage/js/initAllStockTable.js"></script>-->
-<script src="js/search.js"></script>
-<script src="../js/search.js"></script>
+
+
 <!--getdata-->
 <!--<script src="js/kLineChart.js"></script>-->
-<script src="../js/jquery/jquery-2.1.0.min.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
 <script src="../js/jquery/jquery.dataTables.min.js"></script>
