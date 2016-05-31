@@ -90,12 +90,12 @@
 }
 
 .button.-border {
-  color: #2b90d9;
-  border: 2px solid #2b90d9;
+  color: #2A64A4;
+  border: 2px solid #2A64A4;
   background: transparent;
 }
 .button.-border:hover, .button.-border.-active {
   color: #FFFFFF;
-  border-color: #2b90d9;
-  background: #2b90d9;
+  border-color: #2A64A4;
+  background: #2A64A4;
 }

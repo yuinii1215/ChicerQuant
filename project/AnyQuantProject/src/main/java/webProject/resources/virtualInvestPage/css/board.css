@@ -238,3 +238,521 @@
 .checkbox-custom:focus + .checkbox-custom-label{
   outline: 1px solid #ddd; /* focus style */
 }
+
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+body {
+  font-family: "Lato", Helvetica, Arial;
+  font-size: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+*, *:before, *:after {
+  -webkit-border-sizing: border-box;
+  -moz-border-sizing: border-box;
+  border-sizing: border-box;
+}
+
+.customer-container {
+  width: 350px;
+  margin: 50px auto;
+}
+.customer-container > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.title {
+  font-family: 'Pacifico';
+  font-weight: norma;
+  font-size: 20px;
+  text-align: center;
+  line-height: 1.4;
+  color: #2980B9;
+}
+
+.dropdown a {
+  text-decoration: none;
+}
+.dropdown [data-toggle="dropdown"] {
+  position: relative;
+  display: block;
+  color: white;
+  background: #2980B9;
+  -moz-box-shadow: 0 1px 0 #409ad5 inset, 0 -1px 0 #20638f inset;
+  -webkit-box-shadow: 0 1px 0 #409ad5 inset, 0 -1px 0 #20638f inset;
+  box-shadow: 0 1px 0 #409ad5 inset, 0 -1px 0 #20638f inset;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+.dropdown [data-toggle="dropdown"]:hover {
+  background: #2c89c6;
+}
+.dropdown .icon-arrow {
+  position: absolute;
+  display: block;
+  font-size: 0.7em;
+  color: #fff;
+  top: 14px;
+  right: 10px;
+}
+.dropdown .icon-arrow.open {
+  -moz-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -moz-transition: -moz-transform 0.6s;
+  -o-transition: -o-transform 0.6s;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+}
+.dropdown .icon-arrow.close {
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -moz-transition: -moz-transform 0.6s;
+  -o-transition: -o-transform 0.6s;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+}
+.dropdown .icon-arrow:before {
+  content: '\25BC';
+}
+.dropdown .dropdown-menu {
+  width:100%;
+  max-height: 0;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dropdown .dropdown-menu li {
+  padding: 0;
+}
+.dropdown .dropdown-menu li a {
+  display: block;
+  color: #6f6f6f;
+  background: #EEE;
+  -moz-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
+  -webkit-box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
+  box-shadow: 0 1px 0 white inset, 0 -1px 0 #d5d5d5 inset;
+  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3);
+  padding: 10px 10px;
+}
+.dropdown .dropdown-menu li a:hover {
+  background: #f6f6f6;
+}
+.dropdown .show, .dropdown .hide {
+  -moz-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+}
+.dropdown .show {
+  display: block;
+  max-height: 9999px;
+  -moz-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+  animation: showAnimation 0.5s ease-in-out;
+  -moz-animation: showAnimation 0.5s ease-in-out;
+  -webkit-animation: showAnimation 0.5s ease-in-out;
+  -moz-transition: max-height 1s ease-in-out;
+  -o-transition: max-height 1s ease-in-out;
+  -webkit-transition: max-height 1s ease-in-out;
+  transition: max-height 1s ease-in-out;
+}
+.dropdown .hide {
+  max-height: 0;
+  -moz-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  animation: hideAnimation 0.4s ease-out;
+  -moz-animation: hideAnimation 0.4s ease-out;
+  -webkit-animation: hideAnimation 0.4s ease-out;
+  -moz-transition: max-height 0.6s ease-out;
+  -o-transition: max-height 0.6s ease-out;
+  -webkit-transition: max-height 0.6s ease-out;
+  transition: max-height 0.6s ease-out;
+}
+
+@keyframes showAnimation {
+  0% {
+    -moz-transform: scaleY(0.1);
+    -ms-transform: scaleY(0.1);
+    -webkit-transform: scaleY(0.1);
+    transform: scaleY(0.1);
+  }
+  40% {
+    -moz-transform: scaleY(1.04);
+    -ms-transform: scaleY(1.04);
+    -webkit-transform: scaleY(1.04);
+    transform: scaleY(1.04);
+  }
+  60% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98);
+  }
+  80% {
+    -moz-transform: scaleY(1.04);
+    -ms-transform: scaleY(1.04);
+    -webkit-transform: scaleY(1.04);
+    transform: scaleY(1.04);
+  }
+  100% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98);
+  }
+  80% {
+    -moz-transform: scaleY(1.02);
+    -ms-transform: scaleY(1.02);
+    -webkit-transform: scaleY(1.02);
+    transform: scaleY(1.02);
+  }
+  100% {
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+@-moz-keyframes showAnimation {
+  0% {
+    -moz-transform: scaleY(0.1);
+    -ms-transform: scaleY(0.1);
+    -webkit-transform: scaleY(0.1);
+    transform: scaleY(0.1);
+  }
+  40% {
+    -moz-transform: scaleY(1.04);
+    -ms-transform: scaleY(1.04);
+    -webkit-transform: scaleY(1.04);
+    transform: scaleY(1.04);
+  }
+  60% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98);
+  }
+  80% {
+    -moz-transform: scaleY(1.04);
+    -ms-transform: scaleY(1.04);
+    -webkit-transform: scaleY(1.04);
+    transform: scaleY(1.04);
+  }
+  100% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98);
+  }
+  80% {
+    -moz-transform: scaleY(1.02);
+    -ms-transform: scaleY(1.02);
+    -webkit-transform: scaleY(1.02);
+    transform: scaleY(1.02);
+  }
+  100% {
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+@-webkit-keyframes showAnimation {
+  0% {
+    -moz-transform: scaleY(0.1);
+    -ms-transform: scaleY(0.1);
+    -webkit-transform: scaleY(0.1);
+    transform: scaleY(0.1);
+  }
+  40% {
+    -moz-transform: scaleY(1.04);
+    -ms-transform: scaleY(1.04);
+    -webkit-transform: scaleY(1.04);
+    transform: scaleY(1.04);
+  }
+  60% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98);
+  }
+  80% {
+    -moz-transform: scaleY(1.04);
+    -ms-transform: scaleY(1.04);
+    -webkit-transform: scaleY(1.04);
+    transform: scaleY(1.04);
+  }
+  100% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98);
+  }
+  80% {
+    -moz-transform: scaleY(1.02);
+    -ms-transform: scaleY(1.02);
+    -webkit-transform: scaleY(1.02);
+    transform: scaleY(1.02);
+  }
+  100% {
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+@keyframes hideAnimation {
+  0% {
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  60% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98);
+  }
+  80% {
+    -moz-transform: scaleY(1.02);
+    -ms-transform: scaleY(1.02);
+    -webkit-transform: scaleY(1.02);
+    transform: scaleY(1.02);
+  }
+  100% {
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+@-moz-keyframes hideAnimation {
+  0% {
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  60% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98);
+  }
+  80% {
+    -moz-transform: scaleY(1.02);
+    -ms-transform: scaleY(1.02);
+    -webkit-transform: scaleY(1.02);
+    transform: scaleY(1.02);
+  }
+  100% {
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+@-webkit-keyframes hideAnimation {
+  0% {
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  60% {
+    -moz-transform: scaleY(0.98);
+    -ms-transform: scaleY(0.98);
+    -webkit-transform: scaleY(0.98);
+    transform: scaleY(0.98);
+  }
+  80% {
+    -moz-transform: scaleY(1.02);
+    -ms-transform: scaleY(1.02);
+    -webkit-transform: scaleY(1.02);
+    transform: scaleY(1.02);
+  }
+  100% {
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+
+
+.radioholder {
+  width: 70%;
+  hight:100px;
+  background: #F0F4FF;
+  margin-bottom: 1em;
+  font-size: 1.3em;
+  height: 2.4em;
+  color: #666;
+  -o-transition: .1s ease-out;
+  -ms-transition: .1s ease-out;
+  -moz-transition: .1s ease-out;
+  -webkit-transition: .1s ease-out;
+  transition: .1s ease-out;
+  cursor: pointer;
+}
+
+
+.activeradioholder {
+  background: #4485A4;
+  color: #fff;
+}
+
+.radioholder .desc {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: .6em;
+  line-height: 2.4em;
+}
+
+.radioholder .tick {
+  display: inline-block;
+  vertical-align: middle;
+  width: 2.4em;
+  height: 100%;
+  background-color: #eee;
+  background-image: none;
+  -o-transition: .1s ease-out;
+  -ms-transition: .1s ease-out;
+  -moz-transition: .1s ease-out;
+  -webkit-transition: .1s ease-out;
+  transition: .1s ease-out;
+}
+
+.activeradioholder .tick {
+  background-color: #2A64A4;
+  background-image: url('http://supereightstudio.com/img/radio_tick.png');
+  background-size: cover;
+}
+
+.radioholder:nth-child(odd) {
+  float: right;
+}
+
+.radioholder:nth-child(even) {
+  float: left;
+}
+
+.radioholder:hover {
+  background-color: #eee;
+}
+
+.radioholder:hover .tick {
+  background-color: #ddd;
+}
+
+.activeradioholder:hover {
+  background-color: #4485A4;
+}
+
+.activeradioholder:hover .tick {
+  background-color: #2A64A4;
+}
+
+.selectholder {
+  clear: both;
+  width: 60%;
+  background: #eee;
+  margin-bottom: 1em;
+  font-size: 1.3em;
+  height: 2.4em;
+  color: #666;
+  -o-transition: .1s ease-out;
+  -ms-transition: .1s ease-out;
+  -moz-transition: .1s ease-out;
+  -webkit-transition: .1s ease-out;
+  transition: .1s ease-out;
+  cursor: pointer;
+}
+
+.selectholder .desc {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: .8em;
+  line-height: 2.4em;
+}
+
+.selectholder .pulldown {
+  float: right;
+  vertical-align: middle;
+  width: 2.4em;
+  height: 100%;
+  background-color: #ddd;
+  background-image: url('http://supereightstudio.com/img/pulldown.png');
+  background-size: cover;
+  -o-transition: .1s ease-out;
+  -ms-transition: .1s ease-out;
+  -moz-transition: .1s ease-out;
+  -webkit-transition: .1s ease-out;
+  transition: .1s ease-out;
+}
+
+.selectholder:hover,
+.activeselectholder {
+  background-color: #ddd;
+}
+
+.selectholder:hover .pulldown,
+.activeselectholder .pulldown {
+  background-color: #333;
+  background-image: url('http://supereightstudio.com/img/pulldown_hover.png');
+}
+
+.selectholder .selectdropdown {
+  position: relative;
+  top: 0;
+  left: 0;
+  background: #333;
+  color: #fff;
+  display: none;
+  clear: both;
+}
+
+.selectholder .selectdropdown span {
+  display: block;
+  border-bottom: solid 1px #555;
+  padding-left: .8em;
+  line-height: 2.4em;
+  width: 100%;
+  -o-transition: background-color .1s ease-out;
+  -ms-transition: background-color .1s ease-out;
+  -moz-transition: background-color .1s ease-out;
+  -webkit-transition: background-color .1s ease-out;
+  transition: background-color .1s ease-out;
+}
+
+.selectholder .selectdropdown span:last-child {
+  border-bottom: none;
+}
+
+.selectholder .selectdropdown span.active {
+  background-color: #2A64A4;
+  background-image: url('http://supereightstudio.com/img/radio_tick.png');
+  background-repeat: no-repeat;
+  background-size: 1.6em 1.6em;
+  background-position: 98% 50%;
+}
+
+.selectholder .selectdropdown span:hover {
+  background-color: #555;
+}
+

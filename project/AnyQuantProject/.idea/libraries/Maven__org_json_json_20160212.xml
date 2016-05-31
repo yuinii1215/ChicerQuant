@@ -3,12 +3,9 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20160212/json-20160212.jar!/" />
     </CLASSES>
-<<<<<<< HEAD
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20160212/json-20160212-javadoc.jar!/" />
     </JAVADOC>
-=======
->>>>>>> 74fd4c0ebdfc5470d029ea42876fea07e08b4352
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20160212/json-20160212-sources.jar!/" />
     </SOURCES>
