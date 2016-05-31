@@ -77,13 +77,28 @@ searchApp.controller('searchCtrl', function ($scope, $http) {
         };
         searchInput = document.getElementById('search');
         resultsOutput = document.getElementById('results');
+
+        var winWidth=0;
+        if (window.innerWidth)
+            winWidth = window.innerWidth;
+        else if ((document.body) && (document.body.clientWidth))
+            winWidth = document.body.clientWidth;
+        resultsOutput.style.width= winWidth/6+"px";
+
         maxResults = 7;
+        var empty=[];
 
         searchInput.addEventListener('keyup', (function(_this) {
             return function(e) {
                 var suggested, value;
                 value = searchInput.value.toLowerCase().split(' ');
                 suggested = (value[0].length ? findAll(value, names) : []);
+               if(value[0].length==0){
+                   resultsOutput.style.visibility = "hidden";
+               }else {
+                   resultsOutput.style.visibility = "visible";
+               }
+
                 return displayResults(resultsOutput, suggested);
             };
         })(this));
