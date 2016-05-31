@@ -51,6 +51,10 @@ var chartLine3_Data;
 var echarts;
 
 
+
+
+
+
 window.onload=function(){
 
     //Initialise Graph
@@ -151,16 +155,26 @@ function multiPredictTriggered(){//假定是kdj和rsi
 
 
     var KType=['','','',''];
-    newFormContent=document.forms[0].checkbox_1;
-    console.log(newFormContent);
 
+    var selectContent=document.getElementById("selecter").options;
+    var cnt=0;
     for(i=0;i<=3;i++){
-        KType[i]="";
-        if(newFormContent[i].checked) {
-            KType[i]=newFormContent[i].value;
-            console.log(newFormContent[i].value);
+        if(selectContent[i].selected) {
+            KType[cnt++]=selectContent[i].value;
+            console.log(selectContent[i].value);
         }
     }
+
+    // newFormContent=document.forms[0].checkbox_1;
+    // console.log(newFormContent);
+    //
+    // for(i=0;i<=3;i++){
+    //     KType[i]="";
+    //     if(newFormContent[i].checked) {
+    //         KType[i]=newFormContent[i].value;
+    //         console.log(newFormContent[i].value);
+    //     }
+    // }
 
     // var KType=['RSI','KDJ','',''];
     var shortLine=[];
