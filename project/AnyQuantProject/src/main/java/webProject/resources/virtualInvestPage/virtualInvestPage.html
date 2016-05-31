@@ -51,8 +51,8 @@
                     <div class="row">
                         <div class="col-md-3">
                             <!-- search box -->
-                            <!--<div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">-->
-                                <div id="tour-searchbox" class="input-group searchbox" >
+                            <div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">
+                                <!--<div id="tour-searchbox" class="input-group searchbox" >-->
                                 <input type="search" id="search" class="form-control" placeholder="enter stockName/stockIDhere..." class="search-input" value=""/>
                                 <ul id="results" class="search-results"></ul>
                                 <span class="input-group-btn">
@@ -595,6 +595,8 @@
     </script>
 
     <script src="../virtualInvestPage/js/search.js"></script>
+    <script src="js/select2.js"></script>
+    <script src="js/menu.js"></script>
     <script type="text/javascript">
         angular.bootstrap(angular.element("#app2"),["myApp"]);
     </script>
@@ -633,8 +635,7 @@
 
     });
 </script>
-<script src="js/select2.js"></script>
-<script src="js/menu.js"></script>
+
 </body>
 
 </html>

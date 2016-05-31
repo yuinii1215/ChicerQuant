@@ -76,19 +76,24 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 ]
         });});});
 
-
-    $scope.stockName;
+//case "getStockByNameService":
+//     getStockByNameService($objData->username,$objData->name,$objData->date);
+//     $scope.stockName;
 
     $http.post($scope.url, {
-       "date": "---",
-       "name": localStorage.singleStockID,
-       "method": "getStockByNameService"
+       "username": localStorage.userName,
+        "name": localStorage.singleStockID,
+        "date": currentDate,
+        "method": "getStockByNameService"
     }).success(function (data, status) {
-           $scope.status = status;
-           $scope.data = data;
-           var stockInfo = data;
-           $scope.result = stockInfo[0];
-           console.log(stockInfo);
+        var temp=data;
+        if(temp[0].favor) {
+            $scope.favorStateContent = "取消关注";
+        }else{
+            $scope.favorStateContent = "关注";
+        }
+        console.log($scope.favorStateContent);
+
        })
        .error(function (data, status) {
            $scope.data = data || "Request failed";
