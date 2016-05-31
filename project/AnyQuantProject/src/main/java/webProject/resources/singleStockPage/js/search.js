@@ -79,21 +79,21 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
 
     $scope.stockName;
 
-    //$http.post($scope.url, {
-    //    "date": "---",
-    //    "name": localStorage.singleStockID,
-    //    "method": "getStockByNameService"
-    //}).success(function (data, status) {
-    //        $scope.status = status;
-    //        $scope.data = data;
-    //        var stockInfo = data;
-    //        $scope.result = stockInfo[0];
-    //        console.log(stockInfo);
-    //    })
-    //    .error(function (data, status) {
-    //        $scope.data = data || "Request failed";
-    //        $scope.status = status;
-    //    });
+    $http.post($scope.url, {
+       "date": "---",
+       "name": localStorage.singleStockID,
+       "method": "getStockByNameService"
+    }).success(function (data, status) {
+           $scope.status = status;
+           $scope.data = data;
+           var stockInfo = data;
+           $scope.result = stockInfo[0];
+           console.log(stockInfo);
+       })
+       .error(function (data, status) {
+           $scope.data = data || "Request failed";
+           $scope.status = status;
+       });
 
 
     $http.post($scope.url, {// function getDayLineService($name, $startdate, $enddate){

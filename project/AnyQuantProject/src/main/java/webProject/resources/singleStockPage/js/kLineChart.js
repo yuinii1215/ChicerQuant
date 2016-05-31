@@ -48,22 +48,6 @@ var chartLine1_Data;
 var chartLine2_Data;
 var chartLine3_Data;
 
-
-
-function newAPI(){
-//https://api.wmcloud.com/data/v1/
-// /api/subject/getThemesByNewsTimeLF.json
-// ?field=&publishBeginTime=20150609100000&publishEndTime=20150609180000
-
-
-
-
-}
-
-
-
-
-
 function checkBoxChanged(){
     var lineName=document.forms[0].chart3Type;
 
@@ -207,10 +191,7 @@ function paint(){
     for(var item in kchartData) {
         if(item<totalLength-1){
             var noDealFlag = kchartData[item].open;
-            // console.log(noDealFlag);
         if (noDealFlag!='0') {
-            // console.log(item1);
-            console.log(noDealFlag);
             axisData[item1] = kchartData[item].date;
             chart1Data[item1] = [kchartData[item].open, kchartData[item].close, kchartData[item].low, kchartData[item].high];
             chart2Data[item1] = kchartData[item].volumn;
@@ -232,9 +213,6 @@ function paint(){
             chart3Data_PMA30[item1] = kchartData[item].PMA30_day;
             item1++;
         }
-        // console.log(item);
-        // console.log(kchartData[item].open);
-
     }
     }
 

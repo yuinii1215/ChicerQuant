@@ -673,8 +673,8 @@ body {
   width: 60%;
   background: #eee;
   margin-bottom: 1em;
-  font-size: 1.3em;
-  height: 2.4em;
+  font-size: 0.6em;
+  height: 1.0em;
   color: #666;
   -o-transition: .1s ease-out;
   -ms-transition: .1s ease-out;
@@ -756,3 +756,4 @@ body {
   background-color: #555;
 }
 
+.shadow-blur { color:transparent; text-shadow:0 0 7px #555, 0 0 10px #000; }
