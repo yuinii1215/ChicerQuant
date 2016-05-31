@@ -94,7 +94,7 @@ app.controller('searchCtrl', function ($scope, $http) {
 });
 
 function a(w){
-    console.log(w);
+    // console.log(w);
     document.getElementById('search').value=w;
     /*    var id1= w.split('(');
     var id= id1[1].split(')');

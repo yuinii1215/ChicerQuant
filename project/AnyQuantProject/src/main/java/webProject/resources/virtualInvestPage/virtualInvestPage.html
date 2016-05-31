@@ -48,7 +48,8 @@
                     <div class="row">
                         <div class="col-md-3">
                             <!-- search box -->
-                            <div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">
+                            <!--<div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">-->
+                                <div id="tour-searchbox" class="input-group searchbox" >
                                 <input type="search" id="search" class="form-control" placeholder="enter stockName/stockIDhere..." class="search-input" value=""/>
                                 <ul id="results" class="search-results"></ul>
                                 <span class="input-group-btn">
@@ -182,6 +183,28 @@
                                <div class="col-lg-1">
                                </div>
                                <div class="col-lg-5">
+
+                                   <!--<div class="widget">-->
+                                       <!--<div class="widget-header">-->
+                                           <!--<h3><i class="fa fa-edit"></i> Select2</h3> <em> - another replacement for select boxes</em>-->
+                                       <!--</div>-->
+                                       <!--<div class="widget-content">-->
+                                           <!--<select multiple name="select2-multiple1" id="select2-multiple1" class="select2 select2-multiple">-->
+                                               <!--<optgroup label="MACD指标">-->
+                                                   <!--<option value="MACD">MACD交叉点</option>-->
+                                               <!--</optgroup>-->
+                                               <!--<optgroup label="BIAS指标">-->
+                                                   <!--<option value="BIAS">BIAS交叉点</option>-->
+                                               <!--</optgroup>-->
+                                               <!--<optgroup label="RSI指标">-->
+                                                   <!--<option value="RSI">RSI交叉点</option>-->
+                                               <!--</optgroup>-->
+                                               <!--<optgroup label="KDJ指标">-->
+                                                   <!--<option value="KDJ">KDJ交叉点</option>-->
+                                               <!--</optgroup>-->
+                                           <!--</select>-->
+                                       <!--</div>-->
+                                   <!--</div>-->
                                    <div class="widget">
                                        <div class="widget-header hide">
                                            <!--header-->
@@ -193,86 +216,320 @@
                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                            </div>
                                        </div>
-                                       <div class="widget-content" >
-                              <div class="row">
-                                  <div class="col-lg-4">
-                                      </div>
-                                  <div class="col-lg-4">
-                                           <h3>策略选择</h3>
-                                   </div>
-                                  <div class="col-lg-4">
-                                  </div>
+                                       <div class="widget-content">
+                                           <!--<h2 align="center">虚拟运营策略工厂</h2>-->
+                                           <ul class="nav nav-pills" role="tablist">
+                                               <li class="active" ><a href="#chart1" role="tab" data-toggle="tab"><i class="fa fa-area-chart"></i> 交叉点策略 </a></li>
+                                               <li><a href="#chart2" role="tab" data-toggle="tab"><i class="fa fa-bar-chart"></i> 自定义策略 </a></li>
+                                           </ul>
+                                           <div class="tab-content">
+                                               <div class="tab-pane fade in active" id="chart1">
+                                                   <p>您将可以任意组合交叉点策略,买入点为黄金交叉点,卖出点为死亡交叉点</p>
+                                                   <div class="row">
+                                                       <div class="col-lg-4">
+                                                       </div>
+                                                       <div class="col-lg-4">
+                                                           <!--<h3>策略选择</h3>-->
+                                                       </div>
+                                                       <div class="col-lg-4">
+                                                       </div>
 
-                              </div>
-                                  <div class="row">
-                                      <div class="col-lg-1">
-                                      </div>
-                                      <div class="col-lg-4">
-                                     <form>
-                                               <div>
-                                                   <input id="checkbox-1" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="BIAS" type="checkbox" checked>
-                                                   <label for="checkbox-1" class="checkbox-custom-label">BIAS</label>
+                                                   </div>
+                                                   <select multiple name="selectList" id="selecter" class="select2 select2-multiple">
+                                                       <optgroup label="MACD指标">
+                                                           <option value="MACD">MACD交叉点</option>
+                                                       </optgroup>
+                                                       <optgroup label="BIAS指标">
+                                                           <option value="BIAS">BIAS交叉点</option>
+                                                       </optgroup>
+                                                       <optgroup label="RSI指标">
+                                                           <option value="RSI">RSI交叉点</option>
+                                                       </optgroup>
+                                                       <optgroup label="KDJ指标">
+                                                           <option value="KDJ">KDJ交叉点</option>
+                                                       </optgroup>
+                                                   </select>
+                                                   <!--<div class="row">-->
+                                                       <!--<div class="col-lg-1">-->
+                                                       <!--</div>-->
+                                                       <!--<div class="col-lg-4">-->
+                                                           <!--<form>-->
+                                                               <!--<div>-->
+                                                                   <!--<input id="checkbox-1" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="BIAS" type="checkbox" checked>-->
+                                                                   <!--<label for="checkbox-1" class="checkbox-custom-label">BIAS</label>-->
+                                                               <!--</div>-->
+                                                               <!--<div>-->
+                                                                   <!--<input id="checkbox-2" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="MACD" type="checkbox">-->
+                                                                   <!--<label for="checkbox-2" class="checkbox-custom-label">MACD</label>-->
+                                                               <!--</div>-->
+                                                               <!--<div>-->
+                                                                   <!--<input id="checkbox-3"  style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="KDJ" type="checkbox">-->
+                                                                   <!--<label for="checkbox-3"class="checkbox-custom-label">KDJ</label>-->
+                                                               <!--</div>-->
+                                                               <!--<div>-->
+                                                                   <!--<input id="checkbox-4" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="RSI" type="checkbox">-->
+                                                                   <!--<label for="checkbox-4"class="checkbox-custom-label">RSI</label>-->
+                                                               <!--</div>-->
+                                                           <!--</form>-->
+                                                       <!--</div>-->
+                                                       <!--<div class="col-lg-4">-->
+                                                           <!--<table>-->
+                                                               <!--<tr>-->
+                                                                   <!--<td>-->
+
+                                                                   <!--</td>-->
+                                                               <!--</tr>-->
+                                                           <!--</table>-->
+                                                       <!--</div>-->
+                                                   <!--</div>-->
+                                                   <div class="row" style="margin-top: 30px;">
+                                                       <table border="0" WIDTH="100%" >
+                                                           <tr>
+                                                               <td width="30%">
+                                                               </td>
+                                                               <td>
+                                                                   <div class='button -border  center' onclick="multiPredictTriggered()"><a href="#main4">确定</a></div>
+                                                               <td>
+                                                               <td>
+                                                               </td>
+                                                               <!--<td>-->
+                                                                   <!--<div class='button -border  center' onclick="cleanPredictItem()">清除</a></div>-->
+                                                               <!--<td>-->
+                                                               <td>
+                                                               </td>
+                                                               <td>
+                                                                   <div class='button -border  center'  onclick="savePredictItem()">保存</a></div>
+                                                               </td>
+                                                               <td width="30%">
+                                                               </td>
+                                                           </tr>
+                                                       </table>
+                                                   </div>
                                                </div>
-                                               <div>
-                                                   <input id="checkbox-2" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="MACD" type="checkbox">
-                                                   <label for="checkbox-2" class="checkbox-custom-label">MACD</label>
-                                               </div>
-                                               <div>
-                                                   <input id="checkbox-3"  style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="KDJ" type="checkbox">
-                                                   <label for="checkbox-3"class="checkbox-custom-label">KDJ</label>
-                                               </div>
-                                              <div>
-                                             <input id="checkbox-4" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="RSI" type="checkbox">
-                                             <label for="checkbox-4"class="checkbox-custom-label">RSI</label>
-                                             </div>
-                                     </form>
-                                      </div>
-                                      <div class="col-lg-4">
-                                          <table>
-                                              <tr>
-                                                  <td>
-                                                      <label>BIAS</label><input id="strInput1" style="width: 20px;">
-                                                  </td>
-                                              </tr>
-                                          </table>
-                                      </div>
-                              </div>
-                                           <div class="row" style="margin-top: 30px;">
-                                               <table border="0" WIDTH="100%" >
-                                                   <tr>
-                                                       <td width="25%">
-                                                       </td>
-                                                       <td>
-                                                           <div class='button -dark  center' onclick="multiPredictTriggered()"><a href="#main4" style="color: black">确定</a></div>
-                                                       <td>
-                                                       <td>
-                                                       </td>
-                                                       <td>
-                                                       <div class='button -dark  center' onclick="clean()">清除</a></div>
-                                                       <td>
-                                                       <td>
-                                                       </td>
-                                                       <td>
-                                                       <div class='button -dark  center'  onclick="clean()">保存</a></div>
-                                                      </td>
-                                                       <td width="25%">
-                                                       </td>
-                                                       </tr>
-                                               </table>
-                                               <!--<div class="col-lg-1"></div>-->
-                                               <!--<div class="col-lg-3">-->
-                                                <!--<div class='button -dark  center' onclick="multiPredictTriggered()"><a href="#main4" style="color: black">确定</a></div>-->
-                                               <!--</div>-->
-                                               <!--<div class="col-lg-3">-->
-                                                   <!--<div class='button -dark  center' onclick="clean()">清除</a></div>-->
-                                               <!--</div>-->
-                                               <!--<div class="col-lg-3">-->
-                                                   <!--<div class='button -dark  center'  onclick="clean()">保存</a></div>-->
-                                               <!--</div>-->
-                                               <!--<div class="col-lg-1"></div>-->
+                                               <div class="tab-pane fade" id="chart2">
+                                                   <p>您可以根据自己的需求选区策略曲线并且进行买卖点选择</p>
+                                                   <div class="row">
+                                                       <div class="col-lg-1"></div>
+                                                       <div class="col-lg-10">
+                                                       <table width="100%">
+                                                           <tr>
+                                                           <td>
+                                                   <div class="radioholder">
+                                                       <input type="radio" name="projecttype" value="Website" id="pt_bias" checked>
+                                                       <label for="pt_bias">BIAS</label>
+                                                   </div>
+                                                               </td>
+                                                               <td>
+                                                   <div class="radioholder">
+                                                       <input type="radio" name="projecttype" value="Mobile"id="pt_kdj">
+                                                       <label for="pt_kdj">KDJ</label>
+                                                   </div>
+                                                               </td>
+                                                               </tr>
+                                                           <tr>
+                                                               <td>
+                                                   <div class="radioholder">
+                                                       <input type="radio" name="projecttype" value="Application" id="pt_macd">
+                                                       <label for="pt_macd">MACD</label>
+                                                   </div>
+                                                               </td>
+                                                               <td>
+                                                                   <div class="radioholder">
+                                                                       <input type="radio" name="projecttype" value="Application" id="pt_rsi">
+                                                                       <label for="pt_rsi">RSI</label>
+                                                                   </div>
+                                                               </td>
+                                                           </tr>
+                                                           </table>
+                                                           </div>
+                                                       <div class="col-lg-1"></div>
                                                </div>
                                            </div>
+                                       </div>
                                    </div>
+                                       </div>
+
+
+
+                                   <!--<div class="widget">-->
+                                       <!--<div class="widget-header hide">-->
+                                           <!--&lt;!&ndash;header&ndash;&gt;-->
+                                           <!--<h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- form</em>-->
+                                           <!--<button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>-->
+                                           <!--<div class="btn-group widget-header-toolbar">-->
+                                               <!--<a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>-->
+                                               <!--<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>-->
+                                               <!--<a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>-->
+                                           <!--</div>-->
+                                       <!--</div>-->
+                                       <!--<div class="widget-content">-->
+                              <!--<div class="row">-->
+                                  <!--<div class="col-lg-4">-->
+                                      <!--</div>-->
+                                  <!--<div class="col-lg-4">-->
+                                           <!--<h3>策略选择</h3>-->
+                                   <!--</div>-->
+                                  <!--<div class="col-lg-4">-->
+                                  <!--</div>-->
+
+                              <!--</div>-->
+                                  <!--<div class="row">-->
+                                      <!--<div class="col-lg-1">-->
+                                      <!--</div>-->
+                                      <!--<div class="col-lg-4">-->
+                                     <!--<form>-->
+                                               <!--<div>-->
+                                                   <!--<input id="checkbox-1" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="BIAS" type="checkbox" checked>-->
+                                                   <!--<label for="checkbox-1" class="checkbox-custom-label">BIAS</label>-->
+                                               <!--</div>-->
+                                               <!--<div>-->
+                                                   <!--<input id="checkbox-2" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="MACD" type="checkbox">-->
+                                                   <!--<label for="checkbox-2" class="checkbox-custom-label">MACD</label>-->
+                                               <!--</div>-->
+                                               <!--<div>-->
+                                                   <!--<input id="checkbox-3"  style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="KDJ" type="checkbox">-->
+                                                   <!--<label for="checkbox-3"class="checkbox-custom-label">KDJ</label>-->
+                                               <!--</div>-->
+                                              <!--<div>-->
+                                             <!--<input id="checkbox-4" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="RSI" type="checkbox">-->
+                                             <!--<label for="checkbox-4"class="checkbox-custom-label">RSI</label>-->
+                                             <!--</div>-->
+                                     <!--</form>-->
+                                      <!--</div>-->
+                                      <!--<div class="col-lg-4">-->
+                                          <!--<table>-->
+                                              <!--<tr>-->
+                                                  <!--<td>-->
+
+                                                  <!--</td>-->
+                                              <!--</tr>-->
+                                          <!--</table>-->
+                                      <!--</div>-->
+                              <!--</div>-->
+                                           <!--<div class="row" style="margin-top: 30px;">-->
+                                               <!--<table border="0" WIDTH="100%" >-->
+                                                   <!--<tr>-->
+                                                       <!--<td width="25%">-->
+                                                       <!--</td>-->
+                                                       <!--<td>-->
+                                                           <!--<div class='button -dark  center' onclick="multiPredictTriggered()"><a href="#main4" style="color: black">确定</a></div>-->
+                                                       <!--<td>-->
+                                                       <!--<td>-->
+                                                       <!--</td>-->
+                                                       <!--<td>-->
+                                                       <!--<div class='button -dark  center' onclick="clean()">清除</a></div>-->
+                                                       <!--<td>-->
+                                                       <!--<td>-->
+                                                       <!--</td>-->
+                                                       <!--<td>-->
+                                                       <!--<div class='button -dark  center'  onclick="clean()">保存</a></div>-->
+                                                      <!--</td>-->
+                                                       <!--<td width="25%">-->
+                                                       <!--</td>-->
+                                                       <!--</tr>-->
+                                               <!--</table>-->
+                                               <!--&lt;!&ndash;<div class="col-lg-1"></div>&ndash;&gt;-->
+                                               <!--&lt;!&ndash;<div class="col-lg-3">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<div class='button -dark  center' onclick="multiPredictTriggered()"><a href="#main4" style="color: black">确定</a></div>&ndash;&gt;-->
+                                               <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                               <!--&lt;!&ndash;<div class="col-lg-3">&ndash;&gt;-->
+                                                   <!--&lt;!&ndash;<div class='button -dark  center' onclick="clean()">清除</a></div>&ndash;&gt;-->
+                                               <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                               <!--&lt;!&ndash;<div class="col-lg-3">&ndash;&gt;-->
+                                                   <!--&lt;!&ndash;<div class='button -dark  center'  onclick="clean()">保存</a></div>&ndash;&gt;-->
+                                               <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                               <!--&lt;!&ndash;<div class="col-lg-1"></div>&ndash;&gt;-->
+                                               <!--</div>-->
+                                           <!--</div>-->
+                                   <!--</div>-->
+
+
+                                   <!--<div class="widget">-->
+                                       <!--<div class="widget-header hide">-->
+                                           <!--&lt;!&ndash;header&ndash;&gt;-->
+                                           <!--<div class="btn-group widget-header-toolbar">-->
+                                               <!--<a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>-->
+                                               <!--<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>-->
+                                               <!--<a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>-->
+                                           <!--</div>-->
+                                       <!--</div>-->
+                                       <!--<div class="widget-content">-->
+                                           <!--<div class="customer-container">-->
+                                               <!--<h1 class="title">自定义策略</h1>-->
+                                               <!--<ul>-->
+                                                   <!--<li class="dropdown">-->
+                                                       <!--<a href="#" data-toggle="dropdown">First Menu <i class="icon-arrow"></i></a>-->
+                                                       <!--<ul class="dropdown-menu">-->
+                                                           <!--<li><a href="#">Home</a></li>-->
+                                                           <!--<li><a href="#">About Us</a></li>-->
+                                                           <!--<li><a href="#">Services</a></li>-->
+                                                           <!--<li><a href="#">Contact</a></li>-->
+                                                       <!--</ul>-->
+                                                   <!--</li>-->
+                                                   <!--<li class="dropdown">-->
+                                                       <!--<a href="#" data-toggle="dropdown">Second Menu <i class="icon-arrow"></i></a>-->
+                                                       <!--<ul class="dropdown-menu">-->
+                                                           <!--<li><a href="#">Home</a></li>-->
+                                                           <!--<li><a href="#">About Us</a></li>-->
+                                                           <!--<li><a href="#">Services</a></li>-->
+                                                           <!--<li><a href="#">Contact</a></li>-->
+                                                       <!--</ul>-->
+                                                   <!--</li>-->
+                                                   <!--<li class="dropdown">-->
+                                                       <!--<a href="#" data-toggle="dropdown">Third Menu <i class="icon-arrow"></i></a>-->
+                                                       <!--<ul class="dropdown-menu">-->
+                                                           <!--<li><a href="#">Home</a></li>-->
+                                                           <!--<li><a href="#">About Us</a></li>-->
+                                                           <!--<li><a href="#">Services</a></li>-->
+                                                           <!--<li><a href="#">Contact</a></li>-->
+                                                       <!--</ul>-->
+                                                   <!--</li>-->
+                                               <!--</ul>-->
+                                               <!--<p class="text-center">-->
+                                                   <!--See this same menu only with CSS3: <a href="http://codepen.io/pedronauck/pen/jaluz" target="_blank">http://codepen.io/pedronauck/pen/jaluz</a>-->
+                                               <!--</p>-->
+                                           <!--</div>-->
+
+
+                                           <!--<script>-->
+
+                                               <!--// Dropdown Menu-->
+                                               <!--var dropdown = document.querySelectorAll('.dropdown');-->
+                                               <!--var dropdownArray = Array.prototype.slice.call(dropdown,0);-->
+                                               <!--dropdownArray.forEach(function(el){-->
+                                                   <!--var button = el.querySelector('a[data-toggle="dropdown"]'),-->
+                                                           <!--menu = el.querySelector('.dropdown-menu'),-->
+                                                           <!--arrow = button.querySelector('i.icon-arrow');-->
+
+                                                   <!--button.onclick = function(event) {-->
+                                                       <!--if(!menu.hasClass('show')) {-->
+                                                           <!--menu.classList.add('show');-->
+                                                           <!--menu.classList.remove('hide');-->
+                                                           <!--arrow.classList.add('open');-->
+                                                           <!--arrow.classList.remove('close');-->
+                                                           <!--event.preventDefault();-->
+                                                       <!--}-->
+                                                       <!--else {-->
+                                                           <!--menu.classList.remove('show');-->
+                                                           <!--menu.classList.add('hide');-->
+                                                           <!--arrow.classList.remove('open');-->
+                                                           <!--arrow.classList.add('close');-->
+                                                           <!--event.preventDefault();-->
+                                                       <!--}-->
+                                                   <!--};-->
+                                               <!--})-->
+
+                                               <!--Element.prototype.hasClass = function(className) {-->
+                                                   <!--return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);-->
+                                               <!--};-->
+
+
+                                           <!--</script>-->
+
+                                       <!--</div>-->
+                                   <!--</div>-->
+
+
 
                                 <div class="widget">
                                  <div class="widget-header hide">
@@ -499,6 +756,7 @@
 
 
 <!-- Javascript -->
+
 <script src="../js/angularjs/angular-1.0.0.js"></script>
 <script src="../virtualInvestPage/js/search.js"></script>
 <script src="../singleStockPage/build/dist/echarts.js"></script>
@@ -532,7 +790,8 @@
 
     });
 </script>
-
+<script src="js/select2.js"></script>
+<script src="js/menu.js"></script>
 </body>
 
 </html>
