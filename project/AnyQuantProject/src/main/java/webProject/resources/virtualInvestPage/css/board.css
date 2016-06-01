@@ -595,165 +595,335 @@ body {
 }
 
 
-.radioholder {
-  width: 70%;
-  hight:100px;
-  background: #F0F4FF;
-  margin-bottom: 1em;
-  font-size: 1.3em;
-  height: 2.4em;
-  color: #666;
-  -o-transition: .1s ease-out;
-  -ms-transition: .1s ease-out;
-  -moz-transition: .1s ease-out;
-  -webkit-transition: .1s ease-out;
-  transition: .1s ease-out;
-  cursor: pointer;
-}
+/*.radioholder {*/
+  /*width: 70%;*/
+  /*hight:100px;*/
+  /*background: #F0F4FF;*/
+  /*margin-bottom: 1em;*/
+  /*font-size: 1.3em;*/
+  /*height: 2.4em;*/
+  /*color: #666;*/
+  /*-o-transition: .1s ease-out;*/
+  /*-ms-transition: .1s ease-out;*/
+  /*-moz-transition: .1s ease-out;*/
+  /*-webkit-transition: .1s ease-out;*/
+  /*transition: .1s ease-out;*/
+  /*cursor: pointer;*/
+/*}*/
 
 
-.activeradioholder {
-  background: #4485A4;
-  color: #fff;
-}
+/*.activeradioholder {*/
+  /*background: #4485A4;*/
+  /*color: #fff;*/
+/*}*/
 
-.radioholder .desc {
-  display: inline-block;
-  vertical-align: middle;
-  padding-left: .6em;
-  line-height: 2.4em;
-}
+/*.radioholder .desc {*/
+  /*display: inline-block;*/
+  /*vertical-align: middle;*/
+  /*padding-left: .6em;*/
+  /*line-height: 2.4em;*/
+/*}*/
 
-.radioholder .tick {
-  display: inline-block;
-  vertical-align: middle;
-  width: 2.4em;
-  height: 100%;
-  background-color: #eee;
-  background-image: none;
-  -o-transition: .1s ease-out;
-  -ms-transition: .1s ease-out;
-  -moz-transition: .1s ease-out;
-  -webkit-transition: .1s ease-out;
-  transition: .1s ease-out;
-}
+/*.radioholder .tick {*/
+  /*display: inline-block;*/
+  /*vertical-align: middle;*/
+  /*width: 2.4em;*/
+  /*height: 100%;*/
+  /*background-color: #eee;*/
+  /*background-image: none;*/
+  /*-o-transition: .1s ease-out;*/
+  /*-ms-transition: .1s ease-out;*/
+  /*-moz-transition: .1s ease-out;*/
+  /*-webkit-transition: .1s ease-out;*/
+  /*transition: .1s ease-out;*/
+/*}*/
 
-.activeradioholder .tick {
-  background-color: #2A64A4;
-  background-image: url('http://supereightstudio.com/img/radio_tick.png');
-  background-size: cover;
-}
+/*.activeradioholder .tick {*/
+  /*background-color: #2A64A4;*/
+  /*background-image: url('http://supereightstudio.com/img/radio_tick.png');*/
+  /*background-size: cover;*/
+/*}*/
 
-.radioholder:nth-child(odd) {
-  float: right;
-}
+/*.radioholder:nth-child(odd) {*/
+  /*float: right;*/
+/*}*/
 
-.radioholder:nth-child(even) {
-  float: left;
-}
+/*.radioholder:nth-child(even) {*/
+  /*float: left;*/
+/*}*/
 
-.radioholder:hover {
-  background-color: #eee;
-}
+/*.radioholder:hover {*/
+  /*background-color: #eee;*/
+/*}*/
 
-.radioholder:hover .tick {
-  background-color: #ddd;
-}
+/*.radioholder:hover .tick {*/
+  /*background-color: #ddd;*/
+/*}*/
 
-.activeradioholder:hover {
-  background-color: #4485A4;
-}
+/*.activeradioholder:hover {*/
+  /*background-color: #4485A4;*/
+/*}*/
 
-.activeradioholder:hover .tick {
-  background-color: #2A64A4;
-}
+/*.activeradioholder:hover .tick {*/
+  /*background-color: #2A64A4;*/
+/*}*/
 
-.selectholder {
-  clear: both;
-  width: 60%;
-  background: #eee;
-  margin-bottom: 1em;
-  font-size: 0.6em;
-  height: 1.0em;
-  color: #666;
-  -o-transition: .1s ease-out;
-  -ms-transition: .1s ease-out;
-  -moz-transition: .1s ease-out;
-  -webkit-transition: .1s ease-out;
-  transition: .1s ease-out;
-  cursor: pointer;
-}
+/*.selectholder {*/
+  /*clear: both;*/
+  /*width: 60%;*/
+  /*background: #eee;*/
+  /*margin-bottom: 1em;*/
+  /*font-size: 0.6em;*/
+  /*height: 1.0em;*/
+  /*color: #666;*/
+  /*-o-transition: .1s ease-out;*/
+  /*-ms-transition: .1s ease-out;*/
+  /*-moz-transition: .1s ease-out;*/
+  /*-webkit-transition: .1s ease-out;*/
+  /*transition: .1s ease-out;*/
+  /*cursor: pointer;*/
+/*}*/
 
-.selectholder .desc {
-  display: inline-block;
-  vertical-align: middle;
-  padding-left: .8em;
-  line-height: 2.4em;
-}
+/*.selectholder .desc {*/
+  /*display: inline-block;*/
+  /*vertical-align: middle;*/
+  /*padding-left: .8em;*/
+  /*line-height: 2.4em;*/
+/*}*/
 
-.selectholder .pulldown {
-  float: right;
-  vertical-align: middle;
-  width: 2.4em;
-  height: 100%;
-  background-color: #ddd;
-  background-image: url('http://supereightstudio.com/img/pulldown.png');
-  background-size: cover;
-  -o-transition: .1s ease-out;
-  -ms-transition: .1s ease-out;
-  -moz-transition: .1s ease-out;
-  -webkit-transition: .1s ease-out;
-  transition: .1s ease-out;
-}
+/*.selectholder .pulldown {*/
+  /*float: right;*/
+  /*vertical-align: middle;*/
+  /*width: 2.4em;*/
+  /*height: 100%;*/
+  /*background-color: #ddd;*/
+  /*background-image: url('http://supereightstudio.com/img/pulldown.png');*/
+  /*background-size: cover;*/
+  /*-o-transition: .1s ease-out;*/
+  /*-ms-transition: .1s ease-out;*/
+  /*-moz-transition: .1s ease-out;*/
+  /*-webkit-transition: .1s ease-out;*/
+  /*transition: .1s ease-out;*/
+/*}*/
 
-.selectholder:hover,
-.activeselectholder {
-  background-color: #ddd;
-}
+/*.selectholder:hover,*/
+/*.activeselectholder {*/
+  /*background-color: #ddd;*/
+/*}*/
 
-.selectholder:hover .pulldown,
-.activeselectholder .pulldown {
-  background-color: #333;
-  background-image: url('http://supereightstudio.com/img/pulldown_hover.png');
-}
+/*.selectholder:hover .pulldown,*/
+/*.activeselectholder .pulldown {*/
+  /*background-color: #333;*/
+  /*background-image: url('http://supereightstudio.com/img/pulldown_hover.png');*/
+/*}*/
 
-.selectholder .selectdropdown {
-  position: relative;
-  top: 0;
-  left: 0;
-  background: #333;
-  color: #fff;
-  display: none;
-  clear: both;
-}
+/*.selectholder .selectdropdown {*/
+  /*position: relative;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*background: #333;*/
+  /*color: #fff;*/
+  /*display: none;*/
+  /*clear: both;*/
+/*}*/
 
-.selectholder .selectdropdown span {
+/*.selectholder .selectdropdown span {*/
+  /*display: block;*/
+  /*border-bottom: solid 1px #555;*/
+  /*padding-left: .8em;*/
+  /*line-height: 2.4em;*/
+  /*width: 100%;*/
+  /*-o-transition: background-color .1s ease-out;*/
+  /*-ms-transition: background-color .1s ease-out;*/
+  /*-moz-transition: background-color .1s ease-out;*/
+  /*-webkit-transition: background-color .1s ease-out;*/
+  /*transition: background-color .1s ease-out;*/
+/*}*/
+
+/*.selectholder .selectdropdown span:last-child {*/
+  /*border-bottom: none;*/
+/*}*/
+
+/*.selectholder .selectdropdown span.active {*/
+  /*background-color: #2A64A4;*/
+  /*background-image: url('http://supereightstudio.com/img/radio_tick.png');*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: 1.6em 1.6em;*/
+  /*background-position: 98% 50%;*/
+/*}*/
+
+/*.selectholder .selectdropdown span:hover {*/
+  /*background-color: #555;*/
+/*}*/
+
+/*.shadow-blur { color:transparent; text-shadow:0 0 7px #555, 0 0 10px #000; }*/
+
+
+.icon {
   display: block;
-  border-bottom: solid 1px #555;
-  padding-left: .8em;
-  line-height: 2.4em;
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 auto;
+}
+.icon:before, .icon:after {
+  content: "";
+  position: absolute;
+}
+
+.dropp {
   width: 100%;
-  -o-transition: background-color .1s ease-out;
-  -ms-transition: background-color .1s ease-out;
-  -moz-transition: background-color .1s ease-out;
-  -webkit-transition: background-color .1s ease-out;
-  transition: background-color .1s ease-out;
+  /*box-shadow: 0 1px 3px #0b0b0b;*/
 }
 
-.selectholder .selectdropdown span:last-child {
-  border-bottom: none;
+.dropp-header {
+  background: #2A64A4;
+  color: #fff;
+  border-bottom: 2px solid #1c1c1c;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  -o-align-items: stretch;
+  align-items: stretch;
+  -ms-flex-align: stretch;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  box-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  -o-justify-content: flex-start;
+  justify-content: flex-start;
+  -ms-flex-pack: start;
 }
 
-.selectholder .selectdropdown span.active {
-  background-color: #2A64A4;
-  background-image: url('http://supereightstudio.com/img/radio_tick.png');
-  background-repeat: no-repeat;
-  background-size: 1.6em 1.6em;
-  background-position: 98% 50%;
+.dropp-header__title {
+  display: block;
+  padding: 0.8em 0.5em;
+  -webkit-box-flex: 8;
+  -moz-box-flex: 8;
+  box-flex: 8;
+  -webkit-flex: 8;
+  -moz-flex: 8;
+  -ms-flex: 8;
+  flex: 8;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
 }
 
-.selectholder .selectdropdown span:hover {
-  background-color: #555;
+.dropp-header__btn {
+  display: block;
+  background: #1c1c1c;
+  color: #fff;
+  padding: 0.8em 0.5em;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.dropp-header__btn .icon {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.dropp-header__btn .icon:before, .dropp-header__btn .icon:after {
+  top: 30%;
+  left: 25%;
+  width: 50%;
+  height: 15%;
+  background: #FFFFFF;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.dropp-header__btn .icon:after {
+  top: 55%;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.dropp-header__btn.js-open {
+  background: #1c1c1c;
+}
+.dropp-header__btn.js-open .icon {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.dropp-header__btn.js-open .icon:before, .dropp-header__btn.js-open .icon:after {
+  background: #fff;
+}
+.dropp-header__btn:focus {
+  outline: none;
 }
 
-.shadow-blur { color:transparent; text-shadow:0 0 7px #555, 0 0 10px #000; }
+.dropp-body {
+  overflow: hidden;
+  width: 100%;
+  max-height: 0;
+  background: #292929;
+  color: #fff;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.dropp-body.js-open {
+  max-height: 20em;
+}
+.dropp-body label {
+  display: block;
+  font-size: 0.875em;
+  color: #fff;
+  text-decoration: none;
+  padding: 1em 0.5em;
+  font-weight: 400;
+  box-shadow: 0 -1px 0 #171717, inset 0 1px 0 #313131;
+  cursor: pointer;
+}
+.dropp-body label:first-child {
+  box-shadow: none;
+}
+.dropp-body label:hover, .dropp-body label.js-open {
+  background: #2A64A4;
+}
+.dropp-body label > input {
+  display: none;
+}

@@ -50,32 +50,11 @@ var chartLine2_Data;
 var chartLine3_Data;
 var echarts;
 
-
-
-
-
-
-window.onload=function(){
-
-    //Initialise Graph
-    // var g = new canvasGraph('graph');
-    //
-    // //define some data
-    // gData=new Array();
-    //
-    // gData[0]={x:500,y:500,z:500};
-    // gData[1]={x:500,y:400,z:600};
-    // gData[2]={x:500,y:300,z:700};
-    // gData[3]={x:500,y:200,z:800};
-    // gData[4]={x:500,y:100,z:900};
-    //
-    // // sort data - draw farest elements first
-    // gData.sort(sortNumByZ);
-    //
-    // //draw graph
-    // g.drawGraph(gData);
+function toPoint(percent){
+    var str=percent.replace("%","");
+    str= str/100;
+    return str;
 }
-
 
 function checkBoxChanged(){
     lineName=document.forms[1].chart3Type;
@@ -141,6 +120,290 @@ function checkBoxChanged(){
 
 }
 
+function newStrategy(){
+    if($(".plus-vert").hasClass("quit")){
+        $(".plus-vert").removeClass("quit");
+        $(".plus-vert-curtain").removeClass("full-deployed").addClass("semi-deployed");
+    } else {
+        $(".plus-vert").addClass("quit");
+        $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
+    }
+
+    var temp=[];
+    temp[0]=document.getElementById("pt_bias");
+    temp[1]=document.getElementById("pt_rsi");
+    temp[2]=document.getElementById("pt_kdj");
+    temp[3]=document.getElementById("pt_macd");
+    var newType;
+
+
+    for(var i=0;i<4;i++){
+    if(temp[i].checked){
+    newType=temp[i].value;
+    }}
+
+    var customerStrData;
+    for(var item=0;item<4;item++){
+        switch (newType){//shortLine现在用来存储四个数组
+            case 'RSI':
+                customerStrData=chart3Data_RSI6;
+                break;
+            case 'BIAS':
+                customerStrData=chart3Data_BIAS6;
+
+                break;
+            case 'MACD':
+                customerStrData=chart3Data_DIF;
+                break;
+            case 'KDJ':
+                customerStrData=chart3Data_K;
+                break;
+        }
+    }
+
+    var buyStd=document.getElementById("buyStd").value;
+    var sellStd=document.getElementById("sellStd").value;
+
+    buyStd=toPoint(buyStd);
+    sellStd=toPoint(sellStd);
+
+
+    //每次买卖行为至少100股
+    var account=10000;
+    var accountRange=[];
+    var price=chart1Data;
+    var cnt1=0;
+    var cnt2=0;
+    var buyPoint=[];
+    var sellPoint=[];
+    var stockNum=0;
+    var item=0;
+
+    for(;item<axisData.length;item++){
+        accountRange[item]=account;
+        buyPoint[item]=[axisData[item],'无交易'];
+        sellPoint[item]=[axisData[item],'无交易'];
+
+        var buyflag=false;
+        var sellflag=false;
+
+        if(item>=1){
+            var gap=customerStrData[item]-customerStrData[item-1];
+
+            if(gap>customerStrData[item-1]*buyflag){
+                buyflag=true;
+            }
+            if(gap<customerStrData[item-1]*buyflag){
+                sellflag=true;
+            }
+        }
+
+        if (buyflag&&((account - price[item] * 100)>=0)) {
+            account = account - price[item] * 100;
+            buyPoint[item]=[axisData[item],price[item]];
+            stockNum+=100;
+            cnt1++;
+        }
+        if(sellflag){
+            if(stockNum>0) {
+                console.log(stockNum);
+                account = account + price[item] * stockNum;
+                sellPoint[item]=[axisData[item], price[item]];
+                stockNum-=stockNum;
+                cnt2++;
+            }
+        }
+        if(item==axisData.length-1&&stockNum>0){
+            account = account + price[item] * stockNum;
+            sellPoint[item]=[axisData[item],price[item],''];
+            stockNum-=stockNum;
+            accountRange[item]=account;
+        }
+    }
+
+    var newOption = myChart.getOption(); // 深拷贝
+    myChart = echarts.init(document.getElementById('main1'),'macarons');
+    var itemStyle = {
+        normal: {
+            opacity: 0.8,
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+    };
+    // console.log(newOption.legend.data);
+    var newLegend= {
+        data: [newOption.legend.data[0],'买入点','卖出点'],
+        textStyle: {
+            color: '#000000',
+        },
+        x: 'left',
+        y: 'top',
+
+    };
+    var newSeries1={
+        name: '买入点',
+        type: 'scatter',
+        itemStyle: {
+            normal: {
+                color: '#f4e925',
+                borderWidth:5,
+            }
+        },
+        data: buyPoint
+    };
+    var newSeries2={
+        name: '卖出点',
+        type: 'scatter',
+        itemStyle: {
+            normal: {
+                color: '#9393FF',
+                borderWidth:5,
+            }
+        },
+        data: sellPoint
+    };
+    newOption.legend=newLegend;
+    newOption.series=[newOption.series[0],newSeries1,newSeries2];
+    myChart.setOption(newOption);
+
+    myChart2 = echarts.init(document.getElementById('main2'),'macarons');
+    var option2 = {
+        tooltip: {
+            trigger: 'axis',
+            showDelay: 0             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
+        },
+        legend: {
+            data: ['虚拟资本变动情况'],
+            x: 100,
+            y: 20,
+            textStyle: {
+                color: '#807DBF',
+            },
+
+        },
+        xAxis: [
+            {
+                type: 'category',
+                position: 'bottom',
+                boundaryGap: true,
+                axisTick: {onGap: false},
+                splitLine: {show: false},
+                data: axisData,
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#807DBF',
+                    }
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                scale: true,
+                splitNumber: 3,
+                boundaryGap: [0.05, 0.05],
+                axisLabel: {
+                    formatter: function (v) {
+                        return Math.round(v / 10000) + ' 万'
+                    }
+                },
+                splitArea: {show: true},
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#807DBF',
+                    }
+                }
+            }
+        ],
+        series: [
+            {
+                name: '虚拟资本变动情况',
+                type: 'line',
+                symbol: 'none',
+                data: accountRange,
+                markLine: {
+                    symbol: 'none',
+                    itemStyle: {
+                        normal: {
+                            color: '#807DBF',
+                            label: {
+                                show: false
+                            }
+                        }
+                    },
+                    data: [
+                        {type: 'max',
+                            name: '最大'}
+                    ]
+                },
+                itemStyle: {normal: {color:'#0072E3', label:{show:true}}},//'#0072E3'
+            },
+        ]
+    };
+    myChart2.setOption(option2,true);
+
+
+
+    myChart4 = echarts.init(document.getElementById('main4'),'macarons');
+
+    var option4 = {
+        title : {
+            text: '　买入卖出行为分布',
+            x:'center',
+            y:'top'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 0,
+            y: 40,
+            data: ['买入次数','卖出次数']
+        },
+        series : [
+            {
+                name: '买入指标分布',
+                type: 'pie',
+                radius : '55%',
+                center: ['55%', '55%'],
+                data:[
+                    {value:cnt1, name:"买入次数"},
+                    {value:cnt2, name:"卖出次数"},
+                ],
+                itemStyle: {
+                    normal : {
+                        label : {
+                            show : false
+                        },
+                        labelLine : {
+                            show : false
+                        }
+                    },
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    myChart4.setOption(option4);
+    setTimeout(function () {
+        window.onresize = function () {
+            myChart4.resize();
+        }
+    }, 200);
+    
+}
+
+
 
 var newFormContent;
 
@@ -164,19 +427,6 @@ function multiPredictTriggered(){//假定是kdj和rsi
             console.log(selectContent[i].value);
         }
     }
-
-    // newFormContent=document.forms[0].checkbox_1;
-    // console.log(newFormContent);
-    //
-    // for(i=0;i<=3;i++){
-    //     KType[i]="";
-    //     if(newFormContent[i].checked) {
-    //         KType[i]=newFormContent[i].value;
-    //         console.log(newFormContent[i].value);
-    //     }
-    // }
-
-    // var KType=['RSI','KDJ','',''];
     var shortLine=[];
     var longLine=[];
     var stasticsNum=0;
@@ -202,10 +452,6 @@ function multiPredictTriggered(){//假定是kdj和rsi
 
     }
     }
-
-    // console.log(shortLine);
-    // console.log(longLine);
-
     //每次买卖行为至少100股
     var account=10000;
     var accountRange=[];

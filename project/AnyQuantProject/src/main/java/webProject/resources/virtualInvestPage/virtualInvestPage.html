@@ -225,9 +225,12 @@
                                                <li class="active" ><a href="#chart1" role="tab" data-toggle="tab"><i class="fa fa-area-chart"></i> 交叉点策略 </a></li>
                                                <li><a href="#chart2" role="tab" data-toggle="tab"><i class="fa fa-bar-chart"></i> 自定义策略 </a></li>
                                            </ul>
+
                                            <div class="tab-content">
                                                <div class="tab-pane fade in active" id="chart1">
                                                    <p>您将可以组合交叉点策略,买入点为黄金交叉点,卖出点为死亡交叉点</p>
+
+
                                                    <div class="row" style="margin-top: 40px;">
                                                        <div class="col-lg-4">
                                                        </div>
@@ -236,7 +239,6 @@
                                                        </div>
                                                        <div class="col-lg-4">
                                                        </div>
-
                                                    </div>
                                                    <select multiple name="selectList" id="selecter" class="select2 select2-multiple">
                                                        <optgroup label="MACD指标">
@@ -252,52 +254,16 @@
                                                            <option value="KDJ">KDJ交叉点</option>
                                                        </optgroup>
                                                    </select>
-                                                   <!--<div class="row">-->
-                                                       <!--<div class="col-lg-1">-->
-                                                       <!--</div>-->
-                                                       <!--<div class="col-lg-4">-->
-                                                           <!--<form>-->
-                                                               <!--<div>-->
-                                                                   <!--<input id="checkbox-1" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="BIAS" type="checkbox" checked>-->
-                                                                   <!--<label for="checkbox-1" class="checkbox-custom-label">BIAS</label>-->
-                                                               <!--</div>-->
-                                                               <!--<div>-->
-                                                                   <!--<input id="checkbox-2" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="MACD" type="checkbox">-->
-                                                                   <!--<label for="checkbox-2" class="checkbox-custom-label">MACD</label>-->
-                                                               <!--</div>-->
-                                                               <!--<div>-->
-                                                                   <!--<input id="checkbox-3"  style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="KDJ" type="checkbox">-->
-                                                                   <!--<label for="checkbox-3"class="checkbox-custom-label">KDJ</label>-->
-                                                               <!--</div>-->
-                                                               <!--<div>-->
-                                                                   <!--<input id="checkbox-4" style="opacity: 0" class="checkbox-custom" name="checkbox_1" value="RSI" type="checkbox">-->
-                                                                   <!--<label for="checkbox-4"class="checkbox-custom-label">RSI</label>-->
-                                                               <!--</div>-->
-                                                           <!--</form>-->
-                                                       <!--</div>-->
-                                                       <!--<div class="col-lg-4">-->
-                                                           <!--<table>-->
-                                                               <!--<tr>-->
-                                                                   <!--<td>-->
-
-                                                                   <!--</td>-->
-                                                               <!--</tr>-->
-                                                           <!--</table>-->
-                                                       <!--</div>-->
-                                                   <!--</div>-->
                                                    <div class="row" style="margin-top: 30px;">
                                                        <table border="0" WIDTH="100%" >
                                                            <tr>
                                                                <td width="30%">
                                                                </td>
                                                                <td>
-                                                                   <div class='button -border  center' onclick="multiPredictTriggered()"><a href="#main4">确定</a></div>
+                                                                   <div class='button -border  center' onclick="multiPredictTriggered()"><a href="#anchor" style="width: 100%;height: 100%;">确定</a></div>
                                                                <td>
                                                                <td>
                                                                </td>
-                                                               <!--<td>-->
-                                                                   <!--<div class='button -border  center' onclick="cleanPredictItem()">清除</a></div>-->
-                                                               <!--<td>-->
                                                                <td>
                                                                </td>
                                                                <td>
@@ -312,44 +278,57 @@
                                                <div class="tab-pane fade" id="chart2">
                                                    <p>您可以根据自己的需求选区策略曲线并且进行买卖点选择</p>
                                                    <div class="row" style="margin-top: 40px;">
-                                                       <!--<div class="col-lg-10">-->
-                                                       <table width="100%">
-                                                           <tr>
-                                                               <td style="width: 1%"></td>
-                                                           <td style="width: 45%">
-                                                            <div class="radioholder">
-                                                               <input type="radio" name="projecttype" value="BIAS" id="pt_bias" checked>
-                                                               <label for="pt_bias">BIAS</label>
-                                                            </div>
-                                                           </td>
-                                                               <td style="width: 45%">
-                                                   <div class="radioholder">
-                                                       <input type="radio" name="projecttype" value="KDJ" id="pt_kdj">
-                                                       <label for="pt_kdj">KDJ</label>
-                                                   </div>
-                                                               </td>
-                                                               <td style="width: 9%"></td>
+                                                       <div class="col-lg-3"></div>
+                                                       <div class="col-lg-6">
+                                                       <div class="dropp">
+                                                           <div class="dropp-header">
+                                                               <span class="dropp-header__title js-value">策略选择</span>
+                                                               <a href="#" class="dropp-header__btn js-dropp-action"><i class="icon"></i></a>
+                                                           </div>
+                                                           <div class="dropp-body">
+                                                               <label for="pt_bias">BIAS<input type="radio" id="pt_bias" name="dropp" value="BIAS"/></label>
+                                                               <label for="pt_rsi">RSI<input type="radio" id="pt_rsi" name="dropp" value="RSI"/></label>
+                                                               <label for="pt_macd">MACD<input type="radio" id="pt_macd" name="dropp" value="MACD"/></label>
+                                                               <label for="pt_kdj">KDJ<input type="radio" id="pt_kdj" name="dropp" value="KDJ"/></label>
+                                                           </div>
+                                                       </div>
+                                                       <!--<table width="100%">-->
+                                                           <!--<tr>-->
+                                                               <!--<td style="width: 1%"></td>-->
+                                                           <!--<td style="width: 45%">-->
+                                                            <!--<div class="radioholder">-->
+                                                               <!--<input type="radio" name="projecttype" value="BIAS" id="pt_bias" checked>-->
+                                                               <!--<label for="pt_bias">BIAS</label>-->
+                                                            <!--</div>-->
+                                                           <!--</td>-->
+                                                               <!--<td style="width: 45%">-->
+                                                   <!--<div class="radioholder">-->
+                                                       <!--<input type="radio" name="projecttype" value="KDJ" id="pt_kdj">-->
+                                                       <!--<label for="pt_kdj">KDJ</label>-->
+                                                   <!--</div>-->
+                                                               <!--</td>-->
+                                                               <!--<td style="width: 9%"></td>-->
 
-                                                               </tr>
-                                                           <tr>
-                                                               <td></td>
-                                                               <td>
-                                                   <div class="radioholder">
-                                                       <input type="radio" name="projecttype" value="MACD" id="pt_macd">
-                                                       <label for="pt_macd">MACD</label>
-                                                   </div>
-                                                               </td>
-                                                               <td>
-                                                                   <div class="radioholder">
-                                                                       <input type="radio" name="projecttype" value="RSI" id="pt_rsi">
-                                                                       <label for="pt_rsi">RSI</label>
-                                                                   </div>
-                                                               </td>
-                                                               <td></td>
-                                                           </tr>
-                                                           </table>
-                                                           <!--</div>-->
-                                                       <div class="col-lg-1"></div>
+                                                               <!--</tr>-->
+                                                           <!--<tr>-->
+                                                               <!--<td></td>-->
+                                                               <!--<td>-->
+                                                   <!--<div class="radioholder">-->
+                                                       <!--<input type="radio" name="projecttype" value="MACD" id="pt_macd">-->
+                                                       <!--<label for="pt_macd">MACD</label>-->
+                                                   <!--</div>-->
+                                                               <!--</td>-->
+                                                               <!--<td>-->
+                                                                   <!--<div class="radioholder">-->
+                                                                       <!--<input type="radio" name="projecttype" value="RSI" id="pt_rsi">-->
+                                                                       <!--<label for="pt_rsi">RSI</label>-->
+                                                                   <!--</div>-->
+                                                               <!--</td>-->
+                                                               <!--<td></td>-->
+                                                           <!--</tr>-->
+                                                           <!--</table>-->
+                                                           </div>
+                                                       <div class="col-lg-3"></div>
                                                </div>
                                                 <div class="row">
                                                         <h4 align="center">自定义买卖点</h4>
@@ -358,17 +337,37 @@
                                                             <td width="10%"></td>
                                                             <td width="45%">
                                                         <label>买入点(日涨幅: 格式如10%)</label>
-                                                        <input style="height: 45px; " value=""/>
+                                                        <input style="height: 45px; " id="buyStd" value=""/>
                                                             </td>
                                                             <td width="1%"></td>
                                                             <td width="45%">
                                                         <label>卖出点(日跌幅: 格式如-10%)</label>
-                                                        <input value="" style="height: 45px; "/>
+                                                        <input value=""  id="sellStd" style="height: 45px; "/>
                                                             </td>
                                                             <td width="8%"></td>
                                                         </tr>
                                                     </table>
                                                 </div>
+                                                   <div class="row" style="margin-top: 30px;">
+                                                       <table border="0" WIDTH="100%" >
+                                                           <tr>
+                                                               <td width="30%">
+                                                               </td>
+                                                               <td>
+                                                                   <div class='button -border  center' onclick="newStrategy()"><a href="#anchor" style="width: 100%;height: 100%;">确定</a></div>
+                                                               <td>
+                                                               <td>
+                                                               </td>
+                                                               <td>
+                                                               </td>
+                                                               <td>
+                                                                   <div class='button -border  center'  onclick="savePredictItem()">保存</a></div>
+                                                               </td>
+                                                               <td width="30%">
+                                                               </td>
+                                                           </tr>
+                                                       </table>
+                                                   </div>
                                            </div>
                                        </div>
                                    </div>
@@ -529,7 +528,7 @@
 <!-- /wrapper -->
 
 <!-- FOOTER -->
-<footer class="footer" style="opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
+<footer id="anchor" class="footer" style="opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
     <div class="g-ft" style="text-align: center ;">
                     <span class="m-ft2" >
                         <a target="_blank"  rel="nofollow" href="javascript:void(0);" style="color: #EBEBEB">关于我们</a> <span>&nbsp;|</span>
@@ -635,6 +634,30 @@
 
     });
 </script>
+<script>
+    $(document).ready(function() {
+
+        // Default dropdown action to show/hide dropdown content
+        $('.js-dropp-action').click(function(e) {
+            e.preventDefault();
+            $(this).toggleClass('js-open');
+            $(this).parent().next('.dropp-body').toggleClass('js-open');
+        });
+
+        // Using as fake input select dropdown
+        $('label').click(function() {
+            $(this).addClass('js-open').siblings().removeClass('js-open');
+            $('.dropp-body,.js-dropp-action').removeClass('js-open');
+        });
+        // get the value of checked input radio and display as dropp title
+        $('input[name="dropp"]').change(function() {
+            var value = $("input[name='dropp']:checked").val();
+            $('.js-value').text(value);
+        });
+
+    });
+</script>
+
 
 </body>
 
