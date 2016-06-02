@@ -90,7 +90,7 @@ function execOperation($connection, $stmt)
         return json_encode(array("operation"=>"failed for: ".$e->getMessage()));
     }
 
-    return json_encode(array("operation"=>"success:)"));
+    return json_encode(array("operation"=>"success"));
 }
 
 

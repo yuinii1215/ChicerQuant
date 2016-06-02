@@ -13,6 +13,7 @@ header("Content-Type: text/plain");
 require_once('ajaxService.php');
 require_once('favorstockService.php');
 require_once('loginService.php');
+require_once('strategy/strategyService.php');
 $data = file_get_contents("php://input");
 
 $objData = json_decode($data);
@@ -153,6 +154,24 @@ switch ($method)
         break;
     case "getMyStrategyDataService":
         getMyStrategyDataService($objData->name,$objData->startdate,$objData->enddate);
+        break;
+    case "saveCrossStrategyService":
+        saveCrossStrategyService($objData->username,$objData->strategyname,$objData->crossstr);
+        break;
+    case "getCrossStrategyService":
+        getCrossStrategyService($objData->username);
+        break;
+    case "saveCustomStrategyService":
+        saveCustomStrategyService($objData->username,$objData->strategyname,$objData->type,$objData->buyposint,$objData->sellpoint);
+        break;
+    case "getCustomStrategyService":
+        getCustomStrategyService($objData->username);
+        break;
+    case "delCrossStrategyService":
+        delCrossStrategyService($objData->username,$objData->strategyname);
+        break;
+    case "delCustomStrategyService":
+        delCustomStrategyService($objData->username,$objData->strategyname);
         break;
     default :
         echo json_encode("no such method");
