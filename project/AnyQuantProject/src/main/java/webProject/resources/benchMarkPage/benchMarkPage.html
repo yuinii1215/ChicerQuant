@@ -17,6 +17,7 @@
     <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../css/main.css" rel="stylesheet" type="text/css">
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
+    <link href="../css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
     <!--headerjs-->
     <script src="../js/jquery/jquery-2.1.0.min.js"></script>
@@ -232,12 +233,12 @@
                     </div>
 
                     <!-- main -->
-                    <div class="content">
+                    <div class="content" id="app2" ng-app="benchMarkApp" ng-controller="benchMarkCtrl">
                         <div class="main-header">
                             <h2>大盘</h2>
                             <em>the least information</em>
                         </div>
-                        <div class="main-content" id="app2" ng-app="benchMarkApp" ng-controller="benchMarkCtrl">
+                        <div class="main-content" >
                             <!--row example-->
                             <div class="row">
                                 <!--row1-->
@@ -304,6 +305,24 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-table"></i>table</h3> <em>- benchmark data</em>
+                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content">
+                                    <table id="table" class="display" width="100%">
+                                    </table>
+                                </div>
+
                             </div>
                         </div>
                         <!-- /main-content -->
@@ -400,13 +419,17 @@
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/modernizr/modernizr.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+<script src="../js/jquery/jquery.dataTables.min.js"></script>
 <script src="../js/king-common.js"></script>
+<script src="../js/king-table.js"></script>
+<script src="../js/king-components.js"></script>
 <script src="../js/echart/echarts.js"></script>
 <script src="../js/deliswitch.js"></script>
 <script src="../js/zerif.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../benchMarkPage/js/kLineChart.js"></script>
 <script src="../js/search.js"></script>
+
 </body>
 
 </html>

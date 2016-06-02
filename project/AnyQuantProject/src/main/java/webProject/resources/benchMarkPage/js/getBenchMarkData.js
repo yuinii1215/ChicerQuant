@@ -1,6 +1,7 @@
 var app = angular.module('benchMarkApp', []);
 app.controller('benchMarkCtrl', function ($scope, $http) {
 
+    var array=new Array();
     var benchMark=[];
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
     var startdate="2015-10-01";
@@ -41,7 +42,53 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
             $scope.error = false;
             $scope.data = data;
             $scope.benchMarkInfo =data;
-     //       console.log( $scope.benchMark);
+
+
+        //table
+        var count=0;
+        var color=[];
+        for(var item in $scope.benchMarkInfo) {
+            count++;
+        }
+        for(var item in  $scope.benchMarkInfo) {
+            if (item < count-1) {
+                array[item] = new Array;
+
+                array[item][0] = $scope.benchMarkInfo[item].date;
+                array[item][1] = $scope.benchMarkInfo[item].open;
+                array[item][2] = $scope.benchMarkInfo[item].high;
+                array[item][3] = $scope.benchMarkInfo[item].low;
+                array[item][4] = $scope.benchMarkInfo[item].close;
+                array[item][5] = $scope.benchMarkInfo[item].volumn;
+                array[item][6] = $scope.benchMarkInfo[item].adj_price;
+              //  color[item]=$scope.benchMarkInfo[item].color;
+            }
+        }
+        var dataSet = array;
+        var colorSet =color;
+        var i=0;
+
+        $(document).ready(function () {
+            $('#table').DataTable({
+                data: dataSet,
+                "createdRow": function ( row) {
+                    $('td', row).eq(3).css( "color", "green");
+                    $('td', row).eq(2).css( "color", "red");
+                 //   $('td', row).eq(1).css("color", colorSet[i]);
+                    i++;
+                },
+                columns: [
+                    {title: "日期"},
+                    {title: "开盘价"},
+                    {title: "最高价"},
+                    {title: "最低价"},
+                    {title: "收盘价"},
+                    {title: "成交量"},
+                    {title: "后复权价"}
+                ]
+            });});
+
+
 
         })
         .error(function (data) {

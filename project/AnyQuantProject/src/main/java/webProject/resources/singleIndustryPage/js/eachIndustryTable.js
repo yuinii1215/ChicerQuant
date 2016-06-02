@@ -99,11 +99,11 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
                 $scope.status = status;
                 $scope.data = data;
                 $scope.singleStock=data;
-                var temp  =Object.keys($scope.singleStock);
-        //        console.log( $scope.singleStock);
-         //       console.log(temp.length);
+                var temp  =Object.keys($scope.singleStock[0]);
+           //     console.log( $scope.singleStock);
+          //     console.log(temp.length);
 
-                if(temp.length==2) {
+                if(temp.length>2) {
                     array[count + 1] = new Array;
                     array[count + 1][0] = stockName;
                     array[count + 1][1] = $scope.singleStock[0].stock_name;

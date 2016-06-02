@@ -8,6 +8,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
     var index=0;
     var count=-1;
+    var countOther=0;
     var industryDetail=[];
     var length=0;
     var array=new Array();
@@ -27,16 +28,12 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
                 if (item < length-1) {
                     $scope.allIndustryName[item] = $scope.industrys[item].industry;
             //        document.write( $scope.industrys[item].industry);
-                    getIndustryPure($scope.industrys[item].industry,item)
+                    getIndustryPure($scope.industrys[item].industry,item);
                   //  document.write(getIndustryPure($scope.industrys[item].industry,item));
               //      console.log( $scope.industryPure[item]);
                     industryToTable($scope.industrys[item].industry);
                 }
             }
-
-       //     console.log(alert( $scope.industryPure));
-       //     console.log( $scope.table);
-         //   $('#allIndustryTable').html(($('#allIndustryTable').html()+ $scope.table));
 
         })
         .error(function (data) {
@@ -127,6 +124,13 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
             var updowns = $scope.industryDetail[0].updown * 100;
             var leaderUpdowns = $scope.industryDetail[0].leaderUpdown * 100;
 
+            var temp  =Object.keys(  $scope.industryDetail[0] );
+            //        console.log( $scope.singleStock);
+            //       console.log(temp.length);
+
+            console.log(   $scope.industryDetail);
+
+            if(temp.length>2) {
 
                 array[count+1]=new Array;
                 array[count+1][0]=$scope.industryDetail[0].industry_name;
@@ -148,11 +152,13 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
              + pures.toFixed(4) + "\",\"" + $scope.industryDetail[0].companySum + "\",\"" + $scope.industryDetail[0].leaderName + "\",\""
              + $scope.industryDetail[0].leader + "\",\"" + leaderUpdowns.toFixed(4) + "%" + "\",\"" + $scope.industryDetail[0].leaderPrice + "\"]" + "]";
              */
-            count++;
-            if (count == length-2) {
-                 count = 0;
+                count++;
+            }else{
+                countOther++;
+            }
+            if((count+countOther)==length-2){
+                count = 0;
                 var dataSet =array;
-
                 $(document).ready(function() {
                     var selected = [];
                     $('#table').DataTable( {

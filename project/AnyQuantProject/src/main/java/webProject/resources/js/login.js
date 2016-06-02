@@ -1,4 +1,5 @@
 window.onload=function() {
+
     var pop=document.getElementById("pop");
     $("#pop").css({ "width": "100%", "height": $(document).height() });
     var loginContainer=document.getElementById("loginContainer");
@@ -9,11 +10,15 @@ window.onload=function() {
     sign_button.onclick=function() {
         pop.style.display="block";
         signInUp.style.display="block";
+        $('#signInUp').fadeIn();
     }
     back_button.onclick=function() {
         pop.style.display="none";
         signInUp.style.display="none";
     }
+
+
+
 }
 
 //建立与"myApp"标识的 ng-app 的联系
@@ -50,6 +55,7 @@ app.controller("loginCtrl", function ($scope, $http) {
                         localStorage.userName=userName;
                         enterSuccess();
                     } else {
+                        console.log("not success");
                                 $.extend($.gritter.options, {
                                     time: 1500,
                                 });
@@ -65,7 +71,7 @@ app.controller("loginCtrl", function ($scope, $http) {
                                         text: "您好！" + "</br>" + "帐号不存在/密码错误,请重试",
                                     });
 
-                    //    alert("帐号不存在/密码错误,请重试");
+                        alert("帐号不存在/密码错误,请重试");
                     }
                 }else {
                    $.extend($.gritter.options, {
@@ -82,7 +88,7 @@ app.controller("loginCtrl", function ($scope, $http) {
                        title: $(this).find('span.title').text(), // could be simpler, just for demo purposes
                        text: "您好！" + "</br>" + "登录请求失败,请重试",
                    });
-               //    alert("登录请求失败,请重试");
+                   alert("登录请求失败,请重试");
                }
                 });
 
@@ -117,7 +123,7 @@ app.controller("loginCtrl", function ($scope, $http) {
                             title: $(this).find('span.title').text(), // could be simpler, just for demo purposes
                             text: "感谢注册本网站！" + "</br>" + "您已经注册成功,请返回登录",
                         });
-                   //  alert("您已经注册成功,请返回登录");
+                     alert("您已经注册成功,请返回登录");
 
                         //删除用户的方法
                         //$http.post($scope.url, {
@@ -143,7 +149,7 @@ app.controller("loginCtrl", function ($scope, $http) {
                             title: $(this).find('span.title').text(), // could be simpler, just for demo purposes
                             text: "您好！" + "</br>" + "该用户已存在，请重试",
                         });
-              //       alert("注册失败,请重试");
+                     alert("注册失败,请重试");
                     }
                 });
 
