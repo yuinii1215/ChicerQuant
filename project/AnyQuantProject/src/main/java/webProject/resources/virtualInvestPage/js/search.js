@@ -65,6 +65,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             var content=data;
             $scope.result=content[19];
             $scope.stockName=$scope.result.stock_name;
+            $scope.boardData=data[0];
         })
         .error(function (data, status) {
             $scope.data = data || "Request failed";
@@ -73,7 +74,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
 
 
    $scope.changeStock=function(){
-       $scope.stockID=document.getElementById('stockValue').value;
+       $scope.stockID=document.getElementById('newStock').value;
         $http.post($scope.url, {// function getDayLineService($name, $startdate, $enddate){
             "startdate": "2016-01-01",
             "enddate": currentDate,
@@ -83,6 +84,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.status = status;
             $scope.data = data;
             $scope.dayKLineResult = data;
+            $scope.boardData=data[0];
             newStock();
         })
             .error(function (data, status) {

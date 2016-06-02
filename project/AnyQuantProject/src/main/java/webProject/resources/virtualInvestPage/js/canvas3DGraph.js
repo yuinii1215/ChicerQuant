@@ -249,20 +249,20 @@ canvasGraph.prototype.drawInfo=function(){
 
     this.infoElm=document.getElementById('gInfo');
 
-    this.infoElm.innerHTML='<div id="y-label">盈利情况:4000元分割线</div>';
-    this.infoElm.innerHTML+='<div id="x-label">黄金交叉</div>';
-    this.infoElm.innerHTML+='<div id="z-label">死亡交叉</div>';
+    this.infoElm.innerHTML='<div id="y-label"><font color="white">盈利情况:4000元分割线</font></div>';
+    this.infoElm.innerHTML+='<div id="x-label"><font color="white">黄金交叉</font></div>';
+    this.infoElm.innerHTML+='<div id="z-label"><font color="white">死亡交叉</font></div>';
 
 
 
-    this.infoElm.innerHTML+='<div id="t-001" class="gText">kdj</div>';
-    this.infoElm.innerHTML+='<div id="t-002" class="gText">macd</div>';
-    this.infoElm.innerHTML+='<div id="t-003" class="gText">rsi</div>';
-    this.infoElm.innerHTML+='<div id="t-004" class="gText">bias</div>';
-    this.infoElm.innerHTML+='<div id="t-005" class="gText">kdj</div>';
-    this.infoElm.innerHTML+='<div id="t-006" class="gText">macd</div>';
-    this.infoElm.innerHTML+='<div id="t-007" class="gText">rsi</div>';
-    this.infoElm.innerHTML+='<div id="t-008" class="gText">bias</div>';
+    this.infoElm.innerHTML+='<div id="t-001" class="gText"><font color="white">kdj</font></div>';
+    this.infoElm.innerHTML+='<div id="t-002" class="gText"><font color="white">macd</font></div>';
+    this.infoElm.innerHTML+='<div id="t-003" class="gText"><font color="white">rsi</font></div>';
+    this.infoElm.innerHTML+='<div id="t-004" class="gText"><font color="white">bias</font></div>';
+    this.infoElm.innerHTML+='<div id="t-005" class="gText"><font color="white">kdj</font></div>';
+    this.infoElm.innerHTML+='<div id="t-006" class="gText"><font color="white">macd</font></div>';
+    this.infoElm.innerHTML+='<div id="t-007" class="gText"><font color="white">rsi</font></div>';
+    this.infoElm.innerHTML+='<div id="t-008" class="gText"><font color="white">bias</font></div>';
 
     this.infoElm=document.getElementById('t-001').style.top='270px';
     this.infoElm=document.getElementById('t-001').style.left='100px';
