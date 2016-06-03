@@ -192,7 +192,7 @@ function tabChanged(KType){
     chartLine3_Data = chart3Data_BIAS24;
 
     var data0 = splitData(array);
-    console.log(data0);
+    //console.log(data0);
 
     function splitData(rawData) {
         var categoryData = [];

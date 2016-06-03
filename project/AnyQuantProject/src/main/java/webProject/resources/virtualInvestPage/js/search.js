@@ -65,6 +65,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             var content=data;
             $scope.result=content[19];
             $scope.stockName=$scope.result.stock_name;
+            $scope.boardData=data[0];
         })
         .error(function (data, status) {
             $scope.data = data || "Request failed";
@@ -73,7 +74,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
 
 
    $scope.changeStock=function(){
-       $scope.stockID=document.getElementById('stockValue').value;
+       $scope.stockID=document.getElementById('newStock').value;
         $http.post($scope.url, {// function getDayLineService($name, $startdate, $enddate){
             "startdate": "2016-01-01",
             "enddate": currentDate,
@@ -83,6 +84,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.status = status;
             $scope.data = data;
             $scope.dayKLineResult = data;
+            $scope.boardData=data[0];
             newStock();
         })
             .error(function (data, status) {
@@ -90,8 +92,49 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 $scope.status = status;
             });
     }
+    var newStr_Name;
+   $scope.saveCrossStr=function(newStrName){
+       // case "saveCrossStrategyService":
+       // saveCrossStrategyService($objData->username,$objData->strategyname,$objData->crossstr);
+       // break;
+      var crossStrName=KType[0]+"&"+KType[1]+"&"+KType[2]+"&"+KType[3];
+      newStr_Name=newStrName;
 
-
+       $http.post($scope.url, {
+           "username": localStorage.userName,
+           "strategyname": newStr_Name ,
+           "crossstr": crossStrName,
+           "method": "saveCrossStrategyService"
+       }).success(function (data, status) {
+           console.log(status);
+       })
+           .error(function (data, status) {
+               $scope.data = data || "Request failed";
+               $scope.status = status;
+           });
+   }
+    
+    $scope.saveCustomerStr=function(newStrName){
+        // case "saveCustomStrategyService":
+        // saveCustomStrategyService($objData->username,$objData->strategyname,$objData->type,$objData->buyposint,$objData->sellpoint);
+        // break;
+        newStr_Name=newStrName;
+        $http.post($scope.url, {
+            "username": localStorage.userName,
+            "strategyname": newStr_Name ,
+            "type":newType,
+            "buypoint":buyStd,
+            "sellpoint":sellStd,
+            "method": "saveCustomStrategyService"
+        }).success(function (data, status) {
+            console.log(data);
+            console.log(status);
+        })
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+    }
 
     d=new Date();
     d.setDate(d.getDate()-200);

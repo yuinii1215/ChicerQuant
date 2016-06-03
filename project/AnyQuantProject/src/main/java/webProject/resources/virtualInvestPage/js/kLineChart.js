@@ -50,6 +50,21 @@ var chartLine2_Data;
 var chartLine3_Data;
 var echarts;
 
+
+
+
+function sleep(numberMillis,nextID) {
+    var now = new Date();
+    var exitTime = now.getTime() + numberMillis;
+    while (true) {
+        now = new Date();
+        if (now.getTime() > exitTime) {
+            window.location.href = nextID;
+            return;
+        }
+}
+}
+
 function toPoint(percent){
     var str=percent.replace("%","");
     str= str/100;
@@ -57,7 +72,7 @@ function toPoint(percent){
 }
 
 function checkBoxChanged(){
-    lineName=document.forms[1].chart3Type;
+    lineName=document.forms[0].chart3Type;
     for(i=0;i<=3;i++){
        if(lineName[i].checked) {
            chart3Type=lineName.value;
@@ -120,23 +135,27 @@ function checkBoxChanged(){
 
 }
 
-function newStrategy(){
-    if($(".plus-vert").hasClass("quit")){
-        $(".plus-vert").removeClass("quit");
-        $(".plus-vert-curtain").removeClass("full-deployed").addClass("semi-deployed");
-    } else {
-        $(".plus-vert").addClass("quit");
-        $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
-    }
+var newType;
+var buyStd;
+var sellStd;
 
+
+
+
+function newStrategy(){
+    // if($(".plus-vert").hasClass("quit")){
+    //     $(".plus-vert").removeClass("quit");
+    //     $(".plus-vert-curtain").removeClass("full-deployed").addClass("semi-deployed");
+    // } else {
+    //     $(".plus-vert").addClass("quit");
+    //     $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
+    // }
+    // var newType;
     var temp=[];
     temp[0]=document.getElementById("pt_bias");
     temp[1]=document.getElementById("pt_rsi");
     temp[2]=document.getElementById("pt_kdj");
     temp[3]=document.getElementById("pt_macd");
-    var newType;
-
-
     for(var i=0;i<4;i++){
     if(temp[i].checked){
     newType=temp[i].value;
@@ -161,8 +180,8 @@ function newStrategy(){
         }
     }
 
-    var buyStd=document.getElementById("buyStd").value;
-    var sellStd=document.getElementById("sellStd").value;
+    buyStd=document.getElementById("buyStd").value;
+    sellStd=document.getElementById("sellStd").value;
 
     buyStd=toPoint(buyStd);
     sellStd=toPoint(sellStd);
@@ -190,10 +209,10 @@ function newStrategy(){
         if(item>=1){
             var gap=customerStrData[item]-customerStrData[item-1];
 
-            if(gap>customerStrData[item-1]*buyflag){
+            if(gap>customerStrData[item-1]*buyStd){
                 buyflag=true;
             }
-            if(gap<customerStrData[item-1]*buyflag){
+            if(gap<customerStrData[item-1]*sellStd){
                 sellflag=true;
             }
         }
@@ -406,7 +425,7 @@ function newStrategy(){
 
 
 var newFormContent;
-
+var KType;
 function multiPredictTriggered(){//假定是kdj和rsi
     if($(".plus-vert").hasClass("quit")){
         $(".plus-vert").removeClass("quit");
@@ -417,7 +436,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
     }
 
 
-    var KType=['','','',''];
+    KType=['','','',''];
 
     var selectContent=document.getElementById("selecter").options;
     var cnt=0;
@@ -576,7 +595,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
     var newLegend= {
         data: [newOption.legend.data[0],'买入点','卖出点'],
         textStyle: {
-            color: '#000000',
+            color: '#ffffff'
         },
         x: 'left',
         y: 'top',
@@ -620,7 +639,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
             x: 100,
             y: 20,
             textStyle: {
-                color: '#807DBF',
+                color: '#ffffff',
             },
 
         },
@@ -641,7 +660,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#807DBF',
+                        color: '#ffffff',
                     }
                 }
             }
@@ -661,7 +680,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#807DBF',
+                        color: '#ffffff',
                     }
                 }
             }
@@ -711,6 +730,9 @@ function multiPredictTriggered(){//假定是kdj和rsi
             orient: 'vertical',
             x: 0,
             y: 100,
+            textStyle:{
+              color:"#ffffff"
+            },
             data: fullStastics
         },
         series : [
@@ -756,6 +778,9 @@ function multiPredictTriggered(){//假定是kdj和rsi
             orient: 'vertical',
             x: 0,
             y: 100,
+            textStyle:{
+                color:"#ffffff"
+            },
             data: fullStastics
         },
         series : [
@@ -858,8 +883,6 @@ function multiFactorAnova(){
     gData.sort(sortNumByZ);
     g.drawGraph(gData);
     // g.drawPoint(gData);
-
-   
 
     //two way anova calcu,have been tested to be correct
     var A1B=profit[0];
@@ -1371,9 +1394,9 @@ function newStock() {
             legend: {
                 data: ['收盘价'],
                 textStyle: {
-                    color: '#000000',
+                    color: '#ffffff',
                 },
-                x: 'left',               // 水平安放位置，默认为全图居中，可选为：
+                x: 'center',               // 水平安放位置，默认为全图居中，可选为：
                 // ¦ {number}（x坐标，单位px）
                 y: 'top',
 
@@ -1401,7 +1424,7 @@ function newStock() {
                     axisLabel: {
                         show: true,
                         textStyle: {
-                            color: '#000000',
+                            color: '#ffffff',
                         }
                     }
                 }
@@ -1415,7 +1438,7 @@ function newStock() {
                     axisLabel: {
                         show: true,
                         textStyle: {
-                            color: '#000000',
+                            color: '#ffffff',
                         }
                     }
                 }
@@ -1426,7 +1449,7 @@ function newStock() {
                     type: 'line',
                     symbol: 'none',
                     data:  chart1Data,
-                    itemStyle: {normal: {color:'#ae0000', label:{show:false}}}
+                    itemStyle: {normal: {color:'#ffffff', label:{show:false}}}
                 }
 
             ]
@@ -1439,8 +1462,11 @@ function newStock() {
             },
             legend: {
                 data: [ chartLine1,  chartLine2,  chartLine3],
-                x: 100,
-                y: 20
+                x: 'center',
+                y: 20,
+                textStyle: {
+                    color: '#ffffff',
+                }
             },
             grid: {
                 // x: "10%",
@@ -1449,19 +1475,6 @@ function newStock() {
                 // x2:"10%",
                 // y2: "20%"
             },
-            // dataZoom: {
-            //     y: 200,
-            //     show: true,
-            //     realtime: true,
-            //     start: 50,
-            //     end: 100
-            // },
-            // grid: {
-            //     x: 80,
-            //     y: 5,
-            //     x2: 20,
-            //     y2: 30
-            // },
             xAxis: [
                 {
                     type: 'category',
@@ -1473,7 +1486,7 @@ function newStock() {
                     axisLabel: {
                         show: true,
                         textStyle: {
-                            color: '#000000',
+                            color: '#ffffff',
                         }
                     }
                 }
@@ -1493,7 +1506,7 @@ function newStock() {
                     axisLabel: {
                         show: true,
                         textStyle: {
-                            color: '#000000',
+                            color: '#ffffff',
                         }
                     }
                 }
@@ -1508,7 +1521,7 @@ function newStock() {
                         symbol: 'none',
                         itemStyle: {
                             normal: {
-                                color: '#000000',
+                                color: '#ffffff',
                                 label: {
                                     show: false
                                 }
@@ -1529,7 +1542,7 @@ function newStock() {
                         symbol: 'none',
                         itemStyle: {
                             normal: {
-                                color: '#000000',
+                                color: '#ffffff',
                                 label: {
                                     show: false
                                 }
@@ -1550,7 +1563,7 @@ function newStock() {
                         symbol: 'none',
                         itemStyle: {
                             normal: {
-                                color: '#000000',
+                                color: '#ffffff',
                                 label: {
                                     show: false
                                 }

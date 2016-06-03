@@ -31,7 +31,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         $scope.data = data;
         $scope.tableData =data;
 
-        //console.log($scope.tableData);
+  //      console.log($scope.tableData);
         var array=new Array();
         var count=0;
         var tableData=[];
@@ -39,6 +39,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         for(var item in $scope.tableData) {
             count++;
         }
+        var color=[];
         for(var item in  $scope.tableData) {
             if (item < count-1) {
                 array[item] = new Array;
@@ -53,14 +54,25 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 array[item][6] = $scope.tableData[item].adj_price;
                 //array[item][7] = $scope.tableData[item].pe_ttm;
                 array[item][7] = $scope.tableData[item].pb;
+                color[item]=$scope.tableData[item].color;
             }
         }
 
         var dataSet = array;
+        var colorSet =color;
+        var i=0;
         $(document).ready(function () {
             var selected = [];
             $('#mytable').DataTable({
                 data: dataSet,
+                // 设置红绿
+                "createdRow": function ( row) {
+                    $('td', row).eq(3).css( "color", "green");
+                    $('td', row).eq(2).css( "color", "red");
+                    $('td', row).eq(1).css("color", colorSet[i]);
+                    i++;
+                },
+
                 columns: [
                     //{title: "股票代码"},
                     //{title: "股票简称"},
@@ -86,14 +98,19 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         "date": currentDate,
         "method": "getStockByNameService"
     }).success(function (data, status) {
-        var temp=data;
-        if(temp[0].favor) {
-            $scope.favorStateContent = "取消关注";
-        }else{
+            var temp=data;
+        if(localStorage.userName==""){
             $scope.favorStateContent = "关注";
         }
-        console.log($scope.favorStateContent);
-
+        else {
+                console.log(temp);
+                if (temp[0].favor) {
+                    $scope.favorStateContent = "取消关注";
+                } else {
+                    $scope.favorStateContent = "关注";
+                }
+                console.log($scope.favorStateContent);
+            }
        })
        .error(function (data, status) {
            $scope.data = data || "Request failed";
@@ -209,9 +226,27 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
 
     $scope.favorButtonHandle=function(){
         if($scope.favorStateContent=="关注"){
-           document.getElementById("favorState").innerText="取消关注";
-            $scope.favorStateContent="取消关注";
+            if( localStorage.userName==""){
 
+                $.extend($.gritter.options, {
+                    time: 4000,
+                });
+                // clean the wrapper position class
+                $('#gritter-notice-wrapper').attr('class', '');
+                // global setting override
+                $.extend($.gritter.options, {
+                    position: '' + $(this).attr('id') + '' // possibilities: bottom-left, bottom-right, top-left, top-right
+                });
+                $.gritter.options.position = "bottom-right";
+                $.gritter.add({
+                    title: $(this).find('span.title').text(), // could be simpler, just for demo purposes
+                    text: "您好！" + "</br>" + "请先返回主页登录",
+                });
+
+            }else {
+                document.getElementById("favorState").innerText = "取消关注";
+                $scope.favorStateContent = "取消关注";
+            }
             $http.post($scope.url, {
                 // "username": "hmy14",
                 "username": localStorage.userName,
