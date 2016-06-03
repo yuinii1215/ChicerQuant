@@ -28,7 +28,7 @@ GLOBAL STYLES
 #mainBody #basic .container{
     width:100%;
     height:100%;
-    background-image:url(https://static.pexels.com/photos/2324/skyline-buildings-new-york-skyscrapers.jpg);
+    background-image:url("../img/skyline-buildings-new-york-skyscrapers.jpg");
     background-size: 100% 99%;
     background-repeat: no-repeat;
 }
