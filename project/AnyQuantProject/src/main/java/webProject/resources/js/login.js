@@ -16,9 +16,6 @@ window.onload=function() {
         pop.style.display="none";
         signInUp.style.display="none";
     }
-
-
-
 }
 
 //建立与"myApp"标识的 ng-app 的联系

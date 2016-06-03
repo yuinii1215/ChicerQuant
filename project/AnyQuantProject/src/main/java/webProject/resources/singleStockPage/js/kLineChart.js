@@ -137,7 +137,6 @@ function tabChanged(KType){
             kchartData=$scope.monthKLineResult;
             break;
     }
-
     paint();
 }
 

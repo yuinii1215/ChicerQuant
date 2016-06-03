@@ -50,6 +50,9 @@ var chartLine2_Data;
 var chartLine3_Data;
 var echarts;
 
+
+
+
 function sleep(numberMillis,nextID) {
     var now = new Date();
     var exitTime = now.getTime() + numberMillis;
@@ -132,23 +135,27 @@ function checkBoxChanged(){
 
 }
 
-function newStrategy(){
-    if($(".plus-vert").hasClass("quit")){
-        $(".plus-vert").removeClass("quit");
-        $(".plus-vert-curtain").removeClass("full-deployed").addClass("semi-deployed");
-    } else {
-        $(".plus-vert").addClass("quit");
-        $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
-    }
+var newType;
+var buyStd;
+var sellStd;
 
+
+
+
+function newStrategy(){
+    // if($(".plus-vert").hasClass("quit")){
+    //     $(".plus-vert").removeClass("quit");
+    //     $(".plus-vert-curtain").removeClass("full-deployed").addClass("semi-deployed");
+    // } else {
+    //     $(".plus-vert").addClass("quit");
+    //     $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
+    // }
+    // var newType;
     var temp=[];
     temp[0]=document.getElementById("pt_bias");
     temp[1]=document.getElementById("pt_rsi");
     temp[2]=document.getElementById("pt_kdj");
     temp[3]=document.getElementById("pt_macd");
-    var newType;
-
-
     for(var i=0;i<4;i++){
     if(temp[i].checked){
     newType=temp[i].value;
@@ -173,8 +180,8 @@ function newStrategy(){
         }
     }
 
-    var buyStd=document.getElementById("buyStd").value;
-    var sellStd=document.getElementById("sellStd").value;
+    buyStd=document.getElementById("buyStd").value;
+    sellStd=document.getElementById("sellStd").value;
 
     buyStd=toPoint(buyStd);
     sellStd=toPoint(sellStd);
@@ -202,10 +209,10 @@ function newStrategy(){
         if(item>=1){
             var gap=customerStrData[item]-customerStrData[item-1];
 
-            if(gap>customerStrData[item-1]*buyflag){
+            if(gap>customerStrData[item-1]*buyStd){
                 buyflag=true;
             }
-            if(gap<customerStrData[item-1]*buyflag){
+            if(gap<customerStrData[item-1]*sellStd){
                 sellflag=true;
             }
         }
@@ -418,7 +425,7 @@ function newStrategy(){
 
 
 var newFormContent;
-
+var KType;
 function multiPredictTriggered(){//假定是kdj和rsi
     if($(".plus-vert").hasClass("quit")){
         $(".plus-vert").removeClass("quit");
@@ -429,7 +436,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
     }
 
 
-    var KType=['','','',''];
+    KType=['','','',''];
 
     var selectContent=document.getElementById("selecter").options;
     var cnt=0;
