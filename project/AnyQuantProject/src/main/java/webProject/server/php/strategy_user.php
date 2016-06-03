@@ -5,7 +5,7 @@
  * Date: 16/6/2
  * Time: 上午8:46
  */
- require_once('../db_login.php');
+ require_once('db_login.php');
  header("Content-Type: text/json;charset=utf8");
 
  function saveCrossStrategy($username,$strategyname,$crossstr)

@@ -143,7 +143,7 @@ function getBenchMarkByName($name, $date)
     $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price from  benchmark where date =  :datetime");
     $stmt->bindParam(':datetime', $_date);
     $_date = $date;
-    return execQuery($connection,$stmt);
+    $jsonstring = execQuery($connection,$stmt);
 
 }
 
@@ -157,7 +157,24 @@ function getBenchMarkAmongDate($name, $startdate, $enddate)
     $stmt->bindParam(':enddate', $_enddate);
     $_startdate = $startdate;
     $_enddate = $enddate;
-    return execQuery($connection,$stmt);
+    $jsonstring = execQuery($connection,$stmt);
+        $arr = json_decode($jsonstring,true);
+        $len = count($arr,0)-1;
+        $arr[0]['color'] = 'default';
+        for($i = 1;$i < $len;$i++){
+            $fclose = $arr[$i-1][close];
+            $topen = $arr[$i][open];
+            if($fclose>$topen){
+                //green
+                $arr[$i]['color'] = 'green';
+            }else if($fclose<$topen){
+                //red
+                $arr[$i]['color'] = 'red';
+            }else{
+                $arr[$i]['color'] = 'black';
+            }
+        }
+        return json_encode($arr,JSON_UNESCAPED_UNICODE);
 }
 
 //echo getBenchMarkAmongDate("sh000300",date('Y-m-d',strtotime('2016-05-04')), date('Y-m-d',strtotime('2016-05-10')));

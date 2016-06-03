@@ -21,9 +21,9 @@ function getCrossStrategyService($username)
      echo $jsonstring;
 }
 
-function saveCustomStrategyService($username,$strategyname,$type,$buyposint,$sellpoint)
+function saveCustomStrategyService($username,$strategyname,$type,$buypoint,$sellpoint)
 {
-    $jsonstring = saveCustomStrategy($username,$strategyname,$type,$buyposint,$sellpoint);
+    $jsonstring = saveCustomStrategy($username,$strategyname,$type,$buypoint,$sellpoint);
     echo $jsonstring;
 }
 

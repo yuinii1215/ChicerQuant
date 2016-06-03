@@ -13,7 +13,7 @@ header("Content-Type: text/plain");
 require_once('ajaxService.php');
 require_once('favorstockService.php');
 require_once('loginService.php');
-require_once('strategy/strategyService.php');
+require_once('strategyService.php');
 $data = file_get_contents("php://input");
 
 $objData = json_decode($data);
@@ -162,7 +162,7 @@ switch ($method)
         getCrossStrategyService($objData->username);
         break;
     case "saveCustomStrategyService":
-        saveCustomStrategyService($objData->username,$objData->strategyname,$objData->type,$objData->buyposint,$objData->sellpoint);
+        saveCustomStrategyService($objData->username,$objData->strategyname,$objData->type,$objData->buypoint,$objData->sellpoint);
         break;
     case "getCustomStrategyService":
         getCustomStrategyService($objData->username);
