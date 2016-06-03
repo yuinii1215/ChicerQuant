@@ -98,14 +98,19 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         "date": currentDate,
         "method": "getStockByNameService"
     }).success(function (data, status) {
-        var temp=data;
-        if(temp[0].favor) {
-            $scope.favorStateContent = "取消关注";
-        }else{
+            var temp=data;
+        if(localStorage.userName==""){
             $scope.favorStateContent = "关注";
         }
-        console.log($scope.favorStateContent);
-
+        else {
+                console.log(temp);
+                if (temp[0].favor) {
+                    $scope.favorStateContent = "取消关注";
+                } else {
+                    $scope.favorStateContent = "关注";
+                }
+                console.log($scope.favorStateContent);
+            }
        })
        .error(function (data, status) {
            $scope.data = data || "Request failed";
