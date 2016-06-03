@@ -106,7 +106,17 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
            "crossstr": crossStrName,
            "method": "saveCrossStrategyService"
        }).success(function (data, status) {
-           console.log(status);
+           //{operation: "success", duplicate: false}
+           var tmp=data;
+           if(tmp.operation=="success"){
+               if(tmp.duplicate==true){//提示重新命名
+                   alert("已有重名策略");
+               }else {
+                   alert("保存策略成功");
+               }
+           }else{
+               alert("保存策略失败");
+           }
        })
            .error(function (data, status) {
                $scope.data = data || "Request failed";
@@ -115,9 +125,6 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
    }
     
     $scope.saveCustomerStr=function(newStrName){
-        // case "saveCustomStrategyService":
-        // saveCustomStrategyService($objData->username,$objData->strategyname,$objData->type,$objData->buyposint,$objData->sellpoint);
-        // break;
         newStr_Name=newStrName;
         $http.post($scope.url, {
             "username": localStorage.userName,
@@ -127,8 +134,16 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "sellpoint":sellStd,
             "method": "saveCustomStrategyService"
         }).success(function (data, status) {
-            console.log(data);
-            console.log(status);
+            var tmp=data;
+            if(tmp.operation=="success"){
+                if(tmp.duplicate==true){//提示重新命名
+                    alert("已有重名策略");
+                }else {
+                    alert("保存策略成功");
+                }
+            }else{
+                alert("保存策略失败");
+            }
         })
             .error(function (data, status) {
                 $scope.data = data || "Request failed";
