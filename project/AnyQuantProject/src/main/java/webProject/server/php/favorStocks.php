@@ -14,7 +14,6 @@ header("Content-Type: text/json;charset=utf8");
 
 function getMyFavor($username){
     $connection = getDBConnection();
-    global $tablename;
     $stmt = $connection->prepare("select * from favorstocks where username = :username");
     $stmt->bindParam(":username",$_username);
     $_username = $username;
@@ -24,7 +23,6 @@ function getMyFavor($username){
 //echo getMyFavor("aha");
 function cancelMyFavor($stock_id, $username){
     $connection = getDBConnection();
-    global $tablename;
     $stmt = $connection->prepare("delete from favorstocks where username = :username and stock_id = :stock_id");
     $stmt->bindParam(":username",$_username);
     $stmt->bindParam(":stock_id",$_stock_id);
@@ -35,13 +33,20 @@ function cancelMyFavor($stock_id, $username){
 //echo cancelMyFavor("39d633dc9c","cx");
 function addMyFavor($stock_id,$username){
     $connection = getDBConnection();
-    global $tablename;
     $stmt = $connection->prepare("insert into favorstocks values( :username , :stock_id)");
     $stmt->bindParam(":username",$_username);
     $stmt->bindParam(":stock_id",$_stock_id);
     $_username = $username;
     $_stock_id = $stock_id;
     return execOperation($connection,$stmt);
+}
+
+function getFavorNumByStock($name){
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select count(*) from favorstocks where stock_id = :stock_id");
+    $stmt->bindParam(":stock_id",$_stock_id);
+    $_stock_id = $name;
+    return execQuery($connection,$stmt);
 }
 
 //echo addMyFavor("sh600000","aha");

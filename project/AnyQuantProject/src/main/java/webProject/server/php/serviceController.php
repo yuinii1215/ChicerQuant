@@ -173,6 +173,9 @@ switch ($method)
     case "delCustomStrategyService":
         delCustomStrategyService($objData->username,$objData->strategyname);
         break;
+    case "getFavorNumByStockService":
+        getFavorNumByStockService($objData->name);
+        break;
     default :
         echo json_encode("no such method");
 }

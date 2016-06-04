@@ -143,7 +143,7 @@ function getBenchMarkByName($name, $date)
     $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price from  benchmark where date =  :datetime");
     $stmt->bindParam(':datetime', $_date);
     $_date = $date;
-    $jsonstring = execQuery($connection,$stmt);
+    return execQuery($connection,$stmt);
 
 }
 

@@ -35,5 +35,12 @@
           $jsonstring = addMyFavor($name, $username);
           echo $jsonstring;
       }
+
+      function getFavorNumByStockService($name){
+          $jsonstring = getFavorNumByStock($name);
+          echo $jsonstring;
+      }
+
+//getFavorNumByStockService("sh600001");
 //        addMyFavorService("cx","sh600000");
  ?>
