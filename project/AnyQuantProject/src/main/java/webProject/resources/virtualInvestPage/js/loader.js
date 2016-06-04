@@ -15,9 +15,10 @@ window.onload=function() {
     var chartflag=0;
 
     save_button1.onclick=function() {//保存交叉线策略,填写策略内容
+
         KType=['','','',''];
         chartflag=1;
-        save_container.style.display="block";
+        // save_container.style.display="block";
         textContent="";
 
         var selectContent=document.getElementById("selecter").options;
@@ -31,10 +32,11 @@ window.onload=function() {
             }
         }
         changeText.placeholder=textContent;
-
-        $('#save_con').fadeIn();
+        show2();
+        // $('#save_con').fadeIn();
     }
     save_button2.onclick=function() {//保存自定义策略
+        // show2();
         chartflag=2;
         var temp=[];
         temp[0]=document.getElementById("pt_bias");
@@ -51,11 +53,12 @@ window.onload=function() {
         sellStd=document.getElementById("sellStd").value;
         textContent="指标:"+newType+",买入标准:"+buyStd+",卖出标准:"+sellStd;
         changeText.placeholder=textContent;
-        $('#save_con').fadeIn();
+        show2();
+        // $('#save_con').fadeIn();
     }
-    back_button.onclick=function() {
-        save_container.style.display="none";
-    }
+    // back_button.onclick=function() {
+    //     save_container.style.display="none";
+    // }
 
 
     confirm_button.onclick=function() {//保存交叉线策略,填写策略内容

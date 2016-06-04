@@ -25,8 +25,24 @@
     <link href="../singleStockPage/css/button.css" rel="stylesheet" type="text/css">
 
 
-    <script src="../js/jquery/jquery.min.js"></script>
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
+
+    <!--<script type="text/javascript" src="js/jquery-1.4.4.js"></script>-->
+    <!--<script src="../js/jquery/jquery.min.js"></script>-->
     <script src="../js/angularjs/angular.min.js"></script>
+
+    <style type="text/css">
+        .dialog-box{ position: absolute; z-index:1001}
+        .dialog-popup{/*background-color:#333333\9;*/filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F333333', endColorstr='#7F333333'); position:relative;z-index:29; zoom:1;background:rgba(51,51,51,0);  padding: 10px;}
+        .dialog-popup .dialog-title-bar{ height:30px; background-color:#ffffff; position:relative;}
+        .dialog-popup .dialog-title-bar h2{ line-height:30px; padding-left:10px; font-size:14px; font-weight:700}
+        .dialog-popup .dialog-title-bar a.close-dialog{ position:absolute;top:5px; right:10px; background-color:#FFFFFF; border:1px solid #000000; font-size:14px; font-weight:700; display:block; height:18px; width:18px; line-height:18px;}
+        .dialog-popup .dialog-title-bar a.close-dialog{text-decoration:none; color:#555555; text-align:center;}
+        .dialog-popup .dialog-title-bar a.close-dialog:hover{text-decoration:none; color:#333333}
+        .dialog-content{ background-color:#FFFFFF; padding:10px}
+        .dialog-iframe-mask{position:absolute; left:0; top:0; border: none;}
+        .boxy-modal-blackout{position:absolute; left:0; top:0; border: none; background-color:#333333; overflow:hidden; z-index:999}
+    </style>
 </head>
 
 <body>
@@ -145,7 +161,7 @@
                                 <ul class="sub-menu open">
                                     <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
                                     <li class="active"><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
-                                    <li><a href="../strategyPage/strategyPage.html"><span class="text">我的策略</span></a></li>
+                                    <li><a href="../strategyPage/strategyPage.html"><span class="text">策略推荐</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -190,15 +206,15 @@
                             </div>
                             <div class="col-lg-10">
 
-                            <div class="widget  widget-hide-header">
+                            <div class="widget  widget-hide-header" style="margin-top: 50px;">
                                 <div class="widget-header hide">
                                 </div>
 
-                                <div class="widget-content" id="searchYourStock" style="height: 650px">
+                                <div class="widget-content" id="searchYourStock" style="height: 650px;">
                                     <h3 align="center" style="margin-top: 20%;"><font size="4x" color="white">选择虚拟运营股票</font></h3>
 
                                     <div class="cust_search" style="margin-top: 3%;">
-                                        <input id="newStock" placeholder="Search here...">
+                                        <input width="80%" id="newStock" placeholder="Search here...">
                                         <button ng-click="changeStock()"><a href="javascript:sleep(1000,'#secondWindow')" style="color:white">Search</a></button>
                                     </div>
 
@@ -214,7 +230,7 @@
                         </div>
 
 
-                   <div class="row" style="margin-top: 100px;">
+                   <div class="row" style="margin-top: 50px;">
 
                           <div class="col-lg-1">
                                </div>
@@ -293,45 +309,74 @@
                                            </div>
                                        </div>
                                        <div class="widget-content">
+
+                                           <!--<input id="avvv3" type="button" style="width:100px; height:40px;" value="弹出层" onclick="show2();"/><br /><br />-->
+
                                            <div class="save_con" id="save_con" style="margin-top: -20px;">
                                                <div class="save_row header">
-                                                   <h1>Chicer策略库欢迎您</h1>
+                                                   <h2>Chicer策略库欢迎您</h2>
                                                    <h4>请为您的策略命名</h4>
                                                </div>
                                                <div class="save_row body">
-                                                   <form>
-                                                       <li>
-                                                           <p class="left">
-                                                               <label for="strName">策略名称</label>
-                                                               <input type="text" id="strName" placeholder="我的第一支策略" />
-                                                           </p>
-                                                       </li>
-                                                       <li>
-                                                           <p class="left">
-                                                               <label for="strType">策略内容</label>
-                                                               <textarea cols="46" rows="1" id="strType" placeholder="BIAS" readonly="readonly"></textarea>
-                                                           </p>
-                                                       </li>
-                                                       <li>
-                                                           <label for="extraInfo">策略简介(可选)</label>
-                                                           <textarea cols="46" rows="3" id="extraInfo"></textarea>
-                                                       </li>
+                                                   <!--<form>-->
+                                                       <!--<li>-->
+                                                           <!--<p class="left">-->
                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                               <label for="strName">策略名称</label>
+                                                                </td>
+                                                            </tr>
+                                                           <tr>
+                                                               <td>
+                                                               <textarea  id="strName" style="border-color: #0c0c0c;"></textarea>
+                                                               </td>
+                                                               </tr>
+                                                           <!--</p>-->
+                                                       <!--</li>-->
+                                                       <!--<li>-->
+                                                           <!--<p class="left">-->
+                                                            <tr>
+                                                                <td>
+                                                               <label for="strType">策略内容</label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                               <textarea  id="strType" placeholder="BIAS" style="border-color: #0c0c0c" readonly="readonly"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                           <!--</p>-->
+                                                       <!--</li>-->
+                                                       <!--<li>-->
+                                                           <tr>
+                                                               <td>
+                                                           <label for="extraInfo">策略简介(可选)</label>
+                                                                </td>
+                                                           </tr>
+                                                           <tr>
+                                                               <td>
+                                                           <textarea  id="extraInfo" style="border-color: #0c0c0c"></textarea>
+                                                               <td>
+                                                            </tr>
+                                                       <!--</li>-->
+                                                       <!--<table>-->
                                                            <tr>
                                                                <td>
                                                                    <input class='button -dark  center' type="submit" value="保存" id="confirm_button" />
                                                                </td>
-                                                               <td>
-                                                                   <input class='button -dark  center' type="submit" value="取消" id="back_button"/>
-                                                               </td>
+                                                               <!--<td>-->
+                                                                   <!--&lt;!&ndash;<input class='button -dark  center' type="submit" value="取消" id="back_button"/>&ndash;&gt;-->
+                                                               <!--</td>-->
                                                            </tr>
                                                        </table>
 
-                                                       </ul>
-                                                   </form>
+                                                       <!--</ul>-->
+                                                   <!--</form>-->
                                                </div>
                                            </div>
-                                           <!--<h2 align="center">虚拟运营策略工厂</h2>-->
+
+
                                            <ul class="nav nav-pills" role="tablist">
                                                <li class="active" style="width: 50%"><a href="#chart1" style="color:#AAAAA6 "role="tab" data-toggle="tab"><i class="fa fa-area-chart"></i> 交叉点策略 </a></li>
                                                <li style="width: 45%"><a href="#chart2" style="color:#AAAAA6" role="tab" data-toggle="tab"><i class="fa fa-bar-chart"></i> 自定义策略 </a></li>
@@ -388,7 +433,7 @@
                                                    </div>
                                                </div>
                                                <div class="tab-pane fade" id="chart2">
-                                                   <p align="center">您可以根据自己的需求选区策略曲线并且进行买卖点选择</p>
+                                                   <p align="center">您可以根据自己的需求选取策略曲线并且进行买卖点选择</p>
                                                    <div class="row" style="margin-top: 20px;">
                                                        <div class="col-lg-3"></div>
                                                        <div class="col-lg-6">
@@ -488,14 +533,13 @@
                         <!--</div>-->
 
 
-                          <div class="row" id="anchor" style="margin-bottom: 0px;">
+                          <div class="row" id="anchor">
                               <!--<pre  style="border-color: transparent; background-color:#0c0c0c;"><center><label><font size="4px" color="white">虚拟运营情况</font></label></center></pre>-->
 
                               <div class="col-lg-1"></div>
                               <div class="col-lg-10" style="background-color: #0c0c0c;">
-                                  <div class="row" >
-                                      <pre  style="border-color: transparent; background-color:#956A3D;width:100%"><center><label><font size="4px" color="#ffffff">虚拟运营情况</font></label></center></pre>
-
+                                  <div class="row">
+                                      <pre  style="border-color: transparent; background-color:#956A3D;"><center><label><font size="4px" color="#ffffff">虚拟运营情况</font></label></center></pre>
                                       <div class="col-lg-6">
                                       <div class="widget widget-hide-header">
                                           <div class="widget-header hide">
@@ -690,7 +734,9 @@
 
 
 <!-- Javascript -->
-    <script src="../virtualInvestPage/js/loader.js"></script>
+
+
+<script src="../virtualInvestPage/js/loader.js"></script>
 <script src="../js/echart/echarts.js"></script>
 <script src="../virtualInvestPage/js/kLineChart.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
@@ -702,6 +748,8 @@
 <script src="../js/search.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>
+<script type="text/javascript" src="js/jquery.dialog.js"></script>
+<script src="../js/jquery/jquery.gritter.min.js"></script>
 <script>
     $(".plus-vert").click(function(){
         if($(this).hasClass("quit")){
@@ -741,6 +789,16 @@
         });
 
     });
+</script>
+<script>
+    function show2(){
+        var dialogBox2 = new Dialog("save_con",{
+//            "width": "500px" ,
+            "title":"",
+            'modal':true,
+            "closeModal":true
+        });
+    }
 </script>
 </body>
 

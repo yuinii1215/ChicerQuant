@@ -2,12 +2,35 @@
  * Created by QiHan on 2016/5/14.
  */
 function toSingleStockPage() {
-    var parm1=document.getElementById("search").value;
-    var id1= parm1.split('(');
-    var id= id1[1].split(')');
+
+    var parm1 = document.getElementById("search").value;
+    var resultsOutput = document.getElementById('results').innerHTML;
+    var b = "<li onclick=\"javascript:a(this.innerText);\">" + parm1 + "</li>";
+    if ((resultsOutput.length == 0 )||(resultsOutput.indexOf(b)==-1)) {
+
+        $.extend($.gritter.options, {
+            time: 1500,
+        });
+        // clean the wrapper position class
+        $('#gritter-notice-wrapper').attr('class', '');
+        // global setting override
+        $.extend($.gritter.options, {
+            position: '' + $(this).attr('id') + '' // possibilities: bottom-left, bottom-right, top-left, top-right
+        });
+        $.gritter.options.position = "bottom-right";
+        $.gritter.add({
+            title: $(this).find('span.title').text(), // could be simpler, just for demo purposes
+            text: "您好！" + "</br>" + "该股票不存在或不完整，请重新输入",
+        });
+    //    alert("您好，该股票不存在或不完整，请重新输入");
+
+    } else {
+        var id1 = parm1.split('(');
+        var id = id1[1].split(')');
 //    alert(id[0]);
-    localStorage.singleStockID=id[0];
-    window.location.href="../singleStockPage/singleStockPage.html";
+        localStorage.singleStockID = id[0];
+        window.location.href = "../singleStockPage/singleStockPage.html";
+    }
 }
 
 function allStock2SingleStockPage(stockID) {
@@ -93,12 +116,13 @@ searchApp.controller('searchCtrl', function ($scope, $http) {
                 var suggested, value;
                 value = searchInput.value.toLowerCase().split(' ');
                 suggested = (value[0].length ? findAll(value, names) : []);
+
                if(value[0].length==0){
                    resultsOutput.style.visibility = "hidden";
                }else {
                    resultsOutput.style.visibility = "visible";
                }
-
+                    //console.log(suggested[0]);
                 return displayResults(resultsOutput, suggested);
             };
         })(this));

@@ -949,13 +949,13 @@ body {
           /*url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/41294/hero.jpg) no-repeat center center fixed; background-size:cover;*/
 }
 
-.cust_search {width: 500px;height: 40px;margin: 150px auto;background: #444;background: rgba(0,0,0,.2);border-radius:  3px;border: 1px solid #fff;}
+.cust_search {width: 80% ;height: 40px;margin: 150px auto;background: #444;background: rgba(0,0,0,.2);border-radius:  3px;border: 1px solid #fff;}
 
-.cust_search input {width: 370px;padding: 10px 5px;float: left;color: #ccc;border: 0;background: transparent;border-radius: 3px 0 0 3px;}
+.cust_search input {width: 80%;padding: 10px 5px;float: left;color: #ccc;border: 0;background: transparent;border-radius: 3px 0 0 3px;}
 
 .cust_search input:focus {outline: 0;background:transparent;}
 
-.cust_search button {position: relative;float: right;border: 0;padding: 0;cursor: pointer;height: 40px;width: 120px;color: #fff;background: transparent;border-left: 1px solid #fff;border-radius: 0 3px 3px 0;}
+.cust_search button {position: relative;float: right;border: 0;padding: 0;cursor: pointer;height: 40px;width: 20%;color: #fff;background: transparent;border-left: 1px solid #fff;border-radius: 0 3px 3px 0;}
 
 .cust_search button:hover {background: #fff;color:#444;}
 .cust_search button:active {box-shadow: 0px 0px 12px 0px rgba(225, 225, 225, 1);}
@@ -1044,29 +1044,32 @@ body {
 
 
 .save_con {
+  /*width:100%;*/
   max-width: 510px;
   min-width: 324px;
-  margin: 50px auto 0px;
+  margin: 0px auto 0px;
   background-color: #fff;
-  border: 3px solid #cfcfcf;
+  border: 0px solid #cfcfcf;
   border-bottom: 0px solid #ccc;
   display: none;
   z-index: 2;
 }
 
 .save_row {
-  width: 100%;
-  margin: 0 0 1em 0;
+  width: 95%;
+  /*margin: 0 0 1em 0;*/
   padding: 0 2.5em;
 }
 .save_row.header {
   padding: 1.5em 2.5em;
+
   /*border-bottom: 1px solid #ccc;*/
-  background: url(../../img/cool.jpg) left -80px;
+  background: url(../../img/cool.jpg);
+  width:100%;
   color: #fff;
 }
 .save_row.body {
-  /*padding: .5em 2.5em 1em;*/
+  padding: .5em 2.5em 1em;
 }
 
 .pull-right {
