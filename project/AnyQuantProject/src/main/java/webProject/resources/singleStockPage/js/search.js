@@ -31,7 +31,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         $scope.data = data;
         $scope.tableData =data;
 
-  //      console.log($scope.tableData);
+     //   console.log($scope.tableData);
         var array=new Array();
         var count=0;
         var tableData=[];
@@ -99,6 +99,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         "method": "getStockByNameService"
     }).success(function (data, status) {
             var temp=data;
+console.log(temp);
         if(localStorage.userName==""){
             $scope.favorStateContent = "关注";
         }
@@ -187,6 +188,20 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         $scope.news=data;
         console.log( $scope.news);
     })
+        .error(function (data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
+
+
+    $http.post($scope.url, {// function getFavorNumByStockService($name, $startdate, $enddate){
+        "name": localStorage.singleStockID,
+        "method": "getFavorNumByStockService"
+    }).success(function (data) {
+            $scope.favorNum=data;
+            console.log( $scope.favorNum[0]);
+            document.getElementById("hotNum").innerText=$scope.favorNum[0];
+        })
         .error(function (data, status) {
             $scope.data = data || "Request failed";
             $scope.status = status;
