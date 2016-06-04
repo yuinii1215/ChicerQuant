@@ -42,7 +42,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
             $scope.error = false;
             $scope.data = data;
             $scope.benchMarkInfo =data;
-
+        //    console.log($scope.benchMarkInfo);
 
         //table
         var count=0;
@@ -61,7 +61,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
                 array[item][4] = $scope.benchMarkInfo[item].close;
                 array[item][5] = $scope.benchMarkInfo[item].volumn;
                 array[item][6] = $scope.benchMarkInfo[item].adj_price;
-              //  color[item]=$scope.benchMarkInfo[item].color;
+                color[item]=$scope.benchMarkInfo[item].color;
             }
         }
         var dataSet = array;
@@ -74,7 +74,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
                 "createdRow": function ( row) {
                     $('td', row).eq(3).css( "color", "green");
                     $('td', row).eq(2).css( "color", "red");
-                 //   $('td', row).eq(1).css("color", colorSet[i]);
+                    $('td', row).eq(1).css("color", colorSet[i]);
                     i++;
                 },
                 columns: [
