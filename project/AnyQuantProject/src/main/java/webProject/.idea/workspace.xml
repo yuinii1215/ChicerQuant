@@ -21,27 +21,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="communityPage.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/communityPage/communityPage.html">
+      <file leaf-file-name="virtualInvestPage.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="171" column="58" selection-start-line="171" selection-start-column="58" selection-end-line="171" selection-end-column="58" />
+            <state relative-caret-position="80">
+              <caret line="501" column="96" selection-start-line="501" selection-start-column="96" selection-end-line="501" selection-end-column="96" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#li#0;n#ul#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#li#0;n#ul#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#td#0;n#tr#5;n#table#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#td#6;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#td#5;n#tr#0;n#table#0;n#div#2;n#div#1;n#div#1;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1465224205000" expanded="false" signature="30252:35471" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="board.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/communityPage/css/board.css">
+      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+            <state relative-caret-position="200">
+              <caret line="176" column="46" selection-start-line="176" selection-start-column="46" selection-end-line="176" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -50,58 +61,34 @@
       <file leaf-file-name="newboard.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/css/newboard.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="338" column="9" selection-start-line="338" selection-start-column="9" selection-end-line="338" selection-end-column="16" />
+            <state relative-caret-position="148">
+              <caret line="1080" column="11" selection-start-line="1080" selection-start-column="11" selection-end-line="1080" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/loader.js">
+      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="1" selection-start-line="58" selection-start-column="1" selection-end-line="60" selection-end-column="8" />
+            <state relative-caret-position="156">
+              <caret line="123" column="29" selection-start-line="123" selection-start-column="29" selection-end-line="123" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/login.js">
+      <file leaf-file-name="communityPage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/communityPage/communityPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="450">
+              <caret line="253" column="67" selection-start-line="253" selection-start-column="67" selection-end-line="253" selection-end-column="67" />
               <folding>
-                <marker date="1465201198000" expanded="true" signature="1452:7650" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="1548:1575" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="1669:7481" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="1881:4631" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="1990:2147" ph="{&quot;method&quot;: &quot;verifyPasswordService&quot;...}" />
-                <marker date="1465201198000" expanded="true" signature="2194:4618" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="2459:3771" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="2507:2626" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="2632:3753" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="2746:2829" ph="{&quot;time&quot;: 1500...}" />
-                <marker date="1465201198000" expanded="true" signature="3115:3298" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="3432:3679" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="3776:4600" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="3825:3882" ph="{&quot;time&quot;: 1500...}" />
-                <marker date="1465201198000" expanded="true" signature="4100:4249" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="4349:4541" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="4635:7475" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="4779:4967" ph="{&quot;method&quot;: &quot;signUpService&quot;...}" />
-                <marker date="1465201198000" expanded="true" signature="5037:7460" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="5193:6539" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="5248:5315" ph="{&quot;time&quot;: 1500...}" />
-                <marker date="1465201198000" expanded="true" signature="5553:5712" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="5822:6037" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="6110:6517" ph="//..." />
-                <marker date="1465201198000" expanded="true" signature="6543:7442" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="6597:6664" ph="{&quot;time&quot;: 1500...}" />
-                <marker date="1465201198000" expanded="true" signature="6902:7061" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="7171:7378" ph="{...}" />
-                <marker date="1465201198000" expanded="true" signature="7515:7648" ph="{...}" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#li#0;n#ul#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#li#0;n#ul#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -142,7 +129,6 @@
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/js/menu.js" />
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/board.css" />
         <option value="$PROJECT_DIR$/resources/singleStockPage/js/search.js" />
-        <option value="$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html" />
         <option value="$PROJECT_DIR$/resources/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/js/canvas3DGraph.js" />
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/css/board.css" />
@@ -153,16 +139,17 @@
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/js/kLineChart.js" />
         <option value="$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js" />
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/js/jquery.dialog.js" />
-        <option value="$PROJECT_DIR$/resources/virtualInvestPage/js/loader.js" />
-        <option value="$PROJECT_DIR$/resources/virtualInvestPage/js/search.js" />
-        <option value="$PROJECT_DIR$/resources/virtualInvestPage/css/newboard.css" />
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/newVirtualPage.html" />
         <option value="$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html" />
         <option value="$PROJECT_DIR$/resources/virtualInvestPage/oldvirtualInvestPage.html" />
         <option value="$PROJECT_DIR$/resources/communityPage/js/board.js" />
         <option value="$PROJECT_DIR$/resources/communityPage/js/view.js" />
-        <option value="$PROJECT_DIR$/resources/communityPage/communityPage.html" />
         <option value="$PROJECT_DIR$/resources/communityPage/css/board.css" />
+        <option value="$PROJECT_DIR$/resources/communityPage/communityPage.html" />
+        <option value="$PROJECT_DIR$/resources/virtualInvestPage/js/search.js" />
+        <option value="$PROJECT_DIR$/resources/virtualInvestPage/js/loader.js" />
+        <option value="$PROJECT_DIR$/resources/virtualInvestPage/css/newboard.css" />
+        <option value="$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html" />
       </list>
     </option>
   </component>
@@ -173,10 +160,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="26" />
-    <option name="y" value="76" />
-    <option name="width" value="1254" />
-    <option name="height" value="675" />
+    <option name="x" value="21" />
+    <option name="y" value="90" />
+    <option name="width" value="1137" />
+    <option name="height" value="623" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -259,6 +246,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -295,7 +314,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="virtualInvestPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="allStockShowPage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -450,18 +491,18 @@
       <workItem from="1464945386908" duration="4432000" />
       <workItem from="1464962375552" duration="7763000" />
       <workItem from="1465058845597" duration="737000" />
-      <workItem from="1465201221521" duration="5956000" />
+      <workItem from="1465201221521" duration="12796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192856000" />
+    <option name="totallyTimeSpent" value="199696000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="26" y="76" width="1254" height="675" extended-state="1" />
+    <frame x="21" y="90" width="1137" height="623" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25917065" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19261214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28840125" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -522,7 +563,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/curtain.css" />
     <entry file="file://$PROJECT_DIR$/resources/singleStockUI/kLine.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -607,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/css/board.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="945" column="0" selection-start-line="945" selection-start-column="0" selection-end-line="945" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/menu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="479">
@@ -650,13 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/php/serviceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="147" column="14" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/php/util.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -671,13 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
@@ -689,13 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="17" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="116" column="19" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -775,22 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/loader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="1" selection-start-line="58" selection-start-column="1" selection-end-line="60" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="109" column="24" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
@@ -806,17 +802,6 @@
         <state relative-caret-position="255">
           <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="200" column="30" selection-start-line="200" selection-start-column="30" selection-end-line="200" selection-end-column="30" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,32 +869,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/css/newboard.css">
+    <entry file="file://$PROJECT_DIR$/resources/communityPage/css/board.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="338" column="9" selection-start-line="338" selection-start-column="9" selection-end-line="338" selection-end-column="16" />
+        <state relative-caret-position="-980">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/communityPage/css/board.css">
+    <entry file="file://$PROJECT_DIR$/server/php/serviceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+        <state relative-caret-position="145">
+          <caret line="160" column="4" selection-start-line="160" selection-start-column="4" selection-end-line="162" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/tcal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/kLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="53" column="67" selection-start-line="53" selection-start-column="67" selection-end-line="53" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/css/board.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="937" column="0" selection-start-line="937" selection-start-column="0" selection-end-line="937" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="123" column="29" selection-start-line="123" selection-start-column="29" selection-end-line="123" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/communityPage/communityPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="171" column="58" selection-start-line="171" selection-start-column="58" selection-end-line="171" selection-end-column="58" />
+        <state relative-caret-position="450">
+          <caret line="253" column="67" selection-start-line="253" selection-start-column="67" selection-end-line="253" selection-end-column="67" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#li#0;n#ul#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#li#0;n#ul#0;n#div#0;n#section#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="176" column="46" selection-start-line="176" selection-start-column="46" selection-end-line="176" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/css/newboard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="1080" column="11" selection-start-line="1080" selection-start-column="11" selection-end-line="1080" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="501" column="96" selection-start-line="501" selection-start-column="96" selection-end-line="501" selection-end-column="96" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#td#0;n#tr#5;n#table#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#td#6;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#td#5;n#tr#0;n#table#0;n#div#2;n#div#1;n#div#1;n#div#1;n#div#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#tbody#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1465224205000" expanded="false" signature="30252:35471" ph="..." />
           </folding>
         </state>
       </provider>

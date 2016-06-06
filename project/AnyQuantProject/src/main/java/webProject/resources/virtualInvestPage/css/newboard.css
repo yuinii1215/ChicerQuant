@@ -1076,6 +1076,29 @@ body {
   float: right;
 }
 
+.rtable {
+  width: 100%;
+  height: 300px;
+}
+
+.mytd, .myth {
+  padding: 10px;
+}
+
+.mytd:first-child, .myth:first-child {
+  padding-left: 20px;
+}
+
+.mytd:last-child, .myth:last-child {
+  padding-right: 20px;
+}
+
+.myth {
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+
 /*h1 {*/
   /*font-family: 'Lato', sans-serif;*/
   /*font-weight: 300;*/

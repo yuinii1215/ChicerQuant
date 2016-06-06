@@ -94,10 +94,23 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     }
     var newStr_Name;
    $scope.saveCrossStr=function(newStrName){
-       // case "saveCrossStrategyService":
-       // saveCrossStrategyService($objData->username,$objData->strategyname,$objData->crossstr);
-       // break;
-      var crossStrName=KType[0]+"&"+KType[1]+"&"+KType[2]+"&"+KType[3];
+       var crossStrName="";
+       var new_cnt=0;
+       for(var item=0;item<4;item++){
+
+           if(KType[item]!="") {
+               console.log(KType[item]);
+               if(new_cnt>0) {
+                   crossStrName += "&" + KType[item];
+               }
+               else{
+                   crossStrName +=  KType[item];
+                   new_cnt++;
+               }
+           }
+
+       }
+   // crossStrName=KType[0]+"&"+KType[1]+"&"+KType[2]+"&"+KType[3];
       newStr_Name=newStrName;
 
        $http.post($scope.url, {
@@ -123,7 +136,61 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                $scope.status = status;
            });
    }
-    
+
+    $scope.showAllStr=function(){
+        $scope.strManager =[];
+        str_cnt=0;
+        $http.post($scope.url, {
+            "username": localStorage.userName,
+            "method": "getCustomStrategyService"
+        }).success(function (data, status) {
+            var myCustomStr=data;
+
+            for(var item in myCustomStr) {
+                console.log("1");
+                console.log(myCustomStr[item]);
+                if (myCustomStr[item]!="success") {
+                    $scope.strManager[str_cnt] = {
+                        "strName": myCustomStr[item].strategyname,
+                        "strType": myCustomStr[item].strategytype,
+                        "buypoint": myCustomStr[item].buypoint,
+                        "sellpoint": myCustomStr[item].sellpoint
+                    };
+                    str_cnt++;
+                }
+            }
+
+            $http.post($scope.url, {
+                "username": localStorage.userName,
+                "method": "getCrossStrategyService"
+            }).success(function (data, status) {
+                var myCrossStr=data;
+                for(var item in myCrossStr) {
+                    console.log("2");
+                    console.log(myCrossStr[item]);
+                    if (myCrossStr[item]!="success") {
+                        if ((myCrossStr[item].strategyname != "") && (myCrossStr[item].crossstr != "&&&")) {
+                            $scope.strManager[str_cnt++] = {
+                                "strName": myCrossStr[item].strategyname,
+                                "strType": myCrossStr[item].crossstr,
+                                "buypoint": "黄金交叉点",
+                                "sellpoint": "死亡交叉点"
+                            };
+                        }
+                    }
+                }
+            })
+                .error(function (data, status) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+        })
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+    }
+
     $scope.saveCustomerStr=function(newStrName){
         newStr_Name=newStrName;
         $http.post($scope.url, {
@@ -150,6 +217,88 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 $scope.status = status;
             });
     }
+
+
+       $scope.strManager =[];
+       var str_cnt=0;
+
+        $http.post($scope.url, {
+            "username": localStorage.userName,
+            "method": "getCustomStrategyService"
+        }).success(function (data, status) {
+             var myCustomStr=data;
+
+            for(var item in myCustomStr) {
+                console.log("1");
+                console.log(myCustomStr[item]);
+                if (myCustomStr[item]!="success") {
+                $scope.strManager[str_cnt] = {
+                    "strName": myCustomStr[item].strategyname,
+                    "strType": myCustomStr[item].strategytype,
+                    "buypoint": myCustomStr[item].buypoint,
+                    "sellpoint": myCustomStr[item].sellpoint
+                };
+                str_cnt++;
+            }
+            }
+            
+            $http.post($scope.url, {
+                "username": localStorage.userName,
+                "method": "getCrossStrategyService"
+            }).success(function (data, status) {
+                var myCrossStr=data;
+                for(var item in myCrossStr) {
+                    console.log("2");
+                    console.log(myCrossStr[item]);
+                    if (myCrossStr[item]!="success") {
+                        if ((myCrossStr[item].strategyname != "") && (myCrossStr[item].crossstr != "&&&")) {
+                            $scope.strManager[str_cnt++] = {
+                                "strName": myCrossStr[item].strategyname,
+                                "strType": myCrossStr[item].crossstr,
+                                "buypoint": "黄金交叉点",
+                                "sellpoint": "死亡交叉点"
+                            };
+                        }
+                    }
+                }
+            })
+                .error(function (data, status) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+        })
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+
+
+
+
+
+
+    // $http.post($scope.url, {
+    //     "username": localStorage.userName,
+    //     "method": "getCrossStrategyService"
+    // }).success(function (data, status) {
+    //     var myCrossStr=data;
+    //     for(var item in myCrossStr) {
+    //         console.log("2");
+    //         console.log(myCrossStr[item]);
+    //         if((myCrossStr[item].strategyname!="")&&(myCrossStr[item].crossstr!="&&&")){
+    //             $scope.strManager[str_cnt++] = {
+    //             "strName": myCrossStr[item].strategyname,
+    //             "strType": myCrossStr[item].strategytype,
+    //             "buypoint": "黄金交叉点",
+    //             "sellpoint": "死亡交叉点"
+    //           };
+    //        }
+    //     }
+    // })
+    //     .error(function (data, status) {
+    //         $scope.data = data || "Request failed";
+    //         $scope.status = status;
+    //     });
 
     d=new Date();
     d.setDate(d.getDate()-200);

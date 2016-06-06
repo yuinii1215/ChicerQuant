@@ -45,7 +45,7 @@
     </style>
 </head>
 
-<body>
+<tbody>
 <!-- =========================
  PRE LOADER
  ============================== -->
@@ -378,8 +378,9 @@
 
 
                                            <ul class="nav nav-pills" role="tablist">
-                                               <li class="active" style="width: 50%"><a href="#chart1" style="color:#AAAAA6 "role="tab" data-toggle="tab"><i class="fa fa-area-chart"></i> 交叉点策略 </a></li>
-                                               <li style="width: 45%"><a href="#chart2" style="color:#AAAAA6" role="tab" data-toggle="tab"><i class="fa fa-bar-chart"></i> 自定义策略 </a></li>
+                                               <li class="active" style="width: 30%"><a href="#chart1" style="color:#AAAAA6 "role="tab" data-toggle="tab"><i class="fa fa-area-chart"></i> 交叉点策略 </a></li>
+                                               <li style="width: 35%"><a href="#chart2" style="color:#AAAAA6" role="tab" data-toggle="tab"><i class="fa fa-bar-chart"></i> 自定义策略 </a></li>
+                                               <li style="width: 30%"><a href="#chart3" style="color:#AAAAA6" role="tab" data-toggle="tab"><i class="fa fa-bar-chart"></i> 我的策略 </a></li>
                                            </ul>
 
                                            <div class="tab-content">
@@ -413,7 +414,7 @@
                                                    <div class="row" style="margin-top: 50px;">
                                                        <table border="0" WIDTH="100%" >
                                                            <tr>
-                                                               <td width="30%">
+                                                               <td width="20%">
                                                                </td>
                                                                <td>
                                                                    <div class='button -dark  center' onclick="multiPredictTriggered()"><a href="javascript:sleep(1000,'#anchor')" style="color:#0c0c0c
@@ -422,11 +423,15 @@
                                                                <td>
                                                                </td>
                                                                <td>
-                                                               </td>
-                                                               <td>
                                                                    <div class='button -dark  center' id="saveCrossStrBtn"><a href="" style="color:#0c0c0c">保存</a></div>
                                                                </td>
-                                                               <td width="30%">
+                                                               </td>
+                                                               <td>
+                                                               </td>
+                                                               <td>
+                                                                   <div class='button -dark  center' id="shareCrossStrBtn"><a href="" style="color:#0c0c0c">分享</a></div>
+                                                               </td>
+                                                               <td width="20%">
                                                                </td>
                                                            </tr>
                                                        </table>
@@ -472,24 +477,48 @@
                                                    <div class="row" style="margin-top: 30px;">
                                                        <table border="0" WIDTH="100%" >
                                                            <tr>
-                                                               <td width="30%">
+                                                               <td width="20%">
                                                                </td>
                                                                <td>
                                                                    <div class='button -dark  center' onclick="newStrategy()"><a href="javascript:sleep(1000,'#anchor')" style="color: #0c0c0c;width: 100%;height: 100%;">确定</a></div>
-                                                               <td>
-                                                               <td>
                                                                </td>
                                                                <td>
                                                                </td>
                                                                <td>
                                                                    <div class='button -dark  center' id="saveCustomerStrBtn"><a href="" style="color:#0c0c0c">保存</a></div>
                                                                </td>
-                                                               <td width="30%">
+                                                               <td>
+                                                               </td>
+                                                               <td>
+                                                                   <div class='button -dark  center' id="shareCustomerStrBtn"><a href="" style="color:#0c0c0c">分享</a></div>
+                                                               </td>
+
+                                                               <td width="20%">
                                                                </td>
                                                            </tr>
                                                        </table>
                                                    </div>
                                            </div>
+                                               <div class="tab-pane fade" id="chart3" style="height: 300px;overflow:scroll; overflow-x:hidden;">
+                                                     <table ng-table class="rtable">
+                                                       <thead>
+                                                       <tr >
+                                                           <th class="myth">策略名</th>
+                                                           <th class="myth">策略类型</th>
+                                                           <th class="myth">买入点</th>
+                                                           <th class="myth">卖出点</th>
+                                                       </tr>
+                                                       </thead>
+                                                       <tbody>
+                                                       <tr ng-repeat="x in strManager">
+                                                           <td class="mytd">{{ x.strName }}</td>
+                                                           <td class="mytd">{{ x.strType }}</td>
+                                                           <td class="mytd">{{ x.buypoint }}</td>
+                                                           <td class="mytd">{{ x.sellpoint }}</td>
+                                                       </tr>
+                                                       </tbody>
+                                                   </table>
+                                               </div>
                                        </div>
                                         </div>
                                    </div>
@@ -520,20 +549,7 @@
                                <div class="col-lg-1"></div>
                            </div>
 
-                        <!--<div class="plus-vert-curtain not-deployed">-->
-                        <!--</div>-->
-                        <!--<div class="plus-vert">-->
-                            <!--<div class="inside-blanc">-->
-                            <!--</div>-->
-                            <!--<div class="inside-green"></div>-->
-                            <!--<div class="cross">-->
-                                <!--<div class="bar bar1"></div>-->
-                                <!--<div class="bar bar2"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-
-                          <div class="row" id="anchor">
+                          <div class="row" id="anchor" style="margin-top: 50px;">
                               <!--<pre  style="border-color: transparent; background-color:#0c0c0c;"><center><label><font size="4px" color="white">虚拟运营情况</font></label></center></pre>-->
 
                               <div class="col-lg-1"></div>
