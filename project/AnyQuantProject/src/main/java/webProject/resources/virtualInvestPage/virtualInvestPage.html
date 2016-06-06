@@ -11,20 +11,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- CSS -->
+    <link href="css/newboard.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/preloader.css">
     <link href="../css/search.css" rel="stylesheet" type="text/css">
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
+
     <link href="../css/main.css" rel="stylesheet" type="text/css">
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
     <link href="css/3dAxis.css" rel="stylesheet" type="text/css">
     <link href="css/curtain.css" rel="stylesheet" type="text/css">
-    <link href="css/board.css" rel="stylesheet" type="text/css">
+
     <link href="../singleStockPage/css/button.css" rel="stylesheet" type="text/css">
 
 
-    <script src="../js/jquery/jquery.min.js"></script>
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
+
+    <!--<script type="text/javascript" src="js/jquery-1.4.4.js"></script>-->
+    <!--<script src="../js/jquery/jquery.min.js"></script>-->
     <script src="../js/angularjs/angular.min.js"></script>
+
+    <style type="text/css">
+        .dialog-box{ position: absolute; z-index:1001}
+        .dialog-popup{/*background-color:#333333\9;*/filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F333333', endColorstr='#7F333333'); position:relative;z-index:29; zoom:1;background:rgba(51,51,51,0);  padding: 10px;}
+        .dialog-popup .dialog-title-bar{ height:30px; background-color:#ffffff; position:relative;}
+        .dialog-popup .dialog-title-bar h2{ line-height:30px; padding-left:10px; font-size:14px; font-weight:700}
+        .dialog-popup .dialog-title-bar a.close-dialog{ position:absolute;top:5px; right:10px; background-color:#FFFFFF; border:1px solid #000000; font-size:14px; font-weight:700; display:block; height:18px; width:18px; line-height:18px;}
+        .dialog-popup .dialog-title-bar a.close-dialog{text-decoration:none; color:#555555; text-align:center;}
+        .dialog-popup .dialog-title-bar a.close-dialog:hover{text-decoration:none; color:#333333}
+        .dialog-content{ background-color:#FFFFFF; padding:10px}
+        .dialog-iframe-mask{position:absolute; left:0; top:0; border: none;}
+        .boxy-modal-blackout{position:absolute; left:0; top:0; border: none; background-color:#333333; overflow:hidden; z-index:999}
+    </style>
 </head>
 
 <body>
@@ -34,7 +52,6 @@
 <div class="preloader">
     <div class="status">&nbsp;</div>
 </div>
-
 <!-- WRAPPER -->
 <div class="wrapper">
     <!-- TOP BAR -->
@@ -104,6 +121,7 @@
     <!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
     <div class="bottom">
         <div class="container" >
+
             <div class="row" >
                 <!-- left sidebar -->
                 <div class="col-md-2 left-sidebar" >
@@ -182,33 +200,104 @@
                             <em>the better analyze</em>
                         </div>
                         <div class="main-content">
-                           <div class="row">
-                               <div class="col-lg-1">
-                               </div>
-                               <div class="col-lg-5">
 
-                                   <!--<div class="widget">-->
-                                       <!--<div class="widget-header">-->
-                                           <!--<h3><i class="fa fa-edit"></i> Select2</h3> <em> - another replacement for select boxes</em>-->
-                                       <!--</div>-->
-                                       <!--<div class="widget-content">-->
-                                           <!--<select multiple name="select2-multiple1" id="select2-multiple1" class="select2 select2-multiple">-->
-                                               <!--<optgroup label="MACD指标">-->
-                                                   <!--<option value="MACD">MACD交叉点</option>-->
-                                               <!--</optgroup>-->
-                                               <!--<optgroup label="BIAS指标">-->
-                                                   <!--<option value="BIAS">BIAS交叉点</option>-->
-                                               <!--</optgroup>-->
-                                               <!--<optgroup label="RSI指标">-->
-                                                   <!--<option value="RSI">RSI交叉点</option>-->
-                                               <!--</optgroup>-->
-                                               <!--<optgroup label="KDJ指标">-->
-                                                   <!--<option value="KDJ">KDJ交叉点</option>-->
-                                               <!--</optgroup>-->
-                                           <!--</select>-->
-                                       <!--</div>-->
-                                   <!--</div>-->
-                                   <div class="widget">
+                        <div class="row">
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-10">
+
+                            <div class="widget  widget-hide-header" style="margin-top: 50px;">
+                                <div class="widget-header hide">
+                                </div>
+
+                                <div class="widget-content" id="searchYourStock" style="height: 650px;">
+                                    <h3 align="center" style="margin-top: 20%;"><font size="4x" color="white">选择虚拟运营股票</font></h3>
+
+                                    <div class="cust_search" style="margin-top: 3%;">
+                                        <input width="80%" id="newStock" placeholder="Search here...">
+                                        <button ng-click="changeStock()"><a href="javascript:sleep(1000,'#secondWindow')" style="color:white">Search</a></button>
+                                    </div>
+
+                                    <a href="javascript:sleep(1000,'#secondWindow')">
+                                        <div class="arrow bounce">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                                </div>
+                            <div class="col-lg-1">
+                            </div>
+                        </div>
+
+
+                   <div class="row" style="margin-top: 50px;">
+
+                          <div class="col-lg-1">
+                               </div>
+                          <div class="col-lg-5">
+                              <div class="widget" id="secondWindow">
+                                  <div class="widget-header hide">
+                                      <!--header-->
+                                      <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- form</em>
+                                      <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                      <div class="btn-group widget-header-toolbar">
+                                          <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                          <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                          <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                      </div>
+                                  </div>
+                                  <div class="widget-content" style="background-color: #383838">
+                                      <h3 align="center"><font size="5x" color="#956A3D">股票信息</font></h3>
+                                      <pre ng-model="boardData" style="border-color: transparent; background-color:transparent;"><center><label><font size="4px" color="white">{{boardData.stock_name}}</font></label><font size="3px" color="white">{{"   "+boardData.date}}</font></center></pre>
+
+                                      <table border="0" WIDTH="100%" height="55%">
+                                          <tr>
+                                              <td width="47%">
+                                                  <pre ng-model="boardData" style="background-color:transparent;border-color: #956A3D;overflow-x:hidden;"><center><label><font size="4px" color="white">开盘价</font></label></center><center><font size="3px" color="white">{{"\n"+boardData.open}}</font></center></pre>
+                                              </td>
+                                              <td width="6%">
+                                              </td>
+                                              <td width="47%">
+                                                  <pre ng-model="boardData" style="background-color:transparent;border-color: #956A3D;overflow-x:hidden;"><center><label><font size="4px" color="white">最高价</font></label></center><center><font size="3px" color="white">{{"\n"+boardData.high}}</font></center></pre>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <pre ng-model="boardData" style="background-color:transparent;border-color: #956A3D;overflow-x:hidden;"><center><label><font size="4px" color="white">最低价</font></label></center><center><font size="3px" color="white">{{"\n"+boardData.low}}</font></center></pre>
+                                              </td>
+                                              <td width="6%">
+                                              </td>
+                                              <td>
+                                                  <pre ng-model="boardData" style="background-color:transparent;border-color: #956A3D;overflow-x:hidden;"><center><label><font size="4px" color="white">收盘价</font></label></center><center><font size="3px" color="white">{{"\n"+boardData.close}}</font></center></pre>
+
+                                              </td>
+                                          </tr>
+                                      </table>
+
+
+                                  </div>
+                              </div>
+
+                              <div class="widget widget-hide-header">
+                                  <div class="widget-content" >
+                                      <div style="margin-left: 0%;margin-top: -2%">
+                                          <pre ng-model="boardData" style="border-radius: 0;border-color: transparent; background-color:#956A3D;width: 100%;"><center><label><font size="5px" color="white">多因素方差分析结果</font></label></center></pre>
+                                          <h3 align="center"><font size="3x" color="#956A3D">买入点显著性</font></h3>
+                                          <h3  align="center" id="buySignificance" style="font-size: 2px;"></h3>
+                                          <h3  align="center"><font size="3x" color="#956A3D">卖出点显著性</font></h3>
+                                          <h3  align="center" id="sellSignificance" style="font-size: 2px;"></h3>
+                                          <h3 align="center"><font size="2x">样本</font></h3>
+                                          <h3  align="center"><font size="2x">今年本股票在不同策略下的盈利(虚拟资本为10000元)</font></h3>
+                                          <h3  align="center"><font size="2x">因素一</font></h3>
+                                          <h3  align="center"><font size="2x">买入点(kdj,macd,rsi,bias的黄金交叉点)</font></h3>
+                                          <h3  align="center"><font size="2x">因素二</font></h3>
+                                          <h3  align="center"><font size="2x">卖出点(kdj,macd,rsi,bias的死亡交叉点)</font></h3>
+                                      </div>
+                                  </div>
+                              </div>
+                              </div>
+                               <div class="col-lg-5">
+                                   <div class="widget widget-hide-header">
                                        <div class="widget-header hide">
                                            <!--header-->
                                            <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- form</em>
@@ -220,18 +309,85 @@
                                            </div>
                                        </div>
                                        <div class="widget-content">
-                                           <!--<h2 align="center">虚拟运营策略工厂</h2>-->
+
+                                           <!--<input id="avvv3" type="button" style="width:100px; height:40px;" value="弹出层" onclick="show2();"/><br /><br />-->
+
+                                           <div class="save_con" id="save_con" style="margin-top: -20px;">
+                                               <div class="save_row header">
+                                                   <h2>Chicer策略库欢迎您</h2>
+                                                   <h4>请为您的策略命名</h4>
+                                               </div>
+                                               <div class="save_row body">
+                                                   <!--<form>-->
+                                                       <!--<li>-->
+                                                           <!--<p class="left">-->
+                                                       <table>
+                                                            <tr>
+                                                                <td>
+                                                               <label for="strName">策略名称</label>
+                                                                </td>
+                                                            </tr>
+                                                           <tr>
+                                                               <td>
+                                                               <textarea  id="strName" style="border-color: #0c0c0c;"></textarea>
+                                                               </td>
+                                                               </tr>
+                                                           <!--</p>-->
+                                                       <!--</li>-->
+                                                       <!--<li>-->
+                                                           <!--<p class="left">-->
+                                                            <tr>
+                                                                <td>
+                                                               <label for="strType">策略内容</label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                               <textarea  id="strType" placeholder="BIAS" style="border-color: #0c0c0c" readonly="readonly"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                           <!--</p>-->
+                                                       <!--</li>-->
+                                                       <!--<li>-->
+                                                           <tr>
+                                                               <td>
+                                                           <label for="extraInfo">策略简介(可选)</label>
+                                                                </td>
+                                                           </tr>
+                                                           <tr>
+                                                               <td>
+                                                           <textarea  id="extraInfo" style="border-color: #0c0c0c"></textarea>
+                                                               <td>
+                                                            </tr>
+                                                       <!--</li>-->
+                                                       <!--<table>-->
+                                                           <tr>
+                                                               <td>
+                                                                   <input class='button -dark  center' type="submit" value="保存" id="confirm_button" />
+                                                               </td>
+                                                               <!--<td>-->
+                                                                   <!--&lt;!&ndash;<input class='button -dark  center' type="submit" value="取消" id="back_button"/>&ndash;&gt;-->
+                                                               <!--</td>-->
+                                                           </tr>
+                                                       </table>
+
+                                                       <!--</ul>-->
+                                                   <!--</form>-->
+                                               </div>
+                                           </div>
+
+
                                            <ul class="nav nav-pills" role="tablist">
-                                               <li class="active" style="width: 40%"><a href="#chart1" style="color:#AAAAA6 "role="tab" data-toggle="tab"><i class="fa fa-area-chart"></i> 交叉点策略 </a></li>
-                                               <li style="width: 40%"><a href="#chart2" style="color:#AAAAA6" role="tab" data-toggle="tab"><i class="fa fa-bar-chart"></i> 自定义策略 </a></li>
+                                               <li class="active" style="width: 50%"><a href="#chart1" style="color:#AAAAA6 "role="tab" data-toggle="tab"><i class="fa fa-area-chart"></i> 交叉点策略 </a></li>
+                                               <li style="width: 45%"><a href="#chart2" style="color:#AAAAA6" role="tab" data-toggle="tab"><i class="fa fa-bar-chart"></i> 自定义策略 </a></li>
                                            </ul>
 
                                            <div class="tab-content">
-                                               <div class="tab-pane fade in active" id="chart1">
-                                                   <p>您将可以组合交叉点策略,买入点为黄金交叉点,卖出点为死亡交叉点</p>
+                                               <div class="tab-pane fade in active" id="chart1" style="height: 300px;">
+                                                   <p align="center">您将可以组合交叉点策略,买入点为黄金交叉点,卖出点为死亡交叉点</p>
 
 
-                                                   <div class="row" style="margin-top: 40px;">
+                                                   <div class="row" style="margin-top: 50px;">
                                                        <div class="col-lg-4">
                                                        </div>
                                                        <div class="col-lg-4">
@@ -254,13 +410,13 @@
                                                            <option value="KDJ">KDJ交叉点</option>
                                                        </optgroup>
                                                    </select>
-                                                   <div class="row" style="margin-top: 30px;">
+                                                   <div class="row" style="margin-top: 50px;">
                                                        <table border="0" WIDTH="100%" >
                                                            <tr>
                                                                <td width="30%">
                                                                </td>
                                                                <td>
-                                                                   <div class='button -dark  center' onclick="multiPredictTriggered()"><a href="#anchor" style="color:#0c0c0c
+                                                                   <div class='button -dark  center' onclick="multiPredictTriggered()"><a href="javascript:sleep(1000,'#anchor')" style="color:#0c0c0c
                                                                    ;width: 100%;height: 100%;">确定</a></div>
                                                                <td>
                                                                <td>
@@ -268,7 +424,7 @@
                                                                <td>
                                                                </td>
                                                                <td>
-                                                                   <div class='button -dark  center' onclick="savePredictItem()"><a href="#" style="color:#0c0c0c">保存</a></div>
+                                                                   <div class='button -dark  center' id="saveCrossStrBtn"><a href="" style="color:#0c0c0c">保存</a></div>
                                                                </td>
                                                                <td width="30%">
                                                                </td>
@@ -277,8 +433,8 @@
                                                    </div>
                                                </div>
                                                <div class="tab-pane fade" id="chart2">
-                                                   <p>您可以根据自己的需求选区策略曲线并且进行买卖点选择</p>
-                                                   <div class="row" style="margin-top: 40px;">
+                                                   <p align="center">您可以根据自己的需求选取策略曲线并且进行买卖点选择</p>
+                                                   <div class="row" style="margin-top: 20px;">
                                                        <div class="col-lg-3"></div>
                                                        <div class="col-lg-6">
                                                        <div class="dropp">
@@ -293,41 +449,6 @@
                                                                <label for="pt_kdj">KDJ<input type="radio" id="pt_kdj" name="dropp" value="KDJ"/></label>
                                                            </div>
                                                        </div>
-                                                       <!--<table width="100%">-->
-                                                           <!--<tr>-->
-                                                               <!--<td style="width: 1%"></td>-->
-                                                           <!--<td style="width: 45%">-->
-                                                            <!--<div class="radioholder">-->
-                                                               <!--<input type="radio" name="projecttype" value="BIAS" id="pt_bias" checked>-->
-                                                               <!--<label for="pt_bias">BIAS</label>-->
-                                                            <!--</div>-->
-                                                           <!--</td>-->
-                                                               <!--<td style="width: 45%">-->
-                                                   <!--<div class="radioholder">-->
-                                                       <!--<input type="radio" name="projecttype" value="KDJ" id="pt_kdj">-->
-                                                       <!--<label for="pt_kdj">KDJ</label>-->
-                                                   <!--</div>-->
-                                                               <!--</td>-->
-                                                               <!--<td style="width: 9%"></td>-->
-
-                                                               <!--</tr>-->
-                                                           <!--<tr>-->
-                                                               <!--<td></td>-->
-                                                               <!--<td>-->
-                                                   <!--<div class="radioholder">-->
-                                                       <!--<input type="radio" name="projecttype" value="MACD" id="pt_macd">-->
-                                                       <!--<label for="pt_macd">MACD</label>-->
-                                                   <!--</div>-->
-                                                               <!--</td>-->
-                                                               <!--<td>-->
-                                                                   <!--<div class="radioholder">-->
-                                                                       <!--<input type="radio" name="projecttype" value="RSI" id="pt_rsi">-->
-                                                                       <!--<label for="pt_rsi">RSI</label>-->
-                                                                   <!--</div>-->
-                                                               <!--</td>-->
-                                                               <!--<td></td>-->
-                                                           <!--</tr>-->
-                                                           <!--</table>-->
                                                            </div>
                                                        <div class="col-lg-3"></div>
                                                </div>
@@ -340,12 +461,11 @@
                                                         <label>买入点(日涨幅: 格式如10%)</label>
                                                         <input style="height: 45px; " id="buyStd" value=""/>
                                                             </td>
-                                                            <td width="1%"></td>
                                                             <td width="45%">
                                                         <label>卖出点(日跌幅: 格式如-10%)</label>
                                                         <input value=""  id="sellStd" style="height: 45px; "/>
                                                             </td>
-                                                            <td width="8%"></td>
+                                                            <td width="10%"></td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -355,14 +475,14 @@
                                                                <td width="30%">
                                                                </td>
                                                                <td>
-                                                                   <div class='button -dark  center' onclick="newStrategy()"><a href="#anchor" style="color: #0c0c0c;width: 100%;height: 100%;">确定</a></div>
+                                                                   <div class='button -dark  center' onclick="newStrategy()"><a href="javascript:sleep(1000,'#anchor')" style="color: #0c0c0c;width: 100%;height: 100%;">确定</a></div>
                                                                <td>
                                                                <td>
                                                                </td>
                                                                <td>
                                                                </td>
                                                                <td>
-                                                                   <div class='button -dark  center'  onclick="savePredictItem()"><a href="#" style="color:#0c0c0c">保存</a></div>
+                                                                   <div class='button -dark  center' id="saveCustomerStrBtn"><a href="" style="color:#0c0c0c">保存</a></div>
                                                                </td>
                                                                <td width="30%">
                                                                </td>
@@ -371,169 +491,161 @@
                                                    </div>
                                            </div>
                                        </div>
-                                   </div>
-                                       </div>
-
-
-
-                                   <div class="widget">
-                                 <div class="widget-header hide">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
-                                    <div class="btn-group widget-header-toolbar">
-                                        <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                    </div>
-                                 </div>
-                                <div class="widget-content">
-
-                                    <!--<div id="predict" class="btn" onclick="predictTriggered('kdj')">KDJ Pre</div>-->
-                                    <div id="main1" style="height:300px;"></div>
-                                    <div id="main3" style="height:300px;"></div>
-
-
-                                    <form type="radio" onclick="checkBoxChanged()">
-                                        <label><input name="chart3Type"  value="BIAS" type="radio" style="margin-left: 80px;" checked/>BIAS</label>
-                                        <label><input name="chart3Type"  value="RSI"  type="radio"/>RSI</label>
-                                        <label><input name="chart3Type"  value="MACD" type="radio"/>MACD</label>
-                                        <label><input name="chart3Type"  value="KDJ"  type="radio"/>KDJ</label>
-                                    </form>
-                                </div>
-                            </div>
-                         </div>
-                           <div class="col-lg-5">
-                               <div class="widget  widget-hide-header" style="height:160px;">
-                                   <div class="widget-header hide">
-                                   </div>
-                                   <div class="widget-content">
-                                       <h3 align="center"><font size="4x">切换虚拟运营股票</font></h3>
-                                       <form class="search" style="margin-top: 0px;" action="">
-                                           <input id="stockValue" type="search" placeholder="Search here..." required >
-                                           <button type="submit" ng-click="changeStock()">Search</button>
-                                       </form>
-                                   </div>
-                               </div>
-
-                            <div class="widget">
-                                <div class="widget-header hide">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}方差分析指标</h3>
-                                    <div class="btn-group widget-header-toolbar">
-                                        <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
-                                <div class="widget-content">
-                                    <div id="g-holder">
-                                        <div id="canvasDiv">
-                                            <canvas id="graph" width="400" height="400"></canvas>
-                                            <div id="gInfo"></div>
                                         </div>
-                                        <!--<div id="controls">-->
-                                        <!--</div>-->
-                                    </div>
-                                  <div style="margin-left: 5%">
-                                    <h3><font size="4x">多因素方差分析样本及指标说明</font></h3>
-                                    <h3><font size="3x" color="#807DBF">样本</font></h3>
-                                    <h3><font size="2x">今年本股票在不同策略下的盈利(虚拟资本为10000元)</font></h3>
-                                    <h3><font size="3x" color="#807DBF">因素一</font></h3>
-                                    <h3><font size="2x">买入点(kdj,macd,rsi,bias的黄金交叉点)</font></h3>
-                                    <h3><font size="3x" color="#807DBF">因素二</font></h3>
-                                    <h3><font size="2x">卖出点(kdj,macd,rsi,bias的死亡交叉点)</font></h3>
-                                    <h3><font size="4x">多因素方差分析结果</font></h3>
-                                    <h3><font size="3x" color="#807DBF">买入点显著性</font></h3>
-                                    <h3 id="buySignificance" style="font-size: 2px;"></h3>
-                                    <h3><font size="3x" color="#807DBF">卖出点显著性</font></h3>
-                                    <h3 id="sellSignificance" style="font-size: 2px;"></h3>
-                                  </div>
+                                   </div>
+
+                                   <div class="widget" style="margin-top: -30px;" >
+                                       <div class="widget-header hide">
+                                           <!--header-->
+                                           <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- form</em>
+                                           <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                           <div class="btn-group widget-header-toolbar">
+                                               <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                               <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                               <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                           </div>
+                                       </div>
+                                       <div class="widget-content" style="background-color: #383838">
+                                           <h3 align="center"><font size="5px" color="#956A3D">多因素方差分析样本及指标说明</font></h3>
+                                           <div id="g-holder">
+                                               <div id="canvasDiv">
+                                                   <canvas id="graph" width="400" height="400"></canvas>
+                                                   <div id="gInfo"></div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
                                 </div>
-                            </div>
-                            </div>
                                <div class="col-lg-1"></div>
                            </div>
 
-                            <!--test-->
-                            <div class="plus-vert-curtain not-deployed">
-                            </div>
-                            <div class="plus-vert">
-                                <div class="inside-blanc">
-                                </div>
-                                <div class="inside-green"></div>
-                                <div class="cross">
-                                    <div class="bar bar1"></div>
-                                    <div class="bar bar2"></div>
-                                </div>
-                            </div>
-                            <!--test-->
-                          <div class="row">
-                              <div class="col-lg-1"></div>
-                              <div class="col-lg-4">
-                              <div class="widget widget-hide-header">
-                                  <div class="widget-header hide">
-                                      <!--header-->
-                                      <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
-                                      <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
-                                      <div class="btn-group widget-header-toolbar">
-                                          <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                          <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                          <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                      </div>
-                                  </div>
-                                  <div class="widget-content" >
-                                      <div id="main2" style="height: 300px;"></div>
-                                  </div>
-                              </div>
-                              </div>
-                              <div class="col-lg-3">
-                                  <div class="widget  widget-hide-header" id="downBoard">
-                                      <div class="widget-header hide">
-                                          <!--header-->
-                                          <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>-e1</em>
-                                          <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
-                                          <div class="btn-group widget-header-toolbar">
-                                              <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                              <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                              <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                          </div>
-                                      </div>
-                                      <div class="widget-content">
-                                          <div id="main4" style="height: 300px"></div>
-                                  </div>
-                              </div>
-                            </div>
+                        <!--<div class="plus-vert-curtain not-deployed">-->
+                        <!--</div>-->
+                        <!--<div class="plus-vert">-->
+                            <!--<div class="inside-blanc">-->
+                            <!--</div>-->
+                            <!--<div class="inside-green"></div>-->
+                            <!--<div class="cross">-->
+                                <!--<div class="bar bar1"></div>-->
+                                <!--<div class="bar bar2"></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
-                              <div class="col-lg-3">
-                                  <div class="widget  widget-hide-header">
-                                      <div class="widget-header hide">
-                                          <!--header-->
-                                          <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>-e1</em>
-                                          <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
-                                          <div class="btn-group widget-header-toolbar">
-                                              <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                              <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                              <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+
+                          <div class="row" id="anchor">
+                              <!--<pre  style="border-color: transparent; background-color:#0c0c0c;"><center><label><font size="4px" color="white">虚拟运营情况</font></label></center></pre>-->
+
+                              <div class="col-lg-1"></div>
+                              <div class="col-lg-10" style="background-color: #0c0c0c;">
+                                  <div class="row">
+                                      <pre  style="border-color: transparent; background-color:#956A3D;"><center><label><font size="4px" color="#ffffff">虚拟运营情况</font></label></center></pre>
+                                      <div class="col-lg-6">
+                                      <div class="widget widget-hide-header">
+                                          <div class="widget-header hide">
+                                              <!--header-->
+                                              <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
+                                              <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                              <div class="btn-group widget-header-toolbar">
+                                                  <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                                  <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                                  <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                              </div>
+                                          </div>
+                                          <div class="widget-content">
+
+                                              <!--<div id="predict" class="btn" onclick="predictTriggered('kdj')">KDJ Pre</div>-->
+
+                                              <div id="main1" style="height:400px;"></div>
+                                              <div id="main3" style="height:300px;"></div>
+                                              <form type="radio" onclick="checkBoxChanged()">
+                                                  <label><input name="chart3Type"  value="BIAS" type="radio" style="margin-left: 80px;" checked/><font color="white">BIAS</font></label>
+                                                  <label><input name="chart3Type"  value="RSI"  type="radio"/><font color="white">RSI</font></label>
+                                                  <label><input name="chart3Type"  value="MACD" type="radio"/><font color="white">MACD</font></label>
+                                                  <label><input name="chart3Type"  value="KDJ"  type="radio"/><font color="white">KDJ</font></label>
+                                              </form>
                                           </div>
                                       </div>
-                                      <div class="widget-content">
-                                          <!--<div id="main4" style="height: 300px;">-->
-                                          <!--</div>-->
-                                          <div id="main5" style="height: 300px;"></div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                      <div class="widget widget-hide-header">
+                                          <div class="widget-header hide">
+                                              <!--header-->
+                                              <h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>
+                                              <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                              <div class="btn-group widget-header-toolbar">
+                                                  <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                                  <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                                  <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                              </div>
+                                          </div>
+                                          <div class="widget-content">
+                                              <div id="main2" style="height: 300px;"></div>
+                                              <div id="main4" style="height: 250px"></div>
+                                              <div id="main5" style="height: 250px;"></div>
+                                          </div>
                                       </div>
                                   </div>
+                                     </div>
                               </div>
-                              <div class="col-lg-1">
-                              </div>
-                        </div>
-                        </div>
+                              <!--<div class="col-lg-5">-->
+                                  <!--<div class="widget widget-hide-header">-->
+                                      <!--<div class="widget-header hide">-->
+                                          <!--&lt;!&ndash;header&ndash;&gt;-->
+                                          <!--<h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>-->
+                                          <!--<button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>-->
+                                          <!--<div class="btn-group widget-header-toolbar">-->
+                                              <!--<a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>-->
+                                              <!--<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>-->
+                                              <!--<a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>-->
+                                          <!--</div>-->
+                                      <!--</div>-->
+                                      <!--<div class="widget-content">-->
+
+                                          <!--&lt;!&ndash;<div id="predict" class="btn" onclick="predictTriggered('kdj')">KDJ Pre</div>&ndash;&gt;-->
+
+                                          <!--<div id="main1" style="height:400px;"></div>-->
+                                          <!--<div id="main3" style="height:300px;"></div>-->
+
+
+                                          <!--<form type="radio" onclick="checkBoxChanged()">-->
+                                              <!--<label><input name="chart3Type"  value="BIAS" type="radio" style="margin-left: 80px;" checked/>BIAS</label>-->
+                                              <!--<label><input name="chart3Type"  value="RSI"  type="radio"/>RSI</label>-->
+                                              <!--<label><input name="chart3Type"  value="MACD" type="radio"/>MACD</label>-->
+                                              <!--<label><input name="chart3Type"  value="KDJ"  type="radio"/>KDJ</label>-->
+                                          <!--</form>-->
+                                      <!--</div>-->
+                                  <!--</div>-->
+<!--</div>-->
+                              <!--<div class="col-lg-5">-->
+                              <!--<div class="widget widget-hide-header">-->
+                                  <!--<div class="widget-header hide">-->
+                                      <!--&lt;!&ndash;header&ndash;&gt;-->
+                                      <!--<h3><i class="fa fa-bar-chart-o"></i>{{stockID}}</h3> <em>- e1</em>-->
+                                      <!--<button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>-->
+                                      <!--<div class="btn-group widget-header-toolbar">-->
+                                          <!--<a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>-->
+                                          <!--<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>-->
+                                          <!--<a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>-->
+                                      <!--</div>-->
+                                  <!--</div>-->
+                                  <!--<div class="widget-content">-->
+                                      <!--<div id="main2" style="height: 300px;"></div>-->
+                                      <!--<div id="main4" style="height: 250px"></div>-->
+                                      <!--<div id="main5" style="height: 250px;"></div>-->
+                                  <!--</div>-->
+                              <!--</div>-->
+                        <!--</div>-->
+                              <div class="col-lg-1"></div>
+                        <!--</div>-->
                         <!-- /main-content -->
                     </div>
-                    <!-- /main -->
 
-                </div>
+                    <!-- /main -->
+                        </div>
+                    </div>
                 <!-- /content-wrapper -->
+                    </div>
             </div>
             <!-- /row -->
         </div>
@@ -541,10 +653,11 @@
     </div>
     <!-- END BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
 </div>
-<!-- /wrapper -->
+</div>
+    <!-- /wrapper -->
 
 <!-- FOOTER -->
-<footer id="anchor" class="footer" style="opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
+<footer class="footer" style="opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
     <div class="g-ft" style="text-align: center ;">
                     <span class="m-ft2" >
                         <a target="_blank"  rel="nofollow" href="javascript:void(0);" style="color: #EBEBEB">关于我们</a> <span>&nbsp;|</span>
@@ -622,6 +735,8 @@
 
 <!-- Javascript -->
 
+
+<script src="../virtualInvestPage/js/loader.js"></script>
 <script src="../js/echart/echarts.js"></script>
 <script src="../virtualInvestPage/js/kLineChart.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
@@ -633,6 +748,7 @@
 <script src="../js/search.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>
+<script type="text/javascript" src="js/jquery.dialog.js"></script>
 <script src="../js/jquery/jquery.gritter.min.js"></script>
 <script>
     $(".plus-vert").click(function(){
@@ -674,8 +790,16 @@
 
     });
 </script>
-
-
+<script>
+    function show2(){
+        var dialogBox2 = new Dialog("save_con",{
+//            "width": "500px" ,
+            "title":"",
+            'modal':true,
+            "closeModal":true
+        });
+    }
+</script>
 </body>
 
 </html>
