@@ -148,7 +148,7 @@
                 <!-- end left sidebar -->
 
                 <!-- content-wrapper -->
-                <div class="col-md-10 content-wrapper" id="app2" ng-app="myApp" ng-controller="SearchCtrl" style="background-color: #ffffff">
+                <div class="col-md-10 content-wrapper" id="app2" ng-app="myApp" ng-controller="SearchCtrl">
                     <!-- top general alert -->
 
                     <!-- end top general alert -->
@@ -178,7 +178,7 @@
                         </div>
                         <div class="main-content">
                             <div class="row">
-                                <div class="col-lg-7">
+                                <div class="col-lg-8">
                                     <div class="widget">
                                         <!--<div class="widget" style="margin-top: 100px;">-->
                                         <div class="widget-header hide">
@@ -190,7 +190,7 @@
                                                 <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                             </div>
                                         </div>
-                                        <div class="widget-content" style="background-color: #ffffff">
+                                        <div class="widget-content">
                                             <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
                                             <div class="row">
                                                 <div class="col-lg-5">
@@ -244,18 +244,11 @@
                                 <!--<div class="col-lg-1"></div>-->
                                 <div class="col-lg-4">
                                     <div class="widget widget-hide-header">
-                                        <div class="widget-header hide">
-
-                                            <div class="btn-group widget-header-toolbar">
-                                                <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                                <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                            </div>
-                                        </div>
                                         <div class="widget-content">
                                             <div class="row">
                                                 <div class="col-lg-8">
-                                                <pre ng-model="result" style="background-color:transparent;border-color: transparent;width:100%; margin-left: -14px;"><font size="7px">{{result.stock_name}}</font></pre>
+                                                <pre ng-model="result" style="background-color:transparent;border-color: transparent;width:100%; margin-left: -14px;overflow-x: hidden;"><font size="7px">{{result.stock_name}}</font></pre>
+
                                                 </div>
                                                     <div class="col-lg-4">
                                                     <div id="favorState" class='button -dark  center' style="width:80px;height:40px;" ng-model="favorStateContent" ng-click="favorButtonHandle()">{{favorStateContent}}</div>
@@ -295,26 +288,23 @@
                                     </div>
                                 <!--</div>-->
                                 <!--<div class="col-lg-3">-->
-                                    <div class="widget widget-hide-header"  style="margin-top: 30px;">
-                                        <div class="widget-header hide">
-                                            <!--header-->
-                                            <!--<h3><i class="fa fa-bar-chart-o"></i>腾讯科技</h3>-->
-                                            <div class="btn-group widget-header-toolbar">
-                                                <a href="#"title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                                <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    <hr class="separator">
+                                        <div class="secondary-stat">
+                                            <div id="secondary-stat-item3" class="secondary-stat-item big-number-stat clearfix">
+                                                <p class="data">
+                                                    <span class="col-left"><h3>热度</h3></span>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-left big-number" id="hotNum">0</div>
+                                                        <div class="col-right">
+                                                            <h5 style="font-size: medium;">People&nbspConcerned</h5>
+                                                        </div>
+
+                                                </p>
                                             </div>
                                         </div>
-                                        <div class="widget-content" style="height: 450px">
-                                            <h1 style="font-size: 40px">相关咨询</h1>
-                                            <h1 style="font-size: 20px;">如何在一天之内成为百万富翁?</h1>
-
-                                        </div>
-                                    </div>
                                 </div>
-
                              </div>
-
+                            <p></br></p>
                             <div class="row">
                                 <div class="col-lg-12">
                                  <div class="widget">
@@ -328,7 +318,7 @@
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                    <div class="widget-content" style="background-color: #ffffff" >
+                                    <div class="widget-content"  >
                                         <table id="mytable" class="display" width="100%"></table>
                                      </div>
                                    </div>

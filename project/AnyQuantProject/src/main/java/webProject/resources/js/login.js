@@ -7,6 +7,12 @@ window.onload=function() {
     var back_button=document.getElementById("back_button");
     var signInUp=document.getElementById("signInUp");
 
+    var  aboutUS=document.getElementById("aboutUS");
+    var  infoDown=document.getElementById("infoDown");
+    var  info=document.getElementById("info");
+
+
+
     sign_button.onclick=function() {
         pop.style.display="block";
         signInUp.style.display="block";
@@ -16,6 +22,24 @@ window.onload=function() {
         pop.style.display="none";
         signInUp.style.display="none";
     }
+
+    aboutUS.onclick=function() {
+        $("#info").removeClass("fadeInDown animated");
+        $("#info").addClass("fadeInUp animated");
+        $('#info').fadeIn();
+        info.style.display="block";
+        window.location.href= "#info";
+    }
+
+    infoDown.onclick=function() {
+        $("#info").removeClass("fadeInUp animated");
+        $("#info").addClass("fadeInDown animated");
+        $('#info').fadeOut();
+        info.style.display="none";
+
+
+    }
+
 }
 
 //建立与"myApp"标识的 ng-app 的联系

@@ -64,10 +64,11 @@ GLOBAL STYLES
     position: absolute;
     transform: translate(-50%, -50%);
     text-align: center;
-    background:#000;
-    opacity:0.6;
+    background:#808080;
     height:40px;
-    width:100%
+    width:100%;
+    font-size: 15px;
+    color:#fff;
 }
 
 body {
@@ -1053,7 +1054,13 @@ footer {
     margin-right: 5px;
 }
 
-
+.info {
+    background: #555;
+    padding: 20px 0 80px 0 !important;
+    z-index: 500;
+    clear: both;
+    display: none;
+}
 .pixeden  {
     height: 63px;
     margin: auto;
@@ -1062,3 +1069,5 @@ footer {
     display: block;
 
 }
+
+:active{outline:none;}

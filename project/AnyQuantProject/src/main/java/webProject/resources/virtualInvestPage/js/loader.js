@@ -65,8 +65,10 @@ window.onload=function() {
         var str_Name=document.getElementById("strName").value;
        if(chartflag==1){
            $scope.saveCrossStr(str_Name);
+           $scope.showAllStr();
        }else if(chartflag==2){
            $scope.saveCustomerStr(str_Name);
+           $scope.showAllStr();
        }
     }
 }

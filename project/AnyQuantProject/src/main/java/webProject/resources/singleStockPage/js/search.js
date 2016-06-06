@@ -31,7 +31,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         $scope.data = data;
         $scope.tableData =data;
 
-  //      console.log($scope.tableData);
+     //   console.log($scope.tableData);
         var array=new Array();
         var count=0;
         var tableData=[];
@@ -99,6 +99,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         "method": "getStockByNameService"
     }).success(function (data, status) {
             var temp=data;
+    console.log(temp);
         if(localStorage.userName==""){
             $scope.favorStateContent = "关注";
         }
@@ -193,6 +194,20 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         });
 
 
+    $http.post($scope.url, {// function getFavorNumByStockService($name, $startdate, $enddate){
+        "name": localStorage.singleStockID,
+        "method": "getFavorNumByStockService"
+    }).success(function (data) {
+            $scope.favorNum=data;
+         //   console.log( $scope.favorNum[0].favornum);
+            document.getElementById("hotNum").innerText=$scope.favorNum[0].favornum;
+        })
+        .error(function (data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
+
+
 
 
 
@@ -246,21 +261,22 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             }else {
                 document.getElementById("favorState").innerText = "取消关注";
                 $scope.favorStateContent = "取消关注";
-            }
-            $http.post($scope.url, {
-                // "username": "hmy14",
-                "username": localStorage.userName,
-                "name": localStorage.singleStockID,
-                "method": "addMyFavorService"
-            }).success(function (data, status) {
-                    $scope.status = status;
-                    $scope.data = data;
 
-                })
-                .error(function (data, status) {
-                    $scope.data = data || "Request failed";
-                    $scope.status = status;
-                });
+                $http.post($scope.url, {
+                    // "username": "hmy14",
+                    "username": localStorage.userName,
+                    "name": localStorage.singleStockID,
+                    "method": "addMyFavorService"
+                }).success(function (data, status) {
+                        $scope.status = status;
+                        $scope.data = data;
+
+                    })
+                    .error(function (data, status) {
+                        $scope.data = data || "Request failed";
+                        $scope.status = status;
+                    });
+            }
         }else{
             document.getElementById("favorState").innerText="关注";
             $scope.favorStateContent="关注";
