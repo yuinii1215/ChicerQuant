@@ -43,7 +43,7 @@ function addMyFavor($stock_id,$username){
 
 function getFavorNumByStock($name){
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select count(*) from favorstocks where stock_id = :stock_id");
+    $stmt = $connection->prepare("select count(*) as favornum from favorstocks where stock_id = :stock_id");
     $stmt->bindParam(":stock_id",$_stock_id);
     $_stock_id = $name;
     return execQuery($connection,$stmt);

@@ -8,9 +8,9 @@
 require_once('strategy_user.php');
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: X-Requested-With');
-function saveCrossStrategyService($username,$strategyname,$crossstr)
+function saveCrossStrategyService($username,$strategyname,$crossstr,$share)
 {
-     $jsonstring = saveCrossStrategy($username,$strategyname,$crossstr);
+     $jsonstring = saveCrossStrategy($username,$strategyname,$crossstr,$share);
      echo $jsonstring;
 
 }
@@ -21,9 +21,9 @@ function getCrossStrategyService($username)
      echo $jsonstring;
 }
 
-function saveCustomStrategyService($username,$strategyname,$type,$buypoint,$sellpoint)
+function saveCustomStrategyService($username,$strategyname,$type,$buypoint,$sellpoint,$share)
 {
-    $jsonstring = saveCustomStrategy($username,$strategyname,$type,$buypoint,$sellpoint);
+    $jsonstring = saveCustomStrategy($username,$strategyname,$type,$buypoint,$sellpoint,$share);
     echo $jsonstring;
 }
 
@@ -46,8 +46,14 @@ function delCustomStrategyService($username,$strategyname)
     echo $jsonstring;
 }
 
+function getShareStrategyService()
+{
+    $jsonstring = getShareStrategy();
+    echo $jsonstring;
+}
 //saveCrossStrategyService("cx",'straname','str');
 //getCrossStrategyService('cx');
 //delCrossStrategy('cx','straname');
 //getCrossStrategyService('cx');
+//getShareStrategyService();
  ?>

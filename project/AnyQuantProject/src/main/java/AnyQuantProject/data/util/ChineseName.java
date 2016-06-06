@@ -33,8 +33,8 @@ public class ChineseName {
 		ChineseName i = new ChineseName();
 //		i.iniChinese();
 		try {
-//			System.out.println(i.getChineseName("sz000810"));
-			System.out.println(getAllStockNames());
+//			System.out.println(i.getChineseName("sz000594"));
+//			System.out.println(getAllStockNames());
 		} catch (NetFailedException e) {
 			e.printStackTrace();
 		}

@@ -156,13 +156,13 @@ switch ($method)
         getMyStrategyDataService($objData->name,$objData->startdate,$objData->enddate);
         break;
     case "saveCrossStrategyService":
-        saveCrossStrategyService($objData->username,$objData->strategyname,$objData->crossstr);
+        saveCrossStrategyService($objData->username,$objData->strategyname,$objData->crossstr,$objData->share);
         break;
     case "getCrossStrategyService":
         getCrossStrategyService($objData->username);
         break;
     case "saveCustomStrategyService":
-        saveCustomStrategyService($objData->username,$objData->strategyname,$objData->type,$objData->buypoint,$objData->sellpoint);
+        saveCustomStrategyService($objData->username,$objData->strategyname,$objData->type,$objData->buypoint,$objData->sellpoint,$objData->share);
         break;
     case "getCustomStrategyService":
         getCustomStrategyService($objData->username);
@@ -172,6 +172,9 @@ switch ($method)
         break;
     case "delCustomStrategyService":
         delCustomStrategyService($objData->username,$objData->strategyname);
+        break;
+    case "getShareStrategyService":
+        getShareStrategyService();
         break;
     case "getFavorNumByStockService":
         getFavorNumByStockService($objData->name);
