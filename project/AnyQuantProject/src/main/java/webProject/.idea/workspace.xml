@@ -21,26 +21,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="virtualInvestPage.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="virtualInvestPage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="208" column="88" selection-start-line="208" selection-start-column="88" selection-end-line="208" selection-end-column="88" />
+            <state relative-caret-position="129">
+              <caret line="205" column="29" selection-start-line="205" selection-start-column="29" selection-end-line="205" selection-end-column="29" />
               <folding>
                 <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="singleStockPage.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="singleStockPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="256" column="70" selection-start-line="256" selection-start-column="70" selection-end-line="256" selection-end-column="70" />
+            <state relative-caret-position="99">
+              <caret line="243" column="67" selection-start-line="243" selection-start-column="67" selection-end-line="243" selection-end-column="67" />
               <folding>
-                <element signature="n#style#0;n#pre#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#pre#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,8 +69,8 @@
       <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+            <state relative-caret-position="480">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -142,8 +142,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="314" />
-    <option name="y" value="95" />
+    <option name="x" value="-11" />
+    <option name="y" value="88" />
     <option name="width" value="1280" />
     <option name="height" value="728" />
   </component>
@@ -200,8 +200,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -272,6 +270,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -419,15 +419,16 @@
       <workItem from="1464945386908" duration="4432000" />
       <workItem from="1464962375552" duration="7763000" />
       <workItem from="1465058845597" duration="737000" />
+      <workItem from="1465201221521" duration="198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186900000" />
+    <option name="totallyTimeSpent" value="187098000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="314" y="95" width="1280" height="728" extended-state="0" />
-    <editor active="false" />
+    <frame x="-11" y="88" width="1280" height="728" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16640624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -657,7 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="13204" column="58" selection-start-line="13204" selection-start-column="41" selection-end-line="13204" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -740,8 +740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        <state relative-caret-position="480">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -815,23 +815,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html">
+    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="208" column="88" selection-start-line="208" selection-start-column="88" selection-end-line="208" selection-end-column="88" />
+        <state relative-caret-position="99">
+          <caret line="243" column="67" selection-start-line="243" selection-start-column="67" selection-end-line="243" selection-end-column="67" />
           <folding>
-            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#pre#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/singleStockPage/singleStockPage.html">
+    <entry file="file://$PROJECT_DIR$/resources/virtualInvestPage/virtualInvestPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="256" column="70" selection-start-line="256" selection-start-column="70" selection-end-line="256" selection-end-column="70" />
+        <state relative-caret-position="129">
+          <caret line="205" column="29" selection-start-line="205" selection-start-column="29" selection-end-line="205" selection-end-column="29" />
           <folding>
-            <element signature="n#style#0;n#pre#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -8,6 +8,7 @@ var app = angular.module('myFavorApp', []);
        // addFavorStock("sh600006");
         var singleStock=[];
         var array=new Array();
+        var countOther=0;
         var length=0;
         var count =-1;
         if( localStorage.userName==""){
@@ -106,7 +107,12 @@ var app = angular.module('myFavorApp', []);
 
                     console.log( $scope.singleStock);
 
-                    array[count + 1] = new Array;
+                    var temp  =Object.keys(  $scope.singleStock[0] );
+                    //        console.log( $scope.singleStock);
+                           console.log(temp.length);
+
+                    if(temp.length>2) {
+                        array[count + 1] = new Array;
                         array[count + 1][0] = stockName;
                         array[count + 1][1] = $scope.singleStock[0].stock_name;
 
@@ -121,8 +127,10 @@ var app = angular.module('myFavorApp', []);
                         array[count + 1][10] = $scope.singleStock[0].industry;
 
                         count++;
-                        if (count == length - 2) {
-                            count = 0;
+                    } else{
+                    countOther++;
+                 }
+                if((count+countOther)==length-2){
                             var dataSet = array;
 
                             $(document).ready(function () {
