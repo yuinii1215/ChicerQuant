@@ -224,7 +224,6 @@
                             <ul class="breadcrumb">
                                 <li  class="active"><i class="fa fa-file-text-o"></i><a href="../dataAnalysePage/dataAnalysePage.html">分析 &amp; 策略</a></li>
                                    <li><a href="#">数据分析</a></li>
-
                             </ul>
                         </div>
                     </div>
@@ -237,54 +236,108 @@
                         </div>
                         <div class="main-content">
                             <div class="row">
-
-                            <div class="col-lg-10">
+                                <div class="col-md-8">
                                     <!--K线图-->
-                              <div class="widget" >
-                                <div class="widget-header">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>K线图</h3>
-
-                                    <div class="btn-group widget-header-toolbar">
-                                        <a href="#" id="tour-focus" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
-
-                                <div class="widget-content" ng-controller="kLine" >
+                                    <div class="widget" >
+                                        <div class="widget-header">
+                                            <!--header-->
+                                            <h3><i class="fa fa-bar-chart-o"></i>预测图</h3>
+                                            <div class="btn-group widget-header-toolbar">
+                                                <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                                <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="widget-content" ng-controller="kLine" >
                                         <!-- 为ECharts准备一个具备大小（宽高）的Dom,绘制K线图 -->
-                                    <input ng-model="stockid"/>
-                                     <button ng-click="change()">change</button>
-     			                             <div id="kline" style="height:400px;width:1200px"></div>
-							                  </div>
-                            </div>
+                                        <input ng-model="stockid"/>
+                                        <button ng-click="change()">change</button>
+     			                         <div id="kline" style="height:400px;"></div>
+                                    </div>
+                                    </div>
                                <!--预测图-->
-                           <div  class="widget" STYLE="margin-top:20px;">
-                                <div class="widget-header">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>预测走势图</h3>
-
-                                    <div class="btn-group widget-header-toolbar">
-                                        <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    <div  class="widget">
+                                        <div class="widget-header">
+                                            <!--header-->
+                                            <h3><i class="fa fa-bar-chart-o"></i>叶策图</h3>
+                                            <div class="btn-group widget-header-toolbar">
+                                                <a href="#"  title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                                <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                                <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="widget-content">
+                                        <div id="main4"  ng-controller="kLine">
+                                            <div id="poly" style="height:300px;"></div>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
-                                <div class="widget-content">
-                                    <div id="main4"  ng-controller="kLine">
 
-                                    <div id="poly" style="height:300px;width:1200px;"></div>
-                                  </div>
-                                </div>
-                            </div>
-                                </div>
+                                <div class="col-md-4">
+                                    <ul class="nav nav-pills nav-pills-custom-minimal custom-minimal-bottom" role="tablist">
+                                        <li class="active"><a href="#MACDData" role="tab" data-toggle="tab" onclick="initMACDData()"><i class="icon ion-social-rss"></i> MACD</a></li>
+                                        <li><a href="#RSIData" role="tab" data-toggle="tab" onclick="initRSIData()"><i class="icon ion-social-rss"></i> RSI</a></li>
+                                        <li><a href="#BIASData" role="tab" data-toggle="tab" onclick="initBIASData()"><i class="icon ion-reply-all"></i> BIAS</a></li>
+                                        <li><a href="#KDJData" role="tab" data-toggle="tab" onclick="initKDJData()"><i class="icon ion-forward"></i> KDJ</a></li>
+                                    </ul>
+                                    <div class="tab-content" id="text-content">
+                                        <div class="tab-pane fade in active" id="MACDData" >
+                                            <h5>MACD线</h5>
+                                            <p>指数平滑异同平均线(MACD), 也即是在使用MACD指标时在图表上看到的MACD柱状线，常用于分析股票的买入、卖出时机。当MACD线翻红，即由负变正时为买入时机；当MACD线翻绿，即由正变负时为卖出时机。DIFF指白色的线，一般统称MACD线。DEA指黄色的线。</p>
+                                        </div>
+                                        <div class="tab-pane fade" id="RSIData" >
+                                            <h5>RSI线</h5>
+                                            <p>相对强弱指标(RSI), 是由威尔斯.威尔德（Welles Wilder)最早应用于期货买卖，后来人们发现在众多的图表技术分析中，强弱指标的理论和实践极其适合于股票市场的短线投资，于是被用于股票升跌的测量和分析中。</p>
+                                        </div>
+                                        <div class="tab-pane fade" id="BIASData">
+                                            <h5>BIAS线</h5>
+                                            <p>乖离率（BIAS）, 是测量股价偏离均线大小程度的指标。当股价偏离市场平均成本太大时，都有一个回归的过程，即所谓的“物极必反”。</p>
+                                        </div>
+                                        <div class="tab-pane fade" id="KDJData">
+                                            <h5>KDJ线</h5>
+                                            <p>随机指标(KDJ), 是一种相当新颖、实用的技术分析指标，它起先用于期货市场的分析，后被广泛用于股市的中短期趋势分析，是期货和股票市场上最常用的技术分析工具。</p>
+                                        </div>
+
+                                        <div class="panel-group" id="accordion2">
+                                            <div class="panel panel-trans">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2"><i class="fa fa-plus-square-o"></i><i class="fa fa-minus-square-o"></i> 我何时该买入？</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseOne2" class="panel-collapse collapse in">
+                                                    <div class="panel-body" id="panel-body1">DIF由下向上突破 DEA,MACD 值由负变正；</div>
+                                                </div>
+                                             </div>
+                                            <div class="panel panel-trans">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" class="collapsed"><i class="fa fa-plus-square-o"></i><i class="fa fa-minus-square-o"></i> 我何时该卖出?</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseTwo2" class="panel-collapse collapse">
+                                                    <div class="panel-body" id="panel-body2">DIF由上向下突破 DEA,MACD 值由正变负；</div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-trans">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThree2" class="collapsed"><i class="fa fa-plus-square-o"></i><i class="fa fa-minus-square-o"></i> 此类数据线何时适用?</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseThree2" class="panel-collapse collapse">
+                                                    <div class="panel-body" id="panel-body3">适用于中线趋势分析，建议与KDJ线一起使用。</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
                             </div>
                         </div>
                         <!-- /main-content -->
                     </div>
                     <!-- /main -->
-
                 </div>
                 <!-- /content-wrapper -->
             </div>
@@ -387,6 +440,7 @@
 <script src="../js/zerif.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script src="../js/search.js"></script>
+<script src="js/info.js"></script>
 <script src="../js/jquery/jquery.gritter.min.js"></script>
 
 </body>
