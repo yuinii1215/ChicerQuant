@@ -117,6 +117,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
            "username": localStorage.userName,
            "strategyname": newStr_Name ,
            "crossstr": crossStrName,
+           "share":0,
            "method": "saveCrossStrategyService"
        }).success(function (data, status) {
            //{operation: "success", duplicate: false}
@@ -199,6 +200,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "type":newType,
             "buypoint":buyStd,
             "sellpoint":sellStd,
+            "share":0,
             "method": "saveCustomStrategyService"
         }).success(function (data, status) {
             var tmp=data;
@@ -218,6 +220,59 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             });
     }
 
+    $scope.shareCrossStr=function(newStrName){
+        var crossStrName="";
+        var new_cnt=0;
+        for(var item=0;item<4;item++){
+
+            if(KType[item]!="") {
+                console.log(KType[item]);
+                if(new_cnt>0) {
+                    crossStrName += "&" + KType[item];
+                }
+                else{
+                    crossStrName +=  KType[item];
+                    new_cnt++;
+                }
+            }
+
+        }
+        // crossStrName=KType[0]+"&"+KType[1]+"&"+KType[2]+"&"+KType[3];
+        newStr_Name=newStrName;
+
+        $http.post($scope.url, {
+            "username": localStorage.userName,
+            "strategyname": newStr_Name ,
+            "crossstr": crossStrName,
+            "share":1,
+            "method": "saveCrossStrategyService"
+        }).success(function (data, status) {
+             console.log("share cross success");
+
+        })
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+    }
+    $scope.shareCustomerStr=function(newStrName){
+        newStr_Name=newStrName;
+        $http.post($scope.url, {
+            "username": localStorage.userName,
+            "strategyname": newStr_Name ,
+            "type":newType,
+            "buypoint":buyStd,
+            "sellpoint":sellStd,
+            "share":1,
+            "method": "saveCustomStrategyService"
+        }).success(function (data, status) {
+            console.log("share cust success");
+        })
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+    }
 
        $scope.strManager =[];
        var str_cnt=0;
@@ -229,8 +284,8 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
              var myCustomStr=data;
 
             for(var item in myCustomStr) {
-                console.log("1");
-                console.log(myCustomStr[item]);
+                // console.log("1");
+                // console.log(myCustomStr[item]);
                 if (myCustomStr[item]!="success") {
                 $scope.strManager[str_cnt] = {
                     "strName": myCustomStr[item].strategyname,
@@ -248,8 +303,8 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             }).success(function (data, status) {
                 var myCrossStr=data;
                 for(var item in myCrossStr) {
-                    console.log("2");
-                    console.log(myCrossStr[item]);
+                    // console.log("2");
+                    // console.log(myCrossStr[item]);
                     if (myCrossStr[item]!="success") {
                         if ((myCrossStr[item].strategyname != "") && (myCrossStr[item].crossstr != "&&&")) {
                             $scope.strManager[str_cnt++] = {
