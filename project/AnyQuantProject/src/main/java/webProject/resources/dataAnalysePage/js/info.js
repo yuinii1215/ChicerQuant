@@ -4,12 +4,14 @@ jQuery(window).load(function() {
 })
 
 function initMACDData(){
+    document.getElementById("text-content").style.backgroundColor="#e96656";
     document.getElementById("panel-body1").innerHTML="DIF由下向上突破 DEA,MACD 值由负变正；";
     document.getElementById("panel-body2").innerHTML="DIF由上向下突破 DEA,MACD 值由正变负；";
     document.getElementById("panel-body3").innerHTML="适用于中线趋势分析，建议与KDJ线一起使用。";
- //   document.getElementById(" text-content")
+
 }
 function initRSIData(){
+    document.getElementById("text-content").style.backgroundColor="#2EBA82";
     document.getElementById("panel-body1").innerHTML="1.W形或头肩底 当RSI在低位或底部形成W形或头肩底形时，属最佳买入时期。"+"</br>"
         + "2.当RSI运行到20以下时为超卖区，易产生返弹。"+"</br>"
         + "3.黄金交叉:当短天期的RSI向上穿越长天期的RSI时为买入信号。"+"</br>"
@@ -27,6 +29,7 @@ function initRSIData(){
         + "作的准备。";
 }
 function initBIASData(){
+    document.getElementById("text-content").style.backgroundColor="#3191BA";
     document.getElementById("panel-body1").innerHTML="一般来说，负乖离率涨降至某一百分比时，为买入信号"+"</br>"
         + "其他情况有：" +"</br>"
         +"1、当短期BIAS曲线开始在底部向上突破长期BIAS曲线时，说明股价的弱势整理格局可能被打破，股价短期将向上运动，投资者可以考虑少量长线建仓。"+"</br>"
@@ -42,6 +45,7 @@ function initBIASData(){
                     "所以，通过乖离率洞察股市冷暖，符合常规思路：涨多了要跌，跌多了要涨";
 }
 function initKDJData(){
+    document.getElementById("text-content").style.backgroundColor="#E7AC44";
     document.getElementById("panel-body1").innerHTML="K、D、J这三值在20以下，K线向上突破D线";
     document.getElementById("panel-body2").innerHTML="K、D、J这三值在80以上，K线向下跌破D线";
     document.getElementById("panel-body3").innerHTML="适用于中短线趋势分析，建议与MACD线一起使用。"+"</br>"+"由RSV可知，其是当前股价在最近周期内股价所处位置的体现。"+"</br>"+"当K线向上突破D线时，"
