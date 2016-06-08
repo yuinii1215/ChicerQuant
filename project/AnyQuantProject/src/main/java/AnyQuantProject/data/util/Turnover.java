@@ -33,11 +33,33 @@ public class Turnover {
     public static void main(String[] args)  {
 
         try {
-            System.out.println("turnovervalue"+ getTurnOverValue("sh600216"));
-//            System.out.println(getShares("sh600216"));
+//            System.out.println("turnovervalue"+ getTurnOverValue("sh600216"));
+            getChinaInterests(CalendarHelper.getMonthStart(Calendar.getInstance()),Calendar.getInstance());
         } catch (NetFailedException e) {
             System.out.println("i'll handle it");
         }
+    }
+
+    public static void getChinaInterests(Calendar start, Calendar end) throws NetFailedException{
+        String startday = "20150102";
+        String endday = "20150301";
+
+
+        String url = "https://api.wmcloud.com:443/data/v1/api/macro/getChinaDataInterestRateLendingDeposit.json?field=dataValue,unit&indicID=M120000004&indicName=&beginDate="+startday+"&endDate="+endday;
+        HttpGet httpGet = new HttpGet(url);
+        //在header里加入 Bearer {token}，添加认证的token，并执行get请求获取json数据
+        httpGet.addHeader("Authorization", "Bearer " + ACCESS_TOKEN);
+        CloseableHttpResponse response = null;
+        String body = new String();
+        try {
+            response = httpClient.execute(httpGet);
+            HttpEntity entity = response.getEntity();
+            body = EntityUtils.toString(entity);
+            System.out.println(body);
+        } catch (IOException e) {
+            throw new NetFailedException("TL net connect failed");
+        }
+
     }
 
     public static String getShares(String name) throws NetFailedException {

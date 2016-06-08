@@ -25,6 +25,11 @@ function getStockByName($username, $name, $date)
 //        $_date = $date;
 //    }
 
+    if(!checkStockValid($name)){
+         $arr = array('retmsg'=>'success','state'=>'invalid');
+         $json_string = json_encode($arr);
+         return $json_string;
+    }
 
     $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,industry from ".$name." where date = :date");
     $stmt->bindParam(':date', $_date);
@@ -44,29 +49,31 @@ function getStockByName($username, $name, $date)
     }else{
             $arr[0]['favor'] = false;
     }
+    if(!array_key_exists("open",$arr[0])){
+        $arr['state'] = 'suspended';
+    }else{
+        $arr['state'] = 'open';
+    }
     return json_encode($arr,JSON_UNESCAPED_UNICODE);
 }
 
-function checkTableNameValid($tablename)
+function checkStockValid($stockname)
 {
-    $valid = 0;
     $connection = getDBConnection();
-    $stmt = $connection->prepare("show tables");
+    $stmt = $connection->prepare("select stock_id from industry_stock");
     $result = execQuery($connection,$stmt);
+    $arr = json_decode($result, true);
+    for($i=0;$i<sizeof($arr);$i++){
+        if($arr[$i]['stock_id']==$stockname){
+            return 1;
+        }
+    }
+    return 0;
 
-    $result = str_replace("\t",'',$result);
-    $result = str_replace("'", '"', $result);
-    $result =  iconv("ASCII", "utf8", $result);
-    $result = json_decode($result, true);
-    print_r($result[22]);
-    $values = array_values($result);
-    print_r($values);
-    echo $valid;
-    return $valid;
 }
 
-
-//echo getStockByName('hmy14',"sh600216",date('Y-m-d',strtotime('2007-12-03')));
+//echo checkStockValid('sh600003');
+//echo getStockByName('hmy14',"sh600005",'2016-05-06');
 //echo getStockByName("sh600000",'2016-04-05');
 //checkTableNameValid("sh600000");
 //$connection = getDBConnection();

@@ -35,7 +35,7 @@ public class ChineseName {
 		try {
 //			System.out.println(i.getChineseName("sz000594"));
 //			System.out.println(getAllStockNames());
-		} catch (NetFailedException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 //        List<String> list = getAllChineseName();
