@@ -10921,7 +10921,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
 
 .note-editor .panel {
     margin-bottom: 20px;
-    background-color: #ffffff;
+    background-color: transparent;
     border: 1px solid transparent;
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -11105,6 +11105,25 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
 .note-editor .panel-default > .panel-footer + .panel-collapse .panel-body {
     border-bottom-color: #dddddd;
 }
+
+.note-editor .panel-trans {
+    border-color: transparent;
+}
+
+.note-editor .panel-trans > .panel-heading {
+    color: #fff;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.note-editor .panel-trans > .panel-heading + .panel-collapse .panel-body {
+    border-top-color: transparent;
+}
+
+.note-editor .panel-trans > .panel-footer + .panel-collapse .panel-body {
+    border-bottom-color: transparent;
+}
+
 
 .note-editor .panel-primary {
     border-color: #428bca;
@@ -16632,7 +16651,7 @@ fieldset[disabled] .btn-default.active {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-    background-color: #f9f9f9;
+    background-color: transparent;
 }
 
 .panel-heading {
@@ -16654,7 +16673,7 @@ fieldset[disabled] .btn-default.active {
     padding: 10px 0;
     width: 100%;
     font-weight: 300;
-    color: #868686;
+    color: #fff;
 }
 .panel-group .panel .panel-title > a:hover {
     text-decoration: none;

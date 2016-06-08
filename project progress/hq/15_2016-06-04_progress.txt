@@ -1,0 +1,10 @@
+﻿who：韩奇
+
+when：第15周
+
+
+what：1.完成开始welcome和登录login界面，及“关于我们”
+
+problem：1.登录界面点击事件和界面设计问题
+
+todo：功能拓展

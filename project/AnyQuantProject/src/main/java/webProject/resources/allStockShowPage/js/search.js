@@ -31,11 +31,11 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.data = data;
             $scope.allStocks =data;
 
-            //   console.log($scope.allStocks);
+               console.log($scope.allStocks);
             for(var item in $scope.allStocks) {
                 count++;
             }
-
+            var color=[];
             for(var item in  $scope.allStocks) {
                 if (item < count-1) {
                     array[item] = new Array;
@@ -49,12 +49,14 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                     array[item][7] = $scope.allStocks[item].adj_price;
                     array[item][8] = $scope.allStocks[item].pe_ttm;
                     array[item][9] = $scope.allStocks[item].pb;
+                    color[item]=$scope.allStocks[item].color;
                 }
             }
 
 
             var dataSet = array;
-
+            var colorSet =color;
+            var i=0;
             $(document).ready(function () {
                 var selected = [];
                 $('#table').DataTable({
@@ -62,6 +64,12 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                         if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
                             $(row).addClass('selected');
                         }
+                    },
+                    "createdRow": function ( row) {
+                        $('td', row).eq(4).css( "color", "green");
+                        $('td', row).eq(3).css( "color", "red");
+                        $('td', row).eq(2).css("color", colorSet[i]);
+                        i++;
                     },
                     data: dataSet,
                     columns: [
