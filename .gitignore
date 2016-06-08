@@ -4,7 +4,7 @@ target/*
 .settings/*
 *.project
 .ideal/*
-.idea/*
+*/.idea/*
 *.o
 *.cproject
 cserver
