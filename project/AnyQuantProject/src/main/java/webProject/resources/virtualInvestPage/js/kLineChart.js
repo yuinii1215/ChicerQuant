@@ -255,7 +255,7 @@ function newStrategy(){
     var newLegend= {
         data: [newOption.legend.data[0],'买入点','卖出点'],
         textStyle: {
-            color: '#000000',
+            color: '#ffffff',
         },
         x: 'left',
         y: 'top',
@@ -298,7 +298,7 @@ function newStrategy(){
             x: 100,
             y: 20,
             textStyle: {
-                color: '#807DBF',
+                color: '#ffffff',
             },
 
         },
@@ -313,7 +313,7 @@ function newStrategy(){
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#807DBF',
+                        color: '#ffffff',
                     }
                 }
             }
@@ -333,7 +333,7 @@ function newStrategy(){
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#807DBF',
+                        color: '#ffffff',
                     }
                 }
             }
@@ -371,26 +371,25 @@ function newStrategy(){
 
     var option4 = {
         title : {
-            text: '　买入卖出行为分布',
+            text: '买入卖出行为分布',
             x:'center',
             y:'top'
         },
-        tooltip : {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
         legend: {
-            orient: 'vertical',
-            x: 0,
+            orient: 'horizontal',
+            x: 'center',
             y: 40,
-            data: ['买入次数','卖出次数']
+            data: ['买入次数','卖出次数'],
+            textStyle:{
+                color:"#ffffff",
+            }
         },
         series : [
             {
                 name: '买入指标分布',
                 type: 'pie',
-                radius : '55%',
-                center: ['55%', '55%'],
+                radius : '50%',
+                center: ['50%', '60%'],
                 data:[
                     {value:cnt1, name:"买入次数"},
                     {value:cnt2, name:"卖出次数"},
