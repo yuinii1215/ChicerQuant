@@ -1,8 +1,3 @@
-jQuery(window).load(function() {
-
-
-})
-
 function initMACDData(){
     document.getElementById("text-content").style.backgroundColor="#e96656";
     document.getElementById("panel-body1").innerHTML="DIF由下向上突破 DEA,MACD 值由负变正；";

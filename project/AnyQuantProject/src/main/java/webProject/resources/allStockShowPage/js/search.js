@@ -31,7 +31,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.data = data;
             $scope.allStocks =data;
 
-               console.log($scope.allStocks);
+     //     console.log($scope.allStocks);
             for(var item in $scope.allStocks) {
                 count++;
             }

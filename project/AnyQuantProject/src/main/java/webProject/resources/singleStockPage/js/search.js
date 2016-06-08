@@ -95,16 +95,16 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     $http.post($scope.url, {
        "username": localStorage.userName,
         "name": localStorage.singleStockID,
-        "date": currentDate,
+        "date": "2016-06-06",
         "method": "getStockByNameService"
     }).success(function (data, status) {
             var temp=data;
-    console.log(temp);
+             console.log(temp);
         if(localStorage.userName==""){
             $scope.favorStateContent = "关注";
         }
         else {
-                console.log(temp);
+      //          console.log(temp);
                 if (temp[0].favor) {
                     $scope.favorStateContent = "取消关注";
                 } else {
