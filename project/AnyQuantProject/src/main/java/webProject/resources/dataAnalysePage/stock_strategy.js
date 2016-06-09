@@ -7,7 +7,7 @@
 var app=angular.module('singleStrategy', []);
 app.controller('kLine',function($scope,$http){
 
-  $scope.test=function(){
+  $scope.test=function(lastmonthclose){
     var stockid=$scope.stockid;
     var nowDate=new Date();
     var year=nowDate.getFullYear();
@@ -36,6 +36,7 @@ app.controller('kLine',function($scope,$http){
             value.push(response[obj]["poly"]);
           }
         }
+        lastmonthclose=lastmonthclose.slice(30-value.length+1,30);
         $scope.polyoption = {
 
             title: {
@@ -67,10 +68,15 @@ app.controller('kLine',function($scope,$http){
 
             series: [
                 {
-                    name:'close',
+                    name:'poly',
                     type:'line',
                     smooth:true,
                     data: value
+                },{
+                    name:'real close',
+                    type:'line',
+                    smooth:true,
+                    data:lastmonthclose
                 }
             ]
         };
@@ -84,7 +90,6 @@ app.controller('kLine',function($scope,$http){
 
     ).error(
       function(){
-        alert("net error");
       }
     );
 };
@@ -103,7 +108,7 @@ $scope.change=function(){
 
            $http.post($scope.url, {
            	"method": "getStockAmongDateService",
-           	"startdate": (year)+"-"+(month-3)+"-"+day,
+           	"startdate": (year)+"-"+(month-4)+"-"+day,
            	"enddate": year+"-"+month+"-"+day,
            	"name": id
            }).success(function(response,status){
@@ -111,10 +116,16 @@ $scope.change=function(){
 
 
            		var data00=spliData(response);
+              var lastmonthclose=[];
+              for (var i = data00.values.length-30; i < data00.values.length; i++) {
+                lastmonthclose.push(data00.values[i][1]);
+              }
+              $scope.lastmonthclose=lastmonthclose;
            		var chinese=response["0"]["stock_name"];
 function spliData(rawData) {
     var categoryData = [];
     var values = [];
+
 
     for (obj in rawData) {
         if(obj!="retmsg"){
@@ -248,12 +259,9 @@ $scope.klineoption = {
 };
 var chart=echarts.init(document.getElementById('kline'));
 chart.setOption($scope.klineoption);
-
-           }).error();
-
-
-
-$scope.test();
+$scope.test(lastmonthclose);
+           }).error(function(){
+           });
 
 
 };

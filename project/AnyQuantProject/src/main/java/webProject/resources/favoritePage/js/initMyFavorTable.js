@@ -126,11 +126,26 @@ var app = angular.module('myFavorApp', []);
                         array[count + 1][9] = $scope.singleStock[0].pb;
                         array[count + 1][10] = $scope.singleStock[0].industry;
 
-                        count++;
+              //          count++;
                     } else{
-                    countOther++;
+                        array[count + 1] = new Array;
+                        array[count + 1][0] = stockName;
+                        array[count + 1][1] = "-";
+
+                        array[count + 1][2] =  "-";
+                        array[count + 1][3] =  "-";
+                        array[count + 1][4] =  "-";
+                        array[count + 1][5] =  "-";
+                        array[count + 1][6] =  "-";
+                        array[count + 1][7] =  "-";
+                        array[count + 1][8] =  "-";
+                        array[count + 1][9] =  "-";
+                        array[count + 1][10] =  "-";
+               //     countOther++;
                  }
-                if((count+countOther)==length-2){
+                        count++;
+
+                if(count==length-2){
                             var dataSet = array;
 
                             $(document).ready(function () {

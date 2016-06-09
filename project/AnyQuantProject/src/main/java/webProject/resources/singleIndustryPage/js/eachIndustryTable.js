@@ -29,7 +29,7 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
             $scope.error = false;
             $scope.data = data;
             $scope.allStocks =data;
-     //       console.log($scope.allStocks);
+     //      console.log($scope.allStocks);
 
             for(var item in $scope.allStocks) {
                 length++;
@@ -100,7 +100,7 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
                 $scope.data = data;
                 $scope.singleStock=data;
                 var temp  =Object.keys($scope.singleStock[0]);
-           //     console.log( $scope.singleStock);
+            //   console.log( $scope.singleStock);
           //     console.log(temp.length);
 
                 if(temp.length>2) {
@@ -129,12 +129,24 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
                         $scope.Keep++;
                     }
        //             console.log(  "UP:"+$scope.Up+ " "+"Down:"+ $scope.Down+ " "+ "Keep:"+$scope.Keep);
-                    count++;
+                   // count++;
                 }else{
-                    countOther++;
+                    array[count + 1] = new Array;
+                    array[count + 1][0] = stockName;
+                    array[count + 1][1] = "-";
+                    array[count + 1][2] = "-";
+                    array[count + 1][3] = "-";
+                    array[count + 1][4] = "-";
+                    array[count + 1][5] = "-";
+                    array[count + 1][6] = "-";
+                    array[count + 1][7] = "-";
+                    array[count + 1][8] = "-";
+                    array[count + 1][9] = "-";
+                    array[count + 1][10] ="-";
+                //    countOther++;
                 }
-
-                if((count+countOther)==length-2){
+                count++;
+                if(count==length-2){
                     count = 0;
                     var dataSet =array;
 
@@ -152,6 +164,12 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
                                 if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
                                     $(row).addClass('selected');
                                 }
+                            },
+                            "createdRow": function ( row) {
+                                $('td', row).eq(4).css( "color", "green");
+                                $('td', row).eq(3).css( "color", "red");
+                        //        $('td', row).eq(2).css("color", colorSet[i]);
+                         //       i++;
                             },
                             data:dataSet,
                             columns: [

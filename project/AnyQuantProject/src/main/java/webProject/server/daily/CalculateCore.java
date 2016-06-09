@@ -45,9 +45,6 @@ public class CalculateCore {
 		List<AnyQuantProject.dataStructure.Stock> tList=src.stream().filter(s->s.getClose()!=0).collect(Collectors.toList());
 		if (tList.size()>=250) {
 			List<AnyQuantProject.dataStructure.Stock> fina=tList.stream().filter(s->s.getDateInCalendar().after(min)).collect(Collectors.toList());
-			//
-			
-			//
 			List<Stock> ans=new ArrayList<>(fina.size());
 			for (int i = 0; i < fina.size(); i++) {
 				Stock stock=new Stock();

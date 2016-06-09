@@ -417,8 +417,7 @@
                                                                <td width="20%">
                                                                </td>
                                                                <td>
-                                                                   <div class='button -dark  center' onclick="multiPredictTriggered()"><a href="javascript:sleep(1000,'#anchor')" style="color:#0c0c0c
-                                                                   ;width: 100%;height: 100%;">确定</a></div>
+                                                                  <a href="javascript:sleep(1000,'#anchor')" style="color:#0c0c0c;width: 100%;height: 100%; "> <div class='button -dark  center' onclick="multiPredictTriggered()" >确定</div></a>
                                                                <td>
                                                                <td>
                                                                </td>
@@ -461,16 +460,30 @@
                                                         <h4 align="center">自定义买卖点</h4>
                                                     <table>
                                                         <tr>
-                                                            <td width="10%"></td>
-                                                            <td width="45%">
-                                                        <label>买入点(日涨幅: 格式如10%)</label>
-                                                        <input style="height: 45px; " id="buyStd" value=""/>
+                                                            <td width="20%"></td>
+                                                            <td>
+                                                            <label>买入点(日涨幅: 格式如10%)</label>
+                                                        <!--<input style="height: 45px; " id="buyStd" value=""/>-->
                                                             </td>
-                                                            <td width="45%">
-                                                        <label>卖出点(日跌幅: 格式如-10%)</label>
-                                                        <input value=""  id="sellStd" style="height: 45px; "/>
+                                                            <td></td>
+                                                            <td>
+                                                             <label>卖出点(日跌幅: 格式如-10%)</label>
+                                                        <!--<input value=""  id="sellStd" style="height: 45px; "/>-->
                                                             </td>
-                                                            <td width="10%"></td>
+                                                            <td  width="20%"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="20%"></td>
+                                                            <td>
+                                                                <!--<label>买入点(日涨幅: 格式如10%)</label>-->
+                                                                <input style="height: 45px; " id="buyStd" value=""/>
+                                                            </td>
+                                                            <td></td>
+                                                            <td>
+                                                                <!--<label>卖出点(日跌幅: 格式如-10%)</label>-->
+                                                                <input value=""  id="sellStd" style="height: 45px; "/>
+                                                            </td>
+                                                            <td  width="20%"></td>
                                                         </tr>
                                                     </table>
                                                 </div>

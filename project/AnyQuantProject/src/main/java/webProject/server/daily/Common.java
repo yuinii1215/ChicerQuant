@@ -228,7 +228,7 @@ public abstract class Common {
 		this.poly = poly;
 	}
 	public void setDate(Calendar calendar){
-		date=new Date(CalendarHelper.getAfterDay(calendar).getTimeInMillis());
+		date=new Date(calendar.getTimeInMillis());
 	}
 	
 }

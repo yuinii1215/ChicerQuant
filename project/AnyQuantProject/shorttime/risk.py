@@ -7,21 +7,22 @@ def downside(data):
     filted=filter(lambda x:x.real<0, data.values());
     arr=numpy.array(filted);
     arr2=arr*arr;
-    sum=arr2.sum();
-    return  sqrt(sum/(len(arr)));
+    summ=arr2.sum();
+    return  sqrt(summ/(len(arr)));
 
 
 def VaR(data):
     array=numpy.array(data.values());
     e=array.mean();
-    s=array.var();
-    
-
+    s=array.var()*(len(array)/(len(array)-1));
+    varr=-(p_value*sqrt(s)+e);
+    return varr;
 
 def risk():
     t=sys.argv;
-    data=parseDataForER(getData('sh600315', '2016-03-01', '2016-05-01'));
+    data=parseDataForER(getData(t[1], t[2], t[3]));
     print(downside(data));
+    print(VaR(data));
     return 0;
 
 risk();
