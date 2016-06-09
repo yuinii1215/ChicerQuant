@@ -22,7 +22,7 @@
     <link href="css/board.css" rel="stylesheet" type="text/css">
     <link href="../singleStockPage/css/button.css" rel="stylesheet" type="text/css">
 
-    <script src="../js/jquery/jquery.min.js"></script>
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
     <script src="../js/angularjs/angular.min.js"></script>
 
 </head>
@@ -51,8 +51,9 @@
                     <div class="row">
                         <div class="col-md-3">
                             <!-- search box -->
-                            <div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">
-                                <!--<div id="tour-searchbox" class="input-group searchbox" >-->
+                            <!--<div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">-->
+                                <div id="tour-searchbox" class="input-group searchbox">
+
                                 <input type="search" id="search" class="form-control" placeholder="enter stockName/stockIDhere..." class="search-input" value=""/>
                                 <ul id="results" class="search-results"></ul>
                                 <span class="input-group-btn">
@@ -180,13 +181,13 @@
                     </div>
 
                     <!-- main -->
-                    <div class="content" id="app2" ng-app="myApp" ng-controller="SearchCtrl">
+                    <div class="content" id="app2"  ng-app="myApp" ng-controller="searchCtrl">
                         <div class="main-header">
                             <h2>Chicer策略社区</h2>
                             <em>the better analyze</em>
                         </div>
                         <div class="main-content">
-                            <button ng-click="test()">测试</button>
+                            <button>测试</button>
                             <section>
                                 <div class="chat">
                                     <ul>
@@ -365,9 +366,9 @@
     <!--<script src="../virtualInvestPage/js/search.js"></script>-->
     <!--<script src="js/select2.js"></script>-->
     <!--<script src="js/menu.js"></script>-->
-    <script type="text/javascript">
-        angular.bootstrap(angular.element("#app2"),["myApp"]);
-    </script>
+    <!--<script type="text/javascript">-->
+        <!--angular.bootstrap(angular.element("#app2"),["myApp"]);-->
+    <!--</script>-->
 
 </div>
 <!-- END STYLE SWITCHER -->
@@ -376,18 +377,16 @@
 <!-- Javascript -->
 
 
-<script src="js/view.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/modernizr/modernizr.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
 <script src="../js/king-common.js"></script>
 <script src="../js/deliswitch.js"></script>
 <script src="../js/zerif.js"></script>
-<script src="../js/search.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
-<script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>
+<script type="text/javascript" src="js/jquery.dialog.js"></script>
 <script src="../js/jquery/jquery.gritter.min.js"></script>
-
+<script src="js/view.js"></script>
 
 </body>
 
