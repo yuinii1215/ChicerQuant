@@ -2,6 +2,7 @@ import json
 import urllib2
 import sys
 import scipy.stats as stats
+import scipy.optimize as opt
 
 import  numpy 
 from numpy import log
@@ -29,3 +30,6 @@ def parseDataForER(data):
         ans[num]=log(te);
     return ans;
 
+
+def getInterestRate(start,end):
+    pass;

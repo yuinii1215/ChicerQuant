@@ -3,6 +3,12 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.0.33.Final/netty-transport-4.0.33.Final.jar!/" />
     </CLASSES>
+<<<<<<< HEAD
+=======
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.0.33.Final/netty-transport-4.0.33.Final-javadoc.jar!/" />
+    </JAVADOC>
+>>>>>>> b89c68adc94f0b3b6cc3e2fcf81791c8a34ad7a0
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.0.33.Final/netty-transport-4.0.33.Final-sources.jar!/" />
     </SOURCES>

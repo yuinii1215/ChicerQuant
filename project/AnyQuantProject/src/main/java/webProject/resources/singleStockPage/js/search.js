@@ -88,35 +88,32 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 ]
         });});});
 
-//case "getStockByNameService":
-//     getStockByNameService($objData->username,$objData->name,$objData->date);
-//     $scope.stockName;
-
-    $http.post($scope.url, {
-       "username": localStorage.userName,
-        "name": localStorage.singleStockID,
-        "date": "2016-06-06",
-        "method": "getStockByNameService"
-    }).success(function (data, status) {
-            var temp=data;
-             console.log(temp);
-        if(localStorage.userName==""){
-            $scope.favorStateContent = "关注";
-        }
-        else {
-      //          console.log(temp);
-                if (temp[0].favor) {
-                    $scope.favorStateContent = "取消关注";
-                } else {
-                    $scope.favorStateContent = "关注";
-                }
-                console.log($scope.favorStateContent);
-            }
-       })
-       .error(function (data, status) {
-           $scope.data = data || "Request failed";
-           $scope.status = status;
-       });
+    // $http.post($scope.url, {
+    //    "username": localStorage.userName,
+    //     "name": localStorage.singleStockID,
+    //     "date": "2016-06-06",
+    //     "method": "getStockByNameService"
+    // }).success(function (data, status) {
+    //         var temp=data;
+    //     console.log("testing!!!!!!");
+    //         console.log(temp);
+    //     if(localStorage.userName==""){
+    //         $scope.favorStateContent = "关注";
+    //     }
+    //     else {
+    //   //          console.log(temp);
+    //             if (temp[0].favor) {
+    //                 $scope.favorStateContent = "取消关注";
+    //             } else {
+    //                 $scope.favorStateContent = "关注";
+    //             }
+    //             console.log($scope.favorStateContent);
+    //         }
+    //    })
+    //    .error(function (data, status) {
+    //        $scope.data = data || "Request failed";
+    //        $scope.status = status;
+    //    });
 
 
     $http.post($scope.url, {// function getDayLineService($name, $startdate, $enddate){
@@ -129,18 +126,52 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.data = data;
             $scope.dayKLineResult=data;
             var content=data;
-            $scope.result=content[19];
+            var len=0;
+            for(var item in content){
+            len++;
+            }
+            len=len-2;
+            $scope.result=content[len];
             $scope.stockName=$scope.result.stock_name;
              $scope.showResult="日期: "+$scope.result.date+"   股票名: "+$scope.result.stock_name+"   开盘价: "+$scope.result.open+"   收盘价: "
                  +$scope.result.close+"   最高价: "+$scope.result.high+"   最低价: "+$scope.result.low
                  +"   成交量: "+$scope.result.volumn+"   市盈率: "+$scope.result.adj_price+"   市净率: "+$scope.result.pb
                  +"   行业名: "+$scope.result.industry;
-                //date stock_ID,stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,industry
 
 
+        $http.post($scope.url, {
+            "username": localStorage.userName,
+            "name": localStorage.singleStockID,
+            "date":  $scope.result.date,
+            "method": "getStockByNameService"
+        }).success(function (data, status) {
+            var temp=data;
 
+            if(localStorage.userName==""){
+                $scope.favorStateContent = "关注";
+            }
+            else {
+                //          console.log(temp);
+                if (temp[0].favor) {
+                    $scope.favorStateContent = "取消关注";
+                } else {
+                    $scope.favorStateContent = "关注";
+                }
+            }
+            if(temp.state=="open"){
+                $scope.openState="";
+            }else{
+                $scope.openState="(已停盘)";
+            }
         })
-        .error(function (data, status) {
+            .error(function (data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+
+
+
+    }).error(function (data, status) {
             $scope.data = data || "Request failed";
             $scope.status = status;
         });
