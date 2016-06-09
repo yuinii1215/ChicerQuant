@@ -3,7 +3,6 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/orsonpdf/orsonpdf/1.7/orsonpdf-1.7.jar!/" />
     </CLASSES>
-    <JAVADOC />
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/orsonpdf/orsonpdf/1.7/orsonpdf-1.7-sources.jar!/" />
     </SOURCES>
