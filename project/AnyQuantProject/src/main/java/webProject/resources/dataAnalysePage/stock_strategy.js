@@ -109,7 +109,7 @@ $scope.change=function(){
 
            $http.post($scope.url, {
            	"method": "getStockAmongDateService",
-           	"startdate": (year)+"-"+(month-3)+"-"+day,
+           	"startdate": (year)+"-"+(month-4)+"-"+day,
            	"enddate": year+"-"+month+"-"+day,
            	"name": id
            }).success(function(response,status){
