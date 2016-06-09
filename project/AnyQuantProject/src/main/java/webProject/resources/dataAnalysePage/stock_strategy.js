@@ -90,7 +90,6 @@ app.controller('kLine',function($scope,$http){
 
     ).error(
       function(){
-        alert("net error");
       }
     );
 };
@@ -262,7 +261,6 @@ var chart=echarts.init(document.getElementById('kline'));
 chart.setOption($scope.klineoption);
 $scope.test(lastmonthclose);
            }).error(function(){
-             alert("net error");
            });
 
 
