@@ -36,7 +36,7 @@ app.controller('kLine',function($scope,$http){
             value.push(response[obj]["poly"]);
           }
         }
-        lastmonthclose=lastmonthclose.slice(30-value.length,30);
+        lastmonthclose=lastmonthclose.slice(30-value.length+1,30);
         $scope.polyoption = {
 
             title: {
