@@ -36,7 +36,7 @@ app.controller('kLine',function($scope,$http){
             value.push(response[obj]["poly"]);
           }
         }
-        lastmonthclose=lastmonthclose.slice(30-value.length,30);
+        lastmonthclose=lastmonthclose.slice(30-value.length+1,30);
         $scope.polyoption = {
 
             title: {
@@ -90,7 +90,6 @@ app.controller('kLine',function($scope,$http){
 
     ).error(
       function(){
-        alert("net error");
       }
     );
 };
@@ -109,7 +108,7 @@ $scope.change=function(){
 
            $http.post($scope.url, {
            	"method": "getStockAmongDateService",
-           	"startdate": (year)+"-"+(month-3)+"-"+day,
+           	"startdate": (year)+"-"+(month-4)+"-"+day,
            	"enddate": year+"-"+month+"-"+day,
            	"name": id
            }).success(function(response,status){
@@ -262,7 +261,6 @@ var chart=echarts.init(document.getElementById('kline'));
 chart.setOption($scope.klineoption);
 $scope.test(lastmonthclose);
            }).error(function(){
-             alert("net error");
            });
 
 

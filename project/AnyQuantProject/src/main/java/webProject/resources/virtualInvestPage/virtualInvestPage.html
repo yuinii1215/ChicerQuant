@@ -21,7 +21,7 @@
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
     <link href="css/3dAxis.css" rel="stylesheet" type="text/css">
     <link href="css/curtain.css" rel="stylesheet" type="text/css">
-
+    <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
     <link href="../singleStockPage/css/button.css" rel="stylesheet" type="text/css">
 
 
@@ -45,7 +45,7 @@
     </style>
 </head>
 
-<tbody>
+<body>
 <!-- =========================
  PRE LOADER
  ============================== -->
@@ -190,6 +190,10 @@
                                 <li><a href="#">虚拟投资</a></li>
 
                             </ul>
+                        </div>
+                        <div class="col-lg-7"></div>
+                        <div class="col-lg-1 ">
+                            <span class='pulse-button' style="margin-right: 10px;"><a href="../communityPage/communityPage.html" style="color: white">Chicer社区</a></span>
                         </div>
                     </div>
 
@@ -460,30 +464,32 @@
                                                         <h4 align="center">自定义买卖点</h4>
                                                     <table>
                                                         <tr>
-                                                            <td width="20%"></td>
+                                                            <td width="10%"></td>
                                                             <td>
-                                                            <label>买入点(日涨幅: 格式如10%)</label>
+                                                            <label>买入点(日涨幅: 如10%)</label>
                                                         <!--<input style="height: 45px; " id="buyStd" value=""/>-->
                                                             </td>
-                                                            <td></td>
+                                                            <td width="10%"></td>
                                                             <td>
-                                                             <label>卖出点(日跌幅: 格式如-10%)</label>
+                                                             <label>卖出点(日跌幅: 如-10%)</label>
                                                         <!--<input value=""  id="sellStd" style="height: 45px; "/>-->
                                                             </td>
-                                                            <td  width="20%"></td>
+                                                            <td  width="10%"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td width="20%"></td>
+                                                            <td width="10%"></td>
                                                             <td>
                                                                 <!--<label>买入点(日涨幅: 格式如10%)</label>-->
-                                                                <input style="height: 45px; " id="buyStd" value=""/>
+                                                                <input style="height: 45px; " id="buyStd" value=""/><label for="sellStd">%</label>
+
                                                             </td>
-                                                            <td></td>
+                                                            <td width="10%"></td>
                                                             <td>
                                                                 <!--<label>卖出点(日跌幅: 格式如-10%)</label>-->
-                                                                <input value=""  id="sellStd" style="height: 45px; "/>
+                                                                <input value=""  id="sellStd" style="height: 45px; "/><label for="buyStd">%</label>
+
                                                             </td>
-                                                            <td  width="20%"></td>
+                                                            <td  width="10%"></td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -754,6 +760,7 @@
     <script src="../virtualInvestPage/js/search.js"></script>
     <script src="js/select2.js"></script>
     <script src="js/menu.js"></script>
+    <script src="js/sweetalert.min.js"></script>
     <script type="text/javascript">
         angular.bootstrap(angular.element("#app2"),["myApp"]);
     </script>

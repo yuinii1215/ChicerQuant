@@ -33,9 +33,12 @@ window.onload=function() {
                 textContent += selectContent[i].value + "交叉线";
             }
         }
-        changeText.placeholder=textContent;
-        show2();
-        // $('#save_con').fadeIn();
+        if(cnt==0){
+            swal("请您选择策略");
+        }else {
+            changeText.placeholder = textContent;
+            show2();
+        }
     }
     save_button2.onclick=function() {
         chartflag=2;
@@ -45,18 +48,25 @@ window.onload=function() {
         temp[2]=document.getElementById("pt_kdj");
         temp[3]=document.getElementById("pt_macd");
         textContent="";
+        var cnt=0;
         save_container.style.display="block";
         for(var i=0;i<4;i++){
             if(temp[i].checked){
                 newType=temp[i].value;
+                cnt++;
             }}
-        buyStd=document.getElementById("buyStd").value;
-        sellStd=document.getElementById("sellStd").value;
-        textContent="指标:"+newType+",买入标准:"+buyStd+",卖出标准:"+sellStd;
-        changeText.placeholder=textContent;
-        show2();
+        if(cnt==0){
+            swal("请您选择策略");
+        }else {
+            buyStd = document.getElementById("buyStd").value;
+            sellStd = document.getElementById("sellStd").value;
+            textContent = "指标:" + newType + ",买入标准:" + buyStd + ",卖出标准:" + sellStd;
+            changeText.placeholder = textContent;
+            show2();
+        }
         // $('#save_con').fadeIn();
     }
+
     share_button1.onclick=function() {
          var str_Name=document.getElementById("strName").value;
          KType=['','','',''];
@@ -69,7 +79,11 @@ window.onload=function() {
                 KType[cnt++]=selectContent[i].value;
             }
         }
+        if(cnt==0){
+            swal("请您选择策略种类");
+        }else{
          $scope.shareCrossStr(str_Name);
+        }
     }
 
     share_button2.onclick=function() {
@@ -81,29 +95,37 @@ window.onload=function() {
         temp[1]=document.getElementById("pt_rsi");
         temp[2]=document.getElementById("pt_kdj");
         temp[3]=document.getElementById("pt_macd");
-        
+        var tmp=0;
         for(var i=0;i<4;i++){
             if(temp[i].checked){
                 newType=temp[i].value;
+                tmp++;
             }}
-        buyStd=document.getElementById("buyStd").value;
-        sellStd=document.getElementById("sellStd").value;
-
-
-        $scope.shareCustomerStr(str_Name);
+        if(tmp==0){
+             swal("请您选择策略种类");
+        }else {
+            buyStd = document.getElementById("buyStd").value;
+            sellStd = document.getElementById("sellStd").value;
+            $scope.shareCustomerStr(str_Name);
+        }
 
     }
 
 
     confirm_button.onclick=function() {//保存交叉线策略,填写策略内容
         var str_Name=document.getElementById("strName").value;
-       if(chartflag==1){
-           $scope.saveCrossStr(str_Name);
-           $scope.showAllStr();
-       }else if(chartflag==2){
-           $scope.saveCustomerStr(str_Name);
-           $scope.showAllStr();
-       }
+        if(str_Name==""){
+              swal("请为您的策略命名");
+        }else {
+            if (chartflag == 1) {
+                $scope.saveCrossStr(str_Name);
+                $scope.showAllStr();
+            } else if (chartflag == 2) {
+                $scope.saveCustomerStr(str_Name);
+                $scope.showAllStr();
+
+            }
+        }
     }
 }
 
