@@ -1,0 +1,11 @@
+who：韩梦虞
+
+when：第11周
+
+what：1.确定了使用angularjs框架进行前端开发
+      2.进一步学习angularjs的语法以及http请求方式
+      
+
+problem：对angularjs的http请求的语法还不熟悉
+
+todo：预计下周可以完成前端通过http请求向后端php文件进行方法调用。
