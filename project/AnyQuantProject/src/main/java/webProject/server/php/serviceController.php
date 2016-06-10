@@ -179,6 +179,9 @@ switch ($method)
     case "getFavorNumByStockService":
         getFavorNumByStockService($objData->name);
         break;
+    case "getLatestDateService":
+        getLatestDateService();
+        break;
     default :
         echo json_encode("no such method");
 }

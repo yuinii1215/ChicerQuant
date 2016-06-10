@@ -431,6 +431,15 @@ function getMyStrategyData($name,$startdate,$enddate) {
     $_enddate = $enddate;
     return execQuery($connection,$stmt);
 }
+
+function getLatestDate(){
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select date from sh600300 order by date DESC");
+    $jsonstring = execQuery($connection,$stmt);
+    $arr = json_decode($jsonstring,true);
+    $result = array('date',$arr[0]['date']);
+    return json_encode($result,JSON_UNESCAPED_UNICODE);
+}
 //
 //function getMyDBConnection()
 //{
