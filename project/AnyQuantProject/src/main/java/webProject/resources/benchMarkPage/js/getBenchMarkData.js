@@ -8,7 +8,8 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
     $scope.dayKLineResult=[];
     $scope.monthKLineResult=[];
     $scope.weekKLineResult=[];
-    $http.post($scope.url, {"name":"hs300","date": GetDateStr(-2),"method": "getBenchMarkByNameService"}).
+
+    $http.post($scope.url, {"name":"hs300","date": localStorage.latestDate,"method": "getBenchMarkByNameService"}).
         success(function (data) {
             $scope.error = false;
             $scope.data = data;
@@ -37,7 +38,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
             return 'error name';
         });
 
-    $http.post($scope.url, {"name":"hs300","startdate": startdate,"enddate": GetDateStr(-2),"method":"getBenchMarkAmongDateService"}).
+    $http.post($scope.url, {"name":"hs300","startdate": startdate,"enddate": localStorage.latestDate,"method":"getBenchMarkAmongDateService"}).
         success(function (data) {
             $scope.error = false;
             $scope.data = data;
@@ -87,58 +88,15 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
                     {title: "后复权价"}
                 ]
             });});
-
-
-
         })
         .error(function (data) {
             $scope.error = true;
             $scope.data = data;
             return 'error name';
         });
-
-    function GetDateStr(AddDayCount) {
-        var dd = new Date();
-        dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期
-        var y = dd.getFullYear();
-        var m = dd.getMonth() + 1;//获取当前月份的日期
-        var d = dd.getDate();
-        var day = dd.getDay();
-        var show_day = new Array('星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日');
-        var week = "";
-        if (day == 0) {
-            week = "星期日";
-        } else {
-            week = show_day[day - 1];
-        }
-        //  console.log(week);
-        if(week=='星期日'){
-            d=d-2;
-            if(d<=0){
-                m--;
-                d=30+d;
-            }
-        }else if(week=='星期一'){
-            d=d-3;
-            if(d<=0){
-                m--;
-                d=30+d;
-            }
-        }else if(week=='星期六'){
-            d=d-1;
-            if(d<=0){
-                m--;
-                d=30+d;
-            }
-        }
-        console.log(y+"-"+m+"-"+d);
-        return y+"-"+m+"-"+d;
-    }
-
-
     $http.post($scope.url, {
         "startdate":  startdate,
-        "enddate":GetDateStr(-2),
+        "enddate": localStorage.latestDate,
         "name": "hs300",
         "method": "getDayLineService"
     }).success(function (data) {
@@ -152,7 +110,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
 
     $http.post($scope.url, {
         "startdate":  startdate,
-        "enddate":GetDateStr(-2),
+        "enddate": localStorage.latestDate,
         "name": "hs300",
         "method": "getWeekLineService"
     }).success(function (data) {
@@ -166,7 +124,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
 
     $http.post($scope.url, {
         "startdate":  startdate,
-        "enddate":GetDateStr(-2),
+        "enddate": localStorage.latestDate,
         "name": "hs300",
         "method": "getMonthLineService"
     }).success(function (data) {

@@ -15,9 +15,12 @@
 
     <!-- WEBFONT -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/angularjs/angular.min.js"></script>
+
 
 </head>
-<body ng-app="myApp" >
+<body >
     <!-- =========================
     PRE LOADER
     ============================== -->
@@ -40,12 +43,12 @@
                 <!--<a id="log_reg_btn" class="btn"> <button   style="marginRight:10px" class="button  button-block button-inverse button-rounded button-jumbo"  onclick=javascript:enterLog_Reg()   >登录/注册</button></a>-->
 
 
-                <div align="right" id="log">
+                <div align="right" id="log" ng-app="DateApp" ng-controller="dateCtrl">
                     <button id="sign_button"  class="button  button-block button-inverse button-rounded button-medium"  style="background-color:transparent ;  margin-top: -5px;"  >登录/注册</button>
                 </div>
 
 
-                <div class="signInUp" id="signInUp"  >
+                <div class="signInUp" id="signInUp" ng-app="myApp"  >
                     <input id="login" type="radio" name="tab" checked>
                     <input id="sign-up" type="radio" name="tab">
 
@@ -470,16 +473,19 @@
         </div>
     </header>
 
+    <script src="js/login.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#signInUp"),["myApp"]);
+    </script>
+
     <!-- =========================
     JS
     ============================== -->
-    <script src="js/jquery/jquery.min.js"></script>
-    <script src="js/angularjs/angular.min.js"></script>
-    <script src="js/login.js"></script>
     <script src="js/zerif.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/button.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/getLatestDate.js"></script>
     <script src="js/jquery/jquery.gritter.min.js"></script>
 
 </body>

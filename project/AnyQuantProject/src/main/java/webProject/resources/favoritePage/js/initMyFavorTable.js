@@ -36,7 +36,7 @@ var app = angular.module('myFavorApp', []);
                     $scope.status = status;
                     $scope.data = data;
                     $scope.favorStocks = data;
-                    console.log($scope.favorStocks);
+          //          console.log($scope.favorStocks);
 
 
                     for (var item in  $scope.favorStocks) {
@@ -45,7 +45,7 @@ var app = angular.module('myFavorApp', []);
 
                     for (var item in  $scope.favorStocks) {
                         if (item < length - 1) {
-                            console.log($scope.favorStocks[item].stock_id);
+          //                  console.log($scope.favorStocks[item].stock_id);
                             getSingleDetail($scope.favorStocks[item].stock_id);
                         }
 
@@ -57,59 +57,21 @@ var app = angular.module('myFavorApp', []);
                     $scope.status = status;
                 });
 
-            function GetDateStr(AddDayCount) {
-                var dd = new Date();
-                dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期
-                var y = dd.getFullYear();
-                var m = dd.getMonth() + 1;//获取当前月份的日期
-                var d = dd.getDate();
-                var day = dd.getDay();
-                var show_day = new Array('星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日');
-                var week = "";
-                if (day == 0) {
-                    week = "星期日";
-                } else {
-                    week = show_day[day - 1];
-                }
-                //  console.log(week);
-                if(week=='星期日'){
-                    d=d-2;
-                    if(d<=0){
-                        m--;
-                        d=30+d;
-                    }
-                }else if(week=='星期一'){
-                    d=d-3;
-                    if(d<=0){
-                        m--;
-                        d=30+d;
-                    }
-                }else if(week=='星期六'){
-                    d=d-1;
-                    if(d<=0){
-                        m--;
-                        d=30+d;
-                    }
-                }
-                console.log(y+"-"+m+"-"+d);
-                return y+"-"+m+"-"+d;
-            }
-
             function getSingleDetail(stockName) {
                 $http.post($scope.url, {
                     "name": stockName,
-                    "date": GetDateStr(-1),
+                    "date": localStorage.latestDate,
                     "method": "getStockByNameService"
                 }).success(function (data, status) {
                         $scope.status = status;
                         $scope.data = data;
                         $scope.singleStock = data;
 
-                    console.log( $scope.singleStock);
+              //      console.log( $scope.singleStock);
 
                     var temp  =Object.keys(  $scope.singleStock[0] );
                     //        console.log( $scope.singleStock);
-                           console.log(temp.length);
+                  //         console.log(temp.length);
 
                     if(temp.length>2) {
                         array[count + 1] = new Array;
@@ -207,22 +169,4 @@ var app = angular.module('myFavorApp', []);
                     });
             }
         }
-            function addFavorStock(stockName) {
-                $http.post($scope.url, {
-                    "name": stockName,
-                    "username": "cx",
-                    "method": "addMyFavorService"
-                }).success(function (data, status) {
-                        $scope.status = status;
-                        $scope.data = data;
-
-                        console.log($scope.data);
-                    })
-                    .error(function (data, status) {
-                        $scope.data = data || "Request failed";
-                        $scope.status = status;
-                    });
-            }
-
-
 });

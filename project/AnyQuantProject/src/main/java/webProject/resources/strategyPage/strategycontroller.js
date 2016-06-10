@@ -23,7 +23,7 @@ app.controller("strategycontroller",function($scope,$http){
     $http.post($scope.url,{
       'method': 'getMyStrategyDataService',
       'startdate': (year-1)+"-"+month+"-"+day,
-      'enddate': year+"-"+month+"-"+day,
+      'enddate': localStorage.latestDate,
       'name': stockid
     }).success(function(response,status){
       //give ctgg

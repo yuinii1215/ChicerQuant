@@ -13,6 +13,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     var length=0;
     var array=new Array();
     $scope.industryPure=[]; /*存所有行业净额*/
+
     $http.post($scope.url, {"method": "getAllIndustriesService"}).
         success(function (data) {
             $scope.error = false;
@@ -45,48 +46,10 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
 
 //将行业名称一一传出得到所有属性
 
-    function GetDateStr(AddDayCount) {
-        var dd = new Date();
-        dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期
-        var y = dd.getFullYear();
-        var m = dd.getMonth() + 1;//获取当前月份的日期
-        var d = dd.getDate();
-        var day = dd.getDay();
-        var show_day = new Array('星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日');
-        var week = "";
-        if (day == 0) {
-            week = "星期日";
-        } else {
-            week = show_day[day - 1];
-        }
-      //  console.log(week);
-        if(week=='星期日'){
-            d=d-2;
-            if(d<=0){
-                m--;
-                d=30+d;
-            }
-        }else if(week=='星期一'){
-            d=d-3;
-            if(d<=0){
-                m--;
-                d=30+d;
-            }
-        }else if(week=='星期六'){
-            d=d-1;
-            if(d<=0){
-                m--;
-                d=30+d;
-            }
-        }
-     //   console.log(y+"-"+m+"-"+d);
-        return y+"-"+m+"-"+d;
-    }
-
     function  getIndustryPure(industryName,item) {
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date":  GetDateStr(-1),
+            "date":localStorage.latestDate,
             "method": "getIndustryService"
         }).success(function (data) {
                 $scope.error = false;
@@ -111,7 +74,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     function  industryToTable(industryName){
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date":  GetDateStr(-1),
+            "date": localStorage.latestDate,
             "method": "getIndustryService"
         }).success(function (data) {
             $scope.error = false;
@@ -128,7 +91,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
             //        console.log( $scope.singleStock);
             //       console.log(temp.length);
 
-            console.log(   $scope.industryDetail);
+       //     console.log(   $scope.industryDetail);
 
             if(temp.length>2) {
 

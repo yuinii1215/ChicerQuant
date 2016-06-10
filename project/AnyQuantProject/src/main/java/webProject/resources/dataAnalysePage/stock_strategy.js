@@ -24,7 +24,7 @@ app.controller('kLine',function($scope,$http){
     $http.post($scope.url,{
       'method': 'getPolyAmongDateService',
       'startdate': startdate,
-      'enddate': year+"-"+month+"-"+day,
+      'enddate': localStorage.latestDate,
       'name': stockid
     }).success(
       function(response,status){

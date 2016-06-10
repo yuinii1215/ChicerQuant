@@ -93,7 +93,7 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
     function getSingleDetail(stockName) {
         $http.post($scope.url, {
             "name": stockName,
-            "date": GetDateStr(-1),
+            "date": localStorage.latestDate,
             "method": "getStockByNameService"
         }).success(function (data, status) {
                 $scope.status = status;
@@ -218,7 +218,7 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
     function getEachIndustryNum(industryName){
         $http.post($scope.url, {
             "industry_name":industryName,
-            "date":  GetDateStr(-1),
+            "date":  localStorage.latestDate,
             "method": "getIndustryService"
         }).success(function (data, status) {
             $scope.status = status;
@@ -257,7 +257,7 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
     /*    function getEachIndustryNum(industryName){
      $http.post($scope.url, {
      "industry_name":industryName,
-     "date":  GetDateStr(-1),
+     "date":  localStorage.latestDate,
      "method": "getIndustryService"
      }).success(function (data, status) {
      $scope.status = status;
