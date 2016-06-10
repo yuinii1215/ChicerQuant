@@ -21121,6 +21121,8 @@ ul.recent-file-list > li {
     /*margin-left: -50px;*/
     /*margin-top: -50px;*/
     display: block;
+    top:18%;
+    right:3%;
     width: 55px;
     height: 55px;   z-index:1000;
     font-size: 0.1em;
