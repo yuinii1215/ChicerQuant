@@ -2,7 +2,7 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> [endif] -->
 <!--[if !(IE)]>
 <!-->
-<html lang="en" class="no-js" >
+<html lang="en" class="no-js">
 <!--<![endif]-->
 
 <head>
@@ -17,14 +17,17 @@
     <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../css/main.css" rel="stylesheet" type="text/css">
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
-    <script src="../js/echart/echarts.min.js"></script>
+    <!--<link href="css/3dAxis.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="css/curtain.css" rel="stylesheet" type="text/css">-->
+    <link href="css/board.css" rel="stylesheet" type="text/css">
+    <link href="../singleStockPage/css/button.css" rel="stylesheet" type="text/css">
 
-    <script src="../js/jquery/jquery.min.js"></script>
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
     <script src="../js/angularjs/angular.min.js"></script>
+
 </head>
 
-<body >
-
+<body>
 <!-- =========================
  PRE LOADER
  ============================== -->
@@ -48,8 +51,16 @@
                     <div class="row">
                         <div class="col-md-3">
                             <!-- search box -->
+<<<<<<< HEAD:project/AnyQuantProject/src/main/java/webProject/resources/communityPage/communityPage.html
                             <div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">
+                                <!--<div id="tour-searchbox" class="input-group searchbox" >-->
                                 <input type="search" id="search" class="form-control" placeholder="enter stockName/stockID here..." class="search-input" value=""/>
+=======
+                            <!--<div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">-->
+                                <div id="tour-searchbox" class="input-group searchbox">
+
+                                <input type="search" id="search" class="form-control" placeholder="enter stockName/stockIDhere..." class="search-input" value=""/>
+>>>>>>> deb5b11a00eeffd938013307511f42ff8ff3325c:project/AnyQuantProject/src/main/java/webProject/resources/communityPage/oldcommunityPage.html
                                 <ul id="results" class="search-results"></ul>
                                 <span class="input-group-btn">
 										<button class="btn btn-default" type="button" value="to SingleStockPage" onclick="toSingleStockPage()" ><i class="fa fa-search"></i></button>
@@ -100,7 +111,7 @@
     <!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
     <div class="bottom">
         <div class="container" >
-            <div class="row" >
+            <div class="row">
                 <!-- left sidebar -->
                 <div class="col-md-2 left-sidebar" >
                     <!-- main-homePage -->
@@ -123,7 +134,7 @@
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
                                 <ul class="sub-menu ">
                                     <li><a href="../benchMarkPage/benchMarkPage.html"><span class="text">大盘信息</span></a></li>
-                               </ul>
+                                </ul>
                             </li>
                             <!--industry-->
                             <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-th-large fw"></i><span class="text">行业信息</span>
@@ -138,8 +149,8 @@
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
                                 <ul class="sub-menu open">
                                     <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
-                                    <li><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
-                                    <li class="active"><a href="../strategyPage/strategyPage.html"><span class="text">策略推荐</span></a></li>
+                                    <li class="active"><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
+                                    <li><a href="../strategyPage/strategyPage.html"><span class="text">策略推荐</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -148,120 +159,133 @@
                     <div class="sidebar-minified js-toggle-minified">
                         <i class="fa fa-angle-left"></i>
                     </div>
-
-                    <!-- sidebar content -->
-                    <!--
-                    <div class="sidebar-content">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h5><i class="fa fa-lightbulb-o"></i> Tips</h5></div>
-                            <div class="panel-body">
-                                <p>You can do live search to the widget at search box located at top bar. It's very useful if your dashboard is full of widget.</p>
-                            </div>
-                        </div>
-                        <h5 class="label label-default"><i class="fa fa-info-circle"></i> Server Info</h5>
-                        <ul class="list-unstyled list-info-sidebar bottom-30px">
-                            <li class="data-row">
-                                <div class="data-name">Disk Space Usage</div>
-                                <div class="data-value">
-                                    274.43 / 2 GB
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-                                            <span class="sr-only">10%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="data-row">
-                                <div class="data-name">Monthly Bandwidth Transfer</div>
-                                <div class="data-value">
-                                    230 / 500 GB
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="46" aria-valuemin="0" aria-valuemax="100" style="width: 46%">
-                                            <span class="sr-only">46%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Database Disk Space</span>
-                                <span class="data-value">219.45 MB</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Operating System</span>
-                                <span class="data-value">Linux</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Apache Version</span>
-                                <span class="data-value">2.4.6</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">PHP Version</span>
-                                <span class="data-value">5.3.27</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">MySQL Version</span>
-                                <span class="data-value">5.5.34-cll</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Architecture</span>
-                                <span class="data-value">x86_64</span>
-                            </li>
-                        </ul>
-                    </div>
-                    -->
-                    <!-- end sidebar content -->
                 </div>
                 <!-- end left sidebar -->
 
                 <!-- content-wrapper -->
-                <div class="col-md-10 content-wrapper" id="app2" ng-app="app">
+                <div class="col-md-10 content-wrapper" style=" background-image: url('http://www.kylethacker.com/img/background-large.jpg');">
                     <!-- top general alert -->
-                   
+                    <div class="alert alert-danger top-general-alert">
+                        <span>If you <strong>can't see the logo</strong> on the top left, please reset the style on right style switcher (for upgraded theme only).</span>
+                        <button type="button" class="close">&times;</button>
+                    </div>
                     <!-- end top general alert -->
 
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-lg-4 ">
                             <!--head link-->
                             <ul class="breadcrumb">
-                                <li class="active"><i class="fa fa-file-text-o"></i><a href="../strategyPage/strategyPage.html">分析 &amp; 策略</a></li>
-                                <li><a href="#">策略推荐</a></li>
+                                <li class="active"><i class="fa fa-file-text-o"></i><a href="../virtualInvestPage/virtualInvestPage.html">分析 &amp; 策略</a></li>
+                                <li><a href="#">虚拟投资</a></li>
 
                             </ul>
                         </div>
                         <div class="col-lg-7"></div>
                         <div class="col-lg-1 ">
-                            <span class='pulse-button' style="margin-right: 5px;"><a href="../communityPage/community.html" style="color: white; text-align: center"></br>Chicer社区</a></span>
+                        <span class='pulse-button' style="margin-right: 10px;"><a href="../communityPage/communityPage.html" style="color: white">Chicer社区</a></span>
                         </div>
                     </div>
 
                     <!-- main -->
-                    <div class="content">
+                    <div class="content" id="app2"  ng-app="myApp" ng-controller="searchCtrl">
                         <div class="main-header">
-                            <h2>策略</h2>
+                            <h2>Chicer策略社区</h2>
                             <em>the better analyze</em>
                         </div>
                         <div class="main-content">
-                          
-                            <div class="widget">
-                                <div class="widget-header">
-                                    <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>RSI</h3> <em>-predict</em>
-                                    <div class="btn-group widget-header-toolbar">
-                                        <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
-                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
-                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
-                                    </div>
+                            <button>测试</button>
+                            <section>
+                                <div class="chat">
+                                    <ul>
+                                        <li class="other">
+                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/toffeenutdesign/128.jpg" /></a>
+                                            <div class="date">
+                                                2 minutes ago
+                                            </div>
+                                            <div class="message">
+                                                <div class="hider">
+                                                    <span>Click to read</span>
+                                                </div>
+                                                <p>
+                                                    Itaque quod et dolore accusantium. Labore aut similique ab voluptas rerum quia. Reprehenderit voluptas doloribus ut nam tenetur ipsam.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="other">
+                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/toffeenutdesign/128.jpg" /></a>
+                                            <div class="date">
+                                                5 minutes ago
+                                            </div>
+                                            <div class="message">
+                                                <div class="hider">
+                                                    <span>Click to read</span>
+                                                </div>
+                                                <p>
+                                                    Modi ratione aliquid non. Et porro deserunt illum sed velit necessitatibus. Quis fuga et et fugit consequuntur. Et veritatis fugiat veniam pariatur maxime iusto aperiam.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="you">
+                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" /></a>
+                                            <div class="date">
+                                                7 minutes ago
+                                            </div>
+                                            <div class="message">
+                                                <div class="hider">
+                                                    <span>Click to read</span>
+                                                </div>
+                                                <p>
+                                                    Provident impedit atque nemo culpa et modi molestiae. Error non dolorum voluptas non a. Molestiae et nobis nisi sed.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="other">
+                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/toffeenutdesign/128.jpg" /></a>
+                                            <div class="date">
+                                                8 minutes ago
+                                            </div>
+                                            <div class="message">
+                                                <div class="hider">
+                                                    <span>Click to read</span>
+                                                </div>
+                                                <p>
+                                                    Id vel ducimus perferendis fuga excepturi nulla. Dolores dolores amet et laborum facilis. Officia magni ut non autem et qui incidunt. Qui similique fugit vero porro qui cupiditate.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="you">
+                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" /></a>
+                                            <div class="date">
+                                                10 minutes ago
+                                            </div>
+                                            <div class="message">
+                                                <div class="hider">
+                                                    <span>Click to read</span>
+                                                </div>
+                                                <p>
+                                                    Provident impedit atque nemo culpa et modi molestiae. Error non dolorum voluptas non a. Molestiae et nobis nisi sed.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="you">
+                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" /></a>
+                                            <div class="date">
+                                                10 minutes ago
+                                            </div>
+                                            <div class="message">
+                                                <div class="hider">
+                                                    <span>Click to read</span>
+                                                </div>
+                                                <p>
+                                                    Est ut at eum sed perferendis ea hic. Tempora perspiciatis magnam aspernatur explicabo ea. Sint atque quod.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="widget-content" ng-controller="strategycontroller">
-                                  <input ng-model="stockid" placeholder="enter stockID here...">
-                                  <button ng-click="change()">change</button>
-                                  <input ng-model="percent">
-                                  <div id="RSI12" style="height:400px;"></div>
-                                  <h1 ng-model="ans">recommended RSI value: {{ans}}</h1>
-                                    <!-- content-->
-                                </div>
-                            </div>
+                            </section>
+
+
 
                         </div>
                         <!-- /main-content -->
@@ -280,8 +304,12 @@
 <!-- /wrapper -->
 
 <!-- FOOTER -->
-<footer class="footer" style="opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
+<footer id="anchor" class="footer" style="opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
     <div class="g-ft" style="text-align: center ;">
+                    <span class="m-ft2" >
+                        <a target="_blank"  rel="nofollow" href="javascript:void(0);" style="color: #EBEBEB">关于我们</a> <span>&nbsp;|</span>
+                        <!--     <a target="_blank" rel="nofollow" href="javascript:void(0);"  style="color: #EBEBEB">官方博客</a>-->
+                    </span>
                     <span class="m-ft1" >chicer团队版权所有　&copy;2015-2016　
                         <a rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn/" style="position:relative;color: #FFF;">
                             <!--   <img src="http://l.bst.126.net/rsc/img/icon-police.png" style="width:14px;height:16px;position:absolute;left:0;top:0;" />
@@ -311,11 +339,11 @@
                 <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="../css/skin/yellow.css">Yellow</a></li>
             </ul>
             <div id="transparent-control"></div>
-             <button type="button" class="switch-skin-full fulldark" data-skin="../css/skin/fulldark.css">Full Dark</button>
+            <button type="button" class="switch-skin-full fulldark" data-skin="../css/skin/fulldark.css">Full Dark</button>
             <button type="button" class="switch-skin-full fullbright" data-skin="../css/skin/fullbright.css">Full Bright</button>
         </section>
         <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
-        <p><a href="../strategyPage/strategyPage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
+        <p><a href="../virtualInvestPage/virtualInvestPage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
     </form>
     <script type="text/javascript">
         var currentFilename = window.location.pathname.split('/').pop();
@@ -341,13 +369,19 @@
         }
     </script>
 
-    <script src="strategycontroller.js"></script>
-    <script type="text/javascript">
-        angular.bootstrap(angular.element("#app2"),["app"]);
-    </script>
+    <!--<script src="../virtualInvestPage/js/search.js"></script>-->
+    <!--<script src="js/select2.js"></script>-->
+    <!--<script src="js/menu.js"></script>-->
+    <!--<script type="text/javascript">-->
+        <!--angular.bootstrap(angular.element("#app2"),["myApp"]);-->
+    <!--</script>-->
 
 </div>
 <!-- END STYLE SWITCHER -->
+
+
+<!-- Javascript -->
+
 
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/modernizr/modernizr.js"></script>
@@ -356,8 +390,9 @@
 <script src="../js/deliswitch.js"></script>
 <script src="../js/zerif.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
-<script src="../js/search.js"></script>
+<script type="text/javascript" src="js/jquery.dialog.js"></script>
 <script src="../js/jquery/jquery.gritter.min.js"></script>
+<script src="js/view.js"></script>
 
 </body>
 

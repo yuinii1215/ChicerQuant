@@ -124,12 +124,12 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
            var tmp=data;
            if(tmp.operation=="success"){
                if(tmp.duplicate==true){//提示重新命名
-                   alert("已有重名策略");
+                   swal("策略重名,请重新命名");
                }else {
-                   alert("保存策略成功");
+                   swal("策略保存成功");
                }
            }else{
-               alert("保存策略失败");
+               swal("策略保存失败,请重试");
            }
        })
            .error(function (data, status) {
@@ -206,12 +206,12 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             var tmp=data;
             if(tmp.operation=="success"){
                 if(tmp.duplicate==true){//提示重新命名
-                    alert("已有重名策略");
+                    swal("已有重名策略,请重新命名");
                 }else {
-                    alert("保存策略成功");
+                    swal("保存策略成功");
                 }
             }else{
-                alert("保存策略失败");
+                swal("保存策略失败,请重试");
             }
         })
             .error(function (data, status) {
@@ -274,26 +274,25 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             });
     }
 
-       $scope.strManager =[];
-       var str_cnt=0;
+    $scope.strManager =[];
+    var str_cnt=0;
 
-        $http.post($scope.url, {
+    $http.post($scope.url, {
             "username": localStorage.userName,
             "method": "getCustomStrategyService"
         }).success(function (data, status) {
              var myCustomStr=data;
-
+            console.log("1");
             for(var item in myCustomStr) {
                 // console.log("1");
                 // console.log(myCustomStr[item]);
                 if (myCustomStr[item]!="success") {
-                $scope.strManager[str_cnt] = {
+                $scope.strManager[str_cnt++] = {
                     "strName": myCustomStr[item].strategyname,
                     "strType": myCustomStr[item].strategytype,
                     "buypoint": myCustomStr[item].buypoint,
                     "sellpoint": myCustomStr[item].sellpoint
                 };
-                str_cnt++;
             }
             }
             
@@ -303,7 +302,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             }).success(function (data, status) {
                 var myCrossStr=data;
                 for(var item in myCrossStr) {
-                    // console.log("2");
+                    console.log("2");
                     // console.log(myCrossStr[item]);
                     if (myCrossStr[item]!="success") {
                         if ((myCrossStr[item].strategyname != "") && (myCrossStr[item].crossstr != "&&&")) {

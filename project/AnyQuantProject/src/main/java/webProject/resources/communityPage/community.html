@@ -11,30 +11,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- CSS -->
+    <link href="css/board.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/preloader.css">
     <link href="../css/search.css" rel="stylesheet" type="text/css">
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
+
     <link href="../css/main.css" rel="stylesheet" type="text/css">
     <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
-    <!--<link href="css/3dAxis.css" rel="stylesheet" type="text/css">-->
-    <!--<link href="css/curtain.css" rel="stylesheet" type="text/css">-->
-    <link href="css/board.css" rel="stylesheet" type="text/css">
-    <link href="../singleStockPage/css/button.css" rel="stylesheet" type="text/css">
 
-    <script src="../js/jquery/jquery.min.js"></script>
+    <link href="../singleStockPage/css/button.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
+    <!--<script type="text/javascript" src="js/jquery-1.4.4.js"></script>-->
+    <!--<script src="../js/jquery/jquery.min.js"></script>-->
     <script src="../js/angularjs/angular.min.js"></script>
 
+    <style type="text/css">
+        .dialog-box{ position: absolute; z-index:1001}
+        .dialog-popup{/*background-color:#333333\9;*/filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F333333', endColorstr='#7F333333'); position:relative;z-index:29; zoom:1;background:rgba(51,51,51,0);  padding: 10px;}
+        .dialog-popup .dialog-title-bar{ height:30px; background-color:#ffffff; position:relative;}
+        .dialog-popup .dialog-title-bar h2{ line-height:30px; padding-left:10px; font-size:14px; font-weight:700}
+        .dialog-popup .dialog-title-bar a.close-dialog{ position:absolute;top:5px; right:10px; background-color:#FFFFFF; border:1px solid #000000; font-size:14px; font-weight:700; display:block; height:18px; width:18px; line-height:18px;}
+        .dialog-popup .dialog-title-bar a.close-dialog{text-decoration:none; color:#555555; text-align:center;}
+        .dialog-popup .dialog-title-bar a.close-dialog:hover{text-decoration:none; color:#333333}
+        .dialog-content{ background-color:#FFFFFF; padding:10px}
+        .dialog-iframe-mask{position:absolute; left:0; top:0; border: none;}
+        .boxy-modal-blackout{position:absolute; left:0; top:0; border: none; background-color:#333333; overflow:hidden; z-index:999}
+    </style>
 </head>
 
-<body>
+<!--<tbody>-->
 <!-- =========================
  PRE LOADER
  ============================== -->
 <div class="preloader">
     <div class="status">&nbsp;</div>
 </div>
-
 <!-- WRAPPER -->
 <div class="wrapper">
     <!-- TOP BAR -->
@@ -104,7 +116,8 @@
     <!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
     <div class="bottom">
         <div class="container" >
-            <div class="row">
+
+            <div class="row" >
                 <!-- left sidebar -->
                 <div class="col-md-2 left-sidebar" >
                     <!-- main-homePage -->
@@ -138,11 +151,11 @@
                                 </ul>
                             </li>
                             <!--analysis&strategy-->
-                            <li class="active"><a href="#" class="js-sub-menu-toggle"><i class="fa fa-file-text-o fw"></i><span class="text">分析 &amp; 策略</span>
+                            <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-file-text-o fw"></i><span class="text">分析 &amp; 策略</span>
                                 <i class="toggle-icon fa fa-angle-left"></i></a>
-                                <ul class="sub-menu open">
+                                <ul class="sub-menu">
                                     <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
-                                    <li class="active"><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
+                                    <li><a href="../virtualInvestPage/virtualInvestPage.html"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span></a></li>
                                     <li><a href="../strategyPage/strategyPage.html"><span class="text">策略推荐</span></a></li>
                                 </ul>
                             </li>
@@ -164,18 +177,10 @@
                     </div>
                     <!-- end top general alert -->
 
-                    <div class="row" >
-                        <div class="col-lg-4 ">
-                            <!--head link-->
-                            <ul class="breadcrumb">
-                                <li class="active"><i class="fa fa-file-text-o"></i><a href="../virtualInvestPage/virtualInvestPage.html">分析 &amp; 策略</a></li>
-                                <li><a href="#">虚拟投资</a></li>
-
-                            </ul>
-                        </div>
-                        <div class="col-lg-7"></div>
+                    <div class="row">
+                        <div class="col-lg-11"></div>
                         <div class="col-lg-1 ">
-                        <span class='pulse-button' style="margin-right: 10px;"><a href="../communityPage/communityPage.html" style="color: white">Chicer社区</a></span>
+                            <span class='pulse-button' style="margin-right: 5px;"><a href="../communityPage/community.html" style="color: white; text-align: center"></br>Chicer社区</a></span>
                         </div>
                     </div>
 
@@ -183,110 +188,100 @@
                     <div class="content" id="app2" ng-app="myApp" ng-controller="SearchCtrl">
                         <div class="main-header">
                             <h2>Chicer策略社区</h2>
-                            <em>the better analyze</em>
+                            <em>the better community</em>
                         </div>
                         <div class="main-content">
-                            <button ng-click="test()">测试</button>
                             <section>
                                 <div class="chat">
-                                    <ul>
-                                        <li class="other">
-                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/toffeenutdesign/128.jpg" /></a>
-                                            <div class="date">
-                                                2 minutes ago
-                                            </div>
+                                    <ul ng-repeat="x in usrmessages">
+                                        <li class={{x.side}}>
+                                            <div class="date" style="color: white"><a class="user" href="#" style="color:white"><i class="fa fa-user fa-4x" style="color:white;" ></i></br>{{x.userName}}</a></div>
                                             <div class="message">
-                                                <div class="hider">
-                                                    <span>Click to read</span>
-                                                </div>
-                                                <p>
-                                                    Itaque quod et dolore accusantium. Labore aut similique ab voluptas rerum quia. Reprehenderit voluptas doloribus ut nam tenetur ipsam.
-                                                </p>
+                                                <p align={{x.textalign}}>{{"策略类型: "+x.strType}}</p>
+                                                <p align={{x.textalign}}>{{"买入点: "+x.buypoint}}</p>
+                                                <p align={{x.textalign}}>{{"卖出点: "+x.sellpoint}}</p>
                                             </div>
+                                            <p></br></p>
                                         </li>
-                                        <li class="other">
-                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/toffeenutdesign/128.jpg" /></a>
-                                            <div class="date">
-                                                5 minutes ago
-                                            </div>
-                                            <div class="message">
-                                                <div class="hider">
-                                                    <span>Click to read</span>
-                                                </div>
-                                                <p>
-                                                    Modi ratione aliquid non. Et porro deserunt illum sed velit necessitatibus. Quis fuga et et fugit consequuntur. Et veritatis fugiat veniam pariatur maxime iusto aperiam.
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li class="you">
-                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" /></a>
-                                            <div class="date">
-                                                7 minutes ago
-                                            </div>
-                                            <div class="message">
-                                                <div class="hider">
-                                                    <span>Click to read</span>
-                                                </div>
-                                                <p>
-                                                    Provident impedit atque nemo culpa et modi molestiae. Error non dolorum voluptas non a. Molestiae et nobis nisi sed.
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li class="other">
-                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/toffeenutdesign/128.jpg" /></a>
-                                            <div class="date">
-                                                8 minutes ago
-                                            </div>
-                                            <div class="message">
-                                                <div class="hider">
-                                                    <span>Click to read</span>
-                                                </div>
-                                                <p>
-                                                    Id vel ducimus perferendis fuga excepturi nulla. Dolores dolores amet et laborum facilis. Officia magni ut non autem et qui incidunt. Qui similique fugit vero porro qui cupiditate.
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li class="you">
-                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" /></a>
-                                            <div class="date">
-                                                10 minutes ago
-                                            </div>
-                                            <div class="message">
-                                                <div class="hider">
-                                                    <span>Click to read</span>
-                                                </div>
-                                                <p>
-                                                    Provident impedit atque nemo culpa et modi molestiae. Error non dolorum voluptas non a. Molestiae et nobis nisi sed.
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li class="you">
-                                            <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" /></a>
-                                            <div class="date">
-                                                10 minutes ago
-                                            </div>
-                                            <div class="message">
-                                                <div class="hider">
-                                                    <span>Click to read</span>
-                                                </div>
-                                                <p>
-                                                    Est ut at eum sed perferendis ea hic. Tempora perspiciatis magnam aspernatur explicabo ea. Sint atque quod.
-                                                </p>
-                                            </div>
-                                        </li>
+                                        <!--<li class="other">-->
+                                            <!--<a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/toffeenutdesign/128.jpg" /></a>-->
+                                            <!--<div class="date">-->
+                                                <!--5 minutes ago-->
+                                            <!--</div>-->
+                                            <!--<div class="message">-->
+                                                <!--<div class="hider">-->
+                                                    <!--<span>Click to read</span>-->
+                                                <!--</div>-->
+                                                <!--<p>-->
+                                                    <!--Modi ratione aliquid non. Et porro deserunt illum sed velit necessitatibus. Quis fuga et et fugit consequuntur. Et veritatis fugiat veniam pariatur maxime iusto aperiam.-->
+                                                <!--</p>-->
+                                            <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li class="you">-->
+                                            <!--<a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" /></a>-->
+                                            <!--<div class="date">-->
+                                                <!--7 minutes ago-->
+                                            <!--</div>-->
+                                            <!--<div class="message">-->
+                                                <!--<div class="hider">-->
+                                                    <!--<span>Click to read</span>-->
+                                                <!--</div>-->
+                                                <!--<p>-->
+                                                    <!--Provident impedit atque nemo culpa et modi molestiae. Error non dolorum voluptas non a. Molestiae et nobis nisi sed.-->
+                                                <!--</p>-->
+                                            <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li class="other">-->
+                                            <!--<a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/toffeenutdesign/128.jpg" /></a>-->
+                                            <!--<div class="date">-->
+                                                <!--8 minutes ago-->
+                                            <!--</div>-->
+                                            <!--<div class="message">-->
+                                                <!--<div class="hider">-->
+                                                    <!--<span>Click to read</span>-->
+                                                <!--</div>-->
+                                                <!--<p>-->
+                                                    <!--Id vel ducimus perferendis fuga excepturi nulla. Dolores dolores amet et laborum facilis. Officia magni ut non autem et qui incidunt. Qui similique fugit vero porro qui cupiditate.-->
+                                                <!--</p>-->
+                                            <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li class="you">-->
+                                            <!--<a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" /></a>-->
+                                            <!--<div class="date">-->
+                                                <!--10 minutes ago-->
+                                            <!--</div>-->
+                                            <!--<div class="message">-->
+                                                <!--<div class="hider">-->
+                                                    <!--<span>Click to read</span>-->
+                                                <!--</div>-->
+                                                <!--<p>-->
+                                                    <!--Provident impedit atque nemo culpa et modi molestiae. Error non dolorum voluptas non a. Molestiae et nobis nisi sed.-->
+                                                <!--</p>-->
+                                            <!--</div>-->
+                                        <!--</li>-->
+                                        <!--<li class="you">-->
+                                            <!--<a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" /></a>-->
+                                            <!--<div class="date">-->
+                                                <!--10 minutes ago-->
+                                            <!--</div>-->
+                                            <!--<div class="message">-->
+                                                <!--<div class="hider">-->
+                                                    <!--<span>Click to read</span>-->
+                                                <!--</div>-->
+                                                <!--<p>-->
+                                                    <!--Est ut at eum sed perferendis ea hic. Tempora perspiciatis magnam aspernatur explicabo ea. Sint atque quod.-->
+                                                <!--</p>-->
+                                            <!--</div>-->
+                                        <!--</li>-->
                                     </ul>
                                 </div>
                             </section>
 
-
-
-                        </div>
-                        <!-- /main-content -->
-                    </div>
                     <!-- /main -->
-
-                </div>
+                        </div>
+                    </div>
                 <!-- /content-wrapper -->
+                    </div>
             </div>
             <!-- /row -->
         </div>
@@ -294,15 +289,12 @@
     </div>
     <!-- END BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
 </div>
-<!-- /wrapper -->
+</div>
+    <!-- /wrapper -->
 
 <!-- FOOTER -->
-<footer id="anchor" class="footer" style="opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
+<footer class="footer" style="opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
     <div class="g-ft" style="text-align: center ;">
-                    <span class="m-ft2" >
-                        <a target="_blank"  rel="nofollow" href="javascript:void(0);" style="color: #EBEBEB">关于我们</a> <span>&nbsp;|</span>
-                        <!--     <a target="_blank" rel="nofollow" href="javascript:void(0);"  style="color: #EBEBEB">官方博客</a>-->
-                    </span>
                     <span class="m-ft1" >chicer团队版权所有　&copy;2015-2016　
                         <a rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn/" style="position:relative;color: #FFF;">
                             <!--   <img src="http://l.bst.126.net/rsc/img/icon-police.png" style="width:14px;height:16px;position:absolute;left:0;top:0;" />
@@ -336,7 +328,7 @@
             <button type="button" class="switch-skin-full fullbright" data-skin="../css/skin/fullbright.css">Full Bright</button>
         </section>
         <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
-        <p><a href="../virtualInvestPage/virtualInvestPage.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
+        <p><a href="../communityPage/community.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
     </form>
     <script type="text/javascript">
         var currentFilename = window.location.pathname.split('/').pop();
@@ -362,9 +354,7 @@
         }
     </script>
 
-    <!--<script src="../virtualInvestPage/js/search.js"></script>-->
-    <!--<script src="js/select2.js"></script>-->
-    <!--<script src="js/menu.js"></script>-->
+    <script src="js/view.js"></script>
     <script type="text/javascript">
         angular.bootstrap(angular.element("#app2"),["myApp"]);
     </script>
@@ -374,9 +364,6 @@
 
 
 <!-- Javascript -->
-
-
-<script src="js/view.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/plugins/modernizr/modernizr.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
@@ -386,9 +373,58 @@
 <script src="../js/search.js"></script>
 <script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>
+<!--<script type="text/javascript" src="js/jquery.dialog.js"></script>-->
 <script src="../js/jquery/jquery.gritter.min.js"></script>
+<script>
+    $(".plus-vert").click(function(){
+        if($(this).hasClass("quit")){
+            $(this).removeClass("quit");
+            $(".plus-vert-curtain").removeClass("full-deployed").addClass("semi-deployed");
+        } else {
+            $(this).addClass("quit");
+            $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
+        }
+    });
+    $('.plus-vert').mouseenter(function () {
+        $('.plus-vert-curtain').removeClass('not-deployed').addClass('semi-deployed');
+    }).mouseleave(function () {
+        $('.plus-vert-curtain').removeClass('semi-deployed').addClass('not-deployed');
 
+    });
+</script>
+<script>
+    $(document).ready(function() {
 
+        // Default dropdown action to show/hide dropdown content
+        $('.js-dropp-action').click(function(e) {
+            e.preventDefault();
+            $(this).toggleClass('js-open');
+            $(this).parent().next('.dropp-body').toggleClass('js-open');
+        });
+
+        // Using as fake input select dropdown
+        $('label').click(function() {
+            $(this).addClass('js-open').siblings().removeClass('js-open');
+            $('.dropp-body,.js-dropp-action').removeClass('js-open');
+        });
+        // get the value of checked input radio and display as dropp title
+        $('input[name="dropp"]').change(function() {
+            var value = $("input[name='dropp']:checked").val();
+            $('.js-value').text(value);
+        });
+
+    });
+</script>
+<script>
+    function show2(){
+        var dialogBox2 = new Dialog("save_con",{
+//            "width": "500px" ,
+            "title":"",
+            'modal':true,
+            "closeModal":true
+        });
+    }
+</script>
 </body>
 
 </html>
