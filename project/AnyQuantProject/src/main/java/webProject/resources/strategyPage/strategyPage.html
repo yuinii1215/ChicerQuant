@@ -49,7 +49,7 @@
                         <div class="col-md-3">
                             <!-- search box -->
                             <div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">
-                                <input type="search" id="search" class="form-control" placeholder="enter stockName/stockIDhere..." class="search-input" value=""/>
+                                <input type="search" id="search" class="form-control" placeholder="enter stockName/stockID here..." class="search-input" value=""/>
                                 <ul id="results" class="search-results"></ul>
                                 <span class="input-group-btn">
 										<button class="btn btn-default" type="button" value="to SingleStockPage" onclick="toSingleStockPage()" ><i class="fa fa-search"></i></button>
@@ -243,7 +243,6 @@
                                 <div class="widget-header">
                                     <!--header-->
                                     <h3><i class="fa fa-bar-chart-o"></i>RSI</h3> <em>-predict</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
                                     <div class="btn-group widget-header-toolbar">
                                         <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
@@ -251,7 +250,7 @@
                                     </div>
                                 </div>
                                 <div class="widget-content" ng-controller="strategycontroller">
-                                  <input ng-model="stockid">
+                                  <input ng-model="stockid" placeholder="enter stockID here...">
                                   <button ng-click="change()">change</button>
                                   <input ng-model="percent">
                                   <div id="RSI12" style="height:400px;"></div>
