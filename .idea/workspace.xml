@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a0f1cbb-a136-4048-b0a8-9dd38b046752" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/img/com-1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/img/com_1.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/js/allIndustry.js" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/js/allIndustry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/stock_strategy.js" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/stock_strategy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/js/initMyFavorTable.js" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/js/initMyFavorTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategycontroller.js" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategycontroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/favoritePage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/favoritePage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategyPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategyPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html" />
     </list>
     <ignored path="AnyQuant_Project.iws" />
@@ -29,54 +34,31 @@
     <favorites_list name="AnyQuant_Project" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="getBenchMarkData.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock_strategy.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/stock_strategy.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="initMyFavorTable.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/js/initMyFavorTable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="170" column="9" selection-start-line="170" selection-start-column="9" selection-end-line="170" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="eachIndustryTable.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.12245">
-              <caret line="255" column="22" selection-start-line="255" selection-start-column="22" selection-end-line="255" selection-end-column="22" />
+            <state vertical-scroll-proportion="-2.9310346">
+              <caret line="297" column="42" selection-start-line="297" selection-start-column="32" selection-end-line="297" selection-end-column="42" />
               <folding>
-                <element signature="e#1546#2509#0" expanded="false" />
+                <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#section#2;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#section#4;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#section#5;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#section#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="singleStockPage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/singleStockPage.html">
+      <file leaf-file-name="allIndustryShowPage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6896552">
-              <caret line="159" column="57" selection-start-line="159" selection-start-column="57" selection-end-line="159" selection-end-column="57" />
+            <state vertical-scroll-proportion="-6.8965516">
+              <caret line="255" column="46" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="46" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -85,54 +67,57 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kLineChart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/js/kLineChart.js">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.4613734">
+              <caret line="967" column="22" selection-start-line="967" selection-start-column="22" selection-end-line="967" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/login.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/js/search.js">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6734693">
-              <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strategycontroller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategycontroller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-93.93104">
-              <caret line="477" column="52" selection-start-line="477" selection-start-column="52" selection-end-line="477" selection-end-column="52" />
+            <state vertical-scroll-proportion="-0.9358974">
+              <caret line="15335" column="26" selection-start-line="15335" selection-start-column="26" selection-end-line="15335" selection-end-column="26" />
               <folding>
-                <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1465541436159" expanded="true" signature="30712:30744" placeholder="{...}" />
+                <marker date="1465541436159" expanded="true" signature="30770:30803" placeholder="{...}" />
+                <marker date="1465541436159" expanded="true" signature="30924:30956" placeholder="{...}" />
+                <marker date="1465541436159" expanded="true" signature="30982:31015" placeholder="{...}" />
+                <marker date="1465541436159" expanded="true" signature="35354:35386" placeholder="{...}" />
+                <marker date="1465541436159" expanded="true" signature="35412:35445" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="initAllStockTable.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/js/initAllStockTable.js">
+      <file leaf-file-name="dataAnalysePage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9779413">
-              <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-              <folding />
+            <state vertical-scroll-proportion="-16.37931">
+              <caret line="230" column="166" selection-start-line="230" selection-start-column="166" selection-end-line="230" selection-end-column="166" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,21 +130,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategyPage.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/favoritePage.html" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/communityPage/css/board.css" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/main.css" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/communityPage/community.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/js/getLatestDate.js" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/js/allIndustry.js" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/stock_strategy.js" />
@@ -167,6 +142,16 @@
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategycontroller.js" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/js/search.js" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/favoritePage.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategyPage.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css" />
       </list>
     </option>
   </component>
@@ -606,6 +591,90 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="singleIndustryPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuant_Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuant_Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuant_Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuant_Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuantProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="favoritePage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -736,7 +805,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="benchMarkPage" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -778,99 +847,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="benchMarkPage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuant_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuant_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuantProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allStockShowPage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuant_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuant_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuantProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="allStockShowPage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="allIndustryShowPage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -906,8 +883,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -915,6 +892,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="E:\nodejs\node.exe" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\course\Class\SE3\assignment\AnyQuant_Project\project\AnyQuantProject\src\main\java\webProject\resources\img" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -940,6 +922,11 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -962,6 +949,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="2a0f1cbb-a136-4048-b0a8-9dd38b046752" name="Default" comment="" />
@@ -972,26 +962,34 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1363" height="726" extended-state="1" />
+    <frame x="1" y="1" width="1363" height="726" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27526397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1001,35 +999,35 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html">
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.413794">
-          <caret line="238" column="30" selection-start-line="238" selection-start-column="30" selection-end-line="238" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#section#2;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#section#4;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#section#5;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#section#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/favoritePage.html">
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.241379">
-          <caret line="236" column="30" selection-start-line="236" selection-start-column="30" selection-end-line="236" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="230" column="166" selection-start-line="230" selection-start-column="166" selection-end-line="230" selection-end-column="166" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.655172">
-          <caret line="235" column="30" selection-start-line="235" selection-start-column="30" selection-end-line="235" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1038,7 +1036,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1046,7 +1043,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1054,7 +1050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,7 +1057,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,7 +1064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,7 +1071,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1086,52 +1078,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.862069">
           <caret line="50" column="29" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategyPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3793104">
-          <caret line="233" column="53" selection-start-line="233" selection-start-column="41" selection-end-line="233" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.344828">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.862069">
-          <caret line="791" column="44" selection-start-line="791" selection-start-column="44" selection-end-line="791" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5901288">
-          <caret line="15345" column="16" selection-start-line="15345" selection-start-column="16" selection-end-line="15345" selection-end-column="16" />
-          <folding>
-            <marker date="1465541436159" expanded="true" signature="30712:30744" placeholder="{...}" />
-            <marker date="1465541436159" expanded="true" signature="30770:30803" placeholder="{...}" />
-            <marker date="1465541436159" expanded="true" signature="30924:30956" placeholder="{...}" />
-            <marker date="1465541436159" expanded="true" signature="30982:31015" placeholder="{...}" />
-            <marker date="1465541436159" expanded="true" signature="35354:35386" placeholder="{...}" />
-            <marker date="1465541436159" expanded="true" signature="35412:35445" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1154,7 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,22 +1111,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.7586207">
-          <caret line="242" column="41" selection-start-line="242" selection-start-column="41" selection-end-line="242" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/example/search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1201,17 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0368932">
-          <caret line="395" column="13" selection-start-line="392" selection-start-column="3" selection-end-line="395" selection-end-column="13" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/js/allIndustry.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.632653">
@@ -1224,24 +1146,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.655172">
-          <caret line="240" column="45" selection-start-line="240" selection-start-column="45" selection-end-line="240" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1249,7 +1153,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1257,7 +1160,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="170" column="9" selection-start-line="170" selection-start-column="9" selection-end-line="170" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1265,7 +1167,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1273,7 +1174,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5514706">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,13 +1181,108 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-31.12245">
           <caret line="255" column="22" selection-start-line="255" selection-start-column="22" selection-end-line="255" selection-end-column="22" />
-          <folding>
-            <element signature="e#1546#2509#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/js/initAllStockTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5147059">
+          <caret line="107" column="26" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategycontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3970588">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0909091">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/js/kLineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9852941">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9743589">
+          <caret line="234" column="170" selection-start-line="234" selection-start-column="170" selection-end-line="234" selection-end-column="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/favoritePage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9743589">
+          <caret line="235" column="170" selection-start-line="235" selection-start-column="170" selection-end-line="235" selection-end-column="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9743589">
+          <caret line="237" column="170" selection-start-line="237" selection-start-column="170" selection-end-line="237" selection-end-column="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/singleStockPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.206897">
+          <caret line="167" column="30" selection-start-line="167" selection-start-column="30" selection-end-line="167" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategyPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9743589">
+          <caret line="233" column="170" selection-start-line="233" selection-start-column="170" selection-end-line="233" selection-end-column="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9743589">
+          <caret line="234" column="36" selection-start-line="234" selection-start-column="36" selection-end-line="234" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.965517">
+          <caret line="193" column="30" selection-start-line="193" selection-start-column="30" selection-end-line="193" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.37931">
+          <caret line="230" column="166" selection-start-line="230" selection-start-column="166" selection-end-line="230" selection-end-column="166" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/img/cool.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1295,10 +1290,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/singleStockPage.html">
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6896552">
-          <caret line="159" column="57" selection-start-line="159" selection-start-column="57" selection-end-line="159" selection-end-column="57" />
+        <state vertical-scroll-proportion="-0.9358974">
+          <caret line="15335" column="26" selection-start-line="15335" selection-start-column="26" selection-end-line="15335" selection-end-column="26" />
+          <folding>
+            <marker date="1465541436159" expanded="true" signature="30712:30744" placeholder="{...}" />
+            <marker date="1465541436159" expanded="true" signature="30770:30803" placeholder="{...}" />
+            <marker date="1465541436159" expanded="true" signature="30924:30956" placeholder="{...}" />
+            <marker date="1465541436159" expanded="true" signature="30982:31015" placeholder="{...}" />
+            <marker date="1465541436159" expanded="true" signature="35354:35386" placeholder="{...}" />
+            <marker date="1465541436159" expanded="true" signature="35412:35445" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.8965516">
+          <caret line="255" column="46" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="46" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1306,36 +1316,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6734693">
-          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategycontroller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-93.93104">
-          <caret line="477" column="52" selection-start-line="477" selection-start-column="52" selection-end-line="477" selection-end-column="52" />
+        <state vertical-scroll-proportion="-2.9310346">
+          <caret line="297" column="42" selection-start-line="297" selection-start-column="32" selection-end-line="297" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#section#2;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#section#4;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#section#5;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#section#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/js/initAllStockTable.js">
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9779413">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.4613734">
+          <caret line="967" column="22" selection-start-line="967" selection-start-column="22" selection-end-line="967" selection-end-column="22" />
           <folding />
         </state>
       </provider>
