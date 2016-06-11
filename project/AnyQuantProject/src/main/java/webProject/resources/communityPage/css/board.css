@@ -8,7 +8,7 @@
 }
 
 section {
-    width: 800px;
+    width: 80%;
     margin: 60px auto;
     background-color: rgba(0, 0, 0, 0.5);
     /*background-image: url("http://mammothmedia.tv/admin/wp-content/uploads/2013/07/Water-Background-medium-Gradient.jpg");*/
@@ -47,8 +47,9 @@ section {
     position: relative;
     color: #fff;
     font-size: 15px;
+    /*width: 50%;*/
     background-color: #2ECC71;
-    border-radius: 3px;
+    border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 .chat ul li .message:before {
@@ -109,6 +110,7 @@ section {
     margin: -20px 10px 0 0;
 }
 .chat ul li.other .message {
+    /*float: right;*/
     margin: 0 90px 0 0;
 }
 .chat ul li.other .message:before {
@@ -141,56 +143,5 @@ section {
 }
 
 
-.pulse-button {
-    position: fixed;
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*margin-left: -50px;*/
-    /*margin-top: -50px;*/
-    display: block;
-    width: 55px;
-    height: 55px;
-    font-size: 0.1em;
-    /*font-weight: light;*/
-    /*font-family: 'Trebuchet MS', sans-serif;*/
-    /*text-transform: uppercase;*/
-    text-align: center;
-    /*line-height: 100px;*/
-    /*letter-spacing: -1px;*/
-    color: white;
-    border: none;
-    border-radius: 30%;
-    background: #0c0c0c;
-    cursor: pointer;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
-    -webkit-animation: pulse 1.5s infinite;
-}
-
-.pulse-button:hover {
-    -webkit-animation: none;
-}
-
-@-webkit-keyframes pulse {
-    0% {
-        -moz-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
-    }
-    70% {
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        box-shadow: 0 0 0 20px rgba(90, 153, 212, 0);
-    }
-    100% {
-        -moz-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
-        box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
-    }
-}
 
 

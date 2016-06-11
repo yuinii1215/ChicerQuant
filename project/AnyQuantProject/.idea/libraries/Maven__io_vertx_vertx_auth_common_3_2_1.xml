@@ -3,12 +3,9 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/io/vertx/vertx-auth-common/3.2.1/vertx-auth-common-3.2.1.jar!/" />
     </CLASSES>
-<<<<<<< HEAD
-=======
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/io/vertx/vertx-auth-common/3.2.1/vertx-auth-common-3.2.1-javadoc.jar!/" />
     </JAVADOC>
->>>>>>> b89c68adc94f0b3b6cc3e2fcf81791c8a34ad7a0
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/io/vertx/vertx-auth-common/3.2.1/vertx-auth-common-3.2.1-sources.jar!/" />
     </SOURCES>

@@ -1,5 +1,7 @@
 package webProject.server.strategy.java;
 
+import io.vertx.core.json.JsonObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -47,23 +49,90 @@ public class Strategy {
 	 * @return >0 normal p-value
 	 * -1-error -2-timeout
 	 */
-	public static double x2Test(String id,String start,String end){
+	public static double[] x2Test(String id,String start,String end){
 		String[] cmd={FileIndex.python,FileIndex.x2test,id,start,end};
 		try {
 			Process process=Runtime.getRuntime().exec(cmd);
 			Scanner key=new Scanner(process.getInputStream());
-			double d=key.nextDouble();
+
           process.waitFor(10,TimeUnit.SECONDS);
-          key.close();
+
           if (process.exitValue()!=0) {
-        	  return -1;
-          	}
-			
-			return d;
+        	  return new  double[1];
+          }
+            double aver=Double.parseDouble(key.nextLine());
+            double var=Double.parseDouble(key.nextLine());
+            double p=Double.parseDouble(key.nextLine());
+            double[] ans={aver,var,p};
+            key.close();
+			return ans;
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
-			return -2;
+			return new double[2];
 		}
 	}
-	
+
+    /**
+     * 风险评估
+     * @param id
+     * @param start
+     * @param end
+     * @return len=2-success 1-error 3-fatal error
+     */
+	public static double[] risk(String id,String start,String end){
+        String[] cmd={FileIndex.python,FileIndex.risk,id,start,end};
+        try {
+            Process process=Runtime.getRuntime().exec(cmd);
+            Scanner key=new Scanner(process.getInputStream());
+            double d1=key.nextDouble();
+            double d2=key.nextDouble();
+            process.waitFor(10,TimeUnit.SECONDS);
+            key.close();
+            if (process.exitValue()!=0) {
+                return new double[1];
+            }
+			double[] ans={d1,d2};
+            return ans;
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            return new double[3];
+        }
+    }
+
+    /**
+     * 获得一段时间的收益率
+     * @param id
+     * @param start
+     * @param end
+     * @return
+     */
+    public static JsonObject getTimeER(String id,String start,String end){
+        String[] cmd={FileIndex.python,FileIndex.GetData,id,start,end};
+        try {
+            Process process=Runtime.getRuntime().exec(cmd);
+            Scanner key=new Scanner(process.getInputStream());
+            process.waitFor(10,TimeUnit.SECONDS);
+            if (process.exitValue()!=0){
+                return null;
+            }
+            //
+            JsonObject ans=new JsonObject();
+            int len=0;
+            while (key.hasNext()){
+                JsonObject temp=new JsonObject();
+                String date=key.nextLine();
+                double d=Double.parseDouble(key.nextLine())*100;
+//                System.out.println(d);
+                temp.put("date",date);
+                temp.put("er",d);
+                ans.put(Integer.toString(len),temp);
+                len++;
+            }
+
+            return ans;
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

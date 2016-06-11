@@ -156,10 +156,15 @@ function newStrategy(){
     temp[1]=document.getElementById("pt_rsi");
     temp[2]=document.getElementById("pt_kdj");
     temp[3]=document.getElementById("pt_macd");
+    var tmp=0;
     for(var i=0;i<4;i++){
     if(temp[i].checked){
     newType=temp[i].value;
+        tmp++;
     }}
+    if(tmp==0){
+        swal("请选择策略种类");
+    }
 
     var customerStrData;
     for(var item=0;item<4;item++){
@@ -442,374 +447,379 @@ function multiPredictTriggered(){//假定是kdj和rsi
     for(i=0;i<=3;i++){
         if(selectContent[i].selected) {
             KType[cnt++]=selectContent[i].value;
-            console.log(selectContent[i].value);
         }
     }
-    var shortLine=[];
-    var longLine=[];
-    var stasticsNum=0;
+    if(cnt==0){
+        swal("请选择策略种类");
+    }else {
+        var shortLine = [];
+        var longLine = [];
+        var stasticsNum = 0;
 
-    for(var item=0;item<4;item++){
-    switch (KType[item]){//shortLine现在用来存储四个数组
-        case 'RSI':
-            shortLine[stasticsNum]=chart3Data_RSI6;
-            longLine[stasticsNum++]=chart3Data_RSI12;
-            break;
-        case 'BIAS':
-            shortLine[stasticsNum]=chart3Data_BIAS6;
-            longLine[stasticsNum++]=chart3Data_BIAS12;
-            break;
-        case 'MACD':
-            shortLine[stasticsNum]=chart3Data_DIF;
-            longLine[stasticsNum++]=chart3Data_MACD;
-            break;
-        case 'KDJ':
-            shortLine[stasticsNum]=chart3Data_K;
-            longLine[stasticsNum++]=chart3Data_D;
-            break;
+        for (var item = 0; item < 4; item++) {
+            switch (KType[item]) {//shortLine现在用来存储四个数组
+                case 'RSI':
+                    shortLine[stasticsNum] = chart3Data_RSI6;
+                    longLine[stasticsNum++] = chart3Data_RSI12;
+                    break;
+                case 'BIAS':
+                    shortLine[stasticsNum] = chart3Data_BIAS6;
+                    longLine[stasticsNum++] = chart3Data_BIAS12;
+                    break;
+                case 'MACD':
+                    shortLine[stasticsNum] = chart3Data_DIF;
+                    longLine[stasticsNum++] = chart3Data_MACD;
+                    break;
+                case 'KDJ':
+                    shortLine[stasticsNum] = chart3Data_K;
+                    longLine[stasticsNum++] = chart3Data_D;
+                    break;
 
-    }
-    }
-    //每次买卖行为至少100股
-    var account=10000;
-    var accountRange=[];
-    var price=chart1Data;
-    var dealBehave=[];//记录买入,买入价格,买入价格,卖出价格,剩余资金
-    var cnt1=0;
-    var cnt2=0;
-    var buyPoint=[];
-    var sellPoint=[];
-    var stockNum=0;
-    // for(item in axisData){//每一天生成一套数组
-    var item=0;
-    // console.log(axisData.length);
-    for(;item<axisData.length;item++){
-        accountRange[item]=account;
-        dealBehave[item]=[false,0,0,false,0,0,account];//买入,买入价格,买入指标,卖出,卖出价格,卖出指标序号(对应于KType数组),帐户剩余
-        buyPoint[item]=[axisData[item],'无交易','无指标'];
-        sellPoint[item]=[axisData[item],'无交易','无指标'];
-
-        var buyflag=false;
-        var sellflag=false;
-        for(var i=0;i<stasticsNum;i++){//至少有一个是买入交叉条件
-
-            if ((shortLine[i][item] < longLine[i][item])&&(shortLine[i][item + 1] > longLine[i][item + 1])){
-                buyflag=true;
-                buyPoint[item]=[axisData[item],price[item], KType[i]];
-                dealBehave[item]=[true,price[item], KType[i],false,0,0,account];
-                break;
             }
         }
-        for(var i=0;i<stasticsNum;i++){//存在至少一个卖出条件同时成立
-            if ((shortLine[i][item] > longLine[i][item])&&(shortLine[i][item + 1] < longLine[i][item + 1])){
-                buyPoint[item]=[axisData[item],'无交易','无指标'];
-                buyflag=false;
-                dealBehave[item]=[false,0,0,false,0,0,account];
-                break;
-            }
-        }
-        if(buyflag==false){
-            for(var i=0;i<stasticsNum;i++){//存在至少一个卖出条件同时成立
-                if ((shortLine[i][item] > longLine[i][item])&&(shortLine[i][item + 1] < longLine[i][item + 1])){
-                 if(stockNum>0) {
-                    sellflag=true;
-                     sellPoint[item]=[axisData[item], price[item], KType[i]];
-                    dealBehave[item] = [false, 0, 0, true, price[item], KType[i], account];
+        //每次买卖行为至少100股
+        var account = 10000;
+        var accountRange = [];
+        var price = chart1Data;
+        var dealBehave = [];//记录买入,买入价格,买入价格,卖出价格,剩余资金
+        var cnt1 = 0;
+        var cnt2 = 0;
+        var buyPoint = [];
+        var sellPoint = [];
+        var stockNum = 0;
+        // for(item in axisData){//每一天生成一套数组
+        var item = 0;
+        // console.log(axisData.length);
+        for (; item < axisData.length; item++) {
+            accountRange[item] = account;
+            dealBehave[item] = [false, 0, 0, false, 0, 0, account];//买入,买入价格,买入指标,卖出,卖出价格,卖出指标序号(对应于KType数组),帐户剩余
+            buyPoint[item] = [axisData[item], '无交易', '无指标'];
+            sellPoint[item] = [axisData[item], '无交易', '无指标'];
+
+            var buyflag = false;
+            var sellflag = false;
+            for (var i = 0; i < stasticsNum; i++) {//至少有一个是买入交叉条件
+
+                if ((shortLine[i][item] < longLine[i][item]) && (shortLine[i][item + 1] > longLine[i][item + 1])) {
+                    buyflag = true;
+                    buyPoint[item] = [axisData[item], price[item], KType[i]];
+                    dealBehave[item] = [true, price[item], KType[i], false, 0, 0, account];
+                    break;
                 }
-                break;
             }
-        }
-        }
-        if (buyflag) {//K线突破D
-            account = account - price[item] * 100;
-            // buyPoint[item]=[axisData[item],price[item]];
-            stockNum+=100;
-            cnt1++;
-        }
-        if(sellflag){
-            if(stockNum>0) {
+            for (var i = 0; i < stasticsNum; i++) {//存在至少一个卖出条件同时成立
+                if ((shortLine[i][item] > longLine[i][item]) && (shortLine[i][item + 1] < longLine[i][item + 1])) {
+                    buyPoint[item] = [axisData[item], '无交易', '无指标'];
+                    buyflag = false;
+                    dealBehave[item] = [false, 0, 0, false, 0, 0, account];
+                    break;
+                }
+            }
+            if (buyflag == false) {
+                for (var i = 0; i < stasticsNum; i++) {//存在至少一个卖出条件同时成立
+                    if ((shortLine[i][item] > longLine[i][item]) && (shortLine[i][item + 1] < longLine[i][item + 1])) {
+                        if (stockNum > 0) {
+                            sellflag = true;
+                            sellPoint[item] = [axisData[item], price[item], KType[i]];
+                            dealBehave[item] = [false, 0, 0, true, price[item], KType[i], account];
+                        }
+                        break;
+                    }
+                }
+            }
+            if (buyflag) {//K线突破D
+                account = account - price[item] * 100;
+                // buyPoint[item]=[axisData[item],price[item]];
+                stockNum += 100;
+                cnt1++;
+            }
+            if (sellflag) {
+                if (stockNum > 0) {
+                    account = account + price[item] * stockNum;
+                    // sellPoint[item]=[axisData[item], price[item]];
+                    stockNum -= stockNum;
+                    cnt2++;
+                }
+            }
+            if (item == axisData.length - 1 && stockNum > 0) {
                 account = account + price[item] * stockNum;
-                // sellPoint[item]=[axisData[item], price[item]];
-                stockNum-=stockNum;
-                cnt2++;
+                sellPoint[item] = [axisData[item], price[item], ''];
+                stockNum -= stockNum;
+                accountRange[item] = account;
             }
         }
-        if(item==axisData.length-1&&stockNum>0){
-            account = account + price[item] * stockNum;
-            sellPoint[item]=[axisData[item],price[item],''];
-            stockNum-=stockNum;
-            accountRange[item]=account;
-        }
-    }
 
-    //进行买入卖出指标的统计
-    //var KType=['RSI','KDJ','',''];
-    var fullStastics=['RSI','KDJ','BIAS','MACD'];
-    var buyCnt=[0,0,0,0];
-    var sellCnt=[0,0,0,0];
-    for(var i=0;i<axisData.length;i++){
-     switch(buyPoint[i][2]){
-         case 'RSI':
-             buyCnt[0]=buyCnt[0]+1;
-             break;
-         case 'KDJ':
-             buyCnt[1]=buyCnt[1]+1;
-             break;
-         case 'BIAS':
-             buyCnt[2]=buyCnt[2]+1;
-             break;
-         case 'MACD':
-             buyCnt[3]=buyCnt[3]+1;
-             break;
-     }
-        switch(sellPoint[i][2]){
-            case 'RSI':
-                sellCnt[0]=sellCnt[0]+1;
-                break;
-            case 'KDJ':
-                sellCnt[1]=sellCnt[1]+1;
-                break;
-            case 'BIAS':
-                sellCnt[2]=sellCnt[2]+1;
-                break;
-            case 'MACD':
-                sellCnt[3]=sellCnt[3]+1;
-                break;
+        //进行买入卖出指标的统计
+        //var KType=['RSI','KDJ','',''];
+        var fullStastics = ['RSI', 'KDJ', 'BIAS', 'MACD'];
+        var buyCnt = [0, 0, 0, 0];
+        var sellCnt = [0, 0, 0, 0];
+        for (var i = 0; i < axisData.length; i++) {
+            switch (buyPoint[i][2]) {
+                case 'RSI':
+                    buyCnt[0] = buyCnt[0] + 1;
+                    break;
+                case 'KDJ':
+                    buyCnt[1] = buyCnt[1] + 1;
+                    break;
+                case 'BIAS':
+                    buyCnt[2] = buyCnt[2] + 1;
+                    break;
+                case 'MACD':
+                    buyCnt[3] = buyCnt[3] + 1;
+                    break;
+            }
+            switch (sellPoint[i][2]) {
+                case 'RSI':
+                    sellCnt[0] = sellCnt[0] + 1;
+                    break;
+                case 'KDJ':
+                    sellCnt[1] = sellCnt[1] + 1;
+                    break;
+                case 'BIAS':
+                    sellCnt[2] = sellCnt[2] + 1;
+                    break;
+                case 'MACD':
+                    sellCnt[3] = sellCnt[3] + 1;
+                    break;
+            }
+
         }
 
-    }
-    
-    var newOption = myChart.getOption(); // 深拷贝
-    myChart = echarts.init(document.getElementById('main1'),'macarons');
-    var itemStyle = {
-        normal: {
-            opacity: 0.8,
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowOffsetY: 0,
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
-        }
-    };
-  // console.log(newOption.legend.data);
-    var newLegend= {
-        data: [newOption.legend.data[0],'买入点','卖出点'],
-        textStyle: {
-            color: '#ffffff'
-        },
-        x: 'left',
-        y: 'top',
-
-    };
-    var newSeries1={
-        name: '买入点',
-        type: 'scatter',
-        itemStyle: {
+        var newOption = myChart.getOption(); // 深拷贝
+        myChart = echarts.init(document.getElementById('main1'), 'macarons');
+        var itemStyle = {
             normal: {
-                color: '#f4e925',
-                borderWidth:5,
+                opacity: 0.8,
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
             }
-        },
-        data: buyPoint
-    };
-    var newSeries2={
-        name: '卖出点',
-        type: 'scatter',
-        itemStyle: {
-            normal: {
-                color: '#9393FF',
-                borderWidth:5,
-            }
-        },
-        data: sellPoint
-    };
-    newOption.legend=newLegend;
-    newOption.series=[newOption.series[0],newSeries1,newSeries2];
-    console.log(axisData.length);
-    myChart.setOption(newOption);
-
-    myChart2 = echarts.init(document.getElementById('main2'),'macarons');
-    var option2 = {
-        tooltip: {
-            trigger: 'axis',
-            showDelay: 0             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
-        },
-        legend: {
-            data: ['虚拟资本变动情况'],
-            x: 100,
-            y: 20,
+        };
+        // console.log(newOption.legend.data);
+        var newLegend = {
+            data: [newOption.legend.data[0], '买入点', '卖出点'],
             textStyle: {
-                color: '#ffffff',
+                color: '#ffffff'
             },
+            x: 'left',
+            y: 'top',
 
-        },
-        // grid: {
-        //     x: 80,
-        //     y: 40,
-        //     x2: 20,
-        //     y2: 50
-        // },
-        xAxis: [
-            {
-                type: 'category',
-                position: 'bottom',
-                boundaryGap: true,
-                axisTick: {onGap: false},
-                splitLine: {show: false},
-                data: axisData,
-                axisLabel: {
-                    show: true,
-                    textStyle: {
-                        color: '#ffffff',
-                    }
+        };
+        var newSeries1 = {
+            name: '买入点',
+            type: 'scatter',
+            itemStyle: {
+                normal: {
+                    color: '#f4e925',
+                    borderWidth: 5,
                 }
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value',
-                scale: true,
-                splitNumber: 3,
-                boundaryGap: [0.05, 0.05],
-                axisLabel: {
-                    formatter: function (v) {
-                        return Math.round(v / 10000) + ' 万'
-                    }
+            },
+            data: buyPoint
+        };
+        var newSeries2 = {
+            name: '卖出点',
+            type: 'scatter',
+            itemStyle: {
+                normal: {
+                    color: '#9393FF',
+                    borderWidth: 5,
+                }
+            },
+            data: sellPoint
+        };
+        newOption.legend = newLegend;
+        newOption.series = [newOption.series[0], newSeries1, newSeries2];
+        console.log(axisData.length);
+        myChart.setOption(newOption);
+
+        myChart2 = echarts.init(document.getElementById('main2'), 'macarons');
+        var option2 = {
+            tooltip: {
+                trigger: 'axis',
+                showDelay: 0             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
+            },
+            legend: {
+                data: ['虚拟资本变动情况'],
+                x: 100,
+                y: 20,
+                textStyle: {
+                    color: '#ffffff',
                 },
-                splitArea: {show: true},
-                axisLabel: {
-                    show: true,
-                    textStyle: {
-                        color: '#ffffff',
+
+            },
+            // grid: {
+            //     x: 80,
+            //     y: 40,
+            //     x2: 20,
+            //     y2: 50
+            // },
+            xAxis: [
+                {
+                    type: 'category',
+                    position: 'bottom',
+                    boundaryGap: true,
+                    axisTick: {onGap: false},
+                    splitLine: {show: false},
+                    data: axisData,
+                    axisLabel: {
+                        show: true,
+                        textStyle: {
+                            color: '#ffffff',
+                        }
                     }
                 }
-            }
-        ],
-        series: [
-            {
-                name: '虚拟资本变动情况',
-                type: 'line',
-                symbol: 'none',
-                data: accountRange,
-                markLine: {
-                    symbol: 'none',
-                    itemStyle: {
-                        normal: {
-                            color: '#807DBF',
-                            label: {
-                                show: false
-                            }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    scale: true,
+                    splitNumber: 3,
+                    boundaryGap: [0.05, 0.05],
+                    axisLabel: {
+                        formatter: function (v) {
+                            return Math.round(v / 10000) + ' 万'
                         }
                     },
-                    data: [
-                        {type: 'max',
-                            name: '最大'}
-                    ]
+                    splitArea: {show: true},
+                    axisLabel: {
+                        show: true,
+                        textStyle: {
+                            color: '#ffffff',
+                        }
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '虚拟资本变动情况',
+                    type: 'line',
+                    symbol: 'none',
+                    data: accountRange,
+                    markLine: {
+                        symbol: 'none',
+                        itemStyle: {
+                            normal: {
+                                color: '#807DBF',
+                                label: {
+                                    show: false
+                                }
+                            }
+                        },
+                        data: [
+                            {
+                                type: 'max',
+                                name: '最大'
+                            }
+                        ]
+                    },
+                    itemStyle: {normal: {color: '#0072E3', label: {show: true}}},//'#0072E3'
                 },
-                itemStyle: {normal: {color:'#0072E3', label:{show:true}}},//'#0072E3'
+            ]
+        };
+        myChart2.setOption(option2, true);
+
+
+        myChart4 = echarts.init(document.getElementById('main4'), 'macarons');
+        myChart5 = echarts.init(document.getElementById('main5'), 'infographic');
+
+        var option4 = {
+            title: {
+                text: '　买入指标分布',
+                x: 'center',
+                y: 'top'
             },
-        ]
-    };
-    myChart2.setOption(option2,true);
-
-
-    myChart4 = echarts.init(document.getElementById('main4'),'macarons');
-    myChart5 = echarts.init(document.getElementById('main5'),'infographic');
-
-    var option4 = {
-        title : {
-            text: '　买入指标分布',
-            x:'center',
-            y:'top'
-        },
-        tooltip : {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        legend: {
-            orient: 'vertical',
-            x: 0,
-            y: 100,
-            textStyle:{
-              color:"#ffffff"
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
             },
-            data: fullStastics
-        },
-        series : [
-            {
-                name: '买入指标分布',
-                type: 'pie',
-                radius : '55%',
-                center: ['55%', '55%'],
-                data:[
-                    {value:buyCnt[0], name:fullStastics[0]},
-                    {value:buyCnt[1], name:fullStastics[1]},
-                    {value:buyCnt[2], name:fullStastics[2]},
-                    {value:buyCnt[3], name:fullStastics[3]}
-                ],
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+            legend: {
+                orient: 'vertical',
+                x: 0,
+                y: 100,
+                textStyle: {
+                    color: "#ffffff"
+                },
+                data: fullStastics
+            },
+            series: [
+                {
+                    name: '买入指标分布',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['55%', '55%'],
+                    data: [
+                        {value: buyCnt[0], name: fullStastics[0]},
+                        {value: buyCnt[1], name: fullStastics[1]},
+                        {value: buyCnt[2], name: fullStastics[2]},
+                        {value: buyCnt[3], name: fullStastics[3]}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
                     }
                 }
+            ]
+        };
+        myChart4.setOption(option4);
+        setTimeout(function () {
+            window.onresize = function () {
+                myChart4.resize();
             }
-        ]
-    };
-    myChart4.setOption(option4);
-    setTimeout(function () {
-        window.onresize = function () {
-            myChart4.resize();
-        }
-    }, 200);
+        }, 200);
 
-    var option5 = {
-        title : {
-            text: '　卖出指标分布',
-            x:'center',
-            y:'top'
-        },
-        tooltip : {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        legend: {
-            orient: 'vertical',
-            x: 0,
-            y: 100,
-            textStyle:{
-                color:"#ffffff"
+        var option5 = {
+            title: {
+                text: '　卖出指标分布',
+                x: 'center',
+                y: 'top'
             },
-            data: fullStastics
-        },
-        series : [
-            {
-                name: '卖出指标分布',
-                type: 'pie',
-                radius : '55%',
-                center: ['55%', '55%'],
-                data:[
-                    {value:sellCnt[0], name:fullStastics[0]},
-                    {value:sellCnt[1], name:fullStastics[1]},
-                    {value:sellCnt[2], name:fullStastics[2]},
-                    {value:sellCnt[3], name:fullStastics[3]}
-                ],
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 0,
+                y: 100,
+                textStyle: {
+                    color: "#ffffff"
+                },
+                data: fullStastics
+            },
+            series: [
+                {
+                    name: '卖出指标分布',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['55%', '55%'],
+                    data: [
+                        {value: sellCnt[0], name: fullStastics[0]},
+                        {value: sellCnt[1], name: fullStastics[1]},
+                        {value: sellCnt[2], name: fullStastics[2]},
+                        {value: sellCnt[3], name: fullStastics[3]}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
                     }
                 }
+            ]
+        };
+        myChart5.setOption(option5);
+        setTimeout(function () {
+            window.onresize = function () {
+                myChart5.resize();
             }
-        ]
-    };
-    myChart5.setOption(option5);
-    setTimeout(function () {
-        window.onresize = function () {
-            myChart5.resize();
-        }
-    }, 200);
+        }, 200);
+    }
 }
 
 function multiFactorAnova(){

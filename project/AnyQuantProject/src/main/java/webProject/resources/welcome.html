@@ -6,7 +6,6 @@
     <title>CHICER - 股票策略分析平台</title>
 
     <!-- CUSTOM STYLES -->
-    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
@@ -16,9 +15,12 @@
 
     <!-- WEBFONT -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/angularjs/angular.min.js"></script>
+
 
 </head>
-<body ng-app="myApp" >
+<body >
     <!-- =========================
     PRE LOADER
     ============================== -->
@@ -41,12 +43,12 @@
                 <!--<a id="log_reg_btn" class="btn"> <button   style="marginRight:10px" class="button  button-block button-inverse button-rounded button-jumbo"  onclick=javascript:enterLog_Reg()   >登录/注册</button></a>-->
 
 
-                <div align="right" id="log">
+                <div align="right" id="log" ng-app="DateApp" ng-controller="dateCtrl">
                     <button id="sign_button"  class="button  button-block button-inverse button-rounded button-medium"  style="background-color:transparent ;  margin-top: -5px;"  >登录/注册</button>
                 </div>
 
 
-                <div class="signInUp" id="signInUp"  >
+                <div class="signInUp" id="signInUp" ng-app="myApp"  >
                     <input id="login" type="radio" name="tab" checked>
                     <input id="sign-up" type="radio" name="tab">
 
@@ -96,7 +98,7 @@
                              Your own stock manager<br>
                          </h1>
                         <div class="buttons inpage-scroll">
-                            <a class="btn" id="main_header_btn"  > <button class="button  button-block button-inverse button-rounded button-large"  onclick=javascript:enter(); >进入应用</button></a>
+                            <a class="btn" id="main_header_btn"  > <button class="button  button-block button-inverse button-rounded button-large" style="padding-top:1px;"  onclick=javascript:enter(); >进入应用</button></a>
                             </div>
                         <div class="row bottom-message-section">
                             <div class="col-lg-4 col-sm-4">
@@ -170,8 +172,7 @@
                                     <h5 class="blue-border-bottom" >策略分析</h5>
                                </a>
                                <p>
-                                    Created cattle form fruit. Saying from given together face without waters, whose. Second first. Face it saw give creature was thing. Over upon is brought. Him you'll above kind set
-                                </p>
+                                    Provides efficient and simplified tools to verify your investment strategy, including imitation of buy and sell behavious and combination of cross lines strategies</p>
                             </div>
 <!--
                             <div class="col-lg-3 col-sm-3 focus-box yellow wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
@@ -218,7 +219,7 @@
                                         <i class="fa fa-bar-chart-o"></i>
                                     </div>
                                     <div class="stat-text">
-                                        <h3 class="white-text red-border-bottom" >2,377</h3>
+                                        <h3 class="white-text red-border-bottom" >2,377+</h3>
                                         <h6>Stocks Showing</h6>
                                     </div>
                                 </div>
@@ -231,7 +232,7 @@
                                         <i class="fa fa-th-large"></i>
                                     </div>
                                     <div class="stat-text">
-                                        <h3 class="white-text green-border-bottom">28</h3>
+                                        <h3 class="white-text green-border-bottom">28+</h3>
                                         <h6>Industries Showing</h6>
                                     </div>
                                 </div>
@@ -275,28 +276,23 @@
                             <!-- START COLUMN -->
                             <div class="col-lg-5 col-sm-5">
                                 <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                    <div class="illustrate_icon_1">
-                                      <img src="" width="500px" height="320px" />
+                                    <div class="illustrate_icon_3">
+                                        <img src="img/singleIntro.png" width="500px" height="300px" />
                                     </div>
                                 </div>
                             </div> <!-- / END COLUMN -->
 
                             <div class="col-lg-2 col-sm-2"></div>
-
-                            <div class="col-lg-5 col-sm-5">
                                 <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
                                     <div class ="illustrate_text_1">
-                                        <h3>Data Show</h3>
                                         <p>
-                                            Created cattle form fruit. Saying from given together face without waters, whose.
-                                            Second first. Face it saw give creature was thing.
-                                            Over upon is brought. Him you'll above kind set
+                                            <h2>详尽的个股分析</h2>
+                                          <h3>丰富的统计曲线</br>diversified stastical curve</br>实时的热度排行</br>attention degree list</h3>
                                         </p>
                                     </div>
                                 </div>
                             </div> <!-- / END COLUMN -->
                         </div>
-                    </div>
                 </section>  <!-- / END STATS -->
 
                 <section class="DataShow_2">
@@ -304,25 +300,30 @@
                         <!-- STATS -->
                         <div class="row">
                             <!-- START COLUMN -->
-                            <div class="col-lg-5 col-sm-5">
-                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                    <div class ="illustrate_text_2">
-                                        <h3>Data Show</h3>
-                                        <p>
-                                            Created cattle form fruit. Saying from given together face without waters, whose.
-                                            Second first. Face it saw give creature was thing.
-                                            Over upon is brought. Him you'll above kind set
-                                        </p>
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
+                                    <div class="illustrate_icon_1" >
+                                        <img src="img/industry1.png" style=" width:400px;" />
                                     </div>
                                 </div>
                             </div> <!-- / END COLUMN -->
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                    <div class ="illustrate_text_2" style="color:#cecece">
+                                        <h2>行业数据 </br></h2>
+                                        <p>
+                                        <h3>大量的行业展示</br></br>
+                                            单支行业的详细信息</h3>
+                                        <h3>行业所占比重&amp; 涨跌情况</h3>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <div class="col-lg-1 col-sm-1"></div>
-
-                            <div class="col-lg-5 col-sm-5">
+                            <div class="col-lg-4 col-sm-4">
                                 <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
                                     <div class="illustrate_icon_2">
-                                        <img src="img/png1.png" width="650px" height=450px" />
+                                        <img src="img/industry2.png" style="width:447px;" />
                                     </div>
                                 </div>
                             </div> <!-- / END COLUMN -->
@@ -338,7 +339,7 @@
                             <div class="col-lg-5 col-sm-5">
                                 <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
                                     <div class="illustrate_icon_3">
-                                        <img src="" width="500px" height="400px" />
+                                        <img src="img/virtualInfo.png" width="500px" height="300px" />
                                     </div>
                                 </div>
                             </div> <!-- / END COLUMN -->
@@ -348,12 +349,10 @@
                             <div class="col-lg-5 col-sm-5">
                                 <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
                                     <div class ="illustrate_text_3">
-                                        <h3>Data Show</h3>
-                                        <p>
-                                            Created cattle form fruit. Saying from given together face without waters, whose.
-                                            Second first. Face it saw give creature was thing.
-                                            Over upon is brought. Him you'll above kind set
-                                        </p>
+                                        <h3>高效的虚拟运营工具</h3>
+                                        <h3>
+                                        <BR>多种策略组合</br>mutiplied combination of strategy</br>方差分析显著性检验</br>varience analysis for efficiency</h3>
+                                        </h3>
                                     </div>
                                 </div>
                             </div> <!-- / END COLUMN -->
@@ -361,8 +360,34 @@
                     </div>
                 </section>  <!-- / END STATS -->
 
+                <section class="DataShow_4">
+                    <div class="container">
+                        <!-- STATS -->
+                        <div class="row">
+                            <!-- START COLUMN -->
+                            <div class="col-lg-5 col-sm-5">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                    <div class ="illustrate_text_2">
+                                        <h3>Chicer策略社区</h3>
+                                        <h3>
+                                            <BR>股票策略社交化</br>stock strategy network</br>策略利率比拼</br>competition of customized strategy</h3>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
 
+                            <div class="col-lg-1 col-sm-1"></div>
 
+                            <div class="col-lg-5 col-sm-5">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
+                                    <div class="illustrate_icon_2">
+                                        <img src="img/community.png" width="500px" height="300px"  />
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                        </div>
+                    </div>
+                </section>  <!-- / END STATS -->
             </div>
 
     <!-- / END HOME SECTION  -->
@@ -408,8 +433,10 @@
                                     </div>
                                 </div>
                                 <div class="details">
+
                                     <p>
                                       负责数据服务器与安全加密
+                                      一本正经又乖巧懂事的天行九歌
 
                                     </p>
                                 </div>
@@ -430,7 +457,7 @@
                                 <div class="details">
                                     <p>
                                       负责前端数据展示和跳转逻辑
-
+                                      passive & thoughtful
                                     </p>
                                 </div>
                             </div>
@@ -450,7 +477,7 @@
                                 <div class="details">
                                     <p>
                                         负责前端请求和用户策略
-                                        
+
                                     </p>
                                 </div>
                             </div>
@@ -479,16 +506,19 @@
         </div>
     </header>
 
+    <script src="js/login.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#signInUp"),["myApp"]);
+    </script>
+
     <!-- =========================
     JS
     ============================== -->
-    <script src="js/jquery/jquery.min.js"></script>
-    <script src="js/angularjs/angular.min.js"></script>
-    <script src="js/login.js"></script>
     <script src="js/zerif.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/button.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/getLatestDate.js"></script>
     <script src="js/jquery/jquery.gritter.min.js"></script>
 
 </body>

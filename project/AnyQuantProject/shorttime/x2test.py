@@ -9,8 +9,12 @@ def x2Test():
     # x = stats.norm.rvs(size=100)
     array=numpy.array(er.values());
     res=stsmdsd.kstest_normal(array);
+    le=len(array);
+    print (numpy.average(array));
+    print (numpy.var(array)*le/(le-1));
     print(res[1]);
 
     return 0;
         
-x2Test();
+if __name__ == '__main__':
+    x2Test();

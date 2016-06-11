@@ -21113,3 +21113,58 @@ ul.recent-file-list > li {
     font-size: 0.9em;
     text-align: center;
 }
+
+.pulse-button {
+    position: fixed;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*margin-left: -50px;*/
+    /*margin-top: -50px;*/
+    display: block;
+    top:18%;
+    right:3%;
+    width: 55px;
+    height: 55px;   z-index:1000;
+    font-size: 0.1em;
+    /*font-weight: light;*/
+    /*font-family: 'Trebuchet MS', sans-serif;*/
+    /*text-transform: uppercase;*/
+    text-align: center;
+    /*line-height: 100px;*/
+    /*letter-spacing: -1px;*/
+    color: white;
+    border: none;
+    border-radius: 30%;
+    background: #555;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    -webkit-animation: pulse 1.5s infinite;
+
+}
+
+.pulse-button:hover {
+    -webkit-animation: none;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+    70% {
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        box-shadow: 0 0 0 20px rgba(90, 153, 212, 0);
+    }
+    100% {
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+    }
+}

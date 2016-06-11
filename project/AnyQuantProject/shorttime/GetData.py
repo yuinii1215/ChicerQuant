@@ -29,9 +29,22 @@ def parseDataForER(data):
             i+=1;
     ans={};
     for num in range(i-1):
-        te=(array[num+1]/array[num])-0.01;
+        te=(array[num+1]/array[num])-0.001;
         ans[num]=log(te);
     return ans;
+
+# def getERTime(data):
+#     array = {};
+#     i = 0;
+#     for k, v in data.items():
+#         if k != 'retmsg':
+#             array[i] = float(v['adj_price']);
+#             i += 1;
+#     ans = {};
+#     for num in range(i - 1):
+#         te = (array[num + 1] / array[num]) - 0.01;
+#         ans[num] = log(te);
+#     return ans;
 
 def tt(a,b):
     aa=a[0].split('-');
@@ -55,8 +68,7 @@ def parseTimeER(data):
             i += 1;
     ans={};
     for num in range(i-1):
-        te = (array[num + 1] / array[num]) - 0.01;
-        tempdic=dict();
+        te = (array[num + 1] / array[num]) - 0.001;
         ans[data[str(num)]['date']]=log(te);
     fi=sorted(ans.items(),key=operator.itemgetter(0));
     return  fi;
@@ -64,3 +76,11 @@ def parseTimeER(data):
 
 def getInterestRate(start,end):
     pass;
+
+
+if __name__ == "__main__":
+    t=sys.argv;
+    ans=parseTimeER(getData(t[1],t[2],t[3]));
+    for num in ans:
+        print (num[0]);
+        print (num[1]);

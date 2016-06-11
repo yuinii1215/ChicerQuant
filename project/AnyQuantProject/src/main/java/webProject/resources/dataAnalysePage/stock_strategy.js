@@ -20,11 +20,14 @@ app.controller('kLine',function($scope,$http){
     if (stockid==undefined) {
       stockid='sh600315';
     }
+    if (localStorage.latestDate==undefined) {
+      localStorage.latestDate=year+"-"+month+"-"+day;
+    }
     $scope.url='http://115.159.97.98/php/serviceController.php';
     $http.post($scope.url,{
       'method': 'getPolyAmongDateService',
       'startdate': startdate,
-      'enddate': year+"-"+month+"-"+day,
+      'enddate': localStorage.latestDate,
       'name': stockid
     }).success(
       function(response,status){
@@ -46,6 +49,12 @@ app.controller('kLine',function($scope,$http){
             legend: {
                 top: 'bottom',
                 data:['poly','real close']
+            },
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                animation: true
+              }
             },
             toolbox: {
                 show: true,
@@ -90,6 +99,7 @@ app.controller('kLine',function($scope,$http){
 
     ).error(
       function(){
+        alert('net error');
       }
     );
 };
@@ -261,6 +271,7 @@ var chart=echarts.init(document.getElementById('kline'));
 chart.setOption($scope.klineoption);
 $scope.test(lastmonthclose);
            }).error(function(){
+             alert('net error');
            });
 
 

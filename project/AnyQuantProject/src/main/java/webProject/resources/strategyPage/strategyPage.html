@@ -49,7 +49,7 @@
                         <div class="col-md-3">
                             <!-- search box -->
                             <div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">
-                                <input type="search" id="search" class="form-control" placeholder="enter stockName/stockIDhere..." class="search-input" value=""/>
+                                <input type="search" id="search" class="form-control" placeholder="enter stockName/stockID here..." class="search-input" value=""/>
                                 <ul id="results" class="search-results"></ul>
                                 <span class="input-group-btn">
 										<button class="btn btn-default" type="button" value="to SingleStockPage" onclick="toSingleStockPage()" ><i class="fa fa-search"></i></button>
@@ -217,7 +217,7 @@
                 <!-- content-wrapper -->
                 <div class="col-md-10 content-wrapper" id="app2" ng-app="app">
                     <!-- top general alert -->
-                   
+
                     <!-- end top general alert -->
 
                     <div class="row">
@@ -229,6 +229,10 @@
 
                             </ul>
                         </div>
+                        <div class="col-lg-7"></div>
+                        <div class="col-lg-1 ">
+                            <span class='pulse-button' style="margin-right: 5px;"><a href="../communityPage/community.html" style="color: white; text-align: center"></br>社区</a></span>
+                        </div>
                     </div>
 
                     <!-- main -->
@@ -237,29 +241,114 @@
                             <h2>策略</h2>
                             <em>the better analyze</em>
                         </div>
-                        <div class="main-content">
-                          
+                        <div class="main-content" ng-controller="strategycontroller">
+
+
                             <div class="widget">
                                 <div class="widget-header">
                                     <!--header-->
-                                    <h3><i class="fa fa-bar-chart-o"></i>RSI</h3> <em>-predict</em>
-                                    <button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>
+                                    <h3><i class="fa fa-bar-chart-o"></i>Step 1</h3> <em>-predict</em>
                                     <div class="btn-group widget-header-toolbar">
                                         <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
                                         <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
                                         <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
-                                <div class="widget-content" ng-controller="strategycontroller">
-                                  <input ng-model="stockid">
+                                <div class="widget-content" >
+                                  <input ng-model="stockid" placeholder="enter stockID here...">
                                   <button ng-click="change()">change</button>
-                                  <input ng-model="percent">
-                                  <div id="RSI12" style="height:400px;"></div>
-                                  <h1 ng-model="ans">recommended RSI value: {{ans}}</h1>
-                                    <!-- content-->
+                                  <div id="ER" style="height:400px"></div>
+                                  <p>
+                                    嗨，朋友，准备好接受数学的洗礼了嘛？<br/>
+                                    让我们从股票的收益率开始跟随数学的脚步吧！<br/>
+                                    收益率的计算大有玄机，需要考量以下两个方面：<br/>
+                                      1、印花税<br/>
+                                      2、复利</p>
+                                  <p>
+                                  <a href="http://baike.baidu.com/view/165108.htm" target="view_window">
+                                    印花税</a>
+                                    是股票交易时需要向监管部门缴纳的税款，我国暂行的规定是卖出时征收千分之一<br/>
+                                    单期收益率为R，则其对等的连续复利收益率应为(1＋R)的自然对数，即ln(1＋R)。<br/>
+                                    之所以选择连续复利收益率，主要有一下两个原因：<br/>
+                                      1、连续复利的公式以e为底数，可积可导指数可加，计算方便<br/>
+                                      2、此处的模型抽象并不太影响现实结论<br/>
+                                      3、它的概率分布较接近于正态分布<br/>
+                                    接近正态分布又有什么好处呢？请接着探寻.
+                                  </p>
                                 </div>
                             </div>
 
+
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-bar-chart-o"></i>Step 2</h3> <em>-predict</em>
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content">
+
+                                  <div id="Normal" style="height:400px"></div>
+                                  <p>
+                                    <a href="http://baike.baidu.com/view/45379.htm" target="view_window">正态分布</a>是统计中最令人激动的分布了，不仅仅因为它那优良的性质，更是由于它完美的曲线<br/>
+                                    但是，凡事都要有理有据，我们先来检验一下它到底是不是正态分布:(这里采用了<a href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test" target="view_window">
+                                      Колмогоров-Смирнов检验</a>)<br/>
+                                    <p ng-model="normal_p">检验的p值为{{normal_p}}%</p>
+                                    通常情况下，只要p大于5%，我们就无法拒绝原假设，即他们属于正态分布。当然，如果这只股票的p值不符合标准，接下来的统计的可信度就不大了<br/>
+                                    <p ng-model="average" ng-model="varvalue">并且，当前股票收益率的期望为{{average}}%,方差为{{varvalue}}</p>
+                                  <p>
+
+                                </div>
+                            </div>
+
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-bar-chart-o"></i>Step 3</h3> <em>-predict</em>
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content">
+                                  <p ng-model="downside" ng-model="VaR">
+                                    接下来是风险分析，理性的投资者在投资前都会估计风险，虽然A股本身就是高风险、高回报，但是过高的风险也不一定是人人都吃的消得<br/>
+                                    根据我们的测算股票的下行风险为：{{downside}}% <br/>
+                                    <p >
+                                      <a href="http://baike.baidu.com/view/5752460.htm" target="view_window">下行风险</a>是衡量股票风险的评价量之一，其计算方式如下:<br/>
+                                      <img src="image/downside.png"></img>
+                                    </p>
+                                    同时，我们有95%的信心您的最大亏损不会超过{{VaR}}%
+                                    这里采用了<a href="http://baike.baidu.com/view/407694.htm" target="view_window">VaR</a>模型，并选取了95%为置信水平。<br/>
+                                    <img src="image/VaR.png" />
+                                  <p>
+
+                                </div>
+                            </div>
+
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <!--header-->
+                                    <h3><i class="fa fa-bar-chart-o"></i>Step 4</h3> <em>-predict</em>
+                                    <div class="btn-group widget-header-toolbar">
+                                        <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="widget-content">
+
+                                  <div id="CRUM" style="height:400px"></div>
+                                  <p >
+                                    分析的最后是对未来的预测，这里采用了<a href="" target="view_window">模型</a>
+                                  <p>
+
+                                </div>
+                            </div>
                         </div>
                         <!-- /main-content -->
                     </div>
@@ -279,10 +368,6 @@
 <!-- FOOTER -->
 <footer class="footer" style="opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
     <div class="g-ft" style="text-align: center ;">
-                    <span class="m-ft2" >
-                        <a target="_blank"  rel="nofollow" href="javascript:void(0);" style="color: #EBEBEB">关于我们</a> <span>&nbsp;|</span>
-                        <!--     <a target="_blank" rel="nofollow" href="javascript:void(0);"  style="color: #EBEBEB">官方博客</a>-->
-                    </span>
                     <span class="m-ft1" >chicer团队版权所有　&copy;2015-2016　
                         <a rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn/" style="position:relative;color: #FFF;">
                             <!--   <img src="http://l.bst.126.net/rsc/img/icon-police.png" style="width:14px;height:16px;position:absolute;left:0;top:0;" />
@@ -335,7 +420,7 @@
             }
         });
 
-        if( hasTransparent ) {
+        if( hasTransparent) {
             document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
         } else {
             document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';

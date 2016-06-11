@@ -17,7 +17,6 @@ import webProject.server.myHandler.font.SVGHandler;
 import webProject.server.myHandler.font.TTFHandler;
 import webProject.server.myHandler.font.Woff2Handler;
 import webProject.server.myHandler.font.WoffHandler;
-
 /**
 * AnyQuantProject/webProject.server/RouterVerticle.java
 * @author cxworks
@@ -46,6 +45,7 @@ public class RouterVerticle extends AbstractVerticle {
 		homeRouter.route().pathRegex(".*woff2").handler(new Woff2Handler());
 		homeRouter.route().pathRegex(".*sfnt").handler(new SFNTHandler());
 		homeRouter.route().pathRegex("/news").blockingHandler(new NewsHandler());
+        homeRouter.route("/strategy/:func").blockingHandler(new StrategyHandler());
 		homeRouter.route().handler(rt->{
 			try {
 				String html=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream("welcome.html")));
@@ -57,7 +57,7 @@ public class RouterVerticle extends AbstractVerticle {
 			}
 			
 		});
-		httpServer.requestHandler(homeRouter::accept).listen();
+		httpServer.requestHandler(homeRouter::accept).listen(8020);
 
 		
 	}

@@ -25,4 +25,5 @@ def risk():
     print(VaR(data));
     return 0;
 
-risk();
+if __name__ == '__main__':
+    risk();

@@ -1,0 +1,10 @@
+who：韩梦虞
+
+when：第12周
+
+what：1.学习angularjs的http调用方式
+      2.学习echart的K线图绘制方法，并且对于http返回值异步和echart的绘制相结合进行了完善
+
+problem：echart的放缩问题
+
+todo：预计下周可以完成K线图的绘制
