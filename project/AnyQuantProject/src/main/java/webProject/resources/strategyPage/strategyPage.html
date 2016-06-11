@@ -291,13 +291,14 @@
                                 </div>
                                 <div class="widget-content">
 
-                                  <div id="Normal" style="height:400px"></div>
+                                  <div id="Q_Q" style="height:400px"></div>
                                   <p>
                                     <a href="http://baike.baidu.com/view/45379.htm" target="view_window">正态分布</a>是统计中最令人激动的分布了，不仅仅因为它那优良的性质，更是由于它完美的曲线<br/>
                                     但是，凡事都要有理有据，我们先来检验一下它到底是不是正态分布:(这里采用了<a href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test" target="view_window">
                                       Колмогоров-Смирнов检验</a>)<br/>
                                     <p ng-model="normal_p">检验的p值为{{normal_p}}%</p>
                                     通常情况下，只要p大于5%，我们就无法拒绝原假设，即他们属于正态分布。当然，如果这只股票的p值不符合标准，接下来的统计的可信度就不大了<br/>
+                                    同时，<a href="http://baike.baidu.com/view/4972145.htm" target="view_window">Q-Q图</a>从一定程度上反映了当前数据与标准正态分布的关系，当图中的点大致位于一条直线上时，目标分布可认为是正态分布。<br/>
                                     <p ng-model="average" ng-model="varvalue">并且，当前股票收益率的期望为{{average}}%,方差为{{varvalue}}</p>
                                   <p>
 

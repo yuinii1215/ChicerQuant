@@ -37,6 +37,11 @@ public class StrategyHandler implements Handler<RoutingContext>{
                 case "getRisk":
                     JsonObject ansR=Adapter.getRisk(id,start,end);
                     response.write(ansR.encode()).end();
+                    break;
+                case "getQQ":
+                    JsonObject ansQ=Adapter.getQQ(id,start,end);
+                    response.write(ansQ.encode()).end();
+                    break;
                 default:
                     routingContext.fail(400);
             }

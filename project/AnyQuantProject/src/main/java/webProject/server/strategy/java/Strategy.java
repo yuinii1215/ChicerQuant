@@ -135,4 +135,34 @@ public class Strategy {
             return null;
         }
     }
+
+    public static JsonObject getQ_Q(String id,String start,String end){
+        String[] cmd={FileIndex.python,FileIndex.QQ,id,start,end};
+        try {
+            Process process=Runtime.getRuntime().exec(cmd);
+            Scanner key=new Scanner(process.getInputStream());
+            process.waitFor(10,TimeUnit.SECONDS);
+            if (process.exitValue()!=0){
+                return null;
+            }
+            //
+            JsonObject ans=new JsonObject();
+            int len=0;
+            while (key.hasNext()){
+                JsonObject temp=new JsonObject();
+                double x=Double.parseDouble(key.nextLine());
+                double y=Double.parseDouble(key.nextLine());
+//                System.out.println(d);
+                temp.put("x",x);
+                temp.put("y",y);
+                ans.put(Integer.toString(len),temp);
+                len++;
+            }
+
+            return ans;
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

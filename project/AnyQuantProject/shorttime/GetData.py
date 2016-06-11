@@ -9,6 +9,7 @@ import pandas
 import  numpy
 import operator
 from numpy import log
+from numpy import sqrt
 
 IP_ADDRESS='http://115.159.97.98/php/serviceController.php';
 

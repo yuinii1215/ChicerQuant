@@ -31,4 +31,8 @@ public class Adapter {
         ans.put("VaR",value[1]);
         return ans;
     }
+    public static JsonObject getQQ(String id,String start,String end){
+        JsonObject ans=Strategy.getQ_Q(id, start, end);
+        return ans;
+    }
 }

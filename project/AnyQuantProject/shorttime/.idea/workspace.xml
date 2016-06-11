@@ -2,111 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1caed5a1-5d0c-4798-b2e3-f0fb4c5bd1f6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/img/community.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/img/industry1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/img/industry2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/img/singleIntro.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/img/virtualInfo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../project progress/hmy/2016-04-24_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../project progress/hmy/2016-04-30_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../project progress/hmy/2016-05-08_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../project progress/hmy/2016-05-14_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../project progress/hmy/2016-05-22_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../project progress/hmy/2016-05-28_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../project progress/hmy/2016-06-04_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../project progress/hmy/2016-06-10_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/communityPage/community.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/js/getLatestDate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/virtualInvestPage/css/sweetalert.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/virtualInvestPage/js/sweetalert.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/server/myHandler/Adapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/main/java/webProject/server/myHandler/StrategyHandler.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/dataSources.ids" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/dataSources.local.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/img/com-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/img/com_1.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/communityPage/communityPage.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/communityPage/oldcommunityPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../.idea/misc.xml" afterPath="$PROJECT_DIR$/../../../.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/encodings.xml" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_belerweb_pinyin4j_2_5_0.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_belerweb_pinyin4j_2_5_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_6_0.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_6_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_6_1.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_6_1.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_object_refinery_orsoncharts_1_5.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_object_refinery_orsoncharts_1_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_orsonpdf_orsonpdf_1_7.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_orsonpdf_orsonpdf_1_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_2.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_codec_commons_codec_1_6.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_codec_commons_codec_1_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_collections_commons_collections_3_1.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_collections_commons_collections_3_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_io_commons_io_2_5.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_io_commons_io_2_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_lang_commons_lang_2_5.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_lang_commons_lang_2_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_buffer_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_buffer_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_codec_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_codec_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_codec_http_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_codec_http_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_common_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_common_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_handler_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_handler_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_transport_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_netty_netty_transport_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_vertx_vertx_auth_common_3_2_1.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_vertx_vertx_auth_common_3_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_vertx_vertx_core_3_2_1.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_vertx_vertx_core_3_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_vertx_vertx_web_3_2_1.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_vertx_vertx_web_3_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__jfree_jcommon_1_0_16.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__jfree_jcommon_1_0_16.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__jfree_jfreechart_1_0_13.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__jfree_jfreechart_1_0_13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__mysql_mysql_connector_java_6_0_2.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__mysql_mysql_connector_java_6_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__net_sf_ezmorph_ezmorph_1_0_6.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__net_sf_ezmorph_ezmorph_1_0_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__net_sf_json_lib_json_lib_jdk15_2_4.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__net_sf_json_lib_json_lib_jdk15_2_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_3_6.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_3_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_3_3.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_3_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_eclipse_swt_org_eclipse_swt_cocoa_macosx_x86_64_4_3.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_eclipse_swt_org_eclipse_swt_cocoa_macosx_x86_64_4_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_jfree_fxgraphics2d_1_3.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_jfree_fxgraphics2d_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_jfree_jcommon_1_0_23.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_jfree_jcommon_1_0_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_jfree_jfreechart_1_0_19.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_jfree_jfreechart_1_0_19.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_jfree_jfreesvg_2_1.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_jfree_jfreesvg_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_jfree_swtgraphics2d_1_0.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_jfree_swtgraphics2d_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_json_json_20160212.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_json_json_20160212.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/misc.xml" afterPath="$PROJECT_DIR$/../.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/modules.xml" afterPath="$PROJECT_DIR$/../.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AnyQuantProject.iml" afterPath="$PROJECT_DIR$/../AnyQuantProject.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GetData.py" afterPath="$PROJECT_DIR$/GetData.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/risk.py" afterPath="$PROJECT_DIR$/risk.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/x2test.py" afterPath="$PROJECT_DIR$/x2test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/AnyQuantProject/data/util/APIHelper.java" afterPath="$PROJECT_DIR$/../src/main/java/AnyQuantProject/data/util/APIHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../src/main/java/webProject/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/allIndustryShowPage/js/allIndustry.js" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/allIndustryShowPage/js/allIndustry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/communityPage/css/board.css" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/communityPage/css/board.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/communityPage/js/view.js" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/communityPage/js/view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/css/main.css" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/css/style.css" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/dataAnalysePage/stock_strategy.js" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/dataAnalysePage/stock_strategy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/favoritePage/favoritePage.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/favoritePage/favoritePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/favoritePage/js/initMyFavorTable.js" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/favoritePage/js/initMyFavorTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/singleStockPage/singleStockPage.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/singleStockPage/singleStockPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/strategyPage/strategyPage.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/strategyPage/strategyPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/strategyPage/strategycontroller.js" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/strategyPage/strategycontroller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/virtualInvestPage/js/kLineChart.js" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/virtualInvestPage/js/kLineChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/virtualInvestPage/js/loader.js" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/virtualInvestPage/js/loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/virtualInvestPage/js/search.js" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/virtualInvestPage/js/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/resources/welcome.html" afterPath="$PROJECT_DIR$/../src/main/java/webProject/resources/welcome.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/server/myVerticle/RouterVerticle.java" afterPath="$PROJECT_DIR$/../src/main/java/webProject/server/myVerticle/RouterVerticle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/server/php/ajaxService.php" afterPath="$PROJECT_DIR$/../src/main/java/webProject/server/php/ajaxService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/server/php/getData.php" afterPath="$PROJECT_DIR$/../src/main/java/webProject/server/php/getData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/server/php/serviceController.php" afterPath="$PROJECT_DIR$/../src/main/java/webProject/server/php/serviceController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/server/myHandler/Adapter.java" afterPath="$PROJECT_DIR$/../src/main/java/webProject/server/myHandler/Adapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/server/myHandler/StrategyHandler.java" afterPath="$PROJECT_DIR$/../src/main/java/webProject/server/myHandler/StrategyHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/server/strategy/java/FileIndex.java" afterPath="$PROJECT_DIR$/../src/main/java/webProject/server/strategy/java/FileIndex.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main/java/webProject/server/strategy/java/Strategy.java" afterPath="$PROJECT_DIR$/../src/main/java/webProject/server/strategy/java/Strategy.java" />
     </list>
@@ -124,12 +25,13 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/shorttime$Test.coverage" NAME="Test Coverage Results" MODIFIED="1465449066153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shorttime$x2test.coverage" NAME="x2test Coverage Results" MODIFIED="1465610727968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/shorttime$QQ.coverage" NAME="QQ Coverage Results" MODIFIED="1465646952923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shorttime$relate.coverage" NAME="relate Coverage Results" MODIFIED="1465441712539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shorttime$ARMA.coverage" NAME="ARMA Coverage Results" MODIFIED="1465610082867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shorttime$whiteNoise.coverage" NAME="whiteNoise Coverage Results" MODIFIED="1465403085159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shorttime$exe.coverage" NAME="exe Coverage Results" MODIFIED="1465465905022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../../tianchi" />
     <SUITE FILE_PATH="coverage/shorttime$balanceTest.coverage" NAME="balanceTest Coverage Results" MODIFIED="1465390103572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/shorttime$GetData.coverage" NAME="GetData Coverage Results" MODIFIED="1465628236481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/shorttime$GetData.coverage" NAME="GetData Coverage Results" MODIFIED="1465646348967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -143,7 +45,7 @@
       <file leaf-file-name="ARMA.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ARMA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="1121">
               <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="26" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -162,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="risk.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="risk.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/risk.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="513">
@@ -172,14 +74,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="QQ.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/QQ.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="relate.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/relate.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="GetData.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GetData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="79">
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -206,9 +126,10 @@
         <option value="$PROJECT_DIR$/Test.py" />
         <option value="$PROJECT_DIR$/../../../../tianchi/exe.py" />
         <option value="$PROJECT_DIR$/ARMA.py" />
-        <option value="$PROJECT_DIR$/GetData.py" />
         <option value="$PROJECT_DIR$/x2test.py" />
         <option value="$PROJECT_DIR$/risk.py" />
+        <option value="$PROJECT_DIR$/GetData.py" />
+        <option value="$PROJECT_DIR$/QQ.py" />
       </list>
     </option>
   </component>
@@ -249,8 +170,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -278,7 +199,7 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../tianchi/exe.py" />
   </component>
-  <component name="RunManager" selected="Python.GetData">
+  <component name="RunManager" selected="Python.QQ">
     <configuration default="false" name="ARMA" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -293,24 +214,6 @@
       <module name="shorttime" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ARMA.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="shorttime" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -365,6 +268,24 @@
       <module name="shorttime" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GetData.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="QQ" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="shorttime" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/QQ.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -579,18 +500,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.ARMA" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Test" />
-      <item index="2" class="java.lang.String" itemvalue="Python.exe" />
-      <item index="3" class="java.lang.String" itemvalue="Python.x2test" />
-      <item index="4" class="java.lang.String" itemvalue="Python.GetData" />
+      <item index="1" class="java.lang.String" itemvalue="Python.exe" />
+      <item index="2" class="java.lang.String" itemvalue="Python.x2test" />
+      <item index="3" class="java.lang.String" itemvalue="Python.GetData" />
+      <item index="4" class="java.lang.String" itemvalue="Python.QQ" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.GetData" />
-        <item index="1" class="java.lang.String" itemvalue="Python.x2test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.ARMA" />
-        <item index="3" class="java.lang.String" itemvalue="Python.exe" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Test" />
+        <item index="0" class="java.lang.String" itemvalue="Python.QQ" />
+        <item index="1" class="java.lang.String" itemvalue="Python.GetData" />
+        <item index="2" class="java.lang.String" itemvalue="Python.x2test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ARMA" />
+        <item index="4" class="java.lang.String" itemvalue="Python.exe" />
       </list>
     </recent_temporary>
   </component>
@@ -620,18 +541,18 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44252288" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4262462" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44252288" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4262462" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -686,25 +607,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="60" />
+      <option name="time" value="66" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/balanceTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/statsmodels-0.8.0-py2.7-linux-x86_64.egg/statsmodels/sandbox/stats/diagnostic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4180">
-          <caret line="228" column="4" selection-start-line="228" selection-start-column="4" selection-end-line="228" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/risk.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -739,9 +646,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -786,9 +691,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -826,9 +729,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -893,13 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1804">
           <caret line="363" column="35" selection-start-line="363" selection-start-column="35" selection-end-line="363" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/relate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1037,20 +931,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ARMA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="1121">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="26" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1067,7 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1075,6 +958,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/relate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/dist-packages/scipy/stats/_distn_infrastructure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="1636" column="8" selection-start-line="1636" selection-start-column="8" selection-end-line="1636" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QQ.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding />
         </state>
       </provider>

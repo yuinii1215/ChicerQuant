@@ -19,4 +19,5 @@ public class FileIndex {
     public static final String risk=folder+"risk.py";
     public static final String whiteNoise=folder+"whiteNoise.py";
 	public static final String GetData=folder+"GetData.py";
+	public static final String QQ=folder+"QQ.py";
 }

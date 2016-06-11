@@ -25,8 +25,10 @@ app.controller("strategycontroller",function($scope,$http){
   };
 
   $scope.change();
+
+
   function Risk(name,startdate,enddate) {
-    var url='http://115.159.106.212/strategy/getRisk?';
+    var url='http://localhost:8020/strategy/getRisk?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var down=Number(response['downside']);
@@ -41,7 +43,7 @@ app.controller("strategycontroller",function($scope,$http){
   }
 
   function NormalTest(name,startdate,enddate) {
-    var url='http://115.159.106.212/strategy/getNormalTest?';
+    var url='http://localhost:8020/strategy/getNormalTest?';
       url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var average=Number(response['average']);
@@ -61,11 +63,76 @@ app.controller("strategycontroller",function($scope,$http){
       alert('error');
 
     });
+    var securl='http://localhost:8020/strategy/getQQ?';
+    securl=securl+name+'&'+startdate+'&'+enddate;
+    $http.get(securl).success(function(response,status){
+      var point=[];
+      for (obj in response) {
+        var te=[];
+        te.push(Number(response[obj]['x']));
+        te.push(Number(response[obj]['y']));
+        point.push(te);
+      }
+      qqopt={
+        title : {
+          text: $scope.stockid+" 正态分布检验Q-Q图",
+          subtext: 'powered by chicer'
+        },
+        legend: {
+          data: ['Q-Q点'],
+          left: 'right'
+        },
+        tooltip : {
+        trigger: 'axis',
+        showDelay : 5,
+
+        axisPointer:{
+            show: true,
+            type : 'cross',
+            lineStyle: {
+                type : 'dashed',
+                width : 1
+            }
+        }
+      },
+        xAxis : [
+        {
+            type : 'value',
+            scale:true,
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        }
+        ],
+        yAxis : [
+        {
+            type : 'value',
+            scale:true,
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        }
+        ],
+        series:[
+          {
+            name:'Q-Q point',
+            type:'scatter',
+            data:point
+          }
+        ]
+      };
+      var chart=echarts.init(document.getElementById('Q_Q'));
+      chart.setOption(qqopt);
+    });
   }
 
   function ER(name,startdate,enddate) {
 
-    var url='http://115.159.106.212/strategy/getER?';
+    var url='http://localhost:8020/strategy/getER?';
 
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){

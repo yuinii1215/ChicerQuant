@@ -2,111 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04b7dfa0-7473-4f7c-9afa-fa0b2b03950e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/img/community.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/img/industry1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/img/industry2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/img/singleIntro.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/img/virtualInfo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../project progress/hmy/2016-04-24_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../project progress/hmy/2016-04-30_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../project progress/hmy/2016-05-08_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../project progress/hmy/2016-05-14_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../project progress/hmy/2016-05-22_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../project progress/hmy/2016-05-28_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../project progress/hmy/2016-06-04_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../project progress/hmy/2016-06-10_progress.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/communityPage/community.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/js/getLatestDate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/css/sweetalert.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/sweetalert.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/myHandler/Adapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/myHandler/StrategyHandler.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/img/com-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/img/com_1.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/communityPage/communityPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/communityPage/oldcommunityPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../.idea/misc.xml" afterPath="$PROJECT_DIR$/../../.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_belerweb_pinyin4j_2_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_belerweb_pinyin4j_2_5_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_6_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_object_refinery_orsoncharts_1_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_object_refinery_orsoncharts_1_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_orsonpdf_orsonpdf_1_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_orsonpdf_orsonpdf_1_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_0_33_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_0_33_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_auth_common_3_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_auth_common_3_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_core_3_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_core_3_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_web_3_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_web_3_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jfree_jcommon_1_0_16.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jfree_jcommon_1_0_16.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jfree_jfreechart_1_0_13.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jfree_jfreechart_1_0_13.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_6_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_6_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_ezmorph_ezmorph_1_0_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_ezmorph_ezmorph_1_0_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_json_lib_json_lib_jdk15_2_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_json_lib_json_lib_jdk15_2_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_3_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_3_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_3_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_3_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_swt_org_eclipse_swt_cocoa_macosx_x86_64_4_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_swt_org_eclipse_swt_cocoa_macosx_x86_64_4_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_fxgraphics2d_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_fxgraphics2d_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jcommon_1_0_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jcommon_1_0_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jfreechart_1_0_19.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jfreechart_1_0_19.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jfreesvg_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jfreesvg_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_swtgraphics2d_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_swtgraphics2d_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20160212.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20160212.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnyQuantProject.iml" afterPath="$PROJECT_DIR$/AnyQuantProject.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shorttime/.idea/workspace.xml" afterPath="$PROJECT_DIR$/shorttime/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shorttime/GetData.py" afterPath="$PROJECT_DIR$/shorttime/GetData.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shorttime/risk.py" afterPath="$PROJECT_DIR$/shorttime/risk.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shorttime/x2test.py" afterPath="$PROJECT_DIR$/shorttime/x2test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/APIHelper.java" afterPath="$PROJECT_DIR$/src/main/java/AnyQuantProject/data/util/APIHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/.idea/workspace.xml" afterPath="$PROJECT_DIR$/src/main/java/webProject/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/allIndustryShowPage/js/allIndustry.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/allIndustryShowPage/js/allIndustry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/benchMarkPage/js/getBenchMarkData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/communityPage/css/board.css" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/communityPage/css/board.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/communityPage/js/view.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/communityPage/js/view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/css/main.css" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/css/style.css" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/dataAnalysePage/stock_strategy.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/dataAnalysePage/stock_strategy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/favoritePage/favoritePage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/favoritePage/favoritePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/favoritePage/js/initMyFavorTable.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/favoritePage/js/initMyFavorTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategyPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategycontroller.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/strategyPage/strategycontroller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/kLineChart.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/kLineChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/loader.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/search.js" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/js/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/resources/welcome.html" afterPath="$PROJECT_DIR$/src/main/java/webProject/resources/welcome.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/myVerticle/RouterVerticle.java" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/myVerticle/RouterVerticle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/php/ajaxService.php" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/php/ajaxService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/php/getData.php" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/php/getData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/php/serviceController.php" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/php/serviceController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/myHandler/Adapter.java" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/myHandler/Adapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/myHandler/StrategyHandler.java" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/myHandler/StrategyHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/FileIndex.java" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/FileIndex.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/Strategy.java" afterPath="$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/Strategy.java" />
     </list>
@@ -134,8 +36,8 @@
       <file leaf-file-name="Strategy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/Strategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="89" column="24" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+            <state relative-caret-position="455">
+              <caret line="142" column="49" selection-start-line="142" selection-start-column="49" selection-end-line="142" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -144,7 +46,7 @@
       <file leaf-file-name="RouterVerticle.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/myVerticle/RouterVerticle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="266">
               <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -163,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StrategyHandler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StrategyHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/myHandler/StrategyHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
+            <state relative-caret-position="436">
+              <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Adapter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Adapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/myHandler/Adapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="665">
+              <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -200,8 +102,8 @@
       <file leaf-file-name="FileIndex.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/FileIndex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+            <state relative-caret-position="399">
+              <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -228,15 +130,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/shorttime/ARMA.py" />
-        <option value="$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/FileIndex.java" />
         <option value="$MAVEN_REPOSITORY$/io/vertx/vertx-web/3.2.1/vertx-web-3.2.1.jar!/io/vertx/ext/web/impl/RoutingContextDecorator.class" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/server/myVerticle/RouterVerticle.java" />
         <option value="$PROJECT_DIR$/shorttime/GetData.py" />
         <option value="$PROJECT_DIR$/shorttime/x2test.py" />
+        <option value="$PROJECT_DIR$/shorttime/risk.py" />
+        <option value="$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/FileIndex.java" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/Strategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/server/myHandler/Adapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/webProject/server/myHandler/StrategyHandler.java" />
-        <option value="$PROJECT_DIR$/shorttime/risk.py" />
       </list>
     </option>
   </component>
@@ -284,6 +186,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -492,24 +396,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuantProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnyQuantProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shorttime" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -772,6 +660,7 @@
       <setting name="cmdLine" value="run-app" />
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="true" />
+      <setting name="depsClasspath" value="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
@@ -999,6 +888,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -1161,11 +1056,12 @@
       <updated>1465609058814</updated>
       <workItem from="1465609061194" duration="339000" />
       <workItem from="1465609412785" duration="16391000" />
+      <workItem from="1465647002436" duration="1794000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16730000" />
+    <option name="totallyTimeSpent" value="18524000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
@@ -1173,7 +1069,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1193,8 +1089,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1238,14 +1134,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/Strategy.java</url>
-          <line>118</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
@@ -1255,11 +1143,72 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/Strategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1577">
+          <caret line="89" column="24" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/myVerticle/RouterVerticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/starter/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/myHandler/StrategyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shorttime/relate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/myHandler/Adapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/FileIndex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shorttime/ARMA.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,7 +1216,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +1231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,7 +1238,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="42" column="45" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,9 +1245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
-          <folding>
-            <element signature="e#1336#1337#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1309,9 +1252,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
-          <folding>
-            <element signature="e#4735#4736#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1319,7 +1259,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="93" column="11" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1327,7 +1266,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="114" column="8" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1335,13 +1273,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/myVerticle/RouterVerticle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
+        <state relative-caret-position="266">
           <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1353,7 +1290,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="219" column="32" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1377,9 +1313,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="72" column="49" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1387,25 +1320,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/FileIndex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/myHandler/StrategyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1421,22 +1335,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/FileIndex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/strategy/java/Strategy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="89" column="24" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+        <state relative-caret-position="455">
+          <caret line="142" column="49" selection-start-line="142" selection-start-column="49" selection-end-line="142" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/myHandler/Adapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="665">
+          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webProject/server/myHandler/StrategyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
