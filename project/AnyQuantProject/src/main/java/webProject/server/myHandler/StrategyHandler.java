@@ -25,6 +25,8 @@ public class StrategyHandler implements Handler<RoutingContext>{
             HttpServerResponse response=routingContext.response();
             response.setChunked(true);
             response.putHeader("Content-type","application/json");
+            response.putHeader("Access-Control-Allow-Headers","X-Requested-With");
+            response.putHeader("Access-Control-Allow-Origin","*");
             switch (method){
                 case "getER":
                     JsonObject ansE=Adapter.getER(id,start,end);
@@ -41,6 +43,18 @@ public class StrategyHandler implements Handler<RoutingContext>{
                 case "getQQ":
                     JsonObject ansQ=Adapter.getQQ(id,start,end);
                     response.write(ansQ.encode()).end();
+                    break;
+                case "getRelate":
+                    JsonObject ansRa=Adapter.getRelate(id,start,end);
+                    response.write(ansRa.encode()).end();
+                    break;
+                case "getBalanceTest":
+                    JsonObject ansB=Adapter.getBalance(id,start,end);
+                    response.write(ansB.encode()).end();
+                    break;
+                case "getARMA":
+                    JsonObject ansAR=Adapter.getARMA(id,start,end);
+                    response.write(ansAR.encode()).end();
                     break;
                 default:
                     routingContext.fail(400);

@@ -3,20 +3,22 @@ from GetData import *
 
 def autocorrelate(data,lags):
     x=numpy.array(data.values());
-    n=len(x);
     result = stsmdts.acf(x,nlags=lags);
-    return result[1:];
+    return result;
 
 def partialAuto(data,lags):
     x=numpy.array(data.values());
     res=stsmdts.pacf(x,lags);
-    return res[1:];
+    return res;
 
 def relate():
     t=sys.argv;
-    data=parseDataForER(getData('sh600315', '2016-01-01', '2016-06-01'));
+    # t[1], t[2], t[3]
+    # 'sh600315', '2016-03-01', '2016-06-01'
+    data=parseDataForER(getData(t[1], t[2], t[3]));
     ans=autocorrelate(data, 20);
-    print ('acf');
+    n=len(data);
+    print (1.96/sqrt(n));
     for n in ans:
         print(n);
     ans=partialAuto(data,20);

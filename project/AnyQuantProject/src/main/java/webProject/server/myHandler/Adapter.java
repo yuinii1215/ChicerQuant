@@ -13,6 +13,16 @@ public class Adapter {
 
     }
 
+    public static JsonObject getBalance(String id,String start,String end){
+        double[] value=Strategy.getBalance(id, start, end);
+        JsonObject ans=new JsonObject();
+        ans.put("p",value[0]);
+        ans.put("10%",value[1]);
+        ans.put("5%",value[2]);
+        ans.put("1%",value[3]);
+        return ans;
+    }
+
     public static JsonObject getNormalTest(String id,String start,String end){
         double[] value=Strategy.x2Test(id, start, end);
         JsonObject ans=new JsonObject();
@@ -33,6 +43,14 @@ public class Adapter {
     }
     public static JsonObject getQQ(String id,String start,String end){
         JsonObject ans=Strategy.getQ_Q(id, start, end);
+        return ans;
+    }
+    public static JsonObject getRelate(String id,String start,String end){
+        JsonObject ans=Strategy.getRelate(id, start, end);
+        return ans;
+    }
+    public static JsonObject getARMA(String id,String start,String end){
+        JsonObject ans=Strategy.getARMA(id, start, end);
         return ans;
     }
 }

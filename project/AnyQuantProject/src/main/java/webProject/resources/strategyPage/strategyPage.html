@@ -148,69 +148,6 @@
                     <div class="sidebar-minified js-toggle-minified">
                         <i class="fa fa-angle-left"></i>
                     </div>
-
-                    <!-- sidebar content -->
-                    <!--
-                    <div class="sidebar-content">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h5><i class="fa fa-lightbulb-o"></i> Tips</h5></div>
-                            <div class="panel-body">
-                                <p>You can do live search to the widget at search box located at top bar. It's very useful if your dashboard is full of widget.</p>
-                            </div>
-                        </div>
-                        <h5 class="label label-default"><i class="fa fa-info-circle"></i> Server Info</h5>
-                        <ul class="list-unstyled list-info-sidebar bottom-30px">
-                            <li class="data-row">
-                                <div class="data-name">Disk Space Usage</div>
-                                <div class="data-value">
-                                    274.43 / 2 GB
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-                                            <span class="sr-only">10%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="data-row">
-                                <div class="data-name">Monthly Bandwidth Transfer</div>
-                                <div class="data-value">
-                                    230 / 500 GB
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="46" aria-valuemin="0" aria-valuemax="100" style="width: 46%">
-                                            <span class="sr-only">46%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Database Disk Space</span>
-                                <span class="data-value">219.45 MB</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Operating System</span>
-                                <span class="data-value">Linux</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Apache Version</span>
-                                <span class="data-value">2.4.6</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">PHP Version</span>
-                                <span class="data-value">5.3.27</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">MySQL Version</span>
-                                <span class="data-value">5.5.34-cll</span>
-                            </li>
-                            <li class="data-row">
-                                <span class="data-name">Architecture</span>
-                                <span class="data-value">x86_64</span>
-                            </li>
-                        </ul>
-                    </div>
-                    -->
-                    <!-- end sidebar content -->
                 </div>
                 <!-- end left sidebar -->
 
@@ -242,8 +179,12 @@
                             <em>the better analyze</em>
                         </div>
                         <div class="main-content" ng-controller="strategycontroller">
-
-
+                          <ul class="nav nav-pills nav-pills-custom-minimal custom-minimal-bottom" role="tablist">
+                          <li class="active"><a href="#strategy1" role="tab" data-toggle="tab" ng-click="change()"><i class="icon ion-social-rss"></i> 基于推断统计的分析</a></li>
+                          <li><a href="#strategy2" role="tab" data-toggle="tab" ng-click="timechange()"><i class="icon ion-social-rss"></i> 基于时间序列的分析</a></li>
+                          </ul>
+                          <div id="myTabContent" class="tab-content">
+                          <div class="tab-pane fade in active" id="strategy1">
                             <div class="widget">
                                 <div class="widget-header">
                                     <!--header-->
@@ -351,6 +292,122 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="tab-pane fade" id="strategy2">
+
+
+                          <div class="widget">
+                              <div class="widget-header">
+                                  <!--header-->
+                                  <h3><i class="fa fa-bar-chart-o"></i>Step 1</h3> <em>-predict</em>
+                                  <div class="btn-group widget-header-toolbar">
+                                      <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                      <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                      <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                  </div>
+                              </div>
+                              <div class="widget-content" >
+                                <input ng-model="stockid" placeholder="enter stockID here...">
+                                <button ng-click="timechange()">change</button>
+                                <div id="ER_time" style="height:400px"></div>
+                                <p>
+                                  嗨，朋友，准备好接受数学的洗礼了嘛？<br/>
+                                  让我们从股票的收益率开始跟随数学的脚步吧！<br/>
+                                  收益率的计算大有玄机，需要考量以下两个方面：<br/>
+                                    1、印花税<br/>
+                                    2、复利</p>
+                                <p>
+                                <a href="http://baike.baidu.com/view/165108.htm" target="view_window">
+                                  印花税</a>
+                                  是股票交易时需要向监管部门缴纳的税款，我国暂行的规定是卖出时征收千分之一<br/>
+                                  单期收益率为R，则其对等的连续复利收益率应为(1＋R)的自然对数，即ln(1＋R)。<br/>
+                                  之所以选择连续复利收益率，主要有一下两个原因：<br/>
+                                    1、连续复利的公式以e为底数，可积可导指数可加，计算方便<br/>
+                                    2、此处的模型抽象并不太影响现实结论<br/>
+                                    3、它的概率分布较接近于正态分布<br/>
+                                  接近正态分布又有什么好处呢？请接着探寻.
+                                </p>
+                              </div>
+                          </div>
+
+
+                          <div class="widget">
+                              <div class="widget-header">
+                                  <!--header-->
+                                  <h3><i class="fa fa-bar-chart-o"></i>Step 2</h3> <em>-predict</em>
+                                  <div class="btn-group widget-header-toolbar">
+                                      <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                      <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                      <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                  </div>
+                              </div>
+                              <div class="widget-content" >
+                                <p>
+                                  一种历史资料延伸预测，也称历史引伸预测法。是以时间数列所能反映的社会经济现象的发展过程和规律性，进行引伸外推，预测其发展趋势的方法。<br/>
+                                  时间序列是一种完全不同的事物,它源于我们生活中的直觉，即:<br/>
+                                    1、股票的明天的收益会受今天，昨天、、历史的影响，并且时间间隔越长，影响也越小<br/>
+                                    2、股票收益是不可能完全被预测的<br/>
+                                  因此，在构建时序模型之前，我们要先检验：过去的历史的确对未来有影响<br/>
+                                  这里我们选取了一下两个统计量作为检验依据：<a href="http://baike.baidu.com/view/12497917.htm" target="view_window">自相关系数</a>和<a href="http://blog.sina.com.cn/s/blog_5c2cfefb0100etlg.html" target="view_window">偏自相关系数</a>
+                                </p>
+                                <div id="acf_chart" style="height:400px"></div>
+                                <p>pacf</p>
+                                <div id="pacf_chart" style="height:400px"></div>
+                                <p>
+                                  其中，标线为取95%置信区间时的临界值，当相关系数的绝对值大于此值时，说明该期的影响较为明显<br/>
+                                  同时，我们还引入平稳性的概念，作为时间序列预测的基本假设。即：时间序列的行为并不随时间改变。<br/>
+                                  体现在数学上的弱平稳为：<br/>
+                                    ① the mean function μ(t) is constant over time(均值函数是常数函数)<br/>
+                                    ② γ(t, t − k) = γ(0, k) for all times t and lags k(协方差函数仅与时间差相关)<br/>
+                                  我们采用<a href="" target="view_window">增广迪基-福勒检验(Augmented Dickey-Fuller test)</a>来检验平稳性<br/>
+                                </p>
+                                <div id="balance" style="height:400px"></div>
+                                <p>
+                                  该假设的原假设是目标序列是平稳的，因此，只要检验值p小于5%即可认为符合条件<br/>
+                                </p>
+                              </div>
+                          </div>
+
+
+                          <div class="widget">
+                              <div class="widget-header">
+                                  <!--header-->
+                                  <h3><i class="fa fa-bar-chart-o"></i>Step 3&4</h3> <em>-predict</em>
+                                  <div class="btn-group widget-header-toolbar">
+                                      <a href="#" title="Focus" class="btn-borderless btn-focus"><i class="fa fa-eye"></i></a>
+                                      <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                                      <a href="#" title="Remove" class="btn-borderless btn-remove"><i class="fa fa-times"></i></a>
+                                  </div>
+                              </div>
+                              <div class="widget-content" >
+                                <p>
+                                经过了这么多的准备，终于到了应用<a href="http://baike.baidu.com/link?url=JMDJu0ULRUh2dv7dOYwLciWJ28b2fplzV-t8S40R-Ap4zm6nDc6A1vHKmxyEmoC6Vn5M63Xuasf9JeAwsqU2r_" target="view_window">ARMA模型</a>的时候<br/>
+                                ARMA模型(auto regressive moving average model)自回归滑动平均模型，模型参量法高分辨率谱分析方法之一。这种方法是研究平稳随机过程有理谱的典型方法，适用于很大一类实际问题。<br/>
+                                它比AR模型法与MA模型法有较精确的谱估计及较优良的谱分辨率性能，但其参数估算比较繁琐。<br/>
+                                但是在计算机面前，这些都很容易，我们借助python的统计包直接给予参数并模拟，这里省略了模型的细节<br/>
+                              </p>
+                              <div id="time_predict" style="height:400px"></div>
+                              <p>
+                                拿到了预测的结果也不要太激动，我们还有最后的小尾巴——<a href="http://baike.baidu.com/view/1006910.htm" target="view_window">残差</a><br/>
+                                举一个形象的例子，这些历史数据就好比生产原料，ARMA模型相当于生产工艺，评价生产工艺的好坏要有很多方面，而残差则相当于留下的废料。<br/>
+                                从某种意义上说，废料中可利用的信息越少，模型提取的信息就越多。<br/>
+                                好在统计学中给予了我们<a href="http://baike.baidu.com/view/224804.htm" target="view_window">白噪声</a>来类比。下面我们就需要验证残差趋近于白噪声。<br/>
+                                白噪声其实就是一组符合正态分布的数据，是“自然”存在的。我们选取了Q-Q图、正态分布检验、<a href="https://www.zhihu.com/question/22863169" target="view_window">LBQ检验</a>、<a href="http://baike.baidu.com/view/2021836.htm" target="view_window">Durbin-Watson检验</a>来说明。<br/>
+                              </p>
+                              <div id="time_qq" style="height:400px"></div>
+                              <div id="time_lbq" style="height:400px"></div>
+                              <p ng-model="time_normal" ng-model="time_dw">
+                                (为展示需要，将1号缩放了100倍)<br/>
+                                最终，该模型残差正态分布检验值为{{time_normal}}%,D-W检验值为{{time_dw}}。<br/>
+                                至此，我们的策略告一段落<br/>
+                              </p>
+
+                              </div>
+                          </div>
+
+
+                        </div>
+                      </div>
+                    </div>
                         <!-- /main-content -->
                     </div>
                     <!-- /main -->

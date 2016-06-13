@@ -32,6 +32,7 @@ def parseDataForER(data):
     for num in range(i-1):
         te=(array[num+1]/array[num])-0.001;
         ans[num]=log(te);
+
     return ans;
 
 # def getERTime(data):
