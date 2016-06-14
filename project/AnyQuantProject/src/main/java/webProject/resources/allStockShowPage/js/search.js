@@ -1,3 +1,22 @@
+window.onload=function() {
+    $.extend($.gritter.options, {
+        time: 4000,
+    });
+    // clean the wrapper position class
+    $('#gritter-notice-wrapper').attr('class', '');
+    // global setting override
+    $.extend($.gritter.options, {
+        position: '' + $(this).attr('id') + '' // possibilities: bottom-left, bottom-right, top-left, top-right
+    });
+    $.gritter.options.position = "bottom-right";
+    $.gritter.add({
+        title: $(this).find('span.title').text(), // could be simpler, just for demo purposes
+        text: "数据较多，正在努力加载中！" + "</br>" + "请耐心等待...",
+    });
+}
+
+
+
 var app=angular.module('myApp',[]);
 app.controller("SearchCtrl", function($scope, $http, MyCache) {
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
