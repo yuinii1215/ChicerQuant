@@ -54,6 +54,9 @@ app.controller("loginCtrl", function ($scope, $http) {
 
     //http请求发送（异步），这里用读取本地的一个json文件进行了模拟，真实情况下改成网址即可（post或get）
     $scope.verify=function() {
+        var tip= document.getElementById("tip");
+        tip.style.display = "none";
+
       var userName=document.getElementById("username").value;
       var password=document.getElementById("password").value;
         console.log("verifying");
@@ -67,6 +70,9 @@ app.controller("loginCtrl", function ($scope, $http) {
                     "method": "verifyPasswordService"
                 })
                 .success(function (response) {
+                    var tip= document.getElementById("tip");
+                    tip.style.display = "none";
+
                     var login_state = response;
                     var successRequest = login_state.retmsg;
                     var login_flag = login_state[0].qualified;
@@ -77,7 +83,12 @@ app.controller("loginCtrl", function ($scope, $http) {
                         enterSuccess();
                     } else {
                         console.log("not success");
-                                $.extend($.gritter.options, {
+
+                        var tip= document.getElementById("tip");
+                        tip.innerHTML="帐号不存在/密码错误,请重试!";
+                        tip.style.display = "inline";
+                        setTimeout(invisible,1500);
+        /*                        $.extend($.gritter.options, {
                                     time: 1500,
                                 });
                                     // clean the wrapper position class
@@ -92,10 +103,14 @@ app.controller("loginCtrl", function ($scope, $http) {
                                         text: "您好！" + "</br>" + "帐号不存在/密码错误,请重试",
                                     });
 
-                        alert("帐号不存在/密码错误,请重试");
+                        alert("帐号不存在/密码错误,请重试");*/
                     }
                 }else {
-                   $.extend($.gritter.options, {
+                   var tip= document.getElementById("tip");
+                   tip.innerHTML="登录请求失败,请重试!";
+                   tip.style.display = "inline";
+                   setTimeout(invisible,1500);
+   /*                $.extend($.gritter.options, {
                        time: 1500,
                    });
                    // clean the wrapper position class
@@ -109,7 +124,7 @@ app.controller("loginCtrl", function ($scope, $http) {
                        title: $(this).find('span.title').text(), // could be simpler, just for demo purposes
                        text: "您好！" + "</br>" + "登录请求失败,请重试",
                    });
-                   alert("登录请求失败,请重试");
+                 alert("登录请求失败,请重试"); */
                }
                 });
 
@@ -125,12 +140,19 @@ app.controller("loginCtrl", function ($scope, $http) {
                 })
                 //返回函数
                 .success(function (response) {
+                    var tip= document.getElementById("tip");
+                    tip.style.display = "none";
+
                     var sign_up_state=response;
                     var sign_flag=sign_up_state.operation;
 
                     if(sign_flag=="success:)"){
+                        var tip= document.getElementById("tip");
+                        tip.innerHTML="感谢注册本网站！" + "</br>" + "您已经注册成功,请返回登录";
+                        tip.style.display = "inline";
+                        setTimeout(invisible,1500);
 
-                        $.extend($.gritter.options, {
+       /*                 $.extend($.gritter.options, {
                             time: 1500,
                         });
                         // clean the wrapper position class
@@ -144,7 +166,7 @@ app.controller("loginCtrl", function ($scope, $http) {
                             title: $(this).find('span.title').text(), // could be simpler, just for demo purposes
                             text: "感谢注册本网站！" + "</br>" + "您已经注册成功,请返回登录",
                         });
-                     alert("您已经注册成功,请返回登录");
+                    alert("您已经注册成功,请返回登录");*/
 
                         //删除用户的方法
                         //$http.post($scope.url, {
@@ -156,7 +178,12 @@ app.controller("loginCtrl", function ($scope, $http) {
                         //        console.log("remove user");
                         //    });
                     }else{
-                        $.extend($.gritter.options, {
+
+                        var tip= document.getElementById("tip");
+                        tip.innerHTML="该用户已存在，请重新输入!";
+                        tip.style.display = "inline";
+                        setTimeout(invisible,1500);
+     /*                   $.extend($.gritter.options, {
                             time: 1500,
                         });
                         // clean the wrapper position class
@@ -170,8 +197,9 @@ app.controller("loginCtrl", function ($scope, $http) {
                             title: $(this).find('span.title').text(), // could be simpler, just for demo purposes
                             text: "您好！" + "</br>" + "该用户已存在，请重试",
                         });
-                     alert("注册失败,请重试");
+                    alert("该用户已存在，请重新输入"); */
                     }
+
                 });
 
 
@@ -182,5 +210,10 @@ app.controller("loginCtrl", function ($scope, $http) {
     $scope.cleanText=function(){//清除input内部的内容
         document.getElementById("username").value = "";
         document.getElementById("password").value = "";
+    }
+
+    function invisible(){
+        var tip= document.getElementById("tip");
+        tip.style.display = "none";
     }
 });

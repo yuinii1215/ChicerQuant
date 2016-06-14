@@ -1080,3 +1080,7 @@ footer {
 }
 
 :active{outline:none;}
+
+.tip{
+    display: none;
+}
