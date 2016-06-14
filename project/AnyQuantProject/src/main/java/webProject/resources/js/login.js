@@ -146,7 +146,7 @@ app.controller("loginCtrl", function ($scope, $http) {
                     var sign_up_state=response;
                     var sign_flag=sign_up_state.operation;
 
-                    if(sign_flag=="success:)"){
+                    if(sign_flag=="success"){
                         var tip= document.getElementById("tip");
                         tip.innerHTML="感谢注册本网站！" + "</br>" + "您已经注册成功,请返回登录";
                         tip.style.display = "inline";
