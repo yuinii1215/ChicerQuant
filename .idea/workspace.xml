@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a0f1cbb-a136-4048-b0a8-9dd38b046752" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/img/com-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/img/com_1.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/benchMarkPage/benchMarkPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/favoritePage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/favoritePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/singleIndustryPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategyPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/strategyPage/strategyPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html" />
     </list>
     <ignored path="AnyQuant_Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,14 +23,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9310346">
-              <caret line="297" column="42" selection-start-line="297" selection-start-column="32" selection-end-line="297" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.207767">
+              <caret line="271" column="33" selection-start-line="271" selection-start-column="33" selection-end-line="271" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#section#2;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -54,70 +43,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="allIndustryShowPage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.8965516">
-              <caret line="255" column="46" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="46" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4613734">
-              <caret line="967" column="22" selection-start-line="967" selection-start-column="22" selection-end-line="967" selection-end-column="22" />
+            <state vertical-scroll-proportion="-7.724138">
+              <caret line="965" column="34" selection-start-line="965" selection-start-column="34" selection-end-line="965" selection-end-column="34" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/login.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.9358974">
-              <caret line="15335" column="26" selection-start-line="15335" selection-start-column="26" selection-end-line="15335" selection-end-column="26" />
-              <folding>
-                <marker date="1465541436159" expanded="true" signature="30712:30744" placeholder="{...}" />
-                <marker date="1465541436159" expanded="true" signature="30770:30803" placeholder="{...}" />
-                <marker date="1465541436159" expanded="true" signature="30924:30956" placeholder="{...}" />
-                <marker date="1465541436159" expanded="true" signature="30982:31015" placeholder="{...}" />
-                <marker date="1465541436159" expanded="true" signature="35354:35386" placeholder="{...}" />
-                <marker date="1465541436159" expanded="true" signature="35412:35445" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dataAnalysePage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/dataAnalysePage/dataAnalysePage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.37931">
-              <caret line="230" column="166" selection-start-line="230" selection-start-column="166" selection-end-line="230" selection-end-column="166" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -962,7 +893,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1363" height="726" extended-state="0" />
+    <frame x="1" y="1" width="1363" height="726" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27526397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1006,6 +937,7 @@
           <folding>
             <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#section#2;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1316,13 +1248,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.724138">
+          <caret line="965" column="34" selection-start-line="965" selection-start-column="34" selection-end-line="965" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9310346">
-          <caret line="297" column="42" selection-start-line="297" selection-start-column="32" selection-end-line="297" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.207767">
+          <caret line="271" column="33" selection-start-line="271" selection-start-column="33" selection-end-line="271" selection-end-column="33" />
           <folding>
             <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#section#2;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#3;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1330,14 +1271,6 @@
             <element signature="n#section#5;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#section#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4613734">
-          <caret line="967" column="22" selection-start-line="967" selection-start-column="22" selection-end-line="967" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
