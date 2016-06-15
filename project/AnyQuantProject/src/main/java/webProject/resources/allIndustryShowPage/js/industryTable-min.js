@@ -1,0 +1,1 @@
+var dataSet=localStorage.allIndustryTableData;$(document).ready(function(){$("#table").DataTable({data:dataSet,columns:[{title:"行业名称"},{title:"总资产（亿）"},{title:"涨跌幅"},{title:"净额（亿）"},{title:"公司家数"},{title:"领涨股名称"},{title:"领涨股代码"},{title:"涨跌幅"},{title:"当前价（元）"}]})});
