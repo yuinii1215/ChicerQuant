@@ -18,29 +18,40 @@ import java.util.concurrent.TimeUnit;
 public class Strategy {
 
 
-	public static void main(String[] args) {
-			String para="sh600315 2016-04-01 2016-05-01";
-			String[] cmd=new String[5];
-			cmd[0]="python";
-			cmd[1]="shorttime/x2test.py";
-			cmd[2]="sh600315";
-			cmd[3]="2016-04-01";
-			cmd[4]="2016-05-01";
-			try {
-				System.out.println("Working Directory = " + System.getProperty("user.dir")); 
-				Process process=Runtime.getRuntime().exec(cmd);
-				Scanner key=new Scanner(process.getInputStream());
-				System.out.println(key.nextLine());
-				
-	            process.waitFor();
-				
-				key.close();
-			} catch (IOException | InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
-	}
+	public static JsonObject getCRUM(String id,String start,String end,String interest){
+        String[] cmd={FileIndex.python,FileIndex.crum,id,start,end,interest};
+        try {
+            Process process=Runtime.getRuntime().exec(cmd);
+            Scanner key=new Scanner(process.getInputStream());
+            process.waitFor(20,TimeUnit.SECONDS);
+            if (process.exitValue()!=0){
+                return null;
+            }
+            //
+            JsonObject ans=new JsonObject();
+            double k=Double.parseDouble(key.nextLine());
+            double b=Double.parseDouble(key.nextLine());
+            ans.put("k",k);
+            ans.put("b",b);
+            int count=0;
+            JsonObject point=new JsonObject();
+            while (key.hasNext()){
+                double x=Double.parseDouble(key.nextLine());
+                double y=Double.parseDouble(key.nextLine());
+                JsonObject cell= new JsonObject();
+                cell.put("x",x);
+                cell.put("y",y);
+                point.put(Integer.toString(count),cell);
+                count++;
+            }
+            ans.put("point",point);
+
+            return ans;
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 	/**
 	 * 
 	 * @param id

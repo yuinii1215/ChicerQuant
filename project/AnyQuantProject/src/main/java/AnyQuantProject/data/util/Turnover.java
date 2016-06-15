@@ -69,6 +69,7 @@ public class Turnover {
         if (! arr.get(0).getClass().equals(net.sf.json.JSONNull.class)) {
             String datavalue =  ((JSONObject) arr.get(0)).get("dataValue").toString();
             interests = Double.parseDouble(datavalue);
+            interests = interests/100;
         }
         return interests;
     }

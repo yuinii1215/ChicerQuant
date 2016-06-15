@@ -22,6 +22,7 @@ app.controller("strategycontroller",function($scope,$http){
     ER(name,startdate,enddate);
     NormalTest(name,startdate,enddate);
     Risk(name,startdate,enddate);
+    CRUM(name,startdate,enddate);
   };
 
   $scope.timechange=function(){
@@ -42,9 +43,122 @@ app.controller("strategycontroller",function($scope,$http){
     acfpacf(name,startdate,enddate);
     balanceTest(name,startdate,enddate);
     finalPredict(name,startdate,enddate);
+
   }
 
   $scope.change();
+
+
+  function CRUM(name,startdate,enddate) {
+    var url='http://115.159.106.212/strategy/getCRUM?';
+    url=url+name+'&'+startdate+'&'+enddate;
+    $http.get(url).success(function(response,status){
+      var k=Number(response['k']);
+      var b=Number(response['b']);
+      var point=response['point'];
+      $scope.crum_a=(b*100).toFixed(2);
+      //
+      var crumpoint=[];
+      var min=100;
+      var max=-100;
+      for (var obj in point) {
+        var cell=[];
+        var x=Number(point[obj]['x']);
+        if (x<min) {
+          min=x;
+        }
+        if (x>max) {
+          max=x;
+        }
+        cell.push(x);
+        cell.push(Number(point[obj]['y']));
+        crumpoint.push(cell);
+      }
+      var minpoint=[min,k*min+b];
+      var maxpoint=[max,k*max+b];
+      var markLineOpt = {
+    animation: true,
+    label: {
+        normal: {
+            formatter: 'y = '+k+' * x + '+b,
+            textStyle: {
+                align: 'right'
+            }
+        }
+    },
+    lineStyle: {
+        normal: {
+            type: 'solid'
+        }
+    },
+    tooltip: {
+        formatter: 'y = '+k+' * x + '+b
+    },
+    data: [[{
+        coord: minpoint,
+        symbol: 'none'
+    }, {
+        coord: maxpoint,
+        symbol: 'none'
+    }]]
+};
+      var crumopt={
+        title : {
+          text: $scope.stockid+" CRUM预测图",
+          subtext: 'powered by chicer'
+        },
+        legend: {
+          data: ['CRUM point'],
+          left: 'right'
+        },
+        tooltip : {
+        trigger: 'axis',
+        showDelay : 5,
+
+        axisPointer:{
+            show: true,
+            type : 'cross',
+            lineStyle: {
+                type : 'dashed',
+                width : 1
+            }
+        }
+      },
+        xAxis : [
+        {
+            type : 'value',
+            scale:true,
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        }
+        ],
+        yAxis : [
+        {
+            type : 'value',
+            scale:true,
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        }
+        ],
+        series:[
+          {
+            name:'CRUM point',
+            type:'scatter',
+            data:crumpoint,
+            markLine:markLineOpt
+          }
+        ]
+      };
+      var crumchart=echarts.init(document.getElementById('CRUM'));
+      crumchart.setOption(crumopt);
+    });
+  }
 
   function finalPredict(name,startdate,enddate) {
     var url='http://115.159.106.212/strategy/getARMA?';

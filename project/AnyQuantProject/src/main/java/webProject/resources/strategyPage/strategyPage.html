@@ -285,8 +285,10 @@
                                 <div class="widget-content">
 
                                   <div id="CRUM" style="height:400px"></div>
-                                  <p >
-                                    分析的最后是对未来的预测，这里采用了<a href="" target="view_window">模型</a>
+                                  <p ng-model="crum_a">
+                                    分析的最后是对未来的预测，这里采用了<a href="" target="view_window">CRUM模型</a><br/>
+                                    引入了银行活期利率作为起点，y代表该股票与银行收益的差，x代表大盘与银行收益的差<br/>
+                                    该股票最终的分析收益为{{crum_a}}%<br/>
                                   <p>
 
                                 </div>

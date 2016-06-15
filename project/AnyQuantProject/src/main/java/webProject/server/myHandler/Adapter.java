@@ -1,5 +1,6 @@
 package webProject.server.myHandler;
 
+import AnyQuantProject.data.util.Turnover;
 import io.vertx.core.json.JsonObject;
 import webProject.server.strategy.java.Strategy;
 
@@ -52,5 +53,14 @@ public class Adapter {
     public static JsonObject getARMA(String id,String start,String end){
         JsonObject ans=Strategy.getARMA(id, start, end);
         return ans;
+    }
+    public static JsonObject getCRUM(String id,String start,String end){
+        try {
+             double intere=Turnover.getChinaInterests();
+            JsonObject ans=Strategy.getCRUM(id,start,end,Double.toString(intere));
+            return ans;
+        }catch (Exception e){
+            return null;
+        }
     }
 }
