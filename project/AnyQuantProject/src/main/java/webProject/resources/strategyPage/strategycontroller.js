@@ -16,7 +16,7 @@ app.controller("strategycontroller",function($scope,$http){
       stockid='sh600315';
       $scope.stockid='sh600315'
     }
-    var startdate='startdate='+year+'-'+(month-2)+'-'+day;
+    var startdate='startdate='+year+'-'+(month-2)+'-'+'1';
     var enddate='enddate='+year+'-'+month+'-'+day;
     var name='name='+$scope.stockid;
     ER(name,startdate,enddate);
@@ -47,7 +47,7 @@ app.controller("strategycontroller",function($scope,$http){
   $scope.change();
 
   function finalPredict(name,startdate,enddate) {
-    var url='http://localhost:8020/strategy/getARMA?';
+    var url='http://115.159.106.212/strategy/getARMA?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var e=response['e'];
@@ -255,7 +255,7 @@ app.controller("strategycontroller",function($scope,$http){
   }
 
   function balanceTest(name,startdate,enddate) {
-    var url='http://localhost:8020/strategy/getBalanceTest?';
+    var url='http://115.159.106.212/strategy/getBalanceTest?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var p=Number(response['p']);
@@ -317,7 +317,7 @@ app.controller("strategycontroller",function($scope,$http){
   }
 
   function acfpacf(name,startdate,enddate) {
-    var url='http://localhost:8020/strategy/getRelate?';
+    var url='http://115.159.106.212/strategy/getRelate?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var p_value=response['p_value'];

@@ -37,7 +37,7 @@ quick = [-2, -1, 0, 1, 2];
 def arma():
     t = sys.argv;
     src=getData(t[1],t[2],t[3]);
-    time=parse_ymd(t[3]);
+
 
     data=parseDataForER(src);
     acf = autocorrelate(data, 20);
@@ -49,6 +49,7 @@ def arma():
     q = 0;
     finalmod=None;
     dta=parseTimeER(src);
+    time = parse_ymd(dta[len(dta)-1][0]);
     quse=[time]*3;
     for num in range(1, 4):
         usetime = time + timedelta(days=num);
@@ -59,16 +60,20 @@ def arma():
 
     dtf['Date']=pandas.to_datetime(dtf['Date'],format='%Y-%m-%d');
 
-    for i in range(0, 5):
-        for j in range(0, 5):
+    for i in range(2, 3):
+        for j in range(2, 3):
             pt = pm + quick[i];
             qt = qm + quick[j];
-            arma_mod = stsmdts.ARMA(dtf['DateValue'], (pt, qt),dates=dtf['Date']).fit();
-            if arma_mod.aic < mi:
-                mi = arma_mod.aic;
-                p = pt;
-                q = qt;
-                finalmod=arma_mod;
+            try:
+                arma_mod = stsmdts.ARMA(dtf['DateValue'], (pt, qt),dates=dtf['Date']).fit();
+                finalmod = arma_mod;
+                if arma_mod.aic < mi:
+                    mi = arma_mod.aic;
+                    p = pt;
+                    q = qt;
+                    finalmod=arma_mod;
+            except:
+                continue;
     print ('begin')
     print(statsmodels.stats.api.durbin_watson(finalmod.resid.values));#1-d correlation
     array = numpy.array(finalmod.resid.values);

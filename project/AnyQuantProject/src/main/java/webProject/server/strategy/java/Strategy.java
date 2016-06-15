@@ -234,11 +234,9 @@ public class Strategy {
             Process process=Runtime.getRuntime().exec(cmd);
             Scanner key=new Scanner(process.getInputStream());
 
-            process.waitFor(2,TimeUnit.MINUTES);
+            process.waitFor(4,TimeUnit.MINUTES);
 
-            if (process.exitValue()!=0) {
-                return null;
-            }
+
             JsonObject ans=new JsonObject();
             while (!key.nextLine().equalsIgnoreCase("begin")){
 
@@ -253,7 +251,10 @@ public class Strategy {
             JsonObject evalue=new JsonObject();
             int count=0;
             while (!key.nextLine().equalsIgnoreCase("ljungbox")){
-                double x=Double.parseDouble(key.nextLine());
+                String line=key.nextLine();
+                if (line.equalsIgnoreCase("ljungbox"))
+                    break;
+                double x=Double.parseDouble(line);
                 double y=Double.parseDouble(key.nextLine());
                 JsonObject cell=new JsonObject();
                 cell.put("x",x);
