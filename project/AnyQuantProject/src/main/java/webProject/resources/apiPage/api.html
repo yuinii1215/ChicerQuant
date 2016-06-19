@@ -12,11 +12,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- CSS -->
     <link rel="stylesheet" href="../css/preloader.css">
-    <link href="../css/search.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/button.css">
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="css/back.css" rel="stylesheet" type="text/css">
-    <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -33,65 +31,11 @@
 <div class="wrapper">
     <!-- TOP BAR -->
     <div class="top-bar" >
-        <div class="container">
-            <div class="row">
                 <!-- logo -->
-                <div class="col-md-2 logo"  >
-                    <a class="logo"; href="../favoritePage/favoritePage.html" style="color:#fff;">Your stock manager</a>
+                <div align="right" >
+                    <button   class="button  button-block button-inverse button-rounded button-medium"  style="background-color:transparent ;  margin-top: -5px; "onclick=javascript:welcome(); >返回首页</button>
                 </div>
-                <!-- end logo -->
 
-                <div class="col-md-10">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <!-- search box -->
-                            <div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">
-                                <input type="search" id="search" class="form-control" placeholder="enter stockName/stockID here..." class="search-input" value=""/>
-                                <ul id="results" class="search-results"></ul>
-                                <span class="input-group-btn">
-										<button class="btn btn-default" type="button" value="to SingleStockPage" onclick="toSingleStockPage()" ><i class="fa fa-search"></i></button>
-									</span>
-                            </div>
-                            <!-- end search box -->
-                        </div>
-
-                        <div class="col-lg-9">
-                            <div class="top-bar-right">
-                                <!-- responsive menu bar icon -->
-                                <a href="#" class="hidden-md hidden-lg main-nav-toggle"><i class="fa fa-bars"></i></a>
-                                <!-- end responsive menu bar icon -->
-                                <!--          <button type="button" id="start-tour" class="btn btn-link"><i class="fa fa-refresh"></i> Start Tour</button>
-
-                                          <button type="button" id="global-volume" class="btn btn-link btn-global-volume"><i class="fa"></i></button>-->
-                                <!-- logged user and the menu -->
-                                <div class="logged-user">
-                                    <div class="btn-group">
-                                        <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                                            <i id="icon" class="fa fa-user"></i>
-                                            <span class="name" id="name" onclick=javascript:welcome(); >返回首页</span> <span id="tar"  class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu" id="down">
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-power-off"></i>
-                                                    <span class="text" id="logout"  onclick=javascript:Logout();>Logout</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                -
-                                <!-- end logged user and the menu -->
-                            </div>
-                            <!-- /top-bar-right -->
-                        </div>
-                    </div>
-                    <!-- /row -->
-                </div>
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
     </div>
     <!-- /top -->
 
@@ -100,30 +44,124 @@
         <!-- main -->
         <div class="container" >
             <div class="row" >
-                <!-- left sidebar -->
-                <div class="col-md-2 left-sidebar" >
-                    <div class="content">
-                        <div id="treeview-application"></div>
-
-                    </div>
-                </div>
-                <!-- end left sidebar -->
-
-                <!-- content-wrapper -->
-                <div class="col-md-10 content-wrapper">
-                    <div class="row">
-                        <div class="col-lg-11"></div>
-                        <div class="col-lg-1">
-                            <span class='pulse-button' style="margin-right: 5px;"><a href="../communityPage/community.html" style="color: white; text-align: center"></br>社区</a></span>
+                    <div class="container_wrapper" style="margin-top: 2%;">
+                        <div class="col-md-3 col-md-offset-1 col-sm-3 help_nav">
+                                <div class="list-group">
+                                    <a href="#toc_0" class="list-group-item list-group-item-danger">
+                                        股票数据
+                                    </a>
+                                    <a href="#toc_1" class="list-group-item">
+                                        大盘数据
+                                    </a>
+                                    <a href="#toc_2" class="list-group-item">
+                                        图表数据
+                                    </a>
+                                    <a href="#toc_3" class="list-group-item">
+                                        行业数据
+                                    </a>
+                                    <a href="#toc_4" class="list-group-item">
+                                        开放API
+                                    </a>
+                            </div>
                         </div>
+                        <div class="col-md-7 col-md-7 col-sm-7 ">
+                            <h4 id="toc">什么是ChicerQuant</h4>
+
+                        <p><a href="//http:www.cxworks.cn">ChicerQuant</a>是一个高效易用的股票策略学习助手，主要提供用户在线编写量化策略和运行策略等功能，旨在为所有量化爱好者
+                            提供一个具有丰富数据的量化平台，chicerQuant提供了如下几个功能：</p>
+
+                        <ul>
+                            <li>策略：在每个用户独立的环境中，用户可以编写自己的策略并提交到系统运行回测。</li>
+                            <li>社区：所有用户可以在社区中发布、分享自己的策略。</li>
+                            <li>数据：我们提供了策略依赖的数据，目前提供了自2006年来的A股数据，后面如果有需要，我们会加入更多的股票数据。</li>
+                        </ul>
+
+                        <p>输入的股票名均值股票代号</p>
+                        <p>日期格式为xxxx-xx-xx</p>
+                        <P></br></P>
+
+                        <h4 id="toc_0">股票数据</h4>
+                        <ul>
+                        <li>    <code> getStockByNameService(username,name,date) </code>
+                            <p>输入:股票名和日期</p>
+                        <p> 输出: 操作是否成功的信息以及该日该股票的属性--各种表格项信息 </p>
+                            </li>
+
+                        <li>   <code> getStockAmongDateService(name, startdate, enddate) </code>
+                            <p>输入: 股票名和日期区间 </p>
+                        <p> 输出: 操作是否成功的信息以及该日区间内的每日该股票的属性--各种表格项信息 </p>
+                            </li>
+
+
+                        <li>  <code> getAllStocksService() </code>
+                            <p>输入: 无</p>
+                        <p> 输出: 当日所有股票属性--各种表格项信息 </p>
+                            </li>
+
+                        <li> <code> getAllStockNamesService() </code>
+                            <p>输入:无</p>
+                        <p> 输出:得到所有的股票名 </p>
+                            </li>
+                        </ul>
+                        <P></br></P>
+                        <h4 id="toc_1">大盘数据</h4>
+                        <ul>
+                            <li> <code>    getBenchMarkByNameService(name, date)</code><p>  输入: 大盘名和日期</p>
+                           <p> 输出: 操作是否成功的信息以及该日该大盘的属性--各种表格项信息</p>
+                          </li>
+                            <li> <code>getBenchMarkAmongDateService(name, startdate, enddate)</code>
+                                <p>   输入: 大盘名和日期区间</p>
+                                <p> 输出: 操作是否成功的信息以及该区间内每日该大盘的属性--各种表格项信息</p>
+                          </li>
+                        </ul>
+                        <P></br></P>
+                        <h4 id="toc_2">图表数据</h4>
+                        <ul>
+                            <li> <code>   getDayLineService(name, startdate, enddate)</code><p>输入: 股票名或大盘名和日期区间</p>
+                           <p> 输出: 操作是否成功的信息以及该区间内每日该股票的图表有关数据信息</p>
+                                </li>
+                            <li> <code> getWeekLineService(name, startdate,enddate)</code><p>  输入: 股票名或大盘名和日期区间</p><p>
+                                     输出: 操作是否成功的信息以及该区间内该股票每周一的图表有关数据信息</p>
+                            </li>
+
+
+                            <li> <code>  getMonthLineService(name, startdate, enddate)</code>
+                            <p>输入: 股票名或大盘名和日期区间</p>
+                            <p>输出: 操作是否成功的信息以及该区间内该股票每月第一天的图表有关数据信息</p>
+                            </li>
+
+                            <li> <code>  getPolyAmongDateService(name, startdate, enddate)</code></li>
+
+                        </ul>
+                        <P></br></P>
+                        <h4 id="toc_3">行业数据</h4>
+                        <ul>
+                            <li> <code>   getAllIndustriesService()  </code><p>输入: 无</p>
+                              <p> 输出: 操作是否成功的信息以及所有行业的名称</p>
+                            </li>
+                            <li> <code>   getStocksByIndustryService(industry_name) </code><p>   输入: 行业名称</p>
+                           <p>输出: 操作是否成功的信息以及该行业的所有股票名(最新)</p>
+                            </li>
+                            <li> <code>    getIndustryService(industry_name,date)</code><p>  输入: 行业名称和日期</p>
+                           <p> 输出: 操作是否成功的信息以及该日该行业的所有属性--表格项信息</p>
+                            </li>
+                        </ul>
+                        <P></br></P>
+                        <h4 id="toc_4">开放API</h4>
+                        <ul>
+                            特别鸣谢：
+                            <P><a href="//www.anyquant.net">http://www.anyquant.net</a></P>
+                            <P><a href="//app.wmcloud.com/open/dashboard?lang=zh">https://app.wmcloud.com/open/dashboard?lang=zh</a></P>
+                           <P> <a href="//www.juhe.cn">https://www.juhe.cn</a></P>
+
+                        </ul>
                     </div>
 
-                <!-- /content-wrapper -->
-                </div>
-            <!-- /row -->
+                    </div>
             </div>
-        <!-- /container -->
+            <!-- /row -->
         </div>
+        <!-- /container -->
     <!-- END BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
     </div>
 </div>
@@ -143,67 +181,13 @@
 </footer>
 <!-- END FOOTER -->
 
-<!-- STYLE SWITCHER -->
-<div class="del-style-switcher">
-    <div class="del-switcher-toggle toggle-hide"></div>
-    <form>
-        <section class="del-section del-section-skin">
-            <h5 class="del-switcher-header">Choose Skins:</h5>
-
-            <ul>
-                <li><a href="#" title="Slate Gray" class="switch-skin slategray" data-skin="css/skin/slategray.css">Slate Gray</a></li>
-                <li><a href="#" title="Dark Blue" class="switch-skin darkblue" data-skin="css/skin/darkblue.css">Dark Blue</a></li>
-                <li><a href="#" title="Dark Brown" class="switch-skin darkbrown" data-skin="css/skin/darkbrown.css">Dark Brown</a></li>
-                <li><a href="#" title="Light Green" class="switch-skin lightgreen" data-skin="css/skin/lightgreen.css">Light Green</a></li>
-                <li><a href="#" title="Orange" class="switch-skin orange" data-skin="css/skin/orange.css">Orange</a></li>
-                <li><a href="#" title="Red" class="switch-skin red" data-skin="css/skin/red.css">Red</a></li>
-                <li><a href="#" title="Teal" class="switch-skin teal" data-skin="css/skin/teal.css">Teal</a></li>
-                <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="css/skin/yellow.css">Yellow</a></li>
-            </ul>
-            <div id="transparent-control"></div>
-             <button type="button" class="switch-skin-full fulldark" data-skin="css/skin/fulldark.css">Full Dark</button>
-            <button type="button" class="switch-skin-full fullbright" data-skin="css/skin/fullbright.css">Full Bright</button>
-        </section>
-        <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
-        <p><a href="../homePage/home.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
-    </form>
-    <script type="text/javascript">
-        var currentFilename = window.location.pathname.split('/').pop();
-        if( currentFilename == '' ) currentFilename = 'home.html';
-
-        var arrHasTransparent = ['index.html', 'index-dashboard-v2.html', 'charts-statistics-interactive.html', 'charts-statistics-real-time.html',
-            'charts-statistics.html', 'components-maps.html', 'components-tree-view.html', 'page-file-manager.html'
-        ];
-
-        var hasTransparent = false;
-
-        arrHasTransparent.forEach(function(filename) {
-            if( filename == currentFilename ) {
-                hasTransparent = true;
-                return;
-            }
-        });
-
-        if( hasTransparent ) {
-            document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
-        } else {
-            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="css/skin/transparent.css">Transparent</button>';
-        }
-    </script>
-</div>
-<!-- END STYLE SWITCHER -->
-
-
 <!-- Javascript -->
 <script src="../js/jquery/jquery.min.js"></script>
 <script src="../js/bootstrap/bootstrap.js"></script>
-<script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
-<script src="../js/king-common.js"></script>
-<script src="../js/deliswitch.js"></script>
-<script src="../js/plugins/modernizr/modernizr.js"></script>
 <script src="../js/zerif.js"></script>
-<script src="../js/tree/jstree.js"></script>
-<script src="../js/king-components.js"></script>
+<script src="../js/smoothscroll.js"></script>
+<script src="../js/wow.min.js"></script>
+<script src="../js/button.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html >
+<html style="width:100%;">
 
 <head>
     <meta charset="UTF-8">
@@ -42,8 +42,8 @@
                     <!-- TOP BAR -->
                 <!--<a id="log_reg_btn" class="btn"> <button   style="marginRight:10px" class="button  button-block button-inverse button-rounded button-jumbo"  onclick=javascript:enterLog_Reg()   >登录/注册</button></a>-->
 
-
                 <div align="right" id="log" ng-app="DateApp" ng-controller="dateCtrl">
+                    <button id="api_button"  class="button  button-block button-inverse button-rounded button-medium"  style="background-color:transparent ;  margin-top: -5px; " onclick="goToAPIPage()" >API文档</button>
                     <button id="sign_button"  class="button  button-block button-inverse button-rounded button-medium"  style="background-color:transparent ;  margin-top: -5px;"  >登录/注册</button>
                 </div>
 
@@ -381,7 +381,7 @@
                                 </div>
                             </div> <!-- / END COLUMN -->
 
-                            <div class="col-lg-1 col-sm-1"></div>
+                            <div class="col-lg-2 col-sm-2"></div>
 
                             <div class="col-lg-5 col-sm-5">
                                 <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
