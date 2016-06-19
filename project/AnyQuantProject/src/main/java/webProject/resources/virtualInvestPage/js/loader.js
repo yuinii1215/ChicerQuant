@@ -88,7 +88,6 @@ window.onload=function() {
 
     share_button2.onclick=function() {
         var str_Name=document.getElementById("strName").value;
-
         chartflag=2;
         var temp=[];
         temp[0]=document.getElementById("pt_bias");
@@ -121,6 +120,7 @@ window.onload=function() {
                 $scope.saveCrossStr(str_Name);
                 $scope.showAllStr();
             } else if (chartflag == 2) {
+                console.log("chartflag2!!!");
                 $scope.saveCustomerStr(str_Name);
                 $scope.showAllStr();
 

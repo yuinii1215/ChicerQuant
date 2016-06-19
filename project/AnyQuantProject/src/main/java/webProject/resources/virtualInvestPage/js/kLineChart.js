@@ -381,13 +381,13 @@ function newStrategy(){
             y:'top'
         },
         legend: {
-            orient: 'horizontal',
-            x: 'center',
-            y: 40,
-            data: ['买入次数','卖出次数'],
-            textStyle:{
-                color:"#ffffff",
-            }
+            orient: 'vertical',
+            x: 10,
+            y: 20,
+            textStyle: {
+                color: "#ffffff"
+            },
+            data: ['买入次数','卖出次数']
         },
         series : [
             {
@@ -736,7 +736,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
             },
             legend: {
                 orient: 'vertical',
-                x: 0,
+                x: 50,
                 y: 100,
                 textStyle: {
                     color: "#ffffff"
@@ -784,7 +784,7 @@ function multiPredictTriggered(){//假定是kdj和rsi
             },
             legend: {
                 orient: 'vertical',
-                x: 0,
+                x: 50,
                 y: 100,
                 textStyle: {
                     color: "#ffffff"
