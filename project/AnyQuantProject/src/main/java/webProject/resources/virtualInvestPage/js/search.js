@@ -193,6 +193,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     }
 
     $scope.saveCustomerStr=function(newStrName){
+
         newStr_Name=newStrName;
         $http.post($scope.url, {
             "username": localStorage.userName,
@@ -203,6 +204,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "share":0,
             "method": "saveCustomStrategyService"
         }).success(function (data, status) {
+            console.log("save customer success");
             var tmp=data;
             if(tmp.operation=="success"){
                 if(tmp.duplicate==true){//提示重新命名
@@ -221,6 +223,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     }
 
     $scope.shareCrossStr=function(newStrName){
+        console.log("testing sharing!!!!!!");
         var crossStrName="";
         var new_cnt=0;
         for(var item=0;item<4;item++){
@@ -247,7 +250,8 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "share":1,
             "method": "saveCrossStrategyService"
         }).success(function (data, status) {
-             console.log("share cross success");
+             // console.log("share cross success");
+            swal("分享成功!"+"\n"+"去Chicer策略社区看看吧^_^");
 
         })
             .error(function (data, status) {
@@ -256,6 +260,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             });
     }
     $scope.shareCustomerStr=function(newStrName){
+        console.log("testing sharing!!!!!!");
         newStr_Name=newStrName;
         $http.post($scope.url, {
             "username": localStorage.userName,
@@ -266,7 +271,8 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "share":1,
             "method": "saveCustomStrategyService"
         }).success(function (data, status) {
-            console.log("share cust success");
+            // console.log("share cust success");
+            swal("分享成功!"+"\n"+"去Chicer策略社区看看吧^_^");
         })
             .error(function (data, status) {
                 $scope.data = data || "Request failed";

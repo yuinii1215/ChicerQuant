@@ -34,16 +34,20 @@ public class Turnover {
 
         try {
 //            System.out.println("turnovervalue"+ getTurnOverValue("sh600216"));
-            getChinaInterests(CalendarHelper.getMonthStart(Calendar.getInstance()),Calendar.getInstance());
+            System.out.println(getChinaInterests());
         } catch (NetFailedException e) {
             System.out.println("i'll handle it");
         }
     }
 
-    public static void getChinaInterests(Calendar start, Calendar end) throws NetFailedException{
-        String startday = "20150102";
-        String endday = "20150301";
+    public static double getChinaInterests() throws NetFailedException{
+        double interests = 0;
+        String startday = "20120102";
+//        String endday = "20150301";
+        Calendar today = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
 
+        String endday = sdf.format(today.getTime());
 
         String url = "https://api.wmcloud.com:443/data/v1/api/macro/getChinaDataInterestRateLendingDeposit.json?field=dataValue,unit&indicID=M120000004&indicName=&beginDate="+startday+"&endDate="+endday;
         HttpGet httpGet = new HttpGet(url);
@@ -59,7 +63,15 @@ public class Turnover {
         } catch (IOException e) {
             throw new NetFailedException("TL net connect failed");
         }
-
+        //解析json格式的数据得到最新的利率
+        JSONObject jo = JSONObject.fromObject(body);
+        JSONArray arr = JSONArray.fromObject(jo.get("data"));
+        if (! arr.get(0).getClass().equals(net.sf.json.JSONNull.class)) {
+            String datavalue =  ((JSONObject) arr.get(0)).get("dataValue").toString();
+            interests = Double.parseDouble(datavalue);
+            interests = interests/100;
+        }
+        return interests;
     }
 
     public static String getShares(String name) throws NetFailedException {

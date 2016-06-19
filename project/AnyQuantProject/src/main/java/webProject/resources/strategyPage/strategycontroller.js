@@ -13,15 +13,16 @@ app.controller("strategycontroller",function($scope,$http){
     var day=nowDate.getDate();
 
     if (stockid==undefined) {
-      stockid='sh600315';
-      $scope.stockid='sh600315'
+      stockid='sh600597';
+      $scope.stockid='sh600597'
     }
-    var startdate='startdate='+year+'-'+(month-2)+'-'+day;
+    var startdate='startdate='+year+'-'+(month-2)+'-'+'1';
     var enddate='enddate='+year+'-'+month+'-'+day;
     var name='name='+$scope.stockid;
     ER(name,startdate,enddate);
     NormalTest(name,startdate,enddate);
     Risk(name,startdate,enddate);
+    CRUM(name,startdate,enddate);
   };
 
   $scope.timechange=function(){
@@ -32,19 +33,132 @@ app.controller("strategycontroller",function($scope,$http){
     var day=nowDate.getDate();
 
     if (stockid==undefined) {
-      stockid='sh600315';
-      $scope.stockid='sh600315'
+      stockid='sh600597';
+      $scope.stockid='sh600597'
     }
-    var startdate='startdate='+year+'-'+(month-2)+'-'+day;
+    var startdate='startdate='+year+'-'+(month-2)+'-'+'1';
     var enddate='enddate='+year+'-'+month+'-'+day;
     var name='name='+$scope.stockid;
     ER_time(name,startdate,enddate);
     acfpacf(name,startdate,enddate);
     balanceTest(name,startdate,enddate);
     finalPredict(name,startdate,enddate);
+
   }
 
   $scope.change();
+
+
+  function CRUM(name,startdate,enddate) {
+    var url='http://115.159.106.212/strategy/getCRUM?';
+    url=url+name+'&'+startdate+'&'+enddate;
+    $http.get(url).success(function(response,status){
+      var k=Number(response['k']);
+      var b=Number(response['b']);
+      var point=response['point'];
+      $scope.crum_a=(b*100).toFixed(2);
+      //
+      var crumpoint=[];
+      var min=100;
+      var max=-100;
+      for (var obj in point) {
+        var cell=[];
+        var x=Number(point[obj]['x']);
+        if (x<min) {
+          min=x;
+        }
+        if (x>max) {
+          max=x;
+        }
+        cell.push(x);
+        cell.push(Number(point[obj]['y']));
+        crumpoint.push(cell);
+      }
+      var minpoint=[min,k*min+b];
+      var maxpoint=[max,k*max+b];
+      var markLineOpt = {
+    animation: true,
+    label: {
+        normal: {
+            formatter: 'y = '+k+' * x + '+b,
+            textStyle: {
+                align: 'right'
+            }
+        }
+    },
+    lineStyle: {
+        normal: {
+            type: 'solid'
+        }
+    },
+    tooltip: {
+        formatter: 'y = '+k+' * x + '+b
+    },
+    data: [[{
+        coord: minpoint,
+        symbol: 'none'
+    }, {
+        coord: maxpoint,
+        symbol: 'none'
+    }]]
+};
+      var crumopt={
+        title : {
+          text: $scope.stockid+" CRUM预测图",
+          subtext: 'powered by chicer'
+        },
+        legend: {
+          data: ['CRUM point'],
+          left: 'right'
+        },
+        tooltip : {
+        trigger: 'axis',
+        showDelay : 5,
+
+        axisPointer:{
+            show: true,
+            type : 'cross',
+            lineStyle: {
+                type : 'dashed',
+                width : 1
+            }
+        }
+      },
+        xAxis : [
+        {
+            type : 'value',
+            scale:true,
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        }
+        ],
+        yAxis : [
+        {
+            type : 'value',
+            scale:true,
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        }
+        ],
+        series:[
+          {
+            name:'CRUM point',
+            type:'scatter',
+            data:crumpoint,
+            markLine:markLineOpt
+          }
+        ]
+      };
+      var crumchart=echarts.init(document.getElementById('CRUM'));
+      crumchart.setOption(crumopt);
+    });
+  }
 
   function finalPredict(name,startdate,enddate) {
     var url='http://localhost:8020/strategy/getARMA?';
@@ -196,7 +310,7 @@ app.controller("strategycontroller",function($scope,$http){
       for (var obj in ljungbox) {
         lbqx.push(Number(obj)+1);
         if (obj == '0') {
-          lbqy.push(Number(ljungbox[obj])/100);
+          lbqy.push(Number(ljungbox[obj]));
         }else {
           lbqy.push(Number(ljungbox[obj]));
         }
@@ -204,7 +318,7 @@ app.controller("strategycontroller",function($scope,$http){
       }
       var lbqopt={
         title : {
-          text: 'LBQ检验结果图',
+          text: 'LBQ检验结果指数图',
           subtext: 'powered by chicer'
         },
         tooltip : {
@@ -255,7 +369,7 @@ app.controller("strategycontroller",function($scope,$http){
   }
 
   function balanceTest(name,startdate,enddate) {
-    var url='http://localhost:8020/strategy/getBalanceTest?';
+    var url='http://115.159.106.212/strategy/getBalanceTest?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var p=Number(response['p']);
@@ -317,7 +431,7 @@ app.controller("strategycontroller",function($scope,$http){
   }
 
   function acfpacf(name,startdate,enddate) {
-    var url='http://localhost:8020/strategy/getRelate?';
+    var url='http://115.159.106.212/strategy/getRelate?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var p_value=response['p_value'];
@@ -631,7 +745,7 @@ app.controller("strategycontroller",function($scope,$http){
     var option={
       title: {
           left: 'center',
-          text: 'Earned Value Chart',
+          text: '单日连续复利图',
       },
       legend: {
           top: 'bottom',

@@ -56,6 +56,10 @@ public class StrategyHandler implements Handler<RoutingContext>{
                     JsonObject ansAR=Adapter.getARMA(id,start,end);
                     response.write(ansAR.encode()).end();
                     break;
+                case "getCRUM":
+                    JsonObject ansCR=Adapter.getCRUM(id,start,end);
+                    response.write(ansCR.encode()).end();
+                    break;
                 default:
                     routingContext.fail(400);
             }

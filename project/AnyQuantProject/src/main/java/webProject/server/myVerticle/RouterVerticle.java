@@ -3,6 +3,7 @@ package webProject.server.myVerticle;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 
+import io.vertx.core.buffer.Buffer;
 import org.apache.commons.io.IOUtils;
 
 import io.vertx.core.AbstractVerticle;
@@ -48,9 +49,9 @@ public class RouterVerticle extends AbstractVerticle {
         homeRouter.route("/strategy/:func").blockingHandler(new StrategyHandler());
 		homeRouter.route().handler(rt->{
 			try {
-				String html=IOUtils.toString(new BufferedInputStream(Resources.class.getResourceAsStream("welcome.html")));
+				byte[] html=IOUtils.toByteArray(Resources.class.getResourceAsStream("welcome.html"));
 				rt.response().setChunked(true);
-				rt.response().putHeader("content-type", "text/html").write(html).end();
+				rt.response().putHeader("content-type", "text/html").write(Buffer.buffer(html)).end();
 			} catch (IOException|NullPointerException e) {
 				rt.response().setChunked(true);
 				rt.response().end("resources unavaliable");
