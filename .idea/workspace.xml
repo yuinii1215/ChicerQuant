@@ -2,322 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a0f1cbb-a136-4048-b0a8-9dd38b046752" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/apiPage/api.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/angular.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/bar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/chord.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/eventRiver.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/force.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/funnel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/gauge.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/heatmap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/k.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/line.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/map.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/pie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/radar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/scatter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/tree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/treemap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/venn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/chart/wordCloud.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/echarts-all.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/dist/echarts.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/echarts-optimize-conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/bar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/chord.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/eventRiver.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/force.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/funnel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/gauge.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/heatmap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/k.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/line.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/map.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/pie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/radar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/scatter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/tree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/treemap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/venn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/chart/wordCloud.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/echarts-all.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/build/source/echarts.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/css/curtain.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/API.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/FAQ.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/NEWS.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/PLUGINS.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/ajax/data-eu-gdp-growth-1.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/ajax/data-eu-gdp-growth-2.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/ajax/data-eu-gdp-growth-3.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/ajax/data-eu-gdp-growth-4.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/ajax/data-eu-gdp-growth-5.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/ajax/data-eu-gdp-growth.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/ajax/data-japan-gdp-growth.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/ajax/data-usa-gdp-growth.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/ajax/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/annotating/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-interacting/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-multiple/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/date.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/africa" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/antarctica" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/asia" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/australasia" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/backward" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/etcetera" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/europe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/factory" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/iso3166.tab" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/leapseconds" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/northamerica" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/pacificnew" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/solar87" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/solar88" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/solar89" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/southamerica" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/systemv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/yearistype.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time-zones/tz/zone.tab" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/axes-time/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/background.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/basic-options/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/basic-usage/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/canvas/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/categories/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/examples.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/image/hs-2004-27-a-large-web.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/image/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/interacting/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/navigate/arrow-down.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/navigate/arrow-left.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/navigate/arrow-right.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/navigate/arrow-up.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/navigate/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/percentiles/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/realtime/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/resize/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/selection/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/series-errorbars/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/series-pie/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/series-toggle/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/series-types/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/shared/jquery-ui/jquery-ui.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/shared/jquery-ui/jquery-ui.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/stacking/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/symbols/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/threshold/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/tracking/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/visitors/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/examples/zooming/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/excanvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/excanvas.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.colorhelpers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.colorhelpers.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.canvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.canvas.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.categories.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.categories.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.crosshair.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.crosshair.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.errorbars.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.errorbars.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.fillbetween.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.fillbetween.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.image.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.image.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.navigate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.navigate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.pie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.pie.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.resize.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.resize.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.selection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.selection.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.stack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.stack.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.symbol.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.symbol.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.threshold.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.threshold.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.time.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.flot.time.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/flot/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/external/jquery/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-bg_flat_10_000000_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-icons_228ef1_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-icons_ef8c08_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-icons_ffd27a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/images/ui-icons_ffffff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/jquery-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/jquery-ui.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/jquery-ui.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/jquery-ui.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/jquery-ui.structure.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/jquery-ui.structure.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/jquery-ui.theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jquery-ui-1.11.4/jquery-ui.theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/build/doctool.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/build/lib/markdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/dist/jstat.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/dist/jstat.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/assets/sh.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/assets/sh_javascript.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/assets/sh_main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/assets/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/assets/template.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/md/_toc.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/md/all.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/md/core.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/md/distributions.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/md/index.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/md/linear-algebra.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/md/overview.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/md/special-functions.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/md/test.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/doc/md/vector.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/src/core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/src/distribution.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/src/linearalgebra.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/src/regression.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/src/special.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/src/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/src/vector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/alter-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/antidiag-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/clear-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/col-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/cols-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/create-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/diag-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/dimensions-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/extend-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/identity-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/jstat-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/map-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/ones-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/rand-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/row-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/rows-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/seq-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/symmetric-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/transpose-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/utils-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/core/zeros-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/beta-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/binomial-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/cauchy-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/central-f-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/chisquare-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/gamma-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/hypergeometric-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/inverse-gamma-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/kumaraswamy-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/laplace-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/lognormal-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/neg-bin-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/noncentralt-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/normal-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/pareto-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/poisson-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/student-t-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/triangular-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/uniform-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/distribution/weibull-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/env.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/abs-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/add-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/angle-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/aug-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/det-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/divide-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/dot-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/exp-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/gauss-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/inv-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/log-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/multiply-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/norm-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/pow-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/linearalgebra/subtract-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/special/gammafn-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/special/gammap-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/special/lowRegGamma-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/template.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/test/differenceOfProportions-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/test/ztest-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/coeffvar-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/corrcoeff-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/covariance-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/cumprod-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/cumsum-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/deviation-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/diff-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/geomean-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/histogram-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/kurtosis-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/max-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/mean-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/meandev-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/meansqerr-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/meddev-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/median-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/min-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/mode-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/percentile-of-score-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/percentile-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/product-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/quantiles-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/quartiles-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/range-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/rank-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/skewness-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/spearman-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/stdev-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/sum-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/sumrow-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/sumsqerr-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/sumsqrd-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/unique-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/dependence/jstat-master/test/vector/variance-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/jquery-1.8.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/kLine.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/kLineChart.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockUI/search.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/需求说明/迭代三需求规格说明文档.docx" afterPath="$PROJECT_DIR$/doc/需求说明/迭代三需求规格说明文档.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/communityPage/community.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/communityPage/community.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/js/king-components.js" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/js/king-components.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
     </list>
     <ignored path="AnyQuant_Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -387,12 +73,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="community.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="community.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/communityPage/community.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15594542">
-              <caret line="121" column="37" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+            <state vertical-scroll-proportion="-2.7586207">
+              <caret line="119" column="30" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="allIndustryShowPage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.9743589">
+              <caret line="234" column="79" selection-start-line="234" selection-start-column="78" selection-end-line="234" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="allStockShowPage.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.073275864">
+              <caret line="203" column="46" selection-start-line="203" selection-start-column="46" selection-end-line="203" selection-end-column="46" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -449,9 +157,7 @@
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/js/login.js" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/js/tree/jstree.js" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/virtualInvestPage/virtualInvestPage.html" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/communityPage/community.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleStockPage/singleStockPage.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/js/eachIndustryTable.js" />
@@ -459,6 +165,8 @@
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/apiPage/api.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/js/king-components.js" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/homePage/test.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/communityPage/community.html" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html" />
       </list>
     </option>
   </component>
@@ -1794,14 +1502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.038986355">
-          <caret line="171" column="172" selection-start-line="171" selection-start-column="172" selection-end-line="171" selection-end-column="172" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/favoritePage/js/initMyFavorTable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1861,14 +1561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8924949">
           <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="56.551723">
-          <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -1975,9 +1667,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/communityPage/community.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15594542">
-          <caret line="121" column="37" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+        <state vertical-scroll-proportion="-2.7586207">
+          <caret line="119" column="30" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allIndustryShowPage/allIndustryShowPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9743589">
+          <caret line="234" column="79" selection-start-line="234" selection-start-column="78" selection-end-line="234" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/allStockShowPage/allStockShowPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.073275864">
+          <caret line="203" column="46" selection-start-line="203" selection-start-column="46" selection-end-line="203" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
