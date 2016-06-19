@@ -42,7 +42,7 @@ function welcome(){
         localStorage.userName="";
         window.location.href="../welcome.html";
     }else{
-
+        window.location.href="../welcome.html";
     }
 }
 function Logout(){

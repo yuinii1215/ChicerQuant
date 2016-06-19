@@ -1,14 +1,12 @@
 var app=angular.module('myApp',[]);
 app.controller("SearchCtrl", function($scope, $http, MyCache) {
     $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
-
-    // $scope.test=function() {
+    
         $http.post($scope.url, {
             "method": "getShareStrategyService"
         }).success(function (data, status) {
             var temp = data;
-            // $scope.usrmessages=data;
-            //$scope.usrmessages-{username, type, buy}
+            console.log(temp);
             var tmp=data;
             var str_cnt=0;
             $scope.usrmessages=[];
@@ -21,8 +19,8 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                             "userName": tmp[item].username,
                             "strName": tmp[item].strategyname,
                             "strType": tmp[item].strategytype,
-                            "buypoint": tmp[item].buypoint,
-                            "sellpoint": tmp[item].sellpoint
+                            "buypoint": tmp[item].buypoint+"%",
+                            "sellpoint": tmp[item].sellpoint+"%"
                         };
                     } else {
                         $scope.usrmessages[str_cnt++] = {
