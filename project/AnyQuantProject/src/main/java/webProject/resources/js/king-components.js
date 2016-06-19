@@ -1,6 +1,3 @@
-/**
- *
- */
 $(document).ready(function(){
 
     if( $('body').hasClass('comp-wizard') ) {
@@ -705,4 +702,3 @@ $(document).ready(function(){
     }
 
 }); // end ready function
-

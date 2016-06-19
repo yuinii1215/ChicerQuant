@@ -14873,7 +14873,8 @@ input {
 /*------------------------------------------------*/
 .top-bar {
     padding: 5px 0;
-    background-color: #555;
+    height:40px;
+    background: rgba(0, 0, 0, 0.5);
 }
 .top-bar .logo {
     position: relative;

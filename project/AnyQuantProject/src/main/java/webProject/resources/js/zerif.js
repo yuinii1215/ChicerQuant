@@ -49,3 +49,7 @@ function Logout(){
     localStorage.userName="";
     window.location.href="../welcome.html";
 }
+
+function goToAPIPage(){
+    window.location.href="apiPage/api.html";
+}
