@@ -68,7 +68,9 @@ window.onload=function() {
     }
 
     share_button1.onclick=function() {
-         var str_Name=document.getElementById("strName").value;
+         var str_Name;
+        // =document.getElementById("strName").value;
+        str_Name=generateMixed(10);
          KType=['','','',''];
         chartflag=1;
         var selectContent=document.getElementById("selecter").options;
@@ -87,7 +89,9 @@ window.onload=function() {
     }
 
     share_button2.onclick=function() {
-        var str_Name=document.getElementById("strName").value;
+         var str_Name;
+        // =document.getElementById("strName").value;
+        str_Name=generateMixed(10);
         chartflag=2;
         var temp=[];
         temp[0]=document.getElementById("pt_bias");
@@ -129,5 +133,13 @@ window.onload=function() {
     }
 }
 
-
+var chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+function generateMixed(n) {
+    var res = "";
+    for(var i = 0; i < n ; i ++) {
+        var id = Math.ceil(Math.random()*35);
+        res += chars[id];
+    }
+    return res;
+}
 

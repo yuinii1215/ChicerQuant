@@ -382,7 +382,7 @@ function newStrategy(){
         },
         legend: {
             orient: 'vertical',
-            x: 10,
+            x: 60,
             y: 20,
             textStyle: {
                 color: "#ffffff"

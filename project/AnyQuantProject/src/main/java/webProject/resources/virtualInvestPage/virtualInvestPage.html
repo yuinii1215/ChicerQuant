@@ -212,7 +212,8 @@
 
                                     <div class="cust_search" style="margin-top: 3%;">
                                         <input width="80%" id="newStock" placeholder="Search here...">
-                                        <button ng-click="changeStock()"><a href="javascript:sleep(1000,'#secondWindow')" style="color:white">Search</a></button>
+                                        <!--<button ng-click="changeStock()"><a href="javascript:sleep(1000,'#secondWindow')" style="color:white">搜索</a></button>-->
+                                        <a href="javascript:sleep(1000,'#secondWindow')" style="color:white"><button ng-click="changeStock()">搜索</button></a>
                                     </div>
 
                                     <a href="javascript:sleep(1000,'#secondWindow')">
@@ -457,7 +458,7 @@
                                                         <h4 align="center">自定义买卖点</h4>
                                                     <table>
                                                         <tr>
-                                                            <td width="10%"></td>
+                                                            <td width="20%"></td>
                                                             <td>
                                                             <label>买入点(日涨幅: 如10%)</label>
                                                         <!--<input style="height: 45px; " id="buyStd" value=""/>-->
@@ -470,7 +471,7 @@
                                                             <td  width="10%"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td width="10%"></td>
+                                                            <td width="20%"></td>
                                                             <td>
                                                                 <!--<label>买入点(日涨幅: 格式如10%)</label>-->
                                                                 <input style="height: 45px; " id="buyStd" value=""/><label for="sellStd">%</label>
@@ -479,7 +480,7 @@
                                                             <td width="10%"></td>
                                                             <td>
                                                                 <!--<label>卖出点(日跌幅: 格式如-10%)</label>-->
-                                                                <input value=""  id="sellStd" style="height: 45px; "/><label for="buyStd">%</label>
+                                                                <input value=""  id="sellStd" style="height: 45px"/><label for="buyStd">%</label>
 
                                                             </td>
                                                             <td  width="10%"></td>
@@ -525,8 +526,8 @@
                                                        <tr ng-repeat="x in strManager">
                                                            <td class="mytd">{{ x.strName }}</td>
                                                            <td class="mytd">{{ x.strType }}</td>
-                                                           <td class="mytd">{{ x.buypoint }}</td>
-                                                           <td class="mytd">{{ x.sellpoint }}</td>
+                                                           <td class="mytd">{{ x.buypoint}}</td>
+                                                           <td class="mytd">{{ x.sellpoint}}</td>
                                                        </tr>
                                                        </tbody>
                                                    </table>
@@ -547,7 +548,7 @@
                                            </div>
                                        </div>
                                        <div class="widget-content" style="background-color: #383838">
-                                           <h3 align="center"><font size="5px" color="#956A3D">多因素方差分析样本及指标说明</font></h3>
+                                           <h3 align="center"><font size="5px" color="#956A3D">多因素方差分析盈利分布图</font></h3>
                                            <div id="g-holder">
                                                <div id="canvasDiv">
                                                    <canvas id="graph" width="400" height="400"></canvas>

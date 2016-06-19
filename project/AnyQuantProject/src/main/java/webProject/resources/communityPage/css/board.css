@@ -14,7 +14,8 @@ section {
     /*background-image: url("http://mammothmedia.tv/admin/wp-content/uploads/2013/07/Water-Background-medium-Gradient.jpg");*/
     border-radius: 10px;
     padding: 10px 15px 20px 15px;
-    height: 90%;
+    height: 700px;
+    overflow-y: auto;
 }
 
 .chat ul {
