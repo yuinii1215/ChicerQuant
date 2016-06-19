@@ -266,7 +266,10 @@ public class Strategy {
                 if (line.equalsIgnoreCase("ljungbox"))
                     break;
                 double x=Double.parseDouble(line);
-                double y=Double.parseDouble(key.nextLine());
+                line=key.nextLine();
+                if (line.equalsIgnoreCase("ljungbox"))
+                    break;
+                double y=Double.parseDouble(line);
                 JsonObject cell=new JsonObject();
                 cell.put("x",x);
                 cell.put("y",y);
@@ -279,7 +282,8 @@ public class Strategy {
             JsonObject ljungbox=new JsonObject();
             count=0;
             while (!key.nextLine().equalsIgnoreCase("predict")){
-                double te=Double.parseDouble(key.nextLine());
+                String li=key.nextLine();
+                int te=Integer.parseInt(li.split("-")[1]);
                 ljungbox.put(Integer.toString(count),te);
                 count++;
             }
