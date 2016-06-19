@@ -36,7 +36,8 @@ quick = [-2, -1, 0, 1, 2];
 
 def arma():
     t = sys.argv;
-    src=getData(t[1],t[2],t[3]);
+    # 'sh600315','2016-04-01','2016-06-16'
+    src=getData(t[1], t[2], t[3]);
 
 
     data=parseDataForER(src);
@@ -82,7 +83,7 @@ def arma():
     print ('e')
     evalue=QQ(array);
     for k,v in evalue.items():
-        print (k)
+        print (k*100)
         print (v)
     res = stsmdsd.acorr_ljungbox(array,12);
     print ('ljungbox');

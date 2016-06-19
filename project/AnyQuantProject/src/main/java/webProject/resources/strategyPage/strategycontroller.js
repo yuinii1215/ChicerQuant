@@ -13,8 +13,8 @@ app.controller("strategycontroller",function($scope,$http){
     var day=nowDate.getDate();
 
     if (stockid==undefined) {
-      stockid='sh600315';
-      $scope.stockid='sh600315'
+      stockid='sh600597';
+      $scope.stockid='sh600597'
     }
     var startdate='startdate='+year+'-'+(month-2)+'-'+'1';
     var enddate='enddate='+year+'-'+month+'-'+day;
@@ -33,10 +33,10 @@ app.controller("strategycontroller",function($scope,$http){
     var day=nowDate.getDate();
 
     if (stockid==undefined) {
-      stockid='sh600315';
-      $scope.stockid='sh600315'
+      stockid='sh600597';
+      $scope.stockid='sh600597'
     }
-    var startdate='startdate='+year+'-'+(month-2)+'-'+day;
+    var startdate='startdate='+year+'-'+(month-2)+'-'+'1';
     var enddate='enddate='+year+'-'+month+'-'+day;
     var name='name='+$scope.stockid;
     ER_time(name,startdate,enddate);
@@ -161,7 +161,7 @@ app.controller("strategycontroller",function($scope,$http){
   }
 
   function finalPredict(name,startdate,enddate) {
-    var url='http://115.159.106.212/strategy/getARMA?';
+    var url='http://localhost:8020/strategy/getARMA?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var e=response['e'];
@@ -310,7 +310,7 @@ app.controller("strategycontroller",function($scope,$http){
       for (var obj in ljungbox) {
         lbqx.push(Number(obj)+1);
         if (obj == '0') {
-          lbqy.push(Number(ljungbox[obj])/100);
+          lbqy.push(Number(ljungbox[obj]));
         }else {
           lbqy.push(Number(ljungbox[obj]));
         }
@@ -318,7 +318,7 @@ app.controller("strategycontroller",function($scope,$http){
       }
       var lbqopt={
         title : {
-          text: 'LBQ检验结果图',
+          text: 'LBQ检验结果指数图',
           subtext: 'powered by chicer'
         },
         tooltip : {
@@ -745,7 +745,7 @@ app.controller("strategycontroller",function($scope,$http){
     var option={
       title: {
           left: 'center',
-          text: 'Earned Value Chart',
+          text: '单日连续复利图',
       },
       legend: {
           top: 'bottom',
