@@ -957,8 +957,6 @@ input:focus {
  **   SECTION: DataShow_1             -----
 -----------------------------------------*/
 .DataShow_1 {
-    padding-bottom: 120px;
-    padding-top: 100px;
     background: #ececec;
 }
 
@@ -966,8 +964,6 @@ input:focus {
  **   SECTION:  DataShow_2           -----
 -----------------------------------------*/
 .DataShow_2 {
-    padding-bottom: 100px;
-    padding-top: 100px;
     background: #555;
 }
 
@@ -975,8 +971,6 @@ input:focus {
  **   SECTION:  DataShow_2                -----
 -----------------------------------------*/
 .DataShow_3 {
-    padding-bottom: 120px;
-    padding-top: 100px;
     background: #fff;
 }
 
@@ -984,8 +978,6 @@ input:focus {
  **   SECTION:  DataShow_4                -----
 -----------------------------------------*/
 .DataShow_4 {
-    padding-bottom: 120px;
-    padding-top: 100px;
     background: #cecece;
 }
 
@@ -1084,4 +1076,52 @@ footer {
 
 .tip{
     display: none;
+}
+
+.DataShow_1 .illustrate_icon_1{
+    width:355px;
+    height: 380px;
+    margin-top:10px;
+    left:0;
+}
+.DataShow_2 .illustrate_icon_2{
+    width:540px;
+    height: 400px;
+    margin-top:10px;
+    left:0;
+}
+.DataShow_3 .illustrate_icon_3{
+    width:369px;
+    height: 403px;
+    margin-top:-22px;
+    left:0;
+}
+
+.DataShow_4 .illustrate_icon_4{
+    width:359px;
+    height: 340px;
+    margin-top:-22px;
+    left:0;
+}
+
+.DataShow_1 .row,
+.DataShow_2 .row,
+.DataShow_3 .row,
+.DataShow_4 .row{
+    position: relative;
+    padding:1px;
+}
+
+.DataShow_1 .illustrate_text_1{
+    padding-top:60px;
+}
+.DataShow_2 .illustrate_text_2{
+    padding-top:60px;
+    color:#cecece;
+}
+.DataShow_3 .illustrate_text_3{
+    padding-top:60px;
+}
+.DataShow_4 .illustrate_text_4{
+    padding-top:60px;
 }
