@@ -46,13 +46,14 @@ GLOBAL STYLES
     font-family: DFKai-SB;
     font-size: 50px;
     font-weight: 300;
-    color:#cecece;
+    color:#fff;
 }
 #mainBody #basic #main_header_btn {
     margin-top:20px;
     font-family: DFKai-SB;
     font-size: 21px;
     font-weight: 300;
+    color:#fff;
     opacity: 0.8;
     text-align: center;
 }
