@@ -6,8 +6,12 @@ def oneStock(id):
     starttime=datetime(2016,1,1)
     endtime=datetime.now()
     df=getSingleStock(id,starttime,endtime)
+    ema(df)
+    rsi(df)
     bias(df)
-#     print df
+    kdj(df)
+    macd(df)
+    poly(df)
     return
 
 oneStock('sh600000')

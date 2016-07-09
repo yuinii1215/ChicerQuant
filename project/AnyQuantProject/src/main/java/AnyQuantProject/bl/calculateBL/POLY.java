@@ -44,9 +44,6 @@ public class POLY {
 			//d
 			func[i][3]=(m[i+1]-m[i])/6;
 		}
-		//
-		
-		//
 		return func[3][1]*close[4]/100+close[4];
 	}
 }

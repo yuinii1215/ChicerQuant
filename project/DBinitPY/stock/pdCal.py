@@ -1,6 +1,18 @@
 import pandas as pd
 import numpy as np
 import sys
+import talib as ta
+
+def poly_lambda(close):
+    y=[float(0)]*5
+    for i in range(1,4):
+        y[i]=6*(close[i+1]+close[i-1]-2*close[i])
+    m=[float(0)]*5
+    m[2]=y[2]-(y[1]+y[3])/2;
+    m[3]=(y[3]-m[2])/2;
+    f=close[4]-close[3]-float(2)/3*m[3];
+    return f*close[4]/100+close[4]
+    
 
 def rsi_lambda(x):
     le=x.size
@@ -38,7 +50,6 @@ def rsi(df):
     name=['RSI6','RSI12','RSI24']
     for v in range(3):
         df[name[v]]=pd.rolling_apply(df['adj_price'], span[v], rsi_lambda)
-    print df
     return
 
 
@@ -48,8 +59,22 @@ def bias(df):
     for v in range(3):
         ma=pd.rolling_mean(df['adj_price'],span[v])
         df[name[v]]=(df['adj_price']-ma)/ma*100
-        
-    print df
     return
-        
+
+def kdj(df):
+    df['K'],df['D']=ta.STOCH(np.array(df['high']),np.array(df['low']),np.array(df['adj_price']),\
+    fastk_period=9,slowk_period=3,slowk_matype=0,slowd_period=3,slowd_matype=0)
+    df['J']=3*df['K']-2*df['D']
+    return
+
+def macd(df):
+    macd1, macdsignal, macdhist = ta.MACD(df['adj_price'].values, fastperiod=12, slowperiod=26, signalperiod=9)
+    df['DIF']=macd1
+    df['DEA']=macdsignal
+    df['MACDBar']=macdhist
+    return
+
+def poly(df):
+    df['poly']=pd.rolling_apply(df['close'], 5, poly_lambda)
+    return
         
