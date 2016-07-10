@@ -1,6 +1,7 @@
 import requests
 from datetime import timedelta, datetime
 import pandas as pd
+import time
 
 URL="http://121.41.106.89:8010/api/"
 token="2ddaec3a541de9ce9430ad95119655bb"
@@ -17,11 +18,15 @@ def buildfield(start,end):
 def getSingleStock(id,start,end):
     url=URL+'stock/'+id+'/'
     response=requests.get(url=url,params=buildfield(start, end),headers=header)
-    ans=response.json()['data']['trading_info']
-    df=pd.DataFrame(ans)
-    df['date']=pd.DatetimeIndex(df['date'])
-    df.set_index('date', drop=True, inplace=True)
-    return df
+    try:
+        ans=response.json()['data']['trading_info']
+        df=pd.DataFrame(ans)
+        df['date']=pd.DatetimeIndex(df['date'])
+        df.set_index('date', drop=True, inplace=True)
+        return df
+    except :
+        time.sleep(0.05)
+        return getSingleStock(id, start, end)
 
 def getStockList():
     szdic={'year':'2016','exchange':'sz'}

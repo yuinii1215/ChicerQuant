@@ -64,7 +64,9 @@ def bias(df):
 def kdj(df):
     df['K'],df['D']=ta.STOCH(np.array(df['high']),np.array(df['low']),np.array(df['adj_price']),\
     fastk_period=9,slowk_period=3,slowk_matype=0,slowd_period=3,slowd_matype=0)
+    df.fillna(50,inplace=True)
     df['J']=3*df['K']-2*df['D']
+    df.fillna(50,inplace=True)
     return
 
 def macd(df):
