@@ -1,7 +1,7 @@
 from datetime import datetime
 from AnyQuant import getSingleStock, getStockList
 from pdCal import *
-from sql import getCursor
+from sql import getCursor, setPrimaryKey
 from industData import getMap
 import pandas.io.sql as pdsql
 
@@ -17,11 +17,12 @@ def oneStock(id):
     starttime=datetime(2016,1,1)
     endtime=datetime.now()
     df=getSingleStock(id,starttime,endtime)
+    color(df)
     kdj(df)
+    updown(df)
     ema(df)
     rsi(df)
-    bias(df)
-    
+    bias(df)  
     macd(df)
     poly(df)
     df.fillna(0,inplace=True)
@@ -32,10 +33,11 @@ def oneStock(id):
     cols = df.columns.tolist()
     cols = cols[-3:] + cols[:-3]
     df=df[cols]
-#     print df
     [conn,cur]=getCursor()
     pdsql.to_sql(df, id, conn, 'mysql')
+    setPrimaryKey(id)
     return
+
 def init():
     list=getStockList()
     total=len(list)

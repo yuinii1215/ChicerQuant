@@ -12,8 +12,14 @@ def poly_lambda(close):
     m[3]=(y[3]-m[2])/2;
     f=close[4]-close[3]-float(2)/3*m[3];
     return f*close[4]/100+close[4]
-    
 
+def color_lambda(x):
+    if x>0:
+        return 'red'
+    elif x<0:
+        return 'green'
+    else:
+        return 'black'
 def rsi_lambda(x):
     le=x.size
     t=np.cumsum(np.diff(x))
@@ -75,6 +81,14 @@ def macd(df):
     df['DEA']=macdsignal
     df['MACDBar']=macdhist
     return
+
+def updown(df):
+    df['updown']=df['close'].pct_change()
+    return
+
+def color(df):
+    df['color']=(df['close']-df['open']).apply(color_lambda)
+    return 
 
 def poly(df):
     df['poly']=pd.rolling_apply(df['close'], 5, poly_lambda)

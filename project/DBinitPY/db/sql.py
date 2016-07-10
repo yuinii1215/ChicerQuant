@@ -99,3 +99,18 @@ def insertStock(table_name,data):
     cursor.close()
     conn.close()
     return 
+
+def setPrimaryKey(table_name):
+    sql='ALTER TABLE '+table_name+' ADD PRIMARY KEY(`date`);'
+    [conn,cursor]=getCursor()
+    try:
+        cursor.execute(sql)
+        conn.commit()
+    except mdb.Error,e:
+        print "Mysql Error %d: %s" % (e.args[0], e.args[1])
+    finally:
+        cursor.close()
+        conn.close()
+    return 
+        
+    
