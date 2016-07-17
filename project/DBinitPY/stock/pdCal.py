@@ -80,6 +80,7 @@ def macd(df):
     df['DIF']=macd1
     df['DEA']=macdsignal
     df['MACDBar']=macdhist
+    
     return
 
 def updown(df):

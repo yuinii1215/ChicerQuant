@@ -1,1 +1,0 @@
-function tag(a){localStorage.singleIndustryID=a;window.location.href="../singleIndustryPage/singleIndustryPage.html"};
