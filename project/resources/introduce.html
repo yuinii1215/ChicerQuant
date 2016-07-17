@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html style="width:100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CHICER - 股票策略分析平台</title>
+
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- WEBFONT -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/angularjs/angular.min.js"></script>
+
+
+</head>
+<body >
+    <!-- =========================
+    PRE LOADER
+    ============================== -->
+    <div class="preloader">
+        <div class="status">&nbsp;</div>
+    </div>
+
+    <!-- =========================
+    HOME SECTION
+    ============================== -->
+    <div class="pop" id="pop"></div>
+    <header  id="home" class="header">
+
+        <div id="wrap">
+            <!-- =========================
+            HEADER
+            ============================== -->
+
+
+            <!-- =========================
+                MAINBODY
+            ============================== -->
+            <div id="mainBody">
+                <div id="basic">
+                    <div class="container">
+                        <h1 class="intro animated fadeInDown">
+                             股 票 分 析 策 略<br>
+                             Your own stock manager<br>
+                         </h1>
+                        <div class="buttons inpage-scroll animated fadeInDown">
+                            <a class="btn" id="main_header_btn"  > <button class="button button-highlight button-block button-inverse button-rounded button-large" style="padding-top:1px;"  onclick=javascript:backStep(); >项目系统</button></a>
+                        </div>
+                        <div class="animated fadeInDown" style="margin-top:-80px;">
+                            <a href="#" style="color:#fff; font-size: medium" onclick="toGit()"><i class="fa fa-gitlab fa-2x"></i>&nbsp;To our <b>gitlab</b> project</a>
+                        </div>
+                        <div class="row animated fadeInDown"style="margin-top:40px;">
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="short-text">
+                                    <i class="fa fa-bookmark-o"></i><a href="allStockShowPage/allStockShowPage.html" style="color:rgba(255,255,255,0.7);">所有股票数据</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="short-text">
+                                    <i class="fa fa-bookmark-o"></i><a href="allStockShowPage/allStockShowPage.html" style="color:rgba(255,255,255,0.7);"> 所有行业数据</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="short-text">
+                                    <i class="fa fa-bookmark-o"></i><a href="dataAnalysePage/dataAnalysePage.html" style="color:rgba(255,255,255,0.7);"> 策略分析</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================
+                 FOCUS
+              ============================== -->
+                  <section class="focus" id="focus">
+                    <div class="container">
+                        <!-- SECTION HEADER -->
+                        <div class="section-header">
+                            <!-- SECTION TITLE -->
+                            <h2 class="dark-text">OUR FORCE</h2>
+                            <!-- SHORT DESCRIPTION ABOUT THE SECTION-->
+                            <h6>
+                                We design &amp; provide massive outcome to help newcomers &amp; medium or high level business.
+                            </h6>
+                        </div>
+                        <!-- / END SECTION HEADER -->
+
+                        <!-- 4 FOCUS BOXES -->
+                        <div class="row">
+                            <!-- FIRST FOCUS BOXES -->
+                            <div class="col-lg-4 col-sm-4 focus-box red wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.30s">
+                                <a href="allStockShowPage/allStockShowPage.html" style="color:#555">
+                                    <div class="service-icon">
+                                     <i class="fa fa-5x fa-bar-chart-o " style="margin-top:28px; color:#e96656"></i> <!-- FOCUS ICON-->
+                                    </div>
+                                    <h5 class="red-border-bottom">所有股票数据</h5> <!-- FOCUS HEADING -->
+                                </a>
+                                <p> <!-- FOCUS DESCRIPTION -->
+                                    Contains all the basic information of each stock, including the least data contain the opening price,the closing price,the volume, the highest price, the lowest price, etc.<br/>
+                                    Daily, weekly and monthly K-line, moving average, JD K-line, MACD lines, the bias line, RSI data line , volume histogram and recent daily data table  of each stock changes constantly.
+                                </p>
+                            </div>
+                            <!-- / END FIRST FOCUS BOX. Other boxes has same format -->
+                            <div class="col-lg-4 col-sm-4 focus-box green wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.45s">
+                                <a href="allIndustryShowPage/allIndustryShowPage.html" style="color:#555">
+                                    <div class="service-icon">
+                                        <span class="fa fa-5x fa-th-large"  style="margin-top:28px; color:#34d293"></span>
+                                    </div>
+                                    <h5 class="green-border-bottom">所有行业数据</h5>
+                                </a>
+                                <p>
+                                    Contains all the basic information of each industry, including the least data contain the up and down rate, the number of companies included, net, etc.<br/>
+                                    Each industry shows its share of the market share and its detailed information.   </p>
+                            </div>
+
+                           <div class="col-lg-4 col-sm-4 focus-box blue wow fadeInRight animated" href="dataAnalysePage/dataAnalysePage.html"; data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="1.00s">
+                               <a href="dataAnalysePage/dataAnalysePage.html" style="color:#555">
+                                   <div class="service-icon">
+                                        <i class="fa fa-5x fa-file-text-o"  style="margin-top:28px; color:#3ab0e2"></i>
+                                    </div>
+                                    <h5 class="blue-border-bottom" >策略分析</h5>
+                               </a>
+                               <p>
+                                    Provides efficient and simplified tools to verify your investment strategy, including imitation of buy and sell behavious and combination of cross lines strategies</p>
+                            </div>
+<!--
+                            <div class="col-lg-3 col-sm-3 focus-box yellow wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                <div class="service-icon">
+                                    <i class="pixeden pd-icon-check"></i>
+                                </div>
+                                <h5 class="yellow-border-bottom">SEO &amp; SMM</h5>
+                                <p>
+                                    Created cattle form fruit. Saying from given together face without waters, whose. Second first. Face it saw give creature was thing. Over upon is brought. Him you'll above kind set
+                                </p>
+                            </div>
+                -->
+                        </div>
+                        <!-- / END 4 FOCUS BOXES -->
+
+                        <!-- OTHER FOCUSES -->
+                        <div class="other-focuses">
+                            <h5><span class="section-footer-title">ALSO WE FOCUS ON</span></h5>
+                        </div>
+
+                        <!-- OTHER FOCUS LIST -->
+                        <div class="other-focus-list wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.45s">
+                            <ul>
+                                <li><i class="fa  fa-bar-chart-o"></i>单支股票分析</li>
+                                <li><i class="fa  fa-industry"></i>单行业分析</li>
+                                <li><i class="fa  fa-bar-chart-o"></i>大盘分析</li>
+                                <li><i class="fa  fa-wpforms"></i>虚拟运营</li>
+                            </ul>
+                        </div> <!-- / END OTHER FOCUS LIST -->
+                    </div> <!-- / END CONTAINER -->
+                  </section>  <!-- / END FOCUS SECTION -->
+
+                <!-- =========================
+                   STATS
+                ============================== -->
+                <section class="stats">
+                    <div class="container">
+                        <!-- STATS -->
+                        <div class="row">
+                            <!-- START COLUMN -->
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="1.00s">
+                                    <div class="icon-top red-text">
+                                        <i class="fa fa-bar-chart-o"></i>
+                                    </div>
+                                    <div class="stat-text">
+                                        <h3 class="white-text red-border-bottom" >2,377+</h3>
+                                        <h6>Stocks Showing</h6>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+
+                            <!-- START COLUMN -->
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="1.15s">
+                                    <div class="icon-top green-text">
+                                        <i class="fa fa-th-large"></i>
+                                    </div>
+                                    <div class="stat-text">
+                                        <h3 class="white-text green-border-bottom">28+</h3>
+                                        <h6>Industries Showing</h6>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+
+                            <!-- START COLUMN -->
+               <!--             <div class="col-lg-3 col-sm-3">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="2s" data-wow-delay="0.45s">
+                                    <div class="icon-top blue-text">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="stat-text">
+                                        <h3 class="white-text blue-border-bottom">1</h3>
+                                        <h6>Our strategy</h6>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                            <!-- START COLUMN -->
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="2s" data-wow-delay="1.30s">
+                                    <div class="icon-top yellow-text">
+                                        <i class="fa fa-file-text-o"></i>
+                                    </div>
+                                    <div class="stat-text">
+                                        <h3 class="white-text yellow-border-bottom" >infinite</h3>
+                                        <h6>Optional strategies</h6>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                        </div>
+                    </div>
+                </section>  <!-- / END STATS -->
+
+                <!-- =========================
+                      DataShow
+                 ============================== -->
+                <section class="DataShow_1">
+                        <!-- STATS -->
+                    <div class="container">
+                        <div class="row">
+                            <!-- START COLUMN -->
+                            <div class="col-lg-7 col-md-7 col-sm-7" >
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.30s">
+                                    <div class="illustrate_icon_1">
+                                        <img src="img/pic14.png">
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                            <div class="col-lg-5 col-md-5 col-sm-5" >
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.30s">
+                                    <div class ="illustrate_text_1">
+                                        <p>
+                                        <h2>详尽的个股分析</h2>
+                                        <h3>丰富的统计曲线</br>diversified stastical curve</br>实时的热度排行</br>attention degree list</h3>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                        </div>
+                    </div>
+                </section>  <!-- / END STATS -->
+
+                <section class="DataShow_2">
+                    <div class="container">
+                        <!-- STATS -->
+                        <div class="row">
+                            <!-- START COLUMN -->
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.45s">
+                                    <div class ="illustrate_text_2" >
+                                        <h2>行业数据 </br></h2>
+                                        <p>
+                                        <h3>大量的行业展示</br>
+                                            sum of industry showing</br>
+                                            单支行业的详细信息</br>
+                                            detailed information</br>
+                                            行业所占比重&amp; 涨跌情况</br>
+                                            proportion&amp;jump and full
+                                        </h3>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7" >
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="0.45s">
+                                    <div class="illustrate_icon_2" >
+                                        <img src="img/pic42.png">
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                        </div>
+                    </div>
+                </section>  <!-- / END STATS -->
+
+                <section class="DataShow_3">
+                    <div class="container">
+                        <!-- STATS -->
+                        <div class="row">
+                            <!-- START COLUMN -->
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="1.00s">
+                                    <div class="illustrate_icon_3">
+                                        <img src="img/pic03.png">
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="1.00s">
+                                    <div class ="illustrate_text_3">
+                                        <h2>高效的虚拟运营工具</h2>
+                                        <h3>多种策略组合</br>mutiplied combination of strategy</br>方差分析显著性检验</br>varience analysis for efficiency</h3>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                        </div>
+                    </div>
+                </section>  <!-- / END STATS -->
+
+                <section class="DataShow_4">
+                    <div class="container">
+                        <!-- STATS -->
+                        <div class="row">
+                            <!-- START COLUMN -->
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="1.15s">
+                                    <div class ="illustrate_text_4">
+                                        <h2>Chicer策略社区</h2>
+                                        <h3>股票策略社交化</br>stock strategy network</br>策略利率比拼</br>competition of customized strategy</h3>
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                            <div class="col-lg-5  col-md-5 col-sm-5" >
+                                <div class="stat wow fadeInUp animated" data-wow-offset="30" data-wow-duration="1.75s" data-wow-delay="1.15s">
+                                    <div class="illustrate_icon_4">
+                                        <img src="img/pic31.png">
+                                    </div>
+                                </div>
+                            </div> <!-- / END COLUMN -->
+                        </div>
+                    </div>
+                </section>  <!-- / END STATS -->
+            </div>
+
+    <!-- / END HOME SECTION  -->
+            <!-- =========================
+             FOOTER
+            ============================== -->
+            <section class="info fadeInUp animated"  id="info" style="color: #cecece">
+                <button  id="infoDown" style="background-color: transparent; border-color: transparent"><i class="fa fa-angle-down  fa-2x"style="color:#cecece;"></i></button>
+                <p></p>
+                <div class="container">
+                    <div class="row wow" data-wow-offset="40" data-wow-duration="5s" data-wow-delay="0.30s">
+                        <!-- MEMBER -->
+                        <div class="col-lg-3 col-sm-3 fadeInLeft animated">
+                            <div class="team-member">
+                                <figure class="profile-pic">
+                                    <img src="img/ourHeader/cx.gif" alt="" style="height:40px; width:40px;"> <!-- MEMBER PROFILE PIC -->
+                                </figure>
+                                <p></p>
+                                <div class="member-details red-text">
+                                    <h5 class="white-text red-border-bottom">XiangChen</h5>
+                                    <div class="position">
+                                        Founder
+                                    </div>
+                                </div>
+                                <div class="details">
+                                    <p>
+                                        负责文件服务器与策略</br>
+                                        热爱技术，热爱生活
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-3  fadeInLeft animated">
+                            <div class="team-member">
+                                <figure class="profile-pic">
+                                    <img src="img/ourHeader/ctg.gif" alt=""  style="height:40px; width:40px;"> <!-- MEMBER PROFILE PIC -->
+                                </figure>
+                                <p></p>
+                                <div class="member-details">
+                                    <h5 class="white-text green-border-bottom">TianGe Chen</h5>
+                                    <div class="position green-text">
+                                        Founder
+                                    </div>
+                                </div>
+                                <div class="details">
+
+                                    <p>
+                                        负责数据服务器与安全加密</br>
+                                        一本正经又乖巧懂事的天行九歌
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-3  fadeInRight animated">
+                            <div class="team-member">
+                                <figure class="profile-pic">
+                                    <img src="img/ourHeader/hq.gif" alt=""  style="height:40px; width:40px;"> <!-- MEMBER PROFILE PIC -->
+                                </figure>
+                                <p></p>
+                                <div class="member-details">
+                                    <h5 class="white-text blue-border-bottom">QiHan</h5>
+                                    <div class="position blue-text">
+                                        Founder
+                                    </div>
+                                </div>
+                                <div class="details">
+                                    <p>
+                                        负责前端请求数据展示和跳转逻辑</br>
+                                        好好学习，天天向上
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-3  fadeInRight animated">
+                            <div class="team-member">
+                                <figure class="profile-pic">
+                                    <img src="img/ourHeader/hmy.gif" alt="" style="height:40px; width:40px;"> <!-- MEMBER PROFILE PIC -->
+                                </figure>
+                                <p></p>
+                                <div class="member-details">
+                                    <h5 class="white-text yellow-border-bottom">MengYu Han</h5>
+                                    <div class="position yellow-text">
+                                        Founder
+                                    </div>
+                                </div>
+                                <div class="details">
+                                    <p>
+                                        负责前端请求和用户策略
+                                        越来越像个程序媛
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div id="footer" class="footer" >
+                    <div class="g-ft" style="text-align: center ; padding-top: 10px;">
+                        <span class="m-ft2" >
+                            <a target="_blank"  rel="nofollow" href="javascript:void(0);" style="color: #EBEBEB" id="aboutUS"><i  class="fa fa-user" style="margin-right: 2px;margin-top: -5px;"></i>关于我们</a>
+                             <span style="margin-left:20px;"><i  class="fa fa-envelope" style="margin-right: 1px;margin-top: -5px;"></i> 联系我们：<a href="mailto:141250018@smail.nju.edu.cn" style="color: #fff;">141250018@smail.nju.edu.cn</a></span>
+                            <span>&nbsp;|</span>
+                            <!--     <a target="_blank" rel="nofollow" href="javascript:void(0);"  style="color: #EBEBEB">官方博客</a>-->
+                        </span>
+
+                        <span class="m-ft1" style="color:#cecece">chicer团队版权所有　&copy;2015-2016　
+                            <a rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn/" style="position:relative;color: #FFF;">
+                                <!--   <img src="http://l.bst.126.net/rsc/img/icon-police.png" style="width:14px;height:16px;position:absolute;left:0;top:0;" />
+                                <span style="margin-left:18px;">京ICP备11008151号</span> -->
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </header>
+
+    <script src="js/introduce.js"></script>
+
+    <!-- =========================
+    JS
+    ============================== -->
+    <script src="js/zerif.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/getLatestDate.js"></script>
+    <script src="js/jquery/jquery.gritter.min.js"></script>
+
+</body>
+
+</html>

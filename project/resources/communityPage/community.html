@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> [endif] -->
+<!--[if !(IE)]>
+<!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <title>ChicerQuant - 股票策略与分析系统</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- CSS -->
+    <link href="css/board.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/preloader.css">
+    <link href="../css/search.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
+
+    <link href="../css/main.css" rel="stylesheet" type="text/css">
+    <link href="../css/style-switcher.css" rel="stylesheet" type="text/css">
+
+    <link href="../singleStockPage/css/button.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery/jquery-2.1.0.min.js"></script>
+    <!--<script type="text/javascript" src="js/jquery-1.4.4.js"></script>-->
+    <!--<script src="../js/jquery/jquery.min.js"></script>-->
+    <script src="../js/angularjs/angular.min.js"></script>
+
+    <style type="text/css">
+        .dialog-box{ position: absolute; z-index:1001}
+        .dialog-popup{/*background-color:#333333\9;*/filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F333333', endColorstr='#7F333333'); position:relative;z-index:29; zoom:1;background:rgba(51,51,51,0);  padding: 10px;}
+        .dialog-popup .dialog-title-bar{ height:30px; background-color:#ffffff; position:relative;}
+        .dialog-popup .dialog-title-bar h2{ line-height:30px; padding-left:10px; font-size:14px; font-weight:700}
+        .dialog-popup .dialog-title-bar a.close-dialog{ position:absolute;top:5px; right:10px; background-color:#FFFFFF; border:1px solid #000000; font-size:14px; font-weight:700; display:block; height:18px; width:18px; line-height:18px;}
+        .dialog-popup .dialog-title-bar a.close-dialog{text-decoration:none; color:#555555; text-align:center;}
+        .dialog-popup .dialog-title-bar a.close-dialog:hover{text-decoration:none; color:#333333}
+        .dialog-content{ background-color:#FFFFFF; padding:10px}
+        .dialog-iframe-mask{position:absolute; left:0; top:0; border: none;}
+        .boxy-modal-blackout{position:absolute; left:0; top:0; border: none; background-color:#333333; overflow:hidden; z-index:999}
+    </style>
+</head>
+
+<!--<tbody>-->
+<!-- =========================
+ PRE LOADER
+ ============================== -->
+<div class="preloader">
+    <div class="status">&nbsp;</div>
+</div>
+<!-- WRAPPER -->
+<div class="wrapper">
+    <!-- TOP BAR -->
+    <div class="top-bar" >
+        <div class="container">
+            <div class="row">
+                <!-- logo -->
+                <div class="col-md-2 logo"  >
+                    <a class="logo"; href="../favoritePage/favoritePage.html" style="color:#fff;">Your stock manager</a>
+                </div>
+                <!-- end logo -->
+
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <!-- search box -->
+                            <div id="tour-searchbox" class="input-group searchbox" ng-app="mySearchApp" ng-controller="searchCtrl">
+                                <!--<div id="tour-searchbox" class="input-group searchbox" >-->
+                                <input type="search" id="search" class="form-control" placeholder="enter stockName/stockIDhere..." class="search-input" value=""/>
+                                <ul id="results" class="search-results"></ul>
+                                <span class="input-group-btn">
+										<button class="btn btn-default" type="button" value="to SingleStockPage" onclick="toSingleStockPage()" ><i class="fa fa-search"></i></button>
+									</span>
+                            </div>
+                            <!-- end search box -->
+                        </div>
+                        <div class="col-md-9">
+                            <div class="top-bar-right">
+                                <!-- responsive menu bar icon -->
+                                <a href="#" class="hidden-md hidden-lg main-nav-toggle"><i class="fa fa-bars"></i></a>
+                                <!-- end responsive menu bar icon -->
+                                <!--          <button type="button" id="start-tour" class="btn btn-link"><i class="fa fa-refresh"></i> Start Tour</button>
+
+                                          <button type="button" id="global-volume" class="btn btn-link btn-global-volume"><i class="fa"></i></button>-->
+                                <!-- logged user and the menu -->
+                                <div class="logged-user">
+                                    <div class="btn-group">
+                                        <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                            <i id="icon" class="fa fa-user"></i>
+                                            <span class="name" id="name" onclick=javascript:welcome(); >返回首页</span> <span id="tar"  class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu" id="down">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-power-off"></i>
+                                                    <span class="text" id="logout"  onclick=javascript:Logout();>Logout</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- end logged user and the menu -->
+
+                            </div>
+                            <!-- /top-bar-right -->
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /top -->
+
+    <!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
+    <div class="bottom">
+        <div class="container" >
+
+            <div class="row" >
+                <!-- left sidebar -->
+                <div class="col-md-2 left-sidebar" >
+                    <!-- main-homePage -->
+                    <nav class="main-nav" >
+                        <ul class="main-menu" >
+                            <!--main active-->
+                            <!--                         <li><a href="../favoritePage/favoritePage.html"><i class="fa fa-home fa-fw"></i><span class="text">首页</span></a></li>
+                                                    <!--my favor-->
+                            <li><a href="../favoritePage/favoritePage.html"><i class="fa fa-star fa-fw"></i><span class="text">我的关注</span></a></li>
+                            <!--all stocks-->
+                            <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-list-ul fa-fw"></i><span class="text">个股信息</span>
+                                <i class="toggle-icon fa fa-angle-left"></i></a>
+                                <ul class="sub-menu ">
+                                    <li><a href="../allStockShowPage/allStockShowPage.html"><span class="text">个股资金一览</span></a></li>
+                                    <li><a href="../singleStockPage/singleStockPage.html"><span class="text">单股票详细信息 <span class="badge element-bg-color-blue">New</span></span></a></li>
+                                </ul>
+                            </li>
+                            <!--benchmark-->
+                            <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-line-chart fa-fw"></i><span class="text">大盘信息</span>
+                                <i class="toggle-icon fa fa-angle-left"></i></a>
+                                <ul class="sub-menu ">
+                                    <li><a href="../benchMarkPage/benchMarkPage.html"><span class="text">大盘信息</span></a></li>
+                                </ul>
+                            </li>
+                            <!--industry-->
+                            <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-th-large fw"></i><span class="text">行业信息</span>
+                                <i class="toggle-icon fa fa-angle-left"></i></a>
+                                <ul class="sub-menu ">
+                                    <li><a href="../allIndustryShowPage/allIndustryShowPage.html"><span class="text">行业资金一览</span></a></li>
+                                    <li><a href="../singleIndustryPage/singleIndustryPage.html"><span class="text">单行业详细信息</span></a></li>
+                                </ul>
+                            </li>
+                            <!--analysis&strategy-->
+                            <li><a href="#" class="js-sub-menu-toggle"><i class="fa fa-file-text-o fw"></i><span class="text">分析 &amp; 策略</span>
+                                <i class="toggle-icon fa fa-angle-left"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="../dataAnalysePage/dataAnalysePage.html"><span class="text">数据分析</span></a></li>
+                                    <li><a href="#" class="js-sub-menu-toggle"><span class="text">虚拟投资 <span class="badge element-bg-color-blue">Updated</span></span>
+                                        <i class="toggle-icon fa fa-angle-left"></i></a>
+                                        <ul class="sub-menu ">
+                                            <li><a href="../virtualInvestPage/virtualInvestPage.html"><i class="fa fa-file-text-o fw"></i><span class="text">因子自构区</span></a></li>
+                                            <li><a href="../myCodeStrategyPage/myCodeStrategy.html"><i class="fa fa-file-code-o ffw"></i><span class="text">代码策略区</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="../strategyPage/strategyPage.html"><span class="text">策略推荐</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- /main-homePage -->
+                    <div class="sidebar-minified js-toggle-minified">
+                        <i class="fa fa-angle-left"></i>
+                    </div>
+                </div>
+                <!-- end left sidebar -->
+
+                <!-- content-wrapper -->
+                <div class="col-md-10 content-wrapper" style=" background-image: url('http://www.kylethacker.com/img/background-large.jpg');">
+                    <!-- top general alert -->
+                    <!-- end top general alert -->
+
+                    <div class="row">
+                        <div class="col-lg-11"></div>
+                        <div class="col-lg-1 ">
+                            <span class='pulse-button' style="margin-right: 5px;"><a href="../communityPage/community.html" style="color: white; text-align: center"></br>社区</a></span>
+                        </div>
+                    </div>
+
+                    <!-- main -->
+                    <div class="content" id="app2" ng-app="myApp" ng-controller="SearchCtrl">
+                        <div class="main-header">
+                            <h2>ChicerQuant策略社区</h2>
+                            <em>the better community</em>
+                        </div>
+                        <div class="main-content">
+                            <section>
+                                <div class="chat">
+                                    <ul ng-repeat="x in usrmessages">
+                                        <li class={{x.side}}>
+                                            <div class="date" style="color: white"><a class="user" href="#" style="color:white"><i class="fa fa-user fa-4x" style="color:white;" ></i></br>{{x.userName}}</a></div>
+                                            <div class="message">
+                                                <p align={{x.textalign}}>{{"策略类型: "+x.strType+"&nbsp;&nbsp;&nbsp;&nbsp;"+"买入点: "+x.buypoint+"&nbsp;&nbsp;&nbsp;&nbsp;"+"卖出点: "+x.sellpoint}}</p>
+                                            </div>
+                                            <p></br></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                    <!-- /main -->
+                        </div>
+                    </div>
+                <!-- /content-wrapper -->
+                    </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- END BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
+</div>
+</div>
+    <!-- /wrapper -->
+
+<!-- FOOTER -->
+<footer class="footer" style="opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
+    <div class="g-ft" style="text-align: center ;">
+                    <span class="m-ft2" >
+                             <span style="margin-left:20px;"><i  class="fa fa-envelope" style="margin-right: 1px;margin-top: -5px;"></i> 联系我们：<a href="mailto:141250018@smail.nju.edu.cn" style="color: #fff;">141250018@smail.nju.edu.cn</a></span>
+                            <span>&nbsp;|</span>
+                        <!--     <a target="_blank" rel="nofollow" href="javascript:void(0);"  style="color: #EBEBEB">官方博客</a>-->
+                        </span>
+
+                        <span class="m-ft1" style="color:#cecece">chicer团队版权所有　&copy;2015-2016　
+                            <a rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn/" style="position:relative;color: #FFF;">
+                                <!--   <img src="http://l.bst.126.net/rsc/img/icon-police.png" style="width:14px;height:16px;position:absolute;left:0;top:0;" />
+                                <span style="margin-left:18px;">京ICP备11008151号</span> -->
+                            </a>
+                        </span>
+    </div>
+</footer>
+<!-- END FOOTER -->
+
+<!-- STYLE SWITCHER -->
+<div class="del-style-switcher">
+    <div class="del-switcher-toggle toggle-hide"></div>
+    <form>
+        <section class="del-section del-section-skin">
+            <h5 class="del-switcher-header">Choose Skins:</h5>
+
+            <ul>
+                <li><a href="#" title="Slate Gray" class="switch-skin slategray" data-skin="../css/skin/slategray.css">Slate Gray</a></li>
+                <li><a href="#" title="Dark Blue" class="switch-skin darkblue" data-skin="../css/skin/darkblue.css">Dark Blue</a></li>
+                <li><a href="#" title="Dark Brown" class="switch-skin darkbrown" data-skin="../css/skin/darkbrown.css">Dark Brown</a></li>
+                <li><a href="#" title="Light Green" class="switch-skin lightgreen" data-skin="../css/skin/lightgreen.css">Light Green</a></li>
+                <li><a href="#" title="Orange" class="switch-skin orange" data-skin="../css/skin/orange.css">Orange</a></li>
+                <li><a href="#" title="Red" class="switch-skin red" data-skin="../css/skin/red.css">Red</a></li>
+                <li><a href="#" title="Teal" class="switch-skin teal" data-skin="../css/skin/teal.css">Teal</a></li>
+                <li><a href="#" title="Yellow" class="switch-skin yellow" data-skin="../css/skin/yellow.css">Yellow</a></li>
+            </ul>
+            <div id="transparent-control"></div>
+            <button type="button" class="switch-skin-full fulldark" data-skin="../css/skin/fulldark.css">Full Dark</button>
+            <button type="button" class="switch-skin-full fullbright" data-skin="../css/skin/fullbright.css">Full Bright</button>
+        </section>
+        <label class="fancy-checkbox"><input type="checkbox" id="fixed-top-nav"><span>Fixed Top Navigation</span></label>
+        <p><a href="../communityPage/community.html" title="Reset Style" class="del-reset-style">Reset Style</a></p>
+    </form>
+    <script type="text/javascript">
+        var currentFilename = window.location.pathname.split('/').pop();
+        if( currentFilename == '' ) currentFilename = '../favoritePage/favoritePage.html';
+
+        var arrHasTransparent = ['index.html', 'index-dashboard-v2.html', 'charts-statistics-interactive.html', 'charts-statistics-real-time.html',
+            'charts-statistics.html', 'components-maps.html', 'components-tree-view.html', 'page-file-manager.html'
+        ];
+
+        var hasTransparent = false;
+
+        arrHasTransparent.forEach(function(filename) {
+            if( filename == currentFilename ) {
+                hasTransparent = true;
+                return;
+            }
+        });
+
+        if( hasTransparent ) {
+            document.getElementById("transparent-control").innerHTML = '<p><em>There is specific transparent version for this page, check <span class="important">&larr; left</span> navigation menu</em></p><br>';
+        } else {
+            document.getElementById("transparent-control").innerHTML = '<button type="button" class="switch-skin-full transparent" data-skin="../css/skin/transparent.css">Transparent</button>';
+        }
+    </script>
+
+    <script src="js/view.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(angular.element("#app2"),["myApp"]);
+    </script>
+
+</div>
+<!-- END STYLE SWITCHER -->
+
+
+<!-- Javascript -->
+<script src="../js/bootstrap/bootstrap.min.js"></script>
+<script src="../js/plugins/modernizr/modernizr.js"></script>
+<script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+<script src="../js/king-common.js"></script>
+<script src="../js/deliswitch.js"></script>
+<script src="../js/zerif.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script type="text/javascript" src="../virtualInvestPage/js/canvas3DGraph.js"></script>
+<!--<script type="text/javascript" src="js/jquery.dialog.js"></script>-->
+<script src="../js/jquery/jquery.gritter.min.js"></script>
+<script>
+    $(".plus-vert").click(function(){
+        if($(this).hasClass("quit")){
+            $(this).removeClass("quit");
+            $(".plus-vert-curtain").removeClass("full-deployed").addClass("semi-deployed");
+        } else {
+            $(this).addClass("quit");
+            $(".plus-vert-curtain").removeClass("semi-deployed").addClass("full-deployed");
+        }
+    });
+    $('.plus-vert').mouseenter(function () {
+        $('.plus-vert-curtain').removeClass('not-deployed').addClass('semi-deployed');
+    }).mouseleave(function () {
+        $('.plus-vert-curtain').removeClass('semi-deployed').addClass('not-deployed');
+
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        // Default dropdown action to show/hide dropdown content
+        $('.js-dropp-action').click(function(e) {
+            e.preventDefault();
+            $(this).toggleClass('js-open');
+            $(this).parent().next('.dropp-body').toggleClass('js-open');
+        });
+
+        // Using as fake input select dropdown
+        $('label').click(function() {
+            $(this).addClass('js-open').siblings().removeClass('js-open');
+            $('.dropp-body,.js-dropp-action').removeClass('js-open');
+        });
+        // get the value of checked input radio and display as dropp title
+        $('input[name="dropp"]').change(function() {
+            var value = $("input[name='dropp']:checked").val();
+            $('.js-value').text(value);
+        });
+
+    });
+</script>
+<script>
+    function show2(){
+        var dialogBox2 = new Dialog("save_con",{
+//            "width": "500px" ,
+            "title":"",
+            'modal':true,
+            "closeModal":true
+        });
+    }
+</script>
+</body>
+
+</html>
