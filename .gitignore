@@ -1,0 +1,14 @@
+*.md~
+target/*
+*.classpath
+.settings/*
+*.project
+.ideal/*
+*/.idea/*
+*/*/.idea/*
+*.o
+*.cproject
+cserver
+*.d
+*.mk
+!*.c

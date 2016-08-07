@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0
+}
+
+canvas {
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index:-999;
+    float:none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.enterBtn {
+    display: block;
+    font-size: 22px;
+    text-align: center;
+    line-height: 44px;
+    text-decoration: none;
+    color: white;
+    background-color: #000000;
+    border-radius: 4px;
+    position: absolute;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*width: 124px;*/
+    /*height: 44px;*/
+    /*margin-top: -22px;*/
+    /*margin-left: -62px;*/
+    text-shadow: 0 -1px -1px #7c7c7c;
+    -moz-box-shadow: 0 4px 0 #7c7c7c, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 0 #7c7c7c, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 0 #7c7c7c, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+    -moz-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+.enterBtn:hover {
+    background-color: #9b9b9b;
+    text-shadow: 0 -1px -1px #898989;
+    -moz-box-shadow: 0 4px 0 #898989, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 0 #898989, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 0 #898989, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+}
+.enterBtn:active {
+    margin-top: -18px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

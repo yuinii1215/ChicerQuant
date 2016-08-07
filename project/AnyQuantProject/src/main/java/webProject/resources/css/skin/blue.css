@@ -1,0 +1,175 @@
+/*------------------------------------------------*/
+/*	Skin: origin  e74d41 orange   94e8b1 green
+/*------------------------------------------------*/
+/* general 66da90 */
+body {
+    border-color: transparent;
+    background-color: #ebf2ff;
+    background-image: url("http://www.transparenttextures.com/patterns/exclusive-paper.png");
+
+}
+
+/* top bar */
+.top-bar {
+    border-color: transparent;
+    background-color: #282828;
+    border-bottom: 1px solid #282828;
+}
+.top-bar .top-bar-right .btn-link {
+    color: #eeeeee;
+}
+.top-bar .top-bar-right .btn-link:hover {
+    color: #eeeeee;
+}
+.top-bar .notifications .count {
+    border-color: #f1f1f1;
+}
+.top-bar .searchbox input[type="search"] {
+    background-color: #282828;
+    border-color: #474647;
+}
+.top-bar .searchbox .btn {
+    background-color: #617ba1;
+    border-color: #474647;
+}
+.top-bar .searchbox .btn i {
+    color: #273c44;
+}
+.top-bar .searchbox .btn:hover {
+    border-color: #2a414a;
+}
+.top-bar .searchbox .btn:hover i {
+    color: #1d2d34;
+}
+.top-bar .dropdown-menu > li > a:hover {
+    /*user下拉框的选种颜色#A3B2CA  e74d41  34ba95 83b375 e16138*/
+    background: #617ba1;
+}
+
+
+.bottom {
+    border-top: 1px solid #474647;
+    border-bottom: 1px solid #273c44;
+}
+.bottom .container .content-wrapper {
+    background:url(img/bg_header.png) no-repeat;
+}
+
+/* navigation */
+ul.main-menu > li a {
+    background-color: #91adf2;
+    border-top: 0.2mm outset #cef4dc;
+    color: #fff;
+}
+ul.main-menu > li a:hover, ul.main-menu > li a:focus {
+    background-color: #9faec8;
+    text-decoration: none;
+    outline: none;
+}
+ul.main-menu > li.active > a {
+    background-color: #9faec8;
+}
+ul.main-menu .sub-menu li.active > a {
+    background-color: #9faec8;
+}
+
+.left-sidebar.minified .main-menu > li:hover > a > .text {
+    background: #617ba1;
+    border: 0.2mm outset #c4e3f3;
+}
+.left-sidebar.minified .main-menu > li:hover ul.sub-menu {
+    border: 0.2mm  outset #9faec8;
+}
+
+/* sidebar */
+.sidebar-minified i {
+    color: #fff;
+    background-color: #617ba1;
+    border: 1px solid #fff;
+}
+.sidebar-minified i:hover {
+    background-color: #9faec8;
+}
+
+.sidebar-content .panel.panel-default {
+    border-color: #2a414a;
+    background-color: #36535e;
+    color: #fff;
+}
+.sidebar-content .panel.panel-default > .panel-heading {
+    background-color: #2e4751;
+    color: #fff;
+    border-color: #2a414a;
+}
+.sidebar-content h5.label-default {
+    background-color: #2e4751;
+    border: 1px solid #2a414a;
+    border-bottom: none;
+}
+.sidebar-content .list-info-sidebar {
+    background-color: #36535e;
+    border: 1px solid #2a414a;
+    color: #fff;
+}
+.sidebar-content .list-info-sidebar .data-name {
+    color: #558395;
+}
+
+/* widget */
+.widget {
+    background-color: #f9f9f9;
+    border-color:lightgray;
+}
+
+.widget .widget-header {
+    background-color: #474647;
+    border-bottom-color:lightgray ;
+    color: #fff;
+}
+.widget .widget-header em {
+    color: #808080;
+}
+.widget .widget-header .btn-help {
+    color: #a4a4a4;
+}
+.widget .widget-header .widget-header-toolbar {
+    border-left-color: lightgray;
+}
+.widget .widget-header .widget-header-toolbar .control-title {
+    color: #fff;
+}
+.widget .widget-header .btn-group > a {
+    color: #e8e8e8;
+}
+.widget .widget-header .btn-group > a:hover, .widget .widget-header .btn-group > a:focus {
+    color: #cef1ff;
+}
+
+.widget .widget-content {
+    background-color:#f9f9f9;
+    border-color: lightgray;
+}
+
+.breadcrumb a, .breadcrumb .active {
+    /*中间active部分字体颜色*/
+    color: #617ba1;
+}
+.breadcrumb a{
+    /*中间部分字体颜色*/
+    color: #ffffff;
+}
+
+/* main content */
+.main-header h2 {
+    color: #f1f4e5;
+    border-right-color: #f5f5f5;
+}
+.main-header em {
+    color: #bbbbbb;
+}
+
+.footer {
+    border-color: transparent;
+    background-color: #000;
+    border-top: 0.1px  #f1f4e5;
+}

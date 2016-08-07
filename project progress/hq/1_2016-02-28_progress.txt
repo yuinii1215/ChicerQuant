@@ -1,0 +1,10 @@
+﻿who：韩奇
+
+when：第1周
+
+what：1.按组长要求检查并完整项目基本配置包括maven,jenkins,sql
+	2.学会从AnyQuant提供的接口调API获得JSON格式数据
+
+problem：
+
+todo： 了解项目

@@ -1,0 +1,40 @@
+#g-holder {
+  height:400px;
+  position:relative;
+}
+
+#canvasDiv{
+  width:90%;
+  height:410px;
+  position:absolute;
+  top:0px;
+  left:8%;
+  z-index:10;
+}
+#x-label{
+  position:absolute;
+  z-index:0;
+  top:57%;
+  /*left:400px;*/
+  left: 350px;
+}
+
+#y-label{
+  position:absolute;
+  z-index:2;
+  top:5%;
+  left:160px;
+}
+
+#z-label{
+  position:absolute;
+  z-index:2;
+  top:90%;
+  left:-5%;
+}
+
+#gInfo div.gText{
+  position:absolute;
+  z-index:-1;
+  font:normal 10px Arial;
+}

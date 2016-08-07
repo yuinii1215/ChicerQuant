@@ -1,0 +1,2 @@
+第一周：
+	建好项目，配置好了git+jenkins+maven的管理
