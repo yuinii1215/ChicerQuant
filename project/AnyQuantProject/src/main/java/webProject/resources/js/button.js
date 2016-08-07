@@ -9,7 +9,7 @@ function backStep() {
     window.location.href="welcome.html";
 }
 function toGit(){
-    window.location.href="http://114.55.35.12/141250018_cseiii/AnyQuant_Project.git";
+    window.location.href="https://github.com/yuinii1215/ChicerQuant.git";
 }
 
 function signUpHint() {
