@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> [endif] -->
+<!--[if !(IE)]>
+<!-->
+<html lang="en" class="no-js" xmlns="http://www.w3.org/1999/html">
+<!--<![endif]-->
+
+<head>
+    <title>ChicerQuant - 股票策略与分析系统</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/preloader.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/back.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<!-- =========================
+ PRE LOADER
+ ============================== -->
+<div class="preloader">
+    <div class="status">&nbsp;</div>
+</div>
+
+<!-- WRAPPER -->
+<div class="wrapper">
+    <!-- TOP BAR -->
+    <div class="top-bar" >
+                <!-- logo -->
+                <div align="right" >
+                    <button   class="button  button-block button-inverse button-rounded button-medium"  style="background-color:transparent ;  margin-top: -5px; "onclick=javascript:welcome(); >返回首页</button>
+                </div>
+
+    </div>
+    <!-- /top -->
+
+    <!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
+    <div class="bottom">
+        <!-- main -->
+        <div class="container" >
+            <div class="row" >
+                    <div class="container_wrapper" style="margin-top: 2%;">
+                        <div class="col-md-3 col-md-offset-1 col-sm-3 help_nav">
+                                <div class="list-group">
+                                    <a href="#toc_0" class="list-group-item list-group-item-danger">
+                                        股票数据
+                                    </a>
+                                    <a href="#toc_1" class="list-group-item">
+                                        大盘数据
+                                    </a>
+                                    <a href="#toc_2" class="list-group-item">
+                                        图表数据
+                                    </a>
+                                    <a href="#toc_3" class="list-group-item">
+                                        行业数据
+                                    </a>
+                                    <a href="#toc_4" class="list-group-item">
+                                        开放API
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-md-7 col-sm-7 ">
+                            <h4 id="toc">什么是ChicerQuant</h4>
+
+                        <p><a href="//http:www.cxworks.cn">ChicerQuant</a>是一个高效易用的股票策略学习助手，主要提供用户在线编写量化策略和运行策略等功能，旨在为所有量化爱好者
+                            提供一个具有丰富数据的量化平台，chicerQuant提供了如下几个功能：</p>
+
+                        <ul>
+                            <li>策略：在每个用户独立的环境中，用户可以编写自己的策略并提交到系统运行回测。</li>
+                            <li>社区：所有用户可以在社区中发布、分享自己的策略。</li>
+                            <li>数据：我们提供了策略依赖的数据，目前提供了自2006年来的A股数据，后面如果有需要，我们会加入更多的股票数据。</li>
+                        </ul>
+
+                        <p>输入的股票名均值股票代号</p>
+                        <p>日期格式为xxxx-xx-xx</p>
+                        <P></br></P>
+
+                        <h4 id="toc_0">股票数据</h4>
+                        <ul>
+                        <li>    <code> getStockByNameService(username,name,date) </code>
+                            <p>输入:股票名和日期</p>
+                        <p> 输出: 操作是否成功的信息以及该日该股票的属性--各种表格项信息 </p>
+                            </li>
+
+                        <li>   <code> getStockAmongDateService(name, startdate, enddate) </code>
+                            <p>输入: 股票名和日期区间 </p>
+                        <p> 输出: 操作是否成功的信息以及该日区间内的每日该股票的属性--各种表格项信息 </p>
+                            </li>
+
+
+                        <li>  <code> getAllStocksService() </code>
+                            <p>输入: 无</p>
+                        <p> 输出: 当日所有股票属性--各种表格项信息 </p>
+                            </li>
+
+                        <li> <code> getAllStockNamesService() </code>
+                            <p>输入:无</p>
+                        <p> 输出:得到所有的股票名 </p>
+                            </li>
+                        </ul>
+                        <P></br></P>
+                        <h4 id="toc_1">大盘数据</h4>
+                        <ul>
+                            <li> <code>    getBenchMarkByNameService(name, date)</code><p>  输入: 大盘名和日期</p>
+                           <p> 输出: 操作是否成功的信息以及该日该大盘的属性--各种表格项信息</p>
+                          </li>
+                            <li> <code>getBenchMarkAmongDateService(name, startdate, enddate)</code>
+                                <p>   输入: 大盘名和日期区间</p>
+                                <p> 输出: 操作是否成功的信息以及该区间内每日该大盘的属性--各种表格项信息</p>
+                          </li>
+                        </ul>
+                        <P></br></P>
+                        <h4 id="toc_2">图表数据</h4>
+                        <ul>
+                            <li> <code>   getDayLineService(name, startdate, enddate)</code><p>输入: 股票名或大盘名和日期区间</p>
+                           <p> 输出: 操作是否成功的信息以及该区间内每日该股票的图表有关数据信息</p>
+                                </li>
+                            <li> <code> getWeekLineService(name, startdate,enddate)</code><p>  输入: 股票名或大盘名和日期区间</p><p>
+                                     输出: 操作是否成功的信息以及该区间内该股票每周一的图表有关数据信息</p>
+                            </li>
+
+
+                            <li> <code>  getMonthLineService(name, startdate, enddate)</code>
+                            <p>输入: 股票名或大盘名和日期区间</p>
+                            <p>输出: 操作是否成功的信息以及该区间内该股票每月第一天的图表有关数据信息</p>
+                            </li>
+
+                            <li> <code>  getPolyAmongDateService(name, startdate, enddate)</code></li>
+
+                        </ul>
+                        <P></br></P>
+                        <h4 id="toc_3">行业数据</h4>
+                        <ul>
+                            <li> <code>   getAllIndustriesService()  </code><p>输入: 无</p>
+                              <p> 输出: 操作是否成功的信息以及所有行业的名称</p>
+                            </li>
+                            <li> <code>   getStocksByIndustryService(industry_name) </code><p>   输入: 行业名称</p>
+                           <p>输出: 操作是否成功的信息以及该行业的所有股票名(最新)</p>
+                            </li>
+                            <li> <code>    getIndustryService(industry_name,date)</code><p>  输入: 行业名称和日期</p>
+                           <p> 输出: 操作是否成功的信息以及该日该行业的所有属性--表格项信息</p>
+                            </li>
+                        </ul>
+                        <P></br></P>
+                        <h4 id="toc_4">开放API</h4>
+                        <ul>
+                            特别鸣谢：
+                            <P><a href="//www.anyquant.net">http://www.anyquant.net</a></P>
+                            <P><a href="//app.wmcloud.com/open/dashboard?lang=zh">https://app.wmcloud.com/open/dashboard?lang=zh</a></P>
+                           <P> <a href="//www.juhe.cn">https://www.juhe.cn</a></P>
+
+                        </ul>
+                    </div>
+
+                    </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    <!-- END BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
+    </div>
+</div>
+<!-- /wrapper -->
+
+<!-- FOOTER -->
+<footer class="footer" style=" opacity: 0.8; height:40px; width:100%;font-size: 11px; color:#fff;">
+    <div class="g-ft" style="text-align: center ;">
+                   <span class="m-ft2" >
+                             <span style="margin-left:20px;"><i  class="fa fa-envelope" style="margin-right: 1px;margin-top: -5px;"></i> 联系我们：<a href="mailto:141250018@smail.nju.edu.cn" style="color: #fff;">141250018@smail.nju.edu.cn</a></span>
+                            <span>&nbsp;|</span>
+                       <!--     <a target="_blank" rel="nofollow" href="javascript:void(0);"  style="color: #EBEBEB">官方博客</a>-->
+                        </span>
+
+                        <span class="m-ft1" style="color:#cecece">chicer团队版权所有　&copy;2015-2016　
+                            <a rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn/" style="position:relative;color: #FFF;">
+                                <!--   <img src="http://l.bst.126.net/rsc/img/icon-police.png" style="width:14px;height:16px;position:absolute;left:0;top:0;" />
+                                <span style="margin-left:18px;">京ICP备11008151号</span> -->
+                            </a>
+                        </span>
+    </div>
+</footer>
+<!-- END FOOTER -->
+
+<!-- Javascript -->
+<script src="../js/jquery/jquery.min.js"></script>
+<script src="../js/bootstrap/bootstrap.min.js"></script>
+<script src="../js/zerif.js"></script>
+<script src="../js/smoothscroll.js"></script>
+<script src="../js/wow.min.js"></script>
+<script src="../js/button.js"></script>
+</body>
+
+</html>

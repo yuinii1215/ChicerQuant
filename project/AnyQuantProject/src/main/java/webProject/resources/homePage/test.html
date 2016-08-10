@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>帮助</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/build/css/base/base.css" />
+
+    <script type="text/javascript" src="/static/vender/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/static/vender/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/build/js/common/base.js"></script>
+
+
+
+    <link rel="stylesheet" href="/static/build/css/bbs/comment.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/build/css/base/help.css" type="text/css"/>
+
+</head>
+
+<body>
+<nav id="header" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" id="logo"><img src="/static/vender/image/logo.png" width="" height="50"></img></a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-navtitle" id="navbar">
+            <ul class="nav navbar-nav">
+                <li class="navtitle"><a href="/">首页</a></li>
+                <li class="navtitle"><a href="/labs/">我的策略</a></li>
+                <li class="navtitle"><a href="/bbs">社区</a></li>
+                <li class="navtitle"><a href="/help">帮助</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <button type="button" id="feedback_btn" class="btn btn-default"
+                            data-toggle="modal" data-target="#feedback_modal">我要反馈</button>
+                </li>
+
+                <li class="navtitle"><a data-toggle="modal" href="#login_modal">登录</a></li>
+                <li class="navtitle"><a href="/register">注册</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="modal fade" id="login_modal" tabindex="-1" role="dialog"
+     aria-labelledby="login_title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="login_title">登录 是一种态度</h4>
+            </div>
+            <form method="post" action="/login/">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="inline-block pull-left login-label">用户名：</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="username" autofocus='autofocus'/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="inline-block pull-left login-label">密码：</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="password" class="form-control" name="password"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-danger" id="login_btn">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+
+    <div class="container_wrapper" style="margin-top: 5%;">
+        <div class="col-md-3 col-md-offset-1 help_nav">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-danger">
+                    目录
+                </a>
+                <a href="#toc_0" class="list-group-item">
+                    什么是AnyQuant
+                </a>
+                <a href="#toc_1" class="list-group-item">
+                    如何编写一个策略
+                </a>
+                <a href="#toc_2" class="list-group-item">
+                    API参考
+                </a>
+                <a href="#toc_3" class="list-group-item">
+                    Zipline
+                </a>
+                <a href="/api/doc" class="list-group-item">
+                    数据开放API
+                </a>
+            </div>
+        </div>
+        <div class="col-md-7 col-md-offset-4">
+            <h4 id="toc_0">什么是AnyQuant</h4>
+
+            <p><a href="http://www.anyquant.com">AnyQuant</a>是一个在线量化编程网站，主要提供用户在线编写量化策略和运行策略等功能，旨在为所有量化爱好者
+                提供一个具有丰富数据的量化平台，anyquant提供了如下几个功能：</p>
+
+            <ul>
+                <li>策略： 在每个用户独立的环境中，用户可以编写自己的策略并提交到系统运行回测。</li>
+                <li>社区：所有用户可以在社区中发表自己的想法，包括问题，策略，吐槽等。我们也会有负责人员回答相关问题。</li>
+                <li>数据：我们提供了策略依赖的数据，目前提供了自2006年来的A股数据，后面如果有需要，我们会加入更多的股票数据。</li>
+            </ul>
+
+            <p>未来AnyQuant还会加入比赛、数据开放等功能，敬请期待。</p>
+
+            <h4 id="toc_1">如何编写一个策略</h4>
+
+            <p>用户在策略页面初始会有一个demo策略，仅仅是每天买进一股，这个用作示例。如果需要新建一个策略，用户在策略首页点击“新建”，输入策略名即可，如下所示：</p>
+
+            <img src="/static/vender/image/help_1.png" width="700px" height="400px"/>
+
+            <p>在新的策略脚本中，注意到有两个函数，<code>initialize</code>和<code>handle_data</code>，这是需要用户实现的函数：</p>
+
+            <ul>
+                <li><p><code>initialize</code>函数在回测初始时调用，主要用来初始化变量，设置需要的数据或变量等。</p>
+
+                    <p>函数参数：</p>
+
+                    <p><code>context</code> Python Dict，空结构，用于存储需要的变量和数据。访问可以通过dict或<code>.</code>访问，例如: <code>context[&#39;i&#39;]</code>
+                        或 <code>context.i</code></p>
+
+                    <p>返回：<code>None</code></p></li>
+                <li><p><code>handle_data</code>函数在每次交易事件调用，一般是日调用或分钟调用。</p>
+
+                    <p>函数参数：</p>
+
+                    <p><code>context</code> 同上</p>
+
+                    <p><code>data</code> 当前函数调用时的所包含的股票数据。</p>
+
+                    <p>返回：<code>None</code></p></li>
+            </ul>
+
+            <p>需要注意的一些点：</p>
+
+            <ul>
+                <li>策略中不需要设置基本金额，起始结束时间等，这些在策略上方的选择和输入框中设置。</li>
+                <li>
+                    策略中<code>universes</code>变量很重要，在整个策略运行中需要的股票或基金代码需要在这里设置，否则可能会有数据无法载入导致回测无法进行。只需要将代码放到数组里即可，例如，<code>universes
+                    = [&#39;sh600000&#39;]</code>, 这样就会载入代码为<code>sh600000</code>的数据了。
+                </li>
+            </ul>
+
+            <h4 id="toc_2">API参考</h4>
+
+            <p>除了一些内置的函数外，我们还提供了一些函数方便在策略中使用，目前有以下一些，但需要注意的是这些函数还在开发中，所以可能会有一些问题，如果遇到请及时联系我们，此外，如果有您觉得需要的函数，也可以联系我们。</p>
+
+            <p>在使用时，需要按如下格式引用</p>
+
+            <p><code>from anyquant.api import</code>&lt;函数名&gt; ，例如</p>
+
+            <p><code>from anyquant.api import get_pe</code></p>
+
+            <p>可用函数列表：</p>
+
+            <ul>
+                <li><p><code>get_pe(symbol, date)</code></p>
+
+                    <p>获取指定股票和日期的PE(市盈率)</p>
+
+                    <p>参数：</p>
+
+                    <p><code>symbol</code>:传入的symbol，或者一个<code>str</code>对象即可</p>
+
+                    <p><code>date</code>:传入的日期，<code>datetime</code>对象</p>
+
+                    <p>返回：市盈率，如果不存在则为0.0</p></li>
+                <li><p><code>get_sha300_stocks(date=None)</code></p>
+
+                    <p>获取给定日期的沪深300成分股列表，如果没有指定日期，则返回历史上所有成分股列表.</p>
+
+                    <p>参数：
+                        <code>date</code>：指定日期，<code>datetime</code>对象，可不传</p>
+
+                    <p>返回：<code>list</code>对象，包含成分股列表</p></li>
+            </ul>
+
+            <h4 id="toc_3">Zipline</h4>
+
+            <p>AnyQuant回测系统用的是一个开源量化交易库——<a href="http://zipline.io">zipline</a>,
+                利用该库，可以运行脚本来进行回测，如果有需要，用户可以自行查阅该库自己搭建一套线下的回测系统。</p>
+
+        </div>
+    </div>
+
+    <div class="push"><!--not put anything here--></div>
+</div>
+
+<footer id="footer">
+    <img height="55" src="/static/vender/image/logo.png"></img>
+    <p>@2015 <a href="http://www.miibeian.gov.cn">苏ICP备14002894号-5</a> 南京慕测信息科技有限公司</p>
+</footer>
+
+<div class="modal fade" id="feedback_modal" tabindex="-1" role="dialog" aria-labelledby="feedback_title">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="feedback_title">我要反馈(吐槽)</h4>
+            </div>
+            <!--<form action="/feedback/" method="POST">-->
+            <div class="modal-body">
+                <textarea class="form-control" rows="3" name="feedback_content" id="feedback_area"></textarea>
+                <input type="hidden" name="account" value="0"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-danger" id="feedback_post">提交</button>
+            </div>
+            <!--</form>-->
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
