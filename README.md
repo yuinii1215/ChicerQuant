@@ -30,7 +30,7 @@
 ## 使用说明  
 
 适用浏览器：chrome，IE7及以上，FF，Safari on Mac
-
+推荐使用chorme内核浏览器
 
 <a name="TODO"></a> 
 ## TODO
