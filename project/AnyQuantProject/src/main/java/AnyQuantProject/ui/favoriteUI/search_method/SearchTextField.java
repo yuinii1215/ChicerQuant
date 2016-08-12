@@ -20,12 +20,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Popup;
 import javafx.stage.Window;
-import net.sourceforge.pinyin4j.PinyinHelper;
-import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
-import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
-import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
-import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
-import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
+//import net.sourceforge.pinyin4j.PinyinHelper;
+//import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
+//import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
+//import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
+//import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
+//import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
 /**
  * 自定提示控件
@@ -41,7 +41,7 @@ public class SearchTextField{
 	private final static int LIST_CELL_HEIGHT = 20;
 	
 	/** pinyin4j 工具类 用来匹配输入内容 */
-	private HanyuPinyinOutputFormat pinyinFormat = new HanyuPinyinOutputFormat();
+//	private HanyuPinyinOutputFormat pinyinFormat = new HanyuPinyinOutputFormat();
 
 	/** 用来存储显示 出来的信息列表 */
 	private ObservableList<String> showCacheDataList = FXCollections.<String> observableArrayList();
@@ -63,15 +63,15 @@ public class SearchTextField{
 				String indexPinyin = new String();
 				for (char ch : charArry){
 					// 将搜索内容转换为拼音 方便搜索
-					try{
-						String[] pinyin = PinyinHelper.toHanyuPinyinStringArray(ch, pinyinFormat);
-						sbPinyin.append(null != pinyin ? pinyin[0] : ch);
-						if(null != pinyin) {
-							indexPinyin = indexPinyin + pinyin[0].charAt(0);
-						}
-					} catch (BadHanyuPinyinOutputFormatCombination e){
-						sbPinyin.append(ch);
-					}
+//					try{
+//						String[] pinyin = PinyinHelper.toHanyuPinyinStringArray(ch, pinyinFormat);
+//						sbPinyin.append(null != pinyin ? pinyin[0] : ch);
+//						if(null != pinyin) {
+//							indexPinyin = indexPinyin + pinyin[0].charAt(0);
+//						}
+//					} catch (BadHanyuPinyinOutputFormatCombination e){
+//						sbPinyin.append(ch);
+//					}
 				}
 				if (cacheDataList.get(i).contains(searchContext.toString())|| sbPinyin.toString().contains(searchContext.toString()) || indexPinyin.contains(searchContext.toString())){
 					showCacheDataList.add(cacheDataList.get(i));
@@ -191,9 +191,9 @@ public class SearchTextField{
 	 * 
 	 */
 	private void configure(){
-		pinyinFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
-		pinyinFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
-		pinyinFormat.setVCharType(HanyuPinyinVCharType.WITH_V);
+//		pinyinFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+//		pinyinFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+//		pinyinFormat.setVCharType(HanyuPinyinVCharType.WITH_V);
 
 		popShowList.setAutoHide(true);
 		popShowList.getContent().add(autoTipList);
