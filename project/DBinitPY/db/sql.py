@@ -1,14 +1,18 @@
 # -*- coding: UTF-8 -*-
 import MySQLdb as mdb
 
+def getCursor():
+    db=mdb.connect(host='127.0.0.1',
+        port = 3306,
+        user='chicer',
+        passwd='chicer2016',
+        db ='chicer',
+        charset='utf8')
+    return [db,db.cursor()]
 
 ins_str='INSERT INTO '
 cre_str='CREATE TABLE IF NOT EXISTS '
 
-def getCursor():
-    conn=mdb.connect(host='127.0.0.1',user='chicer',passwd='chicer2016',db='chicer',port=3306,charset='utf8')
-    cursor=conn.cursor()
-    return [conn,cursor]
  
 def createIndustry(table_name):
     [conn,cursor]=getCursor()

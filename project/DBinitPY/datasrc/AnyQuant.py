@@ -17,16 +17,18 @@ def buildfield(start,end):
 
 def getSingleStock(id,start,end):
     url=URL+'stock/'+id+'/'
+    s=requests.session()
+    s.keep_alive=False
     response=requests.get(url=url,params=buildfield(start, end),headers=header)
-    try:
-        ans=response.json()['data']['trading_info']
-        df=pd.DataFrame(ans)
-        df['date']=pd.DatetimeIndex(df['date'])
-        df.set_index('date', drop=True, inplace=True)
-        return df
-    except :
-        time.sleep(0.05)
-        return getSingleStock(id, start, end)
+#     try:
+    ans=response.json()['data']['trading_info']
+    df=pd.DataFrame(ans)
+    df['date']=pd.DatetimeIndex(df['date'])    
+    df.set_index('date', drop=True, inplace=True)
+    return df
+#     except :
+#         time.sleep(0.05)
+#         return getSingleStock(id, start, end)
 
 def getStockList():
     szdic={'year':'2016','exchange':'sz'}
