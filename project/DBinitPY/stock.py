@@ -14,7 +14,7 @@ def query(id):
     b=t.at[num,'c_name']
     return a,b
 def oneStock(id):
-    starttime=datetime(2016,1,1)
+    starttime=datetime(2006,1,1)
     endtime=datetime.now()
     df=getSingleStock(id,starttime,endtime)
     color(df)
