@@ -34,7 +34,7 @@ def oneStock(id):
     cols = cols[-3:] + cols[:-3]
     df=df[cols]
     [conn,cur]=getCursor()
-    pdsql.to_sql(df, id, conn, 'mysql')
+    pdsql.to_sql(df, id, conn, flavor='mysql')
     setPrimaryKey(id)
     return
 
@@ -47,3 +47,6 @@ def init():
         oneStock(v)
         print count+'/'+total,'end',v
     return
+
+
+
