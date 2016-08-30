@@ -31,11 +31,13 @@ def getSingleStock(id,start,end):
 #         return getSingleStock(id, start, end)
 
 def getStockList():
-    szdic={'year':'2016','exchange':'sz'}
-    shdic={'year':'2016','exchange':'sh'}
+    szdic={'year':'2015','exchange':'sz'}
+    shdic={'year':'2015','exchange':'sh'}
     url=URL+'stocks/'
     respsz=requests.get(url=url,params=szdic,headers=header)
+    print respsz.url
     sz=respsz.json()['data']
+#     print sz
     respsh=requests.get(url=url,params=shdic,headers=header)
     sh=respsh.json()['data']
     ans=[]

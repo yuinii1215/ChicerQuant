@@ -43,10 +43,10 @@ def init():
     total=len(list)
     count=1
     for v in list:
-        print count+'/'+total,'start',v
+        print str(count)+'/'+str(total),'start',v
         oneStock(v)
-        print count+'/'+total,'end',v
+        print str(count)+'/'+str(total),'end',v
     return
 
-
+init()
 
