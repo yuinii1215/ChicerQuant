@@ -5,7 +5,7 @@ from sql import getCursor, setPrimaryKey
 from industData import getMap
 import pandas.io.sql as pdsql
 
-__industry_name_=getMap(dir='../datasrc/')
+__industry_name_=getMap()
 def query(id):
     idr=id[2:]
     num=int(idr)
