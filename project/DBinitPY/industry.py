@@ -37,7 +37,7 @@ def oneIndustry(industry,i_c):
     count=len(set.index)
     print count
     #get src
-    starttime=datetime.datetime(2016,1,1)
+    starttime=datetime.datetime(2006,1,1)
     endtime=datetime.datetime.now()
     use=[]
     for id in i_c.index:
