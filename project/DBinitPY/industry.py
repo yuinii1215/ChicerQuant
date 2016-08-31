@@ -35,7 +35,6 @@ def oneIndustry(industry,i_c):
     total=int((set['outstanding']*set['bvps']).sum()*10000)
     set['percent']=(set['outstanding']*set['bvps']*10000)/total
     count=len(set.index)
-    print count
     #get src
     starttime=datetime.datetime(2006,1,1)
     endtime=datetime.datetime.now()
@@ -71,7 +70,6 @@ def oneIndustry(industry,i_c):
 
     [conn, cur] = getCursor()
     pd.DataFrame.replace(df,{float('inf'):0})
-    print df
     pdsql.to_sql(df, unicode(industry), conn, flavor='mysql')
     setPrimaryKey(industry)
     return
