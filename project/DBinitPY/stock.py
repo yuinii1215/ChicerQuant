@@ -44,8 +44,13 @@ def init():
     count=1
     for v in list:
         print str(count)+'/'+str(total),'start',v
-        oneStock(v)
+        try:
+            oneStock(v)
+        except :
+            count+=1
+            continue
         print str(count)+'/'+str(total),'end',v
+        count+=1
     return
 
 init()
