@@ -39,6 +39,7 @@ def oneStock(id):
     return
 
 def init():
+
     list=getStockList()
     total=len(list)
     count=1
