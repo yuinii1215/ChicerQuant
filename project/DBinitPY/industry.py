@@ -5,10 +5,14 @@ import pandas as pd
 import numpy as np
 from AnyQuant import getSingleStock
 from pdCal import updown
+from sql import getCursor,setPrimaryKey
+import pandas.io.sql as pdsql
 
 def apply_lambda(df):
-    return df.sort_values(by='updown')[-1:]
-
+    ans=df.sort_values(by='updown')[-1:]
+    if ans['updown'].item()==float('inf'):
+        ans['updown']=float(0)
+    return ans
 
 def transTable(id):
     idr=str(id).zfill(6)
@@ -18,7 +22,7 @@ def transTable(id):
         idr='sz'+idr
     return idr
 
-__company_info__=getCompany_info('../datasrc/')
+__company_info__=getCompany_info()
 
 
 def oneIndustry(industry,i_c):
@@ -31,11 +35,11 @@ def oneIndustry(industry,i_c):
     total=int((set['outstanding']*set['bvps']).sum()*10000)
     set['percent']=(set['outstanding']*set['bvps']*10000)/total
     count=len(set.index)
+    print count
     #get src
     starttime=datetime.datetime(2016,1,1)
     endtime=datetime.datetime.now()
     use=[]
-    count=0
     for id in i_c.index:
         te=getSingleStock(transTable(id),starttime,endtime)
         updown(te)
@@ -49,32 +53,48 @@ def oneIndustry(industry,i_c):
         resu['low']=resu['low']*resu['percent']
         resu['volume']=resu['volume']*resu['percent']
         use.append(resu)
-        count+=1
-        if count>1:
-            break
     data=use[0]
     for i in range(1,len(use)):
         data=data.append(use[i])
     data.fillna(0,inplace=True)
     df1=data[['open','high','low','close','volume']].groupby(data['date']).sum()
     df1.reset_index(level=0, inplace=True)
-#     print df1
     df2=data[['stock_name','updown','stock_id','date','realclose']].groupby(data['date'],as_index=False).apply(apply_lambda)
     df=pd.merge(left=df1,right=df2,on='date')
+    df['industry_name']=industry
+    df['pure']=pure
+    df['total']=total
+    df['companySum']=count
+    df = df.rename(columns={'volume': 'volumn', 'stock_name': 'leaderName','stock_id':'leader',
+                            'realclose':'leaderPrice','updown':'leaderUpdown'})
+    df.set_index('date', drop=True, inplace=True)
+
+    [conn, cur] = getCursor()
+    pd.DataFrame.replace(df,{float('inf'):0})
     print df
+    pdsql.to_sql(df, unicode(industry), conn, flavor='mysql')
+    setPrimaryKey(industry)
     return
     
     
 
 
 def init():
-    all=getMap(dir='../datasrc/')
+    all=getMap()
     ans=all.c_name.unique()
-    oneIndustry(ans[0], all[all['c_name']==ans[0]])
-#     for v in ans:
-#         print v,'start'
-#         oneIndustry(v,all[all['c_name']==v])
+    for v in ans:
+        print v,'start'
+        try:
+            oneIndustry(v,all[all['c_name']==v])
+        except:
+            continue
+
+
     return
 
+if __name__ == '__main__':
+    import sys
 
-init()
+    reload(sys)
+    sys.setdefaultencoding('utf8')
+    init()

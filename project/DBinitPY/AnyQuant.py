@@ -50,4 +50,3 @@ def getStockList():
     except:
         time.sleep(100)
         return getStockList()
-
