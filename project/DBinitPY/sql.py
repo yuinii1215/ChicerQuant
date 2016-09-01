@@ -88,10 +88,10 @@ def createStock(table_name):
 def insertStock(table_name,data):
     [conn,cursor]=getCursor()
     tail='''
-     ( date, stock_id, stock_name, open, high, low, close, volumn, adj_price, turnover, pe_ttm, pb,
+     ( date, stock_id, stock_name, open, high, low, close, volumn, adj_price, turnover,  pb,
      industry, PMA5_day, PMA10_day, PMA30_day, PMA5_week, PMA10_week, PMA30_week, PMA5_month, PMA10_month,
      PMA30_month, RSI6, RSI12, RSI24, BIAS6, BIAS12, BIAS24, K, D, J, DIF, DEA, MACDBar, poly) VALUES (
-     %s, %s, %s, %f, %f, %f, %f, %d, %f, %f, %f, %f, %s, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f,
+     %s, %s, %s, %f,  %f, %f, %d, %f, %f, %f, %f, %s, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f,
      %f, %f, %f, %f, %f, %f, %f, %f, %f, %f )
     '''
     for d in data:

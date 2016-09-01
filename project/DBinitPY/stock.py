@@ -13,9 +13,7 @@ def query(id):
     a=t.at[num,'name']
     b=t.at[num,'c_name']
     return a,b
-def oneStock(id):
-    starttime=datetime(2006,1,1)
-    endtime=datetime.now()
+def oneStock(id,starttime=datetime(2006,1,1),endtime=datetime.now()):
     df=getSingleStock(id,starttime,endtime)
     color(df)
     kdj(df)
@@ -33,10 +31,8 @@ def oneStock(id):
     cols = df.columns.tolist()
     cols = cols[-3:] + cols[:-3]
     df=df[cols]
-    [conn,cur]=getCursor()
-    pdsql.to_sql(df, id, conn, flavor='mysql')
-    setPrimaryKey(id)
-    return
+    
+    return df
 
 def init():
 
@@ -45,14 +41,30 @@ def init():
     count=1
     for v in list:
         print str(count)+'/'+str(total),'start',v
-        try:
-            oneStock(v)
-        except :
-            count+=1
-            continue
+#         try:
+        df=oneStock(v,starttime=datetime(2016,1,1),endtime=datetime(2016,8,30))
+        [conn,cur]=getCursor()
+        pdsql.to_sql(df, v, conn, flavor='mysql')
+#         setPrimaryKey(v)
+        break
+#         except :
+#             count+=1
+#             print 'error'
+#             continue
         print str(count)+'/'+str(total),'end',v
         count+=1
     return
 
-init()
+def test():
+    v='sh600216'
+#     print str(count)+'/'+str(total),'start',v
+#         try:
+    df=oneStock(v,starttime=datetime(2016,1,1),endtime=datetime(2016,8,30))
+    [conn,cur]=getCursor()
+    pdsql.to_sql(df, v, conn, flavor='mysql')
+    setPrimaryKey(v)
+    return
+
+if __name__ == '__main__':
+    test()
 

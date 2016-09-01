@@ -47,6 +47,7 @@ def getStockList():
         for obj in sz:
             ans.append(obj['name'])
         return ans
-    except:
+    except :
+        print 'error'
         time.sleep(100)
         return getStockList()
