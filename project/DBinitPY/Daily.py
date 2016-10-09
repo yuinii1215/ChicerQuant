@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
+from sql import getE
 
 def daily(now):
     import datetime
@@ -15,8 +16,8 @@ def daily(now):
 #         try:
         df=oneStock(v,starttime=before,endtime=now)
         df=df.iloc[[-1]]
-        [conn,cur]=getCursor()
-        pdsql.to_sql(df, v, conn,  if_exists='append',index_label='date')
+        eng=getE()
+        pdsql.to_sql(df, v, eng,  if_exists='append',index_label='date')
 #         except Exception:
 #             count+=1
 #             print Exception.message

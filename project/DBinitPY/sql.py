@@ -1,7 +1,9 @@
 # -*- coding: UTF-8 -*-
 import MySQLdb as mdb
+from sqlalchemy import create_engine
 
 def getCursor():
+    
     db=mdb.connect(host='127.0.0.1',
         port = 3306,
         user='chicer',
@@ -9,6 +11,10 @@ def getCursor():
         db ='chicer',
         charset='utf8')
     return [db,db.cursor()]
+
+def getE():
+    e=create_engine('mysql+mysqldb://chicer:chicer2016@127.0.0.1:3306/chicer')
+    return e
 
 ins_str='INSERT INTO '
 cre_str='CREATE TABLE IF NOT EXISTS '
