@@ -50,7 +50,7 @@ app.controller("strategycontroller",function($scope,$http){
 
 
   function CRUM(name,startdate,enddate) {
-    var url='http://115.159.106.212/strategy/getCRUM?';
+    var url='http://anyquant.net:15000/strategy/getCRUM?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var k=Number(response['k']);
@@ -161,7 +161,7 @@ app.controller("strategycontroller",function($scope,$http){
   }
 
   function finalPredict(name,startdate,enddate) {
-    var url='http://localhost:8020/strategy/getARMA?';
+    var url='http://anyquant.net:15000/strategy/getARMA?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var e=response['e'];
@@ -369,7 +369,7 @@ app.controller("strategycontroller",function($scope,$http){
   }
 
   function balanceTest(name,startdate,enddate) {
-    var url='http://115.159.106.212/strategy/getBalanceTest?';
+    var url='http://anyquant.net:15000/strategy/getBalanceTest?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var p=Number(response['p']);
@@ -431,7 +431,7 @@ app.controller("strategycontroller",function($scope,$http){
   }
 
   function acfpacf(name,startdate,enddate) {
-    var url='http://115.159.106.212/strategy/getRelate?';
+    var url='http://anyquant.net:15000/strategy/getRelate?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var p_value=response['p_value'];
@@ -546,7 +546,7 @@ app.controller("strategycontroller",function($scope,$http){
     });
   }
   function Risk(name,startdate,enddate) {
-    var url='http://115.159.106.212/strategy/getRisk?';
+    var url='http://anyquant.net:15000/strategy/getRisk?';
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var down=Number(response['downside']);
@@ -561,7 +561,7 @@ app.controller("strategycontroller",function($scope,$http){
   }
 
   function NormalTest(name,startdate,enddate) {
-    var url='http://115.159.106.212/strategy/getNormalTest?';
+    var url='http://anyquant.net:15000/strategy/getNormalTest?';
       url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
       var average=Number(response['average']);
@@ -581,7 +581,7 @@ app.controller("strategycontroller",function($scope,$http){
       alert('error');
 
     });
-    var securl='http://115.159.106.212/strategy/getQQ?';
+    var securl='http://anyquant.net:15000/strategy/getQQ?';
     securl=securl+name+'&'+startdate+'&'+enddate;
     $http.get(securl).success(function(response,status){
       var point=[];
@@ -650,7 +650,7 @@ app.controller("strategycontroller",function($scope,$http){
 
   function ER(name,startdate,enddate) {
 
-    var url='http://115.159.106.212/strategy/getER?';
+    var url='http://anyquant.net:15000/strategy/getER?';
 
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){
@@ -731,7 +731,7 @@ app.controller("strategycontroller",function($scope,$http){
 
   function ER_time(name,startdate,enddate) {
 
-    var url='http://115.159.106.212/strategy/getER?';
+    var url='http://anyquant.net:15000/strategy/getER?';
 
     url=url+name+'&'+startdate+'&'+enddate;
     $http.get(url).success(function(response,status){

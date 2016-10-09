@@ -1,7 +1,7 @@
 var app=angular.module('myApp',[]);
 app.controller("SearchCtrl", function($scope, $http, MyCache) {
     //$scope.url = 'http://115.159.106.212/php/serviceController.php';
-    $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
+    $scope.url = 'http:/anyquant.net:15000/php/serviceController.php'; // The url of our search
 
     //当前日期
     var myDate = new Date();

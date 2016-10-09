@@ -3,7 +3,7 @@
  */
 var app = angular.module('myFavorApp', []);
     app.controller('myFavorCtrl', function ($scope, $http) {
-        $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
+        $scope.url = 'http://anyquant.net:15000/php/serviceController.php'; // The url of our search
         var favorStocks=[];
        // addFavorStock("sh600006");
         var singleStock=[];
