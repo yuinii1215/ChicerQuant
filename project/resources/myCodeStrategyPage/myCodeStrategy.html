@@ -26,6 +26,7 @@
     <script src="../js/angularjs/angular.min.js"></script>
     <script type="text/javascript" src="js/ace-builds/src-min-noconflict/ace.js"></script>
     <script type="text/javascript" src="js/ace-builds/src-min-noconflict/ext-language_tools.js"></script>
+
     <script type="text/javascript">
         window.onload = function () {
             var s = "2015-01-01";
@@ -261,9 +262,9 @@
     &quot;&quot;&quot;
     pass</div>
                                             </div>
-                                            <div id="result_area">
+                                            <div id="result_area"  >
                                                 <div class="col-md11">
-                                                    <table class="table">
+                                                    <table class="table"  class="display" >
                                                         <tbody>
                                                         <tr>
                                                             <td>年化收益率</td>
@@ -274,6 +275,32 @@
                                                             <td>收益波动比率</td>
                                                             <td>信息比率</td>
                                                             <td>最大回撤</td>
+
+
+
+                                                            <!--<td>alpha</td>-->
+                                                            <!--<td>annualized_returns</td>-->
+                                                            <!--<td>benchmark_annualized_returns</td>-->
+                                                            <!--<td>benchmark_daily_returns</td>-->
+                                                            <!--<td>benchmark_total_returns</td>-->
+                                                            <!--<td>beta</td>-->
+                                                            <!--<td>cash</td>-->
+                                                            <!--<td>daily_returns</td>-->
+                                                            <!--<td>downside_risk</td>-->
+                                                            <!--<td>information_rate</td>-->
+                                                            <!--<td>market_value</td>-->
+                                                            <!--<td>max_drawdown</td>-->
+                                                            <!--<td>pnl</td>-->
+                                                            <!--<td>portfolio_value</td>-->
+                                                            <!--<td>positions</td>-->
+                                                            <!--<td>sharpe</td>-->
+                                                            <!--<td>sortino</td>-->
+                                                            <!--<td>total_commission</td>-->
+                                                            <!--<td>total_returns</td>-->
+                                                            <!--<td>total_tax</td>-->
+                                                            <!--<td>tracking_error</td>-->
+                                                            <!--<td>trades</td>-->
+                                                            <!--<td>volatility</td>-->
                                                         </tr>
                                                         <tr>
                                                             <td><strong id="annual_returns">--</strong></td>
@@ -284,6 +311,7 @@
                                                             <td><strong id="volatility">--</strong></td>
                                                             <td><strong id="information">--</strong></td>
                                                             <td><strong id="max_drawdown">--</strong></td>
+
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -380,7 +408,7 @@
 
 </div>
 <!-- END STYLE SWITCHER -->
-
+<script src="js/dataTable.js"></script>
 <script>
     ace.require("ace/ext/language_tools");
     var editor = ace.edit("editor");
