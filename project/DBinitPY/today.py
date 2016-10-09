@@ -27,6 +27,7 @@ def daily(now):
         print str(count)+'/'+str(total),'end',v
         count+=1
     eng=getE()
+    today.fillna(0, inplace=True)
     pdsql.to_sql(today, 'today', eng,  if_exists='replace',index=False,index_label='stock_id',chunksize=100)
     return
 
