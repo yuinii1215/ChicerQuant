@@ -42,7 +42,7 @@ function allStock2SingleStockPage(stockID) {
 var searchApp = angular.module('mySearchApp',[]);
 searchApp.controller('searchCtrl', function ($scope, $http) {
 
-    $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
+    $scope.url = 'http://anyquant.net:15000/php/serviceController.php'; // The url of our search
 
     var array=new Array();
     var count=0;
