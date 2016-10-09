@@ -19,7 +19,7 @@ def daily(now):
             pdsql.to_sql(df, v, conn, flavor='mysql',  if_exists='append',index_label='date')
         except Exception:
             count+=1
-            print Exception
+            print Exception.message
             print v,'error'
             continue
         print str(count)+'/'+str(total),'end',v
