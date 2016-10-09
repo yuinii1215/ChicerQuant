@@ -44,4 +44,31 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
 });
 app.factory('MyCache', function ($cacheFactory) {
     return $cacheFactory('myCache');
-})
+});
+
+$('#gotoStrategyBtn').click(function (e) {
+    $('#competetionBoard').fadeOut(300);
+    $('#strategyBoard').fadeTo(1, 300);
+});
+
+$('#gotoCompetetionBtn').click(function (e) {
+    $('#strategyBoard').fadeOut(300);
+    $('#competetionBoard').fadeTo(1, 300);
+});
+
+var selectedBtnID;
+
+window.onload = function () {
+    var buttons = main.getElementsByClassName("insertBtn");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].indexs = i;
+    }
+
+}
+
+$(".insertBtn").click(function(){
+    // 下面这行代码就是你要的ID属性
+    selectedBtnID=$(this).index();
+   console.log(selectedBtnID);
+
+});

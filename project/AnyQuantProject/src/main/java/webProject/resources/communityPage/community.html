@@ -192,23 +192,206 @@
                             <h2>ChicerQuant策略社区</h2>
                             <em>the better community</em>
                         </div>
+                        <!--暂时替换掉的策略分享内容部分-->
                         <div class="main-content">
-                            <section>
-                                <div class="chat">
-                                    <ul ng-repeat="x in usrmessages">
-                                        <li class={{x.side}}>
-                                            <div class="date" style="color: white"><a class="user" href="#" style="color:white"><i class="fa fa-user fa-4x" style="color:white;" ></i></br>{{x.userName}}</a></div>
-                                            <div class="message">
-                                                <p align={{x.textalign}}>{{"策略类型: "+x.strType+"&nbsp;&nbsp;&nbsp;&nbsp;"+"买入点: "+x.buypoint+"&nbsp;&nbsp;&nbsp;&nbsp;"+"卖出点: "+x.sellpoint}}</p>
-                                            </div>
-                                            <p></br></p>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div id="competetionBoard" >
+                                <section>
+                                <h2 ALIGN="CENTER"><span class="mySpan">策略收益率排行榜(中国区前十名)</span></h2>
+                                <table class="mycontainer">
+                                    <thead>
+                                    <tr>
+                                        <th><h1>排名</h1></th>
+                                        <th><h1>用户名</h1></th>
+                                        <th><h1>收益率</h1></th>
+                                        <th><h1>定价金额</h1></th>
+                                        <th><h1>选项</h1></th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>9518</td>
+                                        <td>6369</td>
+                                        <td>01:32:50</td>
+                                        <td><button class="insertBtn">购买查看</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>7326</td>
+                                        <td>10437</td>
+                                        <td>00:51:22</td>
+                                        <td><button class="insertBtn">购买查看</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>4162</td>
+                                        <td>5327</td>
+                                        <td>00:24:34</td>
+                                        <td><button class="insertBtn">购买查看</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>3654</td>
+                                        <td>2961</td>
+                                        <td>00:12:10</td>
+                                        <td><button class="insertBtn">购买查看</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>2002</td>
+                                        <td>4135</td>
+                                        <td>00:46:19</td>
+                                        <td><button class="insertBtn">购买查看</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>9518</td>
+                                        <td>6369</td>
+                                        <td>01:32:50</td>
+                                        <td><button class="insertBtn">购买查看</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>7326</td>
+                                        <td>10437</td>
+                                        <td>00:51:22</td>
+                                        <td><button class="insertBtn">购买查看</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>4162</td>
+                                        <td>5327</td>
+                                        <td>00:24:34</td>
+                                        <td><button class="insertBtn">购买查看</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>3654</td>
+                                        <td>2961</td>
+                                        <td>00:12:10</td>
+                                        <td><button class="insertBtn">购买查看</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>2002</td>
+                                        <td>4135</td>
+                                        <td>00:46:19</td>
+                                        <td><button class="insertBtn">购买查看</button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </section>
+                                <div ALIGN="CENTER"><div class="custombutton" id="gotoStrategyBtn">查看社区策略库</div></div>
+                            </div>
+                            <div id="strategyBoard" >
+                                <section>
+                                    <div class="chat">
+                                        <ul ng-repeat="x in usrmessages">
+                                            <li class={{x.side}}>
+                                                <div class="date" style="color: white"><a class="user" href="#" style="color:white"><i class="fa fa-user fa-4x" style="color:white;" ></i></br>{{x.userName}}</a></div>
+                                                <div class="message">
+                                                    <p align={{x.textalign}}>{{"策略类型: "+x.strType+"&nbsp;&nbsp;&nbsp;&nbsp;"+"买入点: "+x.buypoint+"&nbsp;&nbsp;&nbsp;&nbsp;"+"卖出点: "+x.sellpoint}}</p>
+                                                </div>
+                                                <p></br></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                                <div ALIGN="CENTER"><div class="custombutton" id="gotoCompetetionBtn">查看策略收益排行</div></div>
+                            </div>
+
+<!--<section>-->
+    <!--<h2 ALIGN="CENTER"><span class="mySpan">策略收益率排行榜(中国区前十名)</span></h2>-->
+    <!--<table class="mycontainer">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th><h1>排名</h1></th>-->
+            <!--<th><h1>用户名</h1></th>-->
+            <!--<th><h1>收益率</h1></th>-->
+            <!--<th><h1>定价金额</h1></th>-->
+            <!--<th><h1>选项</h1></th>-->
+
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr>-->
+            <!--<td>1</td>-->
+            <!--<td>9518</td>-->
+            <!--<td>6369</td>-->
+            <!--<td>01:32:50</td>-->
+            <!--<td><button class="insertBtn">购买查看</button></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>2</td>-->
+            <!--<td>7326</td>-->
+            <!--<td>10437</td>-->
+            <!--<td>00:51:22</td>-->
+            <!--<td><button class="insertBtn">购买查看</button></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>3</td>-->
+            <!--<td>4162</td>-->
+            <!--<td>5327</td>-->
+            <!--<td>00:24:34</td>-->
+            <!--<td><button class="insertBtn">购买查看</button></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>4</td>-->
+            <!--<td>3654</td>-->
+            <!--<td>2961</td>-->
+            <!--<td>00:12:10</td>-->
+            <!--<td><button class="insertBtn">购买查看</button></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>5</td>-->
+            <!--<td>2002</td>-->
+            <!--<td>4135</td>-->
+            <!--<td>00:46:19</td>-->
+            <!--<td><button class="insertBtn">购买查看</button></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>6</td>-->
+            <!--<td>9518</td>-->
+            <!--<td>6369</td>-->
+            <!--<td>01:32:50</td>-->
+            <!--<td><button class="insertBtn">购买查看</button></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>7</td>-->
+            <!--<td>7326</td>-->
+            <!--<td>10437</td>-->
+            <!--<td>00:51:22</td>-->
+            <!--<td><button class="insertBtn">购买查看</button></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>8</td>-->
+            <!--<td>4162</td>-->
+            <!--<td>5327</td>-->
+            <!--<td>00:24:34</td>-->
+            <!--<td><button class="insertBtn">购买查看</button></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>9</td>-->
+            <!--<td>3654</td>-->
+            <!--<td>2961</td>-->
+            <!--<td>00:12:10</td>-->
+            <!--<td><button class="insertBtn">购买查看</button></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>10</td>-->
+            <!--<td>2002</td>-->
+            <!--<td>4135</td>-->
+            <!--<td>00:46:19</td>-->
+            <!--<td><button class="insertBtn">购买查看</button></td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+<!--</section>-->
 
                     <!-- /main -->
                         </div>
+
                     </div>
                 <!-- /content-wrapper -->
                     </div>
@@ -360,6 +543,7 @@
         });
     }
 </script>
+
 </body>
 
 </html>
