@@ -13,7 +13,7 @@ def getCursor():
     return [db,db.cursor()]
 
 def getE():
-    e=create_engine('mysql+mysqldb://chicer:chicer2016@127.0.0.1:3306/chicer')
+    e=create_engine('mysql+mysqldb://chicer:chicer2016@127.0.0.1:3306/chicer?charset=utf8')
     return e
 
 ins_str='INSERT INTO '
