@@ -20,12 +20,21 @@
 
     <link href="css/datepicker.css" rel="stylesheet" type="text/css">
     <link href="css/code.css" rel="stylesheet" type="text/css">
+    <link href="css/labs.css" rel="stylesheet" type="text/css">
     <!--headerjs-->
     <script src="../js/jquery/jquery.min.js"></script>
     <script src="../js/angularjs/angular.min.js"></script>
     <script type="text/javascript" src="js/ace-builds/src-min-noconflict/ace.js"></script>
     <script type="text/javascript" src="js/ace-builds/src-min-noconflict/ext-language_tools.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var s = "2015-01-01";
+            var e = "2016-01-01";
 
+            $("#start_time").datepicker("update", new Date(s.replace(/-/g, " ") + " 08:00:00"));
+            $("#end_time").datepicker("update", new Date(e.replace(/-/g, " ") + " 08:00:00"));
+        }
+    </script>
 </head>
 
 <body>
@@ -184,24 +193,24 @@
 
                     <!-- main -->
                     <div class="row">
-                        <div class="col-lg-1">
+                        <div class="col-lg-2">
                             <p></br></p>
                             <ul class="nav nav-sidebar-ul">
                                 <li class="nav-sidebar-item">
                                     <a href="#" id="" >
                                         <span class="icon-play icon-large"></span>
-                                        <span id="run_algo" class="run_algo_click" data-loading-text="正在运行">运行</span>
+                                        <span id="run_algo" class="run_algo_click" data-loading-text="正在运行"><i class="fa fa-play"></i>运行</span>
                                     </a>
                                 </li>
                                 <li class="nav-sidebar-item">
                                     <a href="#" id="code_erase">
                                         <span class="icon-reply icon-large"></span>
-                                        <span>清除</span>
+                                        <span><i class="fa fa-eraser"></i>清除</span>
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-lg-11">
+                        <div class="col-lg-10">
                             <p></br></p>
                             <div id="code_container">
                                         <div id="code_ops" class="inline-block">
@@ -393,6 +402,8 @@
 <script src="../js/search.js"></script>
 <script src="../js/jquery/jquery.gritter.min.js"></script>
 <script src="js/bootstrap-datepicker.js"></script>
+<script src="js/labs.js"></script>
+
 
 </body>
 
