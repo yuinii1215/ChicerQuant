@@ -1,5 +1,6 @@
 from Daily import *
 from datetime import datetime,timedelta
+import tushare as ts
 now=datetime.now()
 use=datetime(2016,9,2)
 while use<now:
