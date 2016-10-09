@@ -1,6 +1,6 @@
 from Daily import *
 from datetime import datetime,timedelta
-now=datetime()
+now=datetime.now()
 use=datetime(2016,9,2)
 while use<now:
     if ts.is_holiday(date=datetime.strftime(use,format='%Y-%m-%d')) :
