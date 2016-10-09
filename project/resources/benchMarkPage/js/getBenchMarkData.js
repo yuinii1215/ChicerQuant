@@ -29,7 +29,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
             document.getElementById("elementTitle").innerHTML=$scope.benchMark[0].benchmark_name;
             document.getElementById("smallTitle").innerHTML="- "+$scope.benchMark[0].benchmark_id;
             document.getElementById("elements").innerHTML="开盘价:"+$scope.benchMark[0].open+"&nbsp&nbsp&nbsp&nbsp"+"收盘价:"+$scope.benchMark[0].close+"<br/>"+
-                "最高价:"+ $scope.benchMark[0].high +"&nbsp&nbsp&nbsp&nbsp"+"最低价:"+ $scope.benchMark[0].low +"<br/>"+"后复权价:"+$scope.benchMark[0].adj_price+"<br/>"+"成交量:"+$scope.benchMark[0].volumn;
+                "最高价:"+ $scope.benchMark[0].high +"&nbsp&nbsp&nbsp&nbsp"+"最低价:"+ $scope.benchMark[0].low +"<br/>"+"后复权价:"+$scope.benchMark[0].adj_price+"<br/>"+"成交量:"+$scope.benchMark[0].volume;
 
         })
         .error(function (data) {

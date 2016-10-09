@@ -64,10 +64,9 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                     array[item][3] = $scope.allStocks[item].high;
                     array[item][4] = $scope.allStocks[item].low;
                     array[item][5] = $scope.allStocks[item].close;
-                    array[item][6] = $scope.allStocks[item].volumn;
+                    array[item][6] = $scope.allStocks[item].volume;
                     array[item][7] = $scope.allStocks[item].adj_price;
-                    array[item][8] = $scope.allStocks[item].pe_ttm;
-                    array[item][9] = $scope.allStocks[item].pb;
+                    array[item][8] = $scope.allStocks[item].pb;
                     color[item]=$scope.allStocks[item].color;
                 }
             }
@@ -100,7 +99,6 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                         {title: "收盘价"},
                         {title: "成交量"},
                         {title: "后复权价"},
-                        {title: "市盈率"},
                         {title: "市净率"},
                     ]
                 });
