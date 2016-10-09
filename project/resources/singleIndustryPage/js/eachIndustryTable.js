@@ -111,11 +111,10 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
                     array[count + 1][3] = $scope.singleStock[0].high;
                     array[count + 1][4] = $scope.singleStock[0].low;
                     array[count + 1][5] = $scope.singleStock[0].close;
-                    array[count + 1][6] = $scope.singleStock[0].volumn;
+                    array[count + 1][6] = $scope.singleStock[0].volume;
                     array[count + 1][7] = $scope.singleStock[0].adj_price;
-                    array[count + 1][8] = $scope.singleStock[0].pe_ttm;
-                    array[count + 1][9] = $scope.singleStock[0].pb;
-                    array[count + 1][10] = $scope.singleStock[0].industry;
+                    array[count + 1][8] = $scope.singleStock[0].pb;
+                    array[count + 1][9] = $scope.singleStock[0].industry;
 
                     //获得涨跌数
                var index =    $scope.singleStock[0].close-$scope.singleStock[0].open;
@@ -142,7 +141,6 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
                     array[count + 1][7] = "-";
                     array[count + 1][8] = "-";
                     array[count + 1][9] = "-";
-                    array[count + 1][10] ="-";
                 //    countOther++;
                 }
                 count++;
@@ -181,7 +179,6 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
                                 {title: "收盘价"},
                                 {title: "成交量"},
                                 {title: "后复权价"},
-                                {title: "市盈率"},
                                 {title: "市净率"},
                                 {title: "所属行业"},
                             ]

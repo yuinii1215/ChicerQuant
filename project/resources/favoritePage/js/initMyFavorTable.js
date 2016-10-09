@@ -82,11 +82,10 @@ var app = angular.module('myFavorApp', []);
                         array[count + 1][3] = $scope.singleStock[0].high;
                         array[count + 1][4] = $scope.singleStock[0].low;
                         array[count + 1][5] = $scope.singleStock[0].close;
-                        array[count + 1][6] = $scope.singleStock[0].volumn;
+                        array[count + 1][6] = $scope.singleStock[0].volume;
                         array[count + 1][7] = $scope.singleStock[0].adj_price;
-                        array[count + 1][8] = $scope.singleStock[0].pe_ttm;
-                        array[count + 1][9] = $scope.singleStock[0].pb;
-                        array[count + 1][10] = $scope.singleStock[0].industry;
+                        array[count + 1][8] = $scope.singleStock[0].pb;
+                        array[count + 1][9] = $scope.singleStock[0].industry;
 
               //          count++;
                     } else{
@@ -102,7 +101,6 @@ var app = angular.module('myFavorApp', []);
                         array[count + 1][7] =  "-";
                         array[count + 1][8] =  "-";
                         array[count + 1][9] =  "-";
-                        array[count + 1][10] =  "-";
                //     countOther++;
                  }
                         count++;
@@ -135,7 +133,6 @@ var app = angular.module('myFavorApp', []);
                                         {title: "收盘价"},
                                         {title: "成交量"},
                                         {title: "后复权价"},
-                                        {title: "市盈率"},
                                         {title: "市净率"},
                                         {title: "所属行业"},
                                     ]

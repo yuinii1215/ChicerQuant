@@ -50,7 +50,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
                 array[item][2] = $scope.tableData[item].high;
                 array[item][3] = $scope.tableData[item].low;
                 array[item][4] = $scope.tableData[item].close;
-                array[item][5] = $scope.tableData[item].volumn;
+                array[item][5] = $scope.tableData[item].volume;
                 array[item][6] = $scope.tableData[item].adj_price;
                 //array[item][7] = $scope.tableData[item].pe_ttm;
                 array[item][7] = $scope.tableData[item].pb;
@@ -135,7 +135,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             $scope.stockName=$scope.result.stock_name;
              $scope.showResult="日期: "+$scope.result.date+"   股票名: "+$scope.result.stock_name+"   开盘价: "+$scope.result.open+"   收盘价: "
                  +$scope.result.close+"   最高价: "+$scope.result.high+"   最低价: "+$scope.result.low
-                 +"   成交量: "+$scope.result.volumn+"   市盈率: "+$scope.result.adj_price+"   市净率: "+$scope.result.pb
+                 +"   成交量: "+$scope.result.volume+"   市盈率: "+$scope.result.adj_price+"   市净率: "+$scope.result.pb
                  +"   行业名: "+$scope.result.industry;
 
 
@@ -396,7 +396,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "high": "15.69",
             "low": "15.69",
             "close": "15.69",
-            "volumn": "0",
+            "volume": "0",
             "adj_price": "14.9942",
             "turnover": "0",
             "pe_ttm": "0",
@@ -410,7 +410,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "high": "16.25",
             "low": "15.56",
             "close": "16.07",
-            "volumn": "513568700",
+            "volume": "513568700",
             "adj_price": "15.35735",
             "turnover": "0",
             "pe_ttm": "6.530156",
@@ -424,7 +424,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "high": "16.68",
             "low": "15.82",
             "close": "16.13",
-            "volumn": "511684500",
+            "volume": "511684500",
             "adj_price": "15.41469",
             "turnover": "0",
             "pe_ttm": "6.55454",
@@ -438,7 +438,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "high": "16.17",
             "low": "15.53",
             "close": "15.81",
-            "volumn": "385716800",
+            "volume": "385716800",
             "adj_price": "15.10888",
             "turnover": "0",
             "pe_ttm": "6.424504",
@@ -452,7 +452,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "high": "15.88",
             "low": "15.2",
             "close": "15.25",
-            "volumn": "330627100",
+            "volume": "330627100",
             "adj_price": "14.57371",
             "turnover": "0",
             "pe_ttm": "6.196942",
@@ -466,7 +466,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
             "high": "16.25",
             "low": "15.11",
             "close": "15.43",
-            "volumn": "491999900",
+            "volume": "491999900",
             "adj_price": "14.74573",
             "turnover": "0",
             "pe_ttm": "6.270084",
