@@ -28,6 +28,7 @@ def daily(now):
         count+=1
     eng=getE()
     today.fillna(0, inplace=True)
+    pandas.DataFrame.replace(today,{float('inf'):0})
     pdsql.to_sql(today, 'today', eng,  if_exists='replace',index=False,index_label='stock_id',chunksize=100)
     return
 
