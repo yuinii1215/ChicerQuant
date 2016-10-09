@@ -1,6 +1,6 @@
 
 function SearchCtrl($scope, $http) {
-    $scope.url = 'http://115.159.106.212/php/serviceController.php'; // The url of our search
+    $scope.url = 'http://anyquant.net:15000/php/serviceController.php'; // The url of our search
 
     // The function that will be executed on button click (ng-click="search()")
     $scope.search = function() {
