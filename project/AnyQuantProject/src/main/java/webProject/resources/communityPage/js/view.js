@@ -56,19 +56,26 @@ $('#gotoCompetetionBtn').click(function (e) {
     $('#competetionBoard').fadeTo(1, 300);
 });
 
+var strList;
 var selectedBtnID;
 
-window.onload = function () {
-    var buttons = main.getElementsByClassName("insertBtn");
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].indexs = i;
-    }
-
-}
-
-$(".insertBtn").click(function(){
+$('.insertBtn').click(function(){
     // 下面这行代码就是你要的ID属性
-    selectedBtnID=$(this).index();
-   console.log(selectedBtnID);
-
+    selectedBtnID=$(this).attr("value");
+    console.log(selectedBtnID);
+     conductBuyStrategy(1);
 });
+
+function conductBuyStrategy(strIndex){
+    swal({
+        title: "您将支付"+2+"元",
+        text: "您确认付费查看本策略吗?",
+        type: "warning",
+        showCancelButton: true,
+        cancelButtonText: "取消",
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "确定" ,
+        closeOnConfirm: false }, function(){
+        swal("支付成功!", "您可以查看该策略内容!", "success");
+    });
+}
