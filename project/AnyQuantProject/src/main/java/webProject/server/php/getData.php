@@ -12,7 +12,7 @@ require_once('db_login.php');
 header("Content-Type: text/json;charset=utf8");
 
 
-function getStockByName($username, $name, $date)
+function getStockByName($name, $date)
 {
     $connection = getDBConnection();
 //    if ($date == date("Y-m-d")){
@@ -25,55 +25,33 @@ function getStockByName($username, $name, $date)
 //        $_date = $date;
 //    }
 
-    if(!checkStockValid($name)){
-         $arr = array('retmsg'=>'success','state'=>'invalid');
-         $json_string = json_encode($arr);
-         return $json_string;
-    }
 
-    $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,industry from ".$name." where date = :date");
+    $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volume,adj_price,pb,industry from ".$name." where date = :date");
     $stmt->bindParam(':date', $_date);
     $_date = $date;
-    $jsonstring = execQuery($connection,$stmt);
-    $arr = json_decode($jsonstring,true);
-
-    $stmt2 = $connection->prepare("select count(*) from favorstocks where username = :username and stock_id = :stock_id");
-    $stmt2->bindParam(':username',$_username);
-    $stmt2->bindParam(':stock_id',$_name);
-    $_username = $username;
-    $_name = $name;
-    $jsonstring2 = execQuery($connection,$stmt2);
-    $arr2 = json_decode($jsonstring2,true);
-    if ($arr2[0]['count(*)'] == 1){
-            $arr[0]['favor'] = true;
-    }else{
-            $arr[0]['favor'] = false;
-    }
-    if(!array_key_exists("open",$arr[0])){
-        $arr['state'] = 'suspended';
-    }else{
-        $arr['state'] = 'open';
-    }
-    return json_encode($arr,JSON_UNESCAPED_UNICODE);
+    return execQuery($connection,$stmt);
 }
 
-function checkStockValid($stockname)
+function checkTableNameValid($tablename)
 {
+    $valid = 0;
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select stock_id from industry_stock");
+    $stmt = $connection->prepare("show tables");
     $result = execQuery($connection,$stmt);
-    $arr = json_decode($result, true);
-    for($i=0;$i<sizeof($arr);$i++){
-        if($arr[$i]['stock_id']==$stockname){
-            return 1;
-        }
-    }
-    return 0;
 
+    $result = str_replace("\t",'',$result);
+    $result = str_replace("'", '"', $result);
+    $result =  iconv("ASCII", "utf8", $result);
+    $result = json_decode($result, true);
+    print_r($result[22]);
+    $values = array_values($result);
+    print_r($values);
+    echo $valid;
+    return $valid;
 }
 
-//echo checkStockValid('sh600003');
-//echo getStockByName('hmy14',"sh600005",'2016-05-06');
+
+//echo getStockByName("sz002190",date('Y-m-d',strtotime('2007-12-03')));
 //echo getStockByName("sh600000",'2016-04-05');
 //checkTableNameValid("sh600000");
 //$connection = getDBConnection();
@@ -94,7 +72,7 @@ function getStockAmongDate($name, $startdate, $enddate)
 //    return $string;
 //
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,industry from ".$name." where date between :startdate and :enddate");
+    $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volume,adj_price,pb,industry from ".$name." where date between :startdate and :enddate");
     $stmt->bindParam(':startdate', $_startdate);
     $stmt->bindParam(':enddate', $_enddate);
     $_startdate = $startdate;
@@ -103,9 +81,10 @@ function getStockAmongDate($name, $startdate, $enddate)
     $arr = json_decode($jsonstring,true);
     $len = count($arr,0)-1;
     $arr[0]['color'] = 'default';
+
     for($i = 1;$i < $len;$i++){
-        $fclose = $arr[$i-1][close];
-        $topen = $arr[$i][open];
+        $fclose = $arr[$i-1]['close'];
+        $topen = $arr[$i]['open'];
         if($fclose>$topen){
             //green
             $arr[$i]['color'] = 'green';
@@ -125,10 +104,9 @@ function getAllStocks()
 //    $query = "select * from today";
 //    return execQuery($query);
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select stock_id,stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,industry,color from today");
+    $stmt = $connection->prepare("select stock_id,stock_name,open,high,low,close,volume,adj_price,pb,industry from today");
     return execQuery($connection,$stmt);
 }
-//echo getAllStocks();
 
 //echo getAllStockNames();
 
@@ -147,7 +125,7 @@ function getBenchMarkByName($name, $date)
 //    return execQuery($query);
 
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price from  benchmark where date =  :datetime");
+    $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volume,adj_price from  benchmark where date =  :datetime");
     $stmt->bindParam(':datetime', $_date);
     $_date = $date;
     return execQuery($connection,$stmt);
@@ -159,29 +137,12 @@ function getBenchMarkAmongDate($name, $startdate, $enddate)
 {
 
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price from benchmark where date between :startdate and :enddate");
+    $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volume,adj_price from benchmark where date between :startdate and :enddate");
     $stmt->bindParam(':startdate', $_startdate);
     $stmt->bindParam(':enddate', $_enddate);
     $_startdate = $startdate;
     $_enddate = $enddate;
-    $jsonstring = execQuery($connection,$stmt);
-        $arr = json_decode($jsonstring,true);
-        $len = count($arr,0)-1;
-        $arr[0]['color'] = 'default';
-        for($i = 1;$i < $len;$i++){
-            $fclose = $arr[$i-1][close];
-            $topen = $arr[$i][open];
-            if($fclose>$topen){
-                //green
-                $arr[$i]['color'] = 'green';
-            }else if($fclose<$topen){
-                //red
-                $arr[$i]['color'] = 'red';
-            }else{
-                $arr[$i]['color'] = 'black';
-            }
-        }
-        return json_encode($arr,JSON_UNESCAPED_UNICODE);
+    return execQuery($connection,$stmt);
 }
 
 //echo getBenchMarkAmongDate("sh000300",date('Y-m-d',strtotime('2016-05-04')), date('Y-m-d',strtotime('2016-05-10')));
@@ -303,9 +264,9 @@ function getDayLine($name, $startdate, $enddate)
 {
     $connection = getDBConnection();
     if($name != 'hs300'){
-        $stmt = $connection->prepare("select $name.date,industry_stock.stock_id,$name.stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,$name.industry,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA,MACDBar from ".$name." , industry_stock where $name.stock_name = industry_stock.stock_name and date between :startdate and :enddate");
+        $stmt = $connection->prepare("select $name.date,industry_stock.stock_id,$name.stock_name,open,high,low,close,volume,adj_price,pb,$name.industry,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA,MACDBar from ".$name." , industry_stock where $name.stock_name = industry_stock.stock_name and date between :startdate and :enddate");
     }else{
-        $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA, MACDBar from benchmark where date between :startdate and :enddate");
+        $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volume,adj_price,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA, MACDBar from benchmark where date between :startdate and :enddate");
     }
     $stmt->bindParam(':startdate', $_startdate);
     $stmt->bindParam(':enddate', $_enddate);
@@ -319,9 +280,9 @@ function getWeekLine($name, $startdate, $enddate)
 {
     $connection = getDBConnection();
     if($name != 'hs300'){
-        $stmt = $connection->prepare("select n.date,i.stock_id,n.stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,n.industry,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA,MACDBar from ".$name." n, industry_stock i   where n.stock_name = i.stock_name and  date between :startdate and :enddate and weekday(date) = 0");
+        $stmt = $connection->prepare("select n.date,i.stock_id,n.stock_name,open,high,low,close,volume,adj_price,pb,n.industry,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA,MACDBar from ".$name." n, industry_stock i   where n.stock_name = i.stock_name and  date between :startdate and :enddate and weekday(date) = 0");
     }else{
-        $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA, MACDBar from benchmark where date between :startdate and :enddate and weekday(date) = 0");
+        $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volume,adj_price,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA, MACDBar from benchmark where date between :startdate and :enddate and weekday(date) = 0");
     }
     $stmt->bindParam(':startdate', $_startdate);
     $stmt->bindParam(':enddate', $_enddate);
@@ -335,9 +296,9 @@ function getMonthLine($name, $startdate, $enddate)
 {
     $connection = getDBConnection();
     if($name != 'hs300'){
-        $stmt = $connection->prepare("select n.date,i.stock_id,n.stock_name,open,high,low,close,volumn,adj_price,pe_ttm,pb,n.industry,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA,MACDBar from ".$name."  n, industry_stock i   where n.stock_name = i.stock_name and  date between :startdate and :enddate and dayofmonth(date) = 1");
+        $stmt = $connection->prepare("select n.date,i.stock_id,n.stock_name,open,high,low,close,volume,adj_price,pb,n.industry,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA,MACDBar from ".$name."  n, industry_stock i   where n.stock_name = i.stock_name and  date between :startdate and :enddate and dayofmonth(date) = 1");
     }else{
-        $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volumn,adj_price,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA, MACDBar from benchmark where date between :startdate and :enddate and dayofmonth(date) = 1");
+        $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,open,high,low,close,volume,adj_price,PMA5_day,PMA10_day,PMA30_day,RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J,DIF,DEA, MACDBar from benchmark where date between :startdate and :enddate and dayofmonth(date) = 1");
     }
     $stmt->bindParam(':startdate', $_startdate);
     $stmt->bindParam(':enddate', $_enddate);
@@ -351,9 +312,9 @@ function getPolyAmongDate($name, $startdate, $enddate)
 {
     $connection = getDBConnection();
     if($name != 'hs300'){
-         $stmt = $connection->prepare("select $name.date, industry_stock.stock_id, $name.stock_name, $name.poly from ".$name.", industry_stock where $name.stock_name = industry_stock.stock_name and $name.date between :startdate and :enddate");
+        $stmt = $connection->prepare("select $name.date, industry_stock.stock_id, $name.stock_name, $name.poly from ".$name.", industry_stock where $name.stock_name = industry_stock.stock_name and $name.date between :startdate and :enddate");
     }else{
-         $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,poly from benchmark where date between :startdate and :enddate");
+        $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,poly from benchmark where date between :startdate and :enddate");
     }
     $stmt->bindParam(':startdate', $_startdate);
     $stmt->bindParam(':enddate', $_enddate);
@@ -390,14 +351,14 @@ function getStocksByIndustry($industry_name)
 //echo getStocksByIndustry("国防军工");
 function getIndustry($industry_name,$date)
 {
-     $connection = getDBConnection();
-     $stmt = $connection->prepare("select * from ".$industry_name." where date = :date");
-     $stmt->bindParam(':date',$_date);
-     $_date = $date;
-     return execQuery($connection,$stmt);
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select * from ".$industry_name." where date = :date");
+    $stmt->bindParam(':date',$_date);
+    $_date = $date;
+    return execQuery($connection,$stmt);
 }
 
-//echo getIndustry("公用事业",date('Y-m-d',strtotime('2016-04-01')));
+//echo getIndustry("房地产",date('Y-m-d',strtotime('2016-04-01')));
 function getCalcuValue($type, $name, $date)
 {
     $connection = getDBConnection();
@@ -418,10 +379,10 @@ function getAmongDates($startdate, $enddate)
 }
 
 
-function getMyStrategyData($name,$startdate,$enddate) {
+function getMyStrategyData($stockname,$startdate,$enddate) {
     $connection = getDBConnection();
     if($stockname != 'hs300'){
-        $stmt = $connection->prepare("select date, close, RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J from ".$name." where date between :startdate and :enddate");
+        $stmt = $connection->prepare("select date, close, RSI6,RSI12,RSI24,BIAS6,BIAS12,BIAS24,K,D,J from ".$stockname." where date between :startdate and :enddate");
     }else{
         $stmt = $connection->prepare("select date,benchmark_id,benchmark_name,poly from benchmark where date between :startdate and :enddate");
     }
@@ -430,15 +391,6 @@ function getMyStrategyData($name,$startdate,$enddate) {
     $_startdate = $startdate;
     $_enddate = $enddate;
     return execQuery($connection,$stmt);
-}
-
-function getLatestDate(){
-    $connection = getDBConnection();
-    $stmt = $connection->prepare("select date from sh600300 order by date DESC");
-    $jsonstring = execQuery($connection,$stmt);
-    $arr = json_decode($jsonstring,true);
-    $result = array('date',$arr[0]['date']);
-    return json_encode($result,JSON_UNESCAPED_UNICODE);
 }
 //
 //function getMyDBConnection()
@@ -513,4 +465,5 @@ function getLatestDate(){
 
 
 //echo getRelativeDate(date('Y-m-d',strtotime('2016-05-10')),+11);
+
 ?>
