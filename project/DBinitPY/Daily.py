@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
+from __main__ import ERROR
 
 def daily(now):
     import datetime
@@ -17,8 +18,9 @@ def daily(now):
             df=df.iloc[[-1]]
             [conn,cur]=getCursor()
             pdsql.to_sql(df, v, conn, flavor='mysql',  if_exists='append',index_label='date')
-        except :
+        except Exception:
             count+=1
+            print Exception
             print v,'error'
             continue
         print str(count)+'/'+str(total),'end',v

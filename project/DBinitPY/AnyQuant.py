@@ -36,10 +36,11 @@ def getStockList():
     url=URL+'stocks/'
     try:
         respsz=requests.get(url=url,params=szdic,headers=header)
-        print respsz.url
+        print respsz.json()
         sz=respsz.json()['data']
-    #     print sz
+        #     print sz
         respsh=requests.get(url=url,params=shdic,headers=header)
+        print respsh.url
         sh=respsh.json()['data']
         ans=[]
         for obj in sh:
@@ -47,7 +48,9 @@ def getStockList():
         for obj in sz:
             ans.append(obj['name'])
         return ans
-    except :
+    except Exception:
+        print Exception
         print 'error'
         time.sleep(100)
         return getStockList()
+
