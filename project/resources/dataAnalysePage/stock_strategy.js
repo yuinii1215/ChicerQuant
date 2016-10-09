@@ -23,7 +23,7 @@ app.controller('kLine',function($scope,$http){
     if (localStorage.latestDate==undefined) {
       localStorage.latestDate=year+"-"+month+"-"+day;
     }
-    $scope.url='http://115.159.97.98/php/serviceController.php';
+    $scope.url='http://anyquant.net:15000/php/serviceController.php';
     $http.post($scope.url,{
       'method': 'getPolyAmongDateService',
       'startdate': startdate,
@@ -108,7 +108,7 @@ app.controller('kLine',function($scope,$http){
 
 
 $scope.change=function(){
-           $scope.url="http://115.159.97.98/php/serviceController.php";
+           $scope.url="http://anyquant.net:15000/php/serviceController.php";
            var id=$scope.stockid;
            var nowDate=new Date();
            var year=nowDate.getFullYear();

@@ -3,7 +3,7 @@ app.controller('benchMarkCtrl', function ($scope, $http) {
 
     var array=new Array();
     var benchMark=[];
-    $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
+    $scope.url = 'http://anyquant.net:15000/php/serviceController.php'; // The url of our search
     var startdate="2015-10-01";
     $scope.dayKLineResult=[];
     $scope.monthKLineResult=[];

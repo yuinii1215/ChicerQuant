@@ -236,13 +236,13 @@
                                             <div id="code_area">
                                                 <div id="editor">#-*- coding:utf-8 -*-
     universes = [] #需要用到的股票或基金代号
-    def initialize(context):
+    def init(context):
     &quot;&quot;&quot;
     实现初始化函数
     &quot;&quot;&quot;
     pass
 
-    def handle_data(context, data):
+    def handle_bar(context, bar_dict):
     &quot;&quot;&quot;
     在每次交易中调用，逻辑主要实现部分
     &quot;&quot;&quot;
