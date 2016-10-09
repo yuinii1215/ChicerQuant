@@ -12,16 +12,16 @@ def daily(now):
     count=1
     for v in list:
         print str(count)+'/'+str(total),'start',v
-        try:
-            df=oneStock(v,starttime=before,endtime=now)
-            df=df.iloc[[-1]]
-            [conn,cur]=getCursor()
-            pdsql.to_sql(df, v, conn, flavor='mysql',  if_exists='append',index_label='date')
-        except Exception:
-            count+=1
-            print Exception.message
-            print v,'error'
-            continue
+#         try:
+        df=oneStock(v,starttime=before,endtime=now)
+        df=df.iloc[[-1]]
+        [conn,cur]=getCursor()
+        pdsql.to_sql(df, v, conn, flavor='mysql',  if_exists='append',index_label='date')
+#         except Exception:
+#             count+=1
+#             print Exception.message
+#             print v,'error'
+#             continue
         print str(count)+'/'+str(total),'end',v
         count+=1
     return
