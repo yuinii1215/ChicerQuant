@@ -8,7 +8,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
     myDate.getFullYear();    //获取完整的年份(4位,1970-????)
     myDate.getMonth();       //获取当前月份(0-11,0代表1月)
     myDate.getDate();        //获取当前日(1-31)
-    var currentDate=""+myDate.getFullYear()+"-0"+(myDate.getMonth()+1)+"-"+myDate.getDate();
+    var currentDate=""+myDate.getFullYear()+"-"+(myDate.getMonth()+1)+"-"+myDate.getDate();
     var d=new Date();
     d.setDate(d.getDate()-60);
     var month=d.getMonth()+1;
