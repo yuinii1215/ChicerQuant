@@ -16,13 +16,13 @@ var app = angular.module('submit', []);
     app.controller('subcon', function ($scope, $http) {
         $scope.url = 'http://anyquant.net:15000/php/serviceController.php'; // The url of our search
         $scope.sub=function (){
-          alert('succeed');
           $http.post($scope.url, {
            "startdate":start ,
            "enddate":end,
            "codestr":code,
            "method": "saveCodeService"
         }).success(function (data) {
+          
           console.log(data);
 
 
