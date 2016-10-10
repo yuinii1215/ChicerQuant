@@ -184,7 +184,7 @@ switch ($method)
     case "getLatestDateService":
         getLatestDateService();
         break;
-    case "saveCodeService":
+    case "AService":
         saveCodeService($objData->username,$objData->startdate,$objData->enddate,$objData->codestr);
         break;
     default :
