@@ -185,7 +185,7 @@ switch ($method)
         getLatestDateService();
         break;
     case "saveCodeService":
-        saveCodeService($objData->username,$objData->startdate,$objData->enddate,$objData->money,$objData->codestr);
+        saveCodeService($objData->username,$objData->startdate,$objData->enddate,$objData->codestr);
         break;
     default :
         echo json_encode("no such method");

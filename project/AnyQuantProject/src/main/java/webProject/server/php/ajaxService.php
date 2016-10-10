@@ -328,8 +328,8 @@ require_once ('util.php');
          echo $jsonstring;
     }
 
-    function saveCodeService($username,$startdate,$enddate,$money,$codestr){
-        $jsonstring = saveCode($username,$startdate,$enddate,$money,$codestr);
+    function saveCodeService($username,$startdate,$enddate,$codestr){
+        $jsonstring = saveCode($username,$startdate,$enddate,$codestr);
         echo $jsonstring;
     }
 

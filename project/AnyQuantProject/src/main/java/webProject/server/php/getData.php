@@ -403,11 +403,17 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
       return json_encode($result,JSON_UNESCAPED_UNICODE);
   }
 
-  function saveCode($username,$startdate,$enddate,$money,$codestr){
-
+  function saveCode($username,$startdate,$enddate,$codestr){
+    $myfile = fopen("php/".$username.".py", "w") or die(json_encode("Unable to open file!"));
+    fwrite($myfile, $codestr);
+    fclose($myfile);
+    $cmd = "rqalpha -f "."php/".$username.".py"." -o php/".$username.".pkl -s ".$startdate." -e ".$enddate." --no-plot";
+    system($cmd);
+    $cmd2 = "python pickle2json.py "."php/".$username.".pkl";
+    system($cmd2,$ret);
+    return json_encode($ret,JSON_UNESCAPED_UNICODE);
   }
 
-  $myfile = fopen("/Users/G/Desktop/ChicerQuant/project/AnyQuantProject/src/main/java/webProject/server/php/usercode.py", "w");
 //function getMyDBConnection()
 //{
 //    global $mydb_host;
