@@ -14,6 +14,7 @@ app.controller('allIndustryCtrl', function ($scope, $http) {
     var array=new Array();
     $scope.industryPure=[]; /*存所有行业净额*/
 
+
     $http.post($scope.url, {"method": "getAllIndustriesService"}).
         success(function (data) {
             $scope.error = false;

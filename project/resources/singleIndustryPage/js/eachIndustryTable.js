@@ -22,6 +22,22 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
     $scope.Up=0;
     $scope.Down=0;
     $scope.Keep=0;
+
+
+    $http.post($scope.url, {"method": "getLatestDateService"}).
+        success(function (data) {
+            $scope.error = false;
+            $scope.data = data;
+            console.log("industry date:"+ $scope.data);
+
+        })
+        .error(function (data) {
+            $scope.error = true;
+            $scope.data = data;
+            return 'error name';
+        });
+
+
 //     localStorage.singleIndustryID
     localStorage.latestDate ="2016-09-30";
     console.log("date:"+localStorage.latestDate);
@@ -31,8 +47,6 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
             $scope.error = false;
             $scope.data = data;
             $scope.allStocks =data;
-     //      console.log($scope.allStocks);
-            console.log("industry");
             for(var item in $scope.allStocks) {
                 length++;
             }
