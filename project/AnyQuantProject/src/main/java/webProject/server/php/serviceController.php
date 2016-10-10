@@ -8,7 +8,7 @@
  header("Access-Control-Allow-Origin: *");
  header("Access-Control-Allow-Credentials: true");
  header("Access-Control-Allow-Method: GET,POST,OPTIONS");
- header("Access-Control-Allow-Headers: XMLHttpRequest");
+ header("Access-Control-Allow-Headers: reqid, nid, host, x-real-ip, x-forwarded-ip, event-type, event-id, accept, content-type");
 
 header("Content-Type: text/plain");
 require_once('ajaxService.php');
