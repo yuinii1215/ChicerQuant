@@ -34,20 +34,20 @@ $(function () {
             codestr:code,
             method:"AService"};
         //
-        //var url="http://anyquant.net:15000/php/serviceController.php";
-        //$http.post($scope.url, {
+        // var url="http://anyquant.net:15000/php/serviceController.php";
+        // $http.post($scope.url, {
         //    "startdate":start ,
         //    "enddate":end,
         //    "codestr":code,
         //    "method": "saveCodeService"
-        //}).success(function (data) {
+        // }).success(function (data) {
         //
         //
         //
-        //}).error(function (data) {
+        // }).error(function (data) {
         //    $scope.data = data || "Request failed";
         //    $scope.status = status;
-        //});
+        // });
 
         $.ajax({
             type: "POST",
