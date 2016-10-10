@@ -46,7 +46,8 @@ switch ($method)
         addMyFavorService($objData->name,$objData->username);
         break;
     case "getStockByNameService":
-        getStockByNameService($objData->username,$objData->name,$objData->date);
+//        getStockByNameService($objData->username,$objData->name,$objData->date);
+        getStockByNameService($objData->name,$objData->date);
         break;
     case "getStockAmongDateService":
         getStockAmongDateService($objData->name,$objData->startdate,$objData->enddate);

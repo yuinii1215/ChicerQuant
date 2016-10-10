@@ -35,10 +35,14 @@ require_once ('util.php');
 
     //输入:股票名和日期
     //输出: 操作是否成功的信息以及该日该股票的属性--各种表格项信息
-    function getStockByNameService($username,$name,$date){
-        $jsonstring = getStockByName($username,$name, $date);
-        echo $jsonstring;
-    }
+//    function getStockByNameService($username,$name,$date){
+//        $jsonstring = getStockByName($username,$name, $date);
+//        echo $jsonstring;
+//    }
+        function getStockByNameService($name,$date){
+            $jsonstring = getStockByName($name, $date);
+            echo $jsonstring;
+        }
 
     //输入: 股票名和日期区间
     //输出: 操作是否成功的信息以及该日区间内的每日该股票的属性--各种表格项信息
