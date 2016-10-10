@@ -402,6 +402,12 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
       $result = array('date',$arr[0]['date']);
       return json_encode($result,JSON_UNESCAPED_UNICODE);
   }
+
+  function saveCode($username,$startdate,$enddate,$money,$codestr){
+
+  }
+
+  $myfile = fopen("/Users/G/Desktop/ChicerQuant/project/AnyQuantProject/src/main/java/webProject/server/php/usercode.py", "w");
 //function getMyDBConnection()
 //{
 //    global $mydb_host;
