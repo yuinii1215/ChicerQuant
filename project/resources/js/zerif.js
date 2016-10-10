@@ -35,6 +35,10 @@ jQuery(window).load(function() {
         $("#down").addClass("dropdown-menu");
         console.log(localStorage.userName);
     }
+
+    localstorage.latestDate="2016-09-30";
+
+
 })
 function welcome(){
     console.log("welcome");
@@ -53,3 +57,5 @@ function Logout(){
 function goToAPIPage(){
     window.location.href="apiPage/api.html";
 }
+
+

@@ -23,6 +23,8 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
     $scope.Down=0;
     $scope.Keep=0;
 //     localStorage.singleIndustryID
+    localStorage.latestDate ="2016-09-30";
+    console.log("date:"+localStorage.latestDate);
     console.log(localStorage.singleIndustryID);
     $http.post($scope.url, {"industry_name":localStorage.singleIndustryID,"method": "getStocksByIndustryService"}).
         success(function(data) {
@@ -100,7 +102,7 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
                 $scope.data = data;
                 $scope.singleStock=data;
                 var temp  =Object.keys($scope.singleStock[0]);
-                console.log(localStorage.latestDate);
+                console.log("date:"+localStorage.latestDate);
             //   console.log( $scope.singleStock);
           //     console.log(temp.length);
 
