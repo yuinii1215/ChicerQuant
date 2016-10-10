@@ -36,7 +36,7 @@ var app = angular.module('submit', []);
            "startdate":'2016-01-09' ,
            "enddate":'2016-06-01',
            "codestr":code,
-           "method": "saveCodeService"
+           "method": "AService"
         }).success(function (data) {
 
           console.log(data);
