@@ -10,12 +10,12 @@ header("Content-Type: text/json;charset=utf8");
 //$db_database = 'chicer';
 //$db_username = 'chicer';
 //$db_password = 'chicer2016';
-$db_host = '10.66.171.146';
+$db_host = '114.55.37.133';
 $db_database = 'chicer';
 $db_username = 'chicer';
 $db_password = 'chicer2016';
 
-$mydb_host = '10.66.171.146';
+$mydb_host = '114.55.37.133';
 $mydb_database = 'chicer';
 $mydb_username = 'chicer';
 $mydb_password = 'chicer2016';
@@ -54,9 +54,9 @@ function execQuery($connection, $stmt)
     }
 //    echo json_encode($stmt);
     try{
-    $result = $stmt -> execute();
+        $result = $stmt -> execute();
     }catch(PDOException $e){
-     return "A database problem has occurred:".$e->getMessage();
+        return "A database problem has occurred:".$e->getMessage();
     }
     if ($result === false){
         $arr = array('retmsg'=>$connection->errorInfo());
@@ -85,7 +85,7 @@ function execOperation($connection, $stmt)
         return $json_string;
     }
     try{
-    $result = $stmt -> execute();
+        $result = $stmt -> execute();
     }catch(PDOException $e){
         return json_encode(array("operation"=>"failed for: ".$e->getMessage()));
     }
@@ -102,7 +102,8 @@ function getDBConnection()
     global $db_password;
     global $db_database;
     try{
-        $connection = new PDO("mysql:host=".$db_host.";port = 3306;dbname=".$db_database."; charset=utf8", $db_username, $db_password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+//        $connection = new PDO("mysql:host=".$db_host.";port = 15003;dbname=".$db_database."; charset=utf8", $db_username, $db_password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+        $connection = new PDO("mysql:host=114.55.37.133".";port=15003;dbname=chicer"."; charset=utf8", 'chicer', 'chicer2016', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     }catch (PDOException $e) {

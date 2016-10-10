@@ -6,6 +6,7 @@
  * Time: 下午8:08
  */
  header("Access-Control-Allow-Origin: *");
+ header("Access-Control-Allow-Credentials: true");
 // header("Access-Control-Allow-Method: GET");
 // header("Access-Control-Max-Age: 60");
 
@@ -45,7 +46,8 @@ switch ($method)
         addMyFavorService($objData->name,$objData->username);
         break;
     case "getStockByNameService":
-        getStockByNameService($objData->username,$objData->name,$objData->date);
+//        getStockByNameService($objData->username,$objData->name,$objData->date);
+        getStockByNameService($objData->name,$objData->date);
         break;
     case "getStockAmongDateService":
         getStockAmongDateService($objData->name,$objData->startdate,$objData->enddate);
@@ -181,6 +183,9 @@ switch ($method)
         break;
     case "getLatestDateService":
         getLatestDateService();
+        break;
+    case "saveCodeService":
+        saveCodeService($objData->username,$objData->startdate,$objData->enddate,$objData->codestr);
         break;
     default :
         echo json_encode("no such method");
