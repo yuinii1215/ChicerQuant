@@ -46,7 +46,7 @@ window.onload=function() {
 var app = angular.module('myApp', []);
 //建立与 "myApp"标识的Html中 的 "SearchCtrl"标识的 ng-controller的联系
 app.controller("loginCtrl", function ($scope, $http) {
-    $scope.url = 'http://115.159.97.98/php/serviceController.php';
+    $scope.url = 'http://anyquant.net:15000/php/serviceController.php';
 
     $scope.back=function(){
         backStep();
