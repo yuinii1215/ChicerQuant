@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a0f1cbb-a136-4048-b0a8-9dd38b046752" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/ajaxService.php" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/ajaxService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/serviceController.php" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/serviceController.php" />
     </list>
     <ignored path="AnyQuant_Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,41 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AnyQuant.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/DBinitPY/AnyQuant.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Daily.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/DBinitPY/Daily.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userLogin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/userLogin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="getData.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6780">
-              <caret line="452" column="10" selection-start-line="452" selection-start-column="10" selection-end-line="452" selection-end-column="10" />
+            <state relative-caret-position="270">
+              <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eachIndustryTable.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/resources/singleIndustryPage/js/eachIndustryTable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -77,8 +58,8 @@
       <file leaf-file-name="serviceController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/serviceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+            <state relative-caret-position="105">
+              <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -87,8 +68,8 @@
       <file leaf-file-name="ajaxService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/ajaxService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4770">
-              <caret line="318" column="25" selection-start-line="318" selection-start-column="25" selection-end-line="318" selection-end-column="25" />
+            <state relative-caret-position="180">
+              <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -179,6 +160,9 @@
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/css/style.css" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/welcome.html" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/db_login.php" />
+        <option value="$PROJECT_DIR$/project/resources/singleIndustryPage/js/eachIndustryTable.js" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/serviceController.php" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/ajaxService.php" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php" />
       </list>
     </option>
@@ -196,10 +180,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="61" />
-    <option name="y" value="23" />
+    <option name="x" value="223" />
+    <option name="y" value="283" />
     <option name="width" value="1157" />
-    <option name="height" value="778" />
+    <option name="height" value="699" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -273,6 +257,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuant_Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ChicerQuant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="singleIndustryPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnyQuant_Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ChicerQuant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="singleIndustryPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -773,7 +805,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="23" width="1157" height="778" extended-state="0" />
+    <frame x="223" y="283" width="1157" height="699" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -823,13 +855,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/js/pieChart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/resources/singleIndustryPage/js/tag.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1104,26 +1129,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/DBinitPY/AnyQuant.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/userLogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1160,26 +1169,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/singleIndustryPage/js/eachIndustryTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/userLogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/DBinitPY/AnyQuant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/serviceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        <state relative-caret-position="105">
+          <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/ajaxService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4770">
-          <caret line="318" column="25" selection-start-line="318" selection-start-column="25" selection-end-line="318" selection-end-column="25" />
+        <state relative-caret-position="180">
+          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6780">
-          <caret line="452" column="10" selection-start-line="452" selection-start-column="10" selection-end-line="452" selection-end-column="10" />
+        <state relative-caret-position="270">
+          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
           <folding />
         </state>
       </provider>
