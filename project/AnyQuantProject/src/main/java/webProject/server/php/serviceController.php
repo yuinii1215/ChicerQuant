@@ -183,6 +183,7 @@ switch ($method)
     case "getLatestDateService":
         getLatestDateService();
         break;
+//    case
     default :
         echo json_encode("no such method");
 }

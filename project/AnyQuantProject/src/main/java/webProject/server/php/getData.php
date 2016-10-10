@@ -26,10 +26,11 @@ function getStockByName($name, $date)
 //    }
 
 //    echo $date;
-    $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volume,adj_price,pb,industry from ".$name." where date = :date");
-    $stmt->bindParam(':date', $_date);
-    $_date = $date;
-    return execQuery($connection,$stmt);
+    echo "called date: ".$date."  name: ".$name;
+//    $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volume,adj_price,pb,industry from ".$name." where date = :date");
+//    $stmt->bindParam(':date', $_date);
+//    $_date = $date;
+//    return execQuery($connection,$stmt);
 }
 
 //echo getStockByName('sh600072',date('Y-m-d',strtotime('2015-01-01')));
