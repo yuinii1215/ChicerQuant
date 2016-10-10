@@ -11,7 +11,7 @@ import operator
 from numpy import log
 from numpy import sqrt
 
-IP_ADDRESS='http://115.159.97.98/php/serviceController.php';
+IP_ADDRESS='http://anyquant.net:15000/php/serviceController.php';
 
 def getData(id,start,end):
     postData={'name':id,'startdate':start,'enddate':end,'method':'getStockAmongDateService'};

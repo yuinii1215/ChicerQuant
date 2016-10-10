@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 from AnyQuant import getSingleStock
 from pdCal import updown
-from sql import getCursor,setPrimaryKey
+from sql import getCursor,setPrimaryKey, getE
 import pandas.io.sql as pdsql
 
 def apply_lambda(df):
@@ -68,9 +68,9 @@ def oneIndustry(industry,i_c):
                             'realclose':'leaderPrice','updown':'leaderUpdown'})
     df.set_index('date', drop=True, inplace=True)
 
-    [conn, cur] = getCursor()
+    eng=getE()
     pd.DataFrame.replace(df,{float('inf'):0})
-    pdsql.to_sql(df, unicode(industry), conn, flavor='mysql')
+    pdsql.to_sql(df, unicode(industry), eng,if_exists='replace',chunksize=200)
     setPrimaryKey(industry)
     return
     
