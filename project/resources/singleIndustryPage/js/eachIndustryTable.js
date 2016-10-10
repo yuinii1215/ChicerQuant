@@ -23,6 +23,7 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
     $scope.Down=0;
     $scope.Keep=0;
 //     localStorage.singleIndustryID
+    localStorage.latestDate ="2016-09-30";
     console.log("date:"+localStorage.latestDate);
     console.log(localStorage.singleIndustryID);
     $http.post($scope.url, {"industry_name":localStorage.singleIndustryID,"method": "getStocksByIndustryService"}).
