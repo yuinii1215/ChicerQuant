@@ -18,7 +18,18 @@ var app = angular.module('submit', []);
         $scope.sub=function (){
           alert('aaa');
 
-
+          // var $btn = $(".run_algo_click").button("loading");
+          //     console.log("click");
+              var code = document.getElementById("editor").innerText;
+          //
+          // //    var code = editor.getValue();
+          //     var start = $("#start_time").val();
+          //     var end = $("#end_time").val();
+          //     start="2015-01-01";
+          //     end="2016-01-01";
+          //     console.log("code:"+code);
+          //     console.log("start:"+start);
+          //     console.log("end:"+end);
 
           $http.post($scope.url, {
             "username": '',
