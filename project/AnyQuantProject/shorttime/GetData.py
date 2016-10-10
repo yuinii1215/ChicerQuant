@@ -81,8 +81,11 @@ def getInterestRate(start,end):
 
 
 if __name__ == "__main__":
-    t=sys.argv;
-    ans=parseTimeER(getData(t[1],t[2],t[3]));
-    for num in ans:
-        print (num[0]);
-        print (num[1]);
+#     t=sys.argv;
+#     ans=parseTimeER(getData(t[1],t[2],t[3]));
+#     for num in ans:
+#         print (num[0]);
+#         print (num[1]);
+#         
+    print getData('sh600315', '2016-09-01', '2016-09-30')
+        
