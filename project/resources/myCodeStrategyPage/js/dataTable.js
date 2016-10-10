@@ -43,11 +43,12 @@ var app = angular.module('submit', []);
             }else {
                 username=localStorage.username;
             }
-
+            username="cx";
             var array=new Array();
             var count=-1;
             var length=0;
 
+            code="";
           $http.post($scope.url, {
             "username": username,
            "startdate":start ,
