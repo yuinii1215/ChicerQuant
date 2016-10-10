@@ -23,23 +23,25 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
     $scope.Down=0;
     $scope.Keep=0;
 
+    getDate();
 
-    $http.post($scope.url, {"method": "getLatestDateService"}).
-        success(function (data) {
-            $scope.error = false;
-            $scope.data = data;
-            console.log("industry date:"+ $scope.data);
-
-        })
-        .error(function (data) {
-            $scope.error = true;
-            $scope.data = data;
-            return 'error name';
-        });
+    function getDate() {
+        $http.post($scope.url, {"method": "getLatestDateService"}).success(function (data) {
+                $scope.error = false;
+                $scope.data = data;
+                console.log("industry date:" + $scope.data);
+                localStorage.latestDate=$scope.data;
+            })
+            .error(function (data) {
+                $scope.error = true;
+                $scope.data = data;
+                return 'error name';
+            });
+    }
 
 
 //     localStorage.singleIndustryID
-    localStorage.latestDate ="2016-09-30";
+  //  localStorage.latestDate ="2016-09-20";
     console.log("date:"+localStorage.latestDate);
     console.log(localStorage.singleIndustryID);
     $http.post($scope.url, {"industry_name":localStorage.singleIndustryID,"method": "getStocksByIndustryService"}).
