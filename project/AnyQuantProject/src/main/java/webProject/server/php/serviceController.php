@@ -7,8 +7,8 @@
  */
  header("Access-Control-Allow-Origin: *");
  header("Access-Control-Allow-Credentials: true");
-// header("Access-Control-Allow-Method: GET");
-// header("Access-Control-Max-Age: 60");
+ header("Access-Control-Allow-Method: GET,POST,OPTIONS");
+ header("Access-Control-Allow-Headers: XMLHttpRequest");
 
 header("Content-Type: text/plain");
 require_once('ajaxService.php');
