@@ -100,6 +100,7 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
                 $scope.data = data;
                 $scope.singleStock=data;
                 var temp  =Object.keys($scope.singleStock[0]);
+                console.log(localStorage.latestDate);
             //   console.log( $scope.singleStock);
           //     console.log(temp.length);
 
