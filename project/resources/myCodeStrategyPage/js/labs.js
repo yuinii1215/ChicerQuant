@@ -29,10 +29,10 @@ $(function () {
         var freq = $(".selectpicker").val();
         var capital_base = $("#capital_base").val();
         var strategy_id = $("#strategy_id").val();
-        var post_data = {"username":"","startdate":start ,
-            "enddate":end,
-            "codestr":code,
-            "method": "AService"};
+        var post_data = {username:"",startdate:start ,
+            enddate:end,
+            codestr:code,
+            method:"AService"};
         //
         //var url="http://anyquant.net:15000/php/serviceController.php";
         //$http.post($scope.url, {
