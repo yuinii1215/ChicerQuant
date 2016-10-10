@@ -324,7 +324,7 @@ require_once ('util.php');
          echo $jsonstring;
     }
 
-//    getLatestDateService();
+//    getLatestDateServi5ce();
 //    getMyStrategyDataService('sh600000','2016-5-10','2016-5-20');
 //    getRelativeDateService(date('Y-m-d',strtotime('2016-05-10')),+9);
 

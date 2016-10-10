@@ -6,6 +6,7 @@
  * Time: 下午8:08
  */
  header("Access-Control-Allow-Origin: *");
+ header("Access-Control-Allow-Credentials: true");
 // header("Access-Control-Allow-Method: GET");
 // header("Access-Control-Max-Age: 60");
 

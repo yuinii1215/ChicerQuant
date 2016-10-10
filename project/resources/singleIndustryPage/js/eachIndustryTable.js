@@ -30,7 +30,7 @@ app.controller('eachIndustryTableCtrl', function ($scope, $http) {
             $scope.data = data;
             $scope.allStocks =data;
      //      console.log($scope.allStocks);
-            console.log("industry");
+//            console.log("industry");
             for(var item in $scope.allStocks) {
                 length++;
             }

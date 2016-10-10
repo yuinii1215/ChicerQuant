@@ -25,14 +25,14 @@ function getStockByName($name, $date)
 //        $_date = $date;
 //    }
 
-
+//    echo $date;
     $stmt = $connection->prepare("select date,stock_name,open,high,low,close,volume,adj_price,pb,industry from ".$name." where date = :date");
     $stmt->bindParam(':date', $_date);
     $_date = $date;
     return execQuery($connection,$stmt);
 }
 
-//echo getStockByName('sh600216',date('Y-m-d',strtotime('2015-01-01')));
+//echo getStockByName('sh600072',date('Y-m-d',strtotime('2015-01-01')));
 function checkTableNameValid($tablename)
 {
     $valid = 0;
@@ -393,7 +393,14 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
     $_enddate = $enddate;
     return execQuery($connection,$stmt);
 }
-//
+ function getLatestDate(){
+      $connection = getDBConnection();
+      $stmt = $connection->prepare("select date from sh600300 order by date DESC");
+      $jsonstring = execQuery($connection,$stmt);
+      $arr = json_decode($jsonstring,true);
+      $result = array('date',$arr[0]['date']);
+      return json_encode($result,JSON_UNESCAPED_UNICODE);
+  }
 //function getMyDBConnection()
 //{
 //    global $mydb_host;
