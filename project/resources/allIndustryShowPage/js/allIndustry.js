@@ -5,7 +5,7 @@
 var app = angular.module('allIndustryApp',[]);
 app.controller('allIndustryCtrl', function ($scope, $http) {
 
-    $scope.url = 'http://115.159.97.98/php/serviceController.php'; // The url of our search
+    $scope.url = 'http://anyquant.net:15000/php/serviceController.php'; // The url of our search
     var index=0;
     var count=-1;
     var countOther=0;
