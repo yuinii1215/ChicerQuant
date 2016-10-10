@@ -143,6 +143,142 @@ section {
     margin: 0 0 0 -15px;
 }
 
+.blue { color: #185875; }
+.yellow { color: #9cb70f; }
+
+.mycontainer th h1 {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color: #ffffff;
+}
+
+.mycontainer td {
+    font-weight: normal;
+    font-size: 1em;
+    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+    -moz-box-shadow: 0 2px 2px -2px #0E1119;
+    box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.mycontainer {
+    text-align: left;
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+    display: table;
+    padding: 0 0 8em 0;
+    color:white;
+}
+
+.mycontainer td, .container th {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-left:2%;
+}
+
+/* Background-color of the odd rows */
+.mycontainer tr:nth-child(odd) {
+    background-color: transparent;
+}
+
+/* Background-color of the even rows */
+.mycontainer tr:nth-child(even) {
+    background-color: transparent;
+}
+
+.mycontainer th {
+    background-color: transparent;
+}
+
+.mycontainer td:first-child { color: #ffffff; }
+
+/*.mycontainer td:last-child {*/
+    /*width:150px;*/
+/*}*/
+
+.mycontainer tr:hover {
+    background-color: #464A52;
+    -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+    -moz-box-shadow: 0 6px 6px -6px #0E1119;
+    box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.mycontainer td:hover {
+    background-color: #9cb70f;
+    /*color: #403E10;*/
+    font-weight: bold;
+
+    box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+    transform: translate3d(6px, -6px, 0);
+
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+    .mycontainer td:nth-child(4),
+    .mycontainer th:nth-child(4) { display: none; }
+}
+
+.insertBtn{
+    color:white;
+    border:none;
+    background-color: transparent;
+}
+
+.mySpan {
+    color:white;
+    font-size: 1em;
+    text-align: center;
+}
 
 
-
+.custombutton {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    color:#F7F7F7;
+    width: 150px;
+    height:40px;
+    border: 2px solid #F7F7F7;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    font-size: 15px;
+    padding-top: 5px;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+.custombutton:after {
+    position: absolute;
+    -webkit-transition: .3s;
+    transition: .3s;
+    content: '';
+    width: 0;
+    left: 50%;
+    bottom: 0;
+    height: 3px;
+    background: #F7F7F7;
+}
+.custombutton:nth-of-type(2):after {
+    left: 0;
+}
+.custombutton:nth-of-type(3):after {
+    right: 0;
+    left: auto;
+}
+.custombutton:hover {
+    cursor: pointer;
+}
+.custombutton:hover:after {
+    width: 100%;
+    left: 0;
+}
+#strategyBoard{
+    display: none;
+}
