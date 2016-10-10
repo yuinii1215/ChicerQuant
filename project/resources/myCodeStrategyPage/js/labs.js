@@ -32,7 +32,7 @@ $(function () {
         var post_data = {"username":"","startdate":start ,
             "enddate":end,
             "codestr":code,
-            "method": "saveCodeService"};
+            "method": "AService"};
         //
         //var url="http://anyquant.net:15000/php/serviceController.php";
         //$http.post($scope.url, {
