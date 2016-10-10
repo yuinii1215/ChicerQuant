@@ -14,20 +14,53 @@ $(function () {
 
     $(".run_algo_click").click(function () {
         var $btn = $(".run_algo_click").button("loading");
+        console.log("click");
+        var code = document.getElementById("editor").innerText;
 
-        var code = editor.getValue();
+    //    var code = editor.getValue();
         var start = $("#start_time").val();
         var end = $("#end_time").val();
+        start="2015-01-01";
+        end="2016-01-01";
+        console.log("code:"+code);
+        console.log("start:"+start);
+        console.log("end:"+end);
+
         var freq = $(".selectpicker").val();
         var capital_base = $("#capital_base").val();
         var strategy_id = $("#strategy_id").val();
-        var post_data = { code: code, start: start, end: end, capital_base: capital_base, freq: freq, strategy_id: strategy_id };
+        var post_data = {"username":"","startdate":start ,
+            "enddate":end,
+            "codestr":code,
+            "method": "saveCodeService"};
+        //
+        //var url="http://anyquant.net:15000/php/serviceController.php";
+        //$http.post($scope.url, {
+        //    "startdate":start ,
+        //    "enddate":end,
+        //    "codestr":code,
+        //    "method": "saveCodeService"
+        //}).success(function (data) {
+        //
+        //
+        //
+        //}).error(function (data) {
+        //    $scope.data = data || "Request failed";
+        //    $scope.status = status;
+        //});
+
         $.ajax({
             type: "POST",
-            url: "/algo/run/",
+            url: "http://anyquant.net:15000/php/serviceController.php",
             data: post_data,
             dataType: "json",
             success: function success(data) {
+
+                console.log("running");
+                console.log(data);
+
+
+
                 if (data['status'] == 'ok') {
                     //鎺ュ彛寰呭畾涔�
                     $("#annual_returns").html(data['data']['annualized_return']);

@@ -11,9 +11,10 @@ $(function () {
     $("#end_time").datepicker("update", new Date());
 
     $('.selectpicker').selectpicker();
-
+    console.log("click");
     $(".run_algo_click").click(function () {
         var $btn = $(".run_algo_click").button("loading");
+        console.log("click");
 
         var code = editor.getValue();
         var start = $("#start_time").val();
