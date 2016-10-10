@@ -32,7 +32,7 @@ var app = angular.module('submit', []);
           //     console.log("end:"+end);
 
           $http.post($scope.url, {
-            "username": '',
+            "username": 'cx',
            "startdate":'2016-01-09' ,
            "enddate":'2016-06-01',
            "codestr":code,
