@@ -12,108 +12,108 @@ $(function () {
 
     $('.selectpicker').selectpicker();
 
-    $(".run_algo_click").click(function () {
-        var $btn = $(".run_algo_click").button("loading");
-        console.log("click");
-        var code = document.getElementById("editor").innerText;
-
-    //    var code = editor.getValue();
-        var start = $("#start_time").val();
-        var end = $("#end_time").val();
-        start="2015-01-01";
-        end="2016-01-01";
-        console.log("code:"+code);
-        console.log("start:"+start);
-        console.log("end:"+end);
-
-        var freq = $(".selectpicker").val();
-        var capital_base = $("#capital_base").val();
-        var strategy_id = $("#strategy_id").val();
-        var post_data = {username:"",startdate:start ,
-            enddate:end,
-            codestr:code,
-            method:"AService"};
-        //
-        // var url="http://anyquant.net:15000/php/serviceController.php";
-        // $http.post($scope.url, {
-        //    "startdate":start ,
-        //    "enddate":end,
-        //    "codestr":code,
-        //    "method": "saveCodeService"
-        // }).success(function (data) {
-        //
-        //
-        //
-        // }).error(function (data) {
-        //    $scope.data = data || "Request failed";
-        //    $scope.status = status;
-        // });
-
-        $.ajax({
-            type: "POST",
-            url: "http://anyquant.net:15000/php/serviceController.php",
-            data: post_data,
-            dataType: "json",
-            success: function success(data) {
-
-                console.log("running");
-                console.log(data);
-
-
-
-                if (data['status'] == 'ok') {
-                    //鎺ュ彛寰呭畾涔�
-                    $("#annual_returns").html(data['data']['annualized_return']);
-                    $("#bench_annual_returns").html(data['data']['benchmark_annualized_return']);
-                    $("#alpha").html(data['data']['alpha']);
-                    $("#beta").html(data['data']['beta']);
-                    $("#sharpe").html(data['data']['sharpe']);
-                    $("#volatility").html(data['data']['volatility']);
-                    $("#information").html(data['data']['information']);
-                    $("#max_drawdown").html(data['data']['max_drawdown']);
-                    $("#result_chart_area").highcharts({
-                        title: {
-                            text: '绱鏀剁泭鐜�'
-                        },
-                        xAxis: {
-                            type: 'datetime',
-                            tickInterval: 7 * 24 * 60 * 60 * 1000,
-                            labels: {
-                                formatter: function formatter() {
-                                    return Highcharts.dateFormat('%Y-%m-%d', this.value);
-                                }
-                            }
-                        },
-                        yAxis: {
-                            title: null,
-                            tickPositions: [-25, 0, 25, 50, 75, 100]
-                        },
-                        tooltip: {
-                            shared: true,
-                            crosshairs: true,
-                            formatter: function formatter() {
-                                return Highcharts.dateFormat('%Y-%m-%d', this.x) + '<br>绛栫暐: ' + this.points[0].y + '<br>鍩哄噯: ' + this.points[1].y;
-                            }
-                        },
-                        series: [{
-                            'name': '绛栫暐',
-                            data: data['data']['cumulative_return']
-                        }, {
-                            'name': '鍩哄噯',
-                            data: data['data']['benchmark_return']
-                        }]
-                    });
-                } else {
-                    $('#code_area').notify(data['data'], { position: 'top' });
-                }
-                $btn.button('reset');
-            },
-            error: function error(data) {
-                $('#code_area').notify(data['data'], { position: 'top' });
-                $btn.button('reset');
-            }
-        });
-    });
+    // $(".run_algo_click").click(function () {
+    //     var $btn = $(".run_algo_click").button("loading");
+    //     console.log("click");
+    //     var code = document.getElementById("editor").innerText;
+    //
+    // //    var code = editor.getValue();
+    //     var start = $("#start_time").val();
+    //     var end = $("#end_time").val();
+    //     start="2015-01-01";
+    //     end="2016-01-01";
+    //     console.log("code:"+code);
+    //     console.log("start:"+start);
+    //     console.log("end:"+end);
+    //
+    //     var freq = $(".selectpicker").val();
+    //     var capital_base = $("#capital_base").val();
+    //     var strategy_id = $("#strategy_id").val();
+    //     var post_data = {username:"",startdate:start ,
+    //         enddate:end,
+    //         codestr:code,
+    //         method:"AService"};
+    //     //
+    //     // var url="http://anyquant.net:15000/php/serviceController.php";
+    //     // $http.post($scope.url, {
+    //     //    "startdate":start ,
+    //     //    "enddate":end,
+    //     //    "codestr":code,
+    //     //    "method": "saveCodeService"
+    //     // }).success(function (data) {
+    //     //
+    //     //
+    //     //
+    //     // }).error(function (data) {
+    //     //    $scope.data = data || "Request failed";
+    //     //    $scope.status = status;
+    //     // });
+    //
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "http://anyquant.net:15000/php/serviceController.php",
+    //         data: post_data,
+    //         dataType: "json",
+    //         success: function success(data) {
+    //
+    //             console.log("running");
+    //             console.log(data);
+    //
+    //
+    //
+    //             if (data['status'] == 'ok') {
+    //                 //鎺ュ彛寰呭畾涔�
+    //                 $("#annual_returns").html(data['data']['annualized_return']);
+    //                 $("#bench_annual_returns").html(data['data']['benchmark_annualized_return']);
+    //                 $("#alpha").html(data['data']['alpha']);
+    //                 $("#beta").html(data['data']['beta']);
+    //                 $("#sharpe").html(data['data']['sharpe']);
+    //                 $("#volatility").html(data['data']['volatility']);
+    //                 $("#information").html(data['data']['information']);
+    //                 $("#max_drawdown").html(data['data']['max_drawdown']);
+    //                 $("#result_chart_area").highcharts({
+    //                     title: {
+    //                         text: '绱鏀剁泭鐜�'
+    //                     },
+    //                     xAxis: {
+    //                         type: 'datetime',
+    //                         tickInterval: 7 * 24 * 60 * 60 * 1000,
+    //                         labels: {
+    //                             formatter: function formatter() {
+    //                                 return Highcharts.dateFormat('%Y-%m-%d', this.value);
+    //                             }
+    //                         }
+    //                     },
+    //                     yAxis: {
+    //                         title: null,
+    //                         tickPositions: [-25, 0, 25, 50, 75, 100]
+    //                     },
+    //                     tooltip: {
+    //                         shared: true,
+    //                         crosshairs: true,
+    //                         formatter: function formatter() {
+    //                             return Highcharts.dateFormat('%Y-%m-%d', this.x) + '<br>绛栫暐: ' + this.points[0].y + '<br>鍩哄噯: ' + this.points[1].y;
+    //                         }
+    //                     },
+    //                     series: [{
+    //                         'name': '绛栫暐',
+    //                         data: data['data']['cumulative_return']
+    //                     }, {
+    //                         'name': '鍩哄噯',
+    //                         data: data['data']['benchmark_return']
+    //                     }]
+    //                 });
+    //             } else {
+    //                 $('#code_area').notify(data['data'], { position: 'top' });
+    //             }
+    //             $btn.button('reset');
+    //         },
+    //         error: function error(data) {
+    //             $('#code_area').notify(data['data'], { position: 'top' });
+    //             $btn.button('reset');
+    //         }
+    //     });
+    // });
 
     $("#share_btn").on("click", function () {
         var result_params = $("<table>").append($("#result_area table").clone()).html();

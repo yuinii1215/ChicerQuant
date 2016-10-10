@@ -12,10 +12,12 @@ jQuery(window).load(function() {
     });
 });
 
-var app = angular.module('submod', []);
+var app = angular.module('submit', []);
     app.controller('subcon', function ($scope, $http) {
         $scope.url = 'http://anyquant.net:15000/php/serviceController.php'; // The url of our search
-        $http.post($scope.url, {
+        $scope.sub=function (){
+          alert('succeed');
+          $http.post($scope.url, {
            "startdate":start ,
            "enddate":end,
            "codestr":code,
@@ -28,7 +30,8 @@ var app = angular.module('submod', []);
            $scope.data = data || "Request failed";
            $scope.status = status;
         });
-      };
+      }
+    });
 
 
 

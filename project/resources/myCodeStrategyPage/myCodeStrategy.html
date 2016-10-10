@@ -200,10 +200,10 @@
                             <div id="lab_container">
                                 <div class="nav-sidebar">
                             <ul class="nav nav-sidebar-ul">
-                                <li class="nav-sidebar-item" ng-app="submit" ng-controller='subcon' ng-module="submod">
+                                <li class="nav-sidebar-item" ng-app="submit" ng-controller="subcon" >
                                     <a href="#" id="" >
                                         <span class="icon-play icon-large"></span>
-                                        <span id="run_algo" class="run_algo_click" data-loading-text="正在运行" ><i class="fa fa-play"></i>运行</span>
+                                        <span id="run_algo" ng-click="sub()" class="run_algo_click" data-loading-text="正在运行" ><i class="fa fa-play"></i>运行</span>
                                     </a>
                                 </li>
                                 <li class="nav-sidebar-item">
@@ -423,6 +423,10 @@
     });
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/python");
+</script>
+
+<script type="text/javascript">
+    angular.bootstrap(angular.element("#run_algo"),["submit"]);
 </script>
 
 <!-- Javascript -->
