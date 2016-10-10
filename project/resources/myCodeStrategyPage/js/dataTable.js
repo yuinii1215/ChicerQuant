@@ -16,35 +16,49 @@ var app = angular.module('submit', []);
     app.controller('subcon', function ($scope, $http) {
         $scope.url = 'http://anyquant.net:15000/php/serviceController.php'; // The url of our search
         $scope.sub=function (){
-          alert('aaa');
+           $(".form-datetime").datepicker({
+                setDate: new Date(),
+                autoclose: true,
+                format: 'yyyy-mm-dd'
+           });
+            $("#start_time").datepicker("update", new Date());
+            $("#end_time").datepicker("update", new Date());
 
-          // var $btn = $(".run_algo_click").button("loading");
+            $('.selectpicker').selectpicker();
+
+           var $btn = $(".run_algo_click").button("loading");
           //     console.log("click");
               var code = document.getElementById("editor").innerText;
-          //
-          // //    var code = editor.getValue();
-          //     var start = $("#start_time").val();
-          //     var end = $("#end_time").val();
-          //     start="2015-01-01";
-          //     end="2016-01-01";
+
+               var start = $("#start_time").val();
+               var end = $("#end_time").val();
+               start="2015-01-01";
+               end="2016-01-01";
           //     console.log("code:"+code);
           //     console.log("start:"+start);
           //     console.log("end:"+end);
+            var username;
+            if(localStorage.username=""){
+                username="";
+            }else {
+                username=localStorage.username;
+            }
 
           $http.post($scope.url, {
-            "username": 'cx',
-           "startdate":'2016-01-09' ,
-           "enddate":'2016-06-01',
+            "username": username,
+           "startdate":start ,
+           "enddate":end,
            "codestr":code,
            "method": "AService"
         }).success(function (data) {
 
           console.log(data);
-
+              $btn.button('reset');
 
         }).error(function (data) {
            $scope.data = data || "Request failed";
            $scope.status = status;
+              $btn.button('reset');
         });
       }
     });
