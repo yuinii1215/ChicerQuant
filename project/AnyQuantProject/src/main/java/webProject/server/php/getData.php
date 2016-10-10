@@ -404,12 +404,12 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
   }
 
   function saveCode($username,$startdate,$enddate,$codestr){
-    $myfile = fopen("php/".$username.".py", "w");
+    $myfile = fopen($username.".py", "w");
     fwrite($myfile, $codestr);
     fclose($myfile);
-    $cmd = "rqalpha -f "."php/".$username.".py"." -o php/".$username.".pkl -s ".$startdate." -e ".$enddate." --no-plot";
+    $cmd = "rqalpha -f ".$username.".py"." -o ".$username.".pkl -s ".$startdate." -e ".$enddate." --no-plot";
     system($cmd);
-    $cmd2 = "python pickle2json.py "."php/".$username.".pkl";
+    $cmd2 = "python pickle2json.py ".$username.".pkl";
     system($cmd2,$ret);
     return json_encode($ret,JSON_UNESCAPED_UNICODE);
   }
