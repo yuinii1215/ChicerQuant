@@ -36,7 +36,7 @@ jQuery(window).load(function() {
         console.log(localStorage.userName);
     }
 
-    localstorage.latestDate="2016-08-04";
+    localstorage.latestDate="2016-09-30";
 
 
 })
