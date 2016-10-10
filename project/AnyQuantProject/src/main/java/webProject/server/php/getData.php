@@ -404,7 +404,7 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
   }
 
   function saveCode($username,$startdate,$enddate,$codestr){
-    $myfile = fopen("php/".$username.".py", "w") or die(json_encode("Unable to open file!"));
+    $myfile = fopen("php/".$username.".py", "w");
     fwrite($myfile, $codestr);
     fclose($myfile);
     $cmd = "rqalpha -f "."php/".$username.".py"." -o php/".$username.".pkl -s ".$startdate." -e ".$enddate." --no-plot";
