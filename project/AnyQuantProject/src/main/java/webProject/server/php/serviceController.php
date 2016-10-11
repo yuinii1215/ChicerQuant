@@ -193,6 +193,8 @@ switch ($method)
     case "getAllRecordsService":
         getAllRecordsService();
         break;
+    case "getCodeService":
+        getCodeService($objData->username);
     default :
         echo json_encode("no such method");
 }

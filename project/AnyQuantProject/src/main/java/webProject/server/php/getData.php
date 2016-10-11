@@ -405,7 +405,9 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
 
   function saveCode($username,$startdate,$enddate,$codestr){
     $myfile = fopen($username.".py", "w");
-    iconv('GB2312','UTF-8',$codestr);
+//    iconv('GB2312','UTF-8',$codestr);
+    $encode = mb_detect_encoding($codestr, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+    $codestr = mb_convert_encoding($codestr, 'UTF-8', $encode);
     fwrite($myfile, $codestr);
     fclose($myfile);
     $cmd = "rqalpha run -f ".$username.".py"." -o ".$username.".pkl -s ".$startdate." -e ".$enddate." --no-plot";
@@ -431,9 +433,16 @@ function saveRecord($username,$ratio){
 
 function getAllRecords(){
     $connection = getDBConnection();
-    $stmt = $connection->prepare("select username,ratio from rank order by username ASC");
+    $stmt = $connection->prepare("select username,ratio from rank order by username ASC limit 10");
     return execQuery($connection,$stmt);
 }
+
+function getCode($username){
+    $myfile = fopen($username.".py", "w");
+    return json_encode(fpassthru($myfile),JSON_UNESCAPED_UNICODE);
+}
+echo saveCode('hmy','2016-01-03','2016-04-03','hello')
+
 //function getMyDBConnection()
 //{
 //    global $mydb_host;
