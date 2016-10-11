@@ -31,7 +31,7 @@ app.controller("SearchCtrl", function($scope, $http, MyCache) {
         $scope.data = data;
         $scope.tableData =data;
 
-     //   console.log($scope.tableData);
+     
         var array=new Array();
         var count=0;
         var tableData=[];

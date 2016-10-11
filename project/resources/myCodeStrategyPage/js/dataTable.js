@@ -56,7 +56,7 @@ console.log("code:"+code);
            "method": "AService"
         }).success(function (data) {
               $scope.data=data;
-              var temp  =$scope.data;
+              var temp1  =$scope.data;
               console.log("data:"+$scope.data);
 
            $btn.button('reset');
@@ -65,63 +65,61 @@ console.log("code:"+code);
 
                 }
               var temp  =Object.keys(  $scope.data );
-              console.log(temp);
-              for( var i=0;i< temp.length;i++){
-                  var obj =  Object.keys( temp);
-                  console.log("obj:"+obj+"\n");
-              }
-            //  console.log( $scope.data[0].alpha);
-              //if(temp.length>2) {
-              //                        array[count + 1] = new Array;
-              //                        array[count + 1][0] = $scope.data[0].alpha;
-              //                        array[count + 1][1] = $scope.data[0].sharpe;
-              //                        array[count + 1][2] = $scope.data[0].annualized_returns;
-              //                        array[count + 1][3] = $scope.data[0].benchmark_annualized_returns;
-              //                        array[count + 1][4] = $scope.data[0].benchmark_daily_returns;
-              //                        array[count + 1][5] = $scope.data[0].benchmark_total_returns;
-              //                        array[count + 1][6] = $scope.data[0].daily_returns;
-              //                        array[count + 1][7] = $scope.data[0].total_returns;
-              //
-              //                        //          count++;
-              //                    } else{
-              //                        array[count + 1] = new Array;
-              //                        array[count + 1][0] = "-";
-              //                        array[count + 1][1] = "-";
-              //                        array[count + 1][2] =  "-";
-              //                        array[count + 1][3] =  "-";
-              //                        array[count + 1][4] =  "-";
-              //                        array[count + 1][5] =  "-";
-              //                        array[count + 1][6] =  "-";
-              //                        array[count + 1][7] =  "-";
-              //                        //     countOther++;
-              //                    }
-              //                    count++;
-              //
-              //                    if(count==length-2){
-              //                        var dataSet = array;
-              //
-              //                        $(document).ready(function () {
-              //                            var selected = [];
-              //                            $('#table').DataTable({
-              //                                "rowCallback": function (row, data) {
-              //                                    if ($.inArray(data.DT_RowId, selected) !== -1) {
-              //                                        $(row).addClass('selected');
-              //                                    }
-              //                                },
-              //                                data: dataSet,
-              //                                columns: [
-              //                                {title: "阿尔法"},
-              //                                {title: "夏普比率"},
-              //                                {title: "年回报收益"},
-              //                                {title: "基准年回报收益"},
-              //                                {title: "基准日回报"},
-              //                                {title: "基准总回报"},
-              //                                {title: "日回报"},
-              //                                {title: "总回报"},
-              //                                ]
-              //                       });
-              //                    });
-              //             }
+
+
+              if(temp.length>2){
+                  for( var i=0;i< temp.length;i++){
+                //$scope.data["2016-07-01T00:00:00.000Z"];
+                                    array[count + 1] = new Array;
+                                     array[count + 1][0] = $scope.data[temp[i]].alpha;
+                                     array[count + 1][1] = $scope.data[temp[i]].sharpe;
+                                     array[count + 1][2] = $scope.data[temp[i]].annualized_returns;
+                                     array[count + 1][3] = $scope.data[temp[i]].benchmark_annualized_returns;
+                                     array[count + 1][4] = $scope.data[temp[i]].benchmark_daily_returns;
+                                     array[count + 1][5] = $scope.data[temp[i]].benchmark_total_returns;
+                                     array[count + 1][6] = $scope.data[temp[i]].daily_returns;
+                                     array[count + 1][7] = $scope.data[temp[i]].total_returns;
+
+                                     //          count++;
+                                 }} else{
+                                     array[count + 1] = new Array;
+                                     array[count + 1][0] = "-";
+                                     array[count + 1][1] = "-";
+                                     array[count + 1][2] =  "-";
+                                     array[count + 1][3] =  "-";
+                                     array[count + 1][4] =  "-";
+                                     array[count + 1][5] =  "-";
+                                     array[count + 1][6] =  "-";
+                                     array[count + 1][7] =  "-";
+                                     //     countOther++;
+                                 }
+                                 count++;
+
+                                 if(count==length-2){
+                                     var dataSet = array;
+
+                                     $(document).ready(function () {
+                                         var selected = [];
+                                         $('#table').DataTable({
+                                             "rowCallback": function (row, data) {
+                                                 if ($.inArray(data.DT_RowId, selected) !== -1) {
+                                                     $(row).addClass('selected');
+                                                 }
+                                             },
+                                             data: dataSet,
+                                             columns: [
+                                             {title: "阿尔法"},
+                                             {title: "夏普比率"},
+                                             {title: "年回报收益"},
+                                             {title: "基准年回报收益"},
+                                             {title: "基准日回报"},
+                                             {title: "基准总回报"},
+                                             {title: "日回报"},
+                                             {title: "总回报"},
+                                             ]
+                                    });
+                                 });
+                          }
               }).error(function (data) {
            $scope.data = data || "Request failed";
            $scope.status = status;
