@@ -13,7 +13,7 @@
 //     $ret = substr($ret,0,-1);
 //     $rankarr = json_decode($ret,true);
 //     echo count($rankarr);
-echo saveCode('cx','2016-01-03','2016-04-03','hello');
+ saveCode('cx','2016-01-03','2016-04-03','hello');
 echo getCode();
 
 
