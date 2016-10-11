@@ -441,7 +441,7 @@ function getCode($username){
     $myfile = fopen($username.".py", "w");
     return json_encode(fpassthru($myfile),JSON_UNESCAPED_UNICODE);
 }
-echo getCode('cx');
+//echo getCode('cx');
 
 //function getMyDBConnection()
 //{
