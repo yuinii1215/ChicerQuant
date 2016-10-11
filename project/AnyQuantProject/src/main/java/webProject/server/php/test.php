@@ -14,8 +14,9 @@
 //     $rankarr = json_decode($ret,true);
 //     echo count($rankarr);
 // saveCode('cx','2016-01-03','2016-04-03','hello');
-$str  = getCode('cx');
-echo $str;
+$file = file_get_contents($username.'.py', true);
+    echo json_encode($file,JSON_UNESCAPED_UNICODE);
+
 
 
 ?>
