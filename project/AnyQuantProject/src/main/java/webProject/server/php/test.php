@@ -9,8 +9,8 @@
      system($cmd);
      $cmd2 = "python pickle2json.py 28.pkl";
      system($cmd2,$ret);
-     $ret = substr($ret,0,-1);
-     $rankObj = json_decode($ret,true);
+//     $ret = substr($ret,0,-1);
+//     $rankarr = json_decode($ret,true);
 //     echo count($rankObj);
 
 
