@@ -407,10 +407,11 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
     $myfile = fopen($username.".py", "w");
     fwrite($myfile, $codestr);
     fclose($myfile);
-    $cmd = "rqalpha -f ".$username.".py"." -o ".$username.".pkl -s ".$startdate." -e ".$enddate." --no-plot";
+    $cmd = "rqalpha run -f ".$username.".py"." -o ".$username.".pkl -s ".$startdate." -e ".$enddate." --no-plot";
     system($cmd);
     $cmd2 = "python pickle2json.py ".$username.".pkl";
     system($cmd2,$ret);
+    $ret = substr($ret,0,-1);
     return json_encode($ret,JSON_UNESCAPED_UNICODE);
   }
 
