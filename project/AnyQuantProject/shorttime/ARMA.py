@@ -36,8 +36,8 @@ quick = [-2, -1, 0, 1, 2];
 
 def arma():
     t = sys.argv;
-    # 'sh600315','2016-04-01','2016-06-16' t[1], t[2], t[3]
-    src=getData('sh600000','2016-06-01','2016-09-30');
+    # 'sh600315','2016-04-01','2016-06-16'
+    src=getData(t[1], t[2], t[3]);
 
 
     data=parseDataForER(src);
@@ -54,11 +54,11 @@ def arma():
     quse=[time]*3;
     for num in range(1, 4):
         usetime = time + timedelta(days=num);
-        tempt = (usetime.strftime('%Y-%m-%d'), 0);
+        tempt = (usetime.strftime('%Y-%m-%d %H:%M:%S'), 0);
         quse[num-1]=usetime;
         dta.append(tempt);
     dtf=pandas.DataFrame(dta, columns=['Date', 'DateValue']);
-
+    print dtf
     dtf['Date']=pandas.to_datetime(dtf['Date'],format='%Y-%m-%d');
     for i in range(2, 3):
         for j in range(2, 3):
@@ -89,7 +89,8 @@ def arma():
     for value in res[1]:
         print (value);
     le=len(dtf['Date']);
-    pre=finalmod.predict(start=dtf['Date'][le-3],end=dtf['Date'][le-1],dynamic=True);
+    print dtf['Date'][le-1]
+    pre=finalmod.predict(start=dtf['Date'][le-5],end=dtf['Date'][le-3],dynamic=True);
     print ('predict')
 
     for num in range(0,len(dta)-3):
