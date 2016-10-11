@@ -333,6 +333,11 @@ require_once ('util.php');
         echo $jsonstring;
     }
 
+    function saveRecordService($username,$ratio){
+        $jsonstring = saveRecord($username,$ratio);
+        echo $jsonstring;
+    }
+
 
 //    getLatestDateServi5ce();
 //    getMyStrategyDataService('sh600000','2016-5-10','2016-5-20');

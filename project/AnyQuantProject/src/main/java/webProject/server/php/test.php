@@ -11,7 +11,7 @@
      exec($cmd2,$ret);
      $ret = substr($ret,0,-1);
      $rankarr = json_decode($ret,true);
-     echo count($rankObj);
+     echo count($rankarr);
 
 
 ?>

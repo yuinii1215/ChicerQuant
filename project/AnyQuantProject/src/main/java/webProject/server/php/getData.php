@@ -417,6 +417,19 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
     return $ret;
   }
 
+
+function saveRecord($username,$ratio){
+    $connection = getDBConnection();
+    $stmt->prepare("replace into rank(username,ratio) values (:username,:ratio)");
+    $stmt->bindParam(':username',$_username);
+    $stmt->bindParam(':ratio',$_ratio);
+    $_username = $username;
+    $_ratio = $ratio;
+    return execQuery($connection,$stmt);
+
+}
+
+echo saveRecord('cx',0.9);
 //function getMyDBConnection()
 //{
 //    global $mydb_host;
