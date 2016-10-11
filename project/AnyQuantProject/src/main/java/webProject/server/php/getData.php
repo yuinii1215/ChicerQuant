@@ -438,8 +438,9 @@ function getAllRecords(){
 }
 
 function getCode($username){
-    $myfile = fopen($username.".py", "w");
-    return json_encode(file_get_contents($username.".py", true),JSON_UNESCAPED_UNICODE);
+//    $myfile = fopen($username.".py", "w");
+    $file = file_get_contents($username.".py", true);
+    return json_encode($file,JSON_UNESCAPED_UNICODE);
 }
 //echo getCode('cx');
 

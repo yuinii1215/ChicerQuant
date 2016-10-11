@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a0f1cbb-a136-4048-b0a8-9dd38b046752" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php" />
     </list>
     <ignored path="AnyQuant_Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +26,8 @@
       <file leaf-file-name="getData.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="434" column="12" selection-start-line="434" selection-start-column="12" selection-end-line="434" selection-end-column="12" />
+            <state relative-caret-position="180">
+              <caret line="441" column="3" selection-start-line="441" selection-start-column="3" selection-end-line="441" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -181,8 +181,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="33" />
-    <option name="y" value="162" />
+    <option name="x" value="11" />
+    <option name="y" value="205" />
     <option name="width" value="1295" />
     <option name="height" value="639" />
   </component>
@@ -830,7 +830,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="33" y="162" width="1295" height="639" extended-state="0" />
+    <frame x="11" y="205" width="1295" height="639" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1236,8 +1236,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="434" column="12" selection-start-line="434" selection-start-column="12" selection-end-line="434" selection-end-column="12" />
+        <state relative-caret-position="180">
+          <caret line="441" column="3" selection-start-line="441" selection-start-column="3" selection-end-line="441" selection-end-column="3" />
           <folding />
         </state>
       </provider>
