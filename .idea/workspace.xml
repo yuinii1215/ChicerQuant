@@ -67,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/test.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -201,8 +201,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
-    <option name="y" value="344" />
+    <option name="x" value="46" />
+    <option name="y" value="222" />
     <option name="width" value="1157" />
     <option name="height" value="644" />
   </component>
@@ -850,7 +850,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="344" width="1157" height="644" extended-state="0" />
+    <frame x="46" y="222" width="1157" height="644" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1251,7 +1251,7 @@
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
           <folding />
         </state>
       </provider>
