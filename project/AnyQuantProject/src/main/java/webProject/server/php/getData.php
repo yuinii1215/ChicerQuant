@@ -412,6 +412,7 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
     $cmd2 = "python pickle2json.py ".$username.".pkl";
     system($cmd2,$ret);
     $ret = substr($ret,0,-1);
+    iconv(‘GB2312′,‘UTF-8′, $ret);
     return json_encode($ret,JSON_UNESCAPED_UNICODE);
   }
 
