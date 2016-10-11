@@ -420,7 +420,7 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
 
 function saveRecord($username,$ratio){
     $connection = getDBConnection();
-    $stmt->prepare("replace into rank(username,ratio) values (:username,:ratio)");
+    $stmt = $connection->prepare("replace into rank(username,ratio) values (:username,:ratio)");
     $stmt->bindParam(':username',$_username);
     $stmt->bindParam(':ratio',$_ratio);
     $_username = $username;
