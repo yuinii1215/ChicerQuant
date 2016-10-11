@@ -429,7 +429,6 @@ function saveRecord($username,$ratio){
 
 }
 
-echo saveRecord('cx',0.9);
 //function getMyDBConnection()
 //{
 //    global $mydb_host;
