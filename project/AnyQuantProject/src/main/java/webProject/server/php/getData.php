@@ -413,7 +413,8 @@ function getMyStrategyData($stockname,$startdate,$enddate) {
     $cmd2 = "python pickle2json.py ".$username.".pkl";
     system($cmd2,$ret);
     $ret = substr($ret,0,-1);
-    return json_encode($ret,JSON_UNESCAPED_UNICODE);
+//    return json_encode($ret,JSON_UNESCAPED_UNICODE);
+    return $ret;
   }
 
 //function getMyDBConnection()

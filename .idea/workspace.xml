@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a0f1cbb-a136-4048-b0a8-9dd38b046752" name="Default" comment="" />
+    <list default="true" id="2a0f1cbb-a136-4048-b0a8-9dd38b046752" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php" afterPath="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php" />
+    </list>
     <ignored path="AnyQuant_Project.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,17 +23,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="getData.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="getData.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="395" column="1" selection-start-line="395" selection-start-column="1" selection-end-line="395" selection-end-column="1" />
+            <state relative-caret-position="384">
+              <caret line="416" column="16" selection-start-line="416" selection-start-column="16" selection-end-line="416" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rank.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rank.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/rank.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -181,8 +183,8 @@
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/ajaxService.php" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/serviceController.php" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/test.php" />
-        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php" />
         <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/rank.php" />
+        <option value="$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php" />
       </list>
     </option>
   </component>
@@ -199,8 +201,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="29" />
-    <option name="y" value="302" />
+    <option name="x" value="-112" />
+    <option name="y" value="176" />
     <option name="width" value="1157" />
     <option name="height" value="644" />
   </component>
@@ -848,7 +850,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="29" y="302" width="1157" height="644" extended-state="1" />
+    <frame x="-112" y="176" width="1157" height="644" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1238,18 +1240,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="395" column="1" selection-start-line="395" selection-start-column="1" selection-end-line="395" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/rank.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/AnyQuantProject/src/main/java/webProject/server/php/getData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="416" column="16" selection-start-line="416" selection-start-column="16" selection-end-line="416" selection-end-column="16" />
           <folding />
         </state>
       </provider>
