@@ -234,14 +234,13 @@
                                                             <h3><i class="fa fa-edit"></i>Simple Editor</h3></div>
                                                         <div class="widget-content no-padding">
                                                             <textarea id="markdown-editor" name="markdown-content" data-provide="markdown" data-iconlibrary="fa" rows="10">
-
 def init(context):
     context.s1 = "000001.XSHE"
     context.fired = False
-
 def handle_bar(context, bar_dict):
+
     if not context.fired:
-        order_percent(context.s1, 1)
+        order_percent(context.s1, 0.8)
         context.fired = True
                                                             </textarea>
                                                         </div>

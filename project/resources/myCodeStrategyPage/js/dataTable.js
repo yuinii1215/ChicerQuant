@@ -2,14 +2,9 @@
  * Created by QiHan on 2016/5/17.
  */
 //jQuery(window).load(function() {
-//
-//    $.get('../result.json').done(function(data){
-//
-//        console.log(data);
-//        //
+//    document.getElementById("markdown-editor").innerHTML ="";
 //
 //
-//    });
 //});
 
 var app = angular.module('submit', []);
@@ -31,7 +26,7 @@ var app = angular.module('submit', []);
 
            var $btn = $(".run_algo_click").button("loading");
           //     console.log("click");
-              var code = document.getElementById("markdown-editor").innerHTML;
+              var code = document.getElementById("markdown-editor").value;
 
                var start = $("#start_time").val();
                var end = $("#end_time").val();
