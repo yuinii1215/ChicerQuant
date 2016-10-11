@@ -47,16 +47,15 @@ var app = angular.module('submit', []);
             var array=new Array();
             var count=-1;
             var length=0;
-console.log("code:"+code);
+        console.log("code:"+code);
           $http.post($scope.url, {
-            "username": username,
+           "username": username,
            "startdate":start ,
            "enddate":end,
            "codestr":code,
            "method": "AService"
         }).success(function (data) {
               $scope.data=data;
-              var temp1  =$scope.data;
               console.log("data:"+$scope.data);
 
            $btn.button('reset');
@@ -67,8 +66,8 @@ console.log("code:"+code);
               var temp  =Object.keys(  $scope.data );
 
 
-              if(temp.length>2){
-                  for( var i=0;i< temp.length;i++){
+                    if(temp.length>1){
+                            for( var i=0;i< temp.length;i++){
                 //$scope.data["2016-07-01T00:00:00.000Z"];
                                     array[count + 1] = new Array;
                                      array[count + 1][0] = $scope.data[temp[i]].alpha;
@@ -79,9 +78,9 @@ console.log("code:"+code);
                                      array[count + 1][5] = $scope.data[temp[i]].benchmark_total_returns;
                                      array[count + 1][6] = $scope.data[temp[i]].daily_returns;
                                      array[count + 1][7] = $scope.data[temp[i]].total_returns;
-
-                                     //          count++;
-                                 }} else{
+                                        count++;
+                                 }
+                    } else{
                                      array[count + 1] = new Array;
                                      array[count + 1][0] = "-";
                                      array[count + 1][1] = "-";
@@ -92,10 +91,12 @@ console.log("code:"+code);
                                      array[count + 1][6] =  "-";
                                      array[count + 1][7] =  "-";
                                      //     countOther++;
-                                 }
-                                 count++;
+                                        count++;
+                    }
+                                console.log("count:"+count);
 
-                                 if(count==length-2){
+console.log(length);
+                                 if(count==length-1){
                                      var dataSet = array;
 
                                      $(document).ready(function () {

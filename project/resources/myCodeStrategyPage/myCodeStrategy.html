@@ -21,9 +21,11 @@
     <link href="css/datepicker.css" rel="stylesheet" type="text/css">
     <link href="css/code.css" rel="stylesheet" type="text/css">
     <link href="css/labs.css" rel="stylesheet" type="text/css">
+    <link href="../css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
     <!--headerjs-->
     <script src="../js/jquery/jquery.min.js"></script>
     <script src="../js/angularjs/angular.min.js"></script>
+
     <script type="text/javascript" src="js/ace-builds/src-min-noconflict/ace.js"></script>
     <script type="text/javascript" src="js/ace-builds/src-min-noconflict/ext-language_tools.js"></script>
     <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
@@ -194,7 +196,7 @@
                     <!-- main -->
                     <div class="row">
                             <p></br></p>
-                            <div id="code_container">
+                            <div id="code_container"ng-app="submit" ng-controller="subcon">
                                 <div id="code_wrapper" class="inline-block">
                                             <div id="code_area">
                                                 <div class="content">
@@ -205,7 +207,7 @@
                                                     <div id="code_ops" class="inline-block">
                                                         <input type="hidden" value="demo" name="strategy_id" id="strategy_id"/>
 
-                                                        <a href="#"  id='aaa'ng-app="submit" ng-controller="subcon" style="margin-right:5px; color:#555;">
+                                                        <a href="#"   style="margin-right:5px; color:#555;">
                                                             <span class="icon-play icon-large"></span>
                                                             <span id="run_algo" ng-click="sub()" class="run_algo_click" data-loading-text="正在运行" ><i class="fa fa-play"></i>运行</span>
                                                         </a>
@@ -234,33 +236,25 @@
                                                             <textarea id="markdown-editor" name="markdown-content" data-provide="markdown" data-iconlibrary="fa" rows="10">
 #-*- coding:utf-8 -*-
 
-
-
 def init(context):
     context.s1 = "000001.XSHE"
-
     context.fired = False
 
-
 def handle_bar(context, bar_dict):
-
-
     if not context.fired:
         order_percent(context.s1, 1)
         context.fired = True
                                                             </textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="widget-footer">
-                                                        <button type="button" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Save</button>
-                                                    </div>
-
+                                                    <!--<div class="widget-footer">-->
+                                                        <!--<button type="button" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Save</button>-->
+                                                    <!--</div>-->
                                                 </div>
                                             </div>
                                             <div id="result_area"  >
-                                                <div class="col-md11">
-                                                    <table class="table"  class="display" >
-                                                    </table>
+                                                <div class="col-md-11">
+                                                    <table id="table" class="display" cellspacing="0"  width="100%"></table>
                                                 </div>
 
                                                 <div id="result_chart_area" class="col-md-11">
@@ -356,14 +350,16 @@ def handle_bar(context, bar_dict):
 <script src="js/dataTable.js"></script>
 
 <script type="text/javascript">
-    angular.bootstrap(angular.element("#aaa"),["submit"]);
+    angular.bootstrap(angular.element("#code_container"),["submit"]);
 </script>
 
 <!-- Javascript -->
 
 <script src="../js/bootstrap/bootstrap.min.js"></script>
 <script src="../js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+<script src="../js/jquery/jquery.dataTables.min.js"></script>
 <script src="../js/king-common.js"></script>
+<script src="../js/king-table.js"></script>
 <script src="../js/king-components.js"></script>
 <script src="../js/deliswitch.js"></script>
 <script src="../js/zerif.js"></script>
