@@ -28,7 +28,7 @@ var app = angular.module('submit', []);
 
            var $btn = $(".run_algo_click").button("loading");
           //     console.log("click");
-              var code = document.getElementById("editor").innerText;
+              var code = document.getElementById("markdown-editor").innerHTML;
 
                var start = $("#start_time").val();
                var end = $("#end_time").val();
@@ -47,8 +47,7 @@ var app = angular.module('submit', []);
             var array=new Array();
             var count=-1;
             var length=0;
-
-            code="";
+console.log("code:"+code);
           $http.post($scope.url, {
             "username": username,
            "startdate":start ,
@@ -58,7 +57,7 @@ var app = angular.module('submit', []);
         }).success(function (data) {
               $scope.data=data;
               var temp  =$scope.data;
-              console.log(data);
+              console.log("data:"+data);
            $btn.button('reset');
               //  for (var item in  $scope.data) {
               //      length++;
