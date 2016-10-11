@@ -441,7 +441,7 @@ function getCode($username){
     $myfile = fopen($username.".py", "w");
     return json_encode(fpassthru($myfile),JSON_UNESCAPED_UNICODE);
 }
-echo saveCode('hmy','2016-01-03','2016-04-03','hello')
+//echo saveCode('hmy','2016-01-03','2016-04-03','hello')
 
 //function getMyDBConnection()
 //{
