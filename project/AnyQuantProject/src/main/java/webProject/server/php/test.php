@@ -14,7 +14,8 @@
 //     $rankarr = json_decode($ret,true);
 //     echo count($rankarr);
 // saveCode('cx','2016-01-03','2016-04-03','hello');
-echo getCode('cx');
+$str  = getCode('cx');
+echo $str;
 
 
 ?>
