@@ -283,6 +283,9 @@ public class Strategy {
             count=0;
             while (!key.nextLine().equalsIgnoreCase("predict")){
                 String li=key.nextLine();
+                if (li.equalsIgnoreCase("predict")) {
+					break;
+				}
                 int te=Integer.parseInt(li.split("-")[1]);
                 ljungbox.put(Integer.toString(count),te);
                 count++;
@@ -295,7 +298,11 @@ public class Strategy {
                 String date=key.nextLine();
                 if (date.length()==0)
                     break;
-                double er=Double.parseDouble(key.nextLine());
+                String ssString=key.nextLine();
+                if (ssString.length()==0) {
+					break;
+				}
+                double er=Double.parseDouble(ssString);
                 JsonObject cell=new JsonObject();
                 cell.put("date",date);
                 cell.put("er",er);

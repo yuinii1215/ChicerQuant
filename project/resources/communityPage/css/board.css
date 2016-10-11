@@ -280,8 +280,8 @@ section {
     left: 0;
 }
 #strategyBoard{
-    display: block;
+    display: none;
 }
 #competetionBoard{
-    display: none;
+    display: block;
 }

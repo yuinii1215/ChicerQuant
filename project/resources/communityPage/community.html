@@ -292,8 +292,8 @@
                                         <ul ng-repeat="x in usrmessages">
                                             <li class={{x.side}}>
                                                 <div class="date" style="color: white"><a class="user" href="#" style="color:white"><i class="fa fa-user fa-4x" style="color:white;" ></i></br>{{x.userName}}</a></div>
-                                                <div class="message">
-                                                    <p align={{x.textalign}}>{{"策略类型: "+x.strType+"&nbsp;&nbsp;&nbsp;&nbsp;"+"买入点: "+x.buypoint+"&nbsp;&nbsp;&nbsp;&nbsp;"+"卖出点: "+x.sellpoint}}</p>
+                                                <div class="message" align={{x.textalign}}>
+                                                    <div align="center"><p align={{x.textalign}}>{{"策略类型: "+x.strType+"&nbsp;&nbsp;&nbsp;&nbsp;"+"买入点: "+x.buypoint+"&nbsp;&nbsp;&nbsp;&nbsp;"+"卖出点: "+x.sellpoint}}</p></div>
                                                 </div>
                                                 <p></br></p>
                                             </li>

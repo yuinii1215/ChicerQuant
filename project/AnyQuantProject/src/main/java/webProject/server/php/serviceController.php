@@ -185,8 +185,13 @@ switch ($method)
         getLatestDateService();
         break;
     case "AService":
-        echo
         saveCodeService($objData->username,$objData->startdate,$objData->enddate,$objData->codestr);
+        break;
+    case "saveRecordService":
+        saveRecordService($objData->username,$objData->ratio);
+        break;
+    case "getAllRecordsService":
+        getAllRecordsService();
         break;
     default :
         echo json_encode("no such method");

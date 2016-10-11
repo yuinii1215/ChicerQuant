@@ -16,13 +16,16 @@ var app = angular.module('submit', []);
     app.controller('subcon', function ($scope, $http) {
         $scope.url = 'http://anyquant.net:15000/php/serviceController.php'; // The url of our search
         $scope.sub=function (){
-           $(".form-datetime").datepicker({
-                setDate: new Date(),
-                autoclose: true,
-                format: 'yyyy-mm-dd'
-           });
-            $("#start_time").datepicker("update", new Date());
-            $("#end_time").datepicker("update", new Date());
+
+
+            var startDate=document.getElementById("start_time").value;
+            var endDate=document.getElementById("end_time").value;
+            var date  = startDate.split("/");
+            var date1  = endDate.split("/");
+            console.log(date);
+            startDate = date[2]+"-"+date[1]+"-"+date[1];
+            endDate = date1[2]+"-"+date1[1]+"-"+date1[1];
+            console.log("startDate:"+startDate+"endDate:"+endDate);
 
             $('.selectpicker').selectpicker();
 
@@ -59,15 +62,15 @@ var app = angular.module('submit', []);
 
             }else {
                 username=localStorage.userName;
-
+                var last_total=0;
                 var array=new Array();
                 var count=-1;
                 var length=0;
                 console.log("code:"+code);
                 $http.post($scope.url, {
                     "username": username,
-                    "startdate":start ,
-                    "enddate":end,
+                    "startdate":startDate ,
+                    "enddate":endDate,
                     "codestr":code,
                     "method": "AService"
                 }).success(function (data) {
@@ -86,14 +89,16 @@ var app = angular.module('submit', []);
                         for( var i=0;i< temp.length;i++){
                             //$scope.data["2016-07-01T00:00:00.000Z"];
                             array[count + 1] = new Array;
-                            array[count + 1][0] = $scope.data[temp[i]].alpha;
-                            array[count + 1][1] = $scope.data[temp[i]].sharpe;
-                            array[count + 1][2] = $scope.data[temp[i]].annualized_returns;
-                            array[count + 1][3] = $scope.data[temp[i]].benchmark_annualized_returns;
-                            array[count + 1][4] = $scope.data[temp[i]].benchmark_daily_returns;
-                            array[count + 1][5] = $scope.data[temp[i]].benchmark_total_returns;
-                            array[count + 1][6] = $scope.data[temp[i]].daily_returns;
-                            array[count + 1][7] = $scope.data[temp[i]].total_returns;
+                            array[count + 1][1] = $scope.data[temp[i]].alpha;
+                            array[count + 1][2] = $scope.data[temp[i]].sharpe;
+                            array[count + 1][3] = $scope.data[temp[i]].annualized_returns;
+                            array[count + 1][4] = $scope.data[temp[i]].benchmark_annualized_returns;
+                            array[count + 1][5] = $scope.data[temp[i]].benchmark_daily_returns;
+                            array[count + 1][6] = $scope.data[temp[i]].benchmark_total_returns;
+                            array[count + 1][7] = $scope.data[temp[i]].daily_returns;
+                            array[count + 1][8] = $scope.data[temp[i]].total_returns;
+                            array[count + 1][0] = temp[i].substring(0,10);
+                            last_total=$scope.data[temp[i]].total_returns;
                             count++;
                         }
                     } else{
@@ -106,6 +111,7 @@ var app = angular.module('submit', []);
                         array[count + 1][5] =  "-";
                         array[count + 1][6] =  "-";
                         array[count + 1][7] =  "-";
+                        array[count + 1][8] =  "-";
                         //     countOther++;
                         count++;
                     }
@@ -123,6 +129,7 @@ var app = angular.module('submit', []);
                                 },
                                 data: dataSet,
                                 columns: [
+                                    {title: "日期"},
                                     {title: "阿尔法"},
                                     {title: "夏普比率"},
                                     {title: "年回报收益"},
@@ -134,6 +141,16 @@ var app = angular.module('submit', []);
                                 ]
                             });
                         });
+                        $http.post($scope.url, {
+                            "username": username,
+                            "ratio": last_total,
+                            "method": "saveRecordService"
+                        }).success(function(data,status){
+                            // alert('save record');
+                        }).error(function(data){
+                            // alert('save failed');
+                        });
+
                     }
                 }).error(function (data) {
                     $scope.data = data || "Request failed";
@@ -144,6 +161,7 @@ var app = angular.module('submit', []);
 
 
             }
+
       }
     });
 
