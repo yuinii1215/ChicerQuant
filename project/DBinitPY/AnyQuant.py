@@ -14,6 +14,28 @@ def buildfield(start,end):
     dic={'end':realend.strftime('%Y-%m-%d'),'start':realstart.strftime('%Y-%m-%d'),'fields':'open high low close adj_price volume turnover pb'}
     return dic
 
+def buildfieldv(start,end):
+    realstart=start-timedelta(days=1)
+    realend=end+timedelta(days=1)
+    
+    dic={'end':realend.strftime('%Y-%m-%d'),'start':realstart.strftime('%Y-%m-%d'),'fields':'open+high+close+low+volume+adj_price+pb'}
+    return dic
+def getBench(id,start,end):
+    url=URL+'benchmark/hs300'
+    s=requests.session()
+    s.keep_alive=False
+    response=requests.get(url=url,params=buildfieldv(start, end),headers=header)
+#     try:
+    print response.url
+    print response.json()
+    ans=response.json()['data']['trading_info']
+    df=pd.DataFrame(ans)
+    df['date']=pd.DatetimeIndex(df['date'])    
+    df.set_index('date', drop=True, inplace=True)
+    return df
+#     except :
+#         time.sleep(0.05)
+#         return getSingleStock(id, start, end)
 
 def getSingleStock(id,start,end):
     url=URL+'stock/'+id+'/'
@@ -53,4 +75,6 @@ def getStockList():
         print 'error'
         time.sleep(100)
         return getStockList()
+    
+
 
