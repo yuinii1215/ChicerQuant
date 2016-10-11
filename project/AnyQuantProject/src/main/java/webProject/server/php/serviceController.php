@@ -190,6 +190,9 @@ switch ($method)
     case "saveRecordService":
         saveRecordService($objData->username,$objData->ratio);
         break;
+    case "getAllRecordsService":
+        getAllRecordsService();
+        break;
     default :
         echo json_encode("no such method");
 }

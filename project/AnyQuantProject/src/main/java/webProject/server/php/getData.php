@@ -429,6 +429,11 @@ function saveRecord($username,$ratio){
 
 }
 
+function getAllRecords(){
+    $connection = getDBConnection();
+    $stmt = $connection->prepare("select username,ratio from rank order by username ASC");
+    return execQuery($connection,$stmt);
+}
 //function getMyDBConnection()
 //{
 //    global $mydb_host;
