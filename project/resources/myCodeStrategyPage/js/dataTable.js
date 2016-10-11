@@ -57,11 +57,20 @@ console.log("code:"+code);
         }).success(function (data) {
               $scope.data=data;
               var temp  =$scope.data;
-              console.log("data:"+data);
+              console.log("data:"+$scope.data);
+
            $btn.button('reset');
-              //  for (var item in  $scope.data) {
-              //      length++;
-              //  }
+                for (var item in  $scope.data) {
+                    length++;
+
+                }
+              var temp  =Object.keys(  $scope.data );
+              console.log(temp);
+              for( var i=0;i< temp.length;i++){
+                  var obj =  Object.keys( temp);
+                  console.log("obj:"+obj+"\n");
+              }
+            //  console.log( $scope.data[0].alpha);
               //if(temp.length>2) {
               //                        array[count + 1] = new Array;
               //                        array[count + 1][0] = $scope.data[0].alpha;
