@@ -6,9 +6,10 @@ def err(p,x,y):
 
 def crum():
     t=sys.argv;
+    # t=['','sh600315','2016-06-01','2016-09-30','0.5']
     rp=parseDataForER(getData(t[1],t[2],t[3])).values();
     rf=float(t[4]);
-    rm=parseDataForER(getData('sh000300', t[2],t[3])).values();
+    rm=parseDataForER(getbench(t[2],t[3])).values();
     if len(rp)>len(rm):
         rp=rp[:len(rm)]
     elif len(rp)<len(rm):

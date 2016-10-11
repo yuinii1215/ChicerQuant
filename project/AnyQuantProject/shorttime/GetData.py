@@ -13,6 +13,14 @@ from numpy import sqrt
 
 IP_ADDRESS='http://anyquant.net:15000/php/serviceController.php';
 
+def getbench(start,end):
+    postData = {'name': 'sh000300', 'startdate': start, 'enddate': end, 'method': 'getBenchMarkAmongDateService'};
+    req = urllib2.Request(IP_ADDRESS);
+    req.add_header('Content-type', 'application/json');
+    data = json.dumps(postData);
+    response = urllib2.urlopen(req, data);
+    return json.loads(response.read());
+
 def getData(id,start,end):
     postData={'name':id,'startdate':start,'enddate':end,'method':'getStockAmongDateService'};
     req=urllib2.Request(IP_ADDRESS);
